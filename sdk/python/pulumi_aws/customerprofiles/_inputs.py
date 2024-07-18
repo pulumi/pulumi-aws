@@ -339,7 +339,13 @@ class DomainMatchingExportingConfigArgs:
 if not MYPY:
     class DomainMatchingExportingConfigS3ExportingArgsDict(TypedDict):
         s3_bucket_name: pulumi.Input[str]
+        """
+        The name of the S3 bucket where Identity Resolution Jobs write result files.
+        """
         s3_key_name: NotRequired[pulumi.Input[str]]
+        """
+        The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
 elif False:
     DomainMatchingExportingConfigS3ExportingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -348,6 +354,10 @@ class DomainMatchingExportingConfigS3ExportingArgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[str],
                  s3_key_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
+        :param pulumi.Input[str] s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
             pulumi.set(__self__, "s3_key_name", s3_key_name)
@@ -355,6 +365,9 @@ class DomainMatchingExportingConfigS3ExportingArgs:
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket where Identity Resolution Jobs write result files.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -364,6 +377,9 @@ class DomainMatchingExportingConfigS3ExportingArgs:
     @property
     @pulumi.getter(name="s3KeyName")
     def s3_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
         return pulumi.get(self, "s3_key_name")
 
     @s3_key_name.setter
@@ -753,7 +769,13 @@ class DomainRuleBasedMatchingExportingConfigArgs:
 if not MYPY:
     class DomainRuleBasedMatchingExportingConfigS3ExportingArgsDict(TypedDict):
         s3_bucket_name: pulumi.Input[str]
+        """
+        The name of the S3 bucket where Identity Resolution Jobs write result files.
+        """
         s3_key_name: NotRequired[pulumi.Input[str]]
+        """
+        The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
 elif False:
     DomainRuleBasedMatchingExportingConfigS3ExportingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -762,6 +784,10 @@ class DomainRuleBasedMatchingExportingConfigS3ExportingArgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[str],
                  s3_key_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
+        :param pulumi.Input[str] s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
             pulumi.set(__self__, "s3_key_name", s3_key_name)
@@ -769,6 +795,9 @@ class DomainRuleBasedMatchingExportingConfigS3ExportingArgs:
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket where Identity Resolution Jobs write result files.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -778,6 +807,9 @@ class DomainRuleBasedMatchingExportingConfigS3ExportingArgs:
     @property
     @pulumi.getter(name="s3KeyName")
     def s3_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
         return pulumi.get(self, "s3_key_name")
 
     @s3_key_name.setter
@@ -1031,15 +1063,45 @@ class ProfileAddressArgs:
 if not MYPY:
     class ProfileBillingAddressArgsDict(TypedDict):
         address1: NotRequired[pulumi.Input[str]]
+        """
+        The first line of a customer address.
+        """
         address2: NotRequired[pulumi.Input[str]]
+        """
+        The second line of a customer address.
+        """
         address3: NotRequired[pulumi.Input[str]]
+        """
+        The third line of a customer address.
+        """
         address4: NotRequired[pulumi.Input[str]]
+        """
+        The fourth line of a customer address.
+        """
         city: NotRequired[pulumi.Input[str]]
+        """
+        The city in which a customer lives.
+        """
         country: NotRequired[pulumi.Input[str]]
+        """
+        The country in which a customer lives.
+        """
         county: NotRequired[pulumi.Input[str]]
+        """
+        The county in which a customer lives.
+        """
         postal_code: NotRequired[pulumi.Input[str]]
+        """
+        The postal code of a customer address.
+        """
         province: NotRequired[pulumi.Input[str]]
+        """
+        The province in which a customer lives.
+        """
         state: NotRequired[pulumi.Input[str]]
+        """
+        The state in which a customer lives.
+        """
 elif False:
     ProfileBillingAddressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1056,6 +1118,18 @@ class ProfileBillingAddressArgs:
                  postal_code: Optional[pulumi.Input[str]] = None,
                  province: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address1: The first line of a customer address.
+        :param pulumi.Input[str] address2: The second line of a customer address.
+        :param pulumi.Input[str] address3: The third line of a customer address.
+        :param pulumi.Input[str] address4: The fourth line of a customer address.
+        :param pulumi.Input[str] city: The city in which a customer lives.
+        :param pulumi.Input[str] country: The country in which a customer lives.
+        :param pulumi.Input[str] county: The county in which a customer lives.
+        :param pulumi.Input[str] postal_code: The postal code of a customer address.
+        :param pulumi.Input[str] province: The province in which a customer lives.
+        :param pulumi.Input[str] state: The state in which a customer lives.
+        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1080,6 +1154,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter
     def address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first line of a customer address.
+        """
         return pulumi.get(self, "address1")
 
     @address1.setter
@@ -1089,6 +1166,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter
     def address2(self) -> Optional[pulumi.Input[str]]:
+        """
+        The second line of a customer address.
+        """
         return pulumi.get(self, "address2")
 
     @address2.setter
@@ -1098,6 +1178,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter
     def address3(self) -> Optional[pulumi.Input[str]]:
+        """
+        The third line of a customer address.
+        """
         return pulumi.get(self, "address3")
 
     @address3.setter
@@ -1107,6 +1190,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter
     def address4(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fourth line of a customer address.
+        """
         return pulumi.get(self, "address4")
 
     @address4.setter
@@ -1116,6 +1202,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[str]]:
+        """
+        The city in which a customer lives.
+        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1125,6 +1214,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[str]]:
+        """
+        The country in which a customer lives.
+        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -1134,6 +1226,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter
     def county(self) -> Optional[pulumi.Input[str]]:
+        """
+        The county in which a customer lives.
+        """
         return pulumi.get(self, "county")
 
     @county.setter
@@ -1143,6 +1238,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The postal code of a customer address.
+        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -1152,6 +1250,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter
     def province(self) -> Optional[pulumi.Input[str]]:
+        """
+        The province in which a customer lives.
+        """
         return pulumi.get(self, "province")
 
     @province.setter
@@ -1161,6 +1262,9 @@ class ProfileBillingAddressArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state in which a customer lives.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1171,15 +1275,45 @@ class ProfileBillingAddressArgs:
 if not MYPY:
     class ProfileMailingAddressArgsDict(TypedDict):
         address1: NotRequired[pulumi.Input[str]]
+        """
+        The first line of a customer address.
+        """
         address2: NotRequired[pulumi.Input[str]]
+        """
+        The second line of a customer address.
+        """
         address3: NotRequired[pulumi.Input[str]]
+        """
+        The third line of a customer address.
+        """
         address4: NotRequired[pulumi.Input[str]]
+        """
+        The fourth line of a customer address.
+        """
         city: NotRequired[pulumi.Input[str]]
+        """
+        The city in which a customer lives.
+        """
         country: NotRequired[pulumi.Input[str]]
+        """
+        The country in which a customer lives.
+        """
         county: NotRequired[pulumi.Input[str]]
+        """
+        The county in which a customer lives.
+        """
         postal_code: NotRequired[pulumi.Input[str]]
+        """
+        The postal code of a customer address.
+        """
         province: NotRequired[pulumi.Input[str]]
+        """
+        The province in which a customer lives.
+        """
         state: NotRequired[pulumi.Input[str]]
+        """
+        The state in which a customer lives.
+        """
 elif False:
     ProfileMailingAddressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1196,6 +1330,18 @@ class ProfileMailingAddressArgs:
                  postal_code: Optional[pulumi.Input[str]] = None,
                  province: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address1: The first line of a customer address.
+        :param pulumi.Input[str] address2: The second line of a customer address.
+        :param pulumi.Input[str] address3: The third line of a customer address.
+        :param pulumi.Input[str] address4: The fourth line of a customer address.
+        :param pulumi.Input[str] city: The city in which a customer lives.
+        :param pulumi.Input[str] country: The country in which a customer lives.
+        :param pulumi.Input[str] county: The county in which a customer lives.
+        :param pulumi.Input[str] postal_code: The postal code of a customer address.
+        :param pulumi.Input[str] province: The province in which a customer lives.
+        :param pulumi.Input[str] state: The state in which a customer lives.
+        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1220,6 +1366,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter
     def address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first line of a customer address.
+        """
         return pulumi.get(self, "address1")
 
     @address1.setter
@@ -1229,6 +1378,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter
     def address2(self) -> Optional[pulumi.Input[str]]:
+        """
+        The second line of a customer address.
+        """
         return pulumi.get(self, "address2")
 
     @address2.setter
@@ -1238,6 +1390,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter
     def address3(self) -> Optional[pulumi.Input[str]]:
+        """
+        The third line of a customer address.
+        """
         return pulumi.get(self, "address3")
 
     @address3.setter
@@ -1247,6 +1402,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter
     def address4(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fourth line of a customer address.
+        """
         return pulumi.get(self, "address4")
 
     @address4.setter
@@ -1256,6 +1414,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[str]]:
+        """
+        The city in which a customer lives.
+        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1265,6 +1426,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[str]]:
+        """
+        The country in which a customer lives.
+        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -1274,6 +1438,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter
     def county(self) -> Optional[pulumi.Input[str]]:
+        """
+        The county in which a customer lives.
+        """
         return pulumi.get(self, "county")
 
     @county.setter
@@ -1283,6 +1450,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The postal code of a customer address.
+        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -1292,6 +1462,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter
     def province(self) -> Optional[pulumi.Input[str]]:
+        """
+        The province in which a customer lives.
+        """
         return pulumi.get(self, "province")
 
     @province.setter
@@ -1301,6 +1474,9 @@ class ProfileMailingAddressArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state in which a customer lives.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1311,15 +1487,45 @@ class ProfileMailingAddressArgs:
 if not MYPY:
     class ProfileShippingAddressArgsDict(TypedDict):
         address1: NotRequired[pulumi.Input[str]]
+        """
+        The first line of a customer address.
+        """
         address2: NotRequired[pulumi.Input[str]]
+        """
+        The second line of a customer address.
+        """
         address3: NotRequired[pulumi.Input[str]]
+        """
+        The third line of a customer address.
+        """
         address4: NotRequired[pulumi.Input[str]]
+        """
+        The fourth line of a customer address.
+        """
         city: NotRequired[pulumi.Input[str]]
+        """
+        The city in which a customer lives.
+        """
         country: NotRequired[pulumi.Input[str]]
+        """
+        The country in which a customer lives.
+        """
         county: NotRequired[pulumi.Input[str]]
+        """
+        The county in which a customer lives.
+        """
         postal_code: NotRequired[pulumi.Input[str]]
+        """
+        The postal code of a customer address.
+        """
         province: NotRequired[pulumi.Input[str]]
+        """
+        The province in which a customer lives.
+        """
         state: NotRequired[pulumi.Input[str]]
+        """
+        The state in which a customer lives.
+        """
 elif False:
     ProfileShippingAddressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1336,6 +1542,18 @@ class ProfileShippingAddressArgs:
                  postal_code: Optional[pulumi.Input[str]] = None,
                  province: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address1: The first line of a customer address.
+        :param pulumi.Input[str] address2: The second line of a customer address.
+        :param pulumi.Input[str] address3: The third line of a customer address.
+        :param pulumi.Input[str] address4: The fourth line of a customer address.
+        :param pulumi.Input[str] city: The city in which a customer lives.
+        :param pulumi.Input[str] country: The country in which a customer lives.
+        :param pulumi.Input[str] county: The county in which a customer lives.
+        :param pulumi.Input[str] postal_code: The postal code of a customer address.
+        :param pulumi.Input[str] province: The province in which a customer lives.
+        :param pulumi.Input[str] state: The state in which a customer lives.
+        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1360,6 +1578,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter
     def address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first line of a customer address.
+        """
         return pulumi.get(self, "address1")
 
     @address1.setter
@@ -1369,6 +1590,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter
     def address2(self) -> Optional[pulumi.Input[str]]:
+        """
+        The second line of a customer address.
+        """
         return pulumi.get(self, "address2")
 
     @address2.setter
@@ -1378,6 +1602,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter
     def address3(self) -> Optional[pulumi.Input[str]]:
+        """
+        The third line of a customer address.
+        """
         return pulumi.get(self, "address3")
 
     @address3.setter
@@ -1387,6 +1614,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter
     def address4(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fourth line of a customer address.
+        """
         return pulumi.get(self, "address4")
 
     @address4.setter
@@ -1396,6 +1626,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[str]]:
+        """
+        The city in which a customer lives.
+        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1405,6 +1638,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[str]]:
+        """
+        The country in which a customer lives.
+        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -1414,6 +1650,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter
     def county(self) -> Optional[pulumi.Input[str]]:
+        """
+        The county in which a customer lives.
+        """
         return pulumi.get(self, "county")
 
     @county.setter
@@ -1423,6 +1662,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The postal code of a customer address.
+        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -1432,6 +1674,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter
     def province(self) -> Optional[pulumi.Input[str]]:
+        """
+        The province in which a customer lives.
+        """
         return pulumi.get(self, "province")
 
     @province.setter
@@ -1441,6 +1686,9 @@ class ProfileShippingAddressArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state in which a customer lives.
+        """
         return pulumi.get(self, "state")
 
     @state.setter

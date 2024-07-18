@@ -146,7 +146,7 @@ class Device(pulumi.CustomResource):
         example = aws.sagemaker.Device("example",
             device_fleet_name=example_aws_sagemaker_device_fleet["deviceFleetName"],
             device={
-                "deviceName": "example",
+                "device_name": "example",
             })
         ```
 
@@ -183,7 +183,7 @@ class Device(pulumi.CustomResource):
         example = aws.sagemaker.Device("example",
             device_fleet_name=example_aws_sagemaker_device_fleet["deviceFleetName"],
             device={
-                "deviceName": "example",
+                "device_name": "example",
             })
         ```
 

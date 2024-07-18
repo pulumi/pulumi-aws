@@ -16,58 +16,122 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
 
     public static final ConnectorAs2ConfigArgs Empty = new ConnectorAs2ConfigArgs();
 
+    /**
+     * Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+     * 
+     */
     @Import(name="compression", required=true)
     private Output<String> compression;
 
+    /**
+     * @return Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+     * 
+     */
     public Output<String> compression() {
         return this.compression;
     }
 
+    /**
+     * The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+     * 
+     */
     @Import(name="encryptionAlgorithm", required=true)
     private Output<String> encryptionAlgorithm;
 
+    /**
+     * @return The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+     * 
+     */
     public Output<String> encryptionAlgorithm() {
         return this.encryptionAlgorithm;
     }
 
+    /**
+     * The unique identifier for the AS2 local profile.
+     * 
+     */
     @Import(name="localProfileId", required=true)
     private Output<String> localProfileId;
 
+    /**
+     * @return The unique identifier for the AS2 local profile.
+     * 
+     */
     public Output<String> localProfileId() {
         return this.localProfileId;
     }
 
+    /**
+     * Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+     * 
+     */
     @Import(name="mdnResponse", required=true)
     private Output<String> mdnResponse;
 
+    /**
+     * @return Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+     * 
+     */
     public Output<String> mdnResponse() {
         return this.mdnResponse;
     }
 
+    /**
+     * The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+     * 
+     */
     @Import(name="mdnSigningAlgorithm")
     private @Nullable Output<String> mdnSigningAlgorithm;
 
+    /**
+     * @return The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+     * 
+     */
     public Optional<Output<String>> mdnSigningAlgorithm() {
         return Optional.ofNullable(this.mdnSigningAlgorithm);
     }
 
+    /**
+     * Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+     * 
+     */
     @Import(name="messageSubject")
     private @Nullable Output<String> messageSubject;
 
+    /**
+     * @return Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+     * 
+     */
     public Optional<Output<String>> messageSubject() {
         return Optional.ofNullable(this.messageSubject);
     }
 
+    /**
+     * The unique identifier for the AS2 partner profile.
+     * 
+     */
     @Import(name="partnerProfileId", required=true)
     private Output<String> partnerProfileId;
 
+    /**
+     * @return The unique identifier for the AS2 partner profile.
+     * 
+     */
     public Output<String> partnerProfileId() {
         return this.partnerProfileId;
     }
 
+    /**
+     * The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+     * 
+     */
     @Import(name="signingAlgorithm", required=true)
     private Output<String> signingAlgorithm;
 
+    /**
+     * @return The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+     * 
+     */
     public Output<String> signingAlgorithm() {
         return this.signingAlgorithm;
     }
@@ -103,74 +167,170 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
             $ = new ConnectorAs2ConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param compression Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+         * 
+         * @return builder
+         * 
+         */
         public Builder compression(Output<String> compression) {
             $.compression = compression;
             return this;
         }
 
+        /**
+         * @param compression Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+         * 
+         * @return builder
+         * 
+         */
         public Builder compression(String compression) {
             return compression(Output.of(compression));
         }
 
+        /**
+         * @param encryptionAlgorithm The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionAlgorithm(Output<String> encryptionAlgorithm) {
             $.encryptionAlgorithm = encryptionAlgorithm;
             return this;
         }
 
+        /**
+         * @param encryptionAlgorithm The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionAlgorithm(String encryptionAlgorithm) {
             return encryptionAlgorithm(Output.of(encryptionAlgorithm));
         }
 
+        /**
+         * @param localProfileId The unique identifier for the AS2 local profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localProfileId(Output<String> localProfileId) {
             $.localProfileId = localProfileId;
             return this;
         }
 
+        /**
+         * @param localProfileId The unique identifier for the AS2 local profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localProfileId(String localProfileId) {
             return localProfileId(Output.of(localProfileId));
         }
 
+        /**
+         * @param mdnResponse Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mdnResponse(Output<String> mdnResponse) {
             $.mdnResponse = mdnResponse;
             return this;
         }
 
+        /**
+         * @param mdnResponse Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mdnResponse(String mdnResponse) {
             return mdnResponse(Output.of(mdnResponse));
         }
 
+        /**
+         * @param mdnSigningAlgorithm The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mdnSigningAlgorithm(@Nullable Output<String> mdnSigningAlgorithm) {
             $.mdnSigningAlgorithm = mdnSigningAlgorithm;
             return this;
         }
 
+        /**
+         * @param mdnSigningAlgorithm The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mdnSigningAlgorithm(String mdnSigningAlgorithm) {
             return mdnSigningAlgorithm(Output.of(mdnSigningAlgorithm));
         }
 
+        /**
+         * @param messageSubject Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageSubject(@Nullable Output<String> messageSubject) {
             $.messageSubject = messageSubject;
             return this;
         }
 
+        /**
+         * @param messageSubject Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageSubject(String messageSubject) {
             return messageSubject(Output.of(messageSubject));
         }
 
+        /**
+         * @param partnerProfileId The unique identifier for the AS2 partner profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder partnerProfileId(Output<String> partnerProfileId) {
             $.partnerProfileId = partnerProfileId;
             return this;
         }
 
+        /**
+         * @param partnerProfileId The unique identifier for the AS2 partner profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder partnerProfileId(String partnerProfileId) {
             return partnerProfileId(Output.of(partnerProfileId));
         }
 
+        /**
+         * @param signingAlgorithm The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingAlgorithm(Output<String> signingAlgorithm) {
             $.signingAlgorithm = signingAlgorithm;
             return this;
         }
 
+        /**
+         * @param signingAlgorithm The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingAlgorithm(String signingAlgorithm) {
             return signingAlgorithm(Output.of(signingAlgorithm));
         }

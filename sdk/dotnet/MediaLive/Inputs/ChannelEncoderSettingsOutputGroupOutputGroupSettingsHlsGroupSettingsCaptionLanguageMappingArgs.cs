@@ -18,6 +18,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
 
+        /// <summary>
+        /// Human readable information to indicate captions available for players (eg. English, or Spanish).
+        /// </summary>
         [Input("languageDescription", required: true)]
         public Input<string> LanguageDescription { get; set; } = null!;
 

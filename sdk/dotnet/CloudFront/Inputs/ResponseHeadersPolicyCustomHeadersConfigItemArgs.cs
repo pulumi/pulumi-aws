@@ -18,6 +18,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
 
+        /// <summary>
+        /// The value for the HTTP response header.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

@@ -220,11 +220,11 @@ class JobTemplate(pulumi.CustomResource):
 
         example = aws.emrcontainers.JobTemplate("example",
             job_template_data={
-                "executionRoleArn": example_aws_iam_role["arn"],
-                "releaseLabel": "emr-6.10.0-latest",
-                "jobDriver": {
-                    "sparkSqlJobDriver": {
-                        "entryPoint": "default",
+                "execution_role_arn": example_aws_iam_role["arn"],
+                "release_label": "emr-6.10.0-latest",
+                "job_driver": {
+                    "spark_sql_job_driver": {
+                        "entry_point": "default",
                     },
                 },
             },
@@ -265,11 +265,11 @@ class JobTemplate(pulumi.CustomResource):
 
         example = aws.emrcontainers.JobTemplate("example",
             job_template_data={
-                "executionRoleArn": example_aws_iam_role["arn"],
-                "releaseLabel": "emr-6.10.0-latest",
-                "jobDriver": {
-                    "sparkSqlJobDriver": {
-                        "entryPoint": "default",
+                "execution_role_arn": example_aws_iam_role["arn"],
+                "release_label": "emr-6.10.0-latest",
+                "job_driver": {
+                    "spark_sql_job_driver": {
+                        "entry_point": "default",
                     },
                 },
             },

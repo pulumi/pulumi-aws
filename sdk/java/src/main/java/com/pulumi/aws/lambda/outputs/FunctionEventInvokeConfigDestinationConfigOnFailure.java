@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class FunctionEventInvokeConfigDestinationConfigOnFailure {
+    /**
+     * @return Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+     * 
+     */
     private String destination;
 
     private FunctionEventInvokeConfigDestinationConfigOnFailure() {}
+    /**
+     * @return Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+     * 
+     */
     public String destination() {
         return this.destination;
     }

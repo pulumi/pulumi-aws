@@ -415,7 +415,7 @@ class Stream(pulumi.CustomResource):
                 "OutgoingBytes",
             ],
             stream_mode_details={
-                "streamMode": "PROVISIONED",
+                "stream_mode": "PROVISIONED",
             },
             tags={
                 "Environment": "test",
@@ -471,7 +471,7 @@ class Stream(pulumi.CustomResource):
                 "OutgoingBytes",
             ],
             stream_mode_details={
-                "streamMode": "PROVISIONED",
+                "stream_mode": "PROVISIONED",
             },
             tags={
                 "Environment": "test",

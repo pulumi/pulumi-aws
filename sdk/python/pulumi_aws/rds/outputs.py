@@ -282,6 +282,15 @@ class ClusterS3Import(dict):
                  source_engine: str,
                  source_engine_version: str,
                  bucket_prefix: Optional[str] = None):
+        """
+        :param str bucket_name: Bucket name where your backup is stored
+        :param str ingestion_role: Role applied to load the data.
+        :param str source_engine: Source engine for the backup
+        :param str source_engine_version: Version of the source engine used to make the backup
+               
+               This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+        :param str bucket_prefix: Can be blank, but is the path to your backup
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "ingestion_role", ingestion_role)
         pulumi.set(__self__, "source_engine", source_engine)
@@ -292,26 +301,43 @@ class ClusterS3Import(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
+        """
+        Bucket name where your backup is stored
+        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="ingestionRole")
     def ingestion_role(self) -> str:
+        """
+        Role applied to load the data.
+        """
         return pulumi.get(self, "ingestion_role")
 
     @property
     @pulumi.getter(name="sourceEngine")
     def source_engine(self) -> str:
+        """
+        Source engine for the backup
+        """
         return pulumi.get(self, "source_engine")
 
     @property
     @pulumi.getter(name="sourceEngineVersion")
     def source_engine_version(self) -> str:
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+        """
         return pulumi.get(self, "source_engine_version")
 
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
+        """
+        Can be blank, but is the path to your backup
+        """
         return pulumi.get(self, "bucket_prefix")
 
 
@@ -822,6 +848,15 @@ class InstanceS3Import(dict):
                  source_engine: str,
                  source_engine_version: str,
                  bucket_prefix: Optional[str] = None):
+        """
+        :param str bucket_name: The bucket name where your backup is stored
+        :param str ingestion_role: Role applied to load the data.
+        :param str source_engine: Source engine for the backup
+        :param str source_engine_version: Version of the source engine used to make the backup
+               
+               This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        :param str bucket_prefix: Can be blank, but is the path to your backup
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "ingestion_role", ingestion_role)
         pulumi.set(__self__, "source_engine", source_engine)
@@ -832,26 +867,43 @@ class InstanceS3Import(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
+        """
+        The bucket name where your backup is stored
+        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="ingestionRole")
     def ingestion_role(self) -> str:
+        """
+        Role applied to load the data.
+        """
         return pulumi.get(self, "ingestion_role")
 
     @property
     @pulumi.getter(name="sourceEngine")
     def source_engine(self) -> str:
+        """
+        Source engine for the backup
+        """
         return pulumi.get(self, "source_engine")
 
     @property
     @pulumi.getter(name="sourceEngineVersion")
     def source_engine_version(self) -> str:
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        """
         return pulumi.get(self, "source_engine_version")
 
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
+        """
+        Can be blank, but is the path to your backup
+        """
         return pulumi.get(self, "bucket_prefix")
 
 

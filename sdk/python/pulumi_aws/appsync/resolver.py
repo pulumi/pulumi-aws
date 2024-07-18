@@ -541,7 +541,7 @@ class Resolver(pulumi.CustomResource):
         #end
         \"\"\",
             caching_config={
-                "cachingKeys": [
+                "caching_keys": [
                     "$context.identity.sub",
                     "$context.arguments.id",
                 ],
@@ -579,7 +579,7 @@ class Resolver(pulumi.CustomResource):
             code=std.file(input="some-code-dir").result,
             runtime={
                 "name": "APPSYNC_JS",
-                "runtimeVersion": "1.0.0",
+                "runtime_version": "1.0.0",
             },
             pipeline_config={
                 "functions": [test["functionId"]],
@@ -675,7 +675,7 @@ class Resolver(pulumi.CustomResource):
         #end
         \"\"\",
             caching_config={
-                "cachingKeys": [
+                "caching_keys": [
                     "$context.identity.sub",
                     "$context.arguments.id",
                 ],
@@ -713,7 +713,7 @@ class Resolver(pulumi.CustomResource):
             code=std.file(input="some-code-dir").result,
             runtime={
                 "name": "APPSYNC_JS",
-                "runtimeVersion": "1.0.0",
+                "runtime_version": "1.0.0",
             },
             pipeline_config={
                 "functions": [test["functionId"]],

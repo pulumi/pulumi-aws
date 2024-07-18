@@ -353,6 +353,10 @@ class ServerlessCacheCacheUsageLimits(dict):
     def __init__(__self__, *,
                  data_storage: Optional['outputs.ServerlessCacheCacheUsageLimitsDataStorage'] = None,
                  ecpu_per_seconds: Optional[Sequence['outputs.ServerlessCacheCacheUsageLimitsEcpuPerSecond']] = None):
+        """
+        :param 'ServerlessCacheCacheUsageLimitsDataStorageArgs' data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        :param Sequence['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs'] ecpu_per_seconds: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
         if data_storage is not None:
             pulumi.set(__self__, "data_storage", data_storage)
         if ecpu_per_seconds is not None:
@@ -361,11 +365,17 @@ class ServerlessCacheCacheUsageLimits(dict):
     @property
     @pulumi.getter(name="dataStorage")
     def data_storage(self) -> Optional['outputs.ServerlessCacheCacheUsageLimitsDataStorage']:
+        """
+        The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        """
         return pulumi.get(self, "data_storage")
 
     @property
     @pulumi.getter(name="ecpuPerSeconds")
     def ecpu_per_seconds(self) -> Optional[Sequence['outputs.ServerlessCacheCacheUsageLimitsEcpuPerSecond']]:
+        """
+        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
         return pulumi.get(self, "ecpu_per_seconds")
 
 
@@ -375,6 +385,9 @@ class ServerlessCacheCacheUsageLimitsDataStorage(dict):
                  unit: str,
                  maximum: Optional[int] = None,
                  minimum: Optional[int] = None):
+        """
+        :param str unit: The unit that the storage is measured in, in GB.
+        """
         pulumi.set(__self__, "unit", unit)
         if maximum is not None:
             pulumi.set(__self__, "maximum", maximum)
@@ -384,6 +397,9 @@ class ServerlessCacheCacheUsageLimitsDataStorage(dict):
     @property
     @pulumi.getter
     def unit(self) -> str:
+        """
+        The unit that the storage is measured in, in GB.
+        """
         return pulumi.get(self, "unit")
 
     @property

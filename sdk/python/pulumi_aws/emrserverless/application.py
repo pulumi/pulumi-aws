@@ -465,10 +465,10 @@ class Application(pulumi.CustomResource):
             release_label="emr-6.6.0",
             type="hive",
             initial_capacities=[{
-                "initialCapacityType": "HiveDriver",
-                "initialCapacityConfig": {
-                    "workerCount": 1,
-                    "workerConfiguration": {
+                "initial_capacity_type": "HiveDriver",
+                "initial_capacity_config": {
+                    "worker_count": 1,
+                    "worker_configuration": {
                         "cpu": "2 vCPU",
                         "memory": "10 GB",
                     },
@@ -548,10 +548,10 @@ class Application(pulumi.CustomResource):
             release_label="emr-6.6.0",
             type="hive",
             initial_capacities=[{
-                "initialCapacityType": "HiveDriver",
-                "initialCapacityConfig": {
-                    "workerCount": 1,
-                    "workerConfiguration": {
+                "initial_capacity_type": "HiveDriver",
+                "initial_capacity_config": {
+                    "worker_count": 1,
+                    "worker_configuration": {
                         "cpu": "2 vCPU",
                         "memory": "10 GB",
                     },

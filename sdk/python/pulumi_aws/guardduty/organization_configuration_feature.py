@@ -188,7 +188,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
             auto_enable="ALL",
             additional_configurations=[{
                 "name": "EKS_ADDON_MANAGEMENT",
-                "autoEnable": "NEW",
+                "auto_enable": "NEW",
             }])
         ```
 
@@ -223,7 +223,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
             auto_enable="ALL",
             additional_configurations=[{
                 "name": "EKS_ADDON_MANAGEMENT",
-                "autoEnable": "NEW",
+                "auto_enable": "NEW",
             }])
         ```
 

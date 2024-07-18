@@ -15,6 +15,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("h265PackagingType")]
         public Input<string>? H265PackagingType { get; set; }
 
+        /// <summary>
+        /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        /// </summary>
         [Input("nameModifier")]
         public Input<string>? NameModifier { get; set; }
 

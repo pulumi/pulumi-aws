@@ -6962,8 +6962,10 @@ func (o MetricStreamIncludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStr
 }
 
 type MetricStreamStatisticsConfiguration struct {
-	AdditionalStatistics []string                                           `pulumi:"additionalStatistics"`
-	IncludeMetrics       []MetricStreamStatisticsConfigurationIncludeMetric `pulumi:"includeMetrics"`
+	// The additional statistics to stream for the metrics listed in `includeMetrics`.
+	AdditionalStatistics []string `pulumi:"additionalStatistics"`
+	// An array that defines the metrics that are to have additional statistics streamed. See details below.
+	IncludeMetrics []MetricStreamStatisticsConfigurationIncludeMetric `pulumi:"includeMetrics"`
 }
 
 // MetricStreamStatisticsConfigurationInput is an input type that accepts MetricStreamStatisticsConfigurationArgs and MetricStreamStatisticsConfigurationOutput values.
@@ -6978,8 +6980,10 @@ type MetricStreamStatisticsConfigurationInput interface {
 }
 
 type MetricStreamStatisticsConfigurationArgs struct {
-	AdditionalStatistics pulumi.StringArrayInput                                    `pulumi:"additionalStatistics"`
-	IncludeMetrics       MetricStreamStatisticsConfigurationIncludeMetricArrayInput `pulumi:"includeMetrics"`
+	// The additional statistics to stream for the metrics listed in `includeMetrics`.
+	AdditionalStatistics pulumi.StringArrayInput `pulumi:"additionalStatistics"`
+	// An array that defines the metrics that are to have additional statistics streamed. See details below.
+	IncludeMetrics MetricStreamStatisticsConfigurationIncludeMetricArrayInput `pulumi:"includeMetrics"`
 }
 
 func (MetricStreamStatisticsConfigurationArgs) ElementType() reflect.Type {
@@ -7033,10 +7037,12 @@ func (o MetricStreamStatisticsConfigurationOutput) ToMetricStreamStatisticsConfi
 	return o
 }
 
+// The additional statistics to stream for the metrics listed in `includeMetrics`.
 func (o MetricStreamStatisticsConfigurationOutput) AdditionalStatistics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfiguration) []string { return v.AdditionalStatistics }).(pulumi.StringArrayOutput)
 }
 
+// An array that defines the metrics that are to have additional statistics streamed. See details below.
 func (o MetricStreamStatisticsConfigurationOutput) IncludeMetrics() MetricStreamStatisticsConfigurationIncludeMetricArrayOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfiguration) []MetricStreamStatisticsConfigurationIncludeMetric {
 		return v.IncludeMetrics
@@ -7064,6 +7070,7 @@ func (o MetricStreamStatisticsConfigurationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type MetricStreamStatisticsConfigurationIncludeMetric struct {
+	// The name of the metric.
 	MetricName string `pulumi:"metricName"`
 	Namespace  string `pulumi:"namespace"`
 }
@@ -7080,6 +7087,7 @@ type MetricStreamStatisticsConfigurationIncludeMetricInput interface {
 }
 
 type MetricStreamStatisticsConfigurationIncludeMetricArgs struct {
+	// The name of the metric.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	Namespace  pulumi.StringInput `pulumi:"namespace"`
 }
@@ -7135,6 +7143,7 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) ToMetricStreamSt
 	return o
 }
 
+// The name of the metric.
 func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfigurationIncludeMetric) string { return v.MetricName }).(pulumi.StringOutput)
 }

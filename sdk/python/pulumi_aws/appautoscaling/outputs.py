@@ -72,16 +72,16 @@ class PolicyStepScalingPolicyConfiguration(dict):
                import pulumi_aws as aws
                
                ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
-                   "stepAdjustments": [
+                   "step_adjustments": [
                        {
-                           "metricIntervalLowerBound": "1",
-                           "metricIntervalUpperBound": "2",
-                           "scalingAdjustment": -1,
+                           "metric_interval_lower_bound": "1",
+                           "metric_interval_upper_bound": "2",
+                           "scaling_adjustment": -1,
                        },
                        {
-                           "metricIntervalLowerBound": "2",
-                           "metricIntervalUpperBound": "3",
-                           "scalingAdjustment": 1,
+                           "metric_interval_lower_bound": "2",
+                           "metric_interval_upper_bound": "3",
+                           "scaling_adjustment": 1,
                        },
                    ],
                })
@@ -141,16 +141,16 @@ class PolicyStepScalingPolicyConfiguration(dict):
         import pulumi_aws as aws
 
         ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
-            "stepAdjustments": [
+            "step_adjustments": [
                 {
-                    "metricIntervalLowerBound": "1",
-                    "metricIntervalUpperBound": "2",
-                    "scalingAdjustment": -1,
+                    "metric_interval_lower_bound": "1",
+                    "metric_interval_upper_bound": "2",
+                    "scaling_adjustment": -1,
                 },
                 {
-                    "metricIntervalLowerBound": "2",
-                    "metricIntervalUpperBound": "3",
-                    "scalingAdjustment": 1,
+                    "metric_interval_lower_bound": "2",
+                    "metric_interval_upper_bound": "3",
+                    "scaling_adjustment": 1,
                 },
             ],
         })
@@ -186,6 +186,11 @@ class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
                  scaling_adjustment: int,
                  metric_interval_lower_bound: Optional[str] = None,
                  metric_interval_upper_bound: Optional[str] = None):
+        """
+        :param int scaling_adjustment: Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+        :param str metric_interval_lower_bound: Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+        :param str metric_interval_upper_bound: Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+        """
         pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if metric_interval_lower_bound is not None:
             pulumi.set(__self__, "metric_interval_lower_bound", metric_interval_lower_bound)
@@ -195,16 +200,25 @@ class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
     @property
     @pulumi.getter(name="scalingAdjustment")
     def scaling_adjustment(self) -> int:
+        """
+        Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+        """
         return pulumi.get(self, "scaling_adjustment")
 
     @property
     @pulumi.getter(name="metricIntervalLowerBound")
     def metric_interval_lower_bound(self) -> Optional[str]:
+        """
+        Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+        """
         return pulumi.get(self, "metric_interval_lower_bound")
 
     @property
     @pulumi.getter(name="metricIntervalUpperBound")
     def metric_interval_upper_bound(self) -> Optional[str]:
+        """
+        Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+        """
         return pulumi.get(self, "metric_interval_upper_bound")
 
 
@@ -724,6 +738,10 @@ class ScheduledActionScalableTargetAction(dict):
     def __init__(__self__, *,
                  max_capacity: Optional[int] = None,
                  min_capacity: Optional[int] = None):
+        """
+        :param int max_capacity: Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+        :param int min_capacity: Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
+        """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
@@ -732,11 +750,17 @@ class ScheduledActionScalableTargetAction(dict):
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[int]:
+        """
+        Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+        """
         return pulumi.get(self, "max_capacity")
 
     @property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[int]:
+        """
+        Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
+        """
         return pulumi.get(self, "min_capacity")
 
 

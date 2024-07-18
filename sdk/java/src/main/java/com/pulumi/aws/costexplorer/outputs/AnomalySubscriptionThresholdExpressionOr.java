@@ -13,7 +13,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnomalySubscriptionThresholdExpressionOr {
+    /**
+     * @return Configuration block for the filter that&#39;s based on  values. See Cost Category below.
+     * 
+     */
     private @Nullable AnomalySubscriptionThresholdExpressionOrCostCategory costCategory;
+    /**
+     * @return Configuration block for the specific Dimension to use for.
+     * 
+     */
     private @Nullable AnomalySubscriptionThresholdExpressionOrDimension dimension;
     /**
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -22,9 +30,17 @@ public final class AnomalySubscriptionThresholdExpressionOr {
     private @Nullable AnomalySubscriptionThresholdExpressionOrTags tags;
 
     private AnomalySubscriptionThresholdExpressionOr() {}
+    /**
+     * @return Configuration block for the filter that&#39;s based on  values. See Cost Category below.
+     * 
+     */
     public Optional<AnomalySubscriptionThresholdExpressionOrCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
+    /**
+     * @return Configuration block for the specific Dimension to use for.
+     * 
+     */
     public Optional<AnomalySubscriptionThresholdExpressionOrDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
