@@ -11,11 +11,11 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.34.0
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/providertest v0.0.11
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.39.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.86.0
-	github.com/pulumi/pulumi/pkg/v3 v3.121.0
-	github.com/pulumi/pulumi/sdk/v3 v3.121.0
+	github.com/pulumi/providertest v0.0.13
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.40.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.87.0
+	github.com/pulumi/pulumi/pkg/v3 v3.124.0
+	github.com/pulumi/pulumi/sdk/v3 v3.124.0
 	github.com/stretchr/testify v1.9.0
 	pgregory.net/rapid v0.6.1
 )
@@ -332,7 +332,7 @@ require (
 	github.com/hashicorp/go-hclog v1.6.3 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/go-plugin v1.6.0 // indirect
-	github.com/hashicorp/go-retryablehttp v0.7.5 // indirect
+	github.com/hashicorp/go-retryablehttp v0.7.7 // indirect
 	github.com/hashicorp/go-rootcerts v1.0.2 // indirect
 	github.com/hashicorp/go-safetemp v1.0.0 // indirect
 	github.com/hashicorp/go-secure-stdlib/parseutil v0.1.8 // indirect
@@ -408,7 +408,7 @@ require (
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.11.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
-	github.com/pulumi/pulumi-yaml v1.8.0 // indirect
+	github.com/pulumi/pulumi-yaml v1.9.1 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
@@ -474,3 +474,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.124.1-0.20240718143106-7640a0457eba
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.124.1-0.20240718143106-7640a0457eba
