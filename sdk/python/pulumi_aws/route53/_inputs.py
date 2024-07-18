@@ -287,9 +287,21 @@ class RecordGeolocationRoutingPolicyArgs:
 if not MYPY:
     class RecordGeoproximityRoutingPolicyArgsDict(TypedDict):
         aws_region: NotRequired[pulumi.Input[str]]
+        """
+        A AWS region where the resource is present.
+        """
         bias: NotRequired[pulumi.Input[int]]
+        """
+        Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+        """
         coordinates: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgsDict']]]]
+        """
+        Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        """
         local_zone_group: NotRequired[pulumi.Input[str]]
+        """
+        A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+        """
 elif False:
     RecordGeoproximityRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -300,6 +312,12 @@ class RecordGeoproximityRoutingPolicyArgs:
                  bias: Optional[pulumi.Input[int]] = None,
                  coordinates: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]] = None,
                  local_zone_group: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aws_region: A AWS region where the resource is present.
+        :param pulumi.Input[int] bias: Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+        :param pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]] coordinates: Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        :param pulumi.Input[str] local_zone_group: A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+        """
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
         if bias is not None:
@@ -312,6 +330,9 @@ class RecordGeoproximityRoutingPolicyArgs:
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        A AWS region where the resource is present.
+        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -321,6 +342,9 @@ class RecordGeoproximityRoutingPolicyArgs:
     @property
     @pulumi.getter
     def bias(self) -> Optional[pulumi.Input[int]]:
+        """
+        Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+        """
         return pulumi.get(self, "bias")
 
     @bias.setter
@@ -330,6 +354,9 @@ class RecordGeoproximityRoutingPolicyArgs:
     @property
     @pulumi.getter
     def coordinates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]:
+        """
+        Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        """
         return pulumi.get(self, "coordinates")
 
     @coordinates.setter
@@ -339,6 +366,9 @@ class RecordGeoproximityRoutingPolicyArgs:
     @property
     @pulumi.getter(name="localZoneGroup")
     def local_zone_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+        """
         return pulumi.get(self, "local_zone_group")
 
     @local_zone_group.setter

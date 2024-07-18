@@ -117,19 +117,19 @@ class ManagedScalingPolicy(pulumi.CustomResource):
             name="emr-sample-cluster",
             release_label="emr-5.30.0",
             master_instance_group={
-                "instanceType": "m4.large",
+                "instance_type": "m4.large",
             },
             core_instance_group={
-                "instanceType": "c4.large",
+                "instance_type": "c4.large",
             })
         samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
             cluster_id=sample.id,
             compute_limits=[{
-                "unitType": "Instances",
-                "minimumCapacityUnits": 2,
-                "maximumCapacityUnits": 10,
-                "maximumOndemandCapacityUnits": 2,
-                "maximumCoreCapacityUnits": 10,
+                "unit_type": "Instances",
+                "minimum_capacity_units": 2,
+                "maximum_capacity_units": 10,
+                "maximum_ondemand_capacity_units": 2,
+                "maximum_core_capacity_units": 10,
             }])
         ```
 
@@ -165,19 +165,19 @@ class ManagedScalingPolicy(pulumi.CustomResource):
             name="emr-sample-cluster",
             release_label="emr-5.30.0",
             master_instance_group={
-                "instanceType": "m4.large",
+                "instance_type": "m4.large",
             },
             core_instance_group={
-                "instanceType": "c4.large",
+                "instance_type": "c4.large",
             })
         samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
             cluster_id=sample.id,
             compute_limits=[{
-                "unitType": "Instances",
-                "minimumCapacityUnits": 2,
-                "maximumCapacityUnits": 10,
-                "maximumOndemandCapacityUnits": 2,
-                "maximumCoreCapacityUnits": 10,
+                "unit_type": "Instances",
+                "minimum_capacity_units": 2,
+                "maximum_capacity_units": 10,
+                "maximum_ondemand_capacity_units": 2,
+                "maximum_core_capacity_units": 10,
             }])
         ```
 

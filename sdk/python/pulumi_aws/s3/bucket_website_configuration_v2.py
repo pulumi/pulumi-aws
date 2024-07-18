@@ -329,10 +329,10 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
             },
             routing_rules=[{
                 "condition": {
-                    "keyPrefixEquals": "docs/",
+                    "key_prefix_equals": "docs/",
                 },
                 "redirect": {
-                    "replaceKeyPrefixWith": "documents/",
+                    "replace_key_prefix_with": "documents/",
                 },
             }])
         ```
@@ -419,10 +419,10 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
             },
             routing_rules=[{
                 "condition": {
-                    "keyPrefixEquals": "docs/",
+                    "key_prefix_equals": "docs/",
                 },
                 "redirect": {
-                    "replaceKeyPrefixWith": "documents/",
+                    "replace_key_prefix_with": "documents/",
                 },
             }])
         ```

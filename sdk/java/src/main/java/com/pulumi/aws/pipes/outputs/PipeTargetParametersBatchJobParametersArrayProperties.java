@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersBatchJobParametersArrayProperties {
+    /**
+     * @return The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+     * 
+     */
     private @Nullable Integer size;
 
     private PipeTargetParametersBatchJobParametersArrayProperties() {}
+    /**
+     * @return The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+     * 
+     */
     public Optional<Integer> size() {
         return Optional.ofNullable(this.size);
     }

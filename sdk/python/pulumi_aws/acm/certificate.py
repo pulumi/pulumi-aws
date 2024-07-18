@@ -699,8 +699,8 @@ class Certificate(pulumi.CustomResource):
             domain_name="testing.example.com",
             validation_method="EMAIL",
             validation_options=[{
-                "domainName": "testing.example.com",
-                "validationDomain": "example.com",
+                "domain_name": "testing.example.com",
+                "validation_domain": "example.com",
             }])
         ```
 
@@ -840,8 +840,8 @@ class Certificate(pulumi.CustomResource):
             domain_name="testing.example.com",
             validation_method="EMAIL",
             validation_options=[{
-                "domainName": "testing.example.com",
-                "validationDomain": "example.com",
+                "domain_name": "testing.example.com",
+                "validation_domain": "example.com",
             }])
         ```
 

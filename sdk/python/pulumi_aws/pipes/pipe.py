@@ -594,15 +594,15 @@ class Pipe(pulumi.CustomResource):
             target=target["arn"],
             enrichment=example_aws_cloudwatch_event_api_destination["arn"],
             enrichment_parameters={
-                "httpParameters": {
-                    "pathParameterValues": "example-path-param",
-                    "headerParameters": {
-                        "example-header": "example-value",
-                        "second-example-header": "second-example-value",
+                "http_parameters": {
+                    "path_parameter_values": "example-path-param",
+                    "header_parameters": {
+                        "example_header": "example-value",
+                        "second_example_header": "second-example-value",
                     },
-                    "queryStringParameters": {
-                        "example-query-string": "example-value",
-                        "second-example-query-string": "second-example-value",
+                    "query_string_parameters": {
+                        "example_query_string": "example-value",
+                        "second_example_query_string": "second-example-value",
                     },
                 },
             })
@@ -621,7 +621,7 @@ class Pipe(pulumi.CustomResource):
             source=source["arn"],
             target=target["arn"],
             source_parameters={
-                "filterCriteria": {
+                "filter_criteria": {
                     "filters": [{
                         "pattern": json.dumps({
                             "source": ["event-source"],
@@ -747,15 +747,15 @@ class Pipe(pulumi.CustomResource):
             target=target["arn"],
             enrichment=example_aws_cloudwatch_event_api_destination["arn"],
             enrichment_parameters={
-                "httpParameters": {
-                    "pathParameterValues": "example-path-param",
-                    "headerParameters": {
-                        "example-header": "example-value",
-                        "second-example-header": "second-example-value",
+                "http_parameters": {
+                    "path_parameter_values": "example-path-param",
+                    "header_parameters": {
+                        "example_header": "example-value",
+                        "second_example_header": "second-example-value",
                     },
-                    "queryStringParameters": {
-                        "example-query-string": "example-value",
-                        "second-example-query-string": "second-example-value",
+                    "query_string_parameters": {
+                        "example_query_string": "example-value",
+                        "second_example_query_string": "second-example-value",
                     },
                 },
             })
@@ -774,7 +774,7 @@ class Pipe(pulumi.CustomResource):
             source=source["arn"],
             target=target["arn"],
             source_parameters={
-                "filterCriteria": {
+                "filter_criteria": {
                     "filters": [{
                         "pattern": json.dumps({
                             "source": ["event-source"],

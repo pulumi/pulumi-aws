@@ -12,15 +12,27 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+        /// </summary>
         [Input("instanceRequirements")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs>? InstanceRequirements { get; set; }
 
+        /// <summary>
+        /// Override the instance type in the Launch Template.
+        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        /// <summary>
+        /// Override the instance launch template specification in the Launch Template.
+        /// </summary>
         [Input("launchTemplateSpecification")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs>? LaunchTemplateSpecification { get; set; }
 
+        /// <summary>
+        /// Number of capacity units, which gives the instance type a proportional weight to other instance types.
+        /// </summary>
         [Input("weightedCapacity")]
         public Input<string>? WeightedCapacity { get; set; }
 

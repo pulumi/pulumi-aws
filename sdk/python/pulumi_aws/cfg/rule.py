@@ -388,7 +388,7 @@ class Rule(pulumi.CustomResource):
             name="example",
             source={
                 "owner": "AWS",
-                "sourceIdentifier": "S3_BUCKET_VERSIONING_ENABLED",
+                "source_identifier": "S3_BUCKET_VERSIONING_ENABLED",
             },
             opts = pulumi.ResourceOptions(depends_on=[foo]))
         p = aws.iam.get_policy_document(statements=[{
@@ -419,7 +419,7 @@ class Rule(pulumi.CustomResource):
             statement_id="AllowExecutionFromConfig")
         example_rule = aws.cfg.Rule("example", source={
             "owner": "CUSTOM_LAMBDA",
-            "sourceIdentifier": example_function.arn,
+            "source_identifier": example_function.arn,
         },
         opts = pulumi.ResourceOptions(depends_on=[
                 example,
@@ -437,12 +437,12 @@ class Rule(pulumi.CustomResource):
             name="example",
             source={
                 "owner": "CUSTOM_POLICY",
-                "sourceDetails": [{
-                    "messageType": "ConfigurationItemChangeNotification",
+                "source_details": [{
+                    "message_type": "ConfigurationItemChangeNotification",
                 }],
-                "customPolicyDetails": {
-                    "policyRuntime": "guard-2.x.x",
-                    "policyText": \"\"\"\\x09  rule tableisactive when
+                "custom_policy_details": {
+                    "policy_runtime": "guard-2.x.x",
+                    "policy_text": \"\"\"\\x09  rule tableisactive when
         \\x09\\x09  resourceType == "AWS::DynamoDB::Table" {
         \\x09\\x09  configuration.tableStatus == ['ACTIVE']
         \\x09  }
@@ -515,7 +515,7 @@ class Rule(pulumi.CustomResource):
             name="example",
             source={
                 "owner": "AWS",
-                "sourceIdentifier": "S3_BUCKET_VERSIONING_ENABLED",
+                "source_identifier": "S3_BUCKET_VERSIONING_ENABLED",
             },
             opts = pulumi.ResourceOptions(depends_on=[foo]))
         p = aws.iam.get_policy_document(statements=[{
@@ -546,7 +546,7 @@ class Rule(pulumi.CustomResource):
             statement_id="AllowExecutionFromConfig")
         example_rule = aws.cfg.Rule("example", source={
             "owner": "CUSTOM_LAMBDA",
-            "sourceIdentifier": example_function.arn,
+            "source_identifier": example_function.arn,
         },
         opts = pulumi.ResourceOptions(depends_on=[
                 example,
@@ -564,12 +564,12 @@ class Rule(pulumi.CustomResource):
             name="example",
             source={
                 "owner": "CUSTOM_POLICY",
-                "sourceDetails": [{
-                    "messageType": "ConfigurationItemChangeNotification",
+                "source_details": [{
+                    "message_type": "ConfigurationItemChangeNotification",
                 }],
-                "customPolicyDetails": {
-                    "policyRuntime": "guard-2.x.x",
-                    "policyText": \"\"\"\\x09  rule tableisactive when
+                "custom_policy_details": {
+                    "policy_runtime": "guard-2.x.x",
+                    "policy_text": \"\"\"\\x09  rule tableisactive when
         \\x09\\x09  resourceType == "AWS::DynamoDB::Table" {
         \\x09\\x09  configuration.tableStatus == ['ACTIVE']
         \\x09  }

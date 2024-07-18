@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeSourceParametersFilterCriteriaFilterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The event pattern. At most 4096 characters.
+        /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 

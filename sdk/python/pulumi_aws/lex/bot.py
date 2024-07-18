@@ -629,23 +629,23 @@ class Bot(pulumi.CustomResource):
             abort_statement={
                 "messages": [{
                     "content": "Sorry, I am not able to assist at this time",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             child_directed=False,
             clarification_prompt={
-                "maxAttempts": 2,
+                "max_attempts": 2,
                 "messages": [{
                     "content": "I didn't understand you, what would you like to do?",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             create_version=False,
             description="Bot to order flowers on the behalf of a user",
             idle_session_ttl_in_seconds=600,
             intents=[{
-                "intentName": "OrderFlowers",
-                "intentVersion": "1",
+                "intent_name": "OrderFlowers",
+                "intent_version": "1",
             }],
             locale="en-US",
             name="OrderFlowers",
@@ -698,23 +698,23 @@ class Bot(pulumi.CustomResource):
             abort_statement={
                 "messages": [{
                     "content": "Sorry, I am not able to assist at this time",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             child_directed=False,
             clarification_prompt={
-                "maxAttempts": 2,
+                "max_attempts": 2,
                 "messages": [{
                     "content": "I didn't understand you, what would you like to do?",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             create_version=False,
             description="Bot to order flowers on the behalf of a user",
             idle_session_ttl_in_seconds=600,
             intents=[{
-                "intentName": "OrderFlowers",
-                "intentVersion": "1",
+                "intent_name": "OrderFlowers",
+                "intent_version": "1",
             }],
             locale="en-US",
             name="OrderFlowers",

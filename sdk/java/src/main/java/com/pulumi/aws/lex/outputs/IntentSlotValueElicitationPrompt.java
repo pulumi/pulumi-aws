@@ -15,11 +15,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IntentSlotValueElicitationPrompt {
+    /**
+     * @return The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+     * 
+     */
     private Integer maxAttempts;
     private List<IntentSlotValueElicitationPromptMessage> messages;
     private @Nullable String responseCard;
 
     private IntentSlotValueElicitationPrompt() {}
+    /**
+     * @return The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+     * 
+     */
     public Integer maxAttempts() {
         return this.maxAttempts;
     }

@@ -548,9 +548,9 @@ class PatchBaseline(pulumi.CustomResource):
             ],
             approval_rules=[
                 {
-                    "approveAfterDays": 7,
-                    "complianceLevel": "HIGH",
-                    "patchFilters": [
+                    "approve_after_days": 7,
+                    "compliance_level": "HIGH",
+                    "patch_filters": [
                         {
                             "key": "PRODUCT",
                             "values": ["WindowsServer2016"],
@@ -574,8 +574,8 @@ class PatchBaseline(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "approveAfterDays": 7,
-                    "patchFilters": [{
+                    "approve_after_days": 7,
+                    "patch_filters": [{
                         "key": "PRODUCT",
                         "values": ["WindowsServer2012"],
                     }],
@@ -595,8 +595,8 @@ class PatchBaseline(pulumi.CustomResource):
             operating_system="WINDOWS",
             approval_rules=[
                 {
-                    "approveAfterDays": 7,
-                    "patchFilters": [
+                    "approve_after_days": 7,
+                    "patch_filters": [
                         {
                             "key": "CLASSIFICATION",
                             "values": [
@@ -614,8 +614,8 @@ class PatchBaseline(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "approveAfterDays": 7,
-                    "patchFilters": [
+                    "approve_after_days": 7,
+                    "patch_filters": [
                         {
                             "key": "PATCH_SET",
                             "values": ["APPLICATION"],
@@ -747,9 +747,9 @@ class PatchBaseline(pulumi.CustomResource):
             ],
             approval_rules=[
                 {
-                    "approveAfterDays": 7,
-                    "complianceLevel": "HIGH",
-                    "patchFilters": [
+                    "approve_after_days": 7,
+                    "compliance_level": "HIGH",
+                    "patch_filters": [
                         {
                             "key": "PRODUCT",
                             "values": ["WindowsServer2016"],
@@ -773,8 +773,8 @@ class PatchBaseline(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "approveAfterDays": 7,
-                    "patchFilters": [{
+                    "approve_after_days": 7,
+                    "patch_filters": [{
                         "key": "PRODUCT",
                         "values": ["WindowsServer2012"],
                     }],
@@ -794,8 +794,8 @@ class PatchBaseline(pulumi.CustomResource):
             operating_system="WINDOWS",
             approval_rules=[
                 {
-                    "approveAfterDays": 7,
-                    "patchFilters": [
+                    "approve_after_days": 7,
+                    "patch_filters": [
                         {
                             "key": "CLASSIFICATION",
                             "values": [
@@ -813,8 +813,8 @@ class PatchBaseline(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "approveAfterDays": 7,
-                    "patchFilters": [
+                    "approve_after_days": 7,
+                    "patch_filters": [
                         {
                             "key": "PATCH_SET",
                             "values": ["APPLICATION"],

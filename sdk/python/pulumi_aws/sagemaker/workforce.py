@@ -258,8 +258,8 @@ class Workforce(pulumi.CustomResource):
         example = aws.sagemaker.Workforce("example",
             workforce_name="example",
             cognito_config={
-                "clientId": example_user_pool_client.id,
-                "userPool": example_user_pool_domain.user_pool_id,
+                "client_id": example_user_pool_client.id,
+                "user_pool": example_user_pool_domain.user_pool_id,
             })
         ```
 
@@ -272,14 +272,14 @@ class Workforce(pulumi.CustomResource):
         example = aws.sagemaker.Workforce("example",
             workforce_name="example",
             oidc_config={
-                "authorizationEndpoint": "https://example.com",
-                "clientId": "example",
-                "clientSecret": "example",
+                "authorization_endpoint": "https://example.com",
+                "client_id": "example",
+                "client_secret": "example",
                 "issuer": "https://example.com",
-                "jwksUri": "https://example.com",
-                "logoutEndpoint": "https://example.com",
-                "tokenEndpoint": "https://example.com",
-                "userInfoEndpoint": "https://example.com",
+                "jwks_uri": "https://example.com",
+                "logout_endpoint": "https://example.com",
+                "token_endpoint": "https://example.com",
+                "user_info_endpoint": "https://example.com",
             })
         ```
 
@@ -327,8 +327,8 @@ class Workforce(pulumi.CustomResource):
         example = aws.sagemaker.Workforce("example",
             workforce_name="example",
             cognito_config={
-                "clientId": example_user_pool_client.id,
-                "userPool": example_user_pool_domain.user_pool_id,
+                "client_id": example_user_pool_client.id,
+                "user_pool": example_user_pool_domain.user_pool_id,
             })
         ```
 
@@ -341,14 +341,14 @@ class Workforce(pulumi.CustomResource):
         example = aws.sagemaker.Workforce("example",
             workforce_name="example",
             oidc_config={
-                "authorizationEndpoint": "https://example.com",
-                "clientId": "example",
-                "clientSecret": "example",
+                "authorization_endpoint": "https://example.com",
+                "client_id": "example",
+                "client_secret": "example",
                 "issuer": "https://example.com",
-                "jwksUri": "https://example.com",
-                "logoutEndpoint": "https://example.com",
-                "tokenEndpoint": "https://example.com",
-                "userInfoEndpoint": "https://example.com",
+                "jwks_uri": "https://example.com",
+                "logout_endpoint": "https://example.com",
+                "token_endpoint": "https://example.com",
+                "user_info_endpoint": "https://example.com",
             })
         ```
 

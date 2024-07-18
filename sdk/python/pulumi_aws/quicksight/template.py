@@ -409,7 +409,7 @@ class Template(pulumi.CustomResource):
             name="example-name",
             version_description="version",
             source_entity={
-                "sourceTemplate": {
+                "source_template": {
                     "arn": source["arn"],
                 },
             })
@@ -457,7 +457,7 @@ class Template(pulumi.CustomResource):
             name="example-name",
             version_description="version",
             source_entity={
-                "sourceTemplate": {
+                "source_template": {
                     "arn": source["arn"],
                 },
             })

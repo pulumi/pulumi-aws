@@ -675,7 +675,7 @@ class Domain(pulumi.CustomResource):
             domain_name="example",
             elasticsearch_version="7.10",
             cluster_config={
-                "instanceType": "r4.large.elasticsearch",
+                "instance_type": "r4.large.elasticsearch",
             },
             tags={
                 "Domain": "TestDomain",
@@ -739,8 +739,8 @@ class Domain(pulumi.CustomResource):
             policy_name="example",
             policy_document=example.json)
         example_domain = aws.elasticsearch.Domain("example", log_publishing_options=[{
-            "cloudwatchLogGroupArn": example_log_group.arn,
-            "logType": "INDEX_SLOW_LOGS",
+            "cloudwatch_log_group_arn": example_log_group.arn,
+            "log_type": "INDEX_SLOW_LOGS",
         }])
         ```
 
@@ -772,25 +772,25 @@ class Domain(pulumi.CustomResource):
             description="Managed by Pulumi",
             vpc_id=selected.id,
             ingress=[{
-                "fromPort": 443,
-                "toPort": 443,
+                "from_port": 443,
+                "to_port": 443,
                 "protocol": "tcp",
-                "cidrBlocks": [selected.cidr_block],
+                "cidr_blocks": [selected.cidr_block],
             }])
         es_service_linked_role = aws.iam.ServiceLinkedRole("es", aws_service_name="opensearchservice.amazonaws.com")
         es_domain = aws.elasticsearch.Domain("es",
             domain_name=domain,
             elasticsearch_version="6.3",
             cluster_config={
-                "instanceType": "m4.large.elasticsearch",
-                "zoneAwarenessEnabled": True,
+                "instance_type": "m4.large.elasticsearch",
+                "zone_awareness_enabled": True,
             },
             vpc_options={
-                "subnetIds": [
+                "subnet_ids": [
                     selected_get_subnets.ids[0],
                     selected_get_subnets.ids[1],
                 ],
-                "securityGroupIds": [es.id],
+                "security_group_ids": [es.id],
             },
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
@@ -863,7 +863,7 @@ class Domain(pulumi.CustomResource):
             domain_name="example",
             elasticsearch_version="7.10",
             cluster_config={
-                "instanceType": "r4.large.elasticsearch",
+                "instance_type": "r4.large.elasticsearch",
             },
             tags={
                 "Domain": "TestDomain",
@@ -927,8 +927,8 @@ class Domain(pulumi.CustomResource):
             policy_name="example",
             policy_document=example.json)
         example_domain = aws.elasticsearch.Domain("example", log_publishing_options=[{
-            "cloudwatchLogGroupArn": example_log_group.arn,
-            "logType": "INDEX_SLOW_LOGS",
+            "cloudwatch_log_group_arn": example_log_group.arn,
+            "log_type": "INDEX_SLOW_LOGS",
         }])
         ```
 
@@ -960,25 +960,25 @@ class Domain(pulumi.CustomResource):
             description="Managed by Pulumi",
             vpc_id=selected.id,
             ingress=[{
-                "fromPort": 443,
-                "toPort": 443,
+                "from_port": 443,
+                "to_port": 443,
                 "protocol": "tcp",
-                "cidrBlocks": [selected.cidr_block],
+                "cidr_blocks": [selected.cidr_block],
             }])
         es_service_linked_role = aws.iam.ServiceLinkedRole("es", aws_service_name="opensearchservice.amazonaws.com")
         es_domain = aws.elasticsearch.Domain("es",
             domain_name=domain,
             elasticsearch_version="6.3",
             cluster_config={
-                "instanceType": "m4.large.elasticsearch",
-                "zoneAwarenessEnabled": True,
+                "instance_type": "m4.large.elasticsearch",
+                "zone_awareness_enabled": True,
             },
             vpc_options={
-                "subnetIds": [
+                "subnet_ids": [
                     selected_get_subnets.ids[0],
                     selected_get_subnets.ids[1],
                 ],
-                "securityGroupIds": [es.id],
+                "security_group_ids": [es.id],
             },
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",

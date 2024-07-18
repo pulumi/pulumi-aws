@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Dlm.Inputs
     {
         [Input("availabilityZones", required: true)]
         private InputList<string>? _availabilityZones;
+
+        /// <summary>
+        /// The Availability Zones in which to enable fast snapshot restore.
+        /// </summary>
         public InputList<string> AvailabilityZones
         {
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());

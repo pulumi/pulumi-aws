@@ -21,9 +21,17 @@ public final class AutomationRuleCriteriaUserDefinedFieldArgs extends com.pulumi
         return this.comparison;
     }
 
+    /**
+     * The key of the map filter.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The key of the map filter.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -70,11 +78,23 @@ public final class AutomationRuleCriteriaUserDefinedFieldArgs extends com.pulumi
             return comparison(Output.of(comparison));
         }
 
+        /**
+         * @param key The key of the map filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The key of the map filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

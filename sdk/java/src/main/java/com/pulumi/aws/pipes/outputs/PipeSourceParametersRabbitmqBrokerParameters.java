@@ -14,25 +14,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeSourceParametersRabbitmqBrokerParameters {
+    /**
+     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * 
+     */
     private @Nullable Integer batchSize;
+    /**
+     * @return The credentials needed to access the resource. Detailed below.
+     * 
+     */
     private PipeSourceParametersRabbitmqBrokerParametersCredentials credentials;
+    /**
+     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * 
+     */
     private @Nullable Integer maximumBatchingWindowInSeconds;
+    /**
+     * @return The name of the destination queue to consume. Maximum length of 1000.
+     * 
+     */
     private String queueName;
+    /**
+     * @return The name of the virtual host associated with the source broker. Maximum length of 200.
+     * 
+     */
     private @Nullable String virtualHost;
 
     private PipeSourceParametersRabbitmqBrokerParameters() {}
+    /**
+     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * 
+     */
     public Optional<Integer> batchSize() {
         return Optional.ofNullable(this.batchSize);
     }
+    /**
+     * @return The credentials needed to access the resource. Detailed below.
+     * 
+     */
     public PipeSourceParametersRabbitmqBrokerParametersCredentials credentials() {
         return this.credentials;
     }
+    /**
+     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * 
+     */
     public Optional<Integer> maximumBatchingWindowInSeconds() {
         return Optional.ofNullable(this.maximumBatchingWindowInSeconds);
     }
+    /**
+     * @return The name of the destination queue to consume. Maximum length of 1000.
+     * 
+     */
     public String queueName() {
         return this.queueName;
     }
+    /**
+     * @return The name of the virtual host associated with the source broker. Maximum length of 200.
+     * 
+     */
     public Optional<String> virtualHost() {
         return Optional.ofNullable(this.virtualHost);
     }
