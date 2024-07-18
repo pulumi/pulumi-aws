@@ -29,6 +29,9 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
         /// </summary>
         public readonly string? DocumentHashType;
+        /// <summary>
+        /// The version of an Automation document to use during task execution.
+        /// </summary>
         public readonly string? DocumentVersion;
         /// <summary>
         /// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.

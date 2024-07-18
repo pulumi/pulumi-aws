@@ -14,6 +14,10 @@ import javax.annotation.Nullable;
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
     private String oauth2GrantType;
     private String tokenUrl;
+    /**
+     * @return Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+     * 
+     */
     private @Nullable Map<String,String> tokenUrlCustomProperties;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties() {}
@@ -23,6 +27,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public String tokenUrl() {
         return this.tokenUrl;
     }
+    /**
+     * @return Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+     * 
+     */
     public Map<String,String> tokenUrlCustomProperties() {
         return this.tokenUrlCustomProperties == null ? Map.of() : this.tokenUrlCustomProperties;
     }

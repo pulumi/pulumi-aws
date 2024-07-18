@@ -1463,9 +1463,12 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) Type() pulumi.StringPtr
 }
 
 type AgentDataSourceDataSourceConfigurationS3Configuration struct {
-	BucketArn            string   `pulumi:"bucketArn"`
-	BucketOwnerAccountId *string  `pulumi:"bucketOwnerAccountId"`
-	InclusionPrefixes    []string `pulumi:"inclusionPrefixes"`
+	// ARN of the bucket that contains the data source.
+	BucketArn string `pulumi:"bucketArn"`
+	// Bucket account owner ID for the S3 bucket.
+	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
+	// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+	InclusionPrefixes []string `pulumi:"inclusionPrefixes"`
 }
 
 // AgentDataSourceDataSourceConfigurationS3ConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationS3ConfigurationArgs and AgentDataSourceDataSourceConfigurationS3ConfigurationOutput values.
@@ -1480,9 +1483,12 @@ type AgentDataSourceDataSourceConfigurationS3ConfigurationInput interface {
 }
 
 type AgentDataSourceDataSourceConfigurationS3ConfigurationArgs struct {
-	BucketArn            pulumi.StringInput      `pulumi:"bucketArn"`
-	BucketOwnerAccountId pulumi.StringPtrInput   `pulumi:"bucketOwnerAccountId"`
-	InclusionPrefixes    pulumi.StringArrayInput `pulumi:"inclusionPrefixes"`
+	// ARN of the bucket that contains the data source.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Bucket account owner ID for the S3 bucket.
+	BucketOwnerAccountId pulumi.StringPtrInput `pulumi:"bucketOwnerAccountId"`
+	// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+	InclusionPrefixes pulumi.StringArrayInput `pulumi:"inclusionPrefixes"`
 }
 
 func (AgentDataSourceDataSourceConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
@@ -1562,14 +1568,17 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationOutput) ToAgentData
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
+// ARN of the bucket that contains the data source.
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
+// Bucket account owner ID for the S3 bucket.
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationS3Configuration) *string { return v.BucketOwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
+// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationOutput) InclusionPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationS3Configuration) []string { return v.InclusionPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -1598,6 +1607,7 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) Elem() A
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationOutput)
 }
 
+// ARN of the bucket that contains the data source.
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationS3Configuration) *string {
 		if v == nil {
@@ -1607,6 +1617,7 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) BucketAr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Bucket account owner ID for the S3 bucket.
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationS3Configuration) *string {
 		if v == nil {
@@ -1616,6 +1627,7 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) BucketOw
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) InclusionPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationS3Configuration) []string {
 		if v == nil {

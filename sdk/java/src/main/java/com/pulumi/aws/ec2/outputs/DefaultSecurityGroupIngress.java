@@ -15,21 +15,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DefaultSecurityGroupIngress {
+    /**
+     * @return List of CIDR blocks.
+     * 
+     */
     private @Nullable List<String> cidrBlocks;
     /**
      * @return Description of the security group.
      * 
      */
     private @Nullable String description;
+    /**
+     * @return Start port (or ICMP type number if protocol is `icmp`)
+     * 
+     */
     private Integer fromPort;
+    /**
+     * @return List of IPv6 CIDR blocks.
+     * 
+     */
     private @Nullable List<String> ipv6CidrBlocks;
+    /**
+     * @return List of prefix list IDs (for allowing access to VPC endpoints)
+     * 
+     */
     private @Nullable List<String> prefixListIds;
+    /**
+     * @return Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+     * 
+     */
     private String protocol;
+    /**
+     * @return List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+     * 
+     */
     private @Nullable List<String> securityGroups;
+    /**
+     * @return Whether the security group itself will be added as a source to this egress rule.
+     * 
+     */
     private @Nullable Boolean self;
+    /**
+     * @return End range port (or ICMP code if protocol is `icmp`).
+     * 
+     */
     private Integer toPort;
 
     private DefaultSecurityGroupIngress() {}
+    /**
+     * @return List of CIDR blocks.
+     * 
+     */
     public List<String> cidrBlocks() {
         return this.cidrBlocks == null ? List.of() : this.cidrBlocks;
     }
@@ -40,24 +76,52 @@ public final class DefaultSecurityGroupIngress {
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return Start port (or ICMP type number if protocol is `icmp`)
+     * 
+     */
     public Integer fromPort() {
         return this.fromPort;
     }
+    /**
+     * @return List of IPv6 CIDR blocks.
+     * 
+     */
     public List<String> ipv6CidrBlocks() {
         return this.ipv6CidrBlocks == null ? List.of() : this.ipv6CidrBlocks;
     }
+    /**
+     * @return List of prefix list IDs (for allowing access to VPC endpoints)
+     * 
+     */
     public List<String> prefixListIds() {
         return this.prefixListIds == null ? List.of() : this.prefixListIds;
     }
+    /**
+     * @return Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+     * 
+     */
     public String protocol() {
         return this.protocol;
     }
+    /**
+     * @return List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+     * 
+     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
+    /**
+     * @return Whether the security group itself will be added as a source to this egress rule.
+     * 
+     */
     public Optional<Boolean> self() {
         return Optional.ofNullable(this.self);
     }
+    /**
+     * @return End range port (or ICMP code if protocol is `icmp`).
+     * 
+     */
     public Integer toPort() {
         return this.toPort;
     }

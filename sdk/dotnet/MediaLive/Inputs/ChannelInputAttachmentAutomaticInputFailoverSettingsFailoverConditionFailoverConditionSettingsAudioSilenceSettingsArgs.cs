@@ -15,6 +15,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("audioSelectorName", required: true)]
         public Input<string> AudioSelectorName { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+        /// </summary>
         [Input("audioSilenceThresholdMsec")]
         public Input<int>? AudioSilenceThresholdMsec { get; set; }
 

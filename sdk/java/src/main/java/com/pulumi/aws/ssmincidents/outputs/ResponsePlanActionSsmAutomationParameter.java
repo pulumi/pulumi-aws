@@ -16,6 +16,10 @@ public final class ResponsePlanActionSsmAutomationParameter {
      * 
      */
     private String name;
+    /**
+     * @return The values for the associated parameter name.
+     * 
+     */
     private List<String> values;
 
     private ResponsePlanActionSsmAutomationParameter() {}
@@ -26,6 +30,10 @@ public final class ResponsePlanActionSsmAutomationParameter {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The values for the associated parameter name.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

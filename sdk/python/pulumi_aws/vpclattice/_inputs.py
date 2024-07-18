@@ -176,7 +176,14 @@ class ListenerDefaultActionForwardArgs:
 if not MYPY:
     class ListenerDefaultActionForwardTargetGroupArgsDict(TypedDict):
         target_group_identifier: NotRequired[pulumi.Input[str]]
+        """
+        ID or Amazon Resource Name (ARN) of the target group.
+        """
         weight: NotRequired[pulumi.Input[int]]
+        """
+        Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+        weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        """
 elif False:
     ListenerDefaultActionForwardTargetGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -185,6 +192,11 @@ class ListenerDefaultActionForwardTargetGroupArgs:
     def __init__(__self__, *,
                  target_group_identifier: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[int] weight: Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+               weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        """
         if target_group_identifier is not None:
             pulumi.set(__self__, "target_group_identifier", target_group_identifier)
         if weight is not None:
@@ -193,6 +205,9 @@ class ListenerDefaultActionForwardTargetGroupArgs:
     @property
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID or Amazon Resource Name (ARN) of the target group.
+        """
         return pulumi.get(self, "target_group_identifier")
 
     @target_group_identifier.setter
@@ -202,6 +217,10 @@ class ListenerDefaultActionForwardTargetGroupArgs:
     @property
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+        weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        """
         return pulumi.get(self, "weight")
 
     @weight.setter

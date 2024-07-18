@@ -302,7 +302,7 @@ class App(pulumi.CustomResource):
         example = aws.pinpoint.App("example",
             name="test-app",
             limits={
-                "maximumDuration": 600,
+                "maximum_duration": 600,
             },
             quiet_time={
                 "start": "00:00",
@@ -345,7 +345,7 @@ class App(pulumi.CustomResource):
         example = aws.pinpoint.App("example",
             name="test-app",
             limits={
-                "maximumDuration": 600,
+                "maximum_duration": 600,
             },
             quiet_time={
                 "start": "00:00",

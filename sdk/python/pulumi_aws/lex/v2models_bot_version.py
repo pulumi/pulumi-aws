@@ -222,7 +222,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
             bot_id=test_aws_lexv2models["id"],
             locale_specification={
                 "en_US": {
-                    "sourceBotVersion": "DRAFT",
+                    "source_bot_version": "DRAFT",
                 },
             })
         ```
@@ -266,7 +266,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
             bot_id=test_aws_lexv2models["id"],
             locale_specification={
                 "en_US": {
-                    "sourceBotVersion": "DRAFT",
+                    "source_bot_version": "DRAFT",
                 },
             })
         ```

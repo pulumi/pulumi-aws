@@ -560,8 +560,8 @@ class User(pulumi.CustomResource):
             display_name="John Doe",
             user_name="johndoe",
             name={
-                "givenName": "John",
-                "familyName": "Doe",
+                "given_name": "John",
+                "family_name": "Doe",
             },
             emails={
                 "value": "john@example.com",
@@ -622,8 +622,8 @@ class User(pulumi.CustomResource):
             display_name="John Doe",
             user_name="johndoe",
             name={
-                "givenName": "John",
-                "familyName": "Doe",
+                "given_name": "John",
+                "family_name": "Doe",
             },
             emails={
                 "value": "john@example.com",

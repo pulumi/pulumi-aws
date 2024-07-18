@@ -378,14 +378,14 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
             file_system_path="/my-bucket",
             s3={
-                "autoExportPolicy": {
+                "auto_export_policy": {
                     "events": [
                         "NEW",
                         "CHANGED",
                         "DELETED",
                     ],
                 },
-                "autoImportPolicy": {
+                "auto_import_policy": {
                     "events": [
                         "NEW",
                         "CHANGED",
@@ -446,14 +446,14 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
             file_system_path="/my-bucket",
             s3={
-                "autoExportPolicy": {
+                "auto_export_policy": {
                     "events": [
                         "NEW",
                         "CHANGED",
                         "DELETED",
                     ],
                 },
-                "autoImportPolicy": {
+                "auto_import_policy": {
                     "events": [
                         "NEW",
                         "CHANGED",

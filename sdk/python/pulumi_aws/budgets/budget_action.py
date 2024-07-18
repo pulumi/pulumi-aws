@@ -474,18 +474,18 @@ class BudgetAction(pulumi.CustomResource):
             notification_type="ACTUAL",
             execution_role_arn=example_role.arn,
             action_threshold={
-                "actionThresholdType": "ABSOLUTE_VALUE",
-                "actionThresholdValue": 100,
+                "action_threshold_type": "ABSOLUTE_VALUE",
+                "action_threshold_value": 100,
             },
             definition={
-                "iamActionDefinition": {
-                    "policyArn": example_policy.arn,
+                "iam_action_definition": {
+                    "policy_arn": example_policy.arn,
                     "roles": [example_role.name],
                 },
             },
             subscribers=[{
                 "address": "example@example.example",
-                "subscriptionType": "EMAIL",
+                "subscription_type": "EMAIL",
             }],
             tags={
                 "Tag1": "Value1",
@@ -564,18 +564,18 @@ class BudgetAction(pulumi.CustomResource):
             notification_type="ACTUAL",
             execution_role_arn=example_role.arn,
             action_threshold={
-                "actionThresholdType": "ABSOLUTE_VALUE",
-                "actionThresholdValue": 100,
+                "action_threshold_type": "ABSOLUTE_VALUE",
+                "action_threshold_value": 100,
             },
             definition={
-                "iamActionDefinition": {
-                    "policyArn": example_policy.arn,
+                "iam_action_definition": {
+                    "policy_arn": example_policy.arn,
                     "roles": [example_role.name],
                 },
             },
             subscribers=[{
                 "address": "example@example.example",
-                "subscriptionType": "EMAIL",
+                "subscription_type": "EMAIL",
             }],
             tags={
                 "Tag1": "Value1",

@@ -15,9 +15,17 @@ public final class AutomationRuleCriteriaCriticalityArgs extends com.pulumi.reso
 
     public static final AutomationRuleCriteriaCriticalityArgs Empty = new AutomationRuleCriteriaCriticalityArgs();
 
+    /**
+     * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     @Import(name="eq")
     private @Nullable Output<Double> eq;
 
+    /**
+     * @return The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     public Optional<Output<Double>> eq() {
         return Optional.ofNullable(this.eq);
     }
@@ -29,9 +37,17 @@ public final class AutomationRuleCriteriaCriticalityArgs extends com.pulumi.reso
         return Optional.ofNullable(this.gt);
     }
 
+    /**
+     * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     @Import(name="gte")
     private @Nullable Output<Double> gte;
 
+    /**
+     * @return The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     public Optional<Output<Double>> gte() {
         return Optional.ofNullable(this.gte);
     }
@@ -43,9 +59,17 @@ public final class AutomationRuleCriteriaCriticalityArgs extends com.pulumi.reso
         return Optional.ofNullable(this.lt);
     }
 
+    /**
+     * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     @Import(name="lte")
     private @Nullable Output<Double> lte;
 
+    /**
+     * @return The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     public Optional<Output<Double>> lte() {
         return Optional.ofNullable(this.lte);
     }
@@ -78,11 +102,23 @@ public final class AutomationRuleCriteriaCriticalityArgs extends com.pulumi.reso
             $ = new AutomationRuleCriteriaCriticalityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param eq The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eq(@Nullable Output<Double> eq) {
             $.eq = eq;
             return this;
         }
 
+        /**
+         * @param eq The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eq(Double eq) {
             return eq(Output.of(eq));
         }
@@ -96,11 +132,23 @@ public final class AutomationRuleCriteriaCriticalityArgs extends com.pulumi.reso
             return gt(Output.of(gt));
         }
 
+        /**
+         * @param gte The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gte(@Nullable Output<Double> gte) {
             $.gte = gte;
             return this;
         }
 
+        /**
+         * @param gte The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gte(Double gte) {
             return gte(Output.of(gte));
         }
@@ -114,11 +162,23 @@ public final class AutomationRuleCriteriaCriticalityArgs extends com.pulumi.reso
             return lt(Output.of(lt));
         }
 
+        /**
+         * @param lte The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lte(@Nullable Output<Double> lte) {
             $.lte = lte;
             return this;
         }
 
+        /**
+         * @param lte The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lte(Double lte) {
             return lte(Output.of(lte));
         }

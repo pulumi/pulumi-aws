@@ -1171,6 +1171,11 @@ class AutomationRuleCriteriaConfidence(dict):
                  gte: Optional[float] = None,
                  lt: Optional[float] = None,
                  lte: Optional[float] = None):
+        """
+        :param float eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param float gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param float lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gt is not None:
@@ -1185,6 +1190,9 @@ class AutomationRuleCriteriaConfidence(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[float]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
@@ -1195,6 +1203,9 @@ class AutomationRuleCriteriaConfidence(dict):
     @property
     @pulumi.getter
     def gte(self) -> Optional[float]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
@@ -1205,6 +1216,9 @@ class AutomationRuleCriteriaConfidence(dict):
     @property
     @pulumi.getter
     def lte(self) -> Optional[float]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -1231,6 +1245,11 @@ class AutomationRuleCriteriaCreatedAt(dict):
                  date_range: Optional['outputs.AutomationRuleCriteriaCreatedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaCreatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -1241,16 +1260,25 @@ class AutomationRuleCriteriaCreatedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.AutomationRuleCriteriaCreatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -1291,6 +1319,11 @@ class AutomationRuleCriteriaCriticality(dict):
                  gte: Optional[float] = None,
                  lt: Optional[float] = None,
                  lte: Optional[float] = None):
+        """
+        :param float eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param float gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param float lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gt is not None:
@@ -1305,6 +1338,9 @@ class AutomationRuleCriteriaCriticality(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[float]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
@@ -1315,6 +1351,9 @@ class AutomationRuleCriteriaCriticality(dict):
     @property
     @pulumi.getter
     def gte(self) -> Optional[float]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
@@ -1325,6 +1364,9 @@ class AutomationRuleCriteriaCriticality(dict):
     @property
     @pulumi.getter
     def lte(self) -> Optional[float]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -1370,6 +1412,11 @@ class AutomationRuleCriteriaFirstObservedAt(dict):
                  date_range: Optional['outputs.AutomationRuleCriteriaFirstObservedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaFirstObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -1380,16 +1427,25 @@ class AutomationRuleCriteriaFirstObservedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.AutomationRuleCriteriaFirstObservedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -1483,6 +1539,11 @@ class AutomationRuleCriteriaLastObservedAt(dict):
                  date_range: Optional['outputs.AutomationRuleCriteriaLastObservedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaLastObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -1493,16 +1554,25 @@ class AutomationRuleCriteriaLastObservedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.AutomationRuleCriteriaLastObservedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -1577,6 +1647,11 @@ class AutomationRuleCriteriaNoteUpdatedAt(dict):
                  date_range: Optional['outputs.AutomationRuleCriteriaNoteUpdatedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -1587,16 +1662,25 @@ class AutomationRuleCriteriaNoteUpdatedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.AutomationRuleCriteriaNoteUpdatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -1787,6 +1871,9 @@ class AutomationRuleCriteriaResourceDetailsOther(dict):
                  comparison: str,
                  key: str,
                  value: str):
+        """
+        :param str key: The key of the map filter.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1799,6 +1886,9 @@ class AutomationRuleCriteriaResourceDetailsOther(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of the map filter.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -1870,6 +1960,9 @@ class AutomationRuleCriteriaResourceTag(dict):
                  comparison: str,
                  key: str,
                  value: str):
+        """
+        :param str key: The key of the map filter.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1882,6 +1975,9 @@ class AutomationRuleCriteriaResourceTag(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of the map filter.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -2008,6 +2104,11 @@ class AutomationRuleCriteriaUpdatedAt(dict):
                  date_range: Optional['outputs.AutomationRuleCriteriaUpdatedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'AutomationRuleCriteriaUpdatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -2018,16 +2119,25 @@ class AutomationRuleCriteriaUpdatedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.AutomationRuleCriteriaUpdatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -2066,6 +2176,9 @@ class AutomationRuleCriteriaUserDefinedField(dict):
                  comparison: str,
                  key: str,
                  value: str):
+        """
+        :param str key: The key of the map filter.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2078,6 +2191,9 @@ class AutomationRuleCriteriaUserDefinedField(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of the map filter.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -3844,6 +3960,11 @@ class InsightFiltersConfidence(dict):
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
                  lte: Optional[str] = None):
+        """
+        :param str eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param str gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param str lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -3854,16 +3975,25 @@ class InsightFiltersConfidence(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[str]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[str]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[str]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -3890,6 +4020,11 @@ class InsightFiltersCreatedAt(dict):
                  date_range: Optional['outputs.InsightFiltersCreatedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersCreatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -3900,16 +4035,25 @@ class InsightFiltersCreatedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersCreatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -3948,6 +4092,11 @@ class InsightFiltersCriticality(dict):
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
                  lte: Optional[str] = None):
+        """
+        :param str eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param str gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param str lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -3958,16 +4107,25 @@ class InsightFiltersCriticality(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[str]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[str]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[str]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -3996,6 +4154,11 @@ class InsightFiltersFindingProviderFieldsConfidence(dict):
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
                  lte: Optional[str] = None):
+        """
+        :param str eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param str gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param str lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -4006,16 +4169,25 @@ class InsightFiltersFindingProviderFieldsConfidence(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[str]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[str]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[str]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -4025,6 +4197,11 @@ class InsightFiltersFindingProviderFieldsCriticality(dict):
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
                  lte: Optional[str] = None):
+        """
+        :param str eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param str gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param str lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -4035,16 +4212,25 @@ class InsightFiltersFindingProviderFieldsCriticality(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[str]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[str]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[str]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -4166,6 +4352,11 @@ class InsightFiltersFirstObservedAt(dict):
                  date_range: Optional['outputs.InsightFiltersFirstObservedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersFirstObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -4176,16 +4367,25 @@ class InsightFiltersFirstObservedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersFirstObservedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -4297,6 +4497,11 @@ class InsightFiltersLastObservedAt(dict):
                  date_range: Optional['outputs.InsightFiltersLastObservedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersLastObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -4307,16 +4512,25 @@ class InsightFiltersLastObservedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersLastObservedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -4448,11 +4662,17 @@ class InsightFiltersNetworkDestinationDomain(dict):
 class InsightFiltersNetworkDestinationIpv4(dict):
     def __init__(__self__, *,
                  cidr: str):
+        """
+        :param str cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> str:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
 
@@ -4460,11 +4680,17 @@ class InsightFiltersNetworkDestinationIpv4(dict):
 class InsightFiltersNetworkDestinationIpv6(dict):
     def __init__(__self__, *,
                  cidr: str):
+        """
+        :param str cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> str:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
 
@@ -4474,6 +4700,11 @@ class InsightFiltersNetworkDestinationPort(dict):
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
                  lte: Optional[str] = None):
+        """
+        :param str eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param str gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param str lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -4484,16 +4715,25 @@ class InsightFiltersNetworkDestinationPort(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[str]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[str]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[str]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -4558,11 +4798,17 @@ class InsightFiltersNetworkSourceDomain(dict):
 class InsightFiltersNetworkSourceIpv4(dict):
     def __init__(__self__, *,
                  cidr: str):
+        """
+        :param str cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> str:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
 
@@ -4570,11 +4816,17 @@ class InsightFiltersNetworkSourceIpv4(dict):
 class InsightFiltersNetworkSourceIpv6(dict):
     def __init__(__self__, *,
                  cidr: str):
+        """
+        :param str cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> str:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
 
@@ -4603,6 +4855,11 @@ class InsightFiltersNetworkSourcePort(dict):
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
                  lte: Optional[str] = None):
+        """
+        :param str eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param str gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param str lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -4613,16 +4870,25 @@ class InsightFiltersNetworkSourcePort(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[str]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[str]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[str]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -4668,6 +4934,11 @@ class InsightFiltersNoteUpdatedAt(dict):
                  date_range: Optional['outputs.InsightFiltersNoteUpdatedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersNoteUpdatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -4678,16 +4949,25 @@ class InsightFiltersNoteUpdatedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersNoteUpdatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -4762,6 +5042,11 @@ class InsightFiltersProcessLaunchedAt(dict):
                  date_range: Optional['outputs.InsightFiltersProcessLaunchedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersProcessLaunchedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -4772,16 +5057,25 @@ class InsightFiltersProcessLaunchedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersProcessLaunchedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -4839,6 +5133,11 @@ class InsightFiltersProcessParentPid(dict):
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
                  lte: Optional[str] = None):
+        """
+        :param str eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param str gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param str lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -4849,16 +5148,25 @@ class InsightFiltersProcessParentPid(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[str]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[str]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[str]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -4887,6 +5195,11 @@ class InsightFiltersProcessPid(dict):
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
                  lte: Optional[str] = None):
+        """
+        :param str eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param str gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param str lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -4897,16 +5210,25 @@ class InsightFiltersProcessPid(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[str]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[str]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[str]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
 
@@ -4933,6 +5255,11 @@ class InsightFiltersProcessTerminatedAt(dict):
                  date_range: Optional['outputs.InsightFiltersProcessTerminatedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersProcessTerminatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -4943,16 +5270,25 @@ class InsightFiltersProcessTerminatedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersProcessTerminatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -5010,6 +5346,9 @@ class InsightFiltersProductField(dict):
                  comparison: str,
                  key: str,
                  value: str):
+        """
+        :param str key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -5022,6 +5361,9 @@ class InsightFiltersProductField(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -5167,11 +5509,17 @@ class InsightFiltersResourceAwsEc2InstanceImageId(dict):
 class InsightFiltersResourceAwsEc2InstanceIpv4Address(dict):
     def __init__(__self__, *,
                  cidr: str):
+        """
+        :param str cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> str:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
 
@@ -5179,11 +5527,17 @@ class InsightFiltersResourceAwsEc2InstanceIpv4Address(dict):
 class InsightFiltersResourceAwsEc2InstanceIpv6Address(dict):
     def __init__(__self__, *,
                  cidr: str):
+        """
+        :param str cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> str:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
 
@@ -5229,6 +5583,11 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAt(dict):
                  date_range: Optional['outputs.InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -5239,16 +5598,25 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -5361,6 +5729,11 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAt(dict):
                  date_range: Optional['outputs.InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -5371,16 +5744,25 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -5550,6 +5932,11 @@ class InsightFiltersResourceContainerLaunchedAt(dict):
                  date_range: Optional['outputs.InsightFiltersResourceContainerLaunchedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersResourceContainerLaunchedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -5560,16 +5947,25 @@ class InsightFiltersResourceContainerLaunchedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersResourceContainerLaunchedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -5627,6 +6023,9 @@ class InsightFiltersResourceDetailsOther(dict):
                  comparison: str,
                  key: str,
                  value: str):
+        """
+        :param str key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -5639,6 +6038,9 @@ class InsightFiltersResourceDetailsOther(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -5710,6 +6112,9 @@ class InsightFiltersResourceTag(dict):
                  comparison: str,
                  key: str,
                  value: str):
+        """
+        :param str key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -5722,6 +6127,9 @@ class InsightFiltersResourceTag(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -5829,6 +6237,11 @@ class InsightFiltersThreatIntelIndicatorLastObservedAt(dict):
                  date_range: Optional['outputs.InsightFiltersThreatIntelIndicatorLastObservedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -5839,16 +6252,25 @@ class InsightFiltersThreatIntelIndicatorLastObservedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersThreatIntelIndicatorLastObservedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -6018,6 +6440,11 @@ class InsightFiltersUpdatedAt(dict):
                  date_range: Optional['outputs.InsightFiltersUpdatedAtDateRange'] = None,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
+        """
+        :param 'InsightFiltersUpdatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -6028,16 +6455,25 @@ class InsightFiltersUpdatedAt(dict):
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional['outputs.InsightFiltersUpdatedAtDateRange']:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
 
@@ -6076,6 +6512,9 @@ class InsightFiltersUserDefinedValue(dict):
                  comparison: str,
                  key: str,
                  value: str):
+        """
+        :param str key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -6088,6 +6527,9 @@ class InsightFiltersUserDefinedValue(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         return pulumi.get(self, "key")
 
     @property

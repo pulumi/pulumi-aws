@@ -259,7 +259,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 "status": "Enabled",
                 "destination": {
                     "bucket": destination.arn,
-                    "storageClass": "STANDARD",
+                    "storage_class": "STANDARD",
                 },
             }],
             opts = pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
@@ -295,7 +295,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 "status": "Enabled",
                 "destination": {
                     "bucket": west.arn,
-                    "storageClass": "STANDARD",
+                    "storage_class": "STANDARD",
                 },
             }],
             opts = pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
@@ -310,7 +310,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 "status": "Enabled",
                 "destination": {
                     "bucket": east.arn,
-                    "storageClass": "STANDARD",
+                    "storage_class": "STANDARD",
                 },
             }],
             opts = pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))
@@ -424,7 +424,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 "status": "Enabled",
                 "destination": {
                     "bucket": destination.arn,
-                    "storageClass": "STANDARD",
+                    "storage_class": "STANDARD",
                 },
             }],
             opts = pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
@@ -460,7 +460,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 "status": "Enabled",
                 "destination": {
                     "bucket": west.arn,
-                    "storageClass": "STANDARD",
+                    "storage_class": "STANDARD",
                 },
             }],
             opts = pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
@@ -475,7 +475,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 "status": "Enabled",
                 "destination": {
                     "bucket": east.arn,
-                    "storageClass": "STANDARD",
+                    "storage_class": "STANDARD",
                 },
             }],
             opts = pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))

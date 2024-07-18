@@ -19,9 +19,17 @@ public final class IntentConfirmationPromptArgs extends com.pulumi.resources.Res
 
     public static final IntentConfirmationPromptArgs Empty = new IntentConfirmationPromptArgs();
 
+    /**
+     * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+     * 
+     */
     @Import(name="maxAttempts", required=true)
     private Output<Integer> maxAttempts;
 
+    /**
+     * @return The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+     * 
+     */
     public Output<Integer> maxAttempts() {
         return this.maxAttempts;
     }
@@ -66,11 +74,23 @@ public final class IntentConfirmationPromptArgs extends com.pulumi.resources.Res
             $ = new IntentConfirmationPromptArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxAttempts The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxAttempts(Output<Integer> maxAttempts) {
             $.maxAttempts = maxAttempts;
             return this;
         }
 
+        /**
+         * @param maxAttempts The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxAttempts(Integer maxAttempts) {
             return maxAttempts(Output.of(maxAttempts));
         }

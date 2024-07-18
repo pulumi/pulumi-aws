@@ -346,7 +346,7 @@ class RoutingProfile(pulumi.CustomResource):
                 "channel": "VOICE",
                 "delay": 2,
                 "priority": 1,
-                "queueId": "12345678-1234-1234-1234-123456789012",
+                "queue_id": "12345678-1234-1234-1234-123456789012",
             }],
             tags={
                 "Name": "Example Routing Profile",
@@ -401,7 +401,7 @@ class RoutingProfile(pulumi.CustomResource):
                 "channel": "VOICE",
                 "delay": 2,
                 "priority": 1,
-                "queueId": "12345678-1234-1234-1234-123456789012",
+                "queue_id": "12345678-1234-1234-1234-123456789012",
             }],
             tags={
                 "Name": "Example Routing Profile",

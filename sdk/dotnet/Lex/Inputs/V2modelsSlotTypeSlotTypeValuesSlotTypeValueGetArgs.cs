@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotTypeSlotTypeValuesSlotTypeValueGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Value that can be used for a slot type.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
