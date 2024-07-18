@@ -274,10 +274,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             rules=[{
                 "id": "rule-1",
                 "filter": {
-                    "and": {
+                    "and_": {
                         "tags": {
-                            "Key1": "Value1",
-                            "Key2": "Value2",
+                            "key1": "Value1",
+                            "key2": "Value2",
                         },
                     },
                 },
@@ -298,11 +298,11 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             rules=[{
                 "id": "rule-1",
                 "filter": {
-                    "and": {
+                    "and_": {
                         "prefix": "logs/",
                         "tags": {
-                            "Key1": "Value1",
-                            "Key2": "Value2",
+                            "key1": "Value1",
+                            "key2": "Value2",
                         },
                     },
                 },
@@ -323,7 +323,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             rules=[{
                 "id": "rule-1",
                 "filter": {
-                    "objectSizeGreaterThan": "500",
+                    "object_size_greater_than": "500",
                 },
                 "status": "Enabled",
             }])
@@ -342,10 +342,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             rules=[{
                 "id": "rule-1",
                 "filter": {
-                    "and": {
+                    "and_": {
                         "prefix": "logs/",
-                        "objectSizeGreaterThan": 500,
-                        "objectSizeLessThan": 64000,
+                        "object_size_greater_than": 500,
+                        "object_size_less_than": 64000,
                     },
                 },
                 "status": "Enabled",
@@ -371,7 +371,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                         "days": 90,
                     },
                     "filter": {
-                        "and": {
+                        "and_": {
                             "prefix": "log/",
                             "tags": {
                                 "rule": "log",
@@ -383,11 +383,11 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     "transitions": [
                         {
                             "days": 30,
-                            "storageClass": "STANDARD_IA",
+                            "storage_class": "STANDARD_IA",
                         },
                         {
                             "days": 60,
-                            "storageClass": "GLACIER",
+                            "storage_class": "GLACIER",
                         },
                     ],
                 },
@@ -418,17 +418,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 "filter": {
                     "prefix": "config/",
                 },
-                "noncurrentVersionExpiration": {
-                    "noncurrentDays": 90,
+                "noncurrent_version_expiration": {
+                    "noncurrent_days": 90,
                 },
-                "noncurrentVersionTransitions": [
+                "noncurrent_version_transitions": [
                     {
-                        "noncurrentDays": 30,
-                        "storageClass": "STANDARD_IA",
+                        "noncurrent_days": 30,
+                        "storage_class": "STANDARD_IA",
                     },
                     {
-                        "noncurrentDays": 60,
-                        "storageClass": "GLACIER",
+                        "noncurrent_days": 60,
+                        "storage_class": "GLACIER",
                     },
                 ],
                 "status": "Enabled",
@@ -602,10 +602,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             rules=[{
                 "id": "rule-1",
                 "filter": {
-                    "and": {
+                    "and_": {
                         "tags": {
-                            "Key1": "Value1",
-                            "Key2": "Value2",
+                            "key1": "Value1",
+                            "key2": "Value2",
                         },
                     },
                 },
@@ -626,11 +626,11 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             rules=[{
                 "id": "rule-1",
                 "filter": {
-                    "and": {
+                    "and_": {
                         "prefix": "logs/",
                         "tags": {
-                            "Key1": "Value1",
-                            "Key2": "Value2",
+                            "key1": "Value1",
+                            "key2": "Value2",
                         },
                     },
                 },
@@ -651,7 +651,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             rules=[{
                 "id": "rule-1",
                 "filter": {
-                    "objectSizeGreaterThan": "500",
+                    "object_size_greater_than": "500",
                 },
                 "status": "Enabled",
             }])
@@ -670,10 +670,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             rules=[{
                 "id": "rule-1",
                 "filter": {
-                    "and": {
+                    "and_": {
                         "prefix": "logs/",
-                        "objectSizeGreaterThan": 500,
-                        "objectSizeLessThan": 64000,
+                        "object_size_greater_than": 500,
+                        "object_size_less_than": 64000,
                     },
                 },
                 "status": "Enabled",
@@ -699,7 +699,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                         "days": 90,
                     },
                     "filter": {
-                        "and": {
+                        "and_": {
                             "prefix": "log/",
                             "tags": {
                                 "rule": "log",
@@ -711,11 +711,11 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     "transitions": [
                         {
                             "days": 30,
-                            "storageClass": "STANDARD_IA",
+                            "storage_class": "STANDARD_IA",
                         },
                         {
                             "days": 60,
-                            "storageClass": "GLACIER",
+                            "storage_class": "GLACIER",
                         },
                     ],
                 },
@@ -746,17 +746,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 "filter": {
                     "prefix": "config/",
                 },
-                "noncurrentVersionExpiration": {
-                    "noncurrentDays": 90,
+                "noncurrent_version_expiration": {
+                    "noncurrent_days": 90,
                 },
-                "noncurrentVersionTransitions": [
+                "noncurrent_version_transitions": [
                     {
-                        "noncurrentDays": 30,
-                        "storageClass": "STANDARD_IA",
+                        "noncurrent_days": 30,
+                        "storage_class": "STANDARD_IA",
                     },
                     {
-                        "noncurrentDays": 60,
-                        "storageClass": "GLACIER",
+                        "noncurrent_days": 60,
+                        "storage_class": "GLACIER",
                     },
                 ],
                 "status": "Enabled",

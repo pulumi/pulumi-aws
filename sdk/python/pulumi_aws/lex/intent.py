@@ -617,10 +617,10 @@ class Intent(pulumi.CustomResource):
 
         order_flowers_intent = aws.lex.Intent("order_flowers_intent",
             confirmation_prompt={
-                "maxAttempts": 2,
+                "max_attempts": 2,
                 "messages": [{
                     "content": "Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             create_version=False,
@@ -632,7 +632,7 @@ class Intent(pulumi.CustomResource):
             rejection_statement={
                 "messages": [{
                     "content": "Okay, I will not place your order.",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             sample_utterances=[
@@ -644,15 +644,15 @@ class Intent(pulumi.CustomResource):
                     "description": "The type of flowers to pick up",
                     "name": "FlowerType",
                     "priority": 1,
-                    "sampleUtterances": ["I would like to order {FlowerType}"],
-                    "slotConstraint": "Required",
-                    "slotType": "FlowerTypes",
-                    "slotTypeVersion": "$$LATEST",
-                    "valueElicitationPrompt": {
-                        "maxAttempts": 2,
+                    "sample_utterances": ["I would like to order {FlowerType}"],
+                    "slot_constraint": "Required",
+                    "slot_type": "FlowerTypes",
+                    "slot_type_version": "$$LATEST",
+                    "value_elicitation_prompt": {
+                        "max_attempts": 2,
                         "messages": [{
                             "content": "What type of flowers would you like to order?",
-                            "contentType": "PlainText",
+                            "content_type": "PlainText",
                         }],
                     },
                 },
@@ -660,15 +660,15 @@ class Intent(pulumi.CustomResource):
                     "description": "The date to pick up the flowers",
                     "name": "PickupDate",
                     "priority": 2,
-                    "sampleUtterances": ["I would like to order {FlowerType}"],
-                    "slotConstraint": "Required",
-                    "slotType": "AMAZON.DATE",
-                    "slotTypeVersion": "$$LATEST",
-                    "valueElicitationPrompt": {
-                        "maxAttempts": 2,
+                    "sample_utterances": ["I would like to order {FlowerType}"],
+                    "slot_constraint": "Required",
+                    "slot_type": "AMAZON.DATE",
+                    "slot_type_version": "$$LATEST",
+                    "value_elicitation_prompt": {
+                        "max_attempts": 2,
                         "messages": [{
                             "content": "What day do you want the {FlowerType} to be picked up?",
-                            "contentType": "PlainText",
+                            "content_type": "PlainText",
                         }],
                     },
                 },
@@ -676,15 +676,15 @@ class Intent(pulumi.CustomResource):
                     "description": "The time to pick up the flowers",
                     "name": "PickupTime",
                     "priority": 3,
-                    "sampleUtterances": ["I would like to order {FlowerType}"],
-                    "slotConstraint": "Required",
-                    "slotType": "AMAZON.TIME",
-                    "slotTypeVersion": "$$LATEST",
-                    "valueElicitationPrompt": {
-                        "maxAttempts": 2,
+                    "sample_utterances": ["I would like to order {FlowerType}"],
+                    "slot_constraint": "Required",
+                    "slot_type": "AMAZON.TIME",
+                    "slot_type_version": "$$LATEST",
+                    "value_elicitation_prompt": {
+                        "max_attempts": 2,
                         "messages": [{
                             "content": "Pick up the {FlowerType} at what time on {PickupDate}?",
-                            "contentType": "PlainText",
+                            "content_type": "PlainText",
                         }],
                     },
                 },
@@ -754,10 +754,10 @@ class Intent(pulumi.CustomResource):
 
         order_flowers_intent = aws.lex.Intent("order_flowers_intent",
             confirmation_prompt={
-                "maxAttempts": 2,
+                "max_attempts": 2,
                 "messages": [{
                     "content": "Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             create_version=False,
@@ -769,7 +769,7 @@ class Intent(pulumi.CustomResource):
             rejection_statement={
                 "messages": [{
                     "content": "Okay, I will not place your order.",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             sample_utterances=[
@@ -781,15 +781,15 @@ class Intent(pulumi.CustomResource):
                     "description": "The type of flowers to pick up",
                     "name": "FlowerType",
                     "priority": 1,
-                    "sampleUtterances": ["I would like to order {FlowerType}"],
-                    "slotConstraint": "Required",
-                    "slotType": "FlowerTypes",
-                    "slotTypeVersion": "$$LATEST",
-                    "valueElicitationPrompt": {
-                        "maxAttempts": 2,
+                    "sample_utterances": ["I would like to order {FlowerType}"],
+                    "slot_constraint": "Required",
+                    "slot_type": "FlowerTypes",
+                    "slot_type_version": "$$LATEST",
+                    "value_elicitation_prompt": {
+                        "max_attempts": 2,
                         "messages": [{
                             "content": "What type of flowers would you like to order?",
-                            "contentType": "PlainText",
+                            "content_type": "PlainText",
                         }],
                     },
                 },
@@ -797,15 +797,15 @@ class Intent(pulumi.CustomResource):
                     "description": "The date to pick up the flowers",
                     "name": "PickupDate",
                     "priority": 2,
-                    "sampleUtterances": ["I would like to order {FlowerType}"],
-                    "slotConstraint": "Required",
-                    "slotType": "AMAZON.DATE",
-                    "slotTypeVersion": "$$LATEST",
-                    "valueElicitationPrompt": {
-                        "maxAttempts": 2,
+                    "sample_utterances": ["I would like to order {FlowerType}"],
+                    "slot_constraint": "Required",
+                    "slot_type": "AMAZON.DATE",
+                    "slot_type_version": "$$LATEST",
+                    "value_elicitation_prompt": {
+                        "max_attempts": 2,
                         "messages": [{
                             "content": "What day do you want the {FlowerType} to be picked up?",
-                            "contentType": "PlainText",
+                            "content_type": "PlainText",
                         }],
                     },
                 },
@@ -813,15 +813,15 @@ class Intent(pulumi.CustomResource):
                     "description": "The time to pick up the flowers",
                     "name": "PickupTime",
                     "priority": 3,
-                    "sampleUtterances": ["I would like to order {FlowerType}"],
-                    "slotConstraint": "Required",
-                    "slotType": "AMAZON.TIME",
-                    "slotTypeVersion": "$$LATEST",
-                    "valueElicitationPrompt": {
-                        "maxAttempts": 2,
+                    "sample_utterances": ["I would like to order {FlowerType}"],
+                    "slot_constraint": "Required",
+                    "slot_type": "AMAZON.TIME",
+                    "slot_type_version": "$$LATEST",
+                    "value_elicitation_prompt": {
+                        "max_attempts": 2,
                         "messages": [{
                             "content": "Pick up the {FlowerType} at what time on {PickupDate}?",
-                            "contentType": "PlainText",
+                            "content_type": "PlainText",
                         }],
                     },
                 },

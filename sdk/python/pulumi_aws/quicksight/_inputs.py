@@ -2955,6 +2955,9 @@ class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs:
 if not MYPY:
     class DataSetOutputColumnArgsDict(TypedDict):
         description: NotRequired[pulumi.Input[str]]
+        """
+        Field folder description.
+        """
         name: NotRequired[pulumi.Input[str]]
         """
         Display name for the dataset.
@@ -2970,6 +2973,7 @@ class DataSetOutputColumnArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] description: Field folder description.
         :param pulumi.Input[str] name: Display name for the dataset.
         """
         if description is not None:
@@ -2982,6 +2986,9 @@ class DataSetOutputColumnArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Field folder description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter

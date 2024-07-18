@@ -311,7 +311,7 @@ class VirtualRouter(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
@@ -365,7 +365,7 @@ class VirtualRouter(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },

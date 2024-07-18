@@ -31,9 +31,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return this.tokenUrl;
     }
 
+    /**
+     * Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+     * 
+     */
     @Import(name="tokenUrlCustomProperties")
     private @Nullable Output<Map<String,String>> tokenUrlCustomProperties;
 
+    /**
+     * @return Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tokenUrlCustomProperties() {
         return Optional.ofNullable(this.tokenUrlCustomProperties);
     }
@@ -82,11 +90,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return tokenUrl(Output.of(tokenUrl));
         }
 
+        /**
+         * @param tokenUrlCustomProperties Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenUrlCustomProperties(@Nullable Output<Map<String,String>> tokenUrlCustomProperties) {
             $.tokenUrlCustomProperties = tokenUrlCustomProperties;
             return this;
         }
 
+        /**
+         * @param tokenUrlCustomProperties Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenUrlCustomProperties(Map<String,String> tokenUrlCustomProperties) {
             return tokenUrlCustomProperties(Output.of(tokenUrlCustomProperties));
         }

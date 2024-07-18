@@ -19,37 +19,77 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs();
 
+    /**
+     * Sets the colorspace metadata to be passed through.
+     * 
+     */
     @Import(name="colorSpacePassthroughSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs> colorSpacePassthroughSettings;
 
+    /**
+     * @return Sets the colorspace metadata to be passed through.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs>> colorSpacePassthroughSettings() {
         return Optional.ofNullable(this.colorSpacePassthroughSettings);
     }
 
+    /**
+     * Set the colorspace to Dolby Vision81.
+     * 
+     */
     @Import(name="dolbyVision81Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs> dolbyVision81Settings;
 
+    /**
+     * @return Set the colorspace to Dolby Vision81.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs>> dolbyVision81Settings() {
         return Optional.ofNullable(this.dolbyVision81Settings);
     }
 
+    /**
+     * Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+     * 
+     */
     @Import(name="hdr10Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs> hdr10Settings;
 
+    /**
+     * @return Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs>> hdr10Settings() {
         return Optional.ofNullable(this.hdr10Settings);
     }
 
+    /**
+     * Set the colorspace to Rec. 601.
+     * 
+     */
     @Import(name="rec601Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs> rec601Settings;
 
+    /**
+     * @return Set the colorspace to Rec. 601.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs>> rec601Settings() {
         return Optional.ofNullable(this.rec601Settings);
     }
 
+    /**
+     * Set the colorspace to Rec. 709.
+     * 
+     */
     @Import(name="rec709Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs> rec709Settings;
 
+    /**
+     * @return Set the colorspace to Rec. 709.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs>> rec709Settings() {
         return Optional.ofNullable(this.rec709Settings);
     }
@@ -82,47 +122,107 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             $ = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param colorSpacePassthroughSettings Sets the colorspace metadata to be passed through.
+         * 
+         * @return builder
+         * 
+         */
         public Builder colorSpacePassthroughSettings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs> colorSpacePassthroughSettings) {
             $.colorSpacePassthroughSettings = colorSpacePassthroughSettings;
             return this;
         }
 
+        /**
+         * @param colorSpacePassthroughSettings Sets the colorspace metadata to be passed through.
+         * 
+         * @return builder
+         * 
+         */
         public Builder colorSpacePassthroughSettings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs colorSpacePassthroughSettings) {
             return colorSpacePassthroughSettings(Output.of(colorSpacePassthroughSettings));
         }
 
+        /**
+         * @param dolbyVision81Settings Set the colorspace to Dolby Vision81.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dolbyVision81Settings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs> dolbyVision81Settings) {
             $.dolbyVision81Settings = dolbyVision81Settings;
             return this;
         }
 
+        /**
+         * @param dolbyVision81Settings Set the colorspace to Dolby Vision81.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dolbyVision81Settings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs dolbyVision81Settings) {
             return dolbyVision81Settings(Output.of(dolbyVision81Settings));
         }
 
+        /**
+         * @param hdr10Settings Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hdr10Settings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs> hdr10Settings) {
             $.hdr10Settings = hdr10Settings;
             return this;
         }
 
+        /**
+         * @param hdr10Settings Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hdr10Settings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs hdr10Settings) {
             return hdr10Settings(Output.of(hdr10Settings));
         }
 
+        /**
+         * @param rec601Settings Set the colorspace to Rec. 601.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rec601Settings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs> rec601Settings) {
             $.rec601Settings = rec601Settings;
             return this;
         }
 
+        /**
+         * @param rec601Settings Set the colorspace to Rec. 601.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rec601Settings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs rec601Settings) {
             return rec601Settings(Output.of(rec601Settings));
         }
 
+        /**
+         * @param rec709Settings Set the colorspace to Rec. 709.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rec709Settings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs> rec709Settings) {
             $.rec709Settings = rec709Settings;
             return this;
         }
 
+        /**
+         * @param rec709Settings Set the colorspace to Rec. 709.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rec709Settings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs rec709Settings) {
             return rec709Settings(Output.of(rec709Settings));
         }

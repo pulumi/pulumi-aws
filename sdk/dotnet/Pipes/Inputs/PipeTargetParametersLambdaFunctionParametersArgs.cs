@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeTargetParametersLambdaFunctionParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+        /// </summary>
         [Input("invocationType", required: true)]
         public Input<string> InvocationType { get; set; } = null!;
 

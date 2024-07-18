@@ -17,6 +17,9 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
         /// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
         /// </summary>
         public readonly ImmutableArray<string> ClientIds;
+        /// <summary>
+        /// The claim that determines the principal in OIDC access tokens.
+        /// </summary>
         public readonly string? PrincipalIdClaim;
 
         [OutputConstructor]

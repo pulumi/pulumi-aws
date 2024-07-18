@@ -11,9 +11,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcPeeringConnectionAccepter {
+    /**
+     * @return Allow a local VPC to resolve public DNS hostnames to
+     * private IP addresses when queried from instances in the peer VPC.
+     * 
+     */
     private @Nullable Boolean allowRemoteVpcDnsResolution;
 
     private VpcPeeringConnectionAccepter() {}
+    /**
+     * @return Allow a local VPC to resolve public DNS hostnames to
+     * private IP addresses when queried from instances in the peer VPC.
+     * 
+     */
     public Optional<Boolean> allowRemoteVpcDnsResolution() {
         return Optional.ofNullable(this.allowRemoteVpcDnsResolution);
     }

@@ -30,9 +30,17 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesEnvir
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -83,11 +91,23 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesEnvir
             return name(Output.of(name));
         }
 
+        /**
+         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

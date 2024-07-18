@@ -195,18 +195,18 @@ class OrganizationConfiguration(pulumi.CustomResource):
             auto_enable_organization_members="ALL",
             detector_id=example.id,
             datasources={
-                "s3Logs": {
-                    "autoEnable": True,
+                "s3_logs": {
+                    "auto_enable": True,
                 },
                 "kubernetes": {
-                    "auditLogs": {
+                    "audit_logs": {
                         "enable": True,
                     },
                 },
-                "malwareProtection": {
-                    "scanEc2InstanceWithFindings": {
-                        "ebsVolumes": {
-                            "autoEnable": True,
+                "malware_protection": {
+                    "scan_ec2_instance_with_findings": {
+                        "ebs_volumes": {
+                            "auto_enable": True,
                         },
                     },
                 },
@@ -250,18 +250,18 @@ class OrganizationConfiguration(pulumi.CustomResource):
             auto_enable_organization_members="ALL",
             detector_id=example.id,
             datasources={
-                "s3Logs": {
-                    "autoEnable": True,
+                "s3_logs": {
+                    "auto_enable": True,
                 },
                 "kubernetes": {
-                    "auditLogs": {
+                    "audit_logs": {
                         "enable": True,
                     },
                 },
-                "malwareProtection": {
-                    "scanEc2InstanceWithFindings": {
-                        "ebsVolumes": {
-                            "autoEnable": True,
+                "malware_protection": {
+                    "scan_ec2_instance_with_findings": {
+                        "ebs_volumes": {
+                            "auto_enable": True,
                         },
                     },
                 },

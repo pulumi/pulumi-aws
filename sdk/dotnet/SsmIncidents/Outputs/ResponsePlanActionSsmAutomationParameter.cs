@@ -17,6 +17,9 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// The name of the response plan.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The values for the associated parameter name.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

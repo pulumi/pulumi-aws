@@ -280,7 +280,13 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationAr
 if not MYPY:
     class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgsDict(TypedDict):
         classification: NotRequired[pulumi.Input[str]]
+        """
+        The classification within a configuration.
+        """
         properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A set of properties specified within a configuration classification.
+        """
 elif False:
     JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -289,6 +295,10 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] classification: The classification within a configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A set of properties specified within a configuration classification.
+        """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
         if properties is not None:
@@ -297,6 +307,9 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     @property
     @pulumi.getter
     def classification(self) -> Optional[pulumi.Input[str]]:
+        """
+        The classification within a configuration.
+        """
         return pulumi.get(self, "classification")
 
     @classification.setter
@@ -306,6 +319,9 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A set of properties specified within a configuration classification.
+        """
         return pulumi.get(self, "properties")
 
     @properties.setter

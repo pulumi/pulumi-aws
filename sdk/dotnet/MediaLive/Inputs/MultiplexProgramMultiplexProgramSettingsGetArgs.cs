@@ -12,15 +12,27 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class MultiplexProgramMultiplexProgramSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+        /// </summary>
         [Input("preferredChannelPipeline", required: true)]
         public Input<string> PreferredChannelPipeline { get; set; } = null!;
 
+        /// <summary>
+        /// Unique program number.
+        /// </summary>
         [Input("programNumber", required: true)]
         public Input<int> ProgramNumber { get; set; } = null!;
 
+        /// <summary>
+        /// Service Descriptor. See Service Descriptor for more details.
+        /// </summary>
         [Input("serviceDescriptor")]
         public Input<Inputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptorGetArgs>? ServiceDescriptor { get; set; }
 
+        /// <summary>
+        /// Video settings. See Video Settings for more details.
+        /// </summary>
         [Input("videoSettings")]
         public Input<Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsGetArgs>? VideoSettings { get; set; }
 

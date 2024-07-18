@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetOutputColumnArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Field folder description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

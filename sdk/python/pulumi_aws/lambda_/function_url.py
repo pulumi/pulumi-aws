@@ -270,18 +270,18 @@ class FunctionUrl(pulumi.CustomResource):
             qualifier="my_alias",
             authorization_type="AWS_IAM",
             cors={
-                "allowCredentials": True,
-                "allowOrigins": ["*"],
-                "allowMethods": ["*"],
-                "allowHeaders": [
+                "allow_credentials": True,
+                "allow_origins": ["*"],
+                "allow_methods": ["*"],
+                "allow_headers": [
                     "date",
                     "keep-alive",
                 ],
-                "exposeHeaders": [
+                "expose_headers": [
                     "keep-alive",
                     "date",
                 ],
-                "maxAge": 86400,
+                "max_age": 86400,
             })
         ```
 
@@ -326,18 +326,18 @@ class FunctionUrl(pulumi.CustomResource):
             qualifier="my_alias",
             authorization_type="AWS_IAM",
             cors={
-                "allowCredentials": True,
-                "allowOrigins": ["*"],
-                "allowMethods": ["*"],
-                "allowHeaders": [
+                "allow_credentials": True,
+                "allow_origins": ["*"],
+                "allow_methods": ["*"],
+                "allow_headers": [
                     "date",
                     "keep-alive",
                 ],
-                "exposeHeaders": [
+                "expose_headers": [
                     "keep-alive",
                     "date",
                 ],
-                "maxAge": 86400,
+                "max_age": 86400,
             })
         ```
 

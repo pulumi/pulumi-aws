@@ -13,8 +13,17 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class RuleGroupActivatedRule
     {
+        /// <summary>
+        /// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+        /// </summary>
         public readonly Outputs.RuleGroupActivatedRuleAction Action;
+        /// <summary>
+        /// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// The ID of a rule
+        /// </summary>
         public readonly string RuleId;
         public readonly string? Type;
 

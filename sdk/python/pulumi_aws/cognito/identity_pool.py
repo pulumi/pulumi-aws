@@ -395,14 +395,14 @@ class IdentityPool(pulumi.CustomResource):
             allow_classic_flow=False,
             cognito_identity_providers=[
                 {
-                    "clientId": "6lhlkkfbfb4q5kpp90urffae",
-                    "providerName": "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
-                    "serverSideTokenCheck": False,
+                    "client_id": "6lhlkkfbfb4q5kpp90urffae",
+                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
+                    "server_side_token_check": False,
                 },
                 {
-                    "clientId": "7kodkvfqfb4qfkp39eurffae",
-                    "providerName": "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
-                    "serverSideTokenCheck": False,
+                    "client_id": "7kodkvfqfb4qfkp39eurffae",
+                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
+                    "server_side_token_check": False,
                 },
             ],
             supported_login_providers={
@@ -459,14 +459,14 @@ class IdentityPool(pulumi.CustomResource):
             allow_classic_flow=False,
             cognito_identity_providers=[
                 {
-                    "clientId": "6lhlkkfbfb4q5kpp90urffae",
-                    "providerName": "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
-                    "serverSideTokenCheck": False,
+                    "client_id": "6lhlkkfbfb4q5kpp90urffae",
+                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
+                    "server_side_token_check": False,
                 },
                 {
-                    "clientId": "7kodkvfqfb4qfkp39eurffae",
-                    "providerName": "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
-                    "serverSideTokenCheck": False,
+                    "client_id": "7kodkvfqfb4qfkp39eurffae",
+                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
+                    "server_side_token_check": False,
                 },
             ],
             supported_login_providers={

@@ -21,6 +21,9 @@ namespace Pulumi.Aws.Connect.Outputs
         /// The identifier of the hierarchy level.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The name of the user hierarchy level. Must not be more than 50 characters.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

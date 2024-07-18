@@ -13,8 +13,17 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     [OutputType]
     public sealed class UsagePlanApiStage
     {
+        /// <summary>
+        /// API Id of the associated API stage in a usage plan.
+        /// </summary>
         public readonly string ApiId;
+        /// <summary>
+        /// API stage name of the associated API stage in a usage plan.
+        /// </summary>
         public readonly string Stage;
+        /// <summary>
+        /// The throttling limits of the usage plan.
+        /// </summary>
         public readonly ImmutableArray<Outputs.UsagePlanApiStageThrottle> Throttles;
 
         [OutputConstructor]

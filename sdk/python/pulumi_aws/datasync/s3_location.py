@@ -296,7 +296,7 @@ class S3Location(pulumi.CustomResource):
             s3_bucket_arn=example_aws_s3_bucket["arn"],
             subdirectory="/example/prefix",
             s3_config={
-                "bucketAccessRoleArn": example_aws_iam_role["arn"],
+                "bucket_access_role_arn": example_aws_iam_role["arn"],
             })
         ```
 
@@ -336,7 +336,7 @@ class S3Location(pulumi.CustomResource):
             s3_bucket_arn=example_aws_s3_bucket["arn"],
             subdirectory="/example/prefix",
             s3_config={
-                "bucketAccessRoleArn": example_aws_iam_role["arn"],
+                "bucket_access_role_arn": example_aws_iam_role["arn"],
             })
         ```
 

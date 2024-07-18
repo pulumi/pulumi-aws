@@ -1047,27 +1047,27 @@ class SpotFleetRequest(pulumi.CustomResource):
             valid_until="2019-11-04T20:44:20Z",
             launch_specifications=[
                 {
-                    "instanceType": "m4.10xlarge",
+                    "instance_type": "m4.10xlarge",
                     "ami": "ami-1234",
-                    "spotPrice": "2.793",
-                    "placementTenancy": "dedicated",
-                    "iamInstanceProfileArn": example["arn"],
+                    "spot_price": "2.793",
+                    "placement_tenancy": "dedicated",
+                    "iam_instance_profile_arn": example["arn"],
                 },
                 {
-                    "instanceType": "m4.4xlarge",
+                    "instance_type": "m4.4xlarge",
                     "ami": "ami-5678",
-                    "keyName": "my-key",
-                    "spotPrice": "1.117",
-                    "iamInstanceProfileArn": example["arn"],
-                    "availabilityZone": "us-west-1a",
-                    "subnetId": "subnet-1234",
-                    "weightedCapacity": "35",
-                    "rootBlockDevices": [{
-                        "volumeSize": 300,
-                        "volumeType": "gp2",
+                    "key_name": "my-key",
+                    "spot_price": "1.117",
+                    "iam_instance_profile_arn": example["arn"],
+                    "availability_zone": "us-west-1a",
+                    "subnet_id": "subnet-1234",
+                    "weighted_capacity": "35",
+                    "root_block_devices": [{
+                        "volume_size": 300,
+                        "volume_type": "gp2",
                     }],
                     "tags": {
-                        "Name": "spot-fleet-example",
+                        "name": "spot-fleet-example",
                     },
                 },
             ])
@@ -1090,7 +1090,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
             launch_template_configs=[{
-                "launchTemplateSpecification": {
+                "launch_template_specification": {
                     "id": foo.id,
                     "version": foo.latest_version,
                 },
@@ -1114,16 +1114,16 @@ class SpotFleetRequest(pulumi.CustomResource):
             valid_until="2019-11-04T20:44:20Z",
             launch_specifications=[
                 {
-                    "instanceType": "m1.small",
+                    "instance_type": "m1.small",
                     "ami": "ami-d06a90b0",
-                    "keyName": "my-key",
-                    "availabilityZone": "us-west-2a",
+                    "key_name": "my-key",
+                    "availability_zone": "us-west-2a",
                 },
                 {
-                    "instanceType": "m5.large",
+                    "instance_type": "m5.large",
                     "ami": "ami-d06a90b0",
-                    "keyName": "my-key",
-                    "availabilityZone": "us-west-2a",
+                    "key_name": "my-key",
+                    "availability_zone": "us-west-2a",
                 },
             ])
         ```
@@ -1139,16 +1139,16 @@ class SpotFleetRequest(pulumi.CustomResource):
         example = aws.ec2.SpotFleetRequest("example",
             launch_specifications=[{
                 "ami": "ami-1234",
-                "instanceType": "m4.4xlarge",
-                "subnetId": entry["value"]["subnetId"],
-                "vpcSecurityGroupIds": "sg-123456",
-                "rootBlockDevices": [{
-                    "volumeSize": 8,
-                    "volumeType": "gp2",
-                    "deleteOnTermination": True,
+                "instance_type": "m4.4xlarge",
+                "subnet_id": entry["value"]["subnetId"],
+                "vpc_security_group_ids": "sg-123456",
+                "root_block_devices": [{
+                    "volume_size": 8,
+                    "volume_type": "gp2",
+                    "delete_on_termination": True,
                 }],
                 "tags": {
-                    "Name": "Spot Node",
+                    "name": "Spot Node",
                     "tag_builder": "builder",
                 },
             } for entry in [{"key": k, "value": v} for k, v in [{
@@ -1184,19 +1184,19 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
             launch_template_configs=[{
-                "launchTemplateSpecification": {
+                "launch_template_specification": {
                     "id": foo.id,
                     "version": foo.latest_version,
                 },
                 "overrides": [
                     {
-                        "subnetId": example.ids[0],
+                        "subnet_id": example.ids[0],
                     },
                     {
-                        "subnetId": example.ids[1],
+                        "subnet_id": example.ids[1],
                     },
                     {
-                        "subnetId": example.ids[2],
+                        "subnet_id": example.ids[2],
                     },
                 ],
             }],
@@ -1297,27 +1297,27 @@ class SpotFleetRequest(pulumi.CustomResource):
             valid_until="2019-11-04T20:44:20Z",
             launch_specifications=[
                 {
-                    "instanceType": "m4.10xlarge",
+                    "instance_type": "m4.10xlarge",
                     "ami": "ami-1234",
-                    "spotPrice": "2.793",
-                    "placementTenancy": "dedicated",
-                    "iamInstanceProfileArn": example["arn"],
+                    "spot_price": "2.793",
+                    "placement_tenancy": "dedicated",
+                    "iam_instance_profile_arn": example["arn"],
                 },
                 {
-                    "instanceType": "m4.4xlarge",
+                    "instance_type": "m4.4xlarge",
                     "ami": "ami-5678",
-                    "keyName": "my-key",
-                    "spotPrice": "1.117",
-                    "iamInstanceProfileArn": example["arn"],
-                    "availabilityZone": "us-west-1a",
-                    "subnetId": "subnet-1234",
-                    "weightedCapacity": "35",
-                    "rootBlockDevices": [{
-                        "volumeSize": 300,
-                        "volumeType": "gp2",
+                    "key_name": "my-key",
+                    "spot_price": "1.117",
+                    "iam_instance_profile_arn": example["arn"],
+                    "availability_zone": "us-west-1a",
+                    "subnet_id": "subnet-1234",
+                    "weighted_capacity": "35",
+                    "root_block_devices": [{
+                        "volume_size": 300,
+                        "volume_type": "gp2",
                     }],
                     "tags": {
-                        "Name": "spot-fleet-example",
+                        "name": "spot-fleet-example",
                     },
                 },
             ])
@@ -1340,7 +1340,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
             launch_template_configs=[{
-                "launchTemplateSpecification": {
+                "launch_template_specification": {
                     "id": foo.id,
                     "version": foo.latest_version,
                 },
@@ -1364,16 +1364,16 @@ class SpotFleetRequest(pulumi.CustomResource):
             valid_until="2019-11-04T20:44:20Z",
             launch_specifications=[
                 {
-                    "instanceType": "m1.small",
+                    "instance_type": "m1.small",
                     "ami": "ami-d06a90b0",
-                    "keyName": "my-key",
-                    "availabilityZone": "us-west-2a",
+                    "key_name": "my-key",
+                    "availability_zone": "us-west-2a",
                 },
                 {
-                    "instanceType": "m5.large",
+                    "instance_type": "m5.large",
                     "ami": "ami-d06a90b0",
-                    "keyName": "my-key",
-                    "availabilityZone": "us-west-2a",
+                    "key_name": "my-key",
+                    "availability_zone": "us-west-2a",
                 },
             ])
         ```
@@ -1389,16 +1389,16 @@ class SpotFleetRequest(pulumi.CustomResource):
         example = aws.ec2.SpotFleetRequest("example",
             launch_specifications=[{
                 "ami": "ami-1234",
-                "instanceType": "m4.4xlarge",
-                "subnetId": entry["value"]["subnetId"],
-                "vpcSecurityGroupIds": "sg-123456",
-                "rootBlockDevices": [{
-                    "volumeSize": 8,
-                    "volumeType": "gp2",
-                    "deleteOnTermination": True,
+                "instance_type": "m4.4xlarge",
+                "subnet_id": entry["value"]["subnetId"],
+                "vpc_security_group_ids": "sg-123456",
+                "root_block_devices": [{
+                    "volume_size": 8,
+                    "volume_type": "gp2",
+                    "delete_on_termination": True,
                 }],
                 "tags": {
-                    "Name": "Spot Node",
+                    "name": "Spot Node",
                     "tag_builder": "builder",
                 },
             } for entry in [{"key": k, "value": v} for k, v in [{
@@ -1434,19 +1434,19 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
             launch_template_configs=[{
-                "launchTemplateSpecification": {
+                "launch_template_specification": {
                     "id": foo.id,
                     "version": foo.latest_version,
                 },
                 "overrides": [
                     {
-                        "subnetId": example.ids[0],
+                        "subnet_id": example.ids[0],
                     },
                     {
-                        "subnetId": example.ids[1],
+                        "subnet_id": example.ids[1],
                     },
                     {
-                        "subnetId": example.ids[2],
+                        "subnet_id": example.ids[2],
                     },
                 ],
             }],

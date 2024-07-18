@@ -21,9 +21,17 @@ public final class WorkflowStepTagStepDetailsTagArgs extends com.pulumi.resource
         return this.key;
     }
 
+    /**
+     * The value that corresponds to the key.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return The value that corresponds to the key.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -62,11 +70,23 @@ public final class WorkflowStepTagStepDetailsTagArgs extends com.pulumi.resource
             return key(Output.of(key));
         }
 
+        /**
+         * @param value The value that corresponds to the key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The value that corresponds to the key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

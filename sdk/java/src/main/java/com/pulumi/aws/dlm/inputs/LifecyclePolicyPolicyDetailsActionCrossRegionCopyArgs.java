@@ -18,9 +18,17 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
 
     public static final LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs Empty = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs();
 
+    /**
+     * The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+     * 
+     */
     @Import(name="encryptionConfiguration", required=true)
     private Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs> encryptionConfiguration;
 
+    /**
+     * @return The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+     * 
+     */
     public Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs> encryptionConfiguration() {
         return this.encryptionConfiguration;
     }
@@ -65,11 +73,23 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
             $ = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param encryptionConfiguration The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionConfiguration(Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs> encryptionConfiguration) {
             $.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
 
+        /**
+         * @param encryptionConfiguration The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionConfiguration(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs encryptionConfiguration) {
             return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
