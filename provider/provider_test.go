@@ -48,8 +48,8 @@ func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args
 	arguments = append(arguments, args...)
 	arguments = append(arguments, "-s", ptest.CurrentStack().Name())
 	s1, s2, code, err := workspace.PulumiCommand().Run(ctx, workdir, stdin, nil, nil, env, arguments...)
-	t.Logf("import stdout: %s", s1)
-	t.Logf("import stderr: %s", s2)
+	t.Logf("stdout: %s", s1)
+	t.Logf("stderr: %s", s2)
 	t.Logf("code=%v", code)
 	require.NoError(t, err)
 }

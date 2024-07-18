@@ -237,7 +237,7 @@ func (st tagsState) validateStateResult(phase int) func(
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 		for k, v := range stack.Outputs {
 			switch k {
-			case "bucket-name", "legacy-bucket-name", "appconfig-app-arn":
+			case "bucket-name", "legacy-bucket-name", "appconfig-app-arn", "appconfig-env-arn":
 				continue
 			}
 
@@ -264,6 +264,12 @@ func (st tagsState) validateStateResult(phase int) func(
 			}
 			if k == "appconfig-app" {
 				arn := stack.Outputs["appconfig-app-arn"].(string)
+				st.assertTagsEqualWithRetry(t,
+					fetchAppConfigTags(arn),
+					"bad appconfig app tags")
+			}
+			if k == "appconfig-env" {
+				arn := stack.Outputs["appconfig-env-arn"].(string)
 				st.assertTagsEqualWithRetry(t,
 					fetchAppConfigTags(arn),
 					"bad appconfig app tags")
