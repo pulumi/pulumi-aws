@@ -27,7 +27,7 @@ return await Deployment.RunAsync(() =>
         Name = "RuleSetName",
     });
 
-    new MatchmakingConfiguration("mc", new MatchmakingConfigurationArgs
+    var mc = new MatchmakingConfiguration("mc", new MatchmakingConfigurationArgs
     {
         AcceptanceRequired = false,
         FlexMatchMode = "STANDALONE",
@@ -41,4 +41,9 @@ return await Deployment.RunAsync(() =>
     {
         IgnoreChanges = new List<string> {"gameSessionQueueArns"}
     });
+
+    return new Dictionary<string, object?>
+    {
+        ["CustomEventData"] = mc.CustomEventData
+    };
 });
