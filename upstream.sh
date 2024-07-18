@@ -97,7 +97,7 @@ Either stage or reset the 'upstream' submodule changes before continuing:
 
     git add upstream
     # or #
-    git checkout upstream
+    (cd upstream && git checkout <current submodule commit of origin/default> && cd -)
 
 EOF
     exit 1
