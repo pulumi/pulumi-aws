@@ -12,29 +12,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupMixedInstancesPolicyInstancesDistribution {
+    /**
+     * @return Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
+     * 
+     */
     private @Nullable String onDemandAllocationStrategy;
+    /**
+     * @return Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
+     * 
+     */
     private @Nullable Integer onDemandBaseCapacity;
+    /**
+     * @return Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+     * 
+     */
     private @Nullable Integer onDemandPercentageAboveBaseCapacity;
+    /**
+     * @return How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
+     * 
+     */
     private @Nullable String spotAllocationStrategy;
+    /**
+     * @return Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
+     * 
+     */
     private @Nullable Integer spotInstancePools;
+    /**
+     * @return Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
+     * 
+     */
     private @Nullable String spotMaxPrice;
 
     private GroupMixedInstancesPolicyInstancesDistribution() {}
+    /**
+     * @return Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
+     * 
+     */
     public Optional<String> onDemandAllocationStrategy() {
         return Optional.ofNullable(this.onDemandAllocationStrategy);
     }
+    /**
+     * @return Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
+     * 
+     */
     public Optional<Integer> onDemandBaseCapacity() {
         return Optional.ofNullable(this.onDemandBaseCapacity);
     }
+    /**
+     * @return Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+     * 
+     */
     public Optional<Integer> onDemandPercentageAboveBaseCapacity() {
         return Optional.ofNullable(this.onDemandPercentageAboveBaseCapacity);
     }
+    /**
+     * @return How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
+     * 
+     */
     public Optional<String> spotAllocationStrategy() {
         return Optional.ofNullable(this.spotAllocationStrategy);
     }
+    /**
+     * @return Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
+     * 
+     */
     public Optional<Integer> spotInstancePools() {
         return Optional.ofNullable(this.spotInstancePools);
     }
+    /**
+     * @return Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
+     * 
+     */
     public Optional<String> spotMaxPrice() {
         return Optional.ofNullable(this.spotMaxPrice);
     }

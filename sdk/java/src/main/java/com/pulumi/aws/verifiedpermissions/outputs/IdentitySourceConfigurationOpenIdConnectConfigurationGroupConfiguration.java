@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
+    /**
+     * @return The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+     * 
+     */
     private String groupClaim;
     /**
      * @return The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
@@ -18,6 +22,10 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationGroupCon
     private String groupEntityType;
 
     private IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration() {}
+    /**
+     * @return The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+     * 
+     */
     public String groupClaim() {
         return this.groupClaim;
     }

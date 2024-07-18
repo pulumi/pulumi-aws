@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfigurationS3Configuration
     {
+        /// <summary>
+        /// ARN of the bucket that contains the data source.
+        /// </summary>
         public readonly string BucketArn;
+        /// <summary>
+        /// Bucket account owner ID for the S3 bucket.
+        /// </summary>
         public readonly string? BucketOwnerAccountId;
+        /// <summary>
+        /// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+        /// </summary>
         public readonly ImmutableArray<string> InclusionPrefixes;
 
         [OutputConstructor]

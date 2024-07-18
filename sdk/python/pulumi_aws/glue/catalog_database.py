@@ -396,7 +396,7 @@ class CatalogDatabase(pulumi.CustomResource):
             create_table_default_permissions=[{
                 "permissions": ["SELECT"],
                 "principal": {
-                    "dataLakePrincipalIdentifier": "IAM_ALLOWED_PRINCIPALS",
+                    "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
                 },
             }])
         ```
@@ -450,7 +450,7 @@ class CatalogDatabase(pulumi.CustomResource):
             create_table_default_permissions=[{
                 "permissions": ["SELECT"],
                 "principal": {
-                    "dataLakePrincipalIdentifier": "IAM_ALLOWED_PRINCIPALS",
+                    "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
                 },
             }])
         ```

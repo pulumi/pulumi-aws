@@ -401,7 +401,7 @@ class EndpointGroup(pulumi.CustomResource):
         example = aws.globalaccelerator.EndpointGroup("example",
             listener_arn=example_aws_globalaccelerator_listener["id"],
             endpoint_configurations=[{
-                "endpointId": example_aws_lb["arn"],
+                "endpoint_id": example_aws_lb["arn"],
                 "weight": 100,
             }])
         ```
@@ -446,7 +446,7 @@ class EndpointGroup(pulumi.CustomResource):
         example = aws.globalaccelerator.EndpointGroup("example",
             listener_arn=example_aws_globalaccelerator_listener["id"],
             endpoint_configurations=[{
-                "endpointId": example_aws_lb["arn"],
+                "endpoint_id": example_aws_lb["arn"],
                 "weight": 100,
             }])
         ```

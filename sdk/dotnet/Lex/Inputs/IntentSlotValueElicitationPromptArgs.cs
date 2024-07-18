@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class IntentSlotValueElicitationPromptArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+        /// </summary>
         [Input("maxAttempts", required: true)]
         public Input<int> MaxAttempts { get; set; } = null!;
 

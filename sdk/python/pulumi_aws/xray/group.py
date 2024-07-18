@@ -219,8 +219,8 @@ class Group(pulumi.CustomResource):
             group_name="example",
             filter_expression="responsetime > 5",
             insights_configuration={
-                "insightsEnabled": True,
-                "notificationsEnabled": True,
+                "insights_enabled": True,
+                "notifications_enabled": True,
             })
         ```
 
@@ -258,8 +258,8 @@ class Group(pulumi.CustomResource):
             group_name="example",
             filter_expression="responsetime > 5",
             insights_configuration={
-                "insightsEnabled": True,
-                "notificationsEnabled": True,
+                "insights_enabled": True,
+                "notifications_enabled": True,
             })
         ```
 

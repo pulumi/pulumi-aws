@@ -222,9 +222,9 @@ class TestGridProject(pulumi.CustomResource):
         example = aws.devicefarm.TestGridProject("example",
             name="example",
             vpc_config={
-                "vpcId": example_aws_vpc["id"],
-                "subnetIds": [__item["id"] for __item in example_aws_subnet],
-                "securityGroupIds": [__item["id"] for __item in example_aws_security_group],
+                "vpc_id": example_aws_vpc["id"],
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                "security_group_ids": [__item["id"] for __item in example_aws_security_group],
             })
         ```
 
@@ -263,9 +263,9 @@ class TestGridProject(pulumi.CustomResource):
         example = aws.devicefarm.TestGridProject("example",
             name="example",
             vpc_config={
-                "vpcId": example_aws_vpc["id"],
-                "subnetIds": [__item["id"] for __item in example_aws_subnet],
-                "securityGroupIds": [__item["id"] for __item in example_aws_security_group],
+                "vpc_id": example_aws_vpc["id"],
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                "security_group_ids": [__item["id"] for __item in example_aws_security_group],
             })
         ```
 

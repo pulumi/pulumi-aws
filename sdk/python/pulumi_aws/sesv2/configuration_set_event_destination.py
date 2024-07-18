@@ -152,15 +152,15 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination={
-                "cloudWatchDestination": {
-                    "dimensionConfigurations": [{
-                        "defaultDimensionValue": "example",
-                        "dimensionName": "example",
-                        "dimensionValueSource": "MESSAGE_TAG",
+                "cloud_watch_destination": {
+                    "dimension_configurations": [{
+                        "default_dimension_value": "example",
+                        "dimension_name": "example",
+                        "dimension_value_source": "MESSAGE_TAG",
                     }],
                 },
                 "enabled": True,
-                "matchingEventTypes": ["SEND"],
+                "matching_event_types": ["SEND"],
             })
         ```
 
@@ -175,12 +175,12 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination={
-                "kinesisFirehoseDestination": {
-                    "deliveryStreamArn": example_aws_kinesis_firehose_delivery_stream["arn"],
-                    "iamRoleArn": example_aws_iam_role["arn"],
+                "kinesis_firehose_destination": {
+                    "delivery_stream_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
+                    "iam_role_arn": example_aws_iam_role["arn"],
                 },
                 "enabled": True,
-                "matchingEventTypes": ["SEND"],
+                "matching_event_types": ["SEND"],
             })
         ```
 
@@ -195,11 +195,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination={
-                "pinpointDestination": {
-                    "applicationArn": example_aws_pinpoint_app["arn"],
+                "pinpoint_destination": {
+                    "application_arn": example_aws_pinpoint_app["arn"],
                 },
                 "enabled": True,
-                "matchingEventTypes": ["SEND"],
+                "matching_event_types": ["SEND"],
             })
         ```
 
@@ -214,11 +214,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination={
-                "snsDestination": {
-                    "topicArn": example_aws_sns_topic["arn"],
+                "sns_destination": {
+                    "topic_arn": example_aws_sns_topic["arn"],
                 },
                 "enabled": True,
-                "matchingEventTypes": ["SEND"],
+                "matching_event_types": ["SEND"],
             })
         ```
 
@@ -258,15 +258,15 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination={
-                "cloudWatchDestination": {
-                    "dimensionConfigurations": [{
-                        "defaultDimensionValue": "example",
-                        "dimensionName": "example",
-                        "dimensionValueSource": "MESSAGE_TAG",
+                "cloud_watch_destination": {
+                    "dimension_configurations": [{
+                        "default_dimension_value": "example",
+                        "dimension_name": "example",
+                        "dimension_value_source": "MESSAGE_TAG",
                     }],
                 },
                 "enabled": True,
-                "matchingEventTypes": ["SEND"],
+                "matching_event_types": ["SEND"],
             })
         ```
 
@@ -281,12 +281,12 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination={
-                "kinesisFirehoseDestination": {
-                    "deliveryStreamArn": example_aws_kinesis_firehose_delivery_stream["arn"],
-                    "iamRoleArn": example_aws_iam_role["arn"],
+                "kinesis_firehose_destination": {
+                    "delivery_stream_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
+                    "iam_role_arn": example_aws_iam_role["arn"],
                 },
                 "enabled": True,
-                "matchingEventTypes": ["SEND"],
+                "matching_event_types": ["SEND"],
             })
         ```
 
@@ -301,11 +301,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination={
-                "pinpointDestination": {
-                    "applicationArn": example_aws_pinpoint_app["arn"],
+                "pinpoint_destination": {
+                    "application_arn": example_aws_pinpoint_app["arn"],
                 },
                 "enabled": True,
-                "matchingEventTypes": ["SEND"],
+                "matching_event_types": ["SEND"],
             })
         ```
 
@@ -320,11 +320,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             configuration_set_name=example.configuration_set_name,
             event_destination_name="example",
             event_destination={
-                "snsDestination": {
-                    "topicArn": example_aws_sns_topic["arn"],
+                "sns_destination": {
+                    "topic_arn": example_aws_sns_topic["arn"],
                 },
                 "enabled": True,
-                "matchingEventTypes": ["SEND"],
+                "matching_event_types": ["SEND"],
             })
         ```
 

@@ -265,9 +265,9 @@ class UserPoolDomain(pulumi.CustomResource):
             type=aws.route53.RecordType.A,
             zone_id=example.zone_id,
             aliases=[{
-                "evaluateTargetHealth": False,
+                "evaluate_target_health": False,
                 "name": main.cloudfront_distribution,
-                "zoneId": main.cloudfront_distribution_zone_id,
+                "zone_id": main.cloudfront_distribution_zone_id,
             }])
         ```
 
@@ -325,9 +325,9 @@ class UserPoolDomain(pulumi.CustomResource):
             type=aws.route53.RecordType.A,
             zone_id=example.zone_id,
             aliases=[{
-                "evaluateTargetHealth": False,
+                "evaluate_target_health": False,
                 "name": main.cloudfront_distribution,
-                "zoneId": main.cloudfront_distribution_zone_id,
+                "zone_id": main.cloudfront_distribution_zone_id,
             }])
         ```
 

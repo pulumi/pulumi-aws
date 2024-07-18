@@ -1158,7 +1158,7 @@ class BucketObjectv2(pulumi.CustomResource):
                 "Env": "test",
             },
             override_provider={
-                "defaultTags": {
+                "default_tags": {
                     "tags": {},
                 },
             })
@@ -1343,7 +1343,7 @@ class BucketObjectv2(pulumi.CustomResource):
                 "Env": "test",
             },
             override_provider={
-                "defaultTags": {
+                "default_tags": {
                     "tags": {},
                 },
             })

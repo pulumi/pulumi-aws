@@ -318,14 +318,14 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             ingress=[{
                 "protocol": "-1",
                 "self": True,
-                "fromPort": 0,
-                "toPort": 0,
+                "from_port": 0,
+                "to_port": 0,
             }],
             egress=[{
-                "fromPort": 0,
-                "toPort": 0,
+                "from_port": 0,
+                "to_port": 0,
                 "protocol": "-1",
-                "cidrBlocks": ["0.0.0.0/0"],
+                "cidr_blocks": ["0.0.0.0/0"],
             }])
         ```
 
@@ -343,8 +343,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             ingress=[{
                 "protocol": "-1",
                 "self": True,
-                "fromPort": 0,
-                "toPort": 0,
+                "from_port": 0,
+                "to_port": 0,
             }])
         ```
 
@@ -398,14 +398,14 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             ingress=[{
                 "protocol": "-1",
                 "self": True,
-                "fromPort": 0,
-                "toPort": 0,
+                "from_port": 0,
+                "to_port": 0,
             }],
             egress=[{
-                "fromPort": 0,
-                "toPort": 0,
+                "from_port": 0,
+                "to_port": 0,
                 "protocol": "-1",
-                "cidrBlocks": ["0.0.0.0/0"],
+                "cidr_blocks": ["0.0.0.0/0"],
             }])
         ```
 
@@ -423,8 +423,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             ingress=[{
                 "protocol": "-1",
                 "self": True,
-                "fromPort": 0,
-                "toPort": 0,
+                "from_port": 0,
+                "to_port": 0,
             }])
         ```
 

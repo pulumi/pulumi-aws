@@ -12,15 +12,27 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionCustomErrorResponseGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
+        /// </summary>
         [Input("errorCachingMinTtl")]
         public Input<int>? ErrorCachingMinTtl { get; set; }
 
+        /// <summary>
+        /// 4xx or 5xx HTTP status code that you want to customize.
+        /// </summary>
         [Input("errorCode", required: true)]
         public Input<int> ErrorCode { get; set; } = null!;
 
+        /// <summary>
+        /// HTTP status code that you want CloudFront to return with the custom error page to the viewer.
+        /// </summary>
         [Input("responseCode")]
         public Input<int>? ResponseCode { get; set; }
 
+        /// <summary>
+        /// Path of the custom error page (for example, `/custom_404.html`).
+        /// </summary>
         [Input("responsePagePath")]
         public Input<string>? ResponsePagePath { get; set; }
 

@@ -2495,6 +2495,7 @@ class DataSetOutputColumn(dict):
                  name: Optional[str] = None,
                  type: Optional[str] = None):
         """
+        :param str description: Field folder description.
         :param str name: Display name for the dataset.
         """
         if description is not None:
@@ -2507,6 +2508,9 @@ class DataSetOutputColumn(dict):
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Field folder description.
+        """
         return pulumi.get(self, "description")
 
     @property

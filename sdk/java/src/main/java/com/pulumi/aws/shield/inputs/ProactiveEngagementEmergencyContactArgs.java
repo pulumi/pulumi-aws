@@ -16,23 +16,47 @@ public final class ProactiveEngagementEmergencyContactArgs extends com.pulumi.re
 
     public static final ProactiveEngagementEmergencyContactArgs Empty = new ProactiveEngagementEmergencyContactArgs();
 
+    /**
+     * Additional notes regarding the contact.
+     * 
+     */
     @Import(name="contactNotes")
     private @Nullable Output<String> contactNotes;
 
+    /**
+     * @return Additional notes regarding the contact.
+     * 
+     */
     public Optional<Output<String>> contactNotes() {
         return Optional.ofNullable(this.contactNotes);
     }
 
+    /**
+     * A valid email address that will be used for this contact.
+     * 
+     */
     @Import(name="emailAddress", required=true)
     private Output<String> emailAddress;
 
+    /**
+     * @return A valid email address that will be used for this contact.
+     * 
+     */
     public Output<String> emailAddress() {
         return this.emailAddress;
     }
 
+    /**
+     * A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+     * 
+     */
     @Import(name="phoneNumber")
     private @Nullable Output<String> phoneNumber;
 
+    /**
+     * @return A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+     * 
+     */
     public Optional<Output<String>> phoneNumber() {
         return Optional.ofNullable(this.phoneNumber);
     }
@@ -63,29 +87,65 @@ public final class ProactiveEngagementEmergencyContactArgs extends com.pulumi.re
             $ = new ProactiveEngagementEmergencyContactArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param contactNotes Additional notes regarding the contact.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contactNotes(@Nullable Output<String> contactNotes) {
             $.contactNotes = contactNotes;
             return this;
         }
 
+        /**
+         * @param contactNotes Additional notes regarding the contact.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contactNotes(String contactNotes) {
             return contactNotes(Output.of(contactNotes));
         }
 
+        /**
+         * @param emailAddress A valid email address that will be used for this contact.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailAddress(Output<String> emailAddress) {
             $.emailAddress = emailAddress;
             return this;
         }
 
+        /**
+         * @param emailAddress A valid email address that will be used for this contact.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailAddress(String emailAddress) {
             return emailAddress(Output.of(emailAddress));
         }
 
+        /**
+         * @param phoneNumber A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+         * 
+         * @return builder
+         * 
+         */
         public Builder phoneNumber(@Nullable Output<String> phoneNumber) {
             $.phoneNumber = phoneNumber;
             return this;
         }
 
+        /**
+         * @param phoneNumber A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+         * 
+         * @return builder
+         * 
+         */
         public Builder phoneNumber(String phoneNumber) {
             return phoneNumber(Output.of(phoneNumber));
         }

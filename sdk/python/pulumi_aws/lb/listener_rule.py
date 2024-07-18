@@ -256,16 +256,16 @@ class ListenerRule(pulumi.CustomResource):
             priority=100,
             actions=[{
                 "type": "forward",
-                "targetGroupArn": static_aws_lb_target_group["arn"],
+                "target_group_arn": static_aws_lb_target_group["arn"],
             }],
             conditions=[
                 {
-                    "pathPattern": {
+                    "path_pattern": {
                         "values": ["/static/*"],
                     },
                 },
                 {
-                    "hostHeader": {
+                    "host_header": {
                         "values": ["example.com"],
                     },
                 },
@@ -276,10 +276,10 @@ class ListenerRule(pulumi.CustomResource):
             priority=99,
             actions=[{
                 "type": "forward",
-                "targetGroupArn": static_aws_lb_target_group["arn"],
+                "target_group_arn": static_aws_lb_target_group["arn"],
             }],
             conditions=[{
-                "hostHeader": {
+                "host_header": {
                     "values": ["my-service.*.mycompany.io"],
                 },
             }])
@@ -290,7 +290,7 @@ class ListenerRule(pulumi.CustomResource):
             actions=[{
                 "type": "forward",
                 "forward": {
-                    "targetGroups": [
+                    "target_groups": [
                         {
                             "arn": main["arn"],
                             "weight": 80,
@@ -307,7 +307,7 @@ class ListenerRule(pulumi.CustomResource):
                 },
             }],
             conditions=[{
-                "hostHeader": {
+                "host_header": {
                     "values": ["my-service.*.mycompany.io"],
                 },
             }])
@@ -319,12 +319,12 @@ class ListenerRule(pulumi.CustomResource):
                 "redirect": {
                     "port": "443",
                     "protocol": "HTTPS",
-                    "statusCode": "HTTP_301",
+                    "status_code": "HTTP_301",
                 },
             }],
             conditions=[{
-                "httpHeader": {
-                    "httpHeaderName": "X-Forwarded-For",
+                "http_header": {
+                    "http_header_name": "X-Forwarded-For",
                     "values": ["192.168.1.*"],
                 },
             }])
@@ -333,14 +333,14 @@ class ListenerRule(pulumi.CustomResource):
             listener_arn=front_end_listener.arn,
             actions=[{
                 "type": "fixed-response",
-                "fixedResponse": {
-                    "contentType": "text/plain",
-                    "messageBody": "HEALTHY",
-                    "statusCode": "200",
+                "fixed_response": {
+                    "content_type": "text/plain",
+                    "message_body": "HEALTHY",
+                    "status_code": "200",
                 },
             }],
             conditions=[{
-                "queryStrings": [
+                "query_strings": [
                     {
                         "key": "health",
                         "value": "check",
@@ -359,15 +359,15 @@ class ListenerRule(pulumi.CustomResource):
             actions=[
                 {
                     "type": "authenticate-cognito",
-                    "authenticateCognito": {
-                        "userPoolArn": pool.arn,
-                        "userPoolClientId": client.id,
-                        "userPoolDomain": domain.domain,
+                    "authenticate_cognito": {
+                        "user_pool_arn": pool.arn,
+                        "user_pool_client_id": client.id,
+                        "user_pool_domain": domain.domain,
                     },
                 },
                 {
                     "type": "forward",
-                    "targetGroupArn": static_aws_lb_target_group["arn"],
+                    "target_group_arn": static_aws_lb_target_group["arn"],
                 },
             ])
         # Authenticate-oidc Action
@@ -376,18 +376,18 @@ class ListenerRule(pulumi.CustomResource):
             actions=[
                 {
                     "type": "authenticate-oidc",
-                    "authenticateOidc": {
-                        "authorizationEndpoint": "https://example.com/authorization_endpoint",
-                        "clientId": "client_id",
-                        "clientSecret": "client_secret",
+                    "authenticate_oidc": {
+                        "authorization_endpoint": "https://example.com/authorization_endpoint",
+                        "client_id": "client_id",
+                        "client_secret": "client_secret",
                         "issuer": "https://example.com",
-                        "tokenEndpoint": "https://example.com/token_endpoint",
-                        "userInfoEndpoint": "https://example.com/user_info_endpoint",
+                        "token_endpoint": "https://example.com/token_endpoint",
+                        "user_info_endpoint": "https://example.com/user_info_endpoint",
                     },
                 },
                 {
                     "type": "forward",
-                    "targetGroupArn": static_aws_lb_target_group["arn"],
+                    "target_group_arn": static_aws_lb_target_group["arn"],
                 },
             ])
         ```
@@ -432,16 +432,16 @@ class ListenerRule(pulumi.CustomResource):
             priority=100,
             actions=[{
                 "type": "forward",
-                "targetGroupArn": static_aws_lb_target_group["arn"],
+                "target_group_arn": static_aws_lb_target_group["arn"],
             }],
             conditions=[
                 {
-                    "pathPattern": {
+                    "path_pattern": {
                         "values": ["/static/*"],
                     },
                 },
                 {
-                    "hostHeader": {
+                    "host_header": {
                         "values": ["example.com"],
                     },
                 },
@@ -452,10 +452,10 @@ class ListenerRule(pulumi.CustomResource):
             priority=99,
             actions=[{
                 "type": "forward",
-                "targetGroupArn": static_aws_lb_target_group["arn"],
+                "target_group_arn": static_aws_lb_target_group["arn"],
             }],
             conditions=[{
-                "hostHeader": {
+                "host_header": {
                     "values": ["my-service.*.mycompany.io"],
                 },
             }])
@@ -466,7 +466,7 @@ class ListenerRule(pulumi.CustomResource):
             actions=[{
                 "type": "forward",
                 "forward": {
-                    "targetGroups": [
+                    "target_groups": [
                         {
                             "arn": main["arn"],
                             "weight": 80,
@@ -483,7 +483,7 @@ class ListenerRule(pulumi.CustomResource):
                 },
             }],
             conditions=[{
-                "hostHeader": {
+                "host_header": {
                     "values": ["my-service.*.mycompany.io"],
                 },
             }])
@@ -495,12 +495,12 @@ class ListenerRule(pulumi.CustomResource):
                 "redirect": {
                     "port": "443",
                     "protocol": "HTTPS",
-                    "statusCode": "HTTP_301",
+                    "status_code": "HTTP_301",
                 },
             }],
             conditions=[{
-                "httpHeader": {
-                    "httpHeaderName": "X-Forwarded-For",
+                "http_header": {
+                    "http_header_name": "X-Forwarded-For",
                     "values": ["192.168.1.*"],
                 },
             }])
@@ -509,14 +509,14 @@ class ListenerRule(pulumi.CustomResource):
             listener_arn=front_end_listener.arn,
             actions=[{
                 "type": "fixed-response",
-                "fixedResponse": {
-                    "contentType": "text/plain",
-                    "messageBody": "HEALTHY",
-                    "statusCode": "200",
+                "fixed_response": {
+                    "content_type": "text/plain",
+                    "message_body": "HEALTHY",
+                    "status_code": "200",
                 },
             }],
             conditions=[{
-                "queryStrings": [
+                "query_strings": [
                     {
                         "key": "health",
                         "value": "check",
@@ -535,15 +535,15 @@ class ListenerRule(pulumi.CustomResource):
             actions=[
                 {
                     "type": "authenticate-cognito",
-                    "authenticateCognito": {
-                        "userPoolArn": pool.arn,
-                        "userPoolClientId": client.id,
-                        "userPoolDomain": domain.domain,
+                    "authenticate_cognito": {
+                        "user_pool_arn": pool.arn,
+                        "user_pool_client_id": client.id,
+                        "user_pool_domain": domain.domain,
                     },
                 },
                 {
                     "type": "forward",
-                    "targetGroupArn": static_aws_lb_target_group["arn"],
+                    "target_group_arn": static_aws_lb_target_group["arn"],
                 },
             ])
         # Authenticate-oidc Action
@@ -552,18 +552,18 @@ class ListenerRule(pulumi.CustomResource):
             actions=[
                 {
                     "type": "authenticate-oidc",
-                    "authenticateOidc": {
-                        "authorizationEndpoint": "https://example.com/authorization_endpoint",
-                        "clientId": "client_id",
-                        "clientSecret": "client_secret",
+                    "authenticate_oidc": {
+                        "authorization_endpoint": "https://example.com/authorization_endpoint",
+                        "client_id": "client_id",
+                        "client_secret": "client_secret",
                         "issuer": "https://example.com",
-                        "tokenEndpoint": "https://example.com/token_endpoint",
-                        "userInfoEndpoint": "https://example.com/user_info_endpoint",
+                        "token_endpoint": "https://example.com/token_endpoint",
+                        "user_info_endpoint": "https://example.com/user_info_endpoint",
                     },
                 },
                 {
                     "type": "forward",
-                    "targetGroupArn": static_aws_lb_target_group["arn"],
+                    "target_group_arn": static_aws_lb_target_group["arn"],
                 },
             ])
         ```

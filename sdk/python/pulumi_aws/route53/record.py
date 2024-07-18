@@ -680,10 +680,10 @@ class Record(pulumi.CustomResource):
             name="foobar-elb",
             availability_zones=["us-east-1c"],
             listeners=[{
-                "instancePort": 80,
-                "instanceProtocol": "http",
-                "lbPort": 80,
-                "lbProtocol": "http",
+                "instance_port": 80,
+                "instance_protocol": "http",
+                "lb_port": 80,
+                "lb_protocol": "http",
             }])
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
@@ -691,8 +691,8 @@ class Record(pulumi.CustomResource):
             type=aws.route53.RecordType.A,
             aliases=[{
                 "name": main.dns_name,
-                "zoneId": main.zone_id,
-                "evaluateTargetHealth": True,
+                "zone_id": main.zone_id,
+                "evaluate_target_health": True,
             }])
         ```
 
@@ -852,10 +852,10 @@ class Record(pulumi.CustomResource):
             name="foobar-elb",
             availability_zones=["us-east-1c"],
             listeners=[{
-                "instancePort": 80,
-                "instanceProtocol": "http",
-                "lbPort": 80,
-                "lbProtocol": "http",
+                "instance_port": 80,
+                "instance_protocol": "http",
+                "lb_port": 80,
+                "lb_protocol": "http",
             }])
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
@@ -863,8 +863,8 @@ class Record(pulumi.CustomResource):
             type=aws.route53.RecordType.A,
             aliases=[{
                 "name": main.dns_name,
-                "zoneId": main.zone_id,
-                "evaluateTargetHealth": True,
+                "zone_id": main.zone_id,
+                "evaluate_target_health": True,
             }])
         ```
 

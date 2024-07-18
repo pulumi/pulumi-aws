@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Dlm.Inputs
         [Input("parameters", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsEventSourceParametersArgs> Parameters { get; set; } = null!;
 
+        /// <summary>
+        /// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -510,8 +510,10 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration struct {
-	Classification *string           `pulumi:"classification"`
-	Properties     map[string]string `pulumi:"properties"`
+	// The classification within a configuration.
+	Classification *string `pulumi:"classification"`
+	// A set of properties specified within a configuration classification.
+	Properties map[string]string `pulumi:"properties"`
 }
 
 // JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput values.
@@ -526,8 +528,10 @@ type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCon
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs struct {
+	// The classification within a configuration.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
-	Properties     pulumi.StringMapInput `pulumi:"properties"`
+	// A set of properties specified within a configuration classification.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs) ElementType() reflect.Type {
@@ -581,12 +585,14 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 	return o
 }
 
+// The classification within a configuration.
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration) *string {
 		return v.Classification
 	}).(pulumi.StringPtrOutput)
 }
 
+// A set of properties specified within a configuration classification.
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration) map[string]string {
 		return v.Properties
