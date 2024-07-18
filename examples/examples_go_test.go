@@ -237,7 +237,7 @@ func (st tagsState) validateStateResult(phase int) func(
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 		for k, v := range stack.Outputs {
 			switch k {
-			case "bucket-name", "legacy-bucket-name", "appconfig-app-arn", "appconfig-env-arn":
+			case "bucket-name", "legacy-bucket-name", "appconfig-app-arn", "appconfig-env-arn", "get-appconfig-env":
 				continue
 			}
 
@@ -251,12 +251,16 @@ func (st tagsState) validateStateResult(phase int) func(
 			t.Logf("key=%s tags are as expected: %v", k, actualTagsJSON)
 
 			if k == "bucket" {
+				// getTags := stack.Outputs["get-bucket"].(string)
+				// assert.Equal(t, v.(string), getTags)
 				bucketName := stack.Outputs["bucket-name"].(string)
 				st.assertTagsEqualWithRetry(t,
 					fetchBucketTags(bucketName),
 					"bad bucket tags")
 			}
 			if k == "legacy-bucket" {
+				// getTags := stack.Outputs["get-legacy-bucket"].(string)
+				// assert.Equal(t, v.(string), getTags)
 				bucketName := stack.Outputs["legacy-bucket-name"].(string)
 				st.assertTagsEqualWithRetry(t,
 					fetchBucketTags(bucketName),
@@ -269,6 +273,8 @@ func (st tagsState) validateStateResult(phase int) func(
 					"bad appconfig app tags")
 			}
 			if k == "appconfig-env" {
+				getTags := stack.Outputs["get-appconfig-env"].(string)
+				isEqual(t, v.(string), getTags)
 				arn := stack.Outputs["appconfig-env-arn"].(string)
 				st.assertTagsEqualWithRetry(t,
 					fetchAppConfigTags(arn),
@@ -276,6 +282,16 @@ func (st tagsState) validateStateResult(phase int) func(
 			}
 		}
 	}
+}
+
+func isEqual(t *testing.T, a, b string) {
+	if a == "null" {
+		a = "{}"
+	}
+	if b == "null" {
+		b = "{}"
+	}
+	assert.Equal(t, a, b)
 }
 
 func fetchBucketTags(awsBucket string) tagsFetcher {
