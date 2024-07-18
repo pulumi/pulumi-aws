@@ -523,18 +523,18 @@ class User(pulumi.CustomResource):
             schemas=[
                 {
                     "name": "example",
-                    "attributeDataType": "Boolean",
+                    "attribute_data_type": "Boolean",
                     "mutable": False,
                     "required": False,
-                    "developerOnlyAttribute": False,
+                    "developer_only_attribute": False,
                 },
                 {
                     "name": "foo",
-                    "attributeDataType": "String",
+                    "attribute_data_type": "String",
                     "mutable": False,
                     "required": False,
-                    "developerOnlyAttribute": False,
-                    "stringAttributeConstraints": {},
+                    "developer_only_attribute": False,
+                    "string_attribute_constraints": {},
                 },
             ])
         example_user = aws.cognito.User("example",
@@ -608,18 +608,18 @@ class User(pulumi.CustomResource):
             schemas=[
                 {
                     "name": "example",
-                    "attributeDataType": "Boolean",
+                    "attribute_data_type": "Boolean",
                     "mutable": False,
                     "required": False,
-                    "developerOnlyAttribute": False,
+                    "developer_only_attribute": False,
                 },
                 {
                     "name": "foo",
-                    "attributeDataType": "String",
+                    "attribute_data_type": "String",
                     "mutable": False,
                     "required": False,
-                    "developerOnlyAttribute": False,
-                    "stringAttributeConstraints": {},
+                    "developer_only_attribute": False,
+                    "string_attribute_constraints": {},
                 },
             ])
         example_user = aws.cognito.User("example",

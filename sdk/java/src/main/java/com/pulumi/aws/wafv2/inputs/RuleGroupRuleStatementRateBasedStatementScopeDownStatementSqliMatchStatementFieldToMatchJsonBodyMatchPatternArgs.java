@@ -17,9 +17,17 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
 
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs();
 
+    /**
+     * An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     @Import(name="all")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
 
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
@@ -56,11 +64,23 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
             $ = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(@Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs all) {
             return all(Output.of(all));
         }

@@ -124,16 +124,16 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             availability_zones=["us-east-1a"],
             listeners=[
                 {
-                    "instancePort": 25,
-                    "instanceProtocol": "tcp",
-                    "lbPort": 25,
-                    "lbProtocol": "tcp",
+                    "instance_port": 25,
+                    "instance_protocol": "tcp",
+                    "lb_port": 25,
+                    "lb_protocol": "tcp",
                 },
                 {
-                    "instancePort": 587,
-                    "instanceProtocol": "tcp",
-                    "lbPort": 587,
-                    "lbProtocol": "tcp",
+                    "instance_port": 587,
+                    "instance_protocol": "tcp",
+                    "lb_port": 587,
+                    "lb_protocol": "tcp",
                 },
             ])
         smtp = aws.ec2.ProxyProtocolPolicy("smtp",
@@ -171,16 +171,16 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             availability_zones=["us-east-1a"],
             listeners=[
                 {
-                    "instancePort": 25,
-                    "instanceProtocol": "tcp",
-                    "lbPort": 25,
-                    "lbProtocol": "tcp",
+                    "instance_port": 25,
+                    "instance_protocol": "tcp",
+                    "lb_port": 25,
+                    "lb_protocol": "tcp",
                 },
                 {
-                    "instancePort": 587,
-                    "instanceProtocol": "tcp",
-                    "lbPort": 587,
-                    "lbProtocol": "tcp",
+                    "instance_port": 587,
+                    "instance_protocol": "tcp",
+                    "lb_port": 587,
+                    "lb_protocol": "tcp",
                 },
             ])
         smtp = aws.ec2.ProxyProtocolPolicy("smtp",

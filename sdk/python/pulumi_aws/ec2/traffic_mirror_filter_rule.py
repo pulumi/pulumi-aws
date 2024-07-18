@@ -421,12 +421,12 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             traffic_direction="ingress",
             protocol=6,
             destination_port_range={
-                "fromPort": 22,
-                "toPort": 53,
+                "from_port": 22,
+                "to_port": 53,
             },
             source_port_range={
-                "fromPort": 0,
-                "toPort": 10,
+                "from_port": 0,
+                "to_port": 10,
             })
         ```
 
@@ -492,12 +492,12 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             traffic_direction="ingress",
             protocol=6,
             destination_port_range={
-                "fromPort": 22,
-                "toPort": 53,
+                "from_port": 22,
+                "to_port": 53,
             },
             source_port_range={
-                "fromPort": 0,
-                "toPort": 10,
+                "from_port": 0,
+                "to_port": 10,
             })
         ```
 

@@ -14,17 +14,42 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
+    /**
+     * @return The ARN of the S3 bucket
+     * 
+     */
     private String bucketArn;
     private @Nullable Integer bufferingInterval;
     private @Nullable Integer bufferingSize;
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
+    /**
+     * @return The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * 
+     */
     private @Nullable String compressionFormat;
+    /**
+     * @return Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+     * 
+     */
     private @Nullable String errorOutputPrefix;
+    /**
+     * @return Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+     * be used.
+     * 
+     */
     private @Nullable String kmsKeyArn;
+    /**
+     * @return The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * 
+     */
     private @Nullable String prefix;
     private String roleArn;
 
     private FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration() {}
+    /**
+     * @return The ARN of the S3 bucket
+     * 
+     */
     public String bucketArn() {
         return this.bucketArn;
     }
@@ -37,15 +62,32 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
+    /**
+     * @return The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * 
+     */
     public Optional<String> compressionFormat() {
         return Optional.ofNullable(this.compressionFormat);
     }
+    /**
+     * @return Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+     * 
+     */
     public Optional<String> errorOutputPrefix() {
         return Optional.ofNullable(this.errorOutputPrefix);
     }
+    /**
+     * @return Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+     * be used.
+     * 
+     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
+    /**
+     * @return The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * 
+     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

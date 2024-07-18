@@ -15,6 +15,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
+        /// <summary>
+        /// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+        /// </summary>
         [Input("applicationKey", required: true)]
         public Input<string> ApplicationKey { get; set; } = null!;
 

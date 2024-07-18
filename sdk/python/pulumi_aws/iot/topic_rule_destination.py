@@ -129,10 +129,10 @@ class TopicRuleDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iot.TopicRuleDestination("example", vpc_configuration={
-            "roleArn": example_aws_iam_role["arn"],
-            "securityGroups": [example_aws_security_group["id"]],
-            "subnetIds": [__item["id"] for __item in example_aws_subnet],
-            "vpcId": example_aws_vpc["id"],
+            "role_arn": example_aws_iam_role["arn"],
+            "security_groups": [example_aws_security_group["id"]],
+            "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+            "vpc_id": example_aws_vpc["id"],
         })
         ```
 
@@ -163,10 +163,10 @@ class TopicRuleDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iot.TopicRuleDestination("example", vpc_configuration={
-            "roleArn": example_aws_iam_role["arn"],
-            "securityGroups": [example_aws_security_group["id"]],
-            "subnetIds": [__item["id"] for __item in example_aws_subnet],
-            "vpcId": example_aws_vpc["id"],
+            "role_arn": example_aws_iam_role["arn"],
+            "security_groups": [example_aws_security_group["id"]],
+            "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+            "vpc_id": example_aws_vpc["id"],
         })
         ```
 

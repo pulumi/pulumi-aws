@@ -220,10 +220,10 @@ class TrustAnchor(pulumi.CustomResource):
             permanent_deletion_time_in_days=7,
             type="ROOT",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             })
         current = aws.get_partition()
@@ -243,10 +243,10 @@ class TrustAnchor(pulumi.CustomResource):
         test_trust_anchor = aws.rolesanywhere.TrustAnchor("test",
             name="example",
             source={
-                "sourceData": {
-                    "acmPcaArn": example.arn,
+                "source_data": {
+                    "acm_pca_arn": example.arn,
                 },
-                "sourceType": "AWS_ACM_PCA",
+                "source_type": "AWS_ACM_PCA",
             },
             opts = pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
         ```
@@ -285,10 +285,10 @@ class TrustAnchor(pulumi.CustomResource):
             permanent_deletion_time_in_days=7,
             type="ROOT",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             })
         current = aws.get_partition()
@@ -308,10 +308,10 @@ class TrustAnchor(pulumi.CustomResource):
         test_trust_anchor = aws.rolesanywhere.TrustAnchor("test",
             name="example",
             source={
-                "sourceData": {
-                    "acmPcaArn": example.arn,
+                "source_data": {
+                    "acm_pca_arn": example.arn,
                 },
-                "sourceType": "AWS_ACM_PCA",
+                "source_type": "AWS_ACM_PCA",
             },
             opts = pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
         ```

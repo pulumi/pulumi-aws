@@ -518,8 +518,8 @@ class ContainerService(pulumi.CustomResource):
 
         my_container_service = aws.lightsail.ContainerService("my_container_service", public_domain_names={
             "certificates": [{
-                "certificateName": "example-certificate",
-                "domainNames": ["www.example.com"],
+                "certificate_name": "example-certificate",
+                "domain_names": ["www.example.com"],
             }],
         })
         ```
@@ -531,8 +531,8 @@ class ContainerService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default_container_service = aws.lightsail.ContainerService("default", private_registry_access={
-            "ecrImagePullerRole": {
-                "isActive": True,
+            "ecr_image_puller_role": {
+                "is_active": True,
             },
         })
         default = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[{
@@ -621,8 +621,8 @@ class ContainerService(pulumi.CustomResource):
 
         my_container_service = aws.lightsail.ContainerService("my_container_service", public_domain_names={
             "certificates": [{
-                "certificateName": "example-certificate",
-                "domainNames": ["www.example.com"],
+                "certificate_name": "example-certificate",
+                "domain_names": ["www.example.com"],
             }],
         })
         ```
@@ -634,8 +634,8 @@ class ContainerService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default_container_service = aws.lightsail.ContainerService("default", private_registry_access={
-            "ecrImagePullerRole": {
-                "isActive": True,
+            "ecr_image_puller_role": {
+                "is_active": True,
             },
         })
         default = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[{

@@ -15,11 +15,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BotClarificationPrompt {
+    /**
+     * @return The number of times to prompt the user for information.
+     * 
+     */
     private Integer maxAttempts;
     private List<BotClarificationPromptMessage> messages;
     private @Nullable String responseCard;
 
     private BotClarificationPrompt() {}
+    /**
+     * @return The number of times to prompt the user for information.
+     * 
+     */
     public Integer maxAttempts() {
         return this.maxAttempts;
     }

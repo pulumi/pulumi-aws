@@ -17,9 +17,17 @@ public final class V2modelsIntentConfirmationSettingDeclinationConditionalDefaul
 
     public static final V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgs Empty = new V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgs();
 
+    /**
+     * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+     * 
+     */
     @Import(name="mapBlockKey", required=true)
     private Output<String> mapBlockKey;
 
+    /**
+     * @return Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+     * 
+     */
     public Output<String> mapBlockKey() {
         return this.mapBlockKey;
     }
@@ -80,11 +88,23 @@ public final class V2modelsIntentConfirmationSettingDeclinationConditionalDefaul
             $ = new V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param mapBlockKey Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mapBlockKey(Output<String> mapBlockKey) {
             $.mapBlockKey = mapBlockKey;
             return this;
         }
 
+        /**
+         * @param mapBlockKey Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mapBlockKey(String mapBlockKey) {
             return mapBlockKey(Output.of(mapBlockKey));
         }

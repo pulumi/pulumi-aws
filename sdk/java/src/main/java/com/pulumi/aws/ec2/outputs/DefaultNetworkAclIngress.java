@@ -13,41 +13,121 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DefaultNetworkAclIngress {
+    /**
+     * @return The action to take.
+     * 
+     */
     private String action;
+    /**
+     * @return The CIDR block to match. This must be a valid network mask.
+     * 
+     */
     private @Nullable String cidrBlock;
+    /**
+     * @return The from port to match.
+     * 
+     */
     private Integer fromPort;
+    /**
+     * @return The ICMP type code to be used. Default 0.
+     * 
+     */
     private @Nullable Integer icmpCode;
+    /**
+     * @return The ICMP type to be used. Default 0.
+     * 
+     */
     private @Nullable Integer icmpType;
+    /**
+     * @return The IPv6 CIDR block.
+     * 
+     * &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+     * 
+     */
     private @Nullable String ipv6CidrBlock;
+    /**
+     * @return The protocol to match. If using the -1 &#39;all&#39; protocol, you must specify a from and to port of 0.
+     * 
+     */
     private String protocol;
+    /**
+     * @return The rule number. Used for ordering.
+     * 
+     */
     private Integer ruleNo;
+    /**
+     * @return The to port to match.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     private Integer toPort;
 
     private DefaultNetworkAclIngress() {}
+    /**
+     * @return The action to take.
+     * 
+     */
     public String action() {
         return this.action;
     }
+    /**
+     * @return The CIDR block to match. This must be a valid network mask.
+     * 
+     */
     public Optional<String> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
+    /**
+     * @return The from port to match.
+     * 
+     */
     public Integer fromPort() {
         return this.fromPort;
     }
+    /**
+     * @return The ICMP type code to be used. Default 0.
+     * 
+     */
     public Optional<Integer> icmpCode() {
         return Optional.ofNullable(this.icmpCode);
     }
+    /**
+     * @return The ICMP type to be used. Default 0.
+     * 
+     */
     public Optional<Integer> icmpType() {
         return Optional.ofNullable(this.icmpType);
     }
+    /**
+     * @return The IPv6 CIDR block.
+     * 
+     * &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+     * 
+     */
     public Optional<String> ipv6CidrBlock() {
         return Optional.ofNullable(this.ipv6CidrBlock);
     }
+    /**
+     * @return The protocol to match. If using the -1 &#39;all&#39; protocol, you must specify a from and to port of 0.
+     * 
+     */
     public String protocol() {
         return this.protocol;
     }
+    /**
+     * @return The rule number. Used for ordering.
+     * 
+     */
     public Integer ruleNo() {
         return this.ruleNo;
     }
+    /**
+     * @return The to port to match.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Integer toPort() {
         return this.toPort;
     }

@@ -13,11 +13,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll all;
     private @Nullable List<String> excludedCookies;
     private @Nullable List<String> includedCookies;
 
     private RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern() {}
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }

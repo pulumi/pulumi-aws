@@ -15,6 +15,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     {
         public readonly string Oauth2GrantType;
         public readonly string TokenUrl;
+        /// <summary>
+        /// Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? TokenUrlCustomProperties;
 
         [OutputConstructor]

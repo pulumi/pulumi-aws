@@ -14,9 +14,21 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector
     {
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey? ApiKey;
+        /// <summary>
+        /// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+        /// </summary>
         public readonly string AuthenticationType;
+        /// <summary>
+        /// Basic credentials that are required for the authentication of the user.
+        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic? Basic;
+        /// <summary>
+        /// If the connector uses the custom authentication mechanism, this holds the required credentials.
+        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom? Custom;
+        /// <summary>
+        /// OAuth 2.0 credentials required for the authentication of the user.
+        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2? Oauth2;
 
         [OutputConstructor]

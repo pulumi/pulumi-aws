@@ -121,7 +121,7 @@ class BotAssociation(pulumi.CustomResource):
         example = aws.connect.BotAssociation("example",
             instance_id=example_aws_connect_instance["id"],
             lex_bot={
-                "lexRegion": "us-west-2",
+                "lex_region": "us-west-2",
                 "name": "Test",
             })
         ```
@@ -144,19 +144,19 @@ class BotAssociation(pulumi.CustomResource):
             abort_statement={
                 "messages": [{
                     "content": "Sorry, I am not able to assist at this time.",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             clarification_prompt={
-                "maxAttempts": 2,
+                "max_attempts": 2,
                 "messages": [{
                     "content": "I didn't understand you, what would you like to do?",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             intents=[{
-                "intentName": example.name,
-                "intentVersion": "1",
+                "intent_name": example.name,
+                "intent_version": "1",
             }],
             child_directed=False,
             name="connect_lex_bot",
@@ -164,7 +164,7 @@ class BotAssociation(pulumi.CustomResource):
         example_bot_association = aws.connect.BotAssociation("example",
             instance_id=example_aws_connect_instance["id"],
             lex_bot={
-                "lexRegion": current.name,
+                "lex_region": current.name,
                 "name": example_bot.name,
             })
         ```
@@ -205,7 +205,7 @@ class BotAssociation(pulumi.CustomResource):
         example = aws.connect.BotAssociation("example",
             instance_id=example_aws_connect_instance["id"],
             lex_bot={
-                "lexRegion": "us-west-2",
+                "lex_region": "us-west-2",
                 "name": "Test",
             })
         ```
@@ -228,19 +228,19 @@ class BotAssociation(pulumi.CustomResource):
             abort_statement={
                 "messages": [{
                     "content": "Sorry, I am not able to assist at this time.",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             clarification_prompt={
-                "maxAttempts": 2,
+                "max_attempts": 2,
                 "messages": [{
                     "content": "I didn't understand you, what would you like to do?",
-                    "contentType": "PlainText",
+                    "content_type": "PlainText",
                 }],
             },
             intents=[{
-                "intentName": example.name,
-                "intentVersion": "1",
+                "intent_name": example.name,
+                "intent_version": "1",
             }],
             child_directed=False,
             name="connect_lex_bot",
@@ -248,7 +248,7 @@ class BotAssociation(pulumi.CustomResource):
         example_bot_association = aws.connect.BotAssociation("example",
             instance_id=example_aws_connect_instance["id"],
             lex_bot={
-                "lexRegion": current.name,
+                "lex_region": current.name,
                 "name": example_bot.name,
             })
         ```

@@ -162,7 +162,7 @@ class ResourceCollection(pulumi.CustomResource):
         example = aws.devopsguru.ResourceCollection("example",
             type="AWS_SERVICE",
             cloudformation={
-                "stackNames": ["*"],
+                "stack_names": ["*"],
             })
         ```
 
@@ -175,7 +175,7 @@ class ResourceCollection(pulumi.CustomResource):
         example = aws.devopsguru.ResourceCollection("example",
             type="AWS_CLOUD_FORMATION",
             cloudformation={
-                "stackNames": ["ExampleStack"],
+                "stack_names": ["ExampleStack"],
             })
         ```
 
@@ -188,8 +188,8 @@ class ResourceCollection(pulumi.CustomResource):
         example = aws.devopsguru.ResourceCollection("example",
             type="AWS_TAGS",
             tags={
-                "appBoundaryKey": "DevOps-Guru-Example",
-                "tagValues": ["Example-Value"],
+                "app_boundary_key": "DevOps-Guru-Example",
+                "tag_values": ["Example-Value"],
             })
         ```
 
@@ -204,8 +204,8 @@ class ResourceCollection(pulumi.CustomResource):
         example = aws.devopsguru.ResourceCollection("example",
             type="AWS_TAGS",
             tags={
-                "appBoundaryKey": "DevOps-Guru-Example",
-                "tagValues": ["*"],
+                "app_boundary_key": "DevOps-Guru-Example",
+                "tag_values": ["*"],
             })
         ```
 
@@ -247,7 +247,7 @@ class ResourceCollection(pulumi.CustomResource):
         example = aws.devopsguru.ResourceCollection("example",
             type="AWS_SERVICE",
             cloudformation={
-                "stackNames": ["*"],
+                "stack_names": ["*"],
             })
         ```
 
@@ -260,7 +260,7 @@ class ResourceCollection(pulumi.CustomResource):
         example = aws.devopsguru.ResourceCollection("example",
             type="AWS_CLOUD_FORMATION",
             cloudformation={
-                "stackNames": ["ExampleStack"],
+                "stack_names": ["ExampleStack"],
             })
         ```
 
@@ -273,8 +273,8 @@ class ResourceCollection(pulumi.CustomResource):
         example = aws.devopsguru.ResourceCollection("example",
             type="AWS_TAGS",
             tags={
-                "appBoundaryKey": "DevOps-Guru-Example",
-                "tagValues": ["Example-Value"],
+                "app_boundary_key": "DevOps-Guru-Example",
+                "tag_values": ["Example-Value"],
             })
         ```
 
@@ -289,8 +289,8 @@ class ResourceCollection(pulumi.CustomResource):
         example = aws.devopsguru.ResourceCollection("example",
             type="AWS_TAGS",
             tags={
-                "appBoundaryKey": "DevOps-Guru-Example",
-                "tagValues": ["*"],
+                "app_boundary_key": "DevOps-Guru-Example",
+                "tag_values": ["*"],
             })
         ```
 

@@ -16,16 +16,32 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs();
 
+    /**
+     * Unique name of the Amazon Connect Customer Profiles domain.
+     * 
+     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
+    /**
+     * @return Unique name of the Amazon Connect Customer Profiles domain.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
+    /**
+     * Object specified in the Amazon Connect Customer Profiles flow destination.
+     * 
+     */
     @Import(name="objectTypeName")
     private @Nullable Output<String> objectTypeName;
 
+    /**
+     * @return Object specified in the Amazon Connect Customer Profiles flow destination.
+     * 
+     */
     public Optional<Output<String>> objectTypeName() {
         return Optional.ofNullable(this.objectTypeName);
     }
@@ -55,20 +71,44 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName Unique name of the Amazon Connect Customer Profiles domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName Unique name of the Amazon Connect Customer Profiles domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param objectTypeName Object specified in the Amazon Connect Customer Profiles flow destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objectTypeName(@Nullable Output<String> objectTypeName) {
             $.objectTypeName = objectTypeName;
             return this;
         }
 
+        /**
+         * @param objectTypeName Object specified in the Amazon Connect Customer Profiles flow destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objectTypeName(String objectTypeName) {
             return objectTypeName(Output.of(objectTypeName));
         }
