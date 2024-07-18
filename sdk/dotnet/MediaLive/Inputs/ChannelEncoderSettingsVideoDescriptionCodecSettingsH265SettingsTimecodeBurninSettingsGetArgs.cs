@@ -12,12 +12,21 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Set a prefix on the burned in timecode.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// Sets the size of the burned in timecode.
+        /// </summary>
         [Input("timecodeBurninFontSize")]
         public Input<string>? TimecodeBurninFontSize { get; set; }
 
+        /// <summary>
+        /// Sets the position of the burned in timecode.
+        /// </summary>
         [Input("timecodeBurninPosition")]
         public Input<string>? TimecodeBurninPosition { get; set; }
 

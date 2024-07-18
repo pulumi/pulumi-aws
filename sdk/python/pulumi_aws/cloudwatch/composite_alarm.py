@@ -392,8 +392,8 @@ class CompositeAlarm(pulumi.CustomResource):
         \"\"\",
             actions_suppressor={
                 "alarm": "suppressor-alarm",
-                "extensionPeriod": 10,
-                "waitPeriod": 20,
+                "extension_period": 10,
+                "wait_period": 20,
             })
         ```
 
@@ -444,8 +444,8 @@ class CompositeAlarm(pulumi.CustomResource):
         \"\"\",
             actions_suppressor={
                 "alarm": "suppressor-alarm",
-                "extensionPeriod": 10,
-                "waitPeriod": 20,
+                "extension_period": 10,
+                "wait_period": 20,
             })
         ```
 

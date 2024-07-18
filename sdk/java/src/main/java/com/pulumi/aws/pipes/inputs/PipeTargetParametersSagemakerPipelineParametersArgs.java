@@ -16,9 +16,17 @@ public final class PipeTargetParametersSagemakerPipelineParametersArgs extends c
 
     public static final PipeTargetParametersSagemakerPipelineParametersArgs Empty = new PipeTargetParametersSagemakerPipelineParametersArgs();
 
+    /**
+     * List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+     * 
+     */
     @Import(name="pipelineParameters")
     private @Nullable Output<List<PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>> pipelineParameters;
 
+    /**
+     * @return List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+     * 
+     */
     public Optional<Output<List<PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>>> pipelineParameters() {
         return Optional.ofNullable(this.pipelineParameters);
     }
@@ -47,15 +55,33 @@ public final class PipeTargetParametersSagemakerPipelineParametersArgs extends c
             $ = new PipeTargetParametersSagemakerPipelineParametersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param pipelineParameters List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pipelineParameters(@Nullable Output<List<PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>> pipelineParameters) {
             $.pipelineParameters = pipelineParameters;
             return this;
         }
 
+        /**
+         * @param pipelineParameters List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pipelineParameters(List<PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs> pipelineParameters) {
             return pipelineParameters(Output.of(pipelineParameters));
         }
 
+        /**
+         * @param pipelineParameters List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pipelineParameters(PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs... pipelineParameters) {
             return pipelineParameters(List.of(pipelineParameters));
         }

@@ -312,8 +312,8 @@ class RepositoryAssociation(pulumi.CustomResource):
                 },
             },
             kms_key_details={
-                "encryptionOption": "CUSTOMER_MANAGED_CMK",
-                "kmsKeyId": example.key_id,
+                "encryption_option": "CUSTOMER_MANAGED_CMK",
+                "kms_key_id": example.key_id,
             })
         ```
 
@@ -348,8 +348,8 @@ class RepositoryAssociation(pulumi.CustomResource):
                 },
             },
             kms_key_details={
-                "encryptionOption": "CUSTOMER_MANAGED_CMK",
-                "kmsKeyId": example.key_id,
+                "encryption_option": "CUSTOMER_MANAGED_CMK",
+                "kms_key_id": example.key_id,
             })
         ```
 

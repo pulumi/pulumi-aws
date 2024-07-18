@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom {
+    /**
+     * @return A map that holds custom authentication credentials.
+     * 
+     */
     private @Nullable Map<String,String> credentialsMap;
+    /**
+     * @return The custom authentication type that the connector uses.
+     * 
+     */
     private String customAuthenticationType;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom() {}
+    /**
+     * @return A map that holds custom authentication credentials.
+     * 
+     */
     public Map<String,String> credentialsMap() {
         return this.credentialsMap == null ? Map.of() : this.credentialsMap;
     }
+    /**
+     * @return The custom authentication type that the connector uses.
+     * 
+     */
     public String customAuthenticationType() {
         return this.customAuthenticationType;
     }

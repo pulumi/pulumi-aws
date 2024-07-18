@@ -959,7 +959,7 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"],
             target_health_states=[{
-                "enableUnhealthyConnectionTermination": False,
+                "enable_unhealthy_connection_termination": False,
             }])
         ```
 
@@ -1088,7 +1088,7 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"],
             target_health_states=[{
-                "enableUnhealthyConnectionTermination": False,
+                "enable_unhealthy_connection_termination": False,
             }])
         ```
 

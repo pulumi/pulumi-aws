@@ -129,13 +129,13 @@ class PackageAssociation(pulumi.CustomResource):
             domain_name="my-opensearch-domain",
             engine_version="Elasticsearch_7.10",
             cluster_config={
-                "instanceType": "r4.large.search",
+                "instance_type": "r4.large.search",
             })
         example = aws.opensearch.Package("example",
             package_name="example-txt",
             package_source={
-                "s3BucketName": my_opensearch_packages["bucket"],
-                "s3Key": example_aws_s3_object["key"],
+                "s3_bucket_name": my_opensearch_packages["bucket"],
+                "s3_key": example_aws_s3_object["key"],
             },
             package_type="TXT-DICTIONARY")
         example_package_association = aws.opensearch.PackageAssociation("example",
@@ -169,13 +169,13 @@ class PackageAssociation(pulumi.CustomResource):
             domain_name="my-opensearch-domain",
             engine_version="Elasticsearch_7.10",
             cluster_config={
-                "instanceType": "r4.large.search",
+                "instance_type": "r4.large.search",
             })
         example = aws.opensearch.Package("example",
             package_name="example-txt",
             package_source={
-                "s3BucketName": my_opensearch_packages["bucket"],
-                "s3Key": example_aws_s3_object["key"],
+                "s3_bucket_name": my_opensearch_packages["bucket"],
+                "s3_key": example_aws_s3_object["key"],
             },
             package_type="TXT-DICTIONARY")
         example_package_association = aws.opensearch.PackageAssociation("example",

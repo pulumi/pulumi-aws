@@ -31,9 +31,17 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         return this.bucketPrefix;
     }
 
+    /**
+     * When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * 
+     */
     @Import(name="s3InputFormatConfig")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs> s3InputFormatConfig;
 
+    /**
+     * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * 
+     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs>> s3InputFormatConfig() {
         return Optional.ofNullable(this.s3InputFormatConfig);
     }
@@ -82,11 +90,23 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
+        /**
+         * @param s3InputFormatConfig When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3InputFormatConfig(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs> s3InputFormatConfig) {
             $.s3InputFormatConfig = s3InputFormatConfig;
             return this;
         }
 
+        /**
+         * @param s3InputFormatConfig When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3InputFormatConfig(FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs s3InputFormatConfig) {
             return s3InputFormatConfig(Output.of(s3InputFormatConfig));
         }

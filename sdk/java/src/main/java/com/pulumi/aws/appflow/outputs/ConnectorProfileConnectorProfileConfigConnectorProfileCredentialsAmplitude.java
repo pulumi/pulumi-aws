@@ -11,12 +11,20 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude {
     private String apiKey;
+    /**
+     * @return The Secret Access Key portion of the credentials.
+     * 
+     */
     private String secretKey;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude() {}
     public String apiKey() {
         return this.apiKey;
     }
+    /**
+     * @return The Secret Access Key portion of the credentials.
+     * 
+     */
     public String secretKey() {
         return this.secretKey;
     }

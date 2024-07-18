@@ -227,8 +227,8 @@ class SdkvoiceSipRule(pulumi.CustomResource):
             trigger_value=example_voice_connector["outboundHostName"],
             target_applications=[{
                 "priority": 1,
-                "sipMediaApplicationId": example_sma["id"],
-                "awsRegion": "us-east-1",
+                "sip_media_application_id": example_sma["id"],
+                "aws_region": "us-east-1",
             }])
         ```
 
@@ -273,8 +273,8 @@ class SdkvoiceSipRule(pulumi.CustomResource):
             trigger_value=example_voice_connector["outboundHostName"],
             target_applications=[{
                 "priority": 1,
-                "sipMediaApplicationId": example_sma["id"],
-                "awsRegion": "us-east-1",
+                "sip_media_application_id": example_sma["id"],
+                "aws_region": "us-east-1",
             }])
         ```
 

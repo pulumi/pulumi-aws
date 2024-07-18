@@ -135,14 +135,14 @@ class XssMatchSet(pulumi.CustomResource):
             name="xss_match_set",
             xss_match_tuples=[
                 {
-                    "textTransformation": "NONE",
-                    "fieldToMatch": {
+                    "text_transformation": "NONE",
+                    "field_to_match": {
                         "type": "URI",
                     },
                 },
                 {
-                    "textTransformation": "NONE",
-                    "fieldToMatch": {
+                    "text_transformation": "NONE",
+                    "field_to_match": {
                         "type": "QUERY_STRING",
                     },
                 },
@@ -181,14 +181,14 @@ class XssMatchSet(pulumi.CustomResource):
             name="xss_match_set",
             xss_match_tuples=[
                 {
-                    "textTransformation": "NONE",
-                    "fieldToMatch": {
+                    "text_transformation": "NONE",
+                    "field_to_match": {
                         "type": "URI",
                     },
                 },
                 {
-                    "textTransformation": "NONE",
-                    "fieldToMatch": {
+                    "text_transformation": "NONE",
+                    "field_to_match": {
                         "type": "QUERY_STRING",
                     },
                 },

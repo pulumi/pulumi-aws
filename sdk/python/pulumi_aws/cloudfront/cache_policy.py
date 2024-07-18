@@ -269,21 +269,21 @@ class CachePolicy(pulumi.CustomResource):
             max_ttl=100,
             min_ttl=1,
             parameters_in_cache_key_and_forwarded_to_origin={
-                "cookiesConfig": {
-                    "cookieBehavior": "whitelist",
+                "cookies_config": {
+                    "cookie_behavior": "whitelist",
                     "cookies": {
                         "items": ["example"],
                     },
                 },
-                "headersConfig": {
-                    "headerBehavior": "whitelist",
+                "headers_config": {
+                    "header_behavior": "whitelist",
                     "headers": {
                         "items": ["example"],
                     },
                 },
-                "queryStringsConfig": {
-                    "queryStringBehavior": "whitelist",
-                    "queryStrings": {
+                "query_strings_config": {
+                    "query_string_behavior": "whitelist",
+                    "query_strings": {
                         "items": ["example"],
                     },
                 },
@@ -329,21 +329,21 @@ class CachePolicy(pulumi.CustomResource):
             max_ttl=100,
             min_ttl=1,
             parameters_in_cache_key_and_forwarded_to_origin={
-                "cookiesConfig": {
-                    "cookieBehavior": "whitelist",
+                "cookies_config": {
+                    "cookie_behavior": "whitelist",
                     "cookies": {
                         "items": ["example"],
                     },
                 },
-                "headersConfig": {
-                    "headerBehavior": "whitelist",
+                "headers_config": {
+                    "header_behavior": "whitelist",
                     "headers": {
                         "items": ["example"],
                     },
                 },
-                "queryStringsConfig": {
-                    "queryStringBehavior": "whitelist",
-                    "queryStrings": {
+                "query_strings_config": {
+                    "query_string_behavior": "whitelist",
+                    "query_strings": {
                         "items": ["example"],
                     },
                 },

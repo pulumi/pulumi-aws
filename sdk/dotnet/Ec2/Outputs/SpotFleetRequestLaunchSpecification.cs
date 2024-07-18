@@ -15,12 +15,18 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly string Ami;
         public readonly bool? AssociatePublicIpAddress;
+        /// <summary>
+        /// The availability zone in which to place the request.
+        /// </summary>
         public readonly string? AvailabilityZone;
         public readonly ImmutableArray<Outputs.SpotFleetRequestLaunchSpecificationEbsBlockDevice> EbsBlockDevices;
         public readonly bool? EbsOptimized;
         public readonly ImmutableArray<Outputs.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice> EphemeralBlockDevices;
         public readonly string? IamInstanceProfile;
         public readonly string? IamInstanceProfileArn;
+        /// <summary>
+        /// The type of instance to request.
+        /// </summary>
         public readonly string InstanceType;
         public readonly string? KeyName;
         public readonly bool? Monitoring;
@@ -31,6 +37,9 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The maximum bid price per unit hour.
         /// </summary>
         public readonly string? SpotPrice;
+        /// <summary>
+        /// The subnet in which to launch the requested instance.
+        /// </summary>
         public readonly string? SubnetId;
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -38,6 +47,9 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? UserData;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
+        /// <summary>
+        /// The capacity added to the fleet by a fulfilled request.
+        /// </summary>
         public readonly string? WeightedCapacity;
 
         [OutputConstructor]

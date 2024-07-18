@@ -342,13 +342,13 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
             file_system_id=test_aws_fsx_ontap_file_system["id"],
             name="mysvm",
             active_directory_configuration={
-                "netbiosName": "mysvm",
-                "selfManagedActiveDirectoryConfiguration": {
-                    "dnsIps": [
+                "netbios_name": "mysvm",
+                "self_managed_active_directory_configuration": {
+                    "dns_ips": [
                         "10.0.0.111",
                         "10.0.0.222",
                     ],
-                    "domainName": "corp.example.com",
+                    "domain_name": "corp.example.com",
                     "password": "avoid-plaintext-passwords",
                     "username": "Admin",
                 },
@@ -407,13 +407,13 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
             file_system_id=test_aws_fsx_ontap_file_system["id"],
             name="mysvm",
             active_directory_configuration={
-                "netbiosName": "mysvm",
-                "selfManagedActiveDirectoryConfiguration": {
-                    "dnsIps": [
+                "netbios_name": "mysvm",
+                "self_managed_active_directory_configuration": {
+                    "dns_ips": [
                         "10.0.0.111",
                         "10.0.0.222",
                     ],
-                    "domainName": "corp.example.com",
+                    "domain_name": "corp.example.com",
                     "password": "avoid-plaintext-passwords",
                     "username": "Admin",
                 },

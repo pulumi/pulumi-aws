@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DistributionOriginGroupFailoverCriteria {
+    /**
+     * @return List of HTTP status codes for the origin group.
+     * 
+     */
     private List<Integer> statusCodes;
 
     private DistributionOriginGroupFailoverCriteria() {}
+    /**
+     * @return List of HTTP status codes for the origin group.
+     * 
+     */
     public List<Integer> statusCodes() {
         return this.statusCodes;
     }

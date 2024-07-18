@@ -240,6 +240,9 @@ class EventDataStoreAdvancedEventSelectorFieldSelectorArgs:
 if not MYPY:
     class TrailAdvancedEventSelectorArgsDict(TypedDict):
         field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgsDict']]]
+        """
+        Specifies the selector statements in an advanced event selector. Fields documented below.
+        """
         name: NotRequired[pulumi.Input[str]]
         """
         Name of the trail.
@@ -253,6 +256,7 @@ class TrailAdvancedEventSelectorArgs:
                  field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgs']]],
                  name: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgs']]] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
         :param pulumi.Input[str] name: Name of the trail.
         """
         pulumi.set(__self__, "field_selectors", field_selectors)
@@ -262,6 +266,9 @@ class TrailAdvancedEventSelectorArgs:
     @property
     @pulumi.getter(name="fieldSelectors")
     def field_selectors(self) -> pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgs']]]:
+        """
+        Specifies the selector statements in an advanced event selector. Fields documented below.
+        """
         return pulumi.get(self, "field_selectors")
 
     @field_selectors.setter
@@ -284,12 +291,33 @@ class TrailAdvancedEventSelectorArgs:
 if not MYPY:
     class TrailAdvancedEventSelectorFieldSelectorArgsDict(TypedDict):
         field: pulumi.Input[str]
+        """
+        Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+        """
         ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+        """
         equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+        """
         not_ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+        """
         not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+        """
         not_starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+        """
         starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+        """
 elif False:
     TrailAdvancedEventSelectorFieldSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -303,6 +331,15 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
                  not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  not_starts_withs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  starts_withs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] field: Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ends_withs: A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] equals: A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ends_withs: A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_equals: A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_starts_withs: A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] starts_withs: A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+        """
         pulumi.set(__self__, "field", field)
         if ends_withs is not None:
             pulumi.set(__self__, "ends_withs", ends_withs)
@@ -320,6 +357,9 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
     @property
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
+        """
+        Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -329,6 +369,9 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
     @property
     @pulumi.getter(name="endsWiths")
     def ends_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+        """
         return pulumi.get(self, "ends_withs")
 
     @ends_withs.setter
@@ -338,6 +381,9 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
     @property
     @pulumi.getter
     def equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+        """
         return pulumi.get(self, "equals")
 
     @equals.setter
@@ -347,6 +393,9 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
     @property
     @pulumi.getter(name="notEndsWiths")
     def not_ends_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+        """
         return pulumi.get(self, "not_ends_withs")
 
     @not_ends_withs.setter
@@ -356,6 +405,9 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
     @property
     @pulumi.getter(name="notEquals")
     def not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+        """
         return pulumi.get(self, "not_equals")
 
     @not_equals.setter
@@ -365,6 +417,9 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
     @property
     @pulumi.getter(name="notStartsWiths")
     def not_starts_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+        """
         return pulumi.get(self, "not_starts_withs")
 
     @not_starts_withs.setter
@@ -374,6 +429,9 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
     @property
     @pulumi.getter(name="startsWiths")
     def starts_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+        """
         return pulumi.get(self, "starts_withs")
 
     @starts_withs.setter

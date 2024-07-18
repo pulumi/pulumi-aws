@@ -246,7 +246,7 @@ class TargetGroup(pulumi.CustomResource):
             name="example",
             type="INSTANCE",
             config={
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
                 "port": 443,
                 "protocol": "HTTPS",
             })
@@ -262,24 +262,24 @@ class TargetGroup(pulumi.CustomResource):
             name="example",
             type="IP",
             config={
-                "vpcIdentifier": example_aws_vpc["id"],
-                "ipAddressType": "IPV4",
+                "vpc_identifier": example_aws_vpc["id"],
+                "ip_address_type": "IPV4",
                 "port": 443,
                 "protocol": "HTTPS",
-                "protocolVersion": "HTTP1",
-                "healthCheck": {
+                "protocol_version": "HTTP1",
+                "health_check": {
                     "enabled": True,
-                    "healthCheckIntervalSeconds": 20,
-                    "healthCheckTimeoutSeconds": 10,
-                    "healthyThresholdCount": 7,
-                    "unhealthyThresholdCount": 3,
+                    "health_check_interval_seconds": 20,
+                    "health_check_timeout_seconds": 10,
+                    "healthy_threshold_count": 7,
+                    "unhealthy_threshold_count": 3,
                     "matcher": {
                         "value": "200-299",
                     },
                     "path": "/instance",
                     "port": 80,
                     "protocol": "HTTP",
-                    "protocolVersion": "HTTP1",
+                    "protocol_version": "HTTP1",
                 },
             })
         ```
@@ -296,10 +296,10 @@ class TargetGroup(pulumi.CustomResource):
             name="example",
             type="ALB",
             config={
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
                 "port": 443,
                 "protocol": "HTTPS",
-                "protocolVersion": "HTTP1",
+                "protocol_version": "HTTP1",
             })
         ```
 
@@ -354,7 +354,7 @@ class TargetGroup(pulumi.CustomResource):
             name="example",
             type="INSTANCE",
             config={
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
                 "port": 443,
                 "protocol": "HTTPS",
             })
@@ -370,24 +370,24 @@ class TargetGroup(pulumi.CustomResource):
             name="example",
             type="IP",
             config={
-                "vpcIdentifier": example_aws_vpc["id"],
-                "ipAddressType": "IPV4",
+                "vpc_identifier": example_aws_vpc["id"],
+                "ip_address_type": "IPV4",
                 "port": 443,
                 "protocol": "HTTPS",
-                "protocolVersion": "HTTP1",
-                "healthCheck": {
+                "protocol_version": "HTTP1",
+                "health_check": {
                     "enabled": True,
-                    "healthCheckIntervalSeconds": 20,
-                    "healthCheckTimeoutSeconds": 10,
-                    "healthyThresholdCount": 7,
-                    "unhealthyThresholdCount": 3,
+                    "health_check_interval_seconds": 20,
+                    "health_check_timeout_seconds": 10,
+                    "healthy_threshold_count": 7,
+                    "unhealthy_threshold_count": 3,
                     "matcher": {
                         "value": "200-299",
                     },
                     "path": "/instance",
                     "port": 80,
                     "protocol": "HTTP",
-                    "protocolVersion": "HTTP1",
+                    "protocol_version": "HTTP1",
                 },
             })
         ```
@@ -404,10 +404,10 @@ class TargetGroup(pulumi.CustomResource):
             name="example",
             type="ALB",
             config={
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
                 "port": 443,
                 "protocol": "HTTPS",
-                "protocolVersion": "HTTP1",
+                "protocol_version": "HTTP1",
             })
         ```
 

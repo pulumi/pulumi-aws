@@ -15,6 +15,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
     {
         public readonly string Header;
         public readonly bool Override;
+        /// <summary>
+        /// The value for the HTTP response header.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]
