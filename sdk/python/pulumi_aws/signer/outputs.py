@@ -58,6 +58,9 @@ class SigningJobDestinationS3(dict):
     def __init__(__self__, *,
                  bucket: str,
                  prefix: Optional[str] = None):
+        """
+        :param str prefix: An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+        """
         pulumi.set(__self__, "bucket", bucket)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -70,6 +73,9 @@ class SigningJobDestinationS3(dict):
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+        """
         return pulumi.get(self, "prefix")
 
 
@@ -139,6 +145,9 @@ class SigningJobSignedObjectS3(dict):
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  key: Optional[str] = None):
+        """
+        :param str key: Key name of the object that contains your unsigned code.
+        """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if key is not None:
@@ -152,6 +161,9 @@ class SigningJobSignedObjectS3(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        Key name of the object that contains your unsigned code.
+        """
         return pulumi.get(self, "key")
 
 
@@ -179,6 +191,10 @@ class SigningJobSourceS3(dict):
                  bucket: str,
                  key: str,
                  version: str):
+        """
+        :param str key: Key name of the object that contains your unsigned code.
+        :param str version: Version of your source image in your version enabled S3 bucket.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "version", version)
@@ -191,11 +207,17 @@ class SigningJobSourceS3(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key name of the object that contains your unsigned code.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        Version of your source image in your version enabled S3 bucket.
+        """
         return pulumi.get(self, "version")
 
 

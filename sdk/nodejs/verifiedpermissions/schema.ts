@@ -77,7 +77,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["namespaces"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Schema.__pulumiType, name, resourceInputs, opts);
+        super(Schema.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

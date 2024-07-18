@@ -203,7 +203,7 @@ export class ReservedInstance extends pulumi.CustomResource {
             resourceInputs["usagePrice"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReservedInstance.__pulumiType, name, resourceInputs, opts);
+        super(ReservedInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

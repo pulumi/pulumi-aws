@@ -284,7 +284,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
             security_group_arns=[example_aws_security_group["arn"]],
             protocol={
                 "nfs": {
-                    "mountOptions": {
+                    "mount_options": {
                         "version": "AUTOMATIC",
                     },
                 },
@@ -327,7 +327,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
             security_group_arns=[example_aws_security_group["arn"]],
             protocol={
                 "nfs": {
-                    "mountOptions": {
+                    "mount_options": {
                         "version": "AUTOMATIC",
                     },
                 },

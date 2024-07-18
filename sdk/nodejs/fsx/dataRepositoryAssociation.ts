@@ -181,7 +181,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataRepositoryAssociation.__pulumiType, name, resourceInputs, opts);
+        super(DataRepositoryAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

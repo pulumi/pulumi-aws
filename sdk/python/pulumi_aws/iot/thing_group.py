@@ -246,10 +246,10 @@ class ThingGroup(pulumi.CustomResource):
             name="example",
             parent_group_name=parent.name,
             properties={
-                "attributePayload": {
+                "attribute_payload": {
                     "attributes": {
-                        "One": "11111",
-                        "Two": "TwoTwo",
+                        "one": "11111",
+                        "two": "TwoTwo",
                     },
                 },
                 "description": "This is my thing group",
@@ -294,10 +294,10 @@ class ThingGroup(pulumi.CustomResource):
             name="example",
             parent_group_name=parent.name,
             properties={
-                "attributePayload": {
+                "attribute_payload": {
                     "attributes": {
-                        "One": "11111",
-                        "Two": "TwoTwo",
+                        "one": "11111",
+                        "two": "TwoTwo",
                     },
                 },
                 "description": "This is my thing group",

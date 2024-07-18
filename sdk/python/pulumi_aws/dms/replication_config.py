@@ -456,10 +456,10 @@ class ReplicationConfig(pulumi.CustomResource):
         \"\"\",
             start_replication=True,
             compute_config={
-                "replicationSubnetGroupId": default["replicationSubnetGroupId"],
-                "maxCapacityUnits": 64,
-                "minCapacityUnits": 2,
-                "preferredMaintenanceWindow": "sun:23:45-mon:00:30",
+                "replication_subnet_group_id": default["replicationSubnetGroupId"],
+                "max_capacity_units": 64,
+                "min_capacity_units": 2,
+                "preferred_maintenance_window": "sun:23:45-mon:00:30",
             })
         ```
 
@@ -514,10 +514,10 @@ class ReplicationConfig(pulumi.CustomResource):
         \"\"\",
             start_replication=True,
             compute_config={
-                "replicationSubnetGroupId": default["replicationSubnetGroupId"],
-                "maxCapacityUnits": 64,
-                "minCapacityUnits": 2,
-                "preferredMaintenanceWindow": "sun:23:45-mon:00:30",
+                "replication_subnet_group_id": default["replicationSubnetGroupId"],
+                "max_capacity_units": 64,
+                "min_capacity_units": 2,
+                "preferred_maintenance_window": "sun:23:45-mon:00:30",
             })
         ```
 

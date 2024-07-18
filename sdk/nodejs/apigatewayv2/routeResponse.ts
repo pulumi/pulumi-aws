@@ -122,7 +122,7 @@ export class RouteResponse extends pulumi.CustomResource {
             resourceInputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RouteResponse.__pulumiType, name, resourceInputs, opts);
+        super(RouteResponse.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

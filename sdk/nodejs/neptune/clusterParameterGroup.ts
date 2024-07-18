@@ -134,7 +134,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterParameterGroup.__pulumiType, name, resourceInputs, opts);
+        super(ClusterParameterGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -688,6 +688,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) TokenSel
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration struct {
+	// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
 	GroupClaim string `pulumi:"groupClaim"`
 	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
 	GroupEntityType string `pulumi:"groupEntityType"`
@@ -705,6 +706,7 @@ type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationInpu
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs struct {
+	// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
 	GroupClaim pulumi.StringInput `pulumi:"groupClaim"`
 	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
 	GroupEntityType pulumi.StringInput `pulumi:"groupEntityType"`
@@ -787,6 +789,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationO
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput)
 }
 
+// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) GroupClaim() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) string {
 		return v.GroupClaim
@@ -824,6 +827,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationP
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput)
 }
 
+// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput) GroupClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) *string {
 		if v == nil {
@@ -1165,8 +1169,9 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAcces
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly struct {
 	// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-	ClientIds        []string `pulumi:"clientIds"`
-	PrincipalIdClaim *string  `pulumi:"principalIdClaim"`
+	ClientIds []string `pulumi:"clientIds"`
+	// The claim that determines the principal in OIDC access tokens.
+	PrincipalIdClaim *string `pulumi:"principalIdClaim"`
 }
 
 // IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs and IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput values.
@@ -1182,8 +1187,9 @@ type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentity
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs struct {
 	// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-	ClientIds        pulumi.StringArrayInput `pulumi:"clientIds"`
-	PrincipalIdClaim pulumi.StringPtrInput   `pulumi:"principalIdClaim"`
+	ClientIds pulumi.StringArrayInput `pulumi:"clientIds"`
+	// The claim that determines the principal in OIDC access tokens.
+	PrincipalIdClaim pulumi.StringPtrInput `pulumi:"principalIdClaim"`
 }
 
 func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs) ElementType() reflect.Type {
@@ -1270,6 +1276,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdent
 	}).(pulumi.StringArrayOutput)
 }
 
+// The claim that determines the principal in OIDC access tokens.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) *string {
 		return v.PrincipalIdClaim
@@ -1310,6 +1317,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdent
 	}).(pulumi.StringArrayOutput)
 }
 
+// The claim that determines the principal in OIDC access tokens.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) *string {
 		if v == nil {

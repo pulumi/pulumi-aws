@@ -187,7 +187,7 @@ export class V2modelsIntent extends pulumi.CustomResource {
             resourceInputs["lastUpdatedDateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(V2modelsIntent.__pulumiType, name, resourceInputs, opts);
+        super(V2modelsIntent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

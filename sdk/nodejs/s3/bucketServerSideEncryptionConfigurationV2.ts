@@ -123,7 +123,7 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
             resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketServerSideEncryptionConfigurationV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketServerSideEncryptionConfigurationV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

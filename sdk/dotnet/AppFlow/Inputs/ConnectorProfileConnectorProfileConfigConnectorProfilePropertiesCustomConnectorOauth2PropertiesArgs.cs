@@ -20,6 +20,10 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
         [Input("tokenUrlCustomProperties")]
         private InputMap<string>? _tokenUrlCustomProperties;
+
+        /// <summary>
+        /// Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+        /// </summary>
         public InputMap<string> TokenUrlCustomProperties
         {
             get => _tokenUrlCustomProperties ?? (_tokenUrlCustomProperties = new InputMap<string>());

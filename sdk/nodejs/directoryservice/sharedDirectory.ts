@@ -129,7 +129,7 @@ export class SharedDirectory extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["notes"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(SharedDirectory.__pulumiType, name, resourceInputs, opts);
+        super(SharedDirectory.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

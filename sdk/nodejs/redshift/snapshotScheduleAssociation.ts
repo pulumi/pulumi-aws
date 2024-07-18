@@ -101,7 +101,7 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
             resourceInputs["scheduleIdentifier"] = args ? args.scheduleIdentifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SnapshotScheduleAssociation.__pulumiType, name, resourceInputs, opts);
+        super(SnapshotScheduleAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

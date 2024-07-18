@@ -256,7 +256,7 @@ export class ContainerService extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ContainerService.__pulumiType, name, resourceInputs, opts);
+        super(ContainerService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

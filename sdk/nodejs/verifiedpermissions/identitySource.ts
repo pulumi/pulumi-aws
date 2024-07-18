@@ -144,7 +144,7 @@ export class IdentitySource extends pulumi.CustomResource {
             resourceInputs["principalEntityType"] = args ? args.principalEntityType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IdentitySource.__pulumiType, name, resourceInputs, opts);
+        super(IdentitySource.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

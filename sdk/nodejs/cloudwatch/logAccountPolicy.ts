@@ -155,7 +155,7 @@ export class LogAccountPolicy extends pulumi.CustomResource {
             resourceInputs["selectionCriteria"] = args ? args.selectionCriteria : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LogAccountPolicy.__pulumiType, name, resourceInputs, opts);
+        super(LogAccountPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

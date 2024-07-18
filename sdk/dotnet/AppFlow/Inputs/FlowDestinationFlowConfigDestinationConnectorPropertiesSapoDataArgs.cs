@@ -26,6 +26,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("objectPath", required: true)]
         public Input<string> ObjectPath { get; set; } = null!;
 
+        /// <summary>
+        /// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+        /// </summary>
         [Input("successResponseHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs>? SuccessResponseHandlingConfig { get; set; }
 

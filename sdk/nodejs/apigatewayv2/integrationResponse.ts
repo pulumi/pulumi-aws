@@ -122,7 +122,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
             resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IntegrationResponse.__pulumiType, name, resourceInputs, opts);
+        super(IntegrationResponse.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

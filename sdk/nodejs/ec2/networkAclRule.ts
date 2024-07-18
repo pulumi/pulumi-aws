@@ -181,7 +181,7 @@ export class NetworkAclRule extends pulumi.CustomResource {
             resourceInputs["toPort"] = args ? args.toPort : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkAclRule.__pulumiType, name, resourceInputs, opts);
+        super(NetworkAclRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

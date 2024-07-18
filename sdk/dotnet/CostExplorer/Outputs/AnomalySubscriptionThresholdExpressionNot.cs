@@ -13,7 +13,13 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class AnomalySubscriptionThresholdExpressionNot
     {
+        /// <summary>
+        /// Configuration block for the filter that's based on  values. See Cost Category below.
+        /// </summary>
         public readonly Outputs.AnomalySubscriptionThresholdExpressionNotCostCategory? CostCategory;
+        /// <summary>
+        /// Configuration block for the specific Dimension to use for.
+        /// </summary>
         public readonly Outputs.AnomalySubscriptionThresholdExpressionNotDimension? Dimension;
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

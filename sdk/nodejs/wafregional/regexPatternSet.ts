@@ -88,7 +88,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
             resourceInputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegexPatternSet.__pulumiType, name, resourceInputs, opts);
+        super(RegexPatternSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

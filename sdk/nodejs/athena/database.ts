@@ -126,7 +126,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Database.__pulumiType, name, resourceInputs, opts);
+        super(Database.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

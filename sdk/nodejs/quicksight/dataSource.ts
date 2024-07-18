@@ -170,7 +170,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataSource.__pulumiType, name, resourceInputs, opts);
+        super(DataSource.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

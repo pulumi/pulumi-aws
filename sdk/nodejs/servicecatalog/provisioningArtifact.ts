@@ -160,7 +160,7 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
             resourceInputs["provisioningArtifactId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProvisioningArtifact.__pulumiType, name, resourceInputs, opts);
+        super(ProvisioningArtifact.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

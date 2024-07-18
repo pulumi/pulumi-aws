@@ -1009,8 +1009,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1030,8 +1030,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1048,31 +1048,31 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
-                "dagProcessingLogs": {
+                "dag_processing_logs": {
                     "enabled": True,
-                    "logLevel": "DEBUG",
+                    "log_level": "DEBUG",
                 },
-                "schedulerLogs": {
+                "scheduler_logs": {
                     "enabled": True,
-                    "logLevel": "INFO",
+                    "log_level": "INFO",
                 },
-                "taskLogs": {
+                "task_logs": {
                     "enabled": True,
-                    "logLevel": "WARNING",
+                    "log_level": "WARNING",
                 },
-                "webserverLogs": {
+                "webserver_logs": {
                     "enabled": True,
-                    "logLevel": "ERROR",
+                    "log_level": "ERROR",
                 },
-                "workerLogs": {
+                "worker_logs": {
                     "enabled": True,
-                    "logLevel": "CRITICAL",
+                    "log_level": "CRITICAL",
                 },
             },
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1088,8 +1088,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
@@ -1156,8 +1156,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1177,8 +1177,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1195,31 +1195,31 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
-                "dagProcessingLogs": {
+                "dag_processing_logs": {
                     "enabled": True,
-                    "logLevel": "DEBUG",
+                    "log_level": "DEBUG",
                 },
-                "schedulerLogs": {
+                "scheduler_logs": {
                     "enabled": True,
-                    "logLevel": "INFO",
+                    "log_level": "INFO",
                 },
-                "taskLogs": {
+                "task_logs": {
                     "enabled": True,
-                    "logLevel": "WARNING",
+                    "log_level": "WARNING",
                 },
-                "webserverLogs": {
+                "webserver_logs": {
                     "enabled": True,
-                    "logLevel": "ERROR",
+                    "log_level": "ERROR",
                 },
-                "workerLogs": {
+                "worker_logs": {
                     "enabled": True,
-                    "logLevel": "CRITICAL",
+                    "log_level": "CRITICAL",
                 },
             },
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1235,8 +1235,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={

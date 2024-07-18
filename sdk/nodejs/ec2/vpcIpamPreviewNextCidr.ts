@@ -110,7 +110,7 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
             resourceInputs["cidr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcIpamPreviewNextCidr.__pulumiType, name, resourceInputs, opts);
+        super(VpcIpamPreviewNextCidr.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

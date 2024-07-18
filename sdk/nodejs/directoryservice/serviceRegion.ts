@@ -198,7 +198,7 @@ export class ServiceRegion extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServiceRegion.__pulumiType, name, resourceInputs, opts);
+        super(ServiceRegion.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -3070,6 +3070,10 @@ class PartitionStorageDescriptorColumn(dict):
                  name: str,
                  comment: Optional[str] = None,
                  type: Optional[str] = None):
+        """
+        :param str comment: Free-form text comment.
+        :param str type: The datatype of data in the Column.
+        """
         pulumi.set(__self__, "name", name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -3084,11 +3088,17 @@ class PartitionStorageDescriptorColumn(dict):
     @property
     @pulumi.getter
     def comment(self) -> Optional[str]:
+        """
+        Free-form text comment.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The datatype of data in the Column.
+        """
         return pulumi.get(self, "type")
 
 

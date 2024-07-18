@@ -113,7 +113,7 @@ export class WorkspaceApiKey extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["key"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(WorkspaceApiKey.__pulumiType, name, resourceInputs, opts);
+        super(WorkspaceApiKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

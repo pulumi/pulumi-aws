@@ -117,7 +117,7 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
             resourceInputs["restrictPublicBuckets"] = args ? args.restrictPublicBuckets : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketPublicAccessBlock.__pulumiType, name, resourceInputs, opts);
+        super(BucketPublicAccessBlock.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

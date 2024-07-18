@@ -93,7 +93,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
             resourceInputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SqlInjectionMatchSet.__pulumiType, name, resourceInputs, opts);
+        super(SqlInjectionMatchSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

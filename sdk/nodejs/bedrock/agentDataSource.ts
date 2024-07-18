@@ -140,7 +140,7 @@ export class AgentDataSource extends pulumi.CustomResource {
             resourceInputs["dataSourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AgentDataSource.__pulumiType, name, resourceInputs, opts);
+        super(AgentDataSource.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

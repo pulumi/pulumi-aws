@@ -15,6 +15,10 @@ public final class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader
      * 
      */
     private String name;
+    /**
+     * @return The value of the custom header.
+     * 
+     */
     private String value;
 
     private RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader() {}
@@ -25,6 +29,10 @@ public final class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader
     public String name() {
         return this.name;
     }
+    /**
+     * @return The value of the custom header.
+     * 
+     */
     public String value() {
         return this.value;
     }

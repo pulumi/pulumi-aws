@@ -156,7 +156,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
             default_capacity_provider_strategies=[{
                 "base": 1,
                 "weight": 100,
-                "capacityProvider": "FARGATE",
+                "capacity_provider": "FARGATE",
             }])
         ```
 
@@ -198,7 +198,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
             default_capacity_provider_strategies=[{
                 "base": 1,
                 "weight": 100,
-                "capacityProvider": "FARGATE",
+                "capacity_provider": "FARGATE",
             }])
         ```
 

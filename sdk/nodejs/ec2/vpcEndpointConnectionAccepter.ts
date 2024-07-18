@@ -110,7 +110,7 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
             resourceInputs["vpcEndpointState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcEndpointConnectionAccepter.__pulumiType, name, resourceInputs, opts);
+        super(VpcEndpointConnectionAccepter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -18,9 +18,17 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
 
     public static final FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs Empty = new FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs();
 
+    /**
+     * The ARN of the S3 bucket
+     * 
+     */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
+    /**
+     * @return The ARN of the S3 bucket
+     * 
+     */
     public Output<String> bucketArn() {
         return this.bucketArn;
     }
@@ -46,30 +54,64 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
 
+    /**
+     * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * 
+     */
     @Import(name="compressionFormat")
     private @Nullable Output<String> compressionFormat;
 
+    /**
+     * @return The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * 
+     */
     public Optional<Output<String>> compressionFormat() {
         return Optional.ofNullable(this.compressionFormat);
     }
 
+    /**
+     * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+     * 
+     */
     @Import(name="errorOutputPrefix")
     private @Nullable Output<String> errorOutputPrefix;
 
+    /**
+     * @return Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+     * 
+     */
     public Optional<Output<String>> errorOutputPrefix() {
         return Optional.ofNullable(this.errorOutputPrefix);
     }
 
+    /**
+     * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+     * be used.
+     * 
+     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
+    /**
+     * @return Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+     * be used.
+     * 
+     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
+    /**
+     * The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * 
+     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
+    /**
+     * @return The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * 
+     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -113,11 +155,23 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
             $ = new FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucketArn The ARN of the S3 bucket
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketArn(Output<String> bucketArn) {
             $.bucketArn = bucketArn;
             return this;
         }
 
+        /**
+         * @param bucketArn The ARN of the S3 bucket
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketArn(String bucketArn) {
             return bucketArn(Output.of(bucketArn));
         }
@@ -149,38 +203,88 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
             return cloudwatchLoggingOptions(Output.of(cloudwatchLoggingOptions));
         }
 
+        /**
+         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder compressionFormat(@Nullable Output<String> compressionFormat) {
             $.compressionFormat = compressionFormat;
             return this;
         }
 
+        /**
+         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder compressionFormat(String compressionFormat) {
             return compressionFormat(Output.of(compressionFormat));
         }
 
+        /**
+         * @param errorOutputPrefix Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorOutputPrefix(@Nullable Output<String> errorOutputPrefix) {
             $.errorOutputPrefix = errorOutputPrefix;
             return this;
         }
 
+        /**
+         * @param errorOutputPrefix Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorOutputPrefix(String errorOutputPrefix) {
             return errorOutputPrefix(Output.of(errorOutputPrefix));
         }
 
+        /**
+         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+         * be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+         * be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
+        /**
+         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
+        /**
+         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

@@ -195,7 +195,7 @@ export class ReplicationTask extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReplicationTask.__pulumiType, name, resourceInputs, opts);
+        super(ReplicationTask.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

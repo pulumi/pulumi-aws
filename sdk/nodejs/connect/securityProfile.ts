@@ -142,7 +142,7 @@ export class SecurityProfile extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SecurityProfile.__pulumiType, name, resourceInputs, opts);
+        super(SecurityProfile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

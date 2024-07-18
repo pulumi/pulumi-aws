@@ -220,7 +220,7 @@ export class BucketAclV2 extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketAclV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketAclV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -181,7 +181,7 @@ export class ClassificationJob extends pulumi.CustomResource {
             resourceInputs["userPausedDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClassificationJob.__pulumiType, name, resourceInputs, opts);
+        super(ClassificationJob.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

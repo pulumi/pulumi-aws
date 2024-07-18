@@ -117,7 +117,7 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventBus.__pulumiType, name, resourceInputs, opts);
+        super(EventBus.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

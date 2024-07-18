@@ -176,7 +176,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Authorizer.__pulumiType, name, resourceInputs, opts);
+        super(Authorizer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

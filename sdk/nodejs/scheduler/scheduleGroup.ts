@@ -124,7 +124,7 @@ export class ScheduleGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScheduleGroup.__pulumiType, name, resourceInputs, opts);
+        super(ScheduleGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

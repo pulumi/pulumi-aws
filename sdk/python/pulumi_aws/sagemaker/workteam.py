@@ -335,10 +335,10 @@ class Workteam(pulumi.CustomResource):
             workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[{
-                "cognitoMemberDefinition": {
-                    "clientId": example_aws_cognito_user_pool_client["id"],
-                    "userPool": example_aws_cognito_user_pool_domain["userPoolId"],
-                    "userGroup": example_aws_cognito_user_group["id"],
+                "cognito_member_definition": {
+                    "client_id": example_aws_cognito_user_pool_client["id"],
+                    "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
+                    "user_group": example_aws_cognito_user_group["id"],
                 },
             }])
         ```
@@ -354,7 +354,7 @@ class Workteam(pulumi.CustomResource):
             workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[{
-                "oidcMemberDefinition": {
+                "oidc_member_definition": {
                     "groups": ["example"],
                 },
             }])
@@ -400,10 +400,10 @@ class Workteam(pulumi.CustomResource):
             workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[{
-                "cognitoMemberDefinition": {
-                    "clientId": example_aws_cognito_user_pool_client["id"],
-                    "userPool": example_aws_cognito_user_pool_domain["userPoolId"],
-                    "userGroup": example_aws_cognito_user_group["id"],
+                "cognito_member_definition": {
+                    "client_id": example_aws_cognito_user_pool_client["id"],
+                    "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
+                    "user_group": example_aws_cognito_user_group["id"],
                 },
             }])
         ```
@@ -419,7 +419,7 @@ class Workteam(pulumi.CustomResource):
             workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
             member_definitions=[{
-                "oidcMemberDefinition": {
+                "oidc_member_definition": {
                     "groups": ["example"],
                 },
             }])

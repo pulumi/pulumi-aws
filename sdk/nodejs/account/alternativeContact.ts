@@ -133,7 +133,7 @@ export class AlternativeContact extends pulumi.CustomResource {
             resourceInputs["title"] = args ? args.title : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AlternativeContact.__pulumiType, name, resourceInputs, opts);
+        super(AlternativeContact.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

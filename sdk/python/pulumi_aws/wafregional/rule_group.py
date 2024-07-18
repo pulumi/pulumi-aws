@@ -227,7 +227,7 @@ class RuleGroup(pulumi.CustomResource):
                     "type": "COUNT",
                 },
                 "priority": 50,
-                "ruleId": example.id,
+                "rule_id": example.id,
             }])
         ```
 
@@ -272,7 +272,7 @@ class RuleGroup(pulumi.CustomResource):
                     "type": "COUNT",
                 },
                 "priority": 50,
-                "ruleId": example.id,
+                "rule_id": example.id,
             }])
         ```
 

@@ -117,7 +117,7 @@ export class DomainSamlOptions extends pulumi.CustomResource {
             resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DomainSamlOptions.__pulumiType, name, resourceInputs, opts);
+        super(DomainSamlOptions.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

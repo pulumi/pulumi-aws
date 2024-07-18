@@ -216,7 +216,7 @@ export class User extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password", "temporaryPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(User.__pulumiType, name, resourceInputs, opts);
+        super(User.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

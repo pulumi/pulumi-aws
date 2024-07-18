@@ -210,12 +210,12 @@ class Recorder(pulumi.CustomResource):
             name="example",
             role_arn=r["arn"],
             recording_group={
-                "allSupported": False,
-                "exclusionByResourceTypes": [{
-                    "resourceTypes": ["AWS::EC2::Instance"],
+                "all_supported": False,
+                "exclusion_by_resource_types": [{
+                    "resource_types": ["AWS::EC2::Instance"],
                 }],
-                "recordingStrategies": [{
-                    "useOnly": "EXCLUSION_BY_RESOURCE_TYPES",
+                "recording_strategies": [{
+                    "use_only": "EXCLUSION_BY_RESOURCE_TYPES",
                 }],
             })
         ```
@@ -230,19 +230,19 @@ class Recorder(pulumi.CustomResource):
             name="example",
             role_arn=r["arn"],
             recording_group={
-                "allSupported": False,
-                "includeGlobalResourceTypes": False,
-                "resourceTypes": [
+                "all_supported": False,
+                "include_global_resource_types": False,
+                "resource_types": [
                     "AWS::EC2::Instance",
                     "AWS::EC2::NetworkInterface",
                 ],
             },
             recording_mode={
-                "recordingFrequency": "CONTINUOUS",
-                "recordingModeOverride": {
+                "recording_frequency": "CONTINUOUS",
+                "recording_mode_override": {
                     "description": "Only record EC2 network interfaces daily",
-                    "resourceTypes": ["AWS::EC2::NetworkInterface"],
-                    "recordingFrequency": "DAILY",
+                    "resource_types": ["AWS::EC2::NetworkInterface"],
+                    "recording_frequency": "DAILY",
                 },
             })
         ```
@@ -307,12 +307,12 @@ class Recorder(pulumi.CustomResource):
             name="example",
             role_arn=r["arn"],
             recording_group={
-                "allSupported": False,
-                "exclusionByResourceTypes": [{
-                    "resourceTypes": ["AWS::EC2::Instance"],
+                "all_supported": False,
+                "exclusion_by_resource_types": [{
+                    "resource_types": ["AWS::EC2::Instance"],
                 }],
-                "recordingStrategies": [{
-                    "useOnly": "EXCLUSION_BY_RESOURCE_TYPES",
+                "recording_strategies": [{
+                    "use_only": "EXCLUSION_BY_RESOURCE_TYPES",
                 }],
             })
         ```
@@ -327,19 +327,19 @@ class Recorder(pulumi.CustomResource):
             name="example",
             role_arn=r["arn"],
             recording_group={
-                "allSupported": False,
-                "includeGlobalResourceTypes": False,
-                "resourceTypes": [
+                "all_supported": False,
+                "include_global_resource_types": False,
+                "resource_types": [
                     "AWS::EC2::Instance",
                     "AWS::EC2::NetworkInterface",
                 ],
             },
             recording_mode={
-                "recordingFrequency": "CONTINUOUS",
-                "recordingModeOverride": {
+                "recording_frequency": "CONTINUOUS",
+                "recording_mode_override": {
                     "description": "Only record EC2 network interfaces daily",
-                    "resourceTypes": ["AWS::EC2::NetworkInterface"],
-                    "recordingFrequency": "DAILY",
+                    "resource_types": ["AWS::EC2::NetworkInterface"],
+                    "recording_frequency": "DAILY",
                 },
             })
         ```

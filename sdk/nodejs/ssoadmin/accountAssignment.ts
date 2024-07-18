@@ -179,7 +179,7 @@ export class AccountAssignment extends pulumi.CustomResource {
             resourceInputs["targetType"] = args ? args.targetType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccountAssignment.__pulumiType, name, resourceInputs, opts);
+        super(AccountAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

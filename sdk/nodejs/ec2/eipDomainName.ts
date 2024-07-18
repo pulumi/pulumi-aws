@@ -102,7 +102,7 @@ export class EipDomainName extends pulumi.CustomResource {
             resourceInputs["ptrRecord"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EipDomainName.__pulumiType, name, resourceInputs, opts);
+        super(EipDomainName.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

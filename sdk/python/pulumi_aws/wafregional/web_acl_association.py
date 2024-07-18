@@ -125,7 +125,7 @@ class WebAclAssociation(pulumi.CustomResource):
             name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[{
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }])
@@ -140,7 +140,7 @@ class WebAclAssociation(pulumi.CustomResource):
                     "type": "BLOCK",
                 },
                 "priority": 1,
-                "ruleId": foo.id,
+                "rule_id": foo.id,
             }])
         foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
         available = aws.get_availability_zones()
@@ -205,7 +205,7 @@ class WebAclAssociation(pulumi.CustomResource):
             name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[{
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }])
@@ -220,7 +220,7 @@ class WebAclAssociation(pulumi.CustomResource):
                     "type": "BLOCK",
                 },
                 "priority": 1,
-                "ruleId": foo.id,
+                "rule_id": foo.id,
             }])
         foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
         available = aws.get_availability_zones()

@@ -142,7 +142,7 @@ export class StandardsControl extends pulumi.CustomResource {
             resourceInputs["title"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StandardsControl.__pulumiType, name, resourceInputs, opts);
+        super(StandardsControl.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

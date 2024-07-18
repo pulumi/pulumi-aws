@@ -189,7 +189,7 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["verifiedaccessInstanceId"] = args ? args.verifiedaccessInstanceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InstanceLoggingConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(InstanceLoggingConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

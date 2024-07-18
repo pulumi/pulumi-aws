@@ -113,7 +113,7 @@ export class PreparedStatement extends pulumi.CustomResource {
             resourceInputs["workgroup"] = args ? args.workgroup : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PreparedStatement.__pulumiType, name, resourceInputs, opts);
+        super(PreparedStatement.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -125,7 +125,7 @@ export class SdkvoiceSipRule extends pulumi.CustomResource {
             resourceInputs["triggerValue"] = args ? args.triggerValue : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SdkvoiceSipRule.__pulumiType, name, resourceInputs, opts);
+        super(SdkvoiceSipRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

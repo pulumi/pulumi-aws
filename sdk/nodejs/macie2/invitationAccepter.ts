@@ -97,7 +97,7 @@ export class InvitationAccepter extends pulumi.CustomResource {
             resourceInputs["invitationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InvitationAccepter.__pulumiType, name, resourceInputs, opts);
+        super(InvitationAccepter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

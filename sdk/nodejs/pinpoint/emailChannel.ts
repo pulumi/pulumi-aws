@@ -153,7 +153,7 @@ export class EmailChannel extends pulumi.CustomResource {
             resourceInputs["messagesPerSecond"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EmailChannel.__pulumiType, name, resourceInputs, opts);
+        super(EmailChannel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

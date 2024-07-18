@@ -121,7 +121,7 @@ export class GroupPolicy extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GroupPolicy.__pulumiType, name, resourceInputs, opts);
+        super(GroupPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -114,7 +114,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccessLogSubscription.__pulumiType, name, resourceInputs, opts);
+        super(AccessLogSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

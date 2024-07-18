@@ -529,8 +529,8 @@ class DataSource(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             schedule="cron(9 10 1 * ? *)",
             configuration={
-                "s3Configuration": {
-                    "bucketName": example_aws_s3_bucket["id"],
+                "s3_configuration": {
+                    "bucket_name": example_aws_s3_bucket["id"],
                 },
             })
         ```
@@ -547,10 +547,10 @@ class DataSource(pulumi.CustomResource):
             type="S3",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "s3Configuration": {
-                    "bucketName": example_aws_s3_bucket["id"],
-                    "accessControlListConfiguration": {
-                        "keyPath": f"s3://{example_aws_s3_bucket['id']}/path-1",
+                "s3_configuration": {
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "access_control_list_configuration": {
+                        "key_path": f"s3://{example_aws_s3_bucket['id']}/path-1",
                     },
                 },
             })
@@ -568,13 +568,13 @@ class DataSource(pulumi.CustomResource):
             type="S3",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "s3Configuration": {
-                    "bucketName": example_aws_s3_bucket["id"],
-                    "exclusionPatterns": ["example"],
-                    "inclusionPatterns": ["hello"],
-                    "inclusionPrefixes": ["world"],
-                    "documentsMetadataConfiguration": {
-                        "s3Prefix": "example",
+                "s3_configuration": {
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "exclusion_patterns": ["example"],
+                    "inclusion_patterns": ["hello"],
+                    "inclusion_prefixes": ["world"],
+                    "documents_metadata_configuration": {
+                        "s3_prefix": "example",
                     },
                 },
             })
@@ -594,10 +594,10 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
+                "web_crawler_configuration": {
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -616,10 +616,10 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
+                "web_crawler_configuration": {
                     "urls": {
-                        "siteMapsConfiguration": {
-                            "siteMaps": ["REPLACE_WITH_YOUR_URL"],
+                        "site_maps_configuration": {
+                            "site_maps": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -638,11 +638,11 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
+                "web_crawler_configuration": {
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "webCrawlerMode": "SUBDOMAINS",
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "web_crawler_mode": "SUBDOMAINS",
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -661,17 +661,17 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "authenticationConfiguration": {
-                        "basicAuthentications": [{
+                "web_crawler_configuration": {
+                    "authentication_configuration": {
+                        "basic_authentications": [{
                             "credentials": example_aws_secretsmanager_secret["arn"],
                             "host": "a.example.com",
                             "port": 443,
                         }],
                     },
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -691,11 +691,11 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "crawlDepth": 3,
+                "web_crawler_configuration": {
+                    "crawl_depth": 3,
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -714,11 +714,11 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "maxLinksPerPage": 100,
+                "web_crawler_configuration": {
+                    "max_links_per_page": 100,
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -737,11 +737,11 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "maxUrlsPerMinuteCrawlRate": 300,
+                "web_crawler_configuration": {
+                    "max_urls_per_minute_crawl_rate": 300,
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -760,15 +760,15 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "proxyConfiguration": {
+                "web_crawler_configuration": {
+                    "proxy_configuration": {
                         "credentials": example_aws_secretsmanager_secret["arn"],
                         "host": "a.example.com",
                         "port": 443,
                     },
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -788,12 +788,12 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "urlExclusionPatterns": ["example"],
-                    "urlInclusionPatterns": ["hello"],
+                "web_crawler_configuration": {
+                    "url_exclusion_patterns": ["example"],
+                    "url_inclusion_patterns": ["hello"],
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -866,8 +866,8 @@ class DataSource(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             schedule="cron(9 10 1 * ? *)",
             configuration={
-                "s3Configuration": {
-                    "bucketName": example_aws_s3_bucket["id"],
+                "s3_configuration": {
+                    "bucket_name": example_aws_s3_bucket["id"],
                 },
             })
         ```
@@ -884,10 +884,10 @@ class DataSource(pulumi.CustomResource):
             type="S3",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "s3Configuration": {
-                    "bucketName": example_aws_s3_bucket["id"],
-                    "accessControlListConfiguration": {
-                        "keyPath": f"s3://{example_aws_s3_bucket['id']}/path-1",
+                "s3_configuration": {
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "access_control_list_configuration": {
+                        "key_path": f"s3://{example_aws_s3_bucket['id']}/path-1",
                     },
                 },
             })
@@ -905,13 +905,13 @@ class DataSource(pulumi.CustomResource):
             type="S3",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "s3Configuration": {
-                    "bucketName": example_aws_s3_bucket["id"],
-                    "exclusionPatterns": ["example"],
-                    "inclusionPatterns": ["hello"],
-                    "inclusionPrefixes": ["world"],
-                    "documentsMetadataConfiguration": {
-                        "s3Prefix": "example",
+                "s3_configuration": {
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "exclusion_patterns": ["example"],
+                    "inclusion_patterns": ["hello"],
+                    "inclusion_prefixes": ["world"],
+                    "documents_metadata_configuration": {
+                        "s3_prefix": "example",
                     },
                 },
             })
@@ -931,10 +931,10 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
+                "web_crawler_configuration": {
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -953,10 +953,10 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
+                "web_crawler_configuration": {
                     "urls": {
-                        "siteMapsConfiguration": {
-                            "siteMaps": ["REPLACE_WITH_YOUR_URL"],
+                        "site_maps_configuration": {
+                            "site_maps": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -975,11 +975,11 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
+                "web_crawler_configuration": {
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "webCrawlerMode": "SUBDOMAINS",
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "web_crawler_mode": "SUBDOMAINS",
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -998,17 +998,17 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "authenticationConfiguration": {
-                        "basicAuthentications": [{
+                "web_crawler_configuration": {
+                    "authentication_configuration": {
+                        "basic_authentications": [{
                             "credentials": example_aws_secretsmanager_secret["arn"],
                             "host": "a.example.com",
                             "port": 443,
                         }],
                     },
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -1028,11 +1028,11 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "crawlDepth": 3,
+                "web_crawler_configuration": {
+                    "crawl_depth": 3,
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -1051,11 +1051,11 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "maxLinksPerPage": 100,
+                "web_crawler_configuration": {
+                    "max_links_per_page": 100,
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -1074,11 +1074,11 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "maxUrlsPerMinuteCrawlRate": 300,
+                "web_crawler_configuration": {
+                    "max_urls_per_minute_crawl_rate": 300,
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -1097,15 +1097,15 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "proxyConfiguration": {
+                "web_crawler_configuration": {
+                    "proxy_configuration": {
                         "credentials": example_aws_secretsmanager_secret["arn"],
                         "host": "a.example.com",
                         "port": 443,
                     },
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },
@@ -1125,12 +1125,12 @@ class DataSource(pulumi.CustomResource):
             type="WEBCRAWLER",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "webCrawlerConfiguration": {
-                    "urlExclusionPatterns": ["example"],
-                    "urlInclusionPatterns": ["hello"],
+                "web_crawler_configuration": {
+                    "url_exclusion_patterns": ["example"],
+                    "url_inclusion_patterns": ["hello"],
                     "urls": {
-                        "seedUrlConfiguration": {
-                            "seedUrls": ["REPLACE_WITH_YOUR_URL"],
+                        "seed_url_configuration": {
+                            "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
                 },

@@ -110,7 +110,7 @@ export class KeyValueStore extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KeyValueStore.__pulumiType, name, resourceInputs, opts);
+        super(KeyValueStore.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

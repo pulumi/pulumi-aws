@@ -128,7 +128,7 @@ export class RepositoryPolicy extends pulumi.CustomResource {
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RepositoryPolicy.__pulumiType, name, resourceInputs, opts);
+        super(RepositoryPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -134,7 +134,7 @@ export class LogResourcePolicy extends pulumi.CustomResource {
             resourceInputs["policyName"] = args ? args.policyName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LogResourcePolicy.__pulumiType, name, resourceInputs, opts);
+        super(LogResourcePolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

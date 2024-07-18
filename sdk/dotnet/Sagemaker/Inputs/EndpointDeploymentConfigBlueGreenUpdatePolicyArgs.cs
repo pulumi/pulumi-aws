@@ -15,9 +15,15 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("maximumExecutionTimeoutInSeconds")]
         public Input<int>? MaximumExecutionTimeoutInSeconds { get; set; }
 
+        /// <summary>
+        /// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+        /// </summary>
         [Input("terminationWaitInSeconds")]
         public Input<int>? TerminationWaitInSeconds { get; set; }
 
+        /// <summary>
+        /// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+        /// </summary>
         [Input("trafficRoutingConfiguration", required: true)]
         public Input<Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs> TrafficRoutingConfiguration { get; set; } = null!;
 

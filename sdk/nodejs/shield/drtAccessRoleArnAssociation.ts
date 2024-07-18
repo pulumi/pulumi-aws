@@ -106,7 +106,7 @@ export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DrtAccessRoleArnAssociation.__pulumiType, name, resourceInputs, opts);
+        super(DrtAccessRoleArnAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

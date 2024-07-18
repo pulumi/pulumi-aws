@@ -13,11 +13,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll all;
     private @Nullable List<String> excludedCookies;
     private @Nullable List<String> includedCookies;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern() {}
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }

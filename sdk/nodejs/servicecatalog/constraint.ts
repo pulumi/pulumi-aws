@@ -141,7 +141,7 @@ export class Constraint extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Constraint.__pulumiType, name, resourceInputs, opts);
+        super(Constraint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

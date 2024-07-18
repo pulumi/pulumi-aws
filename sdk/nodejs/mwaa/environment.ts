@@ -384,7 +384,7 @@ export class Environment extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["airflowConfigurationOptions"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Environment.__pulumiType, name, resourceInputs, opts);
+        super(Environment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

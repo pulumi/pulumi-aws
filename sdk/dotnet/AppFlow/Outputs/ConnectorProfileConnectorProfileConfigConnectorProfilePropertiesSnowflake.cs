@@ -13,12 +13,24 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake
     {
+        /// <summary>
+        /// The name of the account.
+        /// </summary>
         public readonly string? AccountName;
         public readonly string BucketName;
         public readonly string? BucketPrefix;
         public readonly string? PrivateLinkServiceName;
+        /// <summary>
+        /// AWS Region of the Snowflake account.
+        /// </summary>
         public readonly string? Region;
+        /// <summary>
+        /// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
+        /// </summary>
         public readonly string Stage;
+        /// <summary>
+        /// The name of the Snowflake warehouse.
+        /// </summary>
         public readonly string Warehouse;
 
         [OutputConstructor]

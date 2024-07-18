@@ -103,7 +103,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegistryPolicy.__pulumiType, name, resourceInputs, opts);
+        super(RegistryPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -164,7 +164,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrafficMirrorSession.__pulumiType, name, resourceInputs, opts);
+        super(TrafficMirrorSession.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

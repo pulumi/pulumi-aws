@@ -143,7 +143,7 @@ export class ClusterActivityStream extends pulumi.CustomResource {
             resourceInputs["kinesisStreamName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterActivityStream.__pulumiType, name, resourceInputs, opts);
+        super(ClusterActivityStream.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

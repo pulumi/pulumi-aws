@@ -201,7 +201,7 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
             resourceInputs["associationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InstanceStorageConfig.__pulumiType, name, resourceInputs, opts);
+        super(InstanceStorageConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

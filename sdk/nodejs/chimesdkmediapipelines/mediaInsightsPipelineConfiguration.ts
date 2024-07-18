@@ -379,7 +379,7 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MediaInsightsPipelineConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(MediaInsightsPipelineConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -93,7 +93,7 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DomainIdentityVerification.__pulumiType, name, resourceInputs, opts);
+        super(DomainIdentityVerification.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

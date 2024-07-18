@@ -208,7 +208,7 @@ export class Insight extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Insight.__pulumiType, name, resourceInputs, opts);
+        super(Insight.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

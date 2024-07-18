@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail {
+    /**
+     * @return The email HTML body.
+     * 
+     */
     private String htmlBody;
+    /**
+     * @return The email subject.
+     * 
+     */
     private String subject;
+    /**
+     * @return The email text body.
+     * 
+     */
     private String textBody;
 
     private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail() {}
+    /**
+     * @return The email HTML body.
+     * 
+     */
     public String htmlBody() {
         return this.htmlBody;
     }
+    /**
+     * @return The email subject.
+     * 
+     */
     public String subject() {
         return this.subject;
     }
+    /**
+     * @return The email text body.
+     * 
+     */
     public String textBody() {
         return this.textBody;
     }

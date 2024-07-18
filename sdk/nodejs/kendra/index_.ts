@@ -751,7 +751,7 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Index.__pulumiType, name, resourceInputs, opts);
+        super(Index.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -96,7 +96,7 @@ export class ClusterIamRoles extends pulumi.CustomResource {
             resourceInputs["iamRoleArns"] = args ? args.iamRoleArns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterIamRoles.__pulumiType, name, resourceInputs, opts);
+        super(ClusterIamRoles.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

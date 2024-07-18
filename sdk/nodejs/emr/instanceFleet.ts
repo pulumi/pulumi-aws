@@ -166,7 +166,7 @@ export class InstanceFleet extends pulumi.CustomResource {
             resourceInputs["provisionedSpotCapacity"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InstanceFleet.__pulumiType, name, resourceInputs, opts);
+        super(InstanceFleet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

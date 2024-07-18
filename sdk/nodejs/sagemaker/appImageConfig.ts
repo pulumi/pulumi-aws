@@ -113,7 +113,7 @@ export class AppImageConfig extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AppImageConfig.__pulumiType, name, resourceInputs, opts);
+        super(AppImageConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

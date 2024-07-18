@@ -125,7 +125,7 @@ export class LicenseAssociation extends pulumi.CustomResource {
             resourceInputs["licenseExpiration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LicenseAssociation.__pulumiType, name, resourceInputs, opts);
+        super(LicenseAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

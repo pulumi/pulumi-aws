@@ -163,7 +163,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserPoolDomain.__pulumiType, name, resourceInputs, opts);
+        super(UserPoolDomain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

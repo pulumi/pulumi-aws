@@ -14,6 +14,9 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     public sealed class InsightFiltersResourceTag
     {
         public readonly string Comparison;
+        /// <summary>
+        /// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        /// </summary>
         public readonly string Key;
         public readonly string Value;
 

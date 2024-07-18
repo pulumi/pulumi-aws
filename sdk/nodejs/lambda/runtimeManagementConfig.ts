@@ -130,7 +130,7 @@ export class RuntimeManagementConfig extends pulumi.CustomResource {
             resourceInputs["functionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RuntimeManagementConfig.__pulumiType, name, resourceInputs, opts);
+        super(RuntimeManagementConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

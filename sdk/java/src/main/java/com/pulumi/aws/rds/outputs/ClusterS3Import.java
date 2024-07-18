@@ -12,25 +12,69 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterS3Import {
+    /**
+     * @return Bucket name where your backup is stored
+     * 
+     */
     private String bucketName;
+    /**
+     * @return Can be blank, but is the path to your backup
+     * 
+     */
     private @Nullable String bucketPrefix;
+    /**
+     * @return Role applied to load the data.
+     * 
+     */
     private String ingestionRole;
+    /**
+     * @return Source engine for the backup
+     * 
+     */
     private String sourceEngine;
+    /**
+     * @return Version of the source engine used to make the backup
+     * 
+     * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+     * 
+     */
     private String sourceEngineVersion;
 
     private ClusterS3Import() {}
+    /**
+     * @return Bucket name where your backup is stored
+     * 
+     */
     public String bucketName() {
         return this.bucketName;
     }
+    /**
+     * @return Can be blank, but is the path to your backup
+     * 
+     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
+    /**
+     * @return Role applied to load the data.
+     * 
+     */
     public String ingestionRole() {
         return this.ingestionRole;
     }
+    /**
+     * @return Source engine for the backup
+     * 
+     */
     public String sourceEngine() {
         return this.sourceEngine;
     }
+    /**
+     * @return Version of the source engine used to make the backup
+     * 
+     * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+     * 
+     */
     public String sourceEngineVersion() {
         return this.sourceEngineVersion;
     }

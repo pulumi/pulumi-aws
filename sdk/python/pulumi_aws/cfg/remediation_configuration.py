@@ -408,7 +408,7 @@ class RemediationConfiguration(pulumi.CustomResource):
             name="example",
             source={
                 "owner": "AWS",
-                "sourceIdentifier": "S3_BUCKET_VERSIONING_ENABLED",
+                "source_identifier": "S3_BUCKET_VERSIONING_ENABLED",
             })
         this_remediation_configuration = aws.cfg.RemediationConfiguration("this",
             config_rule_name=this.name,
@@ -419,24 +419,24 @@ class RemediationConfiguration(pulumi.CustomResource):
             parameters=[
                 {
                     "name": "AutomationAssumeRole",
-                    "staticValue": "arn:aws:iam::875924563244:role/security_config",
+                    "static_value": "arn:aws:iam::875924563244:role/security_config",
                 },
                 {
                     "name": "BucketName",
-                    "resourceValue": "RESOURCE_ID",
+                    "resource_value": "RESOURCE_ID",
                 },
                 {
                     "name": "SSEAlgorithm",
-                    "staticValue": "AES256",
+                    "static_value": "AES256",
                 },
             ],
             automatic=True,
             maximum_automatic_attempts=10,
             retry_attempt_seconds=600,
             execution_controls={
-                "ssmControls": {
-                    "concurrentExecutionRatePercentage": 25,
-                    "errorPercentage": 20,
+                "ssm_controls": {
+                    "concurrent_execution_rate_percentage": 25,
+                    "error_percentage": 20,
                 },
             })
         ```
@@ -487,7 +487,7 @@ class RemediationConfiguration(pulumi.CustomResource):
             name="example",
             source={
                 "owner": "AWS",
-                "sourceIdentifier": "S3_BUCKET_VERSIONING_ENABLED",
+                "source_identifier": "S3_BUCKET_VERSIONING_ENABLED",
             })
         this_remediation_configuration = aws.cfg.RemediationConfiguration("this",
             config_rule_name=this.name,
@@ -498,24 +498,24 @@ class RemediationConfiguration(pulumi.CustomResource):
             parameters=[
                 {
                     "name": "AutomationAssumeRole",
-                    "staticValue": "arn:aws:iam::875924563244:role/security_config",
+                    "static_value": "arn:aws:iam::875924563244:role/security_config",
                 },
                 {
                     "name": "BucketName",
-                    "resourceValue": "RESOURCE_ID",
+                    "resource_value": "RESOURCE_ID",
                 },
                 {
                     "name": "SSEAlgorithm",
-                    "staticValue": "AES256",
+                    "static_value": "AES256",
                 },
             ],
             automatic=True,
             maximum_automatic_attempts=10,
             retry_attempt_seconds=600,
             execution_controls={
-                "ssmControls": {
-                    "concurrentExecutionRatePercentage": 25,
-                    "errorPercentage": 20,
+                "ssm_controls": {
+                    "concurrent_execution_rate_percentage": 25,
+                    "error_percentage": 20,
                 },
             })
         ```

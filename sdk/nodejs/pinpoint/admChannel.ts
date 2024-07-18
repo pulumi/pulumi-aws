@@ -112,7 +112,7 @@ export class AdmChannel extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientId", "clientSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(AdmChannel.__pulumiType, name, resourceInputs, opts);
+        super(AdmChannel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

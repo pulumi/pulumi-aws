@@ -648,12 +648,12 @@ class Endpoint(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[{
                 "type": "certificate-authentication",
-                "rootCertificateChainArn": root_cert["arn"],
+                "root_certificate_chain_arn": root_cert["arn"],
             }],
             connection_log_options={
                 "enabled": True,
-                "cloudwatchLogGroup": lg["name"],
-                "cloudwatchLogStream": ls["name"],
+                "cloudwatch_log_group": lg["name"],
+                "cloudwatch_log_stream": ls["name"],
             })
         ```
 
@@ -706,12 +706,12 @@ class Endpoint(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[{
                 "type": "certificate-authentication",
-                "rootCertificateChainArn": root_cert["arn"],
+                "root_certificate_chain_arn": root_cert["arn"],
             }],
             connection_log_options={
                 "enabled": True,
-                "cloudwatchLogGroup": lg["name"],
-                "cloudwatchLogStream": ls["name"],
+                "cloudwatch_log_group": lg["name"],
+                "cloudwatch_log_stream": ls["name"],
             })
         ```
 
