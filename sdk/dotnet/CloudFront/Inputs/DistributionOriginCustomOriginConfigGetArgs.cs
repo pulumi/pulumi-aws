@@ -12,23 +12,42 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionOriginCustomOriginConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// HTTP port the custom origin listens on.
+        /// </summary>
         [Input("httpPort", required: true)]
         public Input<int> HttpPort { get; set; } = null!;
 
+        /// <summary>
+        /// HTTPS port the custom origin listens on.
+        /// </summary>
         [Input("httpsPort", required: true)]
         public Input<int> HttpsPort { get; set; } = null!;
 
+        /// <summary>
+        /// The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
+        /// </summary>
         [Input("originKeepaliveTimeout")]
         public Input<int>? OriginKeepaliveTimeout { get; set; }
 
+        /// <summary>
+        /// Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
+        /// </summary>
         [Input("originProtocolPolicy", required: true)]
         public Input<string> OriginProtocolPolicy { get; set; } = null!;
 
+        /// <summary>
+        /// The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
+        /// </summary>
         [Input("originReadTimeout")]
         public Input<int>? OriginReadTimeout { get; set; }
 
         [Input("originSslProtocols", required: true)]
         private InputList<string>? _originSslProtocols;
+
+        /// <summary>
+        /// List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
+        /// </summary>
         public InputList<string> OriginSslProtocols
         {
             get => _originSslProtocols ?? (_originSslProtocols = new InputList<string>());

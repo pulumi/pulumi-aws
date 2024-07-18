@@ -13,14 +13,45 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class DefaultNetworkAclIngress
     {
+        /// <summary>
+        /// The action to take.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// The CIDR block to match. This must be a valid network mask.
+        /// </summary>
         public readonly string? CidrBlock;
+        /// <summary>
+        /// The from port to match.
+        /// </summary>
         public readonly int FromPort;
+        /// <summary>
+        /// The ICMP type code to be used. Default 0.
+        /// </summary>
         public readonly int? IcmpCode;
+        /// <summary>
+        /// The ICMP type to be used. Default 0.
+        /// </summary>
         public readonly int? IcmpType;
+        /// <summary>
+        /// The IPv6 CIDR block.
+        /// 
+        /// &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+        /// </summary>
         public readonly string? Ipv6CidrBlock;
+        /// <summary>
+        /// The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// The rule number. Used for ordering.
+        /// </summary>
         public readonly int RuleNo;
+        /// <summary>
+        /// The to port to match.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         public readonly int ToPort;
 
         [OutputConstructor]

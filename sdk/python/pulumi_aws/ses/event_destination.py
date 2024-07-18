@@ -313,9 +313,9 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             cloudwatch_destinations=[{
-                "defaultValue": "default",
-                "dimensionName": "dimension",
-                "valueSource": "emailHeader",
+                "default_value": "default",
+                "dimension_name": "dimension",
+                "value_source": "emailHeader",
             }])
         ```
 
@@ -334,8 +334,8 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             kinesis_destination={
-                "streamArn": example_aws_kinesis_firehose_delivery_stream["arn"],
-                "roleArn": example["arn"],
+                "stream_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
+                "role_arn": example["arn"],
             })
         ```
 
@@ -354,7 +354,7 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             sns_destination={
-                "topicArn": example["arn"],
+                "topic_arn": example["arn"],
             })
         ```
 
@@ -404,9 +404,9 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             cloudwatch_destinations=[{
-                "defaultValue": "default",
-                "dimensionName": "dimension",
-                "valueSource": "emailHeader",
+                "default_value": "default",
+                "dimension_name": "dimension",
+                "value_source": "emailHeader",
             }])
         ```
 
@@ -425,8 +425,8 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             kinesis_destination={
-                "streamArn": example_aws_kinesis_firehose_delivery_stream["arn"],
-                "roleArn": example["arn"],
+                "stream_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
+                "role_arn": example["arn"],
             })
         ```
 
@@ -445,7 +445,7 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             sns_destination={
-                "topicArn": example["arn"],
+                "topic_arn": example["arn"],
             })
         ```
 

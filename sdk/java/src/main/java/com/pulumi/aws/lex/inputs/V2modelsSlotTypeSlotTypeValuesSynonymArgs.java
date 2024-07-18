@@ -14,9 +14,17 @@ public final class V2modelsSlotTypeSlotTypeValuesSynonymArgs extends com.pulumi.
 
     public static final V2modelsSlotTypeSlotTypeValuesSynonymArgs Empty = new V2modelsSlotTypeSlotTypeValuesSynonymArgs();
 
+    /**
+     * Value that can be used for a slot type.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Value that can be used for a slot type.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -45,11 +53,23 @@ public final class V2modelsSlotTypeSlotTypeValuesSynonymArgs extends com.pulumi.
             $ = new V2modelsSlotTypeSlotTypeValuesSynonymArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param value Value that can be used for a slot type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value that can be used for a slot type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

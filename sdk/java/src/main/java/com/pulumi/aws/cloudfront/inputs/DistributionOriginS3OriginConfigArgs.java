@@ -14,9 +14,17 @@ public final class DistributionOriginS3OriginConfigArgs extends com.pulumi.resou
 
     public static final DistributionOriginS3OriginConfigArgs Empty = new DistributionOriginS3OriginConfigArgs();
 
+    /**
+     * The CloudFront origin access identity to associate with the origin.
+     * 
+     */
     @Import(name="originAccessIdentity", required=true)
     private Output<String> originAccessIdentity;
 
+    /**
+     * @return The CloudFront origin access identity to associate with the origin.
+     * 
+     */
     public Output<String> originAccessIdentity() {
         return this.originAccessIdentity;
     }
@@ -45,11 +53,23 @@ public final class DistributionOriginS3OriginConfigArgs extends com.pulumi.resou
             $ = new DistributionOriginS3OriginConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param originAccessIdentity The CloudFront origin access identity to associate with the origin.
+         * 
+         * @return builder
+         * 
+         */
         public Builder originAccessIdentity(Output<String> originAccessIdentity) {
             $.originAccessIdentity = originAccessIdentity;
             return this;
         }
 
+        /**
+         * @param originAccessIdentity The CloudFront origin access identity to associate with the origin.
+         * 
+         * @return builder
+         * 
+         */
         public Builder originAccessIdentity(String originAccessIdentity) {
             return originAccessIdentity(Output.of(originAccessIdentity));
         }

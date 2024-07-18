@@ -14,37 +14,103 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ModelPrimaryContainer {
+    /**
+     * @return The DNS host name for the container.
+     * 
+     */
     private @Nullable String containerHostname;
+    /**
+     * @return Environment variables for the Docker container.
+     * A list of key value pairs.
+     * 
+     */
     private @Nullable Map<String,String> environment;
+    /**
+     * @return The registry path where the inference code image is stored in Amazon ECR.
+     * 
+     */
     private @Nullable String image;
+    /**
+     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * 
+     */
     private @Nullable ModelPrimaryContainerImageConfig imageConfig;
+    /**
+     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * 
+     */
     private @Nullable String mode;
+    /**
+     * @return The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+     * 
+     */
     private @Nullable ModelPrimaryContainerModelDataSource modelDataSource;
+    /**
+     * @return The URL for the S3 location where model artifacts are stored.
+     * 
+     */
     private @Nullable String modelDataUrl;
+    /**
+     * @return The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * 
+     */
     private @Nullable String modelPackageName;
 
     private ModelPrimaryContainer() {}
+    /**
+     * @return The DNS host name for the container.
+     * 
+     */
     public Optional<String> containerHostname() {
         return Optional.ofNullable(this.containerHostname);
     }
+    /**
+     * @return Environment variables for the Docker container.
+     * A list of key value pairs.
+     * 
+     */
     public Map<String,String> environment() {
         return this.environment == null ? Map.of() : this.environment;
     }
+    /**
+     * @return The registry path where the inference code image is stored in Amazon ECR.
+     * 
+     */
     public Optional<String> image() {
         return Optional.ofNullable(this.image);
     }
+    /**
+     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * 
+     */
     public Optional<ModelPrimaryContainerImageConfig> imageConfig() {
         return Optional.ofNullable(this.imageConfig);
     }
+    /**
+     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * 
+     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
+    /**
+     * @return The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+     * 
+     */
     public Optional<ModelPrimaryContainerModelDataSource> modelDataSource() {
         return Optional.ofNullable(this.modelDataSource);
     }
+    /**
+     * @return The URL for the S3 location where model artifacts are stored.
+     * 
+     */
     public Optional<String> modelDataUrl() {
         return Optional.ofNullable(this.modelDataUrl);
     }
+    /**
+     * @return The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * 
+     */
     public Optional<String> modelPackageName() {
         return Optional.ofNullable(this.modelPackageName);
     }

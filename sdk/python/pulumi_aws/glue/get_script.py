@@ -139,7 +139,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
         dag_nodes=[
             {
                 "id": "datasource0",
-                "nodeType": "DataSource",
+                "node_type": "DataSource",
                 "args": [
                     {
                         "name": "database",
@@ -153,7 +153,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
             },
             {
                 "id": "applymapping1",
-                "nodeType": "ApplyMapping",
+                "node_type": "ApplyMapping",
                 "args": [{
                     "name": "mapping",
                     "value": "[(\\"column1\\", \\"string\\", \\"column1\\", \\"string\\")]",
@@ -161,7 +161,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
             },
             {
                 "id": "selectfields2",
-                "nodeType": "SelectFields",
+                "node_type": "SelectFields",
                 "args": [{
                     "name": "paths",
                     "value": "[\\"column1\\"]",
@@ -169,7 +169,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
             },
             {
                 "id": "resolvechoice3",
-                "nodeType": "ResolveChoice",
+                "node_type": "ResolveChoice",
                 "args": [
                     {
                         "name": "choice",
@@ -187,7 +187,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
             },
             {
                 "id": "datasink4",
-                "nodeType": "DataSink",
+                "node_type": "DataSink",
                 "args": [
                     {
                         "name": "database",
@@ -231,7 +231,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
         dag_nodes=[
             {
                 "id": "datasource0",
-                "nodeType": "DataSource",
+                "node_type": "DataSource",
                 "args": [
                     {
                         "name": "database",
@@ -245,7 +245,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
             },
             {
                 "id": "applymapping1",
-                "nodeType": "ApplyMapping",
+                "node_type": "ApplyMapping",
                 "args": [{
                     "name": "mappings",
                     "value": "[(\\"column1\\", \\"string\\", \\"column1\\", \\"string\\")]",
@@ -253,7 +253,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
             },
             {
                 "id": "selectfields2",
-                "nodeType": "SelectFields",
+                "node_type": "SelectFields",
                 "args": [{
                     "name": "paths",
                     "value": "[\\"column1\\"]",
@@ -261,7 +261,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
             },
             {
                 "id": "resolvechoice3",
-                "nodeType": "ResolveChoice",
+                "node_type": "ResolveChoice",
                 "args": [
                     {
                         "name": "choice",
@@ -279,7 +279,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
             },
             {
                 "id": "datasink4",
-                "nodeType": "DataSink",
+                "node_type": "DataSink",
                 "args": [
                     {
                         "name": "database",
@@ -354,7 +354,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
         dag_nodes=[
             {
                 "id": "datasource0",
-                "nodeType": "DataSource",
+                "node_type": "DataSource",
                 "args": [
                     {
                         "name": "database",
@@ -368,7 +368,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
             },
             {
                 "id": "applymapping1",
-                "nodeType": "ApplyMapping",
+                "node_type": "ApplyMapping",
                 "args": [{
                     "name": "mapping",
                     "value": "[(\\"column1\\", \\"string\\", \\"column1\\", \\"string\\")]",
@@ -376,7 +376,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
             },
             {
                 "id": "selectfields2",
-                "nodeType": "SelectFields",
+                "node_type": "SelectFields",
                 "args": [{
                     "name": "paths",
                     "value": "[\\"column1\\"]",
@@ -384,7 +384,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
             },
             {
                 "id": "resolvechoice3",
-                "nodeType": "ResolveChoice",
+                "node_type": "ResolveChoice",
                 "args": [
                     {
                         "name": "choice",
@@ -402,7 +402,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
             },
             {
                 "id": "datasink4",
-                "nodeType": "DataSink",
+                "node_type": "DataSink",
                 "args": [
                     {
                         "name": "database",
@@ -446,7 +446,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
         dag_nodes=[
             {
                 "id": "datasource0",
-                "nodeType": "DataSource",
+                "node_type": "DataSource",
                 "args": [
                     {
                         "name": "database",
@@ -460,7 +460,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
             },
             {
                 "id": "applymapping1",
-                "nodeType": "ApplyMapping",
+                "node_type": "ApplyMapping",
                 "args": [{
                     "name": "mappings",
                     "value": "[(\\"column1\\", \\"string\\", \\"column1\\", \\"string\\")]",
@@ -468,7 +468,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
             },
             {
                 "id": "selectfields2",
-                "nodeType": "SelectFields",
+                "node_type": "SelectFields",
                 "args": [{
                     "name": "paths",
                     "value": "[\\"column1\\"]",
@@ -476,7 +476,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
             },
             {
                 "id": "resolvechoice3",
-                "nodeType": "ResolveChoice",
+                "node_type": "ResolveChoice",
                 "args": [
                     {
                         "name": "choice",
@@ -494,7 +494,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
             },
             {
                 "id": "datasink4",
-                "nodeType": "DataSink",
+                "node_type": "DataSink",
                 "args": [
                     {
                         "name": "database",

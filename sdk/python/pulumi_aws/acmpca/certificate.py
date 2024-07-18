@@ -305,19 +305,19 @@ class Certificate(pulumi.CustomResource):
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             },
             permanent_deletion_time_in_days=7)
         key = tls.PrivateKey("key", algorithm="RSA")
         csr = tls.CertRequest("csr",
             private_key_pem=key.private_key_pem,
-            subject=tls.CertRequestSubjectArgs(
-                common_name="example",
-            ))
+            subject={
+                "common_name": "example",
+            })
         example = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate_signing_request=csr.cert_request_pem,
@@ -371,19 +371,19 @@ class Certificate(pulumi.CustomResource):
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             },
             permanent_deletion_time_in_days=7)
         key = tls.PrivateKey("key", algorithm="RSA")
         csr = tls.CertRequest("csr",
             private_key_pem=key.private_key_pem,
-            subject=tls.CertRequestSubjectArgs(
-                common_name="example",
-            ))
+            subject={
+                "common_name": "example",
+            })
         example = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate_signing_request=csr.cert_request_pem,

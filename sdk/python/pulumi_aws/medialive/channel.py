@@ -537,12 +537,12 @@ class Channel(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             input_specification={
                 "codec": "AVC",
-                "inputResolution": "HD",
-                "maximumBitrate": "MAX_20_MBPS",
+                "input_resolution": "HD",
+                "maximum_bitrate": "MAX_20_MBPS",
             },
             input_attachments=[{
-                "inputAttachmentName": "example-input",
-                "inputId": example_aws_medialive_input["id"],
+                "input_attachment_name": "example-input",
+                "input_id": example_aws_medialive_input["id"],
             }],
             destinations=[{
                 "id": "destination",
@@ -556,37 +556,37 @@ class Channel(pulumi.CustomResource):
                 ],
             }],
             encoder_settings={
-                "timecodeConfig": {
+                "timecode_config": {
                     "source": "EMBEDDED",
                 },
-                "audioDescriptions": [{
-                    "audioSelectorName": "example audio selector",
+                "audio_descriptions": [{
+                    "audio_selector_name": "example audio selector",
                     "name": "audio-selector",
                 }],
-                "videoDescriptions": [{
+                "video_descriptions": [{
                     "name": "example-video",
                 }],
-                "outputGroups": [{
-                    "outputGroupSettings": {
-                        "archiveGroupSettings": [{
+                "output_groups": [{
+                    "output_group_settings": {
+                        "archive_group_settings": [{
                             "destination": {
-                                "destinationRefId": "destination",
+                                "destination_ref_id": "destination",
                             },
                         }],
                     },
                     "outputs": [{
-                        "outputName": "example-name",
-                        "videoDescriptionName": "example-video",
-                        "audioDescriptionNames": ["audio-selector"],
-                        "outputSettings": {
-                            "archiveOutputSettings": {
-                                "nameModifier": "_1",
+                        "output_name": "example-name",
+                        "video_description_name": "example-video",
+                        "audio_description_names": ["audio-selector"],
+                        "output_settings": {
+                            "archive_output_settings": {
+                                "name_modifier": "_1",
                                 "extension": "m2ts",
-                                "containerSettings": {
-                                    "m2tsSettings": {
-                                        "audioBufferModel": "ATSC",
-                                        "bufferModel": "MULTIPLEX",
-                                        "rateMode": "CBR",
+                                "container_settings": {
+                                    "m2ts_settings": {
+                                        "audio_buffer_model": "ATSC",
+                                        "buffer_model": "MULTIPLEX",
+                                        "rate_mode": "CBR",
                                     },
                                 },
                             },
@@ -645,12 +645,12 @@ class Channel(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             input_specification={
                 "codec": "AVC",
-                "inputResolution": "HD",
-                "maximumBitrate": "MAX_20_MBPS",
+                "input_resolution": "HD",
+                "maximum_bitrate": "MAX_20_MBPS",
             },
             input_attachments=[{
-                "inputAttachmentName": "example-input",
-                "inputId": example_aws_medialive_input["id"],
+                "input_attachment_name": "example-input",
+                "input_id": example_aws_medialive_input["id"],
             }],
             destinations=[{
                 "id": "destination",
@@ -664,37 +664,37 @@ class Channel(pulumi.CustomResource):
                 ],
             }],
             encoder_settings={
-                "timecodeConfig": {
+                "timecode_config": {
                     "source": "EMBEDDED",
                 },
-                "audioDescriptions": [{
-                    "audioSelectorName": "example audio selector",
+                "audio_descriptions": [{
+                    "audio_selector_name": "example audio selector",
                     "name": "audio-selector",
                 }],
-                "videoDescriptions": [{
+                "video_descriptions": [{
                     "name": "example-video",
                 }],
-                "outputGroups": [{
-                    "outputGroupSettings": {
-                        "archiveGroupSettings": [{
+                "output_groups": [{
+                    "output_group_settings": {
+                        "archive_group_settings": [{
                             "destination": {
-                                "destinationRefId": "destination",
+                                "destination_ref_id": "destination",
                             },
                         }],
                     },
                     "outputs": [{
-                        "outputName": "example-name",
-                        "videoDescriptionName": "example-video",
-                        "audioDescriptionNames": ["audio-selector"],
-                        "outputSettings": {
-                            "archiveOutputSettings": {
-                                "nameModifier": "_1",
+                        "output_name": "example-name",
+                        "video_description_name": "example-video",
+                        "audio_description_names": ["audio-selector"],
+                        "output_settings": {
+                            "archive_output_settings": {
+                                "name_modifier": "_1",
                                 "extension": "m2ts",
-                                "containerSettings": {
-                                    "m2tsSettings": {
-                                        "audioBufferModel": "ATSC",
-                                        "bufferModel": "MULTIPLEX",
-                                        "rateMode": "CBR",
+                                "container_settings": {
+                                    "m2ts_settings": {
+                                        "audio_buffer_model": "ATSC",
+                                        "buffer_model": "MULTIPLEX",
+                                        "rate_mode": "CBR",
                                     },
                                 },
                             },

@@ -197,8 +197,8 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.Distribution("example", origins=[{
-            "s3OriginConfig": {
-                "originAccessIdentity": example_aws_cloudfront_origin_access_identity["cloudfrontAccessIdentityPath"],
+            "s3_origin_config": {
+                "origin_access_identity": example_aws_cloudfront_origin_access_identity["cloudfrontAccessIdentityPath"],
             },
         }])
         ```
@@ -280,8 +280,8 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.Distribution("example", origins=[{
-            "s3OriginConfig": {
-                "originAccessIdentity": example_aws_cloudfront_origin_access_identity["cloudfrontAccessIdentityPath"],
+            "s3_origin_config": {
+                "origin_access_identity": example_aws_cloudfront_origin_access_identity["cloudfrontAccessIdentityPath"],
             },
         }])
         ```

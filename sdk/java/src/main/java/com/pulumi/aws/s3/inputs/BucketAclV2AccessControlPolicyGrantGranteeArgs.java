@@ -16,9 +16,17 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
 
     public static final BucketAclV2AccessControlPolicyGrantGranteeArgs Empty = new BucketAclV2AccessControlPolicyGrantGranteeArgs();
 
+    /**
+     * Display name of the owner.
+     * 
+     */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
+    /**
+     * @return Display name of the owner.
+     * 
+     */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
@@ -111,11 +119,23 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
             $ = new BucketAclV2AccessControlPolicyGrantGranteeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param displayName Display name of the owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName Display name of the owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }

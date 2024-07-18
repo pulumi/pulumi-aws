@@ -3708,7 +3708,13 @@ if not MYPY:
     class PartitionStorageDescriptorColumnArgsDict(TypedDict):
         name: pulumi.Input[str]
         comment: NotRequired[pulumi.Input[str]]
+        """
+        Free-form text comment.
+        """
         type: NotRequired[pulumi.Input[str]]
+        """
+        The datatype of data in the Column.
+        """
 elif False:
     PartitionStorageDescriptorColumnArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3718,6 +3724,10 @@ class PartitionStorageDescriptorColumnArgs:
                  name: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] comment: Free-form text comment.
+        :param pulumi.Input[str] type: The datatype of data in the Column.
+        """
         pulumi.set(__self__, "name", name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -3736,6 +3746,9 @@ class PartitionStorageDescriptorColumnArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Free-form text comment.
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -3745,6 +3758,9 @@ class PartitionStorageDescriptorColumnArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The datatype of data in the Column.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

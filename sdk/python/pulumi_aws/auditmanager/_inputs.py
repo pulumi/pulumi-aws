@@ -150,7 +150,13 @@ class AssessmentRoleArgs:
 if not MYPY:
     class AssessmentRolesAllArgsDict(TypedDict):
         role_arn: pulumi.Input[str]
+        """
+        Amazon Resource Name (ARN) of the IAM role.
+        """
         role_type: pulumi.Input[str]
+        """
+        Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+        """
 elif False:
     AssessmentRolesAllArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -159,12 +165,19 @@ class AssessmentRolesAllArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  role_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
+        :param pulumi.Input[str] role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "role_type", role_type)
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the IAM role.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -174,6 +187,9 @@ class AssessmentRolesAllArgs:
     @property
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Input[str]:
+        """
+        Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+        """
         return pulumi.get(self, "role_type")
 
     @role_type.setter

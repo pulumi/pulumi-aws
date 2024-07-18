@@ -411,7 +411,7 @@ class AccessPoint(pulumi.CustomResource):
             bucket=example.arn,
             name="example",
             vpc_configuration={
-                "vpcId": example_vpc.id,
+                "vpc_id": example_vpc.id,
             })
         ```
 
@@ -485,7 +485,7 @@ class AccessPoint(pulumi.CustomResource):
             bucket=example.arn,
             name="example",
             vpc_configuration={
-                "vpcId": example_vpc.id,
+                "vpc_id": example_vpc.id,
             })
         ```
 

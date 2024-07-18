@@ -356,19 +356,19 @@ class Assessment(pulumi.CustomResource):
             name="example",
             assessment_reports_destination={
                 "destination": f"s3://{test_aws_s3_bucket['id']}",
-                "destinationType": "S3",
+                "destination_type": "S3",
             },
             framework_id=test_aws_auditmanager_framework["id"],
             roles=[{
-                "roleArn": test_aws_iam_role["arn"],
-                "roleType": "PROCESS_OWNER",
+                "role_arn": test_aws_iam_role["arn"],
+                "role_type": "PROCESS_OWNER",
             }],
             scope={
-                "awsAccounts": [{
+                "aws_accounts": [{
                     "id": current["accountId"],
                 }],
-                "awsServices": [{
-                    "serviceName": "S3",
+                "aws_services": [{
+                    "service_name": "S3",
                 }],
             })
         ```
@@ -414,19 +414,19 @@ class Assessment(pulumi.CustomResource):
             name="example",
             assessment_reports_destination={
                 "destination": f"s3://{test_aws_s3_bucket['id']}",
-                "destinationType": "S3",
+                "destination_type": "S3",
             },
             framework_id=test_aws_auditmanager_framework["id"],
             roles=[{
-                "roleArn": test_aws_iam_role["arn"],
-                "roleType": "PROCESS_OWNER",
+                "role_arn": test_aws_iam_role["arn"],
+                "role_type": "PROCESS_OWNER",
             }],
             scope={
-                "awsAccounts": [{
+                "aws_accounts": [{
                     "id": current["accountId"],
                 }],
-                "awsServices": [{
-                    "serviceName": "S3",
+                "aws_services": [{
+                    "service_name": "S3",
                 }],
             })
         ```

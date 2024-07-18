@@ -325,11 +325,11 @@ class GameSessionQueue(pulumi.CustomResource):
             notification_target=game_session_queue_notifications["arn"],
             player_latency_policies=[
                 {
-                    "maximumIndividualPlayerLatencyMilliseconds": 100,
-                    "policyDurationSeconds": 5,
+                    "maximum_individual_player_latency_milliseconds": 100,
+                    "policy_duration_seconds": 5,
                 },
                 {
-                    "maximumIndividualPlayerLatencyMilliseconds": 200,
+                    "maximum_individual_player_latency_milliseconds": 200,
                 },
             ],
             timeout_in_seconds=60)
@@ -377,11 +377,11 @@ class GameSessionQueue(pulumi.CustomResource):
             notification_target=game_session_queue_notifications["arn"],
             player_latency_policies=[
                 {
-                    "maximumIndividualPlayerLatencyMilliseconds": 100,
-                    "policyDurationSeconds": 5,
+                    "maximum_individual_player_latency_milliseconds": 100,
+                    "policy_duration_seconds": 5,
                 },
                 {
-                    "maximumIndividualPlayerLatencyMilliseconds": 200,
+                    "maximum_individual_player_latency_milliseconds": 200,
                 },
             ],
             timeout_in_seconds=60)

@@ -218,8 +218,8 @@ class Package(pulumi.CustomResource):
         example_package = aws.opensearch.Package("example",
             package_name="example-txt",
             package_source={
-                "s3BucketName": my_opensearch_packages.bucket,
-                "s3Key": example.key,
+                "s3_bucket_name": my_opensearch_packages.bucket,
+                "s3_key": example.key,
             },
             package_type="TXT-DICTIONARY")
         ```
@@ -266,8 +266,8 @@ class Package(pulumi.CustomResource):
         example_package = aws.opensearch.Package("example",
             package_name="example-txt",
             package_source={
-                "s3BucketName": my_opensearch_packages.bucket,
-                "s3Key": example.key,
+                "s3_bucket_name": my_opensearch_packages.bucket,
+                "s3_key": example.key,
             },
             package_type="TXT-DICTIONARY")
         ```
