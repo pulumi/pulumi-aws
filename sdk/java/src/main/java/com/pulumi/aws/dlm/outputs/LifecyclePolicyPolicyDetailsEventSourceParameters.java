@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsEventSourceParameters {
+    /**
+     * @return The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+     * 
+     */
     private String descriptionRegex;
+    /**
+     * @return The type of event. Currently, only `shareSnapshot` events are supported.
+     * 
+     */
     private String eventType;
+    /**
+     * @return The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+     * 
+     */
     private List<String> snapshotOwners;
 
     private LifecyclePolicyPolicyDetailsEventSourceParameters() {}
+    /**
+     * @return The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+     * 
+     */
     public String descriptionRegex() {
         return this.descriptionRegex;
     }
+    /**
+     * @return The type of event. Currently, only `shareSnapshot` events are supported.
+     * 
+     */
     public String eventType() {
         return this.eventType;
     }
+    /**
+     * @return The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+     * 
+     */
     public List<String> snapshotOwners() {
         return this.snapshotOwners;
     }

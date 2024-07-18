@@ -312,7 +312,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             }],
             actions=[{
                 "name": "example-action",
-                "actionId": "aws:ec2:terminate-instances",
+                "action_id": "aws:ec2:terminate-instances",
                 "target": {
                     "key": "Instances",
                     "value": "example-target",
@@ -320,9 +320,9 @@ class ExperimentTemplate(pulumi.CustomResource):
             }],
             targets=[{
                 "name": "example-target",
-                "resourceType": "aws:ec2:instance",
-                "selectionMode": "COUNT(1)",
-                "resourceTags": [{
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+                "resource_tags": [{
                     "key": "env",
                     "value": "example",
                 }],
@@ -376,7 +376,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             }],
             actions=[{
                 "name": "example-action",
-                "actionId": "aws:ec2:terminate-instances",
+                "action_id": "aws:ec2:terminate-instances",
                 "target": {
                     "key": "Instances",
                     "value": "example-target",
@@ -384,9 +384,9 @@ class ExperimentTemplate(pulumi.CustomResource):
             }],
             targets=[{
                 "name": "example-target",
-                "resourceType": "aws:ec2:instance",
-                "selectionMode": "COUNT(1)",
-                "resourceTags": [{
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+                "resource_tags": [{
                     "key": "env",
                     "value": "example",
                 }],

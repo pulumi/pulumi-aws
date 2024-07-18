@@ -238,17 +238,17 @@ class Detector(pulumi.CustomResource):
         my_detector = aws.guardduty.Detector("MyDetector",
             enable=True,
             datasources={
-                "s3Logs": {
+                "s3_logs": {
                     "enable": True,
                 },
                 "kubernetes": {
-                    "auditLogs": {
+                    "audit_logs": {
                         "enable": False,
                     },
                 },
-                "malwareProtection": {
-                    "scanEc2InstanceWithFindings": {
-                        "ebsVolumes": {
+                "malware_protection": {
+                    "scan_ec2_instance_with_findings": {
+                        "ebs_volumes": {
                             "enable": True,
                         },
                     },
@@ -292,17 +292,17 @@ class Detector(pulumi.CustomResource):
         my_detector = aws.guardduty.Detector("MyDetector",
             enable=True,
             datasources={
-                "s3Logs": {
+                "s3_logs": {
                     "enable": True,
                 },
                 "kubernetes": {
-                    "auditLogs": {
+                    "audit_logs": {
                         "enable": False,
                     },
                 },
-                "malwareProtection": {
-                    "scanEc2InstanceWithFindings": {
-                        "ebsVolumes": {
+                "malware_protection": {
+                    "scan_ec2_instance_with_findings": {
+                        "ebs_volumes": {
                             "enable": True,
                         },
                     },

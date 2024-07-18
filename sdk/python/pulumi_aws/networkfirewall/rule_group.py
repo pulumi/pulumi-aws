@@ -370,10 +370,10 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "rulesSource": {
-                    "rulesSourceList": {
-                        "generatedRulesType": "DENYLIST",
-                        "targetTypes": ["HTTP_HOST"],
+                "rules_source": {
+                    "rules_source_list": {
+                        "generated_rules_type": "DENYLIST",
+                        "target_types": ["HTTP_HOST"],
                         "targets": ["test.example.com"],
                     },
                 },
@@ -400,18 +400,18 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "rulesSource": {
-                    "statefulRules": [{
+                "rules_source": {
+                    "stateful_rules": [{
                         "action": "PASS",
                         "header": {
                             "destination": "ANY",
-                            "destinationPort": "ANY",
+                            "destination_port": "ANY",
                             "protocol": "HTTP",
                             "direction": "ANY",
-                            "sourcePort": "ANY",
+                            "source_port": "ANY",
                             "source": entry["value"],
                         },
-                        "ruleOptions": [{
+                        "rule_options": [{
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
@@ -434,18 +434,18 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "rulesSource": {
-                    "statefulRules": [{
+                "rules_source": {
+                    "stateful_rules": [{
                         "action": "DROP",
                         "header": {
                             "destination": "124.1.1.24/32",
-                            "destinationPort": "53",
+                            "destination_port": "53",
                             "direction": "ANY",
                             "protocol": "TCP",
                             "source": "1.2.3.4/32",
-                            "sourcePort": "53",
+                            "source_port": "53",
                         },
-                        "ruleOptions": [{
+                        "rule_options": [{
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
@@ -488,11 +488,11 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "ruleVariables": {
-                    "ipSets": [
+                "rule_variables": {
+                    "ip_sets": [
                         {
                             "key": "WEBSERVERS_HOSTS",
-                            "ipSet": {
+                            "ip_set": {
                                 "definitions": [
                                     "10.0.0.0/16",
                                     "10.0.1.0/24",
@@ -502,14 +502,14 @@ class RuleGroup(pulumi.CustomResource):
                         },
                         {
                             "key": "EXTERNAL_HOST",
-                            "ipSet": {
+                            "ip_set": {
                                 "definitions": ["1.2.3.4/32"],
                             },
                         },
                     ],
-                    "portSets": [{
+                    "port_sets": [{
                         "key": "HTTP_PORTS",
-                        "portSet": {
+                        "port_set": {
                             "definitions": [
                                 "443",
                                 "80",
@@ -517,8 +517,8 @@ class RuleGroup(pulumi.CustomResource):
                         },
                     }],
                 },
-                "rulesSource": {
-                    "rulesString": std.file(input="suricata_rules_file").result,
+                "rules_source": {
+                    "rules_string": std.file(input="suricata_rules_file").result,
                 },
             },
             tags={
@@ -539,42 +539,42 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATELESS",
             rule_group={
-                "rulesSource": {
-                    "statelessRulesAndCustomActions": {
-                        "customActions": [{
-                            "actionDefinition": {
-                                "publishMetricAction": {
+                "rules_source": {
+                    "stateless_rules_and_custom_actions": {
+                        "custom_actions": [{
+                            "action_definition": {
+                                "publish_metric_action": {
                                     "dimensions": [{
                                         "value": "2",
                                     }],
                                 },
                             },
-                            "actionName": "ExampleMetricsAction",
+                            "action_name": "ExampleMetricsAction",
                         }],
-                        "statelessRules": [{
+                        "stateless_rules": [{
                             "priority": 1,
-                            "ruleDefinition": {
+                            "rule_definition": {
                                 "actions": [
                                     "aws:pass",
                                     "ExampleMetricsAction",
                                 ],
-                                "matchAttributes": {
+                                "match_attributes": {
                                     "sources": [{
-                                        "addressDefinition": "1.2.3.4/32",
+                                        "address_definition": "1.2.3.4/32",
                                     }],
-                                    "sourcePorts": [{
-                                        "fromPort": 443,
-                                        "toPort": 443,
+                                    "source_ports": [{
+                                        "from_port": 443,
+                                        "to_port": 443,
                                     }],
                                     "destinations": [{
-                                        "addressDefinition": "124.1.1.5/32",
+                                        "address_definition": "124.1.1.5/32",
                                     }],
-                                    "destinationPorts": [{
-                                        "fromPort": 443,
-                                        "toPort": 443,
+                                    "destination_ports": [{
+                                        "from_port": 443,
+                                        "to_port": 443,
                                     }],
                                     "protocols": [6],
-                                    "tcpFlags": [{
+                                    "tcp_flags": [{
                                         "flags": ["SYN"],
                                         "masks": [
                                             "SYN",
@@ -604,18 +604,18 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "rulesSource": {
-                    "rulesSourceList": {
-                        "generatedRulesType": "DENYLIST",
-                        "targetTypes": ["HTTP_HOST"],
+                "rules_source": {
+                    "rules_source_list": {
+                        "generated_rules_type": "DENYLIST",
+                        "target_types": ["HTTP_HOST"],
                         "targets": ["test.example.com"],
                     },
                 },
-                "referenceSets": {
-                    "ipSetReferences": [{
+                "reference_sets": {
+                    "ip_set_references": [{
                         "key": "example",
-                        "ipSetReferences": [{
-                            "referenceArn": this["arn"],
+                        "ip_set_references": [{
+                            "reference_arn": this["arn"],
                         }],
                     }],
                 },
@@ -667,10 +667,10 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "rulesSource": {
-                    "rulesSourceList": {
-                        "generatedRulesType": "DENYLIST",
-                        "targetTypes": ["HTTP_HOST"],
+                "rules_source": {
+                    "rules_source_list": {
+                        "generated_rules_type": "DENYLIST",
+                        "target_types": ["HTTP_HOST"],
                         "targets": ["test.example.com"],
                     },
                 },
@@ -697,18 +697,18 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "rulesSource": {
-                    "statefulRules": [{
+                "rules_source": {
+                    "stateful_rules": [{
                         "action": "PASS",
                         "header": {
                             "destination": "ANY",
-                            "destinationPort": "ANY",
+                            "destination_port": "ANY",
                             "protocol": "HTTP",
                             "direction": "ANY",
-                            "sourcePort": "ANY",
+                            "source_port": "ANY",
                             "source": entry["value"],
                         },
-                        "ruleOptions": [{
+                        "rule_options": [{
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
@@ -731,18 +731,18 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "rulesSource": {
-                    "statefulRules": [{
+                "rules_source": {
+                    "stateful_rules": [{
                         "action": "DROP",
                         "header": {
                             "destination": "124.1.1.24/32",
-                            "destinationPort": "53",
+                            "destination_port": "53",
                             "direction": "ANY",
                             "protocol": "TCP",
                             "source": "1.2.3.4/32",
-                            "sourcePort": "53",
+                            "source_port": "53",
                         },
-                        "ruleOptions": [{
+                        "rule_options": [{
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
@@ -785,11 +785,11 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "ruleVariables": {
-                    "ipSets": [
+                "rule_variables": {
+                    "ip_sets": [
                         {
                             "key": "WEBSERVERS_HOSTS",
-                            "ipSet": {
+                            "ip_set": {
                                 "definitions": [
                                     "10.0.0.0/16",
                                     "10.0.1.0/24",
@@ -799,14 +799,14 @@ class RuleGroup(pulumi.CustomResource):
                         },
                         {
                             "key": "EXTERNAL_HOST",
-                            "ipSet": {
+                            "ip_set": {
                                 "definitions": ["1.2.3.4/32"],
                             },
                         },
                     ],
-                    "portSets": [{
+                    "port_sets": [{
                         "key": "HTTP_PORTS",
-                        "portSet": {
+                        "port_set": {
                             "definitions": [
                                 "443",
                                 "80",
@@ -814,8 +814,8 @@ class RuleGroup(pulumi.CustomResource):
                         },
                     }],
                 },
-                "rulesSource": {
-                    "rulesString": std.file(input="suricata_rules_file").result,
+                "rules_source": {
+                    "rules_string": std.file(input="suricata_rules_file").result,
                 },
             },
             tags={
@@ -836,42 +836,42 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATELESS",
             rule_group={
-                "rulesSource": {
-                    "statelessRulesAndCustomActions": {
-                        "customActions": [{
-                            "actionDefinition": {
-                                "publishMetricAction": {
+                "rules_source": {
+                    "stateless_rules_and_custom_actions": {
+                        "custom_actions": [{
+                            "action_definition": {
+                                "publish_metric_action": {
                                     "dimensions": [{
                                         "value": "2",
                                     }],
                                 },
                             },
-                            "actionName": "ExampleMetricsAction",
+                            "action_name": "ExampleMetricsAction",
                         }],
-                        "statelessRules": [{
+                        "stateless_rules": [{
                             "priority": 1,
-                            "ruleDefinition": {
+                            "rule_definition": {
                                 "actions": [
                                     "aws:pass",
                                     "ExampleMetricsAction",
                                 ],
-                                "matchAttributes": {
+                                "match_attributes": {
                                     "sources": [{
-                                        "addressDefinition": "1.2.3.4/32",
+                                        "address_definition": "1.2.3.4/32",
                                     }],
-                                    "sourcePorts": [{
-                                        "fromPort": 443,
-                                        "toPort": 443,
+                                    "source_ports": [{
+                                        "from_port": 443,
+                                        "to_port": 443,
                                     }],
                                     "destinations": [{
-                                        "addressDefinition": "124.1.1.5/32",
+                                        "address_definition": "124.1.1.5/32",
                                     }],
-                                    "destinationPorts": [{
-                                        "fromPort": 443,
-                                        "toPort": 443,
+                                    "destination_ports": [{
+                                        "from_port": 443,
+                                        "to_port": 443,
                                     }],
                                     "protocols": [6],
-                                    "tcpFlags": [{
+                                    "tcp_flags": [{
                                         "flags": ["SYN"],
                                         "masks": [
                                             "SYN",
@@ -901,18 +901,18 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             type="STATEFUL",
             rule_group={
-                "rulesSource": {
-                    "rulesSourceList": {
-                        "generatedRulesType": "DENYLIST",
-                        "targetTypes": ["HTTP_HOST"],
+                "rules_source": {
+                    "rules_source_list": {
+                        "generated_rules_type": "DENYLIST",
+                        "target_types": ["HTTP_HOST"],
                         "targets": ["test.example.com"],
                     },
                 },
-                "referenceSets": {
-                    "ipSetReferences": [{
+                "reference_sets": {
+                    "ip_set_references": [{
                         "key": "example",
-                        "ipSetReferences": [{
-                            "referenceArn": this["arn"],
+                        "ip_set_references": [{
+                            "reference_arn": this["arn"],
                         }],
                     }],
                 },

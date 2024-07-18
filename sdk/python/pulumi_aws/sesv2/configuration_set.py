@@ -349,22 +349,22 @@ class ConfigurationSet(pulumi.CustomResource):
         example = aws.sesv2.ConfigurationSet("example",
             configuration_set_name="example",
             delivery_options={
-                "tlsPolicy": "REQUIRE",
+                "tls_policy": "REQUIRE",
             },
             reputation_options={
-                "reputationMetricsEnabled": False,
+                "reputation_metrics_enabled": False,
             },
             sending_options={
-                "sendingEnabled": True,
+                "sending_enabled": True,
             },
             suppression_options={
-                "suppressedReasons": [
+                "suppressed_reasons": [
                     "BOUNCE",
                     "COMPLAINT",
                 ],
             },
             tracking_options={
-                "customRedirectDomain": "example.com",
+                "custom_redirect_domain": "example.com",
             })
         ```
 
@@ -407,22 +407,22 @@ class ConfigurationSet(pulumi.CustomResource):
         example = aws.sesv2.ConfigurationSet("example",
             configuration_set_name="example",
             delivery_options={
-                "tlsPolicy": "REQUIRE",
+                "tls_policy": "REQUIRE",
             },
             reputation_options={
-                "reputationMetricsEnabled": False,
+                "reputation_metrics_enabled": False,
             },
             sending_options={
-                "sendingEnabled": True,
+                "sending_enabled": True,
             },
             suppression_options={
-                "suppressedReasons": [
+                "suppressed_reasons": [
                     "BOUNCE",
                     "COMPLAINT",
                 ],
             },
             tracking_options={
-                "customRedirectDomain": "example.com",
+                "custom_redirect_domain": "example.com",
             })
         ```
 

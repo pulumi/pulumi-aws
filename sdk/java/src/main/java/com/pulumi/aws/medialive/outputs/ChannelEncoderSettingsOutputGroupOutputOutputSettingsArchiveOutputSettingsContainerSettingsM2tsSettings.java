@@ -55,6 +55,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
     private @Nullable String rateMode;
     private @Nullable String scte27Pids;
     private @Nullable String scte35Control;
+    /**
+     * @return PID from which to read SCTE-35 messages.
+     * 
+     */
     private @Nullable String scte35Pid;
     private @Nullable String segmentationMarkers;
     private @Nullable String segmentationStyle;
@@ -182,6 +186,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
     public Optional<String> scte35Control() {
         return Optional.ofNullable(this.scte35Control);
     }
+    /**
+     * @return PID from which to read SCTE-35 messages.
+     * 
+     */
     public Optional<String> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }

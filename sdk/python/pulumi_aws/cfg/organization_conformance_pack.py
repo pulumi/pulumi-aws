@@ -306,8 +306,8 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example = aws.cfg.OrganizationConformancePack("example",
             name="example",
             input_parameters=[{
-                "parameterName": "AccessKeysRotatedParameterMaxAccessKeyAge",
-                "parameterValue": "90",
+                "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
+                "parameter_value": "90",
             }],
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:
@@ -401,8 +401,8 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example = aws.cfg.OrganizationConformancePack("example",
             name="example",
             input_parameters=[{
-                "parameterName": "AccessKeysRotatedParameterMaxAccessKeyAge",
-                "parameterValue": "90",
+                "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
+                "parameter_value": "90",
             }],
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:

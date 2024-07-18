@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings
     {
+        /// <summary>
+        /// Sets the MaxCLL value for HDR10.
+        /// </summary>
         public readonly int? MaxCll;
+        /// <summary>
+        /// Sets the MaxFALL value for HDR10.
+        /// </summary>
         public readonly int? MaxFall;
 
         [OutputConstructor]

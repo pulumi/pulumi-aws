@@ -14,12 +14,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
+    /**
+     * @return The Availability Zones in which to enable fast snapshot restore.
+     * 
+     */
     private List<String> availabilityZones;
     private @Nullable Integer count;
     private @Nullable Integer interval;
     private @Nullable String intervalUnit;
 
     private LifecyclePolicyPolicyDetailsScheduleFastRestoreRule() {}
+    /**
+     * @return The Availability Zones in which to enable fast snapshot restore.
+     * 
+     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }

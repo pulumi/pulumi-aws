@@ -31,9 +31,17 @@ public final class ServerlessCacheCacheUsageLimitsDataStorageArgs extends com.pu
         return Optional.ofNullable(this.minimum);
     }
 
+    /**
+     * The unit that the storage is measured in, in GB.
+     * 
+     */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
+    /**
+     * @return The unit that the storage is measured in, in GB.
+     * 
+     */
     public Output<String> unit() {
         return this.unit;
     }
@@ -82,11 +90,23 @@ public final class ServerlessCacheCacheUsageLimitsDataStorageArgs extends com.pu
             return minimum(Output.of(minimum));
         }
 
+        /**
+         * @param unit The unit that the storage is measured in, in GB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unit(Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
+        /**
+         * @param unit The unit that the storage is measured in, in GB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

@@ -188,7 +188,7 @@ class MethodSettings(pulumi.CustomResource):
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
             settings={
-                "loggingLevel": "OFF",
+                "logging_level": "OFF",
             })
         ```
 
@@ -203,9 +203,9 @@ class MethodSettings(pulumi.CustomResource):
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
             settings={
-                "loggingLevel": "ERROR",
-                "metricsEnabled": True,
-                "dataTraceEnabled": False,
+                "logging_level": "ERROR",
+                "metrics_enabled": True,
+                "data_trace_enabled": False,
             })
         ```
 
@@ -220,9 +220,9 @@ class MethodSettings(pulumi.CustomResource):
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
             settings={
-                "loggingLevel": "INFO",
-                "metricsEnabled": True,
-                "dataTraceEnabled": False,
+                "logging_level": "INFO",
+                "metrics_enabled": True,
+                "data_trace_enabled": False,
             })
         ```
 
@@ -237,9 +237,9 @@ class MethodSettings(pulumi.CustomResource):
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
             settings={
-                "loggingLevel": "INFO",
-                "metricsEnabled": True,
-                "dataTraceEnabled": True,
+                "logging_level": "INFO",
+                "metrics_enabled": True,
+                "data_trace_enabled": True,
             })
         ```
 
@@ -284,7 +284,7 @@ class MethodSettings(pulumi.CustomResource):
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
             settings={
-                "loggingLevel": "OFF",
+                "logging_level": "OFF",
             })
         ```
 
@@ -299,9 +299,9 @@ class MethodSettings(pulumi.CustomResource):
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
             settings={
-                "loggingLevel": "ERROR",
-                "metricsEnabled": True,
-                "dataTraceEnabled": False,
+                "logging_level": "ERROR",
+                "metrics_enabled": True,
+                "data_trace_enabled": False,
             })
         ```
 
@@ -316,9 +316,9 @@ class MethodSettings(pulumi.CustomResource):
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
             settings={
-                "loggingLevel": "INFO",
-                "metricsEnabled": True,
-                "dataTraceEnabled": False,
+                "logging_level": "INFO",
+                "metrics_enabled": True,
+                "data_trace_enabled": False,
             })
         ```
 
@@ -333,9 +333,9 @@ class MethodSettings(pulumi.CustomResource):
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
             settings={
-                "loggingLevel": "INFO",
-                "metricsEnabled": True,
-                "dataTraceEnabled": True,
+                "logging_level": "INFO",
+                "metrics_enabled": True,
+                "data_trace_enabled": True,
             })
         ```
 

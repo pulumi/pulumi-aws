@@ -394,10 +394,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
             peer_vpc_id=bar["id"],
             vpc_id=foo_aws_vpc["id"],
             accepter={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             },
             requester={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             })
         ```
 
@@ -509,10 +509,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
             peer_vpc_id=bar["id"],
             vpc_id=foo_aws_vpc["id"],
             accepter={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             },
             requester={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             })
         ```
 

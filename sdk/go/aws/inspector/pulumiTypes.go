@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AssessmentTemplateEventSubscription struct {
-	Event    string `pulumi:"event"`
+	// The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
+	Event string `pulumi:"event"`
+	// The ARN of the SNS topic to which notifications are sent.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -30,7 +32,9 @@ type AssessmentTemplateEventSubscriptionInput interface {
 }
 
 type AssessmentTemplateEventSubscriptionArgs struct {
-	Event    pulumi.StringInput `pulumi:"event"`
+	// The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
+	Event pulumi.StringInput `pulumi:"event"`
+	// The ARN of the SNS topic to which notifications are sent.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -85,10 +89,12 @@ func (o AssessmentTemplateEventSubscriptionOutput) ToAssessmentTemplateEventSubs
 	return o
 }
 
+// The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
 func (o AssessmentTemplateEventSubscriptionOutput) Event() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentTemplateEventSubscription) string { return v.Event }).(pulumi.StringOutput)
 }
 
+// The ARN of the SNS topic to which notifications are sent.
 func (o AssessmentTemplateEventSubscriptionOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentTemplateEventSubscription) string { return v.TopicArn }).(pulumi.StringOutput)
 }
