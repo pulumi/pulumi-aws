@@ -391,9 +391,9 @@ class Connection(pulumi.CustomResource):
             },
             name="example",
             physical_connection_requirements={
-                "availabilityZone": example_aws_subnet["availabilityZone"],
-                "securityGroupIdLists": [example_aws_security_group["id"]],
-                "subnetId": example_aws_subnet["id"],
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
             })
         ```
 
@@ -509,9 +509,9 @@ class Connection(pulumi.CustomResource):
             },
             name="example",
             physical_connection_requirements={
-                "availabilityZone": example_aws_subnet["availabilityZone"],
-                "securityGroupIdLists": [example_aws_security_group["id"]],
-                "subnetId": example_aws_subnet["id"],
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
             })
         ```
 

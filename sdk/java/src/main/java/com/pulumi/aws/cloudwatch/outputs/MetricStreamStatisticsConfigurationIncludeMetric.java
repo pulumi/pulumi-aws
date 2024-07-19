@@ -10,10 +10,18 @@ import java.util.Objects;
 
 @CustomType
 public final class MetricStreamStatisticsConfigurationIncludeMetric {
+    /**
+     * @return The name of the metric.
+     * 
+     */
     private String metricName;
     private String namespace;
 
     private MetricStreamStatisticsConfigurationIncludeMetric() {}
+    /**
+     * @return The name of the metric.
+     * 
+     */
     public String metricName() {
         return this.metricName;
     }

@@ -18,6 +18,9 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         [Input("minimum")]
         public Input<int>? Minimum { get; set; }
 
+        /// <summary>
+        /// The unit that the storage is measured in, in GB.
+        /// </summary>
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
 

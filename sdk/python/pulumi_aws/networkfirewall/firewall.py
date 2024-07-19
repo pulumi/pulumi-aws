@@ -449,7 +449,7 @@ class Firewall(pulumi.CustomResource):
             firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
             vpc_id=example_aws_vpc["id"],
             subnet_mappings=[{
-                "subnetId": example_aws_subnet["id"],
+                "subnet_id": example_aws_subnet["id"],
             }],
             tags={
                 "Tag1": "Value1",
@@ -498,7 +498,7 @@ class Firewall(pulumi.CustomResource):
             firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
             vpc_id=example_aws_vpc["id"],
             subnet_mappings=[{
-                "subnetId": example_aws_subnet["id"],
+                "subnet_id": example_aws_subnet["id"],
             }],
             tags={
                 "Tag1": "Value1",

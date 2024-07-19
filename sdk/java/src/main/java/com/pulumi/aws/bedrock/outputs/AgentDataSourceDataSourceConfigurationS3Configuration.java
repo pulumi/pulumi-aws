@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationS3Configuration {
+    /**
+     * @return ARN of the bucket that contains the data source.
+     * 
+     */
     private String bucketArn;
+    /**
+     * @return Bucket account owner ID for the S3 bucket.
+     * 
+     */
     private @Nullable String bucketOwnerAccountId;
+    /**
+     * @return List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+     * 
+     */
     private @Nullable List<String> inclusionPrefixes;
 
     private AgentDataSourceDataSourceConfigurationS3Configuration() {}
+    /**
+     * @return ARN of the bucket that contains the data source.
+     * 
+     */
     public String bucketArn() {
         return this.bucketArn;
     }
+    /**
+     * @return Bucket account owner ID for the S3 bucket.
+     * 
+     */
     public Optional<String> bucketOwnerAccountId() {
         return Optional.ofNullable(this.bucketOwnerAccountId);
     }
+    /**
+     * @return List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+     * 
+     */
     public List<String> inclusionPrefixes() {
         return this.inclusionPrefixes == null ? List.of() : this.inclusionPrefixes;
     }

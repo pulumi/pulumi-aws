@@ -12,6 +12,9 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
 
     public sealed class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        /// </summary>
         [Input("groupClaim", required: true)]
         public Input<string> GroupClaim { get; set; } = null!;
 

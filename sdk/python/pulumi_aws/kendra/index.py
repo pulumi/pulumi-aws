@@ -554,8 +554,8 @@ class Index(pulumi.CustomResource):
             edition="DEVELOPER_EDITION",
             role_arn=this["arn"],
             capacity_units={
-                "queryCapacityUnits": 2,
-                "storageCapacityUnits": 2,
+                "query_capacity_units": 2,
+                "storage_capacity_units": 2,
             })
         ```
 
@@ -569,7 +569,7 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration={
-                "kmsKeyId": this["arn"],
+                "kms_key_id": this["arn"],
             })
         ```
 
@@ -583,7 +583,7 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this["arn"],
             user_group_resolution_configuration={
-                "userGroupResolutionMode": "AWS_SSO",
+                "user_group_resolution_mode": "AWS_SSO",
             })
         ```
 
@@ -625,7 +625,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -641,7 +641,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -655,7 +655,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -669,7 +669,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 2,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -683,7 +683,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 2,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -697,7 +697,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -711,7 +711,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -725,7 +725,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -741,7 +741,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -755,7 +755,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -769,7 +769,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -783,7 +783,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -797,7 +797,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
             ])
@@ -839,7 +839,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -855,7 +855,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -869,7 +869,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -883,7 +883,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 2,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -897,7 +897,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 2,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -911,7 +911,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -925,7 +925,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -939,7 +939,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -955,7 +955,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -969,7 +969,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -983,7 +983,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -997,7 +997,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1011,7 +1011,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1025,7 +1025,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1039,7 +1039,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1068,7 +1068,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
             ])
@@ -1084,9 +1084,9 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this["arn"],
             user_token_configurations={
-                "jsonTokenTypeConfiguration": {
-                    "groupAttributeField": "groups",
-                    "userNameAttributeField": "username",
+                "json_token_type_configuration": {
+                    "group_attribute_field": "groups",
+                    "user_name_attribute_field": "username",
                 },
             })
         ```
@@ -1152,8 +1152,8 @@ class Index(pulumi.CustomResource):
             edition="DEVELOPER_EDITION",
             role_arn=this["arn"],
             capacity_units={
-                "queryCapacityUnits": 2,
-                "storageCapacityUnits": 2,
+                "query_capacity_units": 2,
+                "storage_capacity_units": 2,
             })
         ```
 
@@ -1167,7 +1167,7 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration={
-                "kmsKeyId": this["arn"],
+                "kms_key_id": this["arn"],
             })
         ```
 
@@ -1181,7 +1181,7 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this["arn"],
             user_group_resolution_configuration={
-                "userGroupResolutionMode": "AWS_SSO",
+                "user_group_resolution_mode": "AWS_SSO",
             })
         ```
 
@@ -1223,7 +1223,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1239,7 +1239,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1253,7 +1253,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1267,7 +1267,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 2,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1281,7 +1281,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 2,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1295,7 +1295,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1309,7 +1309,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1323,7 +1323,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1339,7 +1339,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1353,7 +1353,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1367,7 +1367,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1381,7 +1381,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1395,7 +1395,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
             ])
@@ -1437,7 +1437,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1453,7 +1453,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1467,7 +1467,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1481,7 +1481,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 2,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1495,7 +1495,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 2,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1509,7 +1509,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1523,7 +1523,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1537,7 +1537,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1553,7 +1553,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1567,7 +1567,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1581,7 +1581,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1595,7 +1595,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1609,7 +1609,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1623,7 +1623,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "valuesImportanceMap": {},
+                        "values_importance_map": {},
                     },
                 },
                 {
@@ -1637,7 +1637,7 @@ class Index(pulumi.CustomResource):
                     },
                     "relevance": {
                         "importance": 1,
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
                 {
@@ -1666,7 +1666,7 @@ class Index(pulumi.CustomResource):
                         "freshness": False,
                         "importance": 1,
                         "duration": "25920000s",
-                        "rankOrder": "ASCENDING",
+                        "rank_order": "ASCENDING",
                     },
                 },
             ])
@@ -1682,9 +1682,9 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this["arn"],
             user_token_configurations={
-                "jsonTokenTypeConfiguration": {
-                    "groupAttributeField": "groups",
-                    "userNameAttributeField": "username",
+                "json_token_type_configuration": {
+                    "group_attribute_field": "groups",
+                    "user_name_attribute_field": "username",
                 },
             })
         ```

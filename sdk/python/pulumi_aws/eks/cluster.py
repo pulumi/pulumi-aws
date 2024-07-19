@@ -609,7 +609,7 @@ class Cluster(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             vpc_config={
-                "subnetIds": [
+                "subnet_ids": [
                     example1["id"],
                     example2["id"],
                 ],
@@ -726,12 +726,12 @@ class Cluster(pulumi.CustomResource):
             name="example-cluster",
             role_arn=example.arn,
             vpc_config={
-                "endpointPrivateAccess": True,
-                "endpointPublicAccess": False,
+                "endpoint_private_access": True,
+                "endpoint_public_access": False,
             },
             outpost_config={
-                "controlPlaneInstanceType": "m5d.large",
-                "outpostArns": [example_aws_outposts_outpost["arn"]],
+                "control_plane_instance_type": "m5d.large",
+                "outpost_arns": [example_aws_outposts_outpost["arn"]],
             })
         ```
 
@@ -748,12 +748,12 @@ class Cluster(pulumi.CustomResource):
             name="example-cluster",
             role_arn=example.arn,
             vpc_config={
-                "endpointPrivateAccess": True,
-                "endpointPublicAccess": False,
+                "endpoint_private_access": True,
+                "endpoint_public_access": False,
             },
             access_config={
-                "authenticationMode": "CONFIG_MAP",
-                "bootstrapClusterCreatorAdminPermissions": True,
+                "authentication_mode": "CONFIG_MAP",
+                "bootstrap_cluster_creator_admin_permissions": True,
             })
         ```
 
@@ -804,7 +804,7 @@ class Cluster(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             vpc_config={
-                "subnetIds": [
+                "subnet_ids": [
                     example1["id"],
                     example2["id"],
                 ],
@@ -921,12 +921,12 @@ class Cluster(pulumi.CustomResource):
             name="example-cluster",
             role_arn=example.arn,
             vpc_config={
-                "endpointPrivateAccess": True,
-                "endpointPublicAccess": False,
+                "endpoint_private_access": True,
+                "endpoint_public_access": False,
             },
             outpost_config={
-                "controlPlaneInstanceType": "m5d.large",
-                "outpostArns": [example_aws_outposts_outpost["arn"]],
+                "control_plane_instance_type": "m5d.large",
+                "outpost_arns": [example_aws_outposts_outpost["arn"]],
             })
         ```
 
@@ -943,12 +943,12 @@ class Cluster(pulumi.CustomResource):
             name="example-cluster",
             role_arn=example.arn,
             vpc_config={
-                "endpointPrivateAccess": True,
-                "endpointPublicAccess": False,
+                "endpoint_private_access": True,
+                "endpoint_public_access": False,
             },
             access_config={
-                "authenticationMode": "CONFIG_MAP",
-                "bootstrapClusterCreatorAdminPermissions": True,
+                "authentication_mode": "CONFIG_MAP",
+                "bootstrap_cluster_creator_admin_permissions": True,
             })
         ```
 

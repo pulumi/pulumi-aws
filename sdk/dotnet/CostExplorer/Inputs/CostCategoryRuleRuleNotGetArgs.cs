@@ -14,23 +14,40 @@ namespace Pulumi.Aws.CostExplorer.Inputs
     {
         [Input("ands")]
         private InputList<Inputs.CostCategoryRuleRuleNotAndGetArgs>? _ands;
+
+        /// <summary>
+        /// Return results that match both `Dimension` objects.
+        /// </summary>
         public InputList<Inputs.CostCategoryRuleRuleNotAndGetArgs> Ands
         {
             get => _ands ?? (_ands = new InputList<Inputs.CostCategoryRuleRuleNotAndGetArgs>());
             set => _ands = value;
         }
 
+        /// <summary>
+        /// Configuration block for the filter that's based on `CostCategory` values. See below.
+        /// </summary>
         [Input("costCategory")]
         public Input<Inputs.CostCategoryRuleRuleNotCostCategoryGetArgs>? CostCategory { get; set; }
 
+        /// <summary>
+        /// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        /// </summary>
         [Input("dimension")]
         public Input<Inputs.CostCategoryRuleRuleNotDimensionGetArgs>? Dimension { get; set; }
 
+        /// <summary>
+        /// Return results that match both `Dimension` object.
+        /// </summary>
         [Input("not")]
         public Input<Inputs.CostCategoryRuleRuleNotNotGetArgs>? Not { get; set; }
 
         [Input("ors")]
         private InputList<Inputs.CostCategoryRuleRuleNotOrGetArgs>? _ors;
+
+        /// <summary>
+        /// Return results that match both `Dimension` object.
+        /// </summary>
         public InputList<Inputs.CostCategoryRuleRuleNotOrGetArgs> Ors
         {
             get => _ors ?? (_ors = new InputList<Inputs.CostCategoryRuleRuleNotOrGetArgs>());

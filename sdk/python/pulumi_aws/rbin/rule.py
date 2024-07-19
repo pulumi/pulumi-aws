@@ -327,12 +327,12 @@ class Rule(pulumi.CustomResource):
             description="example_rule",
             resource_type="EBS_SNAPSHOT",
             resource_tags=[{
-                "resourceTagKey": "tag_key",
-                "resourceTagValue": "tag_value",
+                "resource_tag_key": "tag_key",
+                "resource_tag_value": "tag_value",
             }],
             retention_period={
-                "retentionPeriodValue": 10,
-                "retentionPeriodUnit": "DAYS",
+                "retention_period_value": 10,
+                "retention_period_unit": "DAYS",
             },
             tags={
                 "test_tag_key": "test_tag_value",
@@ -378,12 +378,12 @@ class Rule(pulumi.CustomResource):
             description="example_rule",
             resource_type="EBS_SNAPSHOT",
             resource_tags=[{
-                "resourceTagKey": "tag_key",
-                "resourceTagValue": "tag_value",
+                "resource_tag_key": "tag_key",
+                "resource_tag_value": "tag_value",
             }],
             retention_period={
-                "retentionPeriodValue": 10,
-                "retentionPeriodUnit": "DAYS",
+                "retention_period_value": 10,
+                "retention_period_unit": "DAYS",
             },
             tags={
                 "test_tag_key": "test_tag_value",

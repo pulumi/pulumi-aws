@@ -12,12 +12,21 @@ namespace Pulumi.Aws.Shield.Inputs
 
     public sealed class ProactiveEngagementEmergencyContactGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Additional notes regarding the contact.
+        /// </summary>
         [Input("contactNotes")]
         public Input<string>? ContactNotes { get; set; }
 
+        /// <summary>
+        /// A valid email address that will be used for this contact.
+        /// </summary>
         [Input("emailAddress", required: true)]
         public Input<string> EmailAddress { get; set; } = null!;
 
+        /// <summary>
+        /// A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+        /// </summary>
         [Input("phoneNumber")]
         public Input<string>? PhoneNumber { get; set; }
 

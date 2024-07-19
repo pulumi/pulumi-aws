@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Dlm.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+        /// </summary>
         [Input("encryptionConfiguration", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs> EncryptionConfiguration { get; set; } = null!;
 

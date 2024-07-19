@@ -12,11 +12,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration {
+    /**
+     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+     * 
+     */
     private @Nullable String assignPublicIp;
     private @Nullable List<String> securityGroups;
     private @Nullable List<String> subnets;
 
     private PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration() {}
+    /**
+     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+     * 
+     */
     public Optional<String> assignPublicIp() {
         return Optional.ofNullable(this.assignPublicIp);
     }

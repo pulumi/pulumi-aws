@@ -231,7 +231,7 @@ class ProfilingGroup(pulumi.CustomResource):
             name="example",
             compute_platform="Default",
             agent_orchestration_config={
-                "profilingEnabled": True,
+                "profiling_enabled": True,
             })
         ```
 
@@ -273,7 +273,7 @@ class ProfilingGroup(pulumi.CustomResource):
             name="example",
             compute_platform="Default",
             agent_orchestration_config={
-                "profilingEnabled": True,
+                "profiling_enabled": True,
             })
         ```
 

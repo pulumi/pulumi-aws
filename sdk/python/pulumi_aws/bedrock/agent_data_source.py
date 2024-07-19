@@ -335,8 +335,8 @@ class AgentDataSource(pulumi.CustomResource):
             name="example",
             data_source_configuration={
                 "type": "S3",
-                "s3Configuration": {
-                    "bucketArn": "arn:aws:s3:::example-bucket",
+                "s3_configuration": {
+                    "bucket_arn": "arn:aws:s3:::example-bucket",
                 },
             })
         ```
@@ -383,8 +383,8 @@ class AgentDataSource(pulumi.CustomResource):
             name="example",
             data_source_configuration={
                 "type": "S3",
-                "s3Configuration": {
-                    "bucketArn": "arn:aws:s3:::example-bucket",
+                "s3_configuration": {
+                    "bucket_arn": "arn:aws:s3:::example-bucket",
                 },
             })
         ```

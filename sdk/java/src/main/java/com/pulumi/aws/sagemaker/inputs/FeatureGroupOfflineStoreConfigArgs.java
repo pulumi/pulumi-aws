@@ -34,9 +34,17 @@ public final class FeatureGroupOfflineStoreConfigArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.dataCatalogConfig);
     }
 
+    /**
+     * Set to `true` to turn Online Store On.
+     * 
+     */
     @Import(name="disableGlueTableCreation")
     private @Nullable Output<Boolean> disableGlueTableCreation;
 
+    /**
+     * @return Set to `true` to turn Online Store On.
+     * 
+     */
     public Optional<Output<Boolean>> disableGlueTableCreation() {
         return Optional.ofNullable(this.disableGlueTableCreation);
     }
@@ -119,11 +127,23 @@ public final class FeatureGroupOfflineStoreConfigArgs extends com.pulumi.resourc
             return dataCatalogConfig(Output.of(dataCatalogConfig));
         }
 
+        /**
+         * @param disableGlueTableCreation Set to `true` to turn Online Store On.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disableGlueTableCreation(@Nullable Output<Boolean> disableGlueTableCreation) {
             $.disableGlueTableCreation = disableGlueTableCreation;
             return this;
         }
 
+        /**
+         * @param disableGlueTableCreation Set to `true` to turn Online Store On.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disableGlueTableCreation(Boolean disableGlueTableCreation) {
             return disableGlueTableCreation(Output.of(disableGlueTableCreation));
         }

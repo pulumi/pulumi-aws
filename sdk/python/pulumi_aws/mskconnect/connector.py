@@ -537,14 +537,14 @@ class Connector(pulumi.CustomResource):
             kafkaconnect_version="2.7.1",
             capacity={
                 "autoscaling": {
-                    "mcuCount": 1,
-                    "minWorkerCount": 1,
-                    "maxWorkerCount": 2,
-                    "scaleInPolicy": {
-                        "cpuUtilizationPercentage": 20,
+                    "mcu_count": 1,
+                    "min_worker_count": 1,
+                    "max_worker_count": 2,
+                    "scale_in_policy": {
+                        "cpu_utilization_percentage": 20,
                     },
-                    "scaleOutPolicy": {
-                        "cpuUtilizationPercentage": 80,
+                    "scale_out_policy": {
+                        "cpu_utilization_percentage": 80,
                     },
                 },
             },
@@ -554,10 +554,10 @@ class Connector(pulumi.CustomResource):
                 "topics": "example",
             },
             kafka_cluster={
-                "apacheKafkaCluster": {
-                    "bootstrapServers": example_aws_msk_cluster["bootstrapBrokersTls"],
+                "apache_kafka_cluster": {
+                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                     "vpc": {
-                        "securityGroups": [example_aws_security_group["id"]],
+                        "security_groups": [example_aws_security_group["id"]],
                         "subnets": [
                             example1["id"],
                             example2["id"],
@@ -567,13 +567,13 @@ class Connector(pulumi.CustomResource):
                 },
             },
             kafka_cluster_client_authentication={
-                "authenticationType": "NONE",
+                "authentication_type": "NONE",
             },
             kafka_cluster_encryption_in_transit={
-                "encryptionType": "TLS",
+                "encryption_type": "TLS",
             },
             plugins=[{
-                "customPlugin": {
+                "custom_plugin": {
                     "arn": example_aws_mskconnect_custom_plugin["arn"],
                     "revision": example_aws_mskconnect_custom_plugin["latestRevision"],
                 },
@@ -629,14 +629,14 @@ class Connector(pulumi.CustomResource):
             kafkaconnect_version="2.7.1",
             capacity={
                 "autoscaling": {
-                    "mcuCount": 1,
-                    "minWorkerCount": 1,
-                    "maxWorkerCount": 2,
-                    "scaleInPolicy": {
-                        "cpuUtilizationPercentage": 20,
+                    "mcu_count": 1,
+                    "min_worker_count": 1,
+                    "max_worker_count": 2,
+                    "scale_in_policy": {
+                        "cpu_utilization_percentage": 20,
                     },
-                    "scaleOutPolicy": {
-                        "cpuUtilizationPercentage": 80,
+                    "scale_out_policy": {
+                        "cpu_utilization_percentage": 80,
                     },
                 },
             },
@@ -646,10 +646,10 @@ class Connector(pulumi.CustomResource):
                 "topics": "example",
             },
             kafka_cluster={
-                "apacheKafkaCluster": {
-                    "bootstrapServers": example_aws_msk_cluster["bootstrapBrokersTls"],
+                "apache_kafka_cluster": {
+                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                     "vpc": {
-                        "securityGroups": [example_aws_security_group["id"]],
+                        "security_groups": [example_aws_security_group["id"]],
                         "subnets": [
                             example1["id"],
                             example2["id"],
@@ -659,13 +659,13 @@ class Connector(pulumi.CustomResource):
                 },
             },
             kafka_cluster_client_authentication={
-                "authenticationType": "NONE",
+                "authentication_type": "NONE",
             },
             kafka_cluster_encryption_in_transit={
-                "encryptionType": "TLS",
+                "encryption_type": "TLS",
             },
             plugins=[{
-                "customPlugin": {
+                "custom_plugin": {
                     "arn": example_aws_mskconnect_custom_plugin["arn"],
                     "revision": example_aws_mskconnect_custom_plugin["latestRevision"],
                 },

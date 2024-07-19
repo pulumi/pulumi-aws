@@ -349,11 +349,11 @@ class AccessGrant(pulumi.CustomResource):
             access_grants_location_id=example_access_grants_location.access_grants_location_id,
             permission="READ",
             access_grants_location_configuration={
-                "s3SubPrefix": "prefixB*",
+                "s3_sub_prefix": "prefixB*",
             },
             grantee={
-                "granteeType": "IAM",
-                "granteeIdentifier": example_aws_iam_user["arn"],
+                "grantee_type": "IAM",
+                "grantee_identifier": example_aws_iam_user["arn"],
             })
         ```
 
@@ -400,11 +400,11 @@ class AccessGrant(pulumi.CustomResource):
             access_grants_location_id=example_access_grants_location.access_grants_location_id,
             permission="READ",
             access_grants_location_configuration={
-                "s3SubPrefix": "prefixB*",
+                "s3_sub_prefix": "prefixB*",
             },
             grantee={
-                "granteeType": "IAM",
-                "granteeIdentifier": example_aws_iam_user["arn"],
+                "grantee_type": "IAM",
+                "grantee_identifier": example_aws_iam_user["arn"],
             })
         ```
 

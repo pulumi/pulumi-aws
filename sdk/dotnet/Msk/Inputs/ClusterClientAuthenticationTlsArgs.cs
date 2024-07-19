@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Msk.Inputs
     {
         [Input("certificateAuthorityArns")]
         private InputList<string>? _certificateAuthorityArns;
+
+        /// <summary>
+        /// List of ACM Certificate Authority Amazon Resource Names (ARNs).
+        /// </summary>
         public InputList<string> CertificateAuthorityArns
         {
             get => _certificateAuthorityArns ?? (_certificateAuthorityArns = new InputList<string>());
