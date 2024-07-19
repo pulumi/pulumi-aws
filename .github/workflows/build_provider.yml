@@ -44,8 +44,8 @@ jobs:
         with:
           tools: pulumictl, go
           cache_name: build-provider
-          goos: ${{ matrix.os }}
-          goarch: ${{ matrix.arch }}
+          goos: ${{ matrix.platform.os }}
+          goarch: ${{ matrix.platform.arch }}
       - name: Download schema-embed.json
         uses: actions/download-artifact@v4
         with:

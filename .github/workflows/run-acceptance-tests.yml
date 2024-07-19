@@ -58,7 +58,7 @@ jobs:
       github.event.pull_request.head.repo.full_name == github.repository
     name: combine_build_artifacts
     needs: build_sdk
-    secrets: inherit
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -175,7 +175,7 @@ jobs:
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
     - name: Install dependencies
-      run: make install_${{ matrix.language}}_sdk
+      run: make install_sdks
     - name: Install gotestfmt
       uses: GoTestTools/gotestfmt-action@v2
       with:
