@@ -53,6 +53,35 @@ jobs:
     secrets: inherit
     with:
       version: ${{ needs.prerequisites.outputs.version }}
+  combine_build_artifacts:
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    name: combine_build_artifacts
+    needs: build_sdk
+    secrets: inherit
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: "*-sdk.tar.gz"
+      - name: Uncompress SDK folders
+        run: |
+          files=$(find ${{ github.workspace }} -name "*-sdk.tar.gz" -print)
+          for file in $files
+          do
+            filename=$(basename $file)
+            echo $filename
+            language=$(echo $filename | sed 's/-.*//')
+            mkdir -p sdk/$language
+            tar -zxf $file -C ${{ github.workspace }}/sdk/$language/
+          done
+      - name: Compress sdk
+        run: tar -zcf sdk.tar.gz -C sdk .
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sdk.tar.gz
+          path: ${{ github.workspace }}/sdk.tar.gz
+          retention-days: 30
 
   comment-notification:
     if: github.event_name == 'repository_dispatch'
@@ -102,6 +131,7 @@ jobs:
     needs:
       - prerequisites
       - build_sdk
+      - combine_build_artifacts
     permissions:
       contents: read
       id-token: write
@@ -244,6 +274,7 @@ jobs:
             uses: ./.github/actions/setup-tools
             with:
               tools: pulumictl, pulumi, go
+              cache_name: shim
           - name: Make upstream
             run: make upstream
           - name: go test

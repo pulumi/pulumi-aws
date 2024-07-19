@@ -43,7 +43,7 @@ jobs:
         uses: ./.github/actions/setup-tools
         with:
           tools: pulumictl, go
-          cache_name: build
+          cache_name: build-provider
           goos: ${{ matrix.os }}
           goarch: ${{ matrix.arch }}
       - name: Download schema-embed.json
