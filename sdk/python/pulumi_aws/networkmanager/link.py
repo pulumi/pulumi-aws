@@ -317,8 +317,8 @@ class Link(pulumi.CustomResource):
             global_network_id=example_aws_networkmanager_global_network["id"],
             site_id=example_aws_networkmanager_site["id"],
             bandwidth={
-                "uploadSpeed": 10,
-                "downloadSpeed": 50,
+                "upload_speed": 10,
+                "download_speed": 50,
             },
             provider_name="MegaCorp")
         ```
@@ -360,8 +360,8 @@ class Link(pulumi.CustomResource):
             global_network_id=example_aws_networkmanager_global_network["id"],
             site_id=example_aws_networkmanager_site["id"],
             bandwidth={
-                "uploadSpeed": 10,
-                "downloadSpeed": 50,
+                "upload_speed": 10,
+                "download_speed": 50,
             },
             provider_name="MegaCorp")
         ```

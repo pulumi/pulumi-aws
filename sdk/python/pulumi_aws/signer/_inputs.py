@@ -74,6 +74,9 @@ if not MYPY:
     class SigningJobDestinationS3ArgsDict(TypedDict):
         bucket: pulumi.Input[str]
         prefix: NotRequired[pulumi.Input[str]]
+        """
+        An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+        """
 elif False:
     SigningJobDestinationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -82,6 +85,9 @@ class SigningJobDestinationS3Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] prefix: An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+        """
         pulumi.set(__self__, "bucket", bucket)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -98,6 +104,9 @@ class SigningJobDestinationS3Args:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -181,6 +190,9 @@ if not MYPY:
     class SigningJobSignedObjectS3ArgsDict(TypedDict):
         bucket: NotRequired[pulumi.Input[str]]
         key: NotRequired[pulumi.Input[str]]
+        """
+        Key name of the object that contains your unsigned code.
+        """
 elif False:
     SigningJobSignedObjectS3ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -189,6 +201,9 @@ class SigningJobSignedObjectS3Args:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key name of the object that contains your unsigned code.
+        """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if key is not None:
@@ -206,6 +221,9 @@ class SigningJobSignedObjectS3Args:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key name of the object that contains your unsigned code.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -248,7 +266,13 @@ if not MYPY:
     class SigningJobSourceS3ArgsDict(TypedDict):
         bucket: pulumi.Input[str]
         key: pulumi.Input[str]
+        """
+        Key name of the object that contains your unsigned code.
+        """
         version: pulumi.Input[str]
+        """
+        Version of your source image in your version enabled S3 bucket.
+        """
 elif False:
     SigningJobSourceS3ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -258,6 +282,10 @@ class SigningJobSourceS3Args:
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str],
                  version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Key name of the object that contains your unsigned code.
+        :param pulumi.Input[str] version: Version of your source image in your version enabled S3 bucket.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "version", version)
@@ -274,6 +302,9 @@ class SigningJobSourceS3Args:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Key name of the object that contains your unsigned code.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -283,6 +314,9 @@ class SigningJobSourceS3Args:
     @property
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
+        """
+        Version of your source image in your version enabled S3 bucket.
+        """
         return pulumi.get(self, "version")
 
     @version.setter

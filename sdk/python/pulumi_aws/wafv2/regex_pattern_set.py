@@ -267,10 +267,10 @@ class RegexPatternSet(pulumi.CustomResource):
             scope="REGIONAL",
             regular_expressions=[
                 {
-                    "regexString": "one",
+                    "regex_string": "one",
                 },
                 {
-                    "regexString": "two",
+                    "regex_string": "two",
                 },
             ],
             tags={
@@ -316,10 +316,10 @@ class RegexPatternSet(pulumi.CustomResource):
             scope="REGIONAL",
             regular_expressions=[
                 {
-                    "regexString": "one",
+                    "regex_string": "one",
                 },
                 {
-                    "regexString": "two",
+                    "regex_string": "two",
                 },
             ],
             tags={

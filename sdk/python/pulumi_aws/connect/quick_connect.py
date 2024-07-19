@@ -270,9 +270,9 @@ class QuickConnect(pulumi.CustomResource):
             name="Example Name",
             description="quick connect phone number",
             quick_connect_config={
-                "quickConnectType": "PHONE_NUMBER",
-                "phoneConfigs": [{
-                    "phoneNumber": "+12345678912",
+                "quick_connect_type": "PHONE_NUMBER",
+                "phone_configs": [{
+                    "phone_number": "+12345678912",
                 }],
             },
             tags={
@@ -317,9 +317,9 @@ class QuickConnect(pulumi.CustomResource):
             name="Example Name",
             description="quick connect phone number",
             quick_connect_config={
-                "quickConnectType": "PHONE_NUMBER",
-                "phoneConfigs": [{
-                    "phoneNumber": "+12345678912",
+                "quick_connect_type": "PHONE_NUMBER",
+                "phone_configs": [{
+                    "phone_number": "+12345678912",
                 }],
             },
             tags={

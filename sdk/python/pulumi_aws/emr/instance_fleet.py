@@ -291,32 +291,32 @@ class InstanceFleet(pulumi.CustomResource):
             cluster_id=cluster["id"],
             instance_type_configs=[
                 {
-                    "bidPriceAsPercentageOfOnDemandPrice": 100,
-                    "ebsConfigs": [{
+                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
-                        "volumesPerInstance": 1,
+                        "volumes_per_instance": 1,
                     }],
-                    "instanceType": "m4.xlarge",
-                    "weightedCapacity": 1,
+                    "instance_type": "m4.xlarge",
+                    "weighted_capacity": 1,
                 },
                 {
-                    "bidPriceAsPercentageOfOnDemandPrice": 100,
-                    "ebsConfigs": [{
+                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
-                        "volumesPerInstance": 1,
+                        "volumes_per_instance": 1,
                     }],
-                    "instanceType": "m4.2xlarge",
-                    "weightedCapacity": 2,
+                    "instance_type": "m4.2xlarge",
+                    "weighted_capacity": 2,
                 },
             ],
             launch_specifications={
-                "spotSpecifications": [{
-                    "allocationStrategy": "capacity-optimized",
-                    "blockDurationMinutes": 0,
-                    "timeoutAction": "TERMINATE_CLUSTER",
-                    "timeoutDurationMinutes": 10,
+                "spot_specifications": [{
+                    "allocation_strategy": "capacity-optimized",
+                    "block_duration_minutes": 0,
+                    "timeout_action": "TERMINATE_CLUSTER",
+                    "timeout_duration_minutes": 10,
                 }],
             },
             name="task fleet",
@@ -365,32 +365,32 @@ class InstanceFleet(pulumi.CustomResource):
             cluster_id=cluster["id"],
             instance_type_configs=[
                 {
-                    "bidPriceAsPercentageOfOnDemandPrice": 100,
-                    "ebsConfigs": [{
+                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
-                        "volumesPerInstance": 1,
+                        "volumes_per_instance": 1,
                     }],
-                    "instanceType": "m4.xlarge",
-                    "weightedCapacity": 1,
+                    "instance_type": "m4.xlarge",
+                    "weighted_capacity": 1,
                 },
                 {
-                    "bidPriceAsPercentageOfOnDemandPrice": 100,
-                    "ebsConfigs": [{
+                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
-                        "volumesPerInstance": 1,
+                        "volumes_per_instance": 1,
                     }],
-                    "instanceType": "m4.2xlarge",
-                    "weightedCapacity": 2,
+                    "instance_type": "m4.2xlarge",
+                    "weighted_capacity": 2,
                 },
             ],
             launch_specifications={
-                "spotSpecifications": [{
-                    "allocationStrategy": "capacity-optimized",
-                    "blockDurationMinutes": 0,
-                    "timeoutAction": "TERMINATE_CLUSTER",
-                    "timeoutDurationMinutes": 10,
+                "spot_specifications": [{
+                    "allocation_strategy": "capacity-optimized",
+                    "block_duration_minutes": 0,
+                    "timeout_action": "TERMINATE_CLUSTER",
+                    "timeout_duration_minutes": 10,
                 }],
             },
             name="task fleet",

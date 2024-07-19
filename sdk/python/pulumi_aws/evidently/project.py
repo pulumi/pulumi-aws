@@ -365,8 +365,8 @@ class Project(pulumi.CustomResource):
             name="Example",
             description="Example Description",
             data_delivery={
-                "cloudwatchLogs": {
-                    "logGroup": "example-log-group-name",
+                "cloudwatch_logs": {
+                    "log_group": "example-log-group-name",
                 },
             },
             tags={
@@ -384,7 +384,7 @@ class Project(pulumi.CustomResource):
             name="Example",
             description="Example Description",
             data_delivery={
-                "s3Destination": {
+                "s3_destination": {
                     "bucket": "example-bucket-name",
                     "prefix": "example",
                 },
@@ -444,8 +444,8 @@ class Project(pulumi.CustomResource):
             name="Example",
             description="Example Description",
             data_delivery={
-                "cloudwatchLogs": {
-                    "logGroup": "example-log-group-name",
+                "cloudwatch_logs": {
+                    "log_group": "example-log-group-name",
                 },
             },
             tags={
@@ -463,7 +463,7 @@ class Project(pulumi.CustomResource):
             name="Example",
             description="Example Description",
             data_delivery={
-                "s3Destination": {
+                "s3_destination": {
                     "bucket": "example-bucket-name",
                     "prefix": "example",
                 },

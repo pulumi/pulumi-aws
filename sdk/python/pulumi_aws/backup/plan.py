@@ -235,18 +235,18 @@ class Plan(pulumi.CustomResource):
         example = aws.backup.Plan("example",
             name="my_example_backup_plan",
             rules=[{
-                "ruleName": "my_example_backup_rule",
-                "targetVaultName": test["name"],
+                "rule_name": "my_example_backup_rule",
+                "target_vault_name": test["name"],
                 "schedule": "cron(0 12 * * ? *)",
                 "lifecycle": {
-                    "deleteAfter": 14,
+                    "delete_after": 14,
                 },
             }],
             advanced_backup_settings=[{
-                "backupOptions": {
-                    "WindowsVSS": "enabled",
+                "backup_options": {
+                    "windows_vss": "enabled",
                 },
-                "resourceType": "EC2",
+                "resource_type": "EC2",
             }])
         ```
 
@@ -283,18 +283,18 @@ class Plan(pulumi.CustomResource):
         example = aws.backup.Plan("example",
             name="my_example_backup_plan",
             rules=[{
-                "ruleName": "my_example_backup_rule",
-                "targetVaultName": test["name"],
+                "rule_name": "my_example_backup_rule",
+                "target_vault_name": test["name"],
                 "schedule": "cron(0 12 * * ? *)",
                 "lifecycle": {
-                    "deleteAfter": 14,
+                    "delete_after": 14,
                 },
             }],
             advanced_backup_settings=[{
-                "backupOptions": {
-                    "WindowsVSS": "enabled",
+                "backup_options": {
+                    "windows_vss": "enabled",
                 },
-                "resourceType": "EC2",
+                "resource_type": "EC2",
             }])
         ```
 

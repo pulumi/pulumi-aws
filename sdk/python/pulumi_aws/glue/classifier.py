@@ -221,15 +221,15 @@ class Classifier(pulumi.CustomResource):
         example = aws.glue.Classifier("example",
             name="example",
             csv_classifier={
-                "allowSingleColumn": False,
-                "containsHeader": "PRESENT",
+                "allow_single_column": False,
+                "contains_header": "PRESENT",
                 "delimiter": ",",
-                "disableValueTrimming": False,
+                "disable_value_trimming": False,
                 "headers": [
                     "example1",
                     "example2",
                 ],
-                "quoteSymbol": "'",
+                "quote_symbol": "'",
             })
         ```
 
@@ -243,7 +243,7 @@ class Classifier(pulumi.CustomResource):
             name="example",
             grok_classifier={
                 "classification": "example",
-                "grokPattern": "example",
+                "grok_pattern": "example",
             })
         ```
 
@@ -256,7 +256,7 @@ class Classifier(pulumi.CustomResource):
         example = aws.glue.Classifier("example",
             name="example",
             json_classifier={
-                "jsonPath": "example",
+                "json_path": "example",
             })
         ```
 
@@ -270,7 +270,7 @@ class Classifier(pulumi.CustomResource):
             name="example",
             xml_classifier={
                 "classification": "example",
-                "rowTag": "example",
+                "row_tag": "example",
             })
         ```
 
@@ -312,15 +312,15 @@ class Classifier(pulumi.CustomResource):
         example = aws.glue.Classifier("example",
             name="example",
             csv_classifier={
-                "allowSingleColumn": False,
-                "containsHeader": "PRESENT",
+                "allow_single_column": False,
+                "contains_header": "PRESENT",
                 "delimiter": ",",
-                "disableValueTrimming": False,
+                "disable_value_trimming": False,
                 "headers": [
                     "example1",
                     "example2",
                 ],
-                "quoteSymbol": "'",
+                "quote_symbol": "'",
             })
         ```
 
@@ -334,7 +334,7 @@ class Classifier(pulumi.CustomResource):
             name="example",
             grok_classifier={
                 "classification": "example",
-                "grokPattern": "example",
+                "grok_pattern": "example",
             })
         ```
 
@@ -347,7 +347,7 @@ class Classifier(pulumi.CustomResource):
         example = aws.glue.Classifier("example",
             name="example",
             json_classifier={
-                "jsonPath": "example",
+                "json_path": "example",
             })
         ```
 
@@ -361,7 +361,7 @@ class Classifier(pulumi.CustomResource):
             name="example",
             xml_classifier={
                 "classification": "example",
-                "rowTag": "example",
+                "row_tag": "example",
             })
         ```
 

@@ -359,29 +359,29 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             name="example",
             description="example",
             encryption_configurations=[{
-                "keyId": "AWS_OWNED_KMS_KEY",
+                "key_id": "AWS_OWNED_KMS_KEY",
                 "type": "AWS_OWNED_KMS_KEY",
             }],
             tls_inspection_configuration={
-                "serverCertificateConfiguration": {
-                    "serverCertificates": [{
-                        "resourceArn": example1["arn"],
+                "server_certificate_configuration": {
+                    "server_certificates": [{
+                        "resource_arn": example1["arn"],
                     }],
                     "scopes": [{
                         "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
+                        "destination_ports": [{
+                            "from_port": 443,
+                            "to_port": 443,
                         }],
                         "destinations": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
+                        "source_ports": [{
+                            "from_port": 0,
+                            "to_port": 65535,
                         }],
                         "sources": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
                     }],
                 },
@@ -398,31 +398,31 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             name="example",
             description="example",
             encryption_configurations=[{
-                "keyId": "AWS_OWNED_KMS_KEY",
+                "key_id": "AWS_OWNED_KMS_KEY",
                 "type": "AWS_OWNED_KMS_KEY",
             }],
             tls_inspection_configuration={
-                "serverCertificateConfiguration": {
-                    "certificateAuthorityArn": example1["arn"],
-                    "checkCertificateRevocationStatus": {
-                        "revokedStatusAction": "REJECT",
-                        "unknownStatusAction": "PASS",
+                "server_certificate_configuration": {
+                    "certificate_authority_arn": example1["arn"],
+                    "check_certificate_revocation_status": {
+                        "revoked_status_action": "REJECT",
+                        "unknown_status_action": "PASS",
                     },
                     "scopes": [{
                         "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
+                        "destination_ports": [{
+                            "from_port": 443,
+                            "to_port": 443,
                         }],
                         "destinations": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
+                        "source_ports": [{
+                            "from_port": 0,
+                            "to_port": 65535,
                         }],
                         "sources": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
                     }],
                 },
@@ -442,29 +442,29 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             name="example",
             description="example",
             encryption_configurations=[{
-                "keyId": example.arn,
+                "key_id": example.arn,
                 "type": "CUSTOMER_KMS",
             }],
             tls_inspection_configuration={
-                "serverCertificateConfiguration": {
-                    "serverCertificates": [{
-                        "resourceArn": example1["arn"],
+                "server_certificate_configuration": {
+                    "server_certificates": [{
+                        "resource_arn": example1["arn"],
                     }],
                     "scopes": [{
                         "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
+                        "destination_ports": [{
+                            "from_port": 443,
+                            "to_port": 443,
                         }],
                         "destinations": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
+                        "source_ports": [{
+                            "from_port": 0,
+                            "to_port": 65535,
                         }],
                         "sources": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
                     }],
                 },
@@ -481,34 +481,34 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             name="example",
             description="example",
             encryption_configurations=[{
-                "keyId": "AWS_OWNED_KMS_KEY",
+                "key_id": "AWS_OWNED_KMS_KEY",
                 "type": "AWS_OWNED_KMS_KEY",
             }],
             tls_inspection_configuration={
-                "serverCertificateConfiguration": {
-                    "certificateAuthorityArn": example1["arn"],
-                    "checkCertificateRevocationStatus": {
-                        "revokedStatusAction": "REJECT",
-                        "unknownStatusAction": "PASS",
+                "server_certificate_configuration": {
+                    "certificate_authority_arn": example1["arn"],
+                    "check_certificate_revocation_status": {
+                        "revoked_status_action": "REJECT",
+                        "unknown_status_action": "PASS",
                     },
-                    "serverCertificates": [{
-                        "resourceArn": example2["arn"],
+                    "server_certificates": [{
+                        "resource_arn": example2["arn"],
                     }],
                     "scopes": [{
                         "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
+                        "destination_ports": [{
+                            "from_port": 443,
+                            "to_port": 443,
                         }],
                         "destinations": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
+                        "source_ports": [{
+                            "from_port": 0,
+                            "to_port": 65535,
                         }],
                         "sources": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
                     }],
                 },
@@ -555,29 +555,29 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             name="example",
             description="example",
             encryption_configurations=[{
-                "keyId": "AWS_OWNED_KMS_KEY",
+                "key_id": "AWS_OWNED_KMS_KEY",
                 "type": "AWS_OWNED_KMS_KEY",
             }],
             tls_inspection_configuration={
-                "serverCertificateConfiguration": {
-                    "serverCertificates": [{
-                        "resourceArn": example1["arn"],
+                "server_certificate_configuration": {
+                    "server_certificates": [{
+                        "resource_arn": example1["arn"],
                     }],
                     "scopes": [{
                         "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
+                        "destination_ports": [{
+                            "from_port": 443,
+                            "to_port": 443,
                         }],
                         "destinations": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
+                        "source_ports": [{
+                            "from_port": 0,
+                            "to_port": 65535,
                         }],
                         "sources": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
                     }],
                 },
@@ -594,31 +594,31 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             name="example",
             description="example",
             encryption_configurations=[{
-                "keyId": "AWS_OWNED_KMS_KEY",
+                "key_id": "AWS_OWNED_KMS_KEY",
                 "type": "AWS_OWNED_KMS_KEY",
             }],
             tls_inspection_configuration={
-                "serverCertificateConfiguration": {
-                    "certificateAuthorityArn": example1["arn"],
-                    "checkCertificateRevocationStatus": {
-                        "revokedStatusAction": "REJECT",
-                        "unknownStatusAction": "PASS",
+                "server_certificate_configuration": {
+                    "certificate_authority_arn": example1["arn"],
+                    "check_certificate_revocation_status": {
+                        "revoked_status_action": "REJECT",
+                        "unknown_status_action": "PASS",
                     },
                     "scopes": [{
                         "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
+                        "destination_ports": [{
+                            "from_port": 443,
+                            "to_port": 443,
                         }],
                         "destinations": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
+                        "source_ports": [{
+                            "from_port": 0,
+                            "to_port": 65535,
                         }],
                         "sources": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
                     }],
                 },
@@ -638,29 +638,29 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             name="example",
             description="example",
             encryption_configurations=[{
-                "keyId": example.arn,
+                "key_id": example.arn,
                 "type": "CUSTOMER_KMS",
             }],
             tls_inspection_configuration={
-                "serverCertificateConfiguration": {
-                    "serverCertificates": [{
-                        "resourceArn": example1["arn"],
+                "server_certificate_configuration": {
+                    "server_certificates": [{
+                        "resource_arn": example1["arn"],
                     }],
                     "scopes": [{
                         "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
+                        "destination_ports": [{
+                            "from_port": 443,
+                            "to_port": 443,
                         }],
                         "destinations": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
+                        "source_ports": [{
+                            "from_port": 0,
+                            "to_port": 65535,
                         }],
                         "sources": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
                     }],
                 },
@@ -677,34 +677,34 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             name="example",
             description="example",
             encryption_configurations=[{
-                "keyId": "AWS_OWNED_KMS_KEY",
+                "key_id": "AWS_OWNED_KMS_KEY",
                 "type": "AWS_OWNED_KMS_KEY",
             }],
             tls_inspection_configuration={
-                "serverCertificateConfiguration": {
-                    "certificateAuthorityArn": example1["arn"],
-                    "checkCertificateRevocationStatus": {
-                        "revokedStatusAction": "REJECT",
-                        "unknownStatusAction": "PASS",
+                "server_certificate_configuration": {
+                    "certificate_authority_arn": example1["arn"],
+                    "check_certificate_revocation_status": {
+                        "revoked_status_action": "REJECT",
+                        "unknown_status_action": "PASS",
                     },
-                    "serverCertificates": [{
-                        "resourceArn": example2["arn"],
+                    "server_certificates": [{
+                        "resource_arn": example2["arn"],
                     }],
                     "scopes": [{
                         "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
+                        "destination_ports": [{
+                            "from_port": 443,
+                            "to_port": 443,
                         }],
                         "destinations": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
+                        "source_ports": [{
+                            "from_port": 0,
+                            "to_port": 65535,
                         }],
                         "sources": [{
-                            "addressDefinition": "0.0.0.0/0",
+                            "address_definition": "0.0.0.0/0",
                         }],
                     }],
                 },

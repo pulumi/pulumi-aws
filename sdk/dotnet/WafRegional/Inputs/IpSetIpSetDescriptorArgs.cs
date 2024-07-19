@@ -12,9 +12,15 @@ namespace Pulumi.Aws.WafRegional.Inputs
 
     public sealed class IpSetIpSetDescriptorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The string like IPV4 or IPV6.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The CIDR notation.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

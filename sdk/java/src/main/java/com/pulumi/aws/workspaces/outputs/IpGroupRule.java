@@ -17,6 +17,10 @@ public final class IpGroupRule {
      * 
      */
     private @Nullable String description;
+    /**
+     * @return The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
+     * 
+     */
     private String source;
 
     private IpGroupRule() {}
@@ -27,6 +31,10 @@ public final class IpGroupRule {
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
+     * 
+     */
     public String source() {
         return this.source;
     }

@@ -16,16 +16,32 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
 
     public static final FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs Empty = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs();
 
+    /**
+     * he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+     * 
+     */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
+    /**
+     * @return he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+     * 
+     */
     public Output<String> contentType() {
         return this.contentType;
     }
 
+    /**
+     * The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+     * 
+     */
     @Import(name="format", required=true)
     private Output<String> format;
 
+    /**
+     * @return The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+     * 
+     */
     public Output<String> format() {
         return this.format;
     }
@@ -63,20 +79,44 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
             $ = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param contentType he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentType(Output<String> contentType) {
             $.contentType = contentType;
             return this;
         }
 
+        /**
+         * @param contentType he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
         }
 
+        /**
+         * @param format The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder format(Output<String> format) {
             $.format = format;
             return this;
         }
 
+        /**
+         * @param format The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder format(String format) {
             return format(Output.of(format));
         }

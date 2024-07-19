@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersCapacityProviderStrategy {
+    /**
+     * @return The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
+     * 
+     */
     private @Nullable Integer base;
+    /**
+     * @return The short name of the capacity provider. Maximum value of 255.
+     * 
+     */
     private String capacityProvider;
+    /**
+     * @return The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
+     * 
+     */
     private @Nullable Integer weight;
 
     private PipeTargetParametersEcsTaskParametersCapacityProviderStrategy() {}
+    /**
+     * @return The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
+     * 
+     */
     public Optional<Integer> base() {
         return Optional.ofNullable(this.base);
     }
+    /**
+     * @return The short name of the capacity provider. Maximum value of 255.
+     * 
+     */
     public String capacityProvider() {
         return this.capacityProvider;
     }
+    /**
+     * @return The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
+     * 
+     */
     public Optional<Integer> weight() {
         return Optional.ofNullable(this.weight);
     }

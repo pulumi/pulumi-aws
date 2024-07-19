@@ -273,9 +273,9 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
     example = aws.ssoadmin.get_instances()
     example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
         alternate_identifier={
-            "uniqueAttribute": {
-                "attributePath": "UserName",
-                "attributeValue": "ExampleUser",
+            "unique_attribute": {
+                "attribute_path": "UserName",
+                "attribute_value": "ExampleUser",
             },
         })
     pulumi.export("userId", example_get_user.user_id)
@@ -339,9 +339,9 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
     example = aws.ssoadmin.get_instances()
     example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
         alternate_identifier={
-            "uniqueAttribute": {
-                "attributePath": "UserName",
-                "attributeValue": "ExampleUser",
+            "unique_attribute": {
+                "attribute_path": "UserName",
+                "attribute_value": "ExampleUser",
             },
         })
     pulumi.export("userId", example_get_user.user_id)

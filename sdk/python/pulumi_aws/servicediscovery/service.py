@@ -393,15 +393,15 @@ class Service(pulumi.CustomResource):
         example_service = aws.servicediscovery.Service("example",
             name="example",
             dns_config={
-                "namespaceId": example_private_dns_namespace.id,
-                "dnsRecords": [{
+                "namespace_id": example_private_dns_namespace.id,
+                "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
-                "routingPolicy": "MULTIVALUE",
+                "routing_policy": "MULTIVALUE",
             },
             health_check_custom_config={
-                "failureThreshold": 1,
+                "failure_threshold": 1,
             })
         ```
 
@@ -415,15 +415,15 @@ class Service(pulumi.CustomResource):
         example_service = aws.servicediscovery.Service("example",
             name="example",
             dns_config={
-                "namespaceId": example.id,
-                "dnsRecords": [{
+                "namespace_id": example.id,
+                "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
             },
             health_check_config={
-                "failureThreshold": 10,
-                "resourcePath": "path",
+                "failure_threshold": 10,
+                "resource_path": "path",
                 "type": "HTTP",
             })
         ```
@@ -474,15 +474,15 @@ class Service(pulumi.CustomResource):
         example_service = aws.servicediscovery.Service("example",
             name="example",
             dns_config={
-                "namespaceId": example_private_dns_namespace.id,
-                "dnsRecords": [{
+                "namespace_id": example_private_dns_namespace.id,
+                "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
-                "routingPolicy": "MULTIVALUE",
+                "routing_policy": "MULTIVALUE",
             },
             health_check_custom_config={
-                "failureThreshold": 1,
+                "failure_threshold": 1,
             })
         ```
 
@@ -496,15 +496,15 @@ class Service(pulumi.CustomResource):
         example_service = aws.servicediscovery.Service("example",
             name="example",
             dns_config={
-                "namespaceId": example.id,
-                "dnsRecords": [{
+                "namespace_id": example.id,
+                "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
             },
             health_check_config={
-                "failureThreshold": 10,
-                "resourcePath": "path",
+                "failure_threshold": 10,
+                "resource_path": "path",
                 "type": "HTTP",
             })
         ```

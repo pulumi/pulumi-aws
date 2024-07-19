@@ -297,11 +297,11 @@ class TrustedTokenIssuer(pulumi.CustomResource):
             instance_arn=example.arns[0],
             trusted_token_issuer_type="OIDC_JWT",
             trusted_token_issuer_configuration={
-                "oidcJwtConfiguration": {
-                    "claimAttributePath": "email",
-                    "identityStoreAttributePath": "emails.value",
-                    "issuerUrl": "https://example.com",
-                    "jwksRetrievalOption": "OPEN_ID_DISCOVERY",
+                "oidc_jwt_configuration": {
+                    "claim_attribute_path": "email",
+                    "identity_store_attribute_path": "emails.value",
+                    "issuer_url": "https://example.com",
+                    "jwks_retrieval_option": "OPEN_ID_DISCOVERY",
                 },
             })
         ```
@@ -348,11 +348,11 @@ class TrustedTokenIssuer(pulumi.CustomResource):
             instance_arn=example.arns[0],
             trusted_token_issuer_type="OIDC_JWT",
             trusted_token_issuer_configuration={
-                "oidcJwtConfiguration": {
-                    "claimAttributePath": "email",
-                    "identityStoreAttributePath": "emails.value",
-                    "issuerUrl": "https://example.com",
-                    "jwksRetrievalOption": "OPEN_ID_DISCOVERY",
+                "oidc_jwt_configuration": {
+                    "claim_attribute_path": "email",
+                    "identity_store_attribute_path": "emails.value",
+                    "issuer_url": "https://example.com",
+                    "jwks_retrieval_option": "OPEN_ID_DISCOVERY",
                 },
             })
         ```

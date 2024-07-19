@@ -415,25 +415,25 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         test = aws.sagemaker.DataQualityJobDefinition("test",
             name="my-data-quality-job-definition",
             data_quality_app_specification={
-                "imageUri": monitor["registryPath"],
+                "image_uri": monitor["registryPath"],
             },
             data_quality_job_input={
-                "endpointInput": {
-                    "endpointName": my_endpoint["name"],
+                "endpoint_input": {
+                    "endpoint_name": my_endpoint["name"],
                 },
             },
             data_quality_job_output_config={
-                "monitoringOutputs": {
-                    "s3Output": {
-                        "s3Uri": f"https://{my_bucket['bucketRegionalDomainName']}/output",
+                "monitoring_outputs": {
+                    "s3_output": {
+                        "s3_uri": f"https://{my_bucket['bucketRegionalDomainName']}/output",
                     },
                 },
             },
             job_resources={
-                "clusterConfig": {
-                    "instanceCount": 1,
-                    "instanceType": "ml.t3.medium",
-                    "volumeSizeInGb": 20,
+                "cluster_config": {
+                    "instance_count": 1,
+                    "instance_type": "ml.t3.medium",
+                    "volume_size_in_gb": 20,
                 },
             },
             role_arn=my_role["arn"])
@@ -480,25 +480,25 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         test = aws.sagemaker.DataQualityJobDefinition("test",
             name="my-data-quality-job-definition",
             data_quality_app_specification={
-                "imageUri": monitor["registryPath"],
+                "image_uri": monitor["registryPath"],
             },
             data_quality_job_input={
-                "endpointInput": {
-                    "endpointName": my_endpoint["name"],
+                "endpoint_input": {
+                    "endpoint_name": my_endpoint["name"],
                 },
             },
             data_quality_job_output_config={
-                "monitoringOutputs": {
-                    "s3Output": {
-                        "s3Uri": f"https://{my_bucket['bucketRegionalDomainName']}/output",
+                "monitoring_outputs": {
+                    "s3_output": {
+                        "s3_uri": f"https://{my_bucket['bucketRegionalDomainName']}/output",
                     },
                 },
             },
             job_resources={
-                "clusterConfig": {
-                    "instanceCount": 1,
-                    "instanceType": "ml.t3.medium",
-                    "volumeSizeInGb": 20,
+                "cluster_config": {
+                    "instance_count": 1,
+                    "instance_type": "ml.t3.medium",
+                    "volume_size_in_gb": 20,
                 },
             },
             role_arn=my_role["arn"])

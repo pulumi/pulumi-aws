@@ -16,41 +16,113 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeSourceParametersSelfManagedKafkaParameters {
+    /**
+     * @return An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+     * 
+     */
     private @Nullable List<String> additionalBootstrapServers;
+    /**
+     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * 
+     */
     private @Nullable Integer batchSize;
+    /**
+     * @return The name of the destination queue to consume. Maximum value of 200.
+     * 
+     */
     private @Nullable String consumerGroupId;
+    /**
+     * @return The credentials needed to access the resource. Detailed below.
+     * 
+     */
     private @Nullable PipeSourceParametersSelfManagedKafkaParametersCredentials credentials;
+    /**
+     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * 
+     */
     private @Nullable Integer maximumBatchingWindowInSeconds;
+    /**
+     * @return The ARN of the Secrets Manager secret used for certification.
+     * 
+     */
     private @Nullable String serverRootCaCertificate;
+    /**
+     * @return The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * 
+     */
     private @Nullable String startingPosition;
+    /**
+     * @return The name of the topic that the pipe will read from. Maximum length of 249.
+     * 
+     */
     private String topicName;
+    /**
+     * @return This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+     * 
+     */
     private @Nullable PipeSourceParametersSelfManagedKafkaParametersVpc vpc;
 
     private PipeSourceParametersSelfManagedKafkaParameters() {}
+    /**
+     * @return An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+     * 
+     */
     public List<String> additionalBootstrapServers() {
         return this.additionalBootstrapServers == null ? List.of() : this.additionalBootstrapServers;
     }
+    /**
+     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * 
+     */
     public Optional<Integer> batchSize() {
         return Optional.ofNullable(this.batchSize);
     }
+    /**
+     * @return The name of the destination queue to consume. Maximum value of 200.
+     * 
+     */
     public Optional<String> consumerGroupId() {
         return Optional.ofNullable(this.consumerGroupId);
     }
+    /**
+     * @return The credentials needed to access the resource. Detailed below.
+     * 
+     */
     public Optional<PipeSourceParametersSelfManagedKafkaParametersCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
     }
+    /**
+     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * 
+     */
     public Optional<Integer> maximumBatchingWindowInSeconds() {
         return Optional.ofNullable(this.maximumBatchingWindowInSeconds);
     }
+    /**
+     * @return The ARN of the Secrets Manager secret used for certification.
+     * 
+     */
     public Optional<String> serverRootCaCertificate() {
         return Optional.ofNullable(this.serverRootCaCertificate);
     }
+    /**
+     * @return The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * 
+     */
     public Optional<String> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
+    /**
+     * @return The name of the topic that the pipe will read from. Maximum length of 249.
+     * 
+     */
     public String topicName() {
         return this.topicName;
     }
+    /**
+     * @return This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+     * 
+     */
     public Optional<PipeSourceParametersSelfManagedKafkaParametersVpc> vpc() {
         return Optional.ofNullable(this.vpc);
     }

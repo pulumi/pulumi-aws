@@ -23,9 +23,17 @@ public final class SigningJobDestinationS3Args extends com.pulumi.resources.Reso
         return this.bucket;
     }
 
+    /**
+     * An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+     * 
+     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
+    /**
+     * @return An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+     * 
+     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -64,11 +72,23 @@ public final class SigningJobDestinationS3Args extends com.pulumi.resources.Reso
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param prefix An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
+        /**
+         * @param prefix An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

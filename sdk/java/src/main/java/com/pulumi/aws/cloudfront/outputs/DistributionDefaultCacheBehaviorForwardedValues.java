@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionDefaultCacheBehaviorForwardedValues {
+    /**
+     * @return The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
+     * 
+     */
     private DistributionDefaultCacheBehaviorForwardedValuesCookies cookies;
+    /**
+     * @return Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
+     * 
+     */
     private @Nullable List<String> headers;
+    /**
+     * @return Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
+     * 
+     */
     private Boolean queryString;
+    /**
+     * @return When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+     * 
+     */
     private @Nullable List<String> queryStringCacheKeys;
 
     private DistributionDefaultCacheBehaviorForwardedValues() {}
+    /**
+     * @return The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
+     * 
+     */
     public DistributionDefaultCacheBehaviorForwardedValuesCookies cookies() {
         return this.cookies;
     }
+    /**
+     * @return Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
+     * 
+     */
     public List<String> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
+    /**
+     * @return Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
+     * 
+     */
     public Boolean queryString() {
         return this.queryString;
     }
+    /**
+     * @return When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+     * 
+     */
     public List<String> queryStringCacheKeys() {
         return this.queryStringCacheKeys == null ? List.of() : this.queryStringCacheKeys;
     }

@@ -31,9 +31,17 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         return Optional.ofNullable(this.clientIds);
     }
 
+    /**
+     * The claim that determines the principal in OIDC access tokens.
+     * 
+     */
     @Import(name="principalIdClaim")
     private @Nullable Output<String> principalIdClaim;
 
+    /**
+     * @return The claim that determines the principal in OIDC access tokens.
+     * 
+     */
     public Optional<Output<String>> principalIdClaim() {
         return Optional.ofNullable(this.principalIdClaim);
     }
@@ -94,11 +102,23 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
             return clientIds(List.of(clientIds));
         }
 
+        /**
+         * @param principalIdClaim The claim that determines the principal in OIDC access tokens.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalIdClaim(@Nullable Output<String> principalIdClaim) {
             $.principalIdClaim = principalIdClaim;
             return this;
         }
 
+        /**
+         * @param principalIdClaim The claim that determines the principal in OIDC access tokens.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalIdClaim(String principalIdClaim) {
             return principalIdClaim(Output.of(principalIdClaim));
         }

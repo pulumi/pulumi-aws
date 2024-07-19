@@ -741,8 +741,17 @@ class AgentDataSourceDataSourceConfigurationArgs:
 if not MYPY:
     class AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict(TypedDict):
         bucket_arn: pulumi.Input[str]
+        """
+        ARN of the bucket that contains the data source.
+        """
         bucket_owner_account_id: NotRequired[pulumi.Input[str]]
+        """
+        Bucket account owner ID for the S3 bucket.
+        """
         inclusion_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+        """
 elif False:
     AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -752,6 +761,11 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
                  bucket_arn: pulumi.Input[str],
                  bucket_owner_account_id: Optional[pulumi.Input[str]] = None,
                  inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] bucket_arn: ARN of the bucket that contains the data source.
+        :param pulumi.Input[str] bucket_owner_account_id: Bucket account owner ID for the S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_prefixes: List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         if bucket_owner_account_id is not None:
             pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
@@ -761,6 +775,9 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the bucket that contains the data source.
+        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -770,6 +787,9 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
     @property
     @pulumi.getter(name="bucketOwnerAccountId")
     def bucket_owner_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bucket account owner ID for the S3 bucket.
+        """
         return pulumi.get(self, "bucket_owner_account_id")
 
     @bucket_owner_account_id.setter
@@ -779,6 +799,9 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionPrefixes")
     def inclusion_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+        """
         return pulumi.get(self, "inclusion_prefixes")
 
     @inclusion_prefixes.setter
