@@ -11,21 +11,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings {
+    /**
+     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     private @Nullable Integer connectionRetryInterval;
     private @Nullable Integer filecacheDuration;
+    /**
+     * @return Number of retry attempts.
+     * 
+     */
     private @Nullable Integer numRetries;
+    /**
+     * @return Number of seconds to wait until a restart is initiated.
+     * 
+     */
     private @Nullable Integer restartDelay;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings() {}
+    /**
+     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     public Optional<Integer> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
     public Optional<Integer> filecacheDuration() {
         return Optional.ofNullable(this.filecacheDuration);
     }
+    /**
+     * @return Number of retry attempts.
+     * 
+     */
     public Optional<Integer> numRetries() {
         return Optional.ofNullable(this.numRetries);
     }
+    /**
+     * @return Number of seconds to wait until a restart is initiated.
+     * 
+     */
     public Optional<Integer> restartDelay() {
         return Optional.ofNullable(this.restartDelay);
     }

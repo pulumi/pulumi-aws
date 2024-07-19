@@ -831,7 +831,7 @@ class Crawler(pulumi.CustomResource):
             name="example",
             role=example_aws_iam_role["arn"],
             jdbc_targets=[{
-                "connectionName": example_aws_glue_connection["name"],
+                "connection_name": example_aws_glue_connection["name"],
                 "path": "database-name/%",
             }])
         ```
@@ -862,11 +862,11 @@ class Crawler(pulumi.CustomResource):
             name="example",
             role=example_aws_iam_role["arn"],
             catalog_targets=[{
-                "databaseName": example_aws_glue_catalog_database["name"],
+                "database_name": example_aws_glue_catalog_database["name"],
                 "tables": [example_aws_glue_catalog_table["name"]],
             }],
             schema_change_policy={
-                "deleteBehavior": "LOG",
+                "delete_behavior": "LOG",
             },
             configuration=\"\"\"{
           "Version":1.0,
@@ -888,7 +888,7 @@ class Crawler(pulumi.CustomResource):
             name="example",
             role=example_aws_iam_role["arn"],
             mongodb_targets=[{
-                "connectionName": example_aws_glue_connection["name"],
+                "connection_name": example_aws_glue_connection["name"],
                 "path": "database-name/%",
             }])
         ```
@@ -992,7 +992,7 @@ class Crawler(pulumi.CustomResource):
             name="example",
             role=example_aws_iam_role["arn"],
             jdbc_targets=[{
-                "connectionName": example_aws_glue_connection["name"],
+                "connection_name": example_aws_glue_connection["name"],
                 "path": "database-name/%",
             }])
         ```
@@ -1023,11 +1023,11 @@ class Crawler(pulumi.CustomResource):
             name="example",
             role=example_aws_iam_role["arn"],
             catalog_targets=[{
-                "databaseName": example_aws_glue_catalog_database["name"],
+                "database_name": example_aws_glue_catalog_database["name"],
                 "tables": [example_aws_glue_catalog_table["name"]],
             }],
             schema_change_policy={
-                "deleteBehavior": "LOG",
+                "delete_behavior": "LOG",
             },
             configuration=\"\"\"{
           "Version":1.0,
@@ -1049,7 +1049,7 @@ class Crawler(pulumi.CustomResource):
             name="example",
             role=example_aws_iam_role["arn"],
             mongodb_targets=[{
-                "connectionName": example_aws_glue_connection["name"],
+                "connection_name": example_aws_glue_connection["name"],
                 "path": "database-name/%",
             }])
         ```

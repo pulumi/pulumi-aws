@@ -13,6 +13,10 @@ import java.util.Objects;
 public final class ResponseHeadersPolicyCustomHeadersConfigItem {
     private String header;
     private Boolean override;
+    /**
+     * @return The value for the HTTP response header.
+     * 
+     */
     private String value;
 
     private ResponseHeadersPolicyCustomHeadersConfigItem() {}
@@ -22,6 +26,10 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItem {
     public Boolean override() {
         return this.override;
     }
+    /**
+     * @return The value for the HTTP response header.
+     * 
+     */
     public String value() {
         return this.value;
     }

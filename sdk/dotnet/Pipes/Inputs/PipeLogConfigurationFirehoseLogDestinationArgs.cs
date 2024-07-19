@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeLogConfigurationFirehoseLogDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+        /// </summary>
         [Input("deliveryStreamArn", required: true)]
         public Input<string> DeliveryStreamArn { get; set; } = null!;
 

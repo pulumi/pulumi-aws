@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace {
+    /**
+     * @return The API tokens used by Dynatrace API to authenticate various API calls.
+     * 
+     */
     private String apiToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace() {}
+    /**
+     * @return The API tokens used by Dynatrace API to authenticate various API calls.
+     * 
+     */
     public String apiToken() {
         return this.apiToken;
     }

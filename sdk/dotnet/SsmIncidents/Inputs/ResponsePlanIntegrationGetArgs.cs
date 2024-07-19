@@ -14,6 +14,10 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
     {
         [Input("pagerduties")]
         private InputList<Inputs.ResponsePlanIntegrationPagerdutyGetArgs>? _pagerduties;
+
+        /// <summary>
+        /// Details about the PagerDuty configuration for a response plan. The following values are supported:
+        /// </summary>
         public InputList<Inputs.ResponsePlanIntegrationPagerdutyGetArgs> Pagerduties
         {
             get => _pagerduties ?? (_pagerduties = new InputList<Inputs.ResponsePlanIntegrationPagerdutyGetArgs>());

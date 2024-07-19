@@ -15,7 +15,13 @@ namespace Pulumi.Aws.WafV2.Outputs
     {
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow? Allow;
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock? Block;
+        /// <summary>
+        /// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha? Captcha;
+        /// <summary>
+        /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge? Challenge;
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount? Count;
 

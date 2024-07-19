@@ -408,8 +408,11 @@ func (o ListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) Listen
 }
 
 type ListenerDefaultActionForwardTargetGroup struct {
+	// ID or Amazon Resource Name (ARN) of the target group.
 	TargetGroupIdentifier *string `pulumi:"targetGroupIdentifier"`
-	Weight                *int    `pulumi:"weight"`
+	// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+	// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+	Weight *int `pulumi:"weight"`
 }
 
 // ListenerDefaultActionForwardTargetGroupInput is an input type that accepts ListenerDefaultActionForwardTargetGroupArgs and ListenerDefaultActionForwardTargetGroupOutput values.
@@ -424,8 +427,11 @@ type ListenerDefaultActionForwardTargetGroupInput interface {
 }
 
 type ListenerDefaultActionForwardTargetGroupArgs struct {
+	// ID or Amazon Resource Name (ARN) of the target group.
 	TargetGroupIdentifier pulumi.StringPtrInput `pulumi:"targetGroupIdentifier"`
-	Weight                pulumi.IntPtrInput    `pulumi:"weight"`
+	// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+	// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (ListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
@@ -479,10 +485,13 @@ func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionFo
 	return o
 }
 
+// ID or Amazon Resource Name (ARN) of the target group.
 func (o ListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *string { return v.TargetGroupIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
 func (o ListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }

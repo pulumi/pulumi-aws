@@ -858,9 +858,9 @@ class Bucket(pulumi.CustomResource):
             acl=aws.s3.CannedAcl.PUBLIC_READ,
             policy=std.file(input="policy.json").result,
             website={
-                "indexDocument": "index.html",
-                "errorDocument": "error.html",
-                "routingRules": \"\"\"[{
+                "index_document": "index.html",
+                "error_document": "error.html",
+                "routing_rules": \"\"\"[{
             "Condition": {
                 "KeyPrefixEquals": "docs/"
             },
@@ -882,14 +882,14 @@ class Bucket(pulumi.CustomResource):
             bucket="s3-website-test.mydomain.com",
             acl=aws.s3.CannedAcl.PUBLIC_READ,
             cors_rules=[{
-                "allowedHeaders": ["*"],
-                "allowedMethods": [
+                "allowed_headers": ["*"],
+                "allowed_methods": [
                     "PUT",
                     "POST",
                 ],
-                "allowedOrigins": ["https://s3-website-test.mydomain.com"],
-                "exposeHeaders": ["ETag"],
-                "maxAgeSeconds": 3000,
+                "allowed_origins": ["https://s3-website-test.mydomain.com"],
+                "expose_headers": ["ETag"],
+                "max_age_seconds": 3000,
             }])
         ```
 
@@ -920,8 +920,8 @@ class Bucket(pulumi.CustomResource):
             bucket="my-tf-test-bucket",
             acl=aws.s3.CannedAcl.PRIVATE,
             loggings=[{
-                "targetBucket": log_bucket.id,
-                "targetPrefix": "log/",
+                "target_bucket": log_bucket.id,
+                "target_prefix": "log/",
             }])
         ```
 
@@ -946,11 +946,11 @@ class Bucket(pulumi.CustomResource):
                     "transitions": [
                         {
                             "days": 30,
-                            "storageClass": "STANDARD_IA",
+                            "storage_class": "STANDARD_IA",
                         },
                         {
                             "days": 60,
-                            "storageClass": "GLACIER",
+                            "storage_class": "GLACIER",
                         },
                     ],
                     "expiration": {
@@ -975,17 +975,17 @@ class Bucket(pulumi.CustomResource):
             lifecycle_rules=[{
                 "prefix": "config/",
                 "enabled": True,
-                "noncurrentVersionTransitions": [
+                "noncurrent_version_transitions": [
                     {
                         "days": 30,
-                        "storageClass": "STANDARD_IA",
+                        "storage_class": "STANDARD_IA",
                     },
                     {
                         "days": 60,
-                        "storageClass": "GLACIER",
+                        "storage_class": "GLACIER",
                     },
                 ],
-                "noncurrentVersionExpiration": {
+                "noncurrent_version_expiration": {
                     "days": 90,
                 },
             }])
@@ -1036,8 +1036,8 @@ class Bucket(pulumi.CustomResource):
                     },
                     "destination": {
                         "bucket": destination.arn,
-                        "storageClass": "STANDARD",
-                        "replicationTime": {
+                        "storage_class": "STANDARD",
+                        "replication_time": {
                             "status": "Enabled",
                             "minutes": 15,
                         },
@@ -1104,9 +1104,9 @@ class Bucket(pulumi.CustomResource):
             bucket="mybucket",
             server_side_encryption_configuration={
                 "rule": {
-                    "applyServerSideEncryptionByDefault": {
-                        "kmsMasterKeyId": mykey.arn,
-                        "sseAlgorithm": "aws:kms",
+                    "apply_server_side_encryption_by_default": {
+                        "kms_master_key_id": mykey.arn,
+                        "sse_algorithm": "aws:kms",
                     },
                 },
             })
@@ -1218,9 +1218,9 @@ class Bucket(pulumi.CustomResource):
             acl=aws.s3.CannedAcl.PUBLIC_READ,
             policy=std.file(input="policy.json").result,
             website={
-                "indexDocument": "index.html",
-                "errorDocument": "error.html",
-                "routingRules": \"\"\"[{
+                "index_document": "index.html",
+                "error_document": "error.html",
+                "routing_rules": \"\"\"[{
             "Condition": {
                 "KeyPrefixEquals": "docs/"
             },
@@ -1242,14 +1242,14 @@ class Bucket(pulumi.CustomResource):
             bucket="s3-website-test.mydomain.com",
             acl=aws.s3.CannedAcl.PUBLIC_READ,
             cors_rules=[{
-                "allowedHeaders": ["*"],
-                "allowedMethods": [
+                "allowed_headers": ["*"],
+                "allowed_methods": [
                     "PUT",
                     "POST",
                 ],
-                "allowedOrigins": ["https://s3-website-test.mydomain.com"],
-                "exposeHeaders": ["ETag"],
-                "maxAgeSeconds": 3000,
+                "allowed_origins": ["https://s3-website-test.mydomain.com"],
+                "expose_headers": ["ETag"],
+                "max_age_seconds": 3000,
             }])
         ```
 
@@ -1280,8 +1280,8 @@ class Bucket(pulumi.CustomResource):
             bucket="my-tf-test-bucket",
             acl=aws.s3.CannedAcl.PRIVATE,
             loggings=[{
-                "targetBucket": log_bucket.id,
-                "targetPrefix": "log/",
+                "target_bucket": log_bucket.id,
+                "target_prefix": "log/",
             }])
         ```
 
@@ -1306,11 +1306,11 @@ class Bucket(pulumi.CustomResource):
                     "transitions": [
                         {
                             "days": 30,
-                            "storageClass": "STANDARD_IA",
+                            "storage_class": "STANDARD_IA",
                         },
                         {
                             "days": 60,
-                            "storageClass": "GLACIER",
+                            "storage_class": "GLACIER",
                         },
                     ],
                     "expiration": {
@@ -1335,17 +1335,17 @@ class Bucket(pulumi.CustomResource):
             lifecycle_rules=[{
                 "prefix": "config/",
                 "enabled": True,
-                "noncurrentVersionTransitions": [
+                "noncurrent_version_transitions": [
                     {
                         "days": 30,
-                        "storageClass": "STANDARD_IA",
+                        "storage_class": "STANDARD_IA",
                     },
                     {
                         "days": 60,
-                        "storageClass": "GLACIER",
+                        "storage_class": "GLACIER",
                     },
                 ],
-                "noncurrentVersionExpiration": {
+                "noncurrent_version_expiration": {
                     "days": 90,
                 },
             }])
@@ -1396,8 +1396,8 @@ class Bucket(pulumi.CustomResource):
                     },
                     "destination": {
                         "bucket": destination.arn,
-                        "storageClass": "STANDARD",
-                        "replicationTime": {
+                        "storage_class": "STANDARD",
+                        "replication_time": {
                             "status": "Enabled",
                             "minutes": 15,
                         },
@@ -1464,9 +1464,9 @@ class Bucket(pulumi.CustomResource):
             bucket="mybucket",
             server_side_encryption_configuration={
                 "rule": {
-                    "applyServerSideEncryptionByDefault": {
-                        "kmsMasterKeyId": mykey.arn,
-                        "sseAlgorithm": "aws:kms",
+                    "apply_server_side_encryption_by_default": {
+                        "kms_master_key_id": mykey.arn,
+                        "sse_algorithm": "aws:kms",
                     },
                 },
             })

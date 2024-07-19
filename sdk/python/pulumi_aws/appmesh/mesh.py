@@ -262,7 +262,7 @@ class Mesh(pulumi.CustomResource):
         simple = aws.appmesh.Mesh("simple",
             name="simpleapp",
             spec={
-                "egressFilter": {
+                "egress_filter": {
                     "type": "ALLOW_ALL",
                 },
             })
@@ -311,7 +311,7 @@ class Mesh(pulumi.CustomResource):
         simple = aws.appmesh.Mesh("simple",
             name="simpleapp",
             spec={
-                "egressFilter": {
+                "egress_filter": {
                     "type": "ALLOW_ALL",
                 },
             })

@@ -754,7 +754,7 @@ class Integration(pulumi.CustomResource):
             connection_type="VPC_LINK",
             connection_id=example_aws_apigatewayv2_vpc_link["id"],
             tls_config={
-                "serverNameToVerify": "example.com",
+                "server_name_to_verify": "example.com",
             },
             request_parameters={
                 "append:header.authforintegration": "$context.authorizer.authorizerResponse",
@@ -762,15 +762,15 @@ class Integration(pulumi.CustomResource):
             },
             response_parameters=[
                 {
-                    "statusCode": "403",
+                    "status_code": "403",
                     "mappings": {
-                        "append:header.auth": "$context.authorizer.authorizerResponse",
+                        "append_header_auth": "$context.authorizer.authorizerResponse",
                     },
                 },
                 {
-                    "statusCode": "200",
+                    "status_code": "200",
                     "mappings": {
-                        "overwrite:statuscode": "204",
+                        "overwrite_statuscode": "204",
                     },
                 },
             ])
@@ -894,7 +894,7 @@ class Integration(pulumi.CustomResource):
             connection_type="VPC_LINK",
             connection_id=example_aws_apigatewayv2_vpc_link["id"],
             tls_config={
-                "serverNameToVerify": "example.com",
+                "server_name_to_verify": "example.com",
             },
             request_parameters={
                 "append:header.authforintegration": "$context.authorizer.authorizerResponse",
@@ -902,15 +902,15 @@ class Integration(pulumi.CustomResource):
             },
             response_parameters=[
                 {
-                    "statusCode": "403",
+                    "status_code": "403",
                     "mappings": {
-                        "append:header.auth": "$context.authorizer.authorizerResponse",
+                        "append_header_auth": "$context.authorizer.authorizerResponse",
                     },
                 },
                 {
-                    "statusCode": "200",
+                    "status_code": "200",
                     "mappings": {
-                        "overwrite:statuscode": "204",
+                        "overwrite_statuscode": "204",
                     },
                 },
             ])

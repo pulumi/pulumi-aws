@@ -330,21 +330,21 @@ class OptionGroup(pulumi.CustomResource):
             major_engine_version="11.00",
             options=[
                 {
-                    "optionName": "Timezone",
-                    "optionSettings": [{
+                    "option_name": "Timezone",
+                    "option_settings": [{
                         "name": "TIME_ZONE",
                         "value": "UTC",
                     }],
                 },
                 {
-                    "optionName": "SQLSERVER_BACKUP_RESTORE",
-                    "optionSettings": [{
+                    "option_name": "SQLSERVER_BACKUP_RESTORE",
+                    "option_settings": [{
                         "name": "IAM_ROLE_ARN",
                         "value": example_aws_iam_role["arn"],
                     }],
                 },
                 {
-                    "optionName": "TDE",
+                    "option_name": "TDE",
                 },
             ])
         ```
@@ -404,21 +404,21 @@ class OptionGroup(pulumi.CustomResource):
             major_engine_version="11.00",
             options=[
                 {
-                    "optionName": "Timezone",
-                    "optionSettings": [{
+                    "option_name": "Timezone",
+                    "option_settings": [{
                         "name": "TIME_ZONE",
                         "value": "UTC",
                     }],
                 },
                 {
-                    "optionName": "SQLSERVER_BACKUP_RESTORE",
-                    "optionSettings": [{
+                    "option_name": "SQLSERVER_BACKUP_RESTORE",
+                    "option_settings": [{
                         "name": "IAM_ROLE_ARN",
                         "value": example_aws_iam_role["arn"],
                     }],
                 },
                 {
-                    "optionName": "TDE",
+                    "option_name": "TDE",
                 },
             ])
         ```

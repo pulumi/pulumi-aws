@@ -179,7 +179,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             auto_enable=False,
             auto_enable_standards="NONE",
             organization_configuration={
-                "configurationType": "CENTRAL",
+                "configuration_type": "CENTRAL",
             },
             opts = pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
@@ -245,7 +245,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             auto_enable=False,
             auto_enable_standards="NONE",
             organization_configuration={
-                "configurationType": "CENTRAL",
+                "configuration_type": "CENTRAL",
             },
             opts = pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```

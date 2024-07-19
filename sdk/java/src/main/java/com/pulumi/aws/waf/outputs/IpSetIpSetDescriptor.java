@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class IpSetIpSetDescriptor {
+    /**
+     * @return Type of the IP address - `IPV4` or `IPV6`.
+     * 
+     */
     private String type;
+    /**
+     * @return An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+     * 
+     */
     private String value;
 
     private IpSetIpSetDescriptor() {}
+    /**
+     * @return Type of the IP address - `IPV4` or `IPV6`.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+     * 
+     */
     public String value() {
         return this.value;
     }

@@ -298,8 +298,8 @@ class Table(pulumi.CustomResource):
             database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             retention_properties={
-                "magneticStoreRetentionPeriodInDays": 30,
-                "memoryStoreRetentionPeriodInHours": 8,
+                "magnetic_store_retention_period_in_days": 30,
+                "memory_store_retention_period_in_hours": 8,
             },
             tags={
                 "Name": "example-timestream-table",
@@ -316,8 +316,8 @@ class Table(pulumi.CustomResource):
             database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             schema={
-                "compositePartitionKey": {
-                    "enforcementInRecord": "REQUIRED",
+                "composite_partition_key": {
+                    "enforcement_in_record": "REQUIRED",
                     "name": "attr1",
                     "type": "DIMENSION",
                 },
@@ -373,8 +373,8 @@ class Table(pulumi.CustomResource):
             database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             retention_properties={
-                "magneticStoreRetentionPeriodInDays": 30,
-                "memoryStoreRetentionPeriodInHours": 8,
+                "magnetic_store_retention_period_in_days": 30,
+                "memory_store_retention_period_in_hours": 8,
             },
             tags={
                 "Name": "example-timestream-table",
@@ -391,8 +391,8 @@ class Table(pulumi.CustomResource):
             database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example",
             schema={
-                "compositePartitionKey": {
-                    "enforcementInRecord": "REQUIRED",
+                "composite_partition_key": {
+                    "enforcement_in_record": "REQUIRED",
                     "name": "attr1",
                     "type": "DIMENSION",
                 },

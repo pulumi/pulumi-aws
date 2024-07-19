@@ -164,10 +164,10 @@ class MultiplexProgram(pulumi.CustomResource):
                 available.names[1],
             ],
             multiplex_settings={
-                "transportStreamBitrate": 1000000,
-                "transportStreamId": 1,
-                "transportStreamReservedBitrate": 1,
-                "maximumVideoBufferDelayMilliseconds": 1000,
+                "transport_stream_bitrate": 1000000,
+                "transport_stream_id": 1,
+                "transport_stream_reserved_bitrate": 1,
+                "maximum_video_buffer_delay_milliseconds": 1000,
             },
             start_multiplex=True,
             tags={
@@ -177,10 +177,10 @@ class MultiplexProgram(pulumi.CustomResource):
             program_name="example_program",
             multiplex_id=example.id,
             multiplex_program_settings={
-                "programNumber": 1,
-                "preferredChannelPipeline": "CURRENTLY_ACTIVE",
-                "videoSettings": {
-                    "constantBitrate": 100000,
+                "program_number": 1,
+                "preferred_channel_pipeline": "CURRENTLY_ACTIVE",
+                "video_settings": {
+                    "constant_bitrate": 100000,
                 },
             })
         ```
@@ -226,10 +226,10 @@ class MultiplexProgram(pulumi.CustomResource):
                 available.names[1],
             ],
             multiplex_settings={
-                "transportStreamBitrate": 1000000,
-                "transportStreamId": 1,
-                "transportStreamReservedBitrate": 1,
-                "maximumVideoBufferDelayMilliseconds": 1000,
+                "transport_stream_bitrate": 1000000,
+                "transport_stream_id": 1,
+                "transport_stream_reserved_bitrate": 1,
+                "maximum_video_buffer_delay_milliseconds": 1000,
             },
             start_multiplex=True,
             tags={
@@ -239,10 +239,10 @@ class MultiplexProgram(pulumi.CustomResource):
             program_name="example_program",
             multiplex_id=example.id,
             multiplex_program_settings={
-                "programNumber": 1,
-                "preferredChannelPipeline": "CURRENTLY_ACTIVE",
-                "videoSettings": {
-                    "constantBitrate": 100000,
+                "program_number": 1,
+                "preferred_channel_pipeline": "CURRENTLY_ACTIVE",
+                "video_settings": {
+                    "constant_bitrate": 100000,
                 },
             })
         ```

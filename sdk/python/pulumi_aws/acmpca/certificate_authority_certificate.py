@@ -149,10 +149,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             type="ROOT",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             })
         current = aws.get_partition()
@@ -182,10 +182,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinate",
             type="SUBORDINATE",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_2048",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_2048",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "sub.example.com",
+                    "common_name": "sub.example.com",
                 },
             })
         root = aws.acmpca.CertificateAuthority("root")
@@ -233,10 +233,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             type="ROOT",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             })
         current = aws.get_partition()
@@ -266,10 +266,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinate",
             type="SUBORDINATE",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_2048",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_2048",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "sub.example.com",
+                    "common_name": "sub.example.com",
                 },
             })
         root = aws.acmpca.CertificateAuthority("root")
