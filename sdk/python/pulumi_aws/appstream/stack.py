@@ -528,7 +528,7 @@ class Stack(pulumi.CustomResource):
             feedback_url="http://your-domain/feedback",
             redirect_url="http://your-domain/redirect",
             storage_connectors=[{
-                "connectorType": "HOMEFOLDERS",
+                "connector_type": "HOMEFOLDERS",
             }],
             user_settings=[
                 {
@@ -562,7 +562,7 @@ class Stack(pulumi.CustomResource):
             ],
             application_settings={
                 "enabled": True,
-                "settingsGroup": "SettingsGroup",
+                "settings_group": "SettingsGroup",
             },
             tags={
                 "TagName": "TagValue",
@@ -621,7 +621,7 @@ class Stack(pulumi.CustomResource):
             feedback_url="http://your-domain/feedback",
             redirect_url="http://your-domain/redirect",
             storage_connectors=[{
-                "connectorType": "HOMEFOLDERS",
+                "connector_type": "HOMEFOLDERS",
             }],
             user_settings=[
                 {
@@ -655,7 +655,7 @@ class Stack(pulumi.CustomResource):
             ],
             application_settings={
                 "enabled": True,
-                "settingsGroup": "SettingsGroup",
+                "settings_group": "SettingsGroup",
             },
             tags={
                 "TagName": "TagValue",

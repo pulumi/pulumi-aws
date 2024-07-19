@@ -982,6 +982,9 @@ if not MYPY:
     class MaintenanceWindowTaskTargetArgsDict(TypedDict):
         key: pulumi.Input[str]
         values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The array of strings.
+        """
 elif False:
     MaintenanceWindowTaskTargetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -990,6 +993,9 @@ class MaintenanceWindowTaskTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The array of strings.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
@@ -1005,6 +1011,9 @@ class MaintenanceWindowTaskTargetArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The array of strings.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1297,6 +1306,9 @@ if not MYPY:
         SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
         """
         document_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of an Automation document to use during task execution.
+        """
         notification_config: NotRequired[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgsDict']]
         """
         Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
@@ -1343,6 +1355,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
         :param pulumi.Input[str] comment: Information about the command(s) to execute.
         :param pulumi.Input[str] document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         :param pulumi.Input[str] document_hash_type: SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
+        :param pulumi.Input[str] document_version: The version of an Automation document to use during task execution.
         :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs'] notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         :param pulumi.Input[str] output_s3_bucket: The name of the Amazon S3 bucket.
         :param pulumi.Input[str] output_s3_key_prefix: The Amazon S3 bucket subfolder.
@@ -1424,6 +1437,9 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of an Automation document to use during task execution.
+        """
         return pulumi.get(self, "document_version")
 
     @document_version.setter

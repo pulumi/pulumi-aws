@@ -415,11 +415,11 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.SecurityGroup("example", egress=[{
-            "fromPort": 0,
-            "toPort": 0,
+            "from_port": 0,
+            "to_port": 0,
             "protocol": "-1",
-            "cidrBlocks": ["0.0.0.0/0"],
-            "ipv6CidrBlocks": ["::/0"],
+            "cidr_blocks": ["0.0.0.0/0"],
+            "ipv6_cidr_blocks": ["::/0"],
         }])
         ```
 
@@ -436,10 +436,10 @@ class SecurityGroup(pulumi.CustomResource):
 
         my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
         example = aws.ec2.SecurityGroup("example", egress=[{
-            "fromPort": 0,
-            "toPort": 0,
+            "from_port": 0,
+            "to_port": 0,
             "protocol": "-1",
-            "prefixListIds": [my_endpoint.prefix_list_id],
+            "prefix_list_ids": [my_endpoint.prefix_list_id],
         }])
         ```
 
@@ -601,11 +601,11 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.SecurityGroup("example", egress=[{
-            "fromPort": 0,
-            "toPort": 0,
+            "from_port": 0,
+            "to_port": 0,
             "protocol": "-1",
-            "cidrBlocks": ["0.0.0.0/0"],
-            "ipv6CidrBlocks": ["::/0"],
+            "cidr_blocks": ["0.0.0.0/0"],
+            "ipv6_cidr_blocks": ["::/0"],
         }])
         ```
 
@@ -622,10 +622,10 @@ class SecurityGroup(pulumi.CustomResource):
 
         my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
         example = aws.ec2.SecurityGroup("example", egress=[{
-            "fromPort": 0,
-            "toPort": 0,
+            "from_port": 0,
+            "to_port": 0,
             "protocol": "-1",
-            "prefixListIds": [my_endpoint.prefix_list_id],
+            "prefix_list_ids": [my_endpoint.prefix_list_id],
         }])
         ```
 

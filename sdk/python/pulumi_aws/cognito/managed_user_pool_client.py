@@ -843,13 +843,13 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             domain_name="example",
             cognito_options={
                 "enabled": True,
-                "userPoolId": example_user_pool.id,
-                "identityPoolId": example_identity_pool.id,
-                "roleArn": example_role.arn,
+                "user_pool_id": example_user_pool.id,
+                "identity_pool_id": example_identity_pool.id,
+                "role_arn": example_role.arn,
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     example_aws_cognito_user_pool_domain,
@@ -940,13 +940,13 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             domain_name="example",
             cognito_options={
                 "enabled": True,
-                "userPoolId": example_user_pool.id,
-                "identityPoolId": example_identity_pool.id,
-                "roleArn": example_role.arn,
+                "user_pool_id": example_user_pool.id,
+                "identity_pool_id": example_identity_pool.id,
+                "role_arn": example_role.arn,
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     example_aws_cognito_user_pool_domain,

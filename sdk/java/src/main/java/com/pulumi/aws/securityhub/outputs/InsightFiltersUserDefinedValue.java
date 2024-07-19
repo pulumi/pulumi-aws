@@ -11,6 +11,10 @@ import java.util.Objects;
 @CustomType
 public final class InsightFiltersUserDefinedValue {
     private String comparison;
+    /**
+     * @return The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+     * 
+     */
     private String key;
     private String value;
 
@@ -18,6 +22,10 @@ public final class InsightFiltersUserDefinedValue {
     public String comparison() {
         return this.comparison;
     }
+    /**
+     * @return The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+     * 
+     */
     public String key() {
         return this.key;
     }

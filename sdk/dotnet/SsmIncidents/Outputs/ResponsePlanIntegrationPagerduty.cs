@@ -17,7 +17,15 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// The name of the response plan.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &amp;mdash; either a General Access REST API Key or User Token REST API Key &amp;mdash; and other user credentials.
+        /// 
+        /// For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
+        /// </summary>
         public readonly string SecretId;
+        /// <summary>
+        /// The ID of the PagerDuty service that the response plan associated with the incident at launch.
+        /// </summary>
         public readonly string ServiceId;
 
         [OutputConstructor]

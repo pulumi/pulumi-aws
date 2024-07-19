@@ -14,7 +14,13 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
     {
         public readonly string? AccessToken;
+        /// <summary>
+        /// The secret manager ARN, which contains the client ID and client secret of the connected app.
+        /// </summary>
         public readonly string? ClientCredentialsArn;
+        /// <summary>
+        /// A JSON web token (JWT) that authorizes access to Salesforce records.
+        /// </summary>
         public readonly string? JwtToken;
         public readonly string? Oauth2GrantType;
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest? OauthRequest;

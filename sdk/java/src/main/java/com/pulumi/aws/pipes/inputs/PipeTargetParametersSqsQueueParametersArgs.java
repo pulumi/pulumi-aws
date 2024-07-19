@@ -15,16 +15,32 @@ public final class PipeTargetParametersSqsQueueParametersArgs extends com.pulumi
 
     public static final PipeTargetParametersSqsQueueParametersArgs Empty = new PipeTargetParametersSqsQueueParametersArgs();
 
+    /**
+     * This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+     * 
+     */
     @Import(name="messageDeduplicationId")
     private @Nullable Output<String> messageDeduplicationId;
 
+    /**
+     * @return This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+     * 
+     */
     public Optional<Output<String>> messageDeduplicationId() {
         return Optional.ofNullable(this.messageDeduplicationId);
     }
 
+    /**
+     * The FIFO message group ID to use as the target.
+     * 
+     */
     @Import(name="messageGroupId")
     private @Nullable Output<String> messageGroupId;
 
+    /**
+     * @return The FIFO message group ID to use as the target.
+     * 
+     */
     public Optional<Output<String>> messageGroupId() {
         return Optional.ofNullable(this.messageGroupId);
     }
@@ -54,20 +70,44 @@ public final class PipeTargetParametersSqsQueueParametersArgs extends com.pulumi
             $ = new PipeTargetParametersSqsQueueParametersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param messageDeduplicationId This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageDeduplicationId(@Nullable Output<String> messageDeduplicationId) {
             $.messageDeduplicationId = messageDeduplicationId;
             return this;
         }
 
+        /**
+         * @param messageDeduplicationId This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageDeduplicationId(String messageDeduplicationId) {
             return messageDeduplicationId(Output.of(messageDeduplicationId));
         }
 
+        /**
+         * @param messageGroupId The FIFO message group ID to use as the target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageGroupId(@Nullable Output<String> messageGroupId) {
             $.messageGroupId = messageGroupId;
             return this;
         }
 
+        /**
+         * @param messageGroupId The FIFO message group ID to use as the target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageGroupId(String messageGroupId) {
             return messageGroupId(Output.of(messageGroupId));
         }

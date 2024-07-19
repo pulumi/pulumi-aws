@@ -155,18 +155,18 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
             bucket=example.id,
             cors_rules=[
                 {
-                    "allowedHeaders": ["*"],
-                    "allowedMethods": [
+                    "allowed_headers": ["*"],
+                    "allowed_methods": [
                         "PUT",
                         "POST",
                     ],
-                    "allowedOrigins": ["https://s3-website-test.domain.example"],
-                    "exposeHeaders": ["ETag"],
-                    "maxAgeSeconds": 3000,
+                    "allowed_origins": ["https://s3-website-test.domain.example"],
+                    "expose_headers": ["ETag"],
+                    "max_age_seconds": 3000,
                 },
                 {
-                    "allowedMethods": ["GET"],
-                    "allowedOrigins": ["*"],
+                    "allowed_methods": ["GET"],
+                    "allowed_origins": ["*"],
                 },
             ])
         ```
@@ -218,18 +218,18 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
             bucket=example.id,
             cors_rules=[
                 {
-                    "allowedHeaders": ["*"],
-                    "allowedMethods": [
+                    "allowed_headers": ["*"],
+                    "allowed_methods": [
                         "PUT",
                         "POST",
                     ],
-                    "allowedOrigins": ["https://s3-website-test.domain.example"],
-                    "exposeHeaders": ["ETag"],
-                    "maxAgeSeconds": 3000,
+                    "allowed_origins": ["https://s3-website-test.domain.example"],
+                    "expose_headers": ["ETag"],
+                    "max_age_seconds": 3000,
                 },
                 {
-                    "allowedMethods": ["GET"],
-                    "allowedOrigins": ["*"],
+                    "allowed_methods": ["GET"],
+                    "allowed_origins": ["*"],
                 },
             ])
         ```

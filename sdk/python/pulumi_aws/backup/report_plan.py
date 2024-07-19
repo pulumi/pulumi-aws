@@ -288,10 +288,10 @@ class ReportPlan(pulumi.CustomResource):
                     "CSV",
                     "JSON",
                 ],
-                "s3BucketName": "example-bucket-name",
+                "s3_bucket_name": "example-bucket-name",
             },
             report_setting={
-                "reportTemplate": "RESTORE_JOB_REPORT",
+                "report_template": "RESTORE_JOB_REPORT",
             },
             tags={
                 "Name": "Example Report Plan",
@@ -337,10 +337,10 @@ class ReportPlan(pulumi.CustomResource):
                     "CSV",
                     "JSON",
                 ],
-                "s3BucketName": "example-bucket-name",
+                "s3_bucket_name": "example-bucket-name",
             },
             report_setting={
-                "reportTemplate": "RESTORE_JOB_REPORT",
+                "report_template": "RESTORE_JOB_REPORT",
             },
             tags={
                 "Name": "Example Report Plan",

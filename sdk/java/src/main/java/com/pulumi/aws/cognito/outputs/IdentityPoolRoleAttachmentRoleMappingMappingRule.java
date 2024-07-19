@@ -10,21 +10,53 @@ import java.util.Objects;
 
 @CustomType
 public final class IdentityPoolRoleAttachmentRoleMappingMappingRule {
+    /**
+     * @return The claim name that must be present in the token, for example, &#34;isAdmin&#34; or &#34;paid&#34;.
+     * 
+     */
     private String claim;
+    /**
+     * @return The match condition that specifies how closely the claim value in the IdP token must match Value.
+     * 
+     */
     private String matchType;
+    /**
+     * @return The role ARN.
+     * 
+     */
     private String roleArn;
+    /**
+     * @return A brief string that the claim must match, for example, &#34;paid&#34; or &#34;yes&#34;.
+     * 
+     */
     private String value;
 
     private IdentityPoolRoleAttachmentRoleMappingMappingRule() {}
+    /**
+     * @return The claim name that must be present in the token, for example, &#34;isAdmin&#34; or &#34;paid&#34;.
+     * 
+     */
     public String claim() {
         return this.claim;
     }
+    /**
+     * @return The match condition that specifies how closely the claim value in the IdP token must match Value.
+     * 
+     */
     public String matchType() {
         return this.matchType;
     }
+    /**
+     * @return The role ARN.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return A brief string that the claim must match, for example, &#34;paid&#34; or &#34;yes&#34;.
+     * 
+     */
     public String value() {
         return this.value;
     }

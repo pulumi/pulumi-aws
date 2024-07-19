@@ -23,16 +23,32 @@ public final class EnvironmentLoggingConfigurationTaskLogsArgs extends com.pulum
         return Optional.ofNullable(this.cloudWatchLogGroupArn);
     }
 
+    /**
+     * Enabling or disabling the collection of logs
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Enabling or disabling the collection of logs
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+     * 
+     */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
+    /**
+     * @return Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+     * 
+     */
     public Optional<Output<String>> logLevel() {
         return Optional.ofNullable(this.logLevel);
     }
@@ -72,20 +88,44 @@ public final class EnvironmentLoggingConfigurationTaskLogsArgs extends com.pulum
             return cloudWatchLogGroupArn(Output.of(cloudWatchLogGroupArn));
         }
 
+        /**
+         * @param enabled Enabling or disabling the collection of logs
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Enabling or disabling the collection of logs
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param logLevel Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logLevel(@Nullable Output<String> logLevel) {
             $.logLevel = logLevel;
             return this;
         }
 
+        /**
+         * @param logLevel Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logLevel(String logLevel) {
             return logLevel(Output.of(logLevel));
         }

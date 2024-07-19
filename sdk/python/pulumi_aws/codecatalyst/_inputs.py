@@ -82,6 +82,9 @@ class DevEnvironmentIdesArgs:
 if not MYPY:
     class DevEnvironmentPersistentStorageArgsDict(TypedDict):
         size: pulumi.Input[int]
+        """
+        The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+        """
 elif False:
     DevEnvironmentPersistentStorageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -89,11 +92,17 @@ elif False:
 class DevEnvironmentPersistentStorageArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] size: The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+        """
         pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+        """
         return pulumi.get(self, "size")
 
     @size.setter

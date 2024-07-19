@@ -494,7 +494,9 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 }
 
 type InstanceAccessControlAttributesAttribute struct {
-	Key    string                                          `pulumi:"key"`
+	// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+	Key string `pulumi:"key"`
+	// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
 	Values []InstanceAccessControlAttributesAttributeValue `pulumi:"values"`
 }
 
@@ -510,7 +512,9 @@ type InstanceAccessControlAttributesAttributeInput interface {
 }
 
 type InstanceAccessControlAttributesAttributeArgs struct {
-	Key    pulumi.StringInput                                      `pulumi:"key"`
+	// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
 	Values InstanceAccessControlAttributesAttributeValueArrayInput `pulumi:"values"`
 }
 
@@ -565,10 +569,12 @@ func (o InstanceAccessControlAttributesAttributeOutput) ToInstanceAccessControlA
 	return o
 }
 
+// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
 func (o InstanceAccessControlAttributesAttributeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributesAttribute) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
 func (o InstanceAccessControlAttributesAttributeOutput) Values() InstanceAccessControlAttributesAttributeValueArrayOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributesAttribute) []InstanceAccessControlAttributesAttributeValue {
 		return v.Values
@@ -596,6 +602,7 @@ func (o InstanceAccessControlAttributesAttributeArrayOutput) Index(i pulumi.IntI
 }
 
 type InstanceAccessControlAttributesAttributeValue struct {
+	// The identity source to use when mapping a specified attribute to AWS SSO.
 	Sources []string `pulumi:"sources"`
 }
 
@@ -611,6 +618,7 @@ type InstanceAccessControlAttributesAttributeValueInput interface {
 }
 
 type InstanceAccessControlAttributesAttributeValueArgs struct {
+	// The identity source to use when mapping a specified attribute to AWS SSO.
 	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
@@ -665,6 +673,7 @@ func (o InstanceAccessControlAttributesAttributeValueOutput) ToInstanceAccessCon
 	return o
 }
 
+// The identity source to use when mapping a specified attribute to AWS SSO.
 func (o InstanceAccessControlAttributesAttributeValueOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributesAttributeValue) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }

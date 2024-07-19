@@ -2424,10 +2424,13 @@ func (o AutomationRuleCriteriaComplianceStatusArrayOutput) Index(i pulumi.IntInp
 }
 
 type AutomationRuleCriteriaConfidence struct {
-	Eq  *float64 `pulumi:"eq"`
-	Gt  *float64 `pulumi:"gt"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *float64 `pulumi:"eq"`
+	Gt *float64 `pulumi:"gt"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *float64 `pulumi:"gte"`
 	Lt  *float64 `pulumi:"lt"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *float64 `pulumi:"lte"`
 }
 
@@ -2443,10 +2446,13 @@ type AutomationRuleCriteriaConfidenceInput interface {
 }
 
 type AutomationRuleCriteriaConfidenceArgs struct {
-	Eq  pulumi.Float64PtrInput `pulumi:"eq"`
-	Gt  pulumi.Float64PtrInput `pulumi:"gt"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.Float64PtrInput `pulumi:"eq"`
+	Gt pulumi.Float64PtrInput `pulumi:"gt"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.Float64PtrInput `pulumi:"gte"`
 	Lt  pulumi.Float64PtrInput `pulumi:"lt"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.Float64PtrInput `pulumi:"lte"`
 }
 
@@ -2501,6 +2507,7 @@ func (o AutomationRuleCriteriaConfidenceOutput) ToAutomationRuleCriteriaConfiden
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o AutomationRuleCriteriaConfidenceOutput) Eq() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Eq }).(pulumi.Float64PtrOutput)
 }
@@ -2509,6 +2516,7 @@ func (o AutomationRuleCriteriaConfidenceOutput) Gt() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Gt }).(pulumi.Float64PtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o AutomationRuleCriteriaConfidenceOutput) Gte() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Gte }).(pulumi.Float64PtrOutput)
 }
@@ -2517,6 +2525,7 @@ func (o AutomationRuleCriteriaConfidenceOutput) Lt() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Lt }).(pulumi.Float64PtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o AutomationRuleCriteriaConfidenceOutput) Lte() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaConfidence) *float64 { return v.Lte }).(pulumi.Float64PtrOutput)
 }
@@ -2542,9 +2551,12 @@ func (o AutomationRuleCriteriaConfidenceArrayOutput) Index(i pulumi.IntInput) Au
 }
 
 type AutomationRuleCriteriaCreatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *AutomationRuleCriteriaCreatedAtDateRange `pulumi:"dateRange"`
-	End       *string                                   `pulumi:"end"`
-	Start     *string                                   `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // AutomationRuleCriteriaCreatedAtInput is an input type that accepts AutomationRuleCriteriaCreatedAtArgs and AutomationRuleCriteriaCreatedAtOutput values.
@@ -2559,9 +2571,12 @@ type AutomationRuleCriteriaCreatedAtInput interface {
 }
 
 type AutomationRuleCriteriaCreatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange AutomationRuleCriteriaCreatedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                            `pulumi:"end"`
-	Start     pulumi.StringPtrInput                            `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (AutomationRuleCriteriaCreatedAtArgs) ElementType() reflect.Type {
@@ -2615,14 +2630,17 @@ func (o AutomationRuleCriteriaCreatedAtOutput) ToAutomationRuleCriteriaCreatedAt
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o AutomationRuleCriteriaCreatedAtOutput) DateRange() AutomationRuleCriteriaCreatedAtDateRangePtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaCreatedAt) *AutomationRuleCriteriaCreatedAtDateRange { return v.DateRange }).(AutomationRuleCriteriaCreatedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaCreatedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaCreatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaCreatedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaCreatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -2804,10 +2822,13 @@ func (o AutomationRuleCriteriaCreatedAtDateRangePtrOutput) Value() pulumi.IntPtr
 }
 
 type AutomationRuleCriteriaCriticality struct {
-	Eq  *float64 `pulumi:"eq"`
-	Gt  *float64 `pulumi:"gt"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *float64 `pulumi:"eq"`
+	Gt *float64 `pulumi:"gt"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *float64 `pulumi:"gte"`
 	Lt  *float64 `pulumi:"lt"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *float64 `pulumi:"lte"`
 }
 
@@ -2823,10 +2844,13 @@ type AutomationRuleCriteriaCriticalityInput interface {
 }
 
 type AutomationRuleCriteriaCriticalityArgs struct {
-	Eq  pulumi.Float64PtrInput `pulumi:"eq"`
-	Gt  pulumi.Float64PtrInput `pulumi:"gt"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.Float64PtrInput `pulumi:"eq"`
+	Gt pulumi.Float64PtrInput `pulumi:"gt"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.Float64PtrInput `pulumi:"gte"`
 	Lt  pulumi.Float64PtrInput `pulumi:"lt"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.Float64PtrInput `pulumi:"lte"`
 }
 
@@ -2881,6 +2905,7 @@ func (o AutomationRuleCriteriaCriticalityOutput) ToAutomationRuleCriteriaCritica
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o AutomationRuleCriteriaCriticalityOutput) Eq() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Eq }).(pulumi.Float64PtrOutput)
 }
@@ -2889,6 +2914,7 @@ func (o AutomationRuleCriteriaCriticalityOutput) Gt() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Gt }).(pulumi.Float64PtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o AutomationRuleCriteriaCriticalityOutput) Gte() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Gte }).(pulumi.Float64PtrOutput)
 }
@@ -2897,6 +2923,7 @@ func (o AutomationRuleCriteriaCriticalityOutput) Lt() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Lt }).(pulumi.Float64PtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o AutomationRuleCriteriaCriticalityOutput) Lte() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaCriticality) *float64 { return v.Lte }).(pulumi.Float64PtrOutput)
 }
@@ -3022,9 +3049,12 @@ func (o AutomationRuleCriteriaDescriptionArrayOutput) Index(i pulumi.IntInput) A
 }
 
 type AutomationRuleCriteriaFirstObservedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *AutomationRuleCriteriaFirstObservedAtDateRange `pulumi:"dateRange"`
-	End       *string                                         `pulumi:"end"`
-	Start     *string                                         `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // AutomationRuleCriteriaFirstObservedAtInput is an input type that accepts AutomationRuleCriteriaFirstObservedAtArgs and AutomationRuleCriteriaFirstObservedAtOutput values.
@@ -3039,9 +3069,12 @@ type AutomationRuleCriteriaFirstObservedAtInput interface {
 }
 
 type AutomationRuleCriteriaFirstObservedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange AutomationRuleCriteriaFirstObservedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                                  `pulumi:"end"`
-	Start     pulumi.StringPtrInput                                  `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (AutomationRuleCriteriaFirstObservedAtArgs) ElementType() reflect.Type {
@@ -3095,16 +3128,19 @@ func (o AutomationRuleCriteriaFirstObservedAtOutput) ToAutomationRuleCriteriaFir
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o AutomationRuleCriteriaFirstObservedAtOutput) DateRange() AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaFirstObservedAt) *AutomationRuleCriteriaFirstObservedAtDateRange {
 		return v.DateRange
 	}).(AutomationRuleCriteriaFirstObservedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaFirstObservedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaFirstObservedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaFirstObservedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaFirstObservedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -3486,9 +3522,12 @@ func (o AutomationRuleCriteriaIdArrayOutput) Index(i pulumi.IntInput) Automation
 }
 
 type AutomationRuleCriteriaLastObservedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *AutomationRuleCriteriaLastObservedAtDateRange `pulumi:"dateRange"`
-	End       *string                                        `pulumi:"end"`
-	Start     *string                                        `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // AutomationRuleCriteriaLastObservedAtInput is an input type that accepts AutomationRuleCriteriaLastObservedAtArgs and AutomationRuleCriteriaLastObservedAtOutput values.
@@ -3503,9 +3542,12 @@ type AutomationRuleCriteriaLastObservedAtInput interface {
 }
 
 type AutomationRuleCriteriaLastObservedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange AutomationRuleCriteriaLastObservedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                                 `pulumi:"end"`
-	Start     pulumi.StringPtrInput                                 `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (AutomationRuleCriteriaLastObservedAtArgs) ElementType() reflect.Type {
@@ -3559,16 +3601,19 @@ func (o AutomationRuleCriteriaLastObservedAtOutput) ToAutomationRuleCriteriaLast
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o AutomationRuleCriteriaLastObservedAtOutput) DateRange() AutomationRuleCriteriaLastObservedAtDateRangePtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaLastObservedAt) *AutomationRuleCriteriaLastObservedAtDateRange {
 		return v.DateRange
 	}).(AutomationRuleCriteriaLastObservedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaLastObservedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaLastObservedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaLastObservedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaLastObservedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -3850,9 +3895,12 @@ func (o AutomationRuleCriteriaNoteTextArrayOutput) Index(i pulumi.IntInput) Auto
 }
 
 type AutomationRuleCriteriaNoteUpdatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *AutomationRuleCriteriaNoteUpdatedAtDateRange `pulumi:"dateRange"`
-	End       *string                                       `pulumi:"end"`
-	Start     *string                                       `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // AutomationRuleCriteriaNoteUpdatedAtInput is an input type that accepts AutomationRuleCriteriaNoteUpdatedAtArgs and AutomationRuleCriteriaNoteUpdatedAtOutput values.
@@ -3867,9 +3915,12 @@ type AutomationRuleCriteriaNoteUpdatedAtInput interface {
 }
 
 type AutomationRuleCriteriaNoteUpdatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange AutomationRuleCriteriaNoteUpdatedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                                `pulumi:"end"`
-	Start     pulumi.StringPtrInput                                `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (AutomationRuleCriteriaNoteUpdatedAtArgs) ElementType() reflect.Type {
@@ -3923,16 +3974,19 @@ func (o AutomationRuleCriteriaNoteUpdatedAtOutput) ToAutomationRuleCriteriaNoteU
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o AutomationRuleCriteriaNoteUpdatedAtOutput) DateRange() AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedAt) *AutomationRuleCriteriaNoteUpdatedAtDateRange {
 		return v.DateRange
 	}).(AutomationRuleCriteriaNoteUpdatedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaNoteUpdatedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaNoteUpdatedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaNoteUpdatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -4915,8 +4969,9 @@ func (o AutomationRuleCriteriaResourceApplicationNameArrayOutput) Index(i pulumi
 
 type AutomationRuleCriteriaResourceDetailsOther struct {
 	Comparison string `pulumi:"comparison"`
-	Key        string `pulumi:"key"`
-	Value      string `pulumi:"value"`
+	// The key of the map filter.
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // AutomationRuleCriteriaResourceDetailsOtherInput is an input type that accepts AutomationRuleCriteriaResourceDetailsOtherArgs and AutomationRuleCriteriaResourceDetailsOtherOutput values.
@@ -4932,8 +4987,9 @@ type AutomationRuleCriteriaResourceDetailsOtherInput interface {
 
 type AutomationRuleCriteriaResourceDetailsOtherArgs struct {
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	Key        pulumi.StringInput `pulumi:"key"`
-	Value      pulumi.StringInput `pulumi:"value"`
+	// The key of the map filter.
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (AutomationRuleCriteriaResourceDetailsOtherArgs) ElementType() reflect.Type {
@@ -4991,6 +5047,7 @@ func (o AutomationRuleCriteriaResourceDetailsOtherOutput) Comparison() pulumi.St
 	return o.ApplyT(func(v AutomationRuleCriteriaResourceDetailsOther) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
+// The key of the map filter.
 func (o AutomationRuleCriteriaResourceDetailsOtherOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaResourceDetailsOther) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -5321,8 +5378,9 @@ func (o AutomationRuleCriteriaResourceRegionArrayOutput) Index(i pulumi.IntInput
 
 type AutomationRuleCriteriaResourceTag struct {
 	Comparison string `pulumi:"comparison"`
-	Key        string `pulumi:"key"`
-	Value      string `pulumi:"value"`
+	// The key of the map filter.
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // AutomationRuleCriteriaResourceTagInput is an input type that accepts AutomationRuleCriteriaResourceTagArgs and AutomationRuleCriteriaResourceTagOutput values.
@@ -5338,8 +5396,9 @@ type AutomationRuleCriteriaResourceTagInput interface {
 
 type AutomationRuleCriteriaResourceTagArgs struct {
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	Key        pulumi.StringInput `pulumi:"key"`
-	Value      pulumi.StringInput `pulumi:"value"`
+	// The key of the map filter.
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (AutomationRuleCriteriaResourceTagArgs) ElementType() reflect.Type {
@@ -5397,6 +5456,7 @@ func (o AutomationRuleCriteriaResourceTagOutput) Comparison() pulumi.StringOutpu
 	return o.ApplyT(func(v AutomationRuleCriteriaResourceTag) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
+// The key of the map filter.
 func (o AutomationRuleCriteriaResourceTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaResourceTag) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -5926,9 +5986,12 @@ func (o AutomationRuleCriteriaTypeArrayOutput) Index(i pulumi.IntInput) Automati
 }
 
 type AutomationRuleCriteriaUpdatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *AutomationRuleCriteriaUpdatedAtDateRange `pulumi:"dateRange"`
-	End       *string                                   `pulumi:"end"`
-	Start     *string                                   `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // AutomationRuleCriteriaUpdatedAtInput is an input type that accepts AutomationRuleCriteriaUpdatedAtArgs and AutomationRuleCriteriaUpdatedAtOutput values.
@@ -5943,9 +6006,12 @@ type AutomationRuleCriteriaUpdatedAtInput interface {
 }
 
 type AutomationRuleCriteriaUpdatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange AutomationRuleCriteriaUpdatedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                            `pulumi:"end"`
-	Start     pulumi.StringPtrInput                            `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (AutomationRuleCriteriaUpdatedAtArgs) ElementType() reflect.Type {
@@ -5999,14 +6065,17 @@ func (o AutomationRuleCriteriaUpdatedAtOutput) ToAutomationRuleCriteriaUpdatedAt
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o AutomationRuleCriteriaUpdatedAtOutput) DateRange() AutomationRuleCriteriaUpdatedAtDateRangePtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaUpdatedAt) *AutomationRuleCriteriaUpdatedAtDateRange { return v.DateRange }).(AutomationRuleCriteriaUpdatedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaUpdatedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaUpdatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o AutomationRuleCriteriaUpdatedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaUpdatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -6189,8 +6258,9 @@ func (o AutomationRuleCriteriaUpdatedAtDateRangePtrOutput) Value() pulumi.IntPtr
 
 type AutomationRuleCriteriaUserDefinedField struct {
 	Comparison string `pulumi:"comparison"`
-	Key        string `pulumi:"key"`
-	Value      string `pulumi:"value"`
+	// The key of the map filter.
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // AutomationRuleCriteriaUserDefinedFieldInput is an input type that accepts AutomationRuleCriteriaUserDefinedFieldArgs and AutomationRuleCriteriaUserDefinedFieldOutput values.
@@ -6206,8 +6276,9 @@ type AutomationRuleCriteriaUserDefinedFieldInput interface {
 
 type AutomationRuleCriteriaUserDefinedFieldArgs struct {
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	Key        pulumi.StringInput `pulumi:"key"`
-	Value      pulumi.StringInput `pulumi:"value"`
+	// The key of the map filter.
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (AutomationRuleCriteriaUserDefinedFieldArgs) ElementType() reflect.Type {
@@ -6265,6 +6336,7 @@ func (o AutomationRuleCriteriaUserDefinedFieldOutput) Comparison() pulumi.String
 	return o.ApplyT(func(v AutomationRuleCriteriaUserDefinedField) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
+// The key of the map filter.
 func (o AutomationRuleCriteriaUserDefinedFieldOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleCriteriaUserDefinedField) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -10382,8 +10454,11 @@ func (o InsightFiltersComplianceStatusArrayOutput) Index(i pulumi.IntInput) Insi
 }
 
 type InsightFiltersConfidence struct {
-	Eq  *string `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *string `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *string `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *string `pulumi:"lte"`
 }
 
@@ -10399,8 +10474,11 @@ type InsightFiltersConfidenceInput interface {
 }
 
 type InsightFiltersConfidenceArgs struct {
-	Eq  pulumi.StringPtrInput `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.StringPtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.StringPtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.StringPtrInput `pulumi:"lte"`
 }
 
@@ -10455,14 +10533,17 @@ func (o InsightFiltersConfidenceOutput) ToInsightFiltersConfidenceOutputWithCont
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersConfidenceOutput) Eq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersConfidence) *string { return v.Eq }).(pulumi.StringPtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersConfidenceOutput) Gte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersConfidence) *string { return v.Gte }).(pulumi.StringPtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersConfidenceOutput) Lte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersConfidence) *string { return v.Lte }).(pulumi.StringPtrOutput)
 }
@@ -10488,9 +10569,12 @@ func (o InsightFiltersConfidenceArrayOutput) Index(i pulumi.IntInput) InsightFil
 }
 
 type InsightFiltersCreatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersCreatedAtDateRange `pulumi:"dateRange"`
-	End       *string                           `pulumi:"end"`
-	Start     *string                           `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersCreatedAtInput is an input type that accepts InsightFiltersCreatedAtArgs and InsightFiltersCreatedAtOutput values.
@@ -10505,9 +10589,12 @@ type InsightFiltersCreatedAtInput interface {
 }
 
 type InsightFiltersCreatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersCreatedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                    `pulumi:"end"`
-	Start     pulumi.StringPtrInput                    `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersCreatedAtArgs) ElementType() reflect.Type {
@@ -10561,14 +10648,17 @@ func (o InsightFiltersCreatedAtOutput) ToInsightFiltersCreatedAtOutputWithContex
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersCreatedAtOutput) DateRange() InsightFiltersCreatedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersCreatedAt) *InsightFiltersCreatedAtDateRange { return v.DateRange }).(InsightFiltersCreatedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersCreatedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersCreatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersCreatedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersCreatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -10750,8 +10840,11 @@ func (o InsightFiltersCreatedAtDateRangePtrOutput) Value() pulumi.IntPtrOutput {
 }
 
 type InsightFiltersCriticality struct {
-	Eq  *string `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *string `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *string `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *string `pulumi:"lte"`
 }
 
@@ -10767,8 +10860,11 @@ type InsightFiltersCriticalityInput interface {
 }
 
 type InsightFiltersCriticalityArgs struct {
-	Eq  pulumi.StringPtrInput `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.StringPtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.StringPtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.StringPtrInput `pulumi:"lte"`
 }
 
@@ -10823,14 +10919,17 @@ func (o InsightFiltersCriticalityOutput) ToInsightFiltersCriticalityOutputWithCo
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersCriticalityOutput) Eq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersCriticality) *string { return v.Eq }).(pulumi.StringPtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersCriticalityOutput) Gte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersCriticality) *string { return v.Gte }).(pulumi.StringPtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersCriticalityOutput) Lte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersCriticality) *string { return v.Lte }).(pulumi.StringPtrOutput)
 }
@@ -10956,8 +11055,11 @@ func (o InsightFiltersDescriptionArrayOutput) Index(i pulumi.IntInput) InsightFi
 }
 
 type InsightFiltersFindingProviderFieldsConfidence struct {
-	Eq  *string `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *string `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *string `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *string `pulumi:"lte"`
 }
 
@@ -10973,8 +11075,11 @@ type InsightFiltersFindingProviderFieldsConfidenceInput interface {
 }
 
 type InsightFiltersFindingProviderFieldsConfidenceArgs struct {
-	Eq  pulumi.StringPtrInput `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.StringPtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.StringPtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.StringPtrInput `pulumi:"lte"`
 }
 
@@ -11029,14 +11134,17 @@ func (o InsightFiltersFindingProviderFieldsConfidenceOutput) ToInsightFiltersFin
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersFindingProviderFieldsConfidenceOutput) Eq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersFindingProviderFieldsConfidence) *string { return v.Eq }).(pulumi.StringPtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersFindingProviderFieldsConfidenceOutput) Gte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersFindingProviderFieldsConfidence) *string { return v.Gte }).(pulumi.StringPtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersFindingProviderFieldsConfidenceOutput) Lte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersFindingProviderFieldsConfidence) *string { return v.Lte }).(pulumi.StringPtrOutput)
 }
@@ -11062,8 +11170,11 @@ func (o InsightFiltersFindingProviderFieldsConfidenceArrayOutput) Index(i pulumi
 }
 
 type InsightFiltersFindingProviderFieldsCriticality struct {
-	Eq  *string `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *string `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *string `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *string `pulumi:"lte"`
 }
 
@@ -11079,8 +11190,11 @@ type InsightFiltersFindingProviderFieldsCriticalityInput interface {
 }
 
 type InsightFiltersFindingProviderFieldsCriticalityArgs struct {
-	Eq  pulumi.StringPtrInput `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.StringPtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.StringPtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.StringPtrInput `pulumi:"lte"`
 }
 
@@ -11135,14 +11249,17 @@ func (o InsightFiltersFindingProviderFieldsCriticalityOutput) ToInsightFiltersFi
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersFindingProviderFieldsCriticalityOutput) Eq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersFindingProviderFieldsCriticality) *string { return v.Eq }).(pulumi.StringPtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersFindingProviderFieldsCriticalityOutput) Gte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersFindingProviderFieldsCriticality) *string { return v.Gte }).(pulumi.StringPtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersFindingProviderFieldsCriticalityOutput) Lte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersFindingProviderFieldsCriticality) *string { return v.Lte }).(pulumi.StringPtrOutput)
 }
@@ -11668,9 +11785,12 @@ func (o InsightFiltersFindingProviderFieldsTypeArrayOutput) Index(i pulumi.IntIn
 }
 
 type InsightFiltersFirstObservedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersFirstObservedAtDateRange `pulumi:"dateRange"`
-	End       *string                                 `pulumi:"end"`
-	Start     *string                                 `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersFirstObservedAtInput is an input type that accepts InsightFiltersFirstObservedAtArgs and InsightFiltersFirstObservedAtOutput values.
@@ -11685,9 +11805,12 @@ type InsightFiltersFirstObservedAtInput interface {
 }
 
 type InsightFiltersFirstObservedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersFirstObservedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                          `pulumi:"end"`
-	Start     pulumi.StringPtrInput                          `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersFirstObservedAtArgs) ElementType() reflect.Type {
@@ -11741,14 +11864,17 @@ func (o InsightFiltersFirstObservedAtOutput) ToInsightFiltersFirstObservedAtOutp
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersFirstObservedAtOutput) DateRange() InsightFiltersFirstObservedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersFirstObservedAt) *InsightFiltersFirstObservedAtDateRange { return v.DateRange }).(InsightFiltersFirstObservedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersFirstObservedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersFirstObservedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersFirstObservedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersFirstObservedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -12227,9 +12353,12 @@ func (o InsightFiltersKeywordArrayOutput) Index(i pulumi.IntInput) InsightFilter
 }
 
 type InsightFiltersLastObservedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersLastObservedAtDateRange `pulumi:"dateRange"`
-	End       *string                                `pulumi:"end"`
-	Start     *string                                `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersLastObservedAtInput is an input type that accepts InsightFiltersLastObservedAtArgs and InsightFiltersLastObservedAtOutput values.
@@ -12244,9 +12373,12 @@ type InsightFiltersLastObservedAtInput interface {
 }
 
 type InsightFiltersLastObservedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersLastObservedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                         `pulumi:"end"`
-	Start     pulumi.StringPtrInput                         `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersLastObservedAtArgs) ElementType() reflect.Type {
@@ -12300,14 +12432,17 @@ func (o InsightFiltersLastObservedAtOutput) ToInsightFiltersLastObservedAtOutput
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersLastObservedAtOutput) DateRange() InsightFiltersLastObservedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersLastObservedAt) *InsightFiltersLastObservedAtDateRange { return v.DateRange }).(InsightFiltersLastObservedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersLastObservedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersLastObservedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersLastObservedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersLastObservedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -12989,6 +13124,7 @@ func (o InsightFiltersNetworkDestinationDomainArrayOutput) Index(i pulumi.IntInp
 }
 
 type InsightFiltersNetworkDestinationIpv4 struct {
+	// A finding's CIDR value.
 	Cidr string `pulumi:"cidr"`
 }
 
@@ -13004,6 +13140,7 @@ type InsightFiltersNetworkDestinationIpv4Input interface {
 }
 
 type InsightFiltersNetworkDestinationIpv4Args struct {
+	// A finding's CIDR value.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
 }
 
@@ -13058,6 +13195,7 @@ func (o InsightFiltersNetworkDestinationIpv4Output) ToInsightFiltersNetworkDesti
 	return o
 }
 
+// A finding's CIDR value.
 func (o InsightFiltersNetworkDestinationIpv4Output) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkDestinationIpv4) string { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -13083,6 +13221,7 @@ func (o InsightFiltersNetworkDestinationIpv4ArrayOutput) Index(i pulumi.IntInput
 }
 
 type InsightFiltersNetworkDestinationIpv6 struct {
+	// A finding's CIDR value.
 	Cidr string `pulumi:"cidr"`
 }
 
@@ -13098,6 +13237,7 @@ type InsightFiltersNetworkDestinationIpv6Input interface {
 }
 
 type InsightFiltersNetworkDestinationIpv6Args struct {
+	// A finding's CIDR value.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
 }
 
@@ -13152,6 +13292,7 @@ func (o InsightFiltersNetworkDestinationIpv6Output) ToInsightFiltersNetworkDesti
 	return o
 }
 
+// A finding's CIDR value.
 func (o InsightFiltersNetworkDestinationIpv6Output) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkDestinationIpv6) string { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -13177,8 +13318,11 @@ func (o InsightFiltersNetworkDestinationIpv6ArrayOutput) Index(i pulumi.IntInput
 }
 
 type InsightFiltersNetworkDestinationPort struct {
-	Eq  *string `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *string `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *string `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *string `pulumi:"lte"`
 }
 
@@ -13194,8 +13338,11 @@ type InsightFiltersNetworkDestinationPortInput interface {
 }
 
 type InsightFiltersNetworkDestinationPortArgs struct {
-	Eq  pulumi.StringPtrInput `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.StringPtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.StringPtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.StringPtrInput `pulumi:"lte"`
 }
 
@@ -13250,14 +13397,17 @@ func (o InsightFiltersNetworkDestinationPortOutput) ToInsightFiltersNetworkDesti
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersNetworkDestinationPortOutput) Eq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkDestinationPort) *string { return v.Eq }).(pulumi.StringPtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersNetworkDestinationPortOutput) Gte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkDestinationPort) *string { return v.Gte }).(pulumi.StringPtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersNetworkDestinationPortOutput) Lte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkDestinationPort) *string { return v.Lte }).(pulumi.StringPtrOutput)
 }
@@ -13583,6 +13733,7 @@ func (o InsightFiltersNetworkSourceDomainArrayOutput) Index(i pulumi.IntInput) I
 }
 
 type InsightFiltersNetworkSourceIpv4 struct {
+	// A finding's CIDR value.
 	Cidr string `pulumi:"cidr"`
 }
 
@@ -13598,6 +13749,7 @@ type InsightFiltersNetworkSourceIpv4Input interface {
 }
 
 type InsightFiltersNetworkSourceIpv4Args struct {
+	// A finding's CIDR value.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
 }
 
@@ -13652,6 +13804,7 @@ func (o InsightFiltersNetworkSourceIpv4Output) ToInsightFiltersNetworkSourceIpv4
 	return o
 }
 
+// A finding's CIDR value.
 func (o InsightFiltersNetworkSourceIpv4Output) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkSourceIpv4) string { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -13677,6 +13830,7 @@ func (o InsightFiltersNetworkSourceIpv4ArrayOutput) Index(i pulumi.IntInput) Ins
 }
 
 type InsightFiltersNetworkSourceIpv6 struct {
+	// A finding's CIDR value.
 	Cidr string `pulumi:"cidr"`
 }
 
@@ -13692,6 +13846,7 @@ type InsightFiltersNetworkSourceIpv6Input interface {
 }
 
 type InsightFiltersNetworkSourceIpv6Args struct {
+	// A finding's CIDR value.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
 }
 
@@ -13746,6 +13901,7 @@ func (o InsightFiltersNetworkSourceIpv6Output) ToInsightFiltersNetworkSourceIpv6
 	return o
 }
 
+// A finding's CIDR value.
 func (o InsightFiltersNetworkSourceIpv6Output) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkSourceIpv6) string { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -13871,8 +14027,11 @@ func (o InsightFiltersNetworkSourceMacArrayOutput) Index(i pulumi.IntInput) Insi
 }
 
 type InsightFiltersNetworkSourcePort struct {
-	Eq  *string `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *string `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *string `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *string `pulumi:"lte"`
 }
 
@@ -13888,8 +14047,11 @@ type InsightFiltersNetworkSourcePortInput interface {
 }
 
 type InsightFiltersNetworkSourcePortArgs struct {
-	Eq  pulumi.StringPtrInput `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.StringPtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.StringPtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.StringPtrInput `pulumi:"lte"`
 }
 
@@ -13944,14 +14106,17 @@ func (o InsightFiltersNetworkSourcePortOutput) ToInsightFiltersNetworkSourcePort
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersNetworkSourcePortOutput) Eq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkSourcePort) *string { return v.Eq }).(pulumi.StringPtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersNetworkSourcePortOutput) Gte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkSourcePort) *string { return v.Gte }).(pulumi.StringPtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersNetworkSourcePortOutput) Lte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersNetworkSourcePort) *string { return v.Lte }).(pulumi.StringPtrOutput)
 }
@@ -14077,9 +14242,12 @@ func (o InsightFiltersNoteTextArrayOutput) Index(i pulumi.IntInput) InsightFilte
 }
 
 type InsightFiltersNoteUpdatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersNoteUpdatedAtDateRange `pulumi:"dateRange"`
-	End       *string                               `pulumi:"end"`
-	Start     *string                               `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersNoteUpdatedAtInput is an input type that accepts InsightFiltersNoteUpdatedAtArgs and InsightFiltersNoteUpdatedAtOutput values.
@@ -14094,9 +14262,12 @@ type InsightFiltersNoteUpdatedAtInput interface {
 }
 
 type InsightFiltersNoteUpdatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersNoteUpdatedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                        `pulumi:"end"`
-	Start     pulumi.StringPtrInput                        `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersNoteUpdatedAtArgs) ElementType() reflect.Type {
@@ -14150,14 +14321,17 @@ func (o InsightFiltersNoteUpdatedAtOutput) ToInsightFiltersNoteUpdatedAtOutputWi
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersNoteUpdatedAtOutput) DateRange() InsightFiltersNoteUpdatedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersNoteUpdatedAt) *InsightFiltersNoteUpdatedAtDateRange { return v.DateRange }).(InsightFiltersNoteUpdatedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersNoteUpdatedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersNoteUpdatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersNoteUpdatedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersNoteUpdatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -14439,9 +14613,12 @@ func (o InsightFiltersNoteUpdatedByArrayOutput) Index(i pulumi.IntInput) Insight
 }
 
 type InsightFiltersProcessLaunchedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersProcessLaunchedAtDateRange `pulumi:"dateRange"`
-	End       *string                                   `pulumi:"end"`
-	Start     *string                                   `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersProcessLaunchedAtInput is an input type that accepts InsightFiltersProcessLaunchedAtArgs and InsightFiltersProcessLaunchedAtOutput values.
@@ -14456,9 +14633,12 @@ type InsightFiltersProcessLaunchedAtInput interface {
 }
 
 type InsightFiltersProcessLaunchedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersProcessLaunchedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                            `pulumi:"end"`
-	Start     pulumi.StringPtrInput                            `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersProcessLaunchedAtArgs) ElementType() reflect.Type {
@@ -14512,14 +14692,17 @@ func (o InsightFiltersProcessLaunchedAtOutput) ToInsightFiltersProcessLaunchedAt
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersProcessLaunchedAtOutput) DateRange() InsightFiltersProcessLaunchedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessLaunchedAt) *InsightFiltersProcessLaunchedAtDateRange { return v.DateRange }).(InsightFiltersProcessLaunchedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersProcessLaunchedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessLaunchedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersProcessLaunchedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessLaunchedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -14801,8 +14984,11 @@ func (o InsightFiltersProcessNameArrayOutput) Index(i pulumi.IntInput) InsightFi
 }
 
 type InsightFiltersProcessParentPid struct {
-	Eq  *string `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *string `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *string `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *string `pulumi:"lte"`
 }
 
@@ -14818,8 +15004,11 @@ type InsightFiltersProcessParentPidInput interface {
 }
 
 type InsightFiltersProcessParentPidArgs struct {
-	Eq  pulumi.StringPtrInput `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.StringPtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.StringPtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.StringPtrInput `pulumi:"lte"`
 }
 
@@ -14874,14 +15063,17 @@ func (o InsightFiltersProcessParentPidOutput) ToInsightFiltersProcessParentPidOu
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersProcessParentPidOutput) Eq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessParentPid) *string { return v.Eq }).(pulumi.StringPtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersProcessParentPidOutput) Gte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessParentPid) *string { return v.Gte }).(pulumi.StringPtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersProcessParentPidOutput) Lte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessParentPid) *string { return v.Lte }).(pulumi.StringPtrOutput)
 }
@@ -15007,8 +15199,11 @@ func (o InsightFiltersProcessPathArrayOutput) Index(i pulumi.IntInput) InsightFi
 }
 
 type InsightFiltersProcessPid struct {
-	Eq  *string `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq *string `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte *string `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte *string `pulumi:"lte"`
 }
 
@@ -15024,8 +15219,11 @@ type InsightFiltersProcessPidInput interface {
 }
 
 type InsightFiltersProcessPidArgs struct {
-	Eq  pulumi.StringPtrInput `pulumi:"eq"`
+	// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+	Eq pulumi.StringPtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Gte pulumi.StringPtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 	Lte pulumi.StringPtrInput `pulumi:"lte"`
 }
 
@@ -15080,14 +15278,17 @@ func (o InsightFiltersProcessPidOutput) ToInsightFiltersProcessPidOutputWithCont
 	return o
 }
 
+// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersProcessPidOutput) Eq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessPid) *string { return v.Eq }).(pulumi.StringPtrOutput)
 }
 
+// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersProcessPidOutput) Gte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessPid) *string { return v.Gte }).(pulumi.StringPtrOutput)
 }
 
+// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
 func (o InsightFiltersProcessPidOutput) Lte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessPid) *string { return v.Lte }).(pulumi.StringPtrOutput)
 }
@@ -15113,9 +15314,12 @@ func (o InsightFiltersProcessPidArrayOutput) Index(i pulumi.IntInput) InsightFil
 }
 
 type InsightFiltersProcessTerminatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersProcessTerminatedAtDateRange `pulumi:"dateRange"`
-	End       *string                                     `pulumi:"end"`
-	Start     *string                                     `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersProcessTerminatedAtInput is an input type that accepts InsightFiltersProcessTerminatedAtArgs and InsightFiltersProcessTerminatedAtOutput values.
@@ -15130,9 +15334,12 @@ type InsightFiltersProcessTerminatedAtInput interface {
 }
 
 type InsightFiltersProcessTerminatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersProcessTerminatedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                              `pulumi:"end"`
-	Start     pulumi.StringPtrInput                              `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersProcessTerminatedAtArgs) ElementType() reflect.Type {
@@ -15186,16 +15393,19 @@ func (o InsightFiltersProcessTerminatedAtOutput) ToInsightFiltersProcessTerminat
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersProcessTerminatedAtOutput) DateRange() InsightFiltersProcessTerminatedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessTerminatedAt) *InsightFiltersProcessTerminatedAtDateRange {
 		return v.DateRange
 	}).(InsightFiltersProcessTerminatedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersProcessTerminatedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessTerminatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersProcessTerminatedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersProcessTerminatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -15478,8 +15688,9 @@ func (o InsightFiltersProductArnArrayOutput) Index(i pulumi.IntInput) InsightFil
 
 type InsightFiltersProductField struct {
 	Comparison string `pulumi:"comparison"`
-	Key        string `pulumi:"key"`
-	Value      string `pulumi:"value"`
+	// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // InsightFiltersProductFieldInput is an input type that accepts InsightFiltersProductFieldArgs and InsightFiltersProductFieldOutput values.
@@ -15495,8 +15706,9 @@ type InsightFiltersProductFieldInput interface {
 
 type InsightFiltersProductFieldArgs struct {
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	Key        pulumi.StringInput `pulumi:"key"`
-	Value      pulumi.StringInput `pulumi:"value"`
+	// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (InsightFiltersProductFieldArgs) ElementType() reflect.Type {
@@ -15554,6 +15766,7 @@ func (o InsightFiltersProductFieldOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersProductField) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
+// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
 func (o InsightFiltersProductFieldOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersProductField) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -16283,6 +16496,7 @@ func (o InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput) Index(i pulumi.I
 }
 
 type InsightFiltersResourceAwsEc2InstanceIpv4Address struct {
+	// A finding's CIDR value.
 	Cidr string `pulumi:"cidr"`
 }
 
@@ -16298,6 +16512,7 @@ type InsightFiltersResourceAwsEc2InstanceIpv4AddressInput interface {
 }
 
 type InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs struct {
+	// A finding's CIDR value.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
 }
 
@@ -16352,6 +16567,7 @@ func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput) ToInsightFiltersR
 	return o
 }
 
+// A finding's CIDR value.
 func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsEc2InstanceIpv4Address) string { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -16377,6 +16593,7 @@ func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput) Index(i pulu
 }
 
 type InsightFiltersResourceAwsEc2InstanceIpv6Address struct {
+	// A finding's CIDR value.
 	Cidr string `pulumi:"cidr"`
 }
 
@@ -16392,6 +16609,7 @@ type InsightFiltersResourceAwsEc2InstanceIpv6AddressInput interface {
 }
 
 type InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs struct {
+	// A finding's CIDR value.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
 }
 
@@ -16446,6 +16664,7 @@ func (o InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput) ToInsightFiltersR
 	return o
 }
 
+// A finding's CIDR value.
 func (o InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsEc2InstanceIpv6Address) string { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -16571,9 +16790,12 @@ func (o InsightFiltersResourceAwsEc2InstanceKeyNameArrayOutput) Index(i pulumi.I
 }
 
 type InsightFiltersResourceAwsEc2InstanceLaunchedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange `pulumi:"dateRange"`
-	End       *string                                                  `pulumi:"end"`
-	Start     *string                                                  `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersResourceAwsEc2InstanceLaunchedAtInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs and InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput values.
@@ -16588,9 +16810,12 @@ type InsightFiltersResourceAwsEc2InstanceLaunchedAtInput interface {
 }
 
 type InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                                           `pulumi:"end"`
-	Start     pulumi.StringPtrInput                                           `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs) ElementType() reflect.Type {
@@ -16644,16 +16869,19 @@ func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput) ToInsightFiltersRe
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput) DateRange() InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsEc2InstanceLaunchedAt) *InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange {
 		return v.DateRange
 	}).(InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsEc2InstanceLaunchedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsEc2InstanceLaunchedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -17135,9 +17363,12 @@ func (o InsightFiltersResourceAwsEc2InstanceVpcIdArrayOutput) Index(i pulumi.Int
 }
 
 type InsightFiltersResourceAwsIamAccessKeyCreatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange `pulumi:"dateRange"`
-	End       *string                                                  `pulumi:"end"`
-	Start     *string                                                  `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersResourceAwsIamAccessKeyCreatedAtInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs and InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput values.
@@ -17152,9 +17383,12 @@ type InsightFiltersResourceAwsIamAccessKeyCreatedAtInput interface {
 }
 
 type InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                                           `pulumi:"end"`
-	Start     pulumi.StringPtrInput                                           `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs) ElementType() reflect.Type {
@@ -17208,16 +17442,19 @@ func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput) ToInsightFiltersRe
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput) DateRange() InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsIamAccessKeyCreatedAt) *InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange {
 		return v.DateRange
 	}).(InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsIamAccessKeyCreatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsIamAccessKeyCreatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -17999,9 +18236,12 @@ func (o InsightFiltersResourceContainerImageNameArrayOutput) Index(i pulumi.IntI
 }
 
 type InsightFiltersResourceContainerLaunchedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersResourceContainerLaunchedAtDateRange `pulumi:"dateRange"`
-	End       *string                                             `pulumi:"end"`
-	Start     *string                                             `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersResourceContainerLaunchedAtInput is an input type that accepts InsightFiltersResourceContainerLaunchedAtArgs and InsightFiltersResourceContainerLaunchedAtOutput values.
@@ -18016,9 +18256,12 @@ type InsightFiltersResourceContainerLaunchedAtInput interface {
 }
 
 type InsightFiltersResourceContainerLaunchedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersResourceContainerLaunchedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                                      `pulumi:"end"`
-	Start     pulumi.StringPtrInput                                      `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersResourceContainerLaunchedAtArgs) ElementType() reflect.Type {
@@ -18072,16 +18315,19 @@ func (o InsightFiltersResourceContainerLaunchedAtOutput) ToInsightFiltersResourc
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersResourceContainerLaunchedAtOutput) DateRange() InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersResourceContainerLaunchedAt) *InsightFiltersResourceContainerLaunchedAtDateRange {
 		return v.DateRange
 	}).(InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersResourceContainerLaunchedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersResourceContainerLaunchedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersResourceContainerLaunchedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersResourceContainerLaunchedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -18364,8 +18610,9 @@ func (o InsightFiltersResourceContainerNameArrayOutput) Index(i pulumi.IntInput)
 
 type InsightFiltersResourceDetailsOther struct {
 	Comparison string `pulumi:"comparison"`
-	Key        string `pulumi:"key"`
-	Value      string `pulumi:"value"`
+	// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // InsightFiltersResourceDetailsOtherInput is an input type that accepts InsightFiltersResourceDetailsOtherArgs and InsightFiltersResourceDetailsOtherOutput values.
@@ -18381,8 +18628,9 @@ type InsightFiltersResourceDetailsOtherInput interface {
 
 type InsightFiltersResourceDetailsOtherArgs struct {
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	Key        pulumi.StringInput `pulumi:"key"`
-	Value      pulumi.StringInput `pulumi:"value"`
+	// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (InsightFiltersResourceDetailsOtherArgs) ElementType() reflect.Type {
@@ -18440,6 +18688,7 @@ func (o InsightFiltersResourceDetailsOtherOutput) Comparison() pulumi.StringOutp
 	return o.ApplyT(func(v InsightFiltersResourceDetailsOther) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
+// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
 func (o InsightFiltersResourceDetailsOtherOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersResourceDetailsOther) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -18770,8 +19019,9 @@ func (o InsightFiltersResourceRegionArrayOutput) Index(i pulumi.IntInput) Insigh
 
 type InsightFiltersResourceTag struct {
 	Comparison string `pulumi:"comparison"`
-	Key        string `pulumi:"key"`
-	Value      string `pulumi:"value"`
+	// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // InsightFiltersResourceTagInput is an input type that accepts InsightFiltersResourceTagArgs and InsightFiltersResourceTagOutput values.
@@ -18787,8 +19037,9 @@ type InsightFiltersResourceTagInput interface {
 
 type InsightFiltersResourceTagArgs struct {
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	Key        pulumi.StringInput `pulumi:"key"`
-	Value      pulumi.StringInput `pulumi:"value"`
+	// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (InsightFiltersResourceTagArgs) ElementType() reflect.Type {
@@ -18846,6 +19097,7 @@ func (o InsightFiltersResourceTagOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersResourceTag) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
+// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
 func (o InsightFiltersResourceTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersResourceTag) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -19275,9 +19527,12 @@ func (o InsightFiltersThreatIntelIndicatorCategoryArrayOutput) Index(i pulumi.In
 }
 
 type InsightFiltersThreatIntelIndicatorLastObservedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersThreatIntelIndicatorLastObservedAtDateRange `pulumi:"dateRange"`
-	End       *string                                                    `pulumi:"end"`
-	Start     *string                                                    `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersThreatIntelIndicatorLastObservedAtInput is an input type that accepts InsightFiltersThreatIntelIndicatorLastObservedAtArgs and InsightFiltersThreatIntelIndicatorLastObservedAtOutput values.
@@ -19292,9 +19547,12 @@ type InsightFiltersThreatIntelIndicatorLastObservedAtInput interface {
 }
 
 type InsightFiltersThreatIntelIndicatorLastObservedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                                             `pulumi:"end"`
-	Start     pulumi.StringPtrInput                                             `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersThreatIntelIndicatorLastObservedAtArgs) ElementType() reflect.Type {
@@ -19348,16 +19606,19 @@ func (o InsightFiltersThreatIntelIndicatorLastObservedAtOutput) ToInsightFilters
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtOutput) DateRange() InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersThreatIntelIndicatorLastObservedAt) *InsightFiltersThreatIntelIndicatorLastObservedAtDateRange {
 		return v.DateRange
 	}).(InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersThreatIntelIndicatorLastObservedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersThreatIntelIndicatorLastObservedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -20139,9 +20400,12 @@ func (o InsightFiltersTypeArrayOutput) Index(i pulumi.IntInput) InsightFiltersTy
 }
 
 type InsightFiltersUpdatedAt struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange *InsightFiltersUpdatedAtDateRange `pulumi:"dateRange"`
-	End       *string                           `pulumi:"end"`
-	Start     *string                           `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End *string `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start *string `pulumi:"start"`
 }
 
 // InsightFiltersUpdatedAtInput is an input type that accepts InsightFiltersUpdatedAtArgs and InsightFiltersUpdatedAtOutput values.
@@ -20156,9 +20420,12 @@ type InsightFiltersUpdatedAtInput interface {
 }
 
 type InsightFiltersUpdatedAtArgs struct {
+	// A configuration block of the date range for the date filter. See dateRange below for more details.
 	DateRange InsightFiltersUpdatedAtDateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput                    `pulumi:"end"`
-	Start     pulumi.StringPtrInput                    `pulumi:"start"`
+	// An end date for the date filter. Required with `start` if `dateRange` is not specified.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A start date for the date filter. Required with `end` if `dateRange` is not specified.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (InsightFiltersUpdatedAtArgs) ElementType() reflect.Type {
@@ -20212,14 +20479,17 @@ func (o InsightFiltersUpdatedAtOutput) ToInsightFiltersUpdatedAtOutputWithContex
 	return o
 }
 
+// A configuration block of the date range for the date filter. See dateRange below for more details.
 func (o InsightFiltersUpdatedAtOutput) DateRange() InsightFiltersUpdatedAtDateRangePtrOutput {
 	return o.ApplyT(func(v InsightFiltersUpdatedAt) *InsightFiltersUpdatedAtDateRange { return v.DateRange }).(InsightFiltersUpdatedAtDateRangePtrOutput)
 }
 
+// An end date for the date filter. Required with `start` if `dateRange` is not specified.
 func (o InsightFiltersUpdatedAtOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersUpdatedAt) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A start date for the date filter. Required with `end` if `dateRange` is not specified.
 func (o InsightFiltersUpdatedAtOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightFiltersUpdatedAt) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -20402,8 +20672,9 @@ func (o InsightFiltersUpdatedAtDateRangePtrOutput) Value() pulumi.IntPtrOutput {
 
 type InsightFiltersUserDefinedValue struct {
 	Comparison string `pulumi:"comparison"`
-	Key        string `pulumi:"key"`
-	Value      string `pulumi:"value"`
+	// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // InsightFiltersUserDefinedValueInput is an input type that accepts InsightFiltersUserDefinedValueArgs and InsightFiltersUserDefinedValueOutput values.
@@ -20419,8 +20690,9 @@ type InsightFiltersUserDefinedValueInput interface {
 
 type InsightFiltersUserDefinedValueArgs struct {
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	Key        pulumi.StringInput `pulumi:"key"`
-	Value      pulumi.StringInput `pulumi:"value"`
+	// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (InsightFiltersUserDefinedValueArgs) ElementType() reflect.Type {
@@ -20478,6 +20750,7 @@ func (o InsightFiltersUserDefinedValueOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersUserDefinedValue) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
+// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
 func (o InsightFiltersUserDefinedValueOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersUserDefinedValue) string { return v.Key }).(pulumi.StringOutput)
 }
