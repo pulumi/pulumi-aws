@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorSftpConfig {
+    /**
+     * @return A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+     * 
+     */
     private @Nullable List<String> trustedHostKeys;
+    /**
+     * @return The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+     * 
+     */
     private @Nullable String userSecretId;
 
     private ConnectorSftpConfig() {}
+    /**
+     * @return A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+     * 
+     */
     public List<String> trustedHostKeys() {
         return this.trustedHostKeys == null ? List.of() : this.trustedHostKeys;
     }
+    /**
+     * @return The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+     * 
+     */
     public Optional<String> userSecretId() {
         return Optional.ofNullable(this.userSecretId);
     }

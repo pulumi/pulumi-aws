@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class IpSetIpSetDescriptor {
+    /**
+     * @return The string like IPV4 or IPV6.
+     * 
+     */
     private String type;
+    /**
+     * @return The CIDR notation.
+     * 
+     */
     private String value;
 
     private IpSetIpSetDescriptor() {}
+    /**
+     * @return The string like IPV4 or IPV6.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The CIDR notation.
+     * 
+     */
     public String value() {
         return this.value;
     }

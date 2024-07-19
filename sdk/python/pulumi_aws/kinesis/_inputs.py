@@ -2778,11 +2778,17 @@ class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs:
 if not MYPY:
     class FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict(TypedDict):
         bucket_arn: pulumi.Input[str]
+        """
+        The ARN of the S3 bucket
+        """
         role_arn: pulumi.Input[str]
         buffering_interval: NotRequired[pulumi.Input[int]]
         buffering_size: NotRequired[pulumi.Input[int]]
         cloudwatch_logging_options: NotRequired[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgsDict']]
         compression_format: NotRequired[pulumi.Input[str]]
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         custom_time_zone: NotRequired[pulumi.Input[str]]
         """
         The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
@@ -2796,12 +2802,22 @@ if not MYPY:
         The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
         """
         error_output_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         file_extension: NotRequired[pulumi.Input[str]]
         """
         The file extension to override the default file extension (for example, `.json`).
         """
         kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         prefix: NotRequired[pulumi.Input[str]]
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         processing_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgsDict']]
         """
         The data processing configuration.  See `processing_configuration` block below for details.
@@ -2837,10 +2853,16 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
                  s3_backup_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs']] = None,
                  s3_backup_mode: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
+        :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param pulumi.Input[str] custom_time_zone: The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs'] data_format_conversion_configuration: Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs'] dynamic_partitioning_configuration: The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
+        :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         :param pulumi.Input[str] file_extension: The file extension to override the default file extension (for example, `.json`).
+        :param pulumi.Input[str] kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  See `processing_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs'] s3_backup_configuration: The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
         :param pulumi.Input[str] s3_backup_mode: The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
@@ -2879,6 +2901,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the S3 bucket
+        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -2924,6 +2949,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
@@ -2969,6 +2997,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         return pulumi.get(self, "error_output_prefix")
 
     @error_output_prefix.setter
@@ -2990,6 +3021,10 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -2999,6 +3034,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -4166,14 +4204,30 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
 if not MYPY:
     class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgsDict(TypedDict):
         bucket_arn: pulumi.Input[str]
+        """
+        The ARN of the S3 bucket
+        """
         role_arn: pulumi.Input[str]
         buffering_interval: NotRequired[pulumi.Input[int]]
         buffering_size: NotRequired[pulumi.Input[int]]
         cloudwatch_logging_options: NotRequired[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgsDict']]
         compression_format: NotRequired[pulumi.Input[str]]
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         error_output_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         prefix: NotRequired[pulumi.Input[str]]
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
 elif False:
     FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4189,6 +4243,14 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
+        :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        :param pulumi.Input[str] kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_interval is not None:
@@ -4209,6 +4271,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the S3 bucket
+        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -4254,6 +4319,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
@@ -4263,6 +4331,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         return pulumi.get(self, "error_output_prefix")
 
     @error_output_prefix.setter
@@ -4272,6 +4343,10 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -4281,6 +4356,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -7610,14 +7688,30 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
 if not MYPY:
     class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgsDict(TypedDict):
         bucket_arn: pulumi.Input[str]
+        """
+        The ARN of the S3 bucket
+        """
         role_arn: pulumi.Input[str]
         buffering_interval: NotRequired[pulumi.Input[int]]
         buffering_size: NotRequired[pulumi.Input[int]]
         cloudwatch_logging_options: NotRequired[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgsDict']]
         compression_format: NotRequired[pulumi.Input[str]]
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         error_output_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         prefix: NotRequired[pulumi.Input[str]]
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
 elif False:
     FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7633,6 +7727,14 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
+        :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        :param pulumi.Input[str] kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_interval is not None:
@@ -7653,6 +7755,9 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the S3 bucket
+        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -7698,6 +7803,9 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
@@ -7707,6 +7815,9 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         return pulumi.get(self, "error_output_prefix")
 
     @error_output_prefix.setter
@@ -7716,6 +7827,10 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -7725,6 +7840,9 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter

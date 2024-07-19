@@ -54,6 +54,10 @@ public final class ChannelEncoderSettingsAudioDescription {
      */
     private String name;
     private @Nullable ChannelEncoderSettingsAudioDescriptionRemixSettings remixSettings;
+    /**
+     * @return Stream name RTMP destinations (URLs of type rtmp://)
+     * 
+     */
     private @Nullable String streamName;
 
     private ChannelEncoderSettingsAudioDescription() {}
@@ -115,6 +119,10 @@ public final class ChannelEncoderSettingsAudioDescription {
     public Optional<ChannelEncoderSettingsAudioDescriptionRemixSettings> remixSettings() {
         return Optional.ofNullable(this.remixSettings);
     }
+    /**
+     * @return Stream name RTMP destinations (URLs of type rtmp://)
+     * 
+     */
     public Optional<String> streamName() {
         return Optional.ofNullable(this.streamName);
     }

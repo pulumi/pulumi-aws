@@ -16,9 +16,17 @@ public final class ResponsePlanActionArgs extends com.pulumi.resources.ResourceA
 
     public static final ResponsePlanActionArgs Empty = new ResponsePlanActionArgs();
 
+    /**
+     * The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+     * 
+     */
     @Import(name="ssmAutomations")
     private @Nullable Output<List<ResponsePlanActionSsmAutomationArgs>> ssmAutomations;
 
+    /**
+     * @return The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+     * 
+     */
     public Optional<Output<List<ResponsePlanActionSsmAutomationArgs>>> ssmAutomations() {
         return Optional.ofNullable(this.ssmAutomations);
     }
@@ -47,15 +55,33 @@ public final class ResponsePlanActionArgs extends com.pulumi.resources.ResourceA
             $ = new ResponsePlanActionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ssmAutomations The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+         * 
+         * @return builder
+         * 
+         */
         public Builder ssmAutomations(@Nullable Output<List<ResponsePlanActionSsmAutomationArgs>> ssmAutomations) {
             $.ssmAutomations = ssmAutomations;
             return this;
         }
 
+        /**
+         * @param ssmAutomations The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+         * 
+         * @return builder
+         * 
+         */
         public Builder ssmAutomations(List<ResponsePlanActionSsmAutomationArgs> ssmAutomations) {
             return ssmAutomations(Output.of(ssmAutomations));
         }
 
+        /**
+         * @param ssmAutomations The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+         * 
+         * @return builder
+         * 
+         */
         public Builder ssmAutomations(ResponsePlanActionSsmAutomationArgs... ssmAutomations) {
             return ssmAutomations(List.of(ssmAutomations));
         }

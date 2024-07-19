@@ -116,14 +116,14 @@ class IndexingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration={
-            "thingIndexingMode": "REGISTRY_AND_SHADOW",
-            "thingConnectivityIndexingMode": "STATUS",
-            "deviceDefenderIndexingMode": "VIOLATIONS",
-            "namedShadowIndexingMode": "ON",
+            "thing_indexing_mode": "REGISTRY_AND_SHADOW",
+            "thing_connectivity_indexing_mode": "STATUS",
+            "device_defender_indexing_mode": "VIOLATIONS",
+            "named_shadow_indexing_mode": "ON",
             "filter": {
-                "namedShadowNames": ["thing1shadow"],
+                "named_shadow_names": ["thing1shadow"],
             },
-            "customFields": [
+            "custom_fields": [
                 {
                     "name": "shadow.desired.power",
                     "type": "Boolean",
@@ -165,14 +165,14 @@ class IndexingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration={
-            "thingIndexingMode": "REGISTRY_AND_SHADOW",
-            "thingConnectivityIndexingMode": "STATUS",
-            "deviceDefenderIndexingMode": "VIOLATIONS",
-            "namedShadowIndexingMode": "ON",
+            "thing_indexing_mode": "REGISTRY_AND_SHADOW",
+            "thing_connectivity_indexing_mode": "STATUS",
+            "device_defender_indexing_mode": "VIOLATIONS",
+            "named_shadow_indexing_mode": "ON",
             "filter": {
-                "namedShadowNames": ["thing1shadow"],
+                "named_shadow_names": ["thing1shadow"],
             },
-            "customFields": [
+            "custom_fields": [
                 {
                     "name": "shadow.desired.power",
                     "type": "Boolean",

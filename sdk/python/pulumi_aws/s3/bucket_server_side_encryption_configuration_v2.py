@@ -157,9 +157,9 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
             bucket=mybucket.id,
             rules=[{
-                "applyServerSideEncryptionByDefault": {
-                    "kmsMasterKeyId": mykey.arn,
-                    "sseAlgorithm": "aws:kms",
+                "apply_server_side_encryption_by_default": {
+                    "kms_master_key_id": mykey.arn,
+                    "sse_algorithm": "aws:kms",
                 },
             }])
         ```
@@ -213,9 +213,9 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
             bucket=mybucket.id,
             rules=[{
-                "applyServerSideEncryptionByDefault": {
-                    "kmsMasterKeyId": mykey.arn,
-                    "sseAlgorithm": "aws:kms",
+                "apply_server_side_encryption_by_default": {
+                    "kms_master_key_id": mykey.arn,
+                    "sse_algorithm": "aws:kms",
                 },
             }])
         ```

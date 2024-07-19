@@ -15,6 +15,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     {
         public readonly string BucketName;
         public readonly string BucketPrefix;
+        /// <summary>
+        /// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+        /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig? S3InputFormatConfig;
 
         [OutputConstructor]

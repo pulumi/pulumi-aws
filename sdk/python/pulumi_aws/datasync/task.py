@@ -418,7 +418,7 @@ class Task(pulumi.CustomResource):
             name="example",
             source_location_arn=source["arn"],
             options={
-                "bytesPerSecond": -1,
+                "bytes_per_second": -1,
             })
         ```
 
@@ -433,7 +433,7 @@ class Task(pulumi.CustomResource):
             name="example",
             source_location_arn=source["arn"],
             schedule={
-                "scheduleExpression": "cron(0 12 ? * SUN,WED *)",
+                "schedule_expression": "cron(0 12 ? * SUN,WED *)",
             })
         ```
 
@@ -448,11 +448,11 @@ class Task(pulumi.CustomResource):
             name="example",
             source_location_arn=source["arn"],
             excludes={
-                "filterType": "SIMPLE_PATTERN",
+                "filter_type": "SIMPLE_PATTERN",
                 "value": "/folder1|/folder2",
             },
             includes={
-                "filterType": "SIMPLE_PATTERN",
+                "filter_type": "SIMPLE_PATTERN",
                 "value": "/folder1|/folder2",
             })
         ```
@@ -498,7 +498,7 @@ class Task(pulumi.CustomResource):
             name="example",
             source_location_arn=source["arn"],
             options={
-                "bytesPerSecond": -1,
+                "bytes_per_second": -1,
             })
         ```
 
@@ -513,7 +513,7 @@ class Task(pulumi.CustomResource):
             name="example",
             source_location_arn=source["arn"],
             schedule={
-                "scheduleExpression": "cron(0 12 ? * SUN,WED *)",
+                "schedule_expression": "cron(0 12 ? * SUN,WED *)",
             })
         ```
 
@@ -528,11 +528,11 @@ class Task(pulumi.CustomResource):
             name="example",
             source_location_arn=source["arn"],
             excludes={
-                "filterType": "SIMPLE_PATTERN",
+                "filter_type": "SIMPLE_PATTERN",
                 "value": "/folder1|/folder2",
             },
             includes={
-                "filterType": "SIMPLE_PATTERN",
+                "filter_type": "SIMPLE_PATTERN",
                 "value": "/folder1|/folder2",
             })
         ```

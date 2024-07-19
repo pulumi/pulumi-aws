@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotTypeSlotTypeValuesSlotTypeValue
     {
+        /// <summary>
+        /// Value that can be used for a slot type.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

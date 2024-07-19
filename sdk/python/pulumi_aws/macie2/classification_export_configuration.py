@@ -84,9 +84,9 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         example = aws.macie2.Account("example")
         example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("example", s3_destination={
-            "bucketName": example_aws_s3_bucket["bucket"],
-            "keyPrefix": "exampleprefix/",
-            "kmsKeyArn": example_aws_kms_key["arn"],
+            "bucket_name": example_aws_s3_bucket["bucket"],
+            "key_prefix": "exampleprefix/",
+            "kms_key_arn": example_aws_kms_key["arn"],
         },
         opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
@@ -120,9 +120,9 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         example = aws.macie2.Account("example")
         example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("example", s3_destination={
-            "bucketName": example_aws_s3_bucket["bucket"],
-            "keyPrefix": "exampleprefix/",
-            "kmsKeyArn": example_aws_kms_key["arn"],
+            "bucket_name": example_aws_s3_bucket["bucket"],
+            "key_prefix": "exampleprefix/",
+            "kms_key_arn": example_aws_kms_key["arn"],
         },
         opts = pulumi.ResourceOptions(depends_on=[example]))
         ```

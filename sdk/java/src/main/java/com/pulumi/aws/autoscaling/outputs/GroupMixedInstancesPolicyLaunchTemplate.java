@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupMixedInstancesPolicyLaunchTemplate {
+    /**
+     * @return Override the instance launch template specification in the Launch Template.
+     * 
+     */
     private GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification;
+    /**
+     * @return List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+     * 
+     */
     private @Nullable List<GroupMixedInstancesPolicyLaunchTemplateOverride> overrides;
 
     private GroupMixedInstancesPolicyLaunchTemplate() {}
+    /**
+     * @return Override the instance launch template specification in the Launch Template.
+     * 
+     */
     public GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification() {
         return this.launchTemplateSpecification;
     }
+    /**
+     * @return List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+     * 
+     */
     public List<GroupMixedInstancesPolicyLaunchTemplateOverride> overrides() {
         return this.overrides == null ? List.of() : this.overrides;
     }
