@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+        /// </summary>
         [Input("assignPublicIp")]
         public Input<string>? AssignPublicIp { get; set; }
 

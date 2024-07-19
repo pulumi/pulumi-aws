@@ -222,11 +222,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
             name="EntireBucket",
             tierings=[
                 {
-                    "accessTier": "DEEP_ARCHIVE_ACCESS",
+                    "access_tier": "DEEP_ARCHIVE_ACCESS",
                     "days": 180,
                 },
                 {
-                    "accessTier": "ARCHIVE_ACCESS",
+                    "access_tier": "ARCHIVE_ACCESS",
                     "days": 125,
                 },
             ])
@@ -247,11 +247,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class": "blue",
+                    "class_": "blue",
                 },
             },
             tierings=[{
-                "accessTier": "ARCHIVE_ACCESS",
+                "access_tier": "ARCHIVE_ACCESS",
                 "days": 125,
             }])
         ```
@@ -297,11 +297,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
             name="EntireBucket",
             tierings=[
                 {
-                    "accessTier": "DEEP_ARCHIVE_ACCESS",
+                    "access_tier": "DEEP_ARCHIVE_ACCESS",
                     "days": 180,
                 },
                 {
-                    "accessTier": "ARCHIVE_ACCESS",
+                    "access_tier": "ARCHIVE_ACCESS",
                     "days": 125,
                 },
             ])
@@ -322,11 +322,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class": "blue",
+                    "class_": "blue",
                 },
             },
             tierings=[{
-                "accessTier": "ARCHIVE_ACCESS",
+                "access_tier": "ARCHIVE_ACCESS",
                 "days": 125,
             }])
         ```

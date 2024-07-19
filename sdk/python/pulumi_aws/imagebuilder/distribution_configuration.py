@@ -259,17 +259,17 @@ class DistributionConfiguration(pulumi.CustomResource):
         example = aws.imagebuilder.DistributionConfiguration("example",
             name="example",
             distributions=[{
-                "amiDistributionConfiguration": {
-                    "amiTags": {
-                        "CostCenter": "IT",
+                "ami_distribution_configuration": {
+                    "ami_tags": {
+                        "cost_center": "IT",
                     },
                     "name": "example-{{ imagebuilder:buildDate }}",
-                    "launchPermission": {
-                        "userIds": ["123456789012"],
+                    "launch_permission": {
+                        "user_ids": ["123456789012"],
                     },
                 },
-                "launchTemplateConfigurations": [{
-                    "launchTemplateId": "lt-0aaa1bcde2ff3456",
+                "launch_template_configurations": [{
+                    "launch_template_id": "lt-0aaa1bcde2ff3456",
                 }],
                 "region": "us-east-1",
             }])
@@ -310,17 +310,17 @@ class DistributionConfiguration(pulumi.CustomResource):
         example = aws.imagebuilder.DistributionConfiguration("example",
             name="example",
             distributions=[{
-                "amiDistributionConfiguration": {
-                    "amiTags": {
-                        "CostCenter": "IT",
+                "ami_distribution_configuration": {
+                    "ami_tags": {
+                        "cost_center": "IT",
                     },
                     "name": "example-{{ imagebuilder:buildDate }}",
-                    "launchPermission": {
-                        "userIds": ["123456789012"],
+                    "launch_permission": {
+                        "user_ids": ["123456789012"],
                     },
                 },
-                "launchTemplateConfigurations": [{
-                    "launchTemplateId": "lt-0aaa1bcde2ff3456",
+                "launch_template_configurations": [{
+                    "launch_template_id": "lt-0aaa1bcde2ff3456",
                 }],
                 "region": "us-east-1",
             }])

@@ -21,9 +21,17 @@ public final class InsightFiltersProductFieldArgs extends com.pulumi.resources.R
         return this.comparison;
     }
 
+    /**
+     * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -70,11 +78,23 @@ public final class InsightFiltersProductFieldArgs extends com.pulumi.resources.R
             return comparison(Output.of(comparison));
         }
 
+        /**
+         * @param key The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

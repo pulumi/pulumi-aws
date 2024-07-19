@@ -282,6 +282,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration(di
                  group_claim: str,
                  group_entity_type: str):
         """
+        :param str group_claim: The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
         :param str group_entity_type: The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
         """
         pulumi.set(__self__, "group_claim", group_claim)
@@ -290,6 +291,9 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration(di
     @property
     @pulumi.getter(name="groupClaim")
     def group_claim(self) -> str:
+        """
+        The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        """
         return pulumi.get(self, "group_claim")
 
     @property
@@ -425,6 +429,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
                  principal_id_claim: Optional[str] = None):
         """
         :param Sequence[str] client_ids: The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+        :param str principal_id_claim: The claim that determines the principal in OIDC access tokens.
         """
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
@@ -442,6 +447,9 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
     @property
     @pulumi.getter(name="principalIdClaim")
     def principal_id_claim(self) -> Optional[str]:
+        """
+        The claim that determines the principal in OIDC access tokens.
+        """
         return pulumi.get(self, "principal_id_claim")
 
 

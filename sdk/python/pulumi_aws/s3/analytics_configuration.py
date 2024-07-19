@@ -190,10 +190,10 @@ class AnalyticsConfiguration(pulumi.CustomResource):
             bucket=example.id,
             name="EntireBucket",
             storage_class_analysis={
-                "dataExport": {
+                "data_export": {
                     "destination": {
-                        "s3BucketDestination": {
-                            "bucketArn": analytics.arn,
+                        "s3_bucket_destination": {
+                            "bucket_arn": analytics.arn,
                         },
                     },
                 },
@@ -214,7 +214,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class": "blue",
+                    "class_": "blue",
                 },
             })
         ```
@@ -259,10 +259,10 @@ class AnalyticsConfiguration(pulumi.CustomResource):
             bucket=example.id,
             name="EntireBucket",
             storage_class_analysis={
-                "dataExport": {
+                "data_export": {
                     "destination": {
-                        "s3BucketDestination": {
-                            "bucketArn": analytics.arn,
+                        "s3_bucket_destination": {
+                            "bucket_arn": analytics.arn,
                         },
                     },
                 },
@@ -283,7 +283,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class": "blue",
+                    "class_": "blue",
                 },
             })
         ```

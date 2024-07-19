@@ -298,7 +298,7 @@ class DeviceFleet(pulumi.CustomResource):
             device_fleet_name="example",
             role_arn=test["arn"],
             output_config={
-                "s3OutputLocation": f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
+                "s3_output_location": f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             })
         ```
 
@@ -340,7 +340,7 @@ class DeviceFleet(pulumi.CustomResource):
             device_fleet_name="example",
             role_arn=test["arn"],
             output_config={
-                "s3OutputLocation": f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
+                "s3_output_location": f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             })
         ```
 

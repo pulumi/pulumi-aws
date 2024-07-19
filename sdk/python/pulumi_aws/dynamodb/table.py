@@ -898,17 +898,17 @@ class Table(pulumi.CustomResource):
                 },
             ],
             ttl={
-                "attributeName": "TimeToExist",
+                "attribute_name": "TimeToExist",
                 "enabled": True,
             },
             global_secondary_indexes=[{
                 "name": "GameTitleIndex",
-                "hashKey": "GameTitle",
-                "rangeKey": "TopScore",
-                "writeCapacity": 10,
-                "readCapacity": 10,
-                "projectionType": "INCLUDE",
-                "nonKeyAttributes": ["UserId"],
+                "hash_key": "GameTitle",
+                "range_key": "TopScore",
+                "write_capacity": 10,
+                "read_capacity": 10,
+                "projection_type": "INCLUDE",
+                "non_key_attributes": ["UserId"],
             }],
             tags={
                 "Name": "dynamodb-table-1",
@@ -938,10 +938,10 @@ class Table(pulumi.CustomResource):
             }],
             replicas=[
                 {
-                    "regionName": "us-east-2",
+                    "region_name": "us-east-2",
                 },
                 {
-                    "regionName": "us-west-2",
+                    "region_name": "us-west-2",
                 },
             ])
         ```
@@ -970,11 +970,11 @@ class Table(pulumi.CustomResource):
             }],
             replicas=[
                 {
-                    "regionName": alternate.name,
+                    "region_name": alternate.name,
                 },
                 {
-                    "regionName": third.name,
-                    "propagateTags": True,
+                    "region_name": third.name,
+                    "propagate_tags": True,
                 },
             ],
             tags={
@@ -1080,17 +1080,17 @@ class Table(pulumi.CustomResource):
                 },
             ],
             ttl={
-                "attributeName": "TimeToExist",
+                "attribute_name": "TimeToExist",
                 "enabled": True,
             },
             global_secondary_indexes=[{
                 "name": "GameTitleIndex",
-                "hashKey": "GameTitle",
-                "rangeKey": "TopScore",
-                "writeCapacity": 10,
-                "readCapacity": 10,
-                "projectionType": "INCLUDE",
-                "nonKeyAttributes": ["UserId"],
+                "hash_key": "GameTitle",
+                "range_key": "TopScore",
+                "write_capacity": 10,
+                "read_capacity": 10,
+                "projection_type": "INCLUDE",
+                "non_key_attributes": ["UserId"],
             }],
             tags={
                 "Name": "dynamodb-table-1",
@@ -1120,10 +1120,10 @@ class Table(pulumi.CustomResource):
             }],
             replicas=[
                 {
-                    "regionName": "us-east-2",
+                    "region_name": "us-east-2",
                 },
                 {
-                    "regionName": "us-west-2",
+                    "region_name": "us-west-2",
                 },
             ])
         ```
@@ -1152,11 +1152,11 @@ class Table(pulumi.CustomResource):
             }],
             replicas=[
                 {
-                    "regionName": alternate.name,
+                    "region_name": alternate.name,
                 },
                 {
-                    "regionName": third.name,
-                    "propagateTags": True,
+                    "region_name": third.name,
+                    "propagate_tags": True,
                 },
             ],
             tags={

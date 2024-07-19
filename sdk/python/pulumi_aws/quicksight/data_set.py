@@ -605,14 +605,14 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
@@ -630,20 +630,20 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
             }],
             column_level_permission_rules=[{
-                "columnNames": ["Column1"],
+                "column_names": ["Column1"],
                 "principals": [example_aws_quicksight_user["arn"]],
             }])
         ```
@@ -659,20 +659,20 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
             }],
             field_folders=[{
-                "fieldFoldersId": "example-id",
+                "field_folders_id": "example-id",
                 "columns": ["Column1"],
                 "description": "example description",
             }])
@@ -689,14 +689,14 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
@@ -724,25 +724,25 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
             }],
             row_level_permission_tag_configuration={
                 "status": "ENABLED",
-                "tagRules": [{
-                    "columnName": "Column1",
-                    "tagKey": "tagkey",
-                    "matchAllValue": "*",
-                    "tagMultiValueDelimiter": ",",
+                "tag_rules": [{
+                    "column_name": "Column1",
+                    "tag_key": "tagkey",
+                    "match_all_value": "*",
+                    "tag_multi_value_delimiter": ",",
                 }],
             })
         ```
@@ -797,14 +797,14 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
@@ -822,20 +822,20 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
             }],
             column_level_permission_rules=[{
-                "columnNames": ["Column1"],
+                "column_names": ["Column1"],
                 "principals": [example_aws_quicksight_user["arn"]],
             }])
         ```
@@ -851,20 +851,20 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
             }],
             field_folders=[{
-                "fieldFoldersId": "example-id",
+                "field_folders_id": "example-id",
                 "columns": ["Column1"],
                 "description": "example description",
             }])
@@ -881,14 +881,14 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
@@ -916,25 +916,25 @@ class DataSet(pulumi.CustomResource):
             name="example-name",
             import_mode="SPICE",
             physical_table_maps=[{
-                "physicalTableMapId": "example-id",
-                "s3Source": {
-                    "dataSourceArn": example_aws_quicksight_data_source["arn"],
-                    "inputColumns": [{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "uploadSettings": {
+                    "upload_settings": {
                         "format": "JSON",
                     },
                 },
             }],
             row_level_permission_tag_configuration={
                 "status": "ENABLED",
-                "tagRules": [{
-                    "columnName": "Column1",
-                    "tagKey": "tagkey",
-                    "matchAllValue": "*",
-                    "tagMultiValueDelimiter": ",",
+                "tag_rules": [{
+                    "column_name": "Column1",
+                    "tag_key": "tagkey",
+                    "match_all_value": "*",
+                    "tag_multi_value_delimiter": ",",
                 }],
             })
         ```

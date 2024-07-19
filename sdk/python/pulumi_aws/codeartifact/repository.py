@@ -352,7 +352,7 @@ class Repository(pulumi.CustomResource):
             repository="example",
             domain=example["domain"],
             upstreams=[{
-                "repositoryName": upstream.repository,
+                "repository_name": upstream.repository,
             }])
         ```
 
@@ -369,7 +369,7 @@ class Repository(pulumi.CustomResource):
             repository="example",
             domain=example["domain"],
             external_connections={
-                "externalConnectionName": "public:npmjs",
+                "external_connection_name": "public:npmjs",
             })
         ```
 
@@ -428,7 +428,7 @@ class Repository(pulumi.CustomResource):
             repository="example",
             domain=example["domain"],
             upstreams=[{
-                "repositoryName": upstream.repository,
+                "repository_name": upstream.repository,
             }])
         ```
 
@@ -445,7 +445,7 @@ class Repository(pulumi.CustomResource):
             repository="example",
             domain=example["domain"],
             external_connections={
-                "externalConnectionName": "public:npmjs",
+                "external_connection_name": "public:npmjs",
             })
         ```
 

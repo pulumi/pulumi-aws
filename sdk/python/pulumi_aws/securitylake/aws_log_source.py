@@ -91,7 +91,7 @@ class AwsLogSource(pulumi.CustomResource):
         example = aws.securitylake.AwsLogSource("example", source={
             "accounts": ["123456789012"],
             "regions": ["eu-west-1"],
-            "sourceName": "ROUTE53",
+            "source_name": "ROUTE53",
         },
         opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
@@ -132,7 +132,7 @@ class AwsLogSource(pulumi.CustomResource):
         example = aws.securitylake.AwsLogSource("example", source={
             "accounts": ["123456789012"],
             "regions": ["eu-west-1"],
-            "sourceName": "ROUTE53",
+            "source_name": "ROUTE53",
         },
         opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```

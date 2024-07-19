@@ -15,9 +15,17 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
 
     public static final DataSetOutputColumnArgs Empty = new DataSetOutputColumnArgs();
 
+    /**
+     * Field folder description.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Field folder description.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -70,11 +78,23 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
             $ = new DataSetOutputColumnArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description Field folder description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Field folder description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

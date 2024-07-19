@@ -165,8 +165,8 @@ class GroupMembership(pulumi.CustomResource):
             display_name="John Doe",
             user_name="john.doe@example.com",
             name={
-                "familyName": "Doe",
-                "givenName": "John",
+                "family_name": "Doe",
+                "given_name": "John",
             })
         example_group = aws.identitystore.Group("example",
             identity_store_id=example.identity_store_ids[0],
@@ -213,8 +213,8 @@ class GroupMembership(pulumi.CustomResource):
             display_name="John Doe",
             user_name="john.doe@example.com",
             name={
-                "familyName": "Doe",
-                "givenName": "John",
+                "family_name": "Doe",
+                "given_name": "John",
             })
         example_group = aws.identitystore.Group("example",
             identity_store_id=example.identity_store_ids[0],

@@ -14,12 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterLoggingInfoBrokerLogsCloudwatchLogs {
     private Boolean enabled;
+    /**
+     * @return Name of the Cloudwatch Log Group to deliver logs to.
+     * 
+     */
     private @Nullable String logGroup;
 
     private ClusterLoggingInfoBrokerLogsCloudwatchLogs() {}
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Name of the Cloudwatch Log Group to deliver logs to.
+     * 
+     */
     public Optional<String> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }

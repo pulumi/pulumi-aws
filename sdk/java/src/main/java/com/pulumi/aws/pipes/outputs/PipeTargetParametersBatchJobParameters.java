@@ -18,33 +18,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersBatchJobParameters {
+    /**
+     * @return The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+     * 
+     */
     private @Nullable PipeTargetParametersBatchJobParametersArrayProperties arrayProperties;
+    /**
+     * @return The overrides that are sent to a container. Detailed below.
+     * 
+     */
     private @Nullable PipeTargetParametersBatchJobParametersContainerOverrides containerOverrides;
+    /**
+     * @return A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+     * 
+     */
     private @Nullable List<PipeTargetParametersBatchJobParametersDependsOn> dependsOns;
+    /**
+     * @return The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+     * 
+     */
     private String jobDefinition;
+    /**
+     * @return The name of the job. It can be up to 128 letters long.
+     * 
+     */
     private String jobName;
+    /**
+     * @return Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+     * 
+     */
     private @Nullable Map<String,String> parameters;
+    /**
+     * @return The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+     * 
+     */
     private @Nullable PipeTargetParametersBatchJobParametersRetryStrategy retryStrategy;
 
     private PipeTargetParametersBatchJobParameters() {}
+    /**
+     * @return The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+     * 
+     */
     public Optional<PipeTargetParametersBatchJobParametersArrayProperties> arrayProperties() {
         return Optional.ofNullable(this.arrayProperties);
     }
+    /**
+     * @return The overrides that are sent to a container. Detailed below.
+     * 
+     */
     public Optional<PipeTargetParametersBatchJobParametersContainerOverrides> containerOverrides() {
         return Optional.ofNullable(this.containerOverrides);
     }
+    /**
+     * @return A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+     * 
+     */
     public List<PipeTargetParametersBatchJobParametersDependsOn> dependsOns() {
         return this.dependsOns == null ? List.of() : this.dependsOns;
     }
+    /**
+     * @return The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+     * 
+     */
     public String jobDefinition() {
         return this.jobDefinition;
     }
+    /**
+     * @return The name of the job. It can be up to 128 letters long.
+     * 
+     */
     public String jobName() {
         return this.jobName;
     }
+    /**
+     * @return Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+     * 
+     */
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }
+    /**
+     * @return The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+     * 
+     */
     public Optional<PipeTargetParametersBatchJobParametersRetryStrategy> retryStrategy() {
         return Optional.ofNullable(this.retryStrategy);
     }

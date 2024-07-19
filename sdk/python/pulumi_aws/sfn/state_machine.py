@@ -560,8 +560,8 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\",
             logging_configuration={
-                "logDestination": f"{log_group_for_sfn['arn']}:*",
-                "includeExecutionData": True,
+                "log_destination": f"{log_group_for_sfn['arn']}:*",
+                "include_execution_data": True,
                 "level": "ERROR",
             })
         ```
@@ -697,8 +697,8 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\",
             logging_configuration={
-                "logDestination": f"{log_group_for_sfn['arn']}:*",
-                "includeExecutionData": True,
+                "log_destination": f"{log_group_for_sfn['arn']}:*",
+                "include_execution_data": True,
                 "level": "ERROR",
             })
         ```

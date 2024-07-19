@@ -328,8 +328,8 @@ class ConfiguredTable(pulumi.CustomResource):
                 "column3",
             ],
             table_reference={
-                "databaseName": "example_database",
-                "tableName": "example_table",
+                "database_name": "example_database",
+                "table_name": "example_table",
             },
             tags={
                 "Project": "Pulumi",
@@ -382,8 +382,8 @@ class ConfiguredTable(pulumi.CustomResource):
                 "column3",
             ],
             table_reference={
-                "databaseName": "example_database",
-                "tableName": "example_table",
+                "database_name": "example_database",
+                "table_name": "example_table",
             },
             tags={
                 "Project": "Pulumi",

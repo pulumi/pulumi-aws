@@ -1435,9 +1435,9 @@ class Function(pulumi.CustomResource):
             file_system_id=efs_for_lambda.id,
             root_directory={
                 "path": "/lambda",
-                "creationInfo": {
-                    "ownerGid": 1000,
-                    "ownerUid": 1000,
+                "creation_info": {
+                    "owner_gid": 1000,
+                    "owner_uid": 1000,
                     "permissions": "777",
                 },
             },
@@ -1449,11 +1449,11 @@ class Function(pulumi.CustomResource):
         example = aws.lambda_.Function("example",
             file_system_config={
                 "arn": access_point_for_lambda.arn,
-                "localMountPath": "/mnt/efs",
+                "local_mount_path": "/mnt/efs",
             },
             vpc_config={
-                "subnetIds": [subnet_for_lambda["id"]],
-                "securityGroupIds": [sg_for_lambda["id"]],
+                "subnet_ids": [subnet_for_lambda["id"]],
+                "security_group_ids": [sg_for_lambda["id"]],
             },
             opts = pulumi.ResourceOptions(depends_on=[alpha]))
         ```
@@ -1500,7 +1500,7 @@ class Function(pulumi.CustomResource):
         test_lambda = aws.lambda_.Function("test_lambda",
             name=lambda_function_name,
             logging_config={
-                "logFormat": "Text",
+                "log_format": "Text",
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     lambda_logs,
@@ -1681,9 +1681,9 @@ class Function(pulumi.CustomResource):
             file_system_id=efs_for_lambda.id,
             root_directory={
                 "path": "/lambda",
-                "creationInfo": {
-                    "ownerGid": 1000,
-                    "ownerUid": 1000,
+                "creation_info": {
+                    "owner_gid": 1000,
+                    "owner_uid": 1000,
                     "permissions": "777",
                 },
             },
@@ -1695,11 +1695,11 @@ class Function(pulumi.CustomResource):
         example = aws.lambda_.Function("example",
             file_system_config={
                 "arn": access_point_for_lambda.arn,
-                "localMountPath": "/mnt/efs",
+                "local_mount_path": "/mnt/efs",
             },
             vpc_config={
-                "subnetIds": [subnet_for_lambda["id"]],
-                "securityGroupIds": [sg_for_lambda["id"]],
+                "subnet_ids": [subnet_for_lambda["id"]],
+                "security_group_ids": [sg_for_lambda["id"]],
             },
             opts = pulumi.ResourceOptions(depends_on=[alpha]))
         ```
@@ -1746,7 +1746,7 @@ class Function(pulumi.CustomResource):
         test_lambda = aws.lambda_.Function("test_lambda",
             name=lambda_function_name,
             logging_config={
-                "logFormat": "Text",
+                "log_format": "Text",
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     lambda_logs,

@@ -12,15 +12,35 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake {
+    /**
+     * @return The name of the account.
+     * 
+     */
     private @Nullable String accountName;
     private String bucketName;
     private @Nullable String bucketPrefix;
     private @Nullable String privateLinkServiceName;
+    /**
+     * @return AWS Region of the Snowflake account.
+     * 
+     */
     private @Nullable String region;
+    /**
+     * @return Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
+     * 
+     */
     private String stage;
+    /**
+     * @return The name of the Snowflake warehouse.
+     * 
+     */
     private String warehouse;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake() {}
+    /**
+     * @return The name of the account.
+     * 
+     */
     public Optional<String> accountName() {
         return Optional.ofNullable(this.accountName);
     }
@@ -33,12 +53,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public Optional<String> privateLinkServiceName() {
         return Optional.ofNullable(this.privateLinkServiceName);
     }
+    /**
+     * @return AWS Region of the Snowflake account.
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
+    /**
+     * @return Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
+     * 
+     */
     public String stage() {
         return this.stage;
     }
+    /**
+     * @return The name of the Snowflake warehouse.
+     * 
+     */
     public String warehouse() {
         return this.warehouse;
     }

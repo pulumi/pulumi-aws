@@ -14,11 +14,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsScheduleShareRule {
+    /**
+     * @return The IDs of the AWS accounts with which to share the snapshots.
+     * 
+     */
     private List<String> targetAccounts;
     private @Nullable Integer unshareInterval;
     private @Nullable String unshareIntervalUnit;
 
     private LifecyclePolicyPolicyDetailsScheduleShareRule() {}
+    /**
+     * @return The IDs of the AWS accounts with which to share the snapshots.
+     * 
+     */
     public List<String> targetAccounts() {
         return this.targetAccounts;
     }

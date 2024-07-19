@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketAclV2AccessControlPolicyGrantGrantee
     {
+        /// <summary>
+        /// Display name of the owner.
+        /// </summary>
         public readonly string? DisplayName;
         /// <summary>
         /// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.

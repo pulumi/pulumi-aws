@@ -167,7 +167,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         foo_peering_connection_options = aws.ec2.PeeringConnectionOptions("foo",
             vpc_peering_connection_id=foo_vpc_peering_connection.id,
             accepter={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             })
         ```
 
@@ -205,12 +205,12 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         requester = aws.ec2.PeeringConnectionOptions("requester",
             vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             requester={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             })
         accepter = aws.ec2.PeeringConnectionOptions("accepter",
             vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             accepter={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             })
         ```
 
@@ -263,7 +263,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         foo_peering_connection_options = aws.ec2.PeeringConnectionOptions("foo",
             vpc_peering_connection_id=foo_vpc_peering_connection.id,
             accepter={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             })
         ```
 
@@ -301,12 +301,12 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         requester = aws.ec2.PeeringConnectionOptions("requester",
             vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             requester={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             })
         accepter = aws.ec2.PeeringConnectionOptions("accepter",
             vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             accepter={
-                "allowRemoteVpcDnsResolution": True,
+                "allow_remote_vpc_dns_resolution": True,
             })
         ```
 

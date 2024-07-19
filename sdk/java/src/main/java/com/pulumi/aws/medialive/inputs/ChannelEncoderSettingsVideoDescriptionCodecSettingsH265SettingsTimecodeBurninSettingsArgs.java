@@ -15,23 +15,47 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs();
 
+    /**
+     * Set a prefix on the burned in timecode.
+     * 
+     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
+    /**
+     * @return Set a prefix on the burned in timecode.
+     * 
+     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
+    /**
+     * Sets the size of the burned in timecode.
+     * 
+     */
     @Import(name="timecodeBurninFontSize")
     private @Nullable Output<String> timecodeBurninFontSize;
 
+    /**
+     * @return Sets the size of the burned in timecode.
+     * 
+     */
     public Optional<Output<String>> timecodeBurninFontSize() {
         return Optional.ofNullable(this.timecodeBurninFontSize);
     }
 
+    /**
+     * Sets the position of the burned in timecode.
+     * 
+     */
     @Import(name="timecodeBurninPosition")
     private @Nullable Output<String> timecodeBurninPosition;
 
+    /**
+     * @return Sets the position of the burned in timecode.
+     * 
+     */
     public Optional<Output<String>> timecodeBurninPosition() {
         return Optional.ofNullable(this.timecodeBurninPosition);
     }
@@ -62,29 +86,65 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             $ = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param prefix Set a prefix on the burned in timecode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
+        /**
+         * @param prefix Set a prefix on the burned in timecode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
+        /**
+         * @param timecodeBurninFontSize Sets the size of the burned in timecode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timecodeBurninFontSize(@Nullable Output<String> timecodeBurninFontSize) {
             $.timecodeBurninFontSize = timecodeBurninFontSize;
             return this;
         }
 
+        /**
+         * @param timecodeBurninFontSize Sets the size of the burned in timecode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timecodeBurninFontSize(String timecodeBurninFontSize) {
             return timecodeBurninFontSize(Output.of(timecodeBurninFontSize));
         }
 
+        /**
+         * @param timecodeBurninPosition Sets the position of the burned in timecode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timecodeBurninPosition(@Nullable Output<String> timecodeBurninPosition) {
             $.timecodeBurninPosition = timecodeBurninPosition;
             return this;
         }
 
+        /**
+         * @param timecodeBurninPosition Sets the position of the burned in timecode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timecodeBurninPosition(String timecodeBurninPosition) {
             return timecodeBurninPosition(Output.of(timecodeBurninPosition));
         }

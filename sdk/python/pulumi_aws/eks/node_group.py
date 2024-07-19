@@ -754,12 +754,12 @@ class NodeGroup(pulumi.CustomResource):
             node_role_arn=example_aws_iam_role["arn"],
             subnet_ids=[__item["id"] for __item in example_aws_subnet],
             scaling_config={
-                "desiredSize": 1,
-                "maxSize": 2,
-                "minSize": 1,
+                "desired_size": 1,
+                "max_size": 2,
+                "min_size": 1,
             },
             update_config={
-                "maxUnavailable": 1,
+                "max_unavailable": 1,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_worker_node_policy,
@@ -777,7 +777,7 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.NodeGroup("example", scaling_config={
-            "desiredSize": 2,
+            "desired_size": 2,
         })
         ```
 
@@ -882,12 +882,12 @@ class NodeGroup(pulumi.CustomResource):
             node_role_arn=example_aws_iam_role["arn"],
             subnet_ids=[__item["id"] for __item in example_aws_subnet],
             scaling_config={
-                "desiredSize": 1,
-                "maxSize": 2,
-                "minSize": 1,
+                "desired_size": 1,
+                "max_size": 2,
+                "min_size": 1,
             },
             update_config={
-                "maxUnavailable": 1,
+                "max_unavailable": 1,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_worker_node_policy,
@@ -905,7 +905,7 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.NodeGroup("example", scaling_config={
-            "desiredSize": 2,
+            "desired_size": 2,
         })
         ```
 

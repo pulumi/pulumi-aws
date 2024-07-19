@@ -15,23 +15,47 @@ public final class LifecyclePolicyPolicyDetailsEventSourceParametersArgs extends
 
     public static final LifecyclePolicyPolicyDetailsEventSourceParametersArgs Empty = new LifecyclePolicyPolicyDetailsEventSourceParametersArgs();
 
+    /**
+     * The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+     * 
+     */
     @Import(name="descriptionRegex", required=true)
     private Output<String> descriptionRegex;
 
+    /**
+     * @return The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+     * 
+     */
     public Output<String> descriptionRegex() {
         return this.descriptionRegex;
     }
 
+    /**
+     * The type of event. Currently, only `shareSnapshot` events are supported.
+     * 
+     */
     @Import(name="eventType", required=true)
     private Output<String> eventType;
 
+    /**
+     * @return The type of event. Currently, only `shareSnapshot` events are supported.
+     * 
+     */
     public Output<String> eventType() {
         return this.eventType;
     }
 
+    /**
+     * The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+     * 
+     */
     @Import(name="snapshotOwners", required=true)
     private Output<List<String>> snapshotOwners;
 
+    /**
+     * @return The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+     * 
+     */
     public Output<List<String>> snapshotOwners() {
         return this.snapshotOwners;
     }
@@ -62,33 +86,75 @@ public final class LifecyclePolicyPolicyDetailsEventSourceParametersArgs extends
             $ = new LifecyclePolicyPolicyDetailsEventSourceParametersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param descriptionRegex The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder descriptionRegex(Output<String> descriptionRegex) {
             $.descriptionRegex = descriptionRegex;
             return this;
         }
 
+        /**
+         * @param descriptionRegex The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder descriptionRegex(String descriptionRegex) {
             return descriptionRegex(Output.of(descriptionRegex));
         }
 
+        /**
+         * @param eventType The type of event. Currently, only `shareSnapshot` events are supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventType(Output<String> eventType) {
             $.eventType = eventType;
             return this;
         }
 
+        /**
+         * @param eventType The type of event. Currently, only `shareSnapshot` events are supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventType(String eventType) {
             return eventType(Output.of(eventType));
         }
 
+        /**
+         * @param snapshotOwners The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotOwners(Output<List<String>> snapshotOwners) {
             $.snapshotOwners = snapshotOwners;
             return this;
         }
 
+        /**
+         * @param snapshotOwners The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotOwners(List<String> snapshotOwners) {
             return snapshotOwners(Output.of(snapshotOwners));
         }
 
+        /**
+         * @param snapshotOwners The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotOwners(String... snapshotOwners) {
             return snapshotOwners(List.of(snapshotOwners));
         }
