@@ -16,9 +16,17 @@ public final class PipeSourceParametersFilterCriteriaArgs extends com.pulumi.res
 
     public static final PipeSourceParametersFilterCriteriaArgs Empty = new PipeSourceParametersFilterCriteriaArgs();
 
+    /**
+     * An array of up to 5 event patterns. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<PipeSourceParametersFilterCriteriaFilterArgs>> filters;
 
+    /**
+     * @return An array of up to 5 event patterns. Detailed below.
+     * 
+     */
     public Optional<Output<List<PipeSourceParametersFilterCriteriaFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -47,15 +55,33 @@ public final class PipeSourceParametersFilterCriteriaArgs extends com.pulumi.res
             $ = new PipeSourceParametersFilterCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters An array of up to 5 event patterns. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<PipeSourceParametersFilterCriteriaFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters An array of up to 5 event patterns. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<PipeSourceParametersFilterCriteriaFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters An array of up to 5 event patterns. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(PipeSourceParametersFilterCriteriaFilterArgs... filters) {
             return filters(List.of(filters));
         }

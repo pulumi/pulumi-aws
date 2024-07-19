@@ -341,8 +341,8 @@ class ScheduledAction(pulumi.CustomResource):
             schedule="cron(00 23 * * ? *)",
             iam_role=example_role.arn,
             target_action={
-                "pauseCluster": {
-                    "clusterIdentifier": "tf-redshift001",
+                "pause_cluster": {
+                    "cluster_identifier": "tf-redshift001",
                 },
             })
         ```
@@ -358,11 +358,11 @@ class ScheduledAction(pulumi.CustomResource):
             schedule="cron(00 23 * * ? *)",
             iam_role=example_aws_iam_role["arn"],
             target_action={
-                "resizeCluster": {
-                    "clusterIdentifier": "tf-redshift001",
-                    "clusterType": "multi-node",
-                    "nodeType": "dc1.large",
-                    "numberOfNodes": 2,
+                "resize_cluster": {
+                    "cluster_identifier": "tf-redshift001",
+                    "cluster_type": "multi-node",
+                    "node_type": "dc1.large",
+                    "number_of_nodes": 2,
                 },
             })
         ```
@@ -432,8 +432,8 @@ class ScheduledAction(pulumi.CustomResource):
             schedule="cron(00 23 * * ? *)",
             iam_role=example_role.arn,
             target_action={
-                "pauseCluster": {
-                    "clusterIdentifier": "tf-redshift001",
+                "pause_cluster": {
+                    "cluster_identifier": "tf-redshift001",
                 },
             })
         ```
@@ -449,11 +449,11 @@ class ScheduledAction(pulumi.CustomResource):
             schedule="cron(00 23 * * ? *)",
             iam_role=example_aws_iam_role["arn"],
             target_action={
-                "resizeCluster": {
-                    "clusterIdentifier": "tf-redshift001",
-                    "clusterType": "multi-node",
-                    "nodeType": "dc1.large",
-                    "numberOfNodes": 2,
+                "resize_cluster": {
+                    "cluster_identifier": "tf-redshift001",
+                    "cluster_type": "multi-node",
+                    "node_type": "dc1.large",
+                    "number_of_nodes": 2,
                 },
             })
         ```

@@ -13,8 +13,14 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class PartitionStorageDescriptorColumn
     {
+        /// <summary>
+        /// Free-form text comment.
+        /// </summary>
         public readonly string? Comment;
         public readonly string Name;
+        /// <summary>
+        /// The datatype of data in the Column.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

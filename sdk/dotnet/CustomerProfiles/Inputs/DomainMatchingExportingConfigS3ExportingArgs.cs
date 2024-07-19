@@ -12,9 +12,15 @@ namespace Pulumi.Aws.CustomerProfiles.Inputs
 
     public sealed class DomainMatchingExportingConfigS3ExportingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the S3 bucket where Identity Resolution Jobs write result files.
+        /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// The S3 key name of the location where Identity Resolution Jobs write result files.
+        /// </summary>
         [Input("s3KeyName")]
         public Input<string>? S3KeyName { get; set; }
 

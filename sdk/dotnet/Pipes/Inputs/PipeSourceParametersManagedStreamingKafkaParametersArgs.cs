@@ -12,21 +12,39 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeSourceParametersManagedStreamingKafkaParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of records to include in each batch. Maximum value of 10000.
+        /// </summary>
         [Input("batchSize")]
         public Input<int>? BatchSize { get; set; }
 
+        /// <summary>
+        /// The name of the destination queue to consume. Maximum value of 200.
+        /// </summary>
         [Input("consumerGroupId")]
         public Input<string>? ConsumerGroupId { get; set; }
 
+        /// <summary>
+        /// The credentials needed to access the resource. Detailed below.
+        /// </summary>
         [Input("credentials")]
         public Input<Inputs.PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs>? Credentials { get; set; }
 
+        /// <summary>
+        /// The maximum length of a time to wait for events. Maximum value of 300.
+        /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 
+        /// <summary>
+        /// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        /// </summary>
         [Input("startingPosition")]
         public Input<string>? StartingPosition { get; set; }
 
+        /// <summary>
+        /// The name of the topic that the pipe will read from. Maximum length of 249.
+        /// </summary>
         [Input("topicName", required: true)]
         public Input<string> TopicName { get; set; } = null!;
 

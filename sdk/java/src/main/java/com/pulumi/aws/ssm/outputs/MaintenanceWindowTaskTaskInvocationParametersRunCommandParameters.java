@@ -36,6 +36,10 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
      * 
      */
     private @Nullable String documentHashType;
+    /**
+     * @return The version of an Automation document to use during task execution.
+     * 
+     */
     private @Nullable String documentVersion;
     /**
      * @return Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
@@ -97,6 +101,10 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
     public Optional<String> documentHashType() {
         return Optional.ofNullable(this.documentHashType);
     }
+    /**
+     * @return The version of an Automation document to use during task execution.
+     * 
+     */
     public Optional<String> documentVersion() {
         return Optional.ofNullable(this.documentVersion);
     }

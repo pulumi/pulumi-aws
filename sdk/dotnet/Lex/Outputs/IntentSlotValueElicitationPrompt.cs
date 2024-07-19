@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class IntentSlotValueElicitationPrompt
     {
+        /// <summary>
+        /// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+        /// </summary>
         public readonly int MaxAttempts;
         public readonly ImmutableArray<Outputs.IntentSlotValueElicitationPromptMessage> Messages;
         public readonly string? ResponseCard;

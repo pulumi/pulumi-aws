@@ -570,7 +570,7 @@ class DocumentClassifier(pulumi.CustomResource):
             data_access_role_arn=example_aws_iam_role["arn"],
             language_code="en",
             input_data_config={
-                "s3Uri": documents.id.apply(lambda id: f"s3://{test['bucket']}/{id}"),
+                "s3_uri": documents.id.apply(lambda id: f"s3://{test['bucket']}/{id}"),
             },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         entities = aws.s3.BucketObjectv2("entities")
@@ -643,7 +643,7 @@ class DocumentClassifier(pulumi.CustomResource):
             data_access_role_arn=example_aws_iam_role["arn"],
             language_code="en",
             input_data_config={
-                "s3Uri": documents.id.apply(lambda id: f"s3://{test['bucket']}/{id}"),
+                "s3_uri": documents.id.apply(lambda id: f"s3://{test['bucket']}/{id}"),
             },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         entities = aws.s3.BucketObjectv2("entities")

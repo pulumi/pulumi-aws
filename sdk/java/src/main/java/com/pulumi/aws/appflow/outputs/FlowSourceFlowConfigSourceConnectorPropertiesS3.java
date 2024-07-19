@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
     private String bucketName;
     private String bucketPrefix;
+    /**
+     * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * 
+     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesS3() {}
@@ -24,6 +28,10 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
     public String bucketPrefix() {
         return this.bucketPrefix;
     }
+    /**
+     * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * 
+     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig> s3InputFormatConfig() {
         return Optional.ofNullable(this.s3InputFormatConfig);
     }

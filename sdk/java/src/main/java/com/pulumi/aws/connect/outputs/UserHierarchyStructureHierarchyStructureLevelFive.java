@@ -22,6 +22,10 @@ public final class UserHierarchyStructureHierarchyStructureLevelFive {
      * 
      */
     private @Nullable String id;
+    /**
+     * @return The name of the user hierarchy level. Must not be more than 50 characters.
+     * 
+     */
     private String name;
 
     private UserHierarchyStructureHierarchyStructureLevelFive() {}
@@ -39,6 +43,10 @@ public final class UserHierarchyStructureHierarchyStructureLevelFive {
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return The name of the user hierarchy level. Must not be more than 50 characters.
+     * 
+     */
     public String name() {
         return this.name;
     }

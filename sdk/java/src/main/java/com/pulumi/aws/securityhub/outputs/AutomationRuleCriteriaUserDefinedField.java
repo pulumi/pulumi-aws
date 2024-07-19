@@ -11,6 +11,10 @@ import java.util.Objects;
 @CustomType
 public final class AutomationRuleCriteriaUserDefinedField {
     private String comparison;
+    /**
+     * @return The key of the map filter.
+     * 
+     */
     private String key;
     private String value;
 
@@ -18,6 +22,10 @@ public final class AutomationRuleCriteriaUserDefinedField {
     public String comparison() {
         return this.comparison;
     }
+    /**
+     * @return The key of the map filter.
+     * 
+     */
     public String key() {
         return this.key;
     }

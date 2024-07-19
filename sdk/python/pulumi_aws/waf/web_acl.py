@@ -293,7 +293,7 @@ class WebAcl(pulumi.CustomResource):
             name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[{
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
@@ -309,7 +309,7 @@ class WebAcl(pulumi.CustomResource):
                     "type": "BLOCK",
                 },
                 "priority": 1,
-                "ruleId": wafrule.id,
+                "rule_id": wafrule.id,
                 "type": "REGULAR",
             }],
             opts = pulumi.ResourceOptions(depends_on=[
@@ -327,9 +327,9 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.waf.WebAcl("example", logging_configuration={
-            "logDestination": example_aws_kinesis_firehose_delivery_stream["arn"],
-            "redactedFields": {
-                "fieldToMatches": [
+            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
+            "redacted_fields": {
+                "field_to_matches": [
                     {
                         "type": "URI",
                     },
@@ -386,7 +386,7 @@ class WebAcl(pulumi.CustomResource):
             name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[{
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
@@ -402,7 +402,7 @@ class WebAcl(pulumi.CustomResource):
                     "type": "BLOCK",
                 },
                 "priority": 1,
-                "ruleId": wafrule.id,
+                "rule_id": wafrule.id,
                 "type": "REGULAR",
             }],
             opts = pulumi.ResourceOptions(depends_on=[
@@ -420,9 +420,9 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.waf.WebAcl("example", logging_configuration={
-            "logDestination": example_aws_kinesis_firehose_delivery_stream["arn"],
-            "redactedFields": {
-                "fieldToMatches": [
+            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
+            "redacted_fields": {
+                "field_to_matches": [
                     {
                         "type": "URI",
                     },

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo
     {
+        /// <summary>
+        /// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+        /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput? ProvisionedThroughput;
+        /// <summary>
+        /// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+        /// </summary>
         public readonly int? VolumeSize;
 
         [OutputConstructor]

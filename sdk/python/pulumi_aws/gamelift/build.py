@@ -254,7 +254,7 @@ class Build(pulumi.CustomResource):
             storage_location={
                 "bucket": test_aws_s3_bucket["id"],
                 "key": test_aws_s3_object["key"],
-                "roleArn": test_aws_iam_role["arn"],
+                "role_arn": test_aws_iam_role["arn"],
             })
         ```
 
@@ -295,7 +295,7 @@ class Build(pulumi.CustomResource):
             storage_location={
                 "bucket": test_aws_s3_bucket["id"],
                 "key": test_aws_s3_object["key"],
-                "roleArn": test_aws_iam_role["arn"],
+                "role_arn": test_aws_iam_role["arn"],
             })
         ```
 

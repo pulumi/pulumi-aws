@@ -169,7 +169,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
             instance_arn=example_permission_set.instance_arn,
             permission_set_arn=example_permission_set.arn,
             permissions_boundary={
-                "customerManagedPolicyReference": {
+                "customer_managed_policy_reference": {
                     "name": example_policy.name,
                     "path": "/",
                 },
@@ -186,7 +186,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
             instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
             permission_set_arn=example_aws_ssoadmin_permission_set["arn"],
             permissions_boundary={
-                "managedPolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess",
+                "managed_policy_arn": "arn:aws:iam::aws:policy/ReadOnlyAccess",
             })
         ```
 
@@ -243,7 +243,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
             instance_arn=example_permission_set.instance_arn,
             permission_set_arn=example_permission_set.arn,
             permissions_boundary={
-                "customerManagedPolicyReference": {
+                "customer_managed_policy_reference": {
                     "name": example_policy.name,
                     "path": "/",
                 },
@@ -260,7 +260,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
             instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
             permission_set_arn=example_aws_ssoadmin_permission_set["arn"],
             permissions_boundary={
-                "managedPolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess",
+                "managed_policy_arn": "arn:aws:iam::aws:policy/ReadOnlyAccess",
             })
         ```
 

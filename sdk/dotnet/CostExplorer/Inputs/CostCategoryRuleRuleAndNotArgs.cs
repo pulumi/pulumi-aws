@@ -12,9 +12,15 @@ namespace Pulumi.Aws.CostExplorer.Inputs
 
     public sealed class CostCategoryRuleRuleAndNotArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for the filter that's based on `CostCategory` values. See below.
+        /// </summary>
         [Input("costCategory")]
         public Input<Inputs.CostCategoryRuleRuleAndNotCostCategoryArgs>? CostCategory { get; set; }
 
+        /// <summary>
+        /// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        /// </summary>
         [Input("dimension")]
         public Input<Inputs.CostCategoryRuleRuleAndNotDimensionArgs>? Dimension { get; set; }
 
