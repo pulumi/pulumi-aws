@@ -27,7 +27,8 @@ import (
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	return append(defaults,
 		fixUpCloudFrontPublicKey,
-		fixUpEcsServiceName,
+		fixUpEcsServiceNameTrigger,
+		fixUpEcsServiceNameForceNewDeployment,
 		// This fixes up strings such as:
 		//
 		//	name        = "terraform-kinesis-firehose-os",
@@ -80,12 +81,24 @@ var fixUpCloudFrontPublicKey = targetedSimpleReplace("cloudfront_public_key.html
 		"Instead, it is recommended to use Pulumi autonaming by leaving this property unset (default behavior) "+
 		"or set the `namePrefix` property to allow the provider to autoname the resource.\n")
 
-var fixUpEcsServiceName = targetedSimpleReplace("ecs_service.html.markdown",
+var fixUpEcsServiceNameTrigger = targetedSimpleReplace("ecs_service.html.markdown",
 	"* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger "+
 		"an in-place update (redeployment). Useful with `plantimestamp()`. See example above.\n",
 	"* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger "+
 		"an in-place update (redeployment). Useful with `plantimestamp()`. "+
 		"When using the triggers property you also need to set the forceNewDeployment property to True.\n")
+
+var fixUpEcsServiceNameForceNewDeployment = targetedSimpleReplace(
+	"ecs_service.html.markdown",
+	"* `force_new_deployment` - (Optional) Enable to force a new task deployment of the service. "+
+		"This can be used to update tasks to use a newer Docker image with same image/tag combination "+
+		"(e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy "+
+		"`ordered_placement_strategy` and `placement_constraints` updates.",
+	"* `force_new_deployment` - (Optional) Enable to force a new task deployment of the service. "+
+		"This can be used to update tasks to use a newer Docker image with same image/tag combination "+
+		"(e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy "+
+		"`ordered_placement_strategy` and `placement_constraints` updates.\n"+
+		"When using the forceNewDeployment property you also need to configure the Triggers property.\n")
 
 func reReplace(from string, to string) tfbridge.DocsEdit {
 	fromR, toB := regexp.MustCompile(from), []byte(to)
