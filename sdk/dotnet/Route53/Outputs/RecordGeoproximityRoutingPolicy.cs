@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class RecordGeoproximityRoutingPolicy
     {
+        /// <summary>
+        /// A AWS region where the resource is present.
+        /// </summary>
         public readonly string? AwsRegion;
+        /// <summary>
+        /// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+        /// </summary>
         public readonly int? Bias;
+        /// <summary>
+        /// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RecordGeoproximityRoutingPolicyCoordinate> Coordinates;
+        /// <summary>
+        /// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+        /// </summary>
         public readonly string? LocalZoneGroup;
 
         [OutputConstructor]

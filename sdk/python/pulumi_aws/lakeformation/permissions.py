@@ -518,9 +518,9 @@ class Permissions(pulumi.CustomResource):
             permissions=["SELECT"],
             principal="arn:aws:iam:us-east-1:123456789012:user/SanHolo",
             table_with_columns={
-                "databaseName": example_catalog_table.database_name,
+                "database_name": example_catalog_table.database_name,
                 "name": example_catalog_table.name,
-                "columnNames": ["event"],
+                "column_names": ["event"],
             })
         ```
 
@@ -569,7 +569,7 @@ class Permissions(pulumi.CustomResource):
             ],
             database={
                 "name": example_aws_glue_catalog_database["name"],
-                "catalogId": "110376042874",
+                "catalog_id": "110376042874",
             })
         ```
 
@@ -587,7 +587,7 @@ class Permissions(pulumi.CustomResource):
                 "DROP",
             ],
             lf_tag_policy={
-                "resourceType": "DATABASE",
+                "resource_type": "DATABASE",
                 "expressions": [
                     {
                         "key": "Team",
@@ -691,9 +691,9 @@ class Permissions(pulumi.CustomResource):
             permissions=["SELECT"],
             principal="arn:aws:iam:us-east-1:123456789012:user/SanHolo",
             table_with_columns={
-                "databaseName": example_catalog_table.database_name,
+                "database_name": example_catalog_table.database_name,
                 "name": example_catalog_table.name,
-                "columnNames": ["event"],
+                "column_names": ["event"],
             })
         ```
 
@@ -742,7 +742,7 @@ class Permissions(pulumi.CustomResource):
             ],
             database={
                 "name": example_aws_glue_catalog_database["name"],
-                "catalogId": "110376042874",
+                "catalog_id": "110376042874",
             })
         ```
 
@@ -760,7 +760,7 @@ class Permissions(pulumi.CustomResource):
                 "DROP",
             ],
             lf_tag_policy={
-                "resourceType": "DATABASE",
+                "resource_type": "DATABASE",
                 "expressions": [
                     {
                         "key": "Team",

@@ -230,7 +230,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         account = aws.cfg.ConfigurationAggregator("account",
             name="example",
             account_aggregation_source={
-                "accountIds": ["123456789012"],
+                "account_ids": ["123456789012"],
                 "regions": ["us-west-2"],
             })
         ```
@@ -258,8 +258,8 @@ class ConfigurationAggregator(pulumi.CustomResource):
         organization = aws.cfg.ConfigurationAggregator("organization",
             name="example",
             organization_aggregation_source={
-                "allRegions": True,
-                "roleArn": organization_role.arn,
+                "all_regions": True,
+                "role_arn": organization_role.arn,
             },
             opts = pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```
@@ -301,7 +301,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         account = aws.cfg.ConfigurationAggregator("account",
             name="example",
             account_aggregation_source={
-                "accountIds": ["123456789012"],
+                "account_ids": ["123456789012"],
                 "regions": ["us-west-2"],
             })
         ```
@@ -329,8 +329,8 @@ class ConfigurationAggregator(pulumi.CustomResource):
         organization = aws.cfg.ConfigurationAggregator("organization",
             name="example",
             organization_aggregation_source={
-                "allRegions": True,
-                "roleArn": organization_role.arn,
+                "all_regions": True,
+                "role_arn": organization_role.arn,
             },
             opts = pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```

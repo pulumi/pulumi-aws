@@ -228,10 +228,10 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         example = aws.lambda_.FunctionEventInvokeConfig("example",
             function_name=example_aws_lambda_alias["functionName"],
             destination_config={
-                "onFailure": {
+                "on_failure": {
                     "destination": example_aws_sqs_queue["arn"],
                 },
-                "onSuccess": {
+                "on_success": {
                     "destination": example_aws_sns_topic["arn"],
                 },
             })
@@ -345,10 +345,10 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         example = aws.lambda_.FunctionEventInvokeConfig("example",
             function_name=example_aws_lambda_alias["functionName"],
             destination_config={
-                "onFailure": {
+                "on_failure": {
                     "destination": example_aws_sqs_queue["arn"],
                 },
-                "onSuccess": {
+                "on_success": {
                     "destination": example_aws_sns_topic["arn"],
                 },
             })

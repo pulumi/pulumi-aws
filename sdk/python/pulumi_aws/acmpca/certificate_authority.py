@@ -450,10 +450,10 @@ class CertificateAuthority(pulumi.CustomResource):
 
         example = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             },
             permanent_deletion_time_in_days=7)
@@ -468,10 +468,10 @@ class CertificateAuthority(pulumi.CustomResource):
         example = aws.acmpca.CertificateAuthority("example",
             usage_mode="SHORT_LIVED_CERTIFICATE",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             })
         ```
@@ -506,19 +506,19 @@ class CertificateAuthority(pulumi.CustomResource):
             policy=acmpca_bucket_access.json)
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             },
             revocation_configuration={
-                "crlConfiguration": {
-                    "customCname": "crl.example.com",
+                "crl_configuration": {
+                    "custom_cname": "crl.example.com",
                     "enabled": True,
-                    "expirationInDays": 7,
-                    "s3BucketName": example.id,
-                    "s3ObjectAcl": "BUCKET_OWNER_FULL_CONTROL",
+                    "expiration_in_days": 7,
+                    "s3_bucket_name": example.id,
+                    "s3_object_acl": "BUCKET_OWNER_FULL_CONTROL",
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
@@ -564,10 +564,10 @@ class CertificateAuthority(pulumi.CustomResource):
 
         example = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             },
             permanent_deletion_time_in_days=7)
@@ -582,10 +582,10 @@ class CertificateAuthority(pulumi.CustomResource):
         example = aws.acmpca.CertificateAuthority("example",
             usage_mode="SHORT_LIVED_CERTIFICATE",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             })
         ```
@@ -620,19 +620,19 @@ class CertificateAuthority(pulumi.CustomResource):
             policy=acmpca_bucket_access.json)
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             },
             revocation_configuration={
-                "crlConfiguration": {
-                    "customCname": "crl.example.com",
+                "crl_configuration": {
+                    "custom_cname": "crl.example.com",
                     "enabled": True,
-                    "expirationInDays": 7,
-                    "s3BucketName": example.id,
-                    "s3ObjectAcl": "BUCKET_OWNER_FULL_CONTROL",
+                    "expiration_in_days": 7,
+                    "s3_bucket_name": example.id,
+                    "s3_object_acl": "BUCKET_OWNER_FULL_CONTROL",
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))

@@ -474,10 +474,10 @@ class GameServerGroup(pulumi.CustomResource):
             game_server_group_name="example",
             instance_definitions=[
                 {
-                    "instanceType": "c5.large",
+                    "instance_type": "c5.large",
                 },
                 {
-                    "instanceType": "c5a.large",
+                    "instance_type": "c5a.large",
                 },
             ],
             launch_template={
@@ -497,9 +497,9 @@ class GameServerGroup(pulumi.CustomResource):
 
         example = aws.gamelift.GameServerGroup("example",
             auto_scaling_policy={
-                "estimatedInstanceWarmup": 60,
-                "targetTrackingConfiguration": {
-                    "targetValue": 75,
+                "estimated_instance_warmup": 60,
+                "target_tracking_configuration": {
+                    "target_value": 75,
                 },
             },
             balancing_strategy="SPOT_ONLY",
@@ -507,12 +507,12 @@ class GameServerGroup(pulumi.CustomResource):
             game_server_protection_policy="FULL_PROTECTION",
             instance_definitions=[
                 {
-                    "instanceType": "c5.large",
-                    "weightedCapacity": "1",
+                    "instance_type": "c5.large",
+                    "weighted_capacity": "1",
                 },
                 {
-                    "instanceType": "c5.2xlarge",
-                    "weightedCapacity": "2",
+                    "instance_type": "c5.2xlarge",
+                    "weighted_capacity": "2",
                 },
             ],
             launch_template={
@@ -606,10 +606,10 @@ class GameServerGroup(pulumi.CustomResource):
             game_server_group_name="example",
             instance_definitions=[
                 {
-                    "instanceType": "c5.large",
+                    "instance_type": "c5.large",
                 },
                 {
-                    "instanceType": "c5a.large",
+                    "instance_type": "c5a.large",
                 },
             ],
             launch_template={
@@ -629,9 +629,9 @@ class GameServerGroup(pulumi.CustomResource):
 
         example = aws.gamelift.GameServerGroup("example",
             auto_scaling_policy={
-                "estimatedInstanceWarmup": 60,
-                "targetTrackingConfiguration": {
-                    "targetValue": 75,
+                "estimated_instance_warmup": 60,
+                "target_tracking_configuration": {
+                    "target_value": 75,
                 },
             },
             balancing_strategy="SPOT_ONLY",
@@ -639,12 +639,12 @@ class GameServerGroup(pulumi.CustomResource):
             game_server_protection_policy="FULL_PROTECTION",
             instance_definitions=[
                 {
-                    "instanceType": "c5.large",
-                    "weightedCapacity": "1",
+                    "instance_type": "c5.large",
+                    "weighted_capacity": "1",
                 },
                 {
-                    "instanceType": "c5.2xlarge",
-                    "weightedCapacity": "2",
+                    "instance_type": "c5.2xlarge",
+                    "weighted_capacity": "2",
                 },
             ],
             launch_template={

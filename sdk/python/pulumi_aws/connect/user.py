@@ -441,12 +441,12 @@ class User(pulumi.CustomResource):
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info={
-                "firstName": "example",
-                "lastName": "example2",
+                "first_name": "example",
+                "last_name": "example2",
             },
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "phoneType": "SOFT_PHONE",
+                "after_contact_work_time_limit": 0,
+                "phone_type": "SOFT_PHONE",
             })
         ```
 
@@ -464,12 +464,12 @@ class User(pulumi.CustomResource):
             hierarchy_group_id=example_aws_connect_user_hierarchy_group["hierarchyGroupId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info={
-                "firstName": "example",
-                "lastName": "example2",
+                "first_name": "example",
+                "last_name": "example2",
             },
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "phoneType": "SOFT_PHONE",
+                "after_contact_work_time_limit": 0,
+                "phone_type": "SOFT_PHONE",
             })
         ```
 
@@ -487,12 +487,12 @@ class User(pulumi.CustomResource):
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info={
                 "email": "example@example.com",
-                "firstName": "example",
-                "lastName": "example2",
+                "first_name": "example",
+                "last_name": "example2",
             },
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "phoneType": "SOFT_PHONE",
+                "after_contact_work_time_limit": 0,
+                "phone_type": "SOFT_PHONE",
             })
         ```
 
@@ -509,8 +509,8 @@ class User(pulumi.CustomResource):
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "phoneType": "SOFT_PHONE",
+                "after_contact_work_time_limit": 0,
+                "phone_type": "SOFT_PHONE",
             })
         ```
 
@@ -530,10 +530,10 @@ class User(pulumi.CustomResource):
                 example2["securityProfileId"],
             ],
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "autoAccept": False,
-                "deskPhoneNumber": "+112345678912",
-                "phoneType": "DESK_PHONE",
+                "after_contact_work_time_limit": 0,
+                "auto_accept": False,
+                "desk_phone_number": "+112345678912",
+                "phone_type": "DESK_PHONE",
             })
         ```
 
@@ -584,12 +584,12 @@ class User(pulumi.CustomResource):
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info={
-                "firstName": "example",
-                "lastName": "example2",
+                "first_name": "example",
+                "last_name": "example2",
             },
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "phoneType": "SOFT_PHONE",
+                "after_contact_work_time_limit": 0,
+                "phone_type": "SOFT_PHONE",
             })
         ```
 
@@ -607,12 +607,12 @@ class User(pulumi.CustomResource):
             hierarchy_group_id=example_aws_connect_user_hierarchy_group["hierarchyGroupId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info={
-                "firstName": "example",
-                "lastName": "example2",
+                "first_name": "example",
+                "last_name": "example2",
             },
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "phoneType": "SOFT_PHONE",
+                "after_contact_work_time_limit": 0,
+                "phone_type": "SOFT_PHONE",
             })
         ```
 
@@ -630,12 +630,12 @@ class User(pulumi.CustomResource):
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             identity_info={
                 "email": "example@example.com",
-                "firstName": "example",
-                "lastName": "example2",
+                "first_name": "example",
+                "last_name": "example2",
             },
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "phoneType": "SOFT_PHONE",
+                "after_contact_work_time_limit": 0,
+                "phone_type": "SOFT_PHONE",
             })
         ```
 
@@ -652,8 +652,8 @@ class User(pulumi.CustomResource):
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "phoneType": "SOFT_PHONE",
+                "after_contact_work_time_limit": 0,
+                "phone_type": "SOFT_PHONE",
             })
         ```
 
@@ -673,10 +673,10 @@ class User(pulumi.CustomResource):
                 example2["securityProfileId"],
             ],
             phone_config={
-                "afterContactWorkTimeLimit": 0,
-                "autoAccept": False,
-                "deskPhoneNumber": "+112345678912",
-                "phoneType": "DESK_PHONE",
+                "after_contact_work_time_limit": 0,
+                "auto_accept": False,
+                "desk_phone_number": "+112345678912",
+                "phone_type": "DESK_PHONE",
             })
         ```
 

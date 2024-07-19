@@ -273,6 +273,7 @@ func (o EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pul
 }
 
 type TrailAdvancedEventSelector struct {
+	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors []TrailAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
 	// Name of the trail.
 	Name *string `pulumi:"name"`
@@ -290,6 +291,7 @@ type TrailAdvancedEventSelectorInput interface {
 }
 
 type TrailAdvancedEventSelectorArgs struct {
+	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors TrailAdvancedEventSelectorFieldSelectorArrayInput `pulumi:"fieldSelectors"`
 	// Name of the trail.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -346,6 +348,7 @@ func (o TrailAdvancedEventSelectorOutput) ToTrailAdvancedEventSelectorOutputWith
 	return o
 }
 
+// Specifies the selector statements in an advanced event selector. Fields documented below.
 func (o TrailAdvancedEventSelectorOutput) FieldSelectors() TrailAdvancedEventSelectorFieldSelectorArrayOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelector) []TrailAdvancedEventSelectorFieldSelector { return v.FieldSelectors }).(TrailAdvancedEventSelectorFieldSelectorArrayOutput)
 }
@@ -376,13 +379,20 @@ func (o TrailAdvancedEventSelectorArrayOutput) Index(i pulumi.IntInput) TrailAdv
 }
 
 type TrailAdvancedEventSelectorFieldSelector struct {
-	EndsWiths      []string `pulumi:"endsWiths"`
-	Equals         []string `pulumi:"equals"`
-	Field          string   `pulumi:"field"`
-	NotEndsWiths   []string `pulumi:"notEndsWiths"`
-	NotEquals      []string `pulumi:"notEquals"`
+	// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+	EndsWiths []string `pulumi:"endsWiths"`
+	// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+	Equals []string `pulumi:"equals"`
+	// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+	Field string `pulumi:"field"`
+	// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+	NotEndsWiths []string `pulumi:"notEndsWiths"`
+	// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+	NotEquals []string `pulumi:"notEquals"`
+	// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
 	NotStartsWiths []string `pulumi:"notStartsWiths"`
-	StartsWiths    []string `pulumi:"startsWiths"`
+	// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+	StartsWiths []string `pulumi:"startsWiths"`
 }
 
 // TrailAdvancedEventSelectorFieldSelectorInput is an input type that accepts TrailAdvancedEventSelectorFieldSelectorArgs and TrailAdvancedEventSelectorFieldSelectorOutput values.
@@ -397,13 +407,20 @@ type TrailAdvancedEventSelectorFieldSelectorInput interface {
 }
 
 type TrailAdvancedEventSelectorFieldSelectorArgs struct {
-	EndsWiths      pulumi.StringArrayInput `pulumi:"endsWiths"`
-	Equals         pulumi.StringArrayInput `pulumi:"equals"`
-	Field          pulumi.StringInput      `pulumi:"field"`
-	NotEndsWiths   pulumi.StringArrayInput `pulumi:"notEndsWiths"`
-	NotEquals      pulumi.StringArrayInput `pulumi:"notEquals"`
+	// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+	EndsWiths pulumi.StringArrayInput `pulumi:"endsWiths"`
+	// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+	Equals pulumi.StringArrayInput `pulumi:"equals"`
+	// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+	Field pulumi.StringInput `pulumi:"field"`
+	// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+	NotEndsWiths pulumi.StringArrayInput `pulumi:"notEndsWiths"`
+	// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+	NotEquals pulumi.StringArrayInput `pulumi:"notEquals"`
+	// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
 	NotStartsWiths pulumi.StringArrayInput `pulumi:"notStartsWiths"`
-	StartsWiths    pulumi.StringArrayInput `pulumi:"startsWiths"`
+	// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+	StartsWiths pulumi.StringArrayInput `pulumi:"startsWiths"`
 }
 
 func (TrailAdvancedEventSelectorFieldSelectorArgs) ElementType() reflect.Type {
@@ -457,30 +474,37 @@ func (o TrailAdvancedEventSelectorFieldSelectorOutput) ToTrailAdvancedEventSelec
 	return o
 }
 
+// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
 func (o TrailAdvancedEventSelectorFieldSelectorOutput) EndsWiths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.EndsWiths }).(pulumi.StringArrayOutput)
 }
 
+// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
 func (o TrailAdvancedEventSelectorFieldSelectorOutput) Equals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.Equals }).(pulumi.StringArrayOutput)
 }
 
+// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
 func (o TrailAdvancedEventSelectorFieldSelectorOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) string { return v.Field }).(pulumi.StringOutput)
 }
 
+// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
 func (o TrailAdvancedEventSelectorFieldSelectorOutput) NotEndsWiths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.NotEndsWiths }).(pulumi.StringArrayOutput)
 }
 
+// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
 func (o TrailAdvancedEventSelectorFieldSelectorOutput) NotEquals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.NotEquals }).(pulumi.StringArrayOutput)
 }
 
+// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
 func (o TrailAdvancedEventSelectorFieldSelectorOutput) NotStartsWiths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.NotStartsWiths }).(pulumi.StringArrayOutput)
 }
 
+// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
 func (o TrailAdvancedEventSelectorFieldSelectorOutput) StartsWiths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.StartsWiths }).(pulumi.StringArrayOutput)
 }

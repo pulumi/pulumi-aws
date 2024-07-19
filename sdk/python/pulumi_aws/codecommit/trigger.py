@@ -135,7 +135,7 @@ class Trigger(pulumi.CustomResource):
             triggers=[{
                 "name": "all",
                 "events": ["all"],
-                "destinationArn": test_aws_sns_topic["arn"],
+                "destination_arn": test_aws_sns_topic["arn"],
             }])
         ```
 
@@ -165,7 +165,7 @@ class Trigger(pulumi.CustomResource):
             triggers=[{
                 "name": "all",
                 "events": ["all"],
-                "destinationArn": test_aws_sns_topic["arn"],
+                "destination_arn": test_aws_sns_topic["arn"],
             }])
         ```
 

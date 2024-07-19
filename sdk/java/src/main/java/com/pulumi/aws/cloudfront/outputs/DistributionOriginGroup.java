@@ -13,14 +13,30 @@ import java.util.Objects;
 
 @CustomType
 public final class DistributionOriginGroup {
+    /**
+     * @return The failover criteria for when to failover to the secondary origin.
+     * 
+     */
     private DistributionOriginGroupFailoverCriteria failoverCriteria;
+    /**
+     * @return Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+     * 
+     */
     private List<DistributionOriginGroupMember> members;
     private String originId;
 
     private DistributionOriginGroup() {}
+    /**
+     * @return The failover criteria for when to failover to the secondary origin.
+     * 
+     */
     public DistributionOriginGroupFailoverCriteria failoverCriteria() {
         return this.failoverCriteria;
     }
+    /**
+     * @return Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+     * 
+     */
     public List<DistributionOriginGroupMember> members() {
         return this.members;
     }

@@ -215,7 +215,7 @@ class Route(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[{
                 "type": "certificate-authentication",
-                "rootCertificateChainArn": example_aws_acm_certificate["arn"],
+                "root_certificate_chain_arn": example_aws_acm_certificate["arn"],
             }],
             connection_log_options={
                 "enabled": False,
@@ -266,7 +266,7 @@ class Route(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[{
                 "type": "certificate-authentication",
-                "rootCertificateChainArn": example_aws_acm_certificate["arn"],
+                "root_certificate_chain_arn": example_aws_acm_certificate["arn"],
             }],
             connection_log_options={
                 "enabled": False,

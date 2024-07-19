@@ -366,8 +366,8 @@ class Listener(pulumi.CustomResource):
             protocol="HTTPS",
             service_identifier=example.id,
             default_action={
-                "fixedResponse": {
-                    "statusCode": 404,
+                "fixed_response": {
+                    "status_code": 404,
                 },
             })
         ```
@@ -385,7 +385,7 @@ class Listener(pulumi.CustomResource):
             config={
                 "port": 80,
                 "protocol": "HTTP",
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
             })
         example_listener = aws.vpclattice.Listener("example",
             name="example",
@@ -393,8 +393,8 @@ class Listener(pulumi.CustomResource):
             service_identifier=example.id,
             default_action={
                 "forwards": [{
-                    "targetGroups": [{
-                        "targetGroupIdentifier": example_target_group.id,
+                    "target_groups": [{
+                        "target_group_identifier": example_target_group.id,
                     }],
                 }],
             })
@@ -413,7 +413,7 @@ class Listener(pulumi.CustomResource):
             config={
                 "port": 80,
                 "protocol": "HTTP",
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
             })
         example2 = aws.vpclattice.TargetGroup("example2",
             name="example-target-group-2",
@@ -421,7 +421,7 @@ class Listener(pulumi.CustomResource):
             config={
                 "port": 8080,
                 "protocol": "HTTP",
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
             })
         example_listener = aws.vpclattice.Listener("example",
             name="example",
@@ -429,13 +429,13 @@ class Listener(pulumi.CustomResource):
             service_identifier=example.id,
             default_action={
                 "forwards": [{
-                    "targetGroups": [
+                    "target_groups": [
                         {
-                            "targetGroupIdentifier": example1.id,
+                            "target_group_identifier": example1.id,
                             "weight": 80,
                         },
                         {
-                            "targetGroupIdentifier": example2.id,
+                            "target_group_identifier": example2.id,
                             "weight": 20,
                         },
                     ],
@@ -485,8 +485,8 @@ class Listener(pulumi.CustomResource):
             protocol="HTTPS",
             service_identifier=example.id,
             default_action={
-                "fixedResponse": {
-                    "statusCode": 404,
+                "fixed_response": {
+                    "status_code": 404,
                 },
             })
         ```
@@ -504,7 +504,7 @@ class Listener(pulumi.CustomResource):
             config={
                 "port": 80,
                 "protocol": "HTTP",
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
             })
         example_listener = aws.vpclattice.Listener("example",
             name="example",
@@ -512,8 +512,8 @@ class Listener(pulumi.CustomResource):
             service_identifier=example.id,
             default_action={
                 "forwards": [{
-                    "targetGroups": [{
-                        "targetGroupIdentifier": example_target_group.id,
+                    "target_groups": [{
+                        "target_group_identifier": example_target_group.id,
                     }],
                 }],
             })
@@ -532,7 +532,7 @@ class Listener(pulumi.CustomResource):
             config={
                 "port": 80,
                 "protocol": "HTTP",
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
             })
         example2 = aws.vpclattice.TargetGroup("example2",
             name="example-target-group-2",
@@ -540,7 +540,7 @@ class Listener(pulumi.CustomResource):
             config={
                 "port": 8080,
                 "protocol": "HTTP",
-                "vpcIdentifier": example_aws_vpc["id"],
+                "vpc_identifier": example_aws_vpc["id"],
             })
         example_listener = aws.vpclattice.Listener("example",
             name="example",
@@ -548,13 +548,13 @@ class Listener(pulumi.CustomResource):
             service_identifier=example.id,
             default_action={
                 "forwards": [{
-                    "targetGroups": [
+                    "target_groups": [
                         {
-                            "targetGroupIdentifier": example1.id,
+                            "target_group_identifier": example1.id,
                             "weight": 80,
                         },
                         {
-                            "targetGroupIdentifier": example2.id,
+                            "target_group_identifier": example2.id,
                             "weight": 20,
                         },
                     ],

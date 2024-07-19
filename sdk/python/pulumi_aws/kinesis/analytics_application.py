@@ -471,25 +471,25 @@ class AnalyticsApplication(pulumi.CustomResource):
         test_application = aws.kinesis.AnalyticsApplication("test_application",
             name="kinesis-analytics-application-test",
             inputs={
-                "namePrefix": "test_prefix",
-                "kinesisStream": {
-                    "resourceArn": test_stream.arn,
-                    "roleArn": test["arn"],
+                "name_prefix": "test_prefix",
+                "kinesis_stream": {
+                    "resource_arn": test_stream.arn,
+                    "role_arn": test["arn"],
                 },
                 "parallelism": {
                     "count": 1,
                 },
                 "schema": {
-                    "recordColumns": [{
+                    "record_columns": [{
                         "mapping": "$.test",
                         "name": "test",
-                        "sqlType": "VARCHAR(8)",
+                        "sql_type": "VARCHAR(8)",
                     }],
-                    "recordEncoding": "UTF-8",
-                    "recordFormat": {
-                        "mappingParameters": {
+                    "record_encoding": "UTF-8",
+                    "record_format": {
+                        "mapping_parameters": {
                             "json": {
-                                "recordRowPath": "$",
+                                "record_row_path": "$",
                             },
                         },
                     },
@@ -514,47 +514,47 @@ class AnalyticsApplication(pulumi.CustomResource):
             name="example-kinesis-delivery-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "bucketArn": example_aws_s3_bucket["arn"],
-                "roleArn": example_aws_iam_role["arn"],
+                "bucket_arn": example_aws_s3_bucket["arn"],
+                "role_arn": example_aws_iam_role["arn"],
             })
         test = aws.kinesis.AnalyticsApplication("test",
             name="example-application",
             cloudwatch_logging_options={
-                "logStreamArn": example_log_stream.arn,
-                "roleArn": example_aws_iam_role["arn"],
+                "log_stream_arn": example_log_stream.arn,
+                "role_arn": example_aws_iam_role["arn"],
             },
             inputs={
-                "namePrefix": "example_prefix",
+                "name_prefix": "example_prefix",
                 "schema": {
-                    "recordColumns": [{
+                    "record_columns": [{
                         "name": "COLUMN_1",
-                        "sqlType": "INTEGER",
+                        "sql_type": "INTEGER",
                     }],
-                    "recordFormat": {
-                        "mappingParameters": {
+                    "record_format": {
+                        "mapping_parameters": {
                             "csv": {
-                                "recordColumnDelimiter": ",",
-                                "recordRowDelimiter": "|",
+                                "record_column_delimiter": ",",
+                                "record_row_delimiter": "|",
                             },
                         },
                     },
                 },
-                "kinesisStream": {
-                    "resourceArn": example_stream.arn,
-                    "roleArn": example_aws_iam_role["arn"],
+                "kinesis_stream": {
+                    "resource_arn": example_stream.arn,
+                    "role_arn": example_aws_iam_role["arn"],
                 },
-                "startingPositionConfigurations": [{
-                    "startingPosition": "NOW",
+                "starting_position_configurations": [{
+                    "starting_position": "NOW",
                 }],
             },
             outputs=[{
                 "name": "OUTPUT_1",
                 "schema": {
-                    "recordFormatType": "CSV",
+                    "record_format_type": "CSV",
                 },
-                "kinesisFirehose": {
-                    "resourceArn": example_firehose_delivery_stream.arn,
-                    "roleArn": example_aws_iam_role["arn"],
+                "kinesis_firehose": {
+                    "resource_arn": example_firehose_delivery_stream.arn,
+                    "role_arn": example_aws_iam_role["arn"],
                 },
             }],
             start_application=True)
@@ -611,25 +611,25 @@ class AnalyticsApplication(pulumi.CustomResource):
         test_application = aws.kinesis.AnalyticsApplication("test_application",
             name="kinesis-analytics-application-test",
             inputs={
-                "namePrefix": "test_prefix",
-                "kinesisStream": {
-                    "resourceArn": test_stream.arn,
-                    "roleArn": test["arn"],
+                "name_prefix": "test_prefix",
+                "kinesis_stream": {
+                    "resource_arn": test_stream.arn,
+                    "role_arn": test["arn"],
                 },
                 "parallelism": {
                     "count": 1,
                 },
                 "schema": {
-                    "recordColumns": [{
+                    "record_columns": [{
                         "mapping": "$.test",
                         "name": "test",
-                        "sqlType": "VARCHAR(8)",
+                        "sql_type": "VARCHAR(8)",
                     }],
-                    "recordEncoding": "UTF-8",
-                    "recordFormat": {
-                        "mappingParameters": {
+                    "record_encoding": "UTF-8",
+                    "record_format": {
+                        "mapping_parameters": {
                             "json": {
-                                "recordRowPath": "$",
+                                "record_row_path": "$",
                             },
                         },
                     },
@@ -654,47 +654,47 @@ class AnalyticsApplication(pulumi.CustomResource):
             name="example-kinesis-delivery-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "bucketArn": example_aws_s3_bucket["arn"],
-                "roleArn": example_aws_iam_role["arn"],
+                "bucket_arn": example_aws_s3_bucket["arn"],
+                "role_arn": example_aws_iam_role["arn"],
             })
         test = aws.kinesis.AnalyticsApplication("test",
             name="example-application",
             cloudwatch_logging_options={
-                "logStreamArn": example_log_stream.arn,
-                "roleArn": example_aws_iam_role["arn"],
+                "log_stream_arn": example_log_stream.arn,
+                "role_arn": example_aws_iam_role["arn"],
             },
             inputs={
-                "namePrefix": "example_prefix",
+                "name_prefix": "example_prefix",
                 "schema": {
-                    "recordColumns": [{
+                    "record_columns": [{
                         "name": "COLUMN_1",
-                        "sqlType": "INTEGER",
+                        "sql_type": "INTEGER",
                     }],
-                    "recordFormat": {
-                        "mappingParameters": {
+                    "record_format": {
+                        "mapping_parameters": {
                             "csv": {
-                                "recordColumnDelimiter": ",",
-                                "recordRowDelimiter": "|",
+                                "record_column_delimiter": ",",
+                                "record_row_delimiter": "|",
                             },
                         },
                     },
                 },
-                "kinesisStream": {
-                    "resourceArn": example_stream.arn,
-                    "roleArn": example_aws_iam_role["arn"],
+                "kinesis_stream": {
+                    "resource_arn": example_stream.arn,
+                    "role_arn": example_aws_iam_role["arn"],
                 },
-                "startingPositionConfigurations": [{
-                    "startingPosition": "NOW",
+                "starting_position_configurations": [{
+                    "starting_position": "NOW",
                 }],
             },
             outputs=[{
                 "name": "OUTPUT_1",
                 "schema": {
-                    "recordFormatType": "CSV",
+                    "record_format_type": "CSV",
                 },
-                "kinesisFirehose": {
-                    "resourceArn": example_firehose_delivery_stream.arn,
-                    "roleArn": example_aws_iam_role["arn"],
+                "kinesis_firehose": {
+                    "resource_arn": example_firehose_delivery_stream.arn,
+                    "role_arn": example_aws_iam_role["arn"],
                 },
             }],
             start_application=True)

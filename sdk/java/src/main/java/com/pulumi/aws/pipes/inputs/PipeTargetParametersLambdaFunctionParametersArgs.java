@@ -14,9 +14,17 @@ public final class PipeTargetParametersLambdaFunctionParametersArgs extends com.
 
     public static final PipeTargetParametersLambdaFunctionParametersArgs Empty = new PipeTargetParametersLambdaFunctionParametersArgs();
 
+    /**
+     * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+     * 
+     */
     @Import(name="invocationType", required=true)
     private Output<String> invocationType;
 
+    /**
+     * @return Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+     * 
+     */
     public Output<String> invocationType() {
         return this.invocationType;
     }
@@ -45,11 +53,23 @@ public final class PipeTargetParametersLambdaFunctionParametersArgs extends com.
             $ = new PipeTargetParametersLambdaFunctionParametersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param invocationType Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         * 
+         * @return builder
+         * 
+         */
         public Builder invocationType(Output<String> invocationType) {
             $.invocationType = invocationType;
             return this;
         }
 
+        /**
+         * @param invocationType Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         * 
+         * @return builder
+         * 
+         */
         public Builder invocationType(String invocationType) {
             return invocationType(Output.of(invocationType));
         }

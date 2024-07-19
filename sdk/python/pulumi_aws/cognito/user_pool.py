@@ -996,9 +996,9 @@ class UserPool(pulumi.CustomResource):
             mfa_configuration="ON",
             sms_authentication_message="Your code is {####}",
             sms_configuration={
-                "externalId": "example",
-                "snsCallerArn": example_aws_iam_role["arn"],
-                "snsRegion": "us-east-1",
+                "external_id": "example",
+                "sns_caller_arn": example_aws_iam_role["arn"],
+                "sns_region": "us-east-1",
             },
             software_token_mfa_configuration={
                 "enabled": True,
@@ -1014,7 +1014,7 @@ class UserPool(pulumi.CustomResource):
         test = aws.cognito.UserPool("test",
             name="mypool",
             account_recovery_setting={
-                "recoveryMechanisms": [
+                "recovery_mechanisms": [
                     {
                         "name": "verified_email",
                         "priority": 1,
@@ -1094,9 +1094,9 @@ class UserPool(pulumi.CustomResource):
             mfa_configuration="ON",
             sms_authentication_message="Your code is {####}",
             sms_configuration={
-                "externalId": "example",
-                "snsCallerArn": example_aws_iam_role["arn"],
-                "snsRegion": "us-east-1",
+                "external_id": "example",
+                "sns_caller_arn": example_aws_iam_role["arn"],
+                "sns_region": "us-east-1",
             },
             software_token_mfa_configuration={
                 "enabled": True,
@@ -1112,7 +1112,7 @@ class UserPool(pulumi.CustomResource):
         test = aws.cognito.UserPool("test",
             name="mypool",
             account_recovery_setting={
-                "recoveryMechanisms": [
+                "recovery_mechanisms": [
                     {
                         "name": "verified_email",
                         "priority": 1,

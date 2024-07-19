@@ -12,11 +12,18 @@ namespace Pulumi.Aws.EmrContainers.Inputs
 
     public sealed class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The classification within a configuration.
+        /// </summary>
         [Input("classification")]
         public Input<string>? Classification { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
+
+        /// <summary>
+        /// A set of properties specified within a configuration classification.
+        /// </summary>
         public InputMap<string> Properties
         {
             get => _properties ?? (_properties = new InputMap<string>());

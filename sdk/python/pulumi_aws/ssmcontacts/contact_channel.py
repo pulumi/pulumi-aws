@@ -215,7 +215,7 @@ class ContactChannel(pulumi.CustomResource):
         example = aws.ssmcontacts.ContactChannel("example",
             contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
             delivery_address={
-                "simpleAddress": "email@example.com",
+                "simple_address": "email@example.com",
             },
             name="Example contact channel",
             type="EMAIL")
@@ -233,7 +233,7 @@ class ContactChannel(pulumi.CustomResource):
         example = aws.ssmcontacts.ContactChannel("example",
             contact_id=example_contact.arn,
             delivery_address={
-                "simpleAddress": "email@example.com",
+                "simple_address": "email@example.com",
             },
             name="Example contact channel",
             type="EMAIL")
@@ -274,7 +274,7 @@ class ContactChannel(pulumi.CustomResource):
         example = aws.ssmcontacts.ContactChannel("example",
             contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
             delivery_address={
-                "simpleAddress": "email@example.com",
+                "simple_address": "email@example.com",
             },
             name="Example contact channel",
             type="EMAIL")
@@ -292,7 +292,7 @@ class ContactChannel(pulumi.CustomResource):
         example = aws.ssmcontacts.ContactChannel("example",
             contact_id=example_contact.arn,
             delivery_address={
-                "simpleAddress": "email@example.com",
+                "simple_address": "email@example.com",
             },
             name="Example contact channel",
             type="EMAIL")

@@ -751,7 +751,7 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
-                "domainName": "corp.example.com",
+                "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
             })
@@ -882,7 +882,7 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
-                "domainName": "corp.example.com",
+                "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
             })

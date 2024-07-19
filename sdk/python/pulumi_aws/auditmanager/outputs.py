@@ -150,17 +150,27 @@ class AssessmentRolesAll(dict):
     def __init__(__self__, *,
                  role_arn: str,
                  role_type: str):
+        """
+        :param str role_arn: Amazon Resource Name (ARN) of the IAM role.
+        :param str role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "role_type", role_type)
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the IAM role.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="roleType")
     def role_type(self) -> str:
+        """
+        Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+        """
         return pulumi.get(self, "role_type")
 
 

@@ -810,7 +810,7 @@ class NetworkInterface(pulumi.CustomResource):
             security_groups=[web["id"]],
             attachments=[{
                 "instance": test_aws_instance["id"],
-                "deviceIndex": 1,
+                "device_index": 1,
             }])
         ```
 
@@ -884,7 +884,7 @@ class NetworkInterface(pulumi.CustomResource):
             security_groups=[web["id"]],
             attachments=[{
                 "instance": test_aws_instance["id"],
-                "deviceIndex": 1,
+                "device_index": 1,
             }])
         ```
 

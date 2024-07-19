@@ -426,7 +426,7 @@ class Theme(pulumi.CustomResource):
             name="example",
             base_theme_id="MIDNIGHT",
             configuration={
-                "dataColorPalette": {
+                "data_color_palette": {
                     "colors": [
                         "#FFFFFF",
                         "#111111",
@@ -439,8 +439,8 @@ class Theme(pulumi.CustomResource):
                         "#888888",
                         "#999999",
                     ],
-                    "emptyFillColor": "#FFFFFF",
-                    "minMaxGradients": [
+                    "empty_fill_color": "#FFFFFF",
+                    "min_max_gradients": [
                         "#FFFFFF",
                         "#111111",
                     ],
@@ -491,7 +491,7 @@ class Theme(pulumi.CustomResource):
             name="example",
             base_theme_id="MIDNIGHT",
             configuration={
-                "dataColorPalette": {
+                "data_color_palette": {
                     "colors": [
                         "#FFFFFF",
                         "#111111",
@@ -504,8 +504,8 @@ class Theme(pulumi.CustomResource):
                         "#888888",
                         "#999999",
                     ],
-                    "emptyFillColor": "#FFFFFF",
-                    "minMaxGradients": [
+                    "empty_fill_color": "#FFFFFF",
+                    "min_max_gradients": [
                         "#FFFFFF",
                         "#111111",
                     ],

@@ -288,24 +288,24 @@ class LifecyclePolicy(pulumi.CustomResource):
             execution_role_arn=dlm_lifecycle_role.arn,
             state="ENABLED",
             policy_details={
-                "resourceTypes": "VOLUME",
+                "resource_types": "VOLUME",
                 "schedules": [{
                     "name": "2 weeks of daily snapshots",
-                    "createRule": {
+                    "create_rule": {
                         "interval": 24,
-                        "intervalUnit": "HOURS",
+                        "interval_unit": "HOURS",
                         "times": "23:45",
                     },
-                    "retainRule": {
+                    "retain_rule": {
                         "count": 14,
                     },
-                    "tagsToAdd": {
-                        "SnapshotCreator": "DLM",
+                    "tags_to_add": {
+                        "snapshot_creator": "DLM",
                     },
-                    "copyTags": False,
+                    "copy_tags": False,
                 }],
-                "targetTags": {
-                    "Snapshot": "true",
+                "target_tags": {
+                    "snapshot": "true",
                 },
             })
         ```
@@ -336,34 +336,34 @@ class LifecyclePolicy(pulumi.CustomResource):
             execution_role_arn=dlm_lifecycle_role["arn"],
             state="ENABLED",
             policy_details={
-                "resourceTypes": "VOLUME",
+                "resource_types": "VOLUME",
                 "schedules": [{
                     "name": "2 weeks of daily snapshots",
-                    "createRule": {
+                    "create_rule": {
                         "interval": 24,
-                        "intervalUnit": "HOURS",
+                        "interval_unit": "HOURS",
                         "times": "23:45",
                     },
-                    "retainRule": {
+                    "retain_rule": {
                         "count": 14,
                     },
-                    "tagsToAdd": {
-                        "SnapshotCreator": "DLM",
+                    "tags_to_add": {
+                        "snapshot_creator": "DLM",
                     },
-                    "copyTags": False,
-                    "crossRegionCopyRules": [{
+                    "copy_tags": False,
+                    "cross_region_copy_rules": [{
                         "target": "us-west-2",
                         "encrypted": True,
-                        "cmkArn": dlm_cross_region_copy_cmk.arn,
-                        "copyTags": True,
-                        "retainRule": {
+                        "cmk_arn": dlm_cross_region_copy_cmk.arn,
+                        "copy_tags": True,
+                        "retain_rule": {
                             "interval": 30,
-                            "intervalUnit": "DAYS",
+                            "interval_unit": "DAYS",
                         },
                     }],
                 }],
-                "targetTags": {
-                    "Snapshot": "true",
+                "target_tags": {
+                    "snapshot": "true",
                 },
             })
         ```
@@ -379,24 +379,24 @@ class LifecyclePolicy(pulumi.CustomResource):
             description="tf-acc-basic",
             execution_role_arn=example_aws_iam_role["arn"],
             policy_details={
-                "policyType": "EVENT_BASED_POLICY",
+                "policy_type": "EVENT_BASED_POLICY",
                 "action": {
                     "name": "tf-acc-basic",
-                    "crossRegionCopies": [{
-                        "encryptionConfiguration": {},
-                        "retainRule": {
+                    "cross_region_copies": [{
+                        "encryption_configuration": {},
+                        "retain_rule": {
                             "interval": 15,
-                            "intervalUnit": "MONTHS",
+                            "interval_unit": "MONTHS",
                         },
                         "target": "us-east-1",
                     }],
                 },
-                "eventSource": {
+                "event_source": {
                     "type": "MANAGED_CWE",
                     "parameters": {
-                        "descriptionRegex": "^.*Created for policy: policy-1234567890abcdef0.*$",
-                        "eventType": "shareSnapshot",
-                        "snapshotOwners": [current.account_id],
+                        "description_regex": "^.*Created for policy: policy-1234567890abcdef0.*$",
+                        "event_type": "shareSnapshot",
+                        "snapshot_owners": [current.account_id],
                     },
                 },
             })
@@ -478,24 +478,24 @@ class LifecyclePolicy(pulumi.CustomResource):
             execution_role_arn=dlm_lifecycle_role.arn,
             state="ENABLED",
             policy_details={
-                "resourceTypes": "VOLUME",
+                "resource_types": "VOLUME",
                 "schedules": [{
                     "name": "2 weeks of daily snapshots",
-                    "createRule": {
+                    "create_rule": {
                         "interval": 24,
-                        "intervalUnit": "HOURS",
+                        "interval_unit": "HOURS",
                         "times": "23:45",
                     },
-                    "retainRule": {
+                    "retain_rule": {
                         "count": 14,
                     },
-                    "tagsToAdd": {
-                        "SnapshotCreator": "DLM",
+                    "tags_to_add": {
+                        "snapshot_creator": "DLM",
                     },
-                    "copyTags": False,
+                    "copy_tags": False,
                 }],
-                "targetTags": {
-                    "Snapshot": "true",
+                "target_tags": {
+                    "snapshot": "true",
                 },
             })
         ```
@@ -526,34 +526,34 @@ class LifecyclePolicy(pulumi.CustomResource):
             execution_role_arn=dlm_lifecycle_role["arn"],
             state="ENABLED",
             policy_details={
-                "resourceTypes": "VOLUME",
+                "resource_types": "VOLUME",
                 "schedules": [{
                     "name": "2 weeks of daily snapshots",
-                    "createRule": {
+                    "create_rule": {
                         "interval": 24,
-                        "intervalUnit": "HOURS",
+                        "interval_unit": "HOURS",
                         "times": "23:45",
                     },
-                    "retainRule": {
+                    "retain_rule": {
                         "count": 14,
                     },
-                    "tagsToAdd": {
-                        "SnapshotCreator": "DLM",
+                    "tags_to_add": {
+                        "snapshot_creator": "DLM",
                     },
-                    "copyTags": False,
-                    "crossRegionCopyRules": [{
+                    "copy_tags": False,
+                    "cross_region_copy_rules": [{
                         "target": "us-west-2",
                         "encrypted": True,
-                        "cmkArn": dlm_cross_region_copy_cmk.arn,
-                        "copyTags": True,
-                        "retainRule": {
+                        "cmk_arn": dlm_cross_region_copy_cmk.arn,
+                        "copy_tags": True,
+                        "retain_rule": {
                             "interval": 30,
-                            "intervalUnit": "DAYS",
+                            "interval_unit": "DAYS",
                         },
                     }],
                 }],
-                "targetTags": {
-                    "Snapshot": "true",
+                "target_tags": {
+                    "snapshot": "true",
                 },
             })
         ```
@@ -569,24 +569,24 @@ class LifecyclePolicy(pulumi.CustomResource):
             description="tf-acc-basic",
             execution_role_arn=example_aws_iam_role["arn"],
             policy_details={
-                "policyType": "EVENT_BASED_POLICY",
+                "policy_type": "EVENT_BASED_POLICY",
                 "action": {
                     "name": "tf-acc-basic",
-                    "crossRegionCopies": [{
-                        "encryptionConfiguration": {},
-                        "retainRule": {
+                    "cross_region_copies": [{
+                        "encryption_configuration": {},
+                        "retain_rule": {
                             "interval": 15,
-                            "intervalUnit": "MONTHS",
+                            "interval_unit": "MONTHS",
                         },
                         "target": "us-east-1",
                     }],
                 },
-                "eventSource": {
+                "event_source": {
                     "type": "MANAGED_CWE",
                     "parameters": {
-                        "descriptionRegex": "^.*Created for policy: policy-1234567890abcdef0.*$",
-                        "eventType": "shareSnapshot",
-                        "snapshotOwners": [current.account_id],
+                        "description_regex": "^.*Created for policy: policy-1234567890abcdef0.*$",
+                        "event_type": "shareSnapshot",
+                        "snapshot_owners": [current.account_id],
                     },
                 },
             })

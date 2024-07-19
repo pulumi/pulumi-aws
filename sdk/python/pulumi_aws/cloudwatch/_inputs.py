@@ -3202,7 +3202,13 @@ class MetricStreamIncludeFilterArgs:
 if not MYPY:
     class MetricStreamStatisticsConfigurationArgsDict(TypedDict):
         additional_statistics: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The additional statistics to stream for the metrics listed in `include_metrics`.
+        """
         include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgsDict']]]
+        """
+        An array that defines the metrics that are to have additional statistics streamed. See details below.
+        """
 elif False:
     MetricStreamStatisticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3211,12 +3217,19 @@ class MetricStreamStatisticsConfigurationArgs:
     def __init__(__self__, *,
                  additional_statistics: pulumi.Input[Sequence[pulumi.Input[str]]],
                  include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_statistics: The additional statistics to stream for the metrics listed in `include_metrics`.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]] include_metrics: An array that defines the metrics that are to have additional statistics streamed. See details below.
+        """
         pulumi.set(__self__, "additional_statistics", additional_statistics)
         pulumi.set(__self__, "include_metrics", include_metrics)
 
     @property
     @pulumi.getter(name="additionalStatistics")
     def additional_statistics(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The additional statistics to stream for the metrics listed in `include_metrics`.
+        """
         return pulumi.get(self, "additional_statistics")
 
     @additional_statistics.setter
@@ -3226,6 +3239,9 @@ class MetricStreamStatisticsConfigurationArgs:
     @property
     @pulumi.getter(name="includeMetrics")
     def include_metrics(self) -> pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]]:
+        """
+        An array that defines the metrics that are to have additional statistics streamed. See details below.
+        """
         return pulumi.get(self, "include_metrics")
 
     @include_metrics.setter
@@ -3236,6 +3252,9 @@ class MetricStreamStatisticsConfigurationArgs:
 if not MYPY:
     class MetricStreamStatisticsConfigurationIncludeMetricArgsDict(TypedDict):
         metric_name: pulumi.Input[str]
+        """
+        The name of the metric.
+        """
         namespace: pulumi.Input[str]
 elif False:
     MetricStreamStatisticsConfigurationIncludeMetricArgsDict: TypeAlias = Mapping[str, Any]
@@ -3245,12 +3264,18 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
                  namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] metric_name: The name of the metric.
+        """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
+        """
+        The name of the metric.
+        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
