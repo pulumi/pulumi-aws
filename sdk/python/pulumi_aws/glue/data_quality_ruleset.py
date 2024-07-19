@@ -340,8 +340,8 @@ class DataQualityRuleset(pulumi.CustomResource):
             name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table={
-                "databaseName": example_aws_glue_catalog_database["name"],
-                "tableName": example_aws_glue_catalog_table["name"],
+                "database_name": example_aws_glue_catalog_database["name"],
+                "table_name": example_aws_glue_catalog_table["name"],
             })
         ```
 
@@ -419,8 +419,8 @@ class DataQualityRuleset(pulumi.CustomResource):
             name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table={
-                "databaseName": example_aws_glue_catalog_database["name"],
-                "tableName": example_aws_glue_catalog_table["name"],
+                "database_name": example_aws_glue_catalog_database["name"],
+                "table_name": example_aws_glue_catalog_table["name"],
             })
         ```
 

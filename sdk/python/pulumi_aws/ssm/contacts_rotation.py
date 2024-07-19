@@ -293,11 +293,11 @@ class ContactsRotation(pulumi.CustomResource):
             contact_ids=[example_aws_ssmcontacts_contact["arn"]],
             name="rotation",
             recurrence={
-                "numberOfOnCalls": 1,
-                "recurrenceMultiplier": 1,
-                "dailySettings": [{
-                    "hourOfDay": 9,
-                    "minuteOfHour": 0,
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
+                "daily_settings": [{
+                    "hour_of_day": 9,
+                    "minute_of_hour": 0,
                 }],
             },
             time_zone_id="Australia/Sydney",
@@ -314,34 +314,34 @@ class ContactsRotation(pulumi.CustomResource):
             contact_ids=[example_aws_ssmcontacts_contact["arn"]],
             name="rotation",
             recurrence={
-                "numberOfOnCalls": 1,
-                "recurrenceMultiplier": 1,
-                "weeklySettings": [
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
+                "weekly_settings": [
                     {
-                        "dayOfWeek": "WED",
-                        "handOffTime": {
-                            "hourOfDay": 4,
-                            "minuteOfHour": 25,
+                        "day_of_week": "WED",
+                        "hand_off_time": {
+                            "hour_of_day": 4,
+                            "minute_of_hour": 25,
                         },
                     },
                     {
-                        "dayOfWeek": "FRI",
-                        "handOffTime": {
-                            "hourOfDay": 15,
-                            "minuteOfHour": 57,
+                        "day_of_week": "FRI",
+                        "hand_off_time": {
+                            "hour_of_day": 15,
+                            "minute_of_hour": 57,
                         },
                     },
                 ],
-                "shiftCoverages": [{
-                    "mapBlockKey": "MON",
-                    "coverageTimes": [{
+                "shift_coverages": [{
+                    "map_block_key": "MON",
+                    "coverage_times": [{
                         "start": {
-                            "hourOfDay": 1,
-                            "minuteOfHour": 0,
+                            "hour_of_day": 1,
+                            "minute_of_hour": 0,
                         },
                         "end": {
-                            "hourOfDay": 23,
-                            "minuteOfHour": 0,
+                            "hour_of_day": 23,
+                            "minute_of_hour": 0,
                         },
                     }],
                 }],
@@ -365,21 +365,21 @@ class ContactsRotation(pulumi.CustomResource):
             contact_ids=[example_aws_ssmcontacts_contact["arn"]],
             name="rotation",
             recurrence={
-                "numberOfOnCalls": 1,
-                "recurrenceMultiplier": 1,
-                "monthlySettings": [
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
+                "monthly_settings": [
                     {
-                        "dayOfMonth": 20,
-                        "handOffTime": {
-                            "hourOfDay": 8,
-                            "minuteOfHour": 0,
+                        "day_of_month": 20,
+                        "hand_off_time": {
+                            "hour_of_day": 8,
+                            "minute_of_hour": 0,
                         },
                     },
                     {
-                        "dayOfMonth": 13,
-                        "handOffTime": {
-                            "hourOfDay": 12,
-                            "minuteOfHour": 34,
+                        "day_of_month": 13,
+                        "hand_off_time": {
+                            "hour_of_day": 12,
+                            "minute_of_hour": 34,
                         },
                     },
                 ],
@@ -426,11 +426,11 @@ class ContactsRotation(pulumi.CustomResource):
             contact_ids=[example_aws_ssmcontacts_contact["arn"]],
             name="rotation",
             recurrence={
-                "numberOfOnCalls": 1,
-                "recurrenceMultiplier": 1,
-                "dailySettings": [{
-                    "hourOfDay": 9,
-                    "minuteOfHour": 0,
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
+                "daily_settings": [{
+                    "hour_of_day": 9,
+                    "minute_of_hour": 0,
                 }],
             },
             time_zone_id="Australia/Sydney",
@@ -447,34 +447,34 @@ class ContactsRotation(pulumi.CustomResource):
             contact_ids=[example_aws_ssmcontacts_contact["arn"]],
             name="rotation",
             recurrence={
-                "numberOfOnCalls": 1,
-                "recurrenceMultiplier": 1,
-                "weeklySettings": [
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
+                "weekly_settings": [
                     {
-                        "dayOfWeek": "WED",
-                        "handOffTime": {
-                            "hourOfDay": 4,
-                            "minuteOfHour": 25,
+                        "day_of_week": "WED",
+                        "hand_off_time": {
+                            "hour_of_day": 4,
+                            "minute_of_hour": 25,
                         },
                     },
                     {
-                        "dayOfWeek": "FRI",
-                        "handOffTime": {
-                            "hourOfDay": 15,
-                            "minuteOfHour": 57,
+                        "day_of_week": "FRI",
+                        "hand_off_time": {
+                            "hour_of_day": 15,
+                            "minute_of_hour": 57,
                         },
                     },
                 ],
-                "shiftCoverages": [{
-                    "mapBlockKey": "MON",
-                    "coverageTimes": [{
+                "shift_coverages": [{
+                    "map_block_key": "MON",
+                    "coverage_times": [{
                         "start": {
-                            "hourOfDay": 1,
-                            "minuteOfHour": 0,
+                            "hour_of_day": 1,
+                            "minute_of_hour": 0,
                         },
                         "end": {
-                            "hourOfDay": 23,
-                            "minuteOfHour": 0,
+                            "hour_of_day": 23,
+                            "minute_of_hour": 0,
                         },
                     }],
                 }],
@@ -498,21 +498,21 @@ class ContactsRotation(pulumi.CustomResource):
             contact_ids=[example_aws_ssmcontacts_contact["arn"]],
             name="rotation",
             recurrence={
-                "numberOfOnCalls": 1,
-                "recurrenceMultiplier": 1,
-                "monthlySettings": [
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
+                "monthly_settings": [
                     {
-                        "dayOfMonth": 20,
-                        "handOffTime": {
-                            "hourOfDay": 8,
-                            "minuteOfHour": 0,
+                        "day_of_month": 20,
+                        "hand_off_time": {
+                            "hour_of_day": 8,
+                            "minute_of_hour": 0,
                         },
                     },
                     {
-                        "dayOfMonth": 13,
-                        "handOffTime": {
-                            "hourOfDay": 12,
-                            "minuteOfHour": 34,
+                        "day_of_month": 13,
+                        "hand_off_time": {
+                            "hour_of_day": 12,
+                            "minute_of_hour": 34,
                         },
                     },
                 ],

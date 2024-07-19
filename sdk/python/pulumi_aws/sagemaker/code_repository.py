@@ -187,7 +187,7 @@ class CodeRepository(pulumi.CustomResource):
         example = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
             git_config={
-                "repositoryUrl": "https://github.com/github/docs.git",
+                "repository_url": "https://github.com/github/docs.git",
             })
         ```
 
@@ -208,8 +208,8 @@ class CodeRepository(pulumi.CustomResource):
         example_code_repository = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
             git_config={
-                "repositoryUrl": "https://github.com/github/docs.git",
-                "secretArn": example.arn,
+                "repository_url": "https://github.com/github/docs.git",
+                "secret_arn": example.arn,
             },
             opts = pulumi.ResourceOptions(depends_on=[example_secret_version]))
         ```
@@ -248,7 +248,7 @@ class CodeRepository(pulumi.CustomResource):
         example = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
             git_config={
-                "repositoryUrl": "https://github.com/github/docs.git",
+                "repository_url": "https://github.com/github/docs.git",
             })
         ```
 
@@ -269,8 +269,8 @@ class CodeRepository(pulumi.CustomResource):
         example_code_repository = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
             git_config={
-                "repositoryUrl": "https://github.com/github/docs.git",
-                "secretArn": example.arn,
+                "repository_url": "https://github.com/github/docs.git",
+                "secret_arn": example.arn,
             },
             opts = pulumi.ResourceOptions(depends_on=[example_secret_version]))
         ```

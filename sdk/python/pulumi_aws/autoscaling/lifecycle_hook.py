@@ -330,7 +330,7 @@ class LifecycleHook(pulumi.CustomResource):
             tags=[{
                 "key": "Foo",
                 "value": "foo-bar",
-                "propagateAtLaunch": True,
+                "propagate_at_launch": True,
             }])
         foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobar",
             name="foobar",
@@ -400,7 +400,7 @@ class LifecycleHook(pulumi.CustomResource):
             tags=[{
                 "key": "Foo",
                 "value": "foo-bar",
-                "propagateAtLaunch": True,
+                "propagate_at_launch": True,
             }])
         foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobar",
             name="foobar",

@@ -797,15 +797,15 @@ class TopicRule(pulumi.CustomResource):
             sql="SELECT * FROM 'topic/test'",
             sql_version="2016-03-23",
             sns=[{
-                "messageFormat": "RAW",
-                "roleArn": role["arn"],
-                "targetArn": mytopic.arn,
+                "message_format": "RAW",
+                "role_arn": role["arn"],
+                "target_arn": mytopic.arn,
             }],
             error_action={
                 "sns": {
-                    "messageFormat": "RAW",
-                    "roleArn": role["arn"],
-                    "targetArn": myerrortopic.arn,
+                    "message_format": "RAW",
+                    "role_arn": role["arn"],
+                    "target_arn": myerrortopic.arn,
                 },
             })
         assume_role = aws.iam.get_policy_document(statements=[{
@@ -872,15 +872,15 @@ class TopicRule(pulumi.CustomResource):
             sql="SELECT * FROM 'topic/test'",
             sql_version="2016-03-23",
             sns=[{
-                "messageFormat": "RAW",
-                "roleArn": role["arn"],
-                "targetArn": mytopic.arn,
+                "message_format": "RAW",
+                "role_arn": role["arn"],
+                "target_arn": mytopic.arn,
             }],
             error_action={
                 "sns": {
-                    "messageFormat": "RAW",
-                    "roleArn": role["arn"],
-                    "targetArn": myerrortopic.arn,
+                    "message_format": "RAW",
+                    "role_arn": role["arn"],
+                    "target_arn": myerrortopic.arn,
                 },
             })
         assume_role = aws.iam.get_policy_document(statements=[{

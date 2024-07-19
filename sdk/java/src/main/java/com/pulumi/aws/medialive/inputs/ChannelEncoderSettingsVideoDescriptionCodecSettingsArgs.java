@@ -17,16 +17,32 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
 
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs();
 
+    /**
+     * Frame capture settings. See Frame Capture Settings for more details.
+     * 
+     */
     @Import(name="frameCaptureSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs> frameCaptureSettings;
 
+    /**
+     * @return Frame capture settings. See Frame Capture Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs>> frameCaptureSettings() {
         return Optional.ofNullable(this.frameCaptureSettings);
     }
 
+    /**
+     * H264 settings. See H264 Settings for more details.
+     * 
+     */
     @Import(name="h264Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs> h264Settings;
 
+    /**
+     * @return H264 settings. See H264 Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs>> h264Settings() {
         return Optional.ofNullable(this.h264Settings);
     }
@@ -64,20 +80,44 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
             $ = new ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param frameCaptureSettings Frame capture settings. See Frame Capture Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureSettings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs> frameCaptureSettings) {
             $.frameCaptureSettings = frameCaptureSettings;
             return this;
         }
 
+        /**
+         * @param frameCaptureSettings Frame capture settings. See Frame Capture Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureSettings(ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs frameCaptureSettings) {
             return frameCaptureSettings(Output.of(frameCaptureSettings));
         }
 
+        /**
+         * @param h264Settings H264 settings. See H264 Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder h264Settings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs> h264Settings) {
             $.h264Settings = h264Settings;
             return this;
         }
 
+        /**
+         * @param h264Settings H264 settings. See H264 Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder h264Settings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs h264Settings) {
             return h264Settings(Output.of(h264Settings));
         }

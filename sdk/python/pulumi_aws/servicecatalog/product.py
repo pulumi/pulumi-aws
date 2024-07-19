@@ -512,7 +512,7 @@ class Product(pulumi.CustomResource):
             owner="example-owner",
             type="CLOUD_FORMATION_TEMPLATE",
             provisioning_artifact_parameters={
-                "templateUrl": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
+                "template_url": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
             },
             tags={
                 "foo": "bar",
@@ -569,7 +569,7 @@ class Product(pulumi.CustomResource):
             owner="example-owner",
             type="CLOUD_FORMATION_TEMPLATE",
             provisioning_artifact_parameters={
-                "templateUrl": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
+                "template_url": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
             },
             tags={
                 "foo": "bar",

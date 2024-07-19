@@ -263,8 +263,8 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
         launch_type="FARGATE",
         network_configuration={
             "subnets": [__item["id"] for __item in example_aws_subnet],
-            "securityGroups": [example_aws_security_group["id"]],
-            "assignPublicIp": False,
+            "security_groups": [example_aws_security_group["id"]],
+            "assign_public_ip": False,
         })
     ```
 
@@ -374,8 +374,8 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
         launch_type="FARGATE",
         network_configuration={
             "subnets": [__item["id"] for __item in example_aws_subnet],
-            "securityGroups": [example_aws_security_group["id"]],
-            "assignPublicIp": False,
+            "security_groups": [example_aws_security_group["id"]],
+            "assign_public_ip": False,
         })
     ```
 

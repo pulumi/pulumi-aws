@@ -582,7 +582,7 @@ class Instance(pulumi.CustomResource):
             bundle_id="nano_3_0",
             add_on={
                 "type": "AutoSnapshot",
-                "snapshotTime": "06:00",
+                "snapshot_time": "06:00",
                 "status": "Enabled",
             },
             tags={
@@ -679,7 +679,7 @@ class Instance(pulumi.CustomResource):
             bundle_id="nano_3_0",
             add_on={
                 "type": "AutoSnapshot",
-                "snapshotTime": "06:00",
+                "snapshot_time": "06:00",
                 "status": "Enabled",
             },
             tags={

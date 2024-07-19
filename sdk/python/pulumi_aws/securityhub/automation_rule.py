@@ -341,24 +341,24 @@ class AutomationRule(pulumi.CustomResource):
             rule_name="Elevate severity of findings that relate to important resources",
             rule_order=1,
             actions=[{
-                "findingFieldsUpdate": {
+                "finding_fields_update": {
                     "severity": {
                         "label": "CRITICAL",
                         "product": 0,
                     },
                     "note": {
                         "text": "This is a critical resource. Please review ASAP.",
-                        "updatedBy": "sechub-automation",
+                        "updated_by": "sechub-automation",
                     },
                     "types": ["Software and Configuration Checks/Industry and Regulatory Standards"],
-                    "userDefinedFields": {
+                    "user_defined_fields": {
                         "key": "value",
                     },
                 },
                 "type": "FINDING_FIELDS_UPDATE",
             }],
             criteria={
-                "resourceIds": [{
+                "resource_ids": [{
                     "comparison": "EQUALS",
                     "value": "arn:aws:s3:::examplebucket/*",
                 }],
@@ -405,24 +405,24 @@ class AutomationRule(pulumi.CustomResource):
             rule_name="Elevate severity of findings that relate to important resources",
             rule_order=1,
             actions=[{
-                "findingFieldsUpdate": {
+                "finding_fields_update": {
                     "severity": {
                         "label": "CRITICAL",
                         "product": 0,
                     },
                     "note": {
                         "text": "This is a critical resource. Please review ASAP.",
-                        "updatedBy": "sechub-automation",
+                        "updated_by": "sechub-automation",
                     },
                     "types": ["Software and Configuration Checks/Industry and Regulatory Standards"],
-                    "userDefinedFields": {
+                    "user_defined_fields": {
                         "key": "value",
                     },
                 },
                 "type": "FINDING_FIELDS_UPDATE",
             }],
             criteria={
-                "resourceIds": [{
+                "resource_ids": [{
                     "comparison": "EQUALS",
                     "value": "arn:aws:s3:::examplebucket/*",
                 }],

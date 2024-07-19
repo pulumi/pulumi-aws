@@ -590,13 +590,13 @@ class CatalogTable(pulumi.CustomResource):
             },
             storage_descriptor={
                 "location": "s3://my-bucket/event-streams/my-stream",
-                "inputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                "outputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-                "serDeInfo": {
+                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "ser_de_info": {
                     "name": "my-stream",
-                    "serializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "serialization_library": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
                     "parameters": {
-                        "serialization.format": "1",
+                        "serialization_format": "1",
                     },
                 },
                 "columns": [
@@ -693,13 +693,13 @@ class CatalogTable(pulumi.CustomResource):
             },
             storage_descriptor={
                 "location": "s3://my-bucket/event-streams/my-stream",
-                "inputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                "outputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-                "serDeInfo": {
+                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "ser_de_info": {
                     "name": "my-stream",
-                    "serializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "serialization_library": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
                     "parameters": {
-                        "serialization.format": "1",
+                        "serialization_format": "1",
                     },
                 },
                 "columns": [

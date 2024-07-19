@@ -116,8 +116,8 @@ class MonitoringSubscription(pulumi.CustomResource):
         example = aws.cloudfront.MonitoringSubscription("example",
             distribution_id=example_aws_cloudfront_distribution["id"],
             monitoring_subscription={
-                "realtimeMetricsSubscriptionConfig": {
-                    "realtimeMetricsSubscriptionStatus": "Enabled",
+                "realtime_metrics_subscription_config": {
+                    "realtime_metrics_subscription_status": "Enabled",
                 },
             })
         ```
@@ -153,8 +153,8 @@ class MonitoringSubscription(pulumi.CustomResource):
         example = aws.cloudfront.MonitoringSubscription("example",
             distribution_id=example_aws_cloudfront_distribution["id"],
             monitoring_subscription={
-                "realtimeMetricsSubscriptionConfig": {
-                    "realtimeMetricsSubscriptionStatus": "Enabled",
+                "realtime_metrics_subscription_config": {
+                    "realtime_metrics_subscription_status": "Enabled",
                 },
             })
         ```

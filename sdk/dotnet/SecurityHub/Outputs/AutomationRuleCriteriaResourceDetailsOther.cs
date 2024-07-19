@@ -14,6 +14,9 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     public sealed class AutomationRuleCriteriaResourceDetailsOther
     {
         public readonly string Comparison;
+        /// <summary>
+        /// The key of the map filter.
+        /// </summary>
         public readonly string Key;
         public readonly string Value;
 

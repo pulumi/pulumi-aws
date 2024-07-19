@@ -875,11 +875,11 @@ class WindowsFileSystem(pulumi.CustomResource):
             subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024,
             self_managed_active_directory={
-                "dnsIps": [
+                "dns_ips": [
                     "10.0.0.111",
                     "10.0.0.222",
                 ],
-                "domainName": "corp.example.com",
+                "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
             })
@@ -962,11 +962,11 @@ class WindowsFileSystem(pulumi.CustomResource):
             subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024,
             self_managed_active_directory={
-                "dnsIps": [
+                "dns_ips": [
                     "10.0.0.111",
                     "10.0.0.222",
                 ],
-                "domainName": "corp.example.com",
+                "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
             })

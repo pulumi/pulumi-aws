@@ -129,10 +129,10 @@ class DomainSamlOptions(pulumi.CustomResource):
             domain_name="example",
             elasticsearch_version="1.5",
             cluster_config={
-                "instanceType": "r4.large.elasticsearch",
+                "instance_type": "r4.large.elasticsearch",
             },
             snapshot_options={
-                "automatedSnapshotStartHour": 23,
+                "automated_snapshot_start_hour": 23,
             },
             tags={
                 "Domain": "TestDomain",
@@ -142,8 +142,8 @@ class DomainSamlOptions(pulumi.CustomResource):
             saml_options={
                 "enabled": True,
                 "idp": {
-                    "entityId": "https://example.com",
-                    "metadataContent": std.file(input="./saml-metadata.xml").result,
+                    "entity_id": "https://example.com",
+                    "metadata_content": std.file(input="./saml-metadata.xml").result,
                 },
             })
         ```
@@ -185,10 +185,10 @@ class DomainSamlOptions(pulumi.CustomResource):
             domain_name="example",
             elasticsearch_version="1.5",
             cluster_config={
-                "instanceType": "r4.large.elasticsearch",
+                "instance_type": "r4.large.elasticsearch",
             },
             snapshot_options={
-                "automatedSnapshotStartHour": 23,
+                "automated_snapshot_start_hour": 23,
             },
             tags={
                 "Domain": "TestDomain",
@@ -198,8 +198,8 @@ class DomainSamlOptions(pulumi.CustomResource):
             saml_options={
                 "enabled": True,
                 "idp": {
-                    "entityId": "https://example.com",
-                    "metadataContent": std.file(input="./saml-metadata.xml").result,
+                    "entity_id": "https://example.com",
+                    "metadata_content": std.file(input="./saml-metadata.xml").result,
                 },
             })
         ```

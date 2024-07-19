@@ -19,9 +19,17 @@ public final class BotClarificationPromptArgs extends com.pulumi.resources.Resou
 
     public static final BotClarificationPromptArgs Empty = new BotClarificationPromptArgs();
 
+    /**
+     * The number of times to prompt the user for information.
+     * 
+     */
     @Import(name="maxAttempts", required=true)
     private Output<Integer> maxAttempts;
 
+    /**
+     * @return The number of times to prompt the user for information.
+     * 
+     */
     public Output<Integer> maxAttempts() {
         return this.maxAttempts;
     }
@@ -66,11 +74,23 @@ public final class BotClarificationPromptArgs extends com.pulumi.resources.Resou
             $ = new BotClarificationPromptArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxAttempts The number of times to prompt the user for information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxAttempts(Output<Integer> maxAttempts) {
             $.maxAttempts = maxAttempts;
             return this;
         }
 
+        /**
+         * @param maxAttempts The number of times to prompt the user for information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxAttempts(Integer maxAttempts) {
             return maxAttempts(Output.of(maxAttempts));
         }

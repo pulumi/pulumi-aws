@@ -32,16 +32,32 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         return Optional.ofNullable(this.copyTags);
     }
 
+    /**
+     * See the `create_rule` block. Max of 1 per schedule.
+     * 
+     */
     @Import(name="createRule", required=true)
     private Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs> createRule;
 
+    /**
+     * @return See the `create_rule` block. Max of 1 per schedule.
+     * 
+     */
     public Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs> createRule() {
         return this.createRule;
     }
 
+    /**
+     * See the `cross_region_copy_rule` block. Max of 3 per schedule.
+     * 
+     */
     @Import(name="crossRegionCopyRules")
     private @Nullable Output<List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>> crossRegionCopyRules;
 
+    /**
+     * @return See the `cross_region_copy_rule` block. Max of 3 per schedule.
+     * 
+     */
     public Optional<Output<List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>>> crossRegionCopyRules() {
         return Optional.ofNullable(this.crossRegionCopyRules);
     }
@@ -53,9 +69,17 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         return Optional.ofNullable(this.deprecateRule);
     }
 
+    /**
+     * See the `fast_restore_rule` block. Max of 1 per schedule.
+     * 
+     */
     @Import(name="fastRestoreRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs> fastRestoreRule;
 
+    /**
+     * @return See the `fast_restore_rule` block. Max of 1 per schedule.
+     * 
+     */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs>> fastRestoreRule() {
         return Optional.ofNullable(this.fastRestoreRule);
     }
@@ -74,23 +98,47 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         return this.retainRule;
     }
 
+    /**
+     * See the `share_rule` block. Max of 1 per schedule.
+     * 
+     */
     @Import(name="shareRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleShareRuleArgs> shareRule;
 
+    /**
+     * @return See the `share_rule` block. Max of 1 per schedule.
+     * 
+     */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleShareRuleArgs>> shareRule() {
         return Optional.ofNullable(this.shareRule);
     }
 
+    /**
+     * A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+     * 
+     */
     @Import(name="tagsToAdd")
     private @Nullable Output<Map<String,String>> tagsToAdd;
 
+    /**
+     * @return A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsToAdd() {
         return Optional.ofNullable(this.tagsToAdd);
     }
 
+    /**
+     * A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+     * 
+     */
     @Import(name="variableTags")
     private @Nullable Output<Map<String,String>> variableTags;
 
+    /**
+     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+     * 
+     */
     public Optional<Output<Map<String,String>>> variableTags() {
         return Optional.ofNullable(this.variableTags);
     }
@@ -137,24 +185,54 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
             return copyTags(Output.of(copyTags));
         }
 
+        /**
+         * @param createRule See the `create_rule` block. Max of 1 per schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createRule(Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs> createRule) {
             $.createRule = createRule;
             return this;
         }
 
+        /**
+         * @param createRule See the `create_rule` block. Max of 1 per schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createRule(LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs createRule) {
             return createRule(Output.of(createRule));
         }
 
+        /**
+         * @param crossRegionCopyRules See the `cross_region_copy_rule` block. Max of 3 per schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossRegionCopyRules(@Nullable Output<List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>> crossRegionCopyRules) {
             $.crossRegionCopyRules = crossRegionCopyRules;
             return this;
         }
 
+        /**
+         * @param crossRegionCopyRules See the `cross_region_copy_rule` block. Max of 3 per schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossRegionCopyRules(List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs> crossRegionCopyRules) {
             return crossRegionCopyRules(Output.of(crossRegionCopyRules));
         }
 
+        /**
+         * @param crossRegionCopyRules See the `cross_region_copy_rule` block. Max of 3 per schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossRegionCopyRules(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs... crossRegionCopyRules) {
             return crossRegionCopyRules(List.of(crossRegionCopyRules));
         }
@@ -168,11 +246,23 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
             return deprecateRule(Output.of(deprecateRule));
         }
 
+        /**
+         * @param fastRestoreRule See the `fast_restore_rule` block. Max of 1 per schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fastRestoreRule(@Nullable Output<LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs> fastRestoreRule) {
             $.fastRestoreRule = fastRestoreRule;
             return this;
         }
 
+        /**
+         * @param fastRestoreRule See the `fast_restore_rule` block. Max of 1 per schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fastRestoreRule(LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs fastRestoreRule) {
             return fastRestoreRule(Output.of(fastRestoreRule));
         }
@@ -195,29 +285,65 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
             return retainRule(Output.of(retainRule));
         }
 
+        /**
+         * @param shareRule See the `share_rule` block. Max of 1 per schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shareRule(@Nullable Output<LifecyclePolicyPolicyDetailsScheduleShareRuleArgs> shareRule) {
             $.shareRule = shareRule;
             return this;
         }
 
+        /**
+         * @param shareRule See the `share_rule` block. Max of 1 per schedule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shareRule(LifecyclePolicyPolicyDetailsScheduleShareRuleArgs shareRule) {
             return shareRule(Output.of(shareRule));
         }
 
+        /**
+         * @param tagsToAdd A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsToAdd(@Nullable Output<Map<String,String>> tagsToAdd) {
             $.tagsToAdd = tagsToAdd;
             return this;
         }
 
+        /**
+         * @param tagsToAdd A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsToAdd(Map<String,String> tagsToAdd) {
             return tagsToAdd(Output.of(tagsToAdd));
         }
 
+        /**
+         * @param variableTags A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder variableTags(@Nullable Output<Map<String,String>> variableTags) {
             $.variableTags = variableTags;
             return this;
         }
 
+        /**
+         * @param variableTags A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder variableTags(Map<String,String> variableTags) {
             return variableTags(Output.of(variableTags));
         }

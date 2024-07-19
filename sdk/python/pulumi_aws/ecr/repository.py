@@ -323,7 +323,7 @@ class Repository(pulumi.CustomResource):
             name="bar",
             image_tag_mutability="MUTABLE",
             image_scanning_configuration={
-                "scanOnPush": True,
+                "scan_on_push": True,
             })
         ```
 
@@ -364,7 +364,7 @@ class Repository(pulumi.CustomResource):
             name="bar",
             image_tag_mutability="MUTABLE",
             image_scanning_configuration={
-                "scanOnPush": True,
+                "scan_on_push": True,
             })
         ```
 

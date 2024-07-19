@@ -14,6 +14,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
     {
         public readonly string? InstanceUrl;
+        /// <summary>
+        /// Indicates whether the connector profile applies to a sandbox or production environment.
+        /// </summary>
         public readonly bool? IsSandboxEnvironment;
 
         [OutputConstructor]
