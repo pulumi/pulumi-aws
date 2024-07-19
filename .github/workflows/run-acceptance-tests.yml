@@ -71,7 +71,7 @@ jobs:
             filename=$(basename $file)
             echo $filename
             language=$(echo $filename | sed 's/-.*//')
-            mkdir -p sdk/$language
+            mkdir -p ${{ github.workspace }}/sdk/$language/
             tar -zxf $file -C ${{ github.workspace }}/sdk/$language/
           done
       - name: Compress sdk

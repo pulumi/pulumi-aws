@@ -71,6 +71,7 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         tools: go, pulumictl, pulumicli, schema-tools
+        cache_name: prereq
     - name: Build schema generator binary
       run: make tfgen_build_only
     - name: Install plugins
