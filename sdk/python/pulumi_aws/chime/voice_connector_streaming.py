@@ -252,14 +252,14 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeCallAnalyticsProcessor",
-                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
-                        "languageCode": "en-US",
+                    "amazon_transcribe_call_analytics_processor_configuration": {
+                        "language_code": "en-US",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example_stream.arn,
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example_stream.arn,
                     },
                 },
             ])
@@ -270,7 +270,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             streaming_notification_targets=["SQS"],
             media_insights_configuration={
                 "disabled": False,
-                "configurationArn": example.arn,
+                "configuration_arn": example.arn,
             })
         ```
 
@@ -345,14 +345,14 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeCallAnalyticsProcessor",
-                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
-                        "languageCode": "en-US",
+                    "amazon_transcribe_call_analytics_processor_configuration": {
+                        "language_code": "en-US",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example_stream.arn,
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example_stream.arn,
                     },
                 },
             ])
@@ -363,7 +363,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             streaming_notification_targets=["SQS"],
             media_insights_configuration={
                 "disabled": False,
-                "configurationArn": example.arn,
+                "configuration_arn": example.arn,
             })
         ```
 

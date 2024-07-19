@@ -18,9 +18,17 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
 
     public static final LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs();
 
+    /**
+     * The Availability Zones in which to enable fast snapshot restore.
+     * 
+     */
     @Import(name="availabilityZones", required=true)
     private Output<List<String>> availabilityZones;
 
+    /**
+     * @return The Availability Zones in which to enable fast snapshot restore.
+     * 
+     */
     public Output<List<String>> availabilityZones() {
         return this.availabilityZones;
     }
@@ -73,15 +81,33 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
             $ = new LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param availabilityZones The Availability Zones in which to enable fast snapshot restore.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZones(Output<List<String>> availabilityZones) {
             $.availabilityZones = availabilityZones;
             return this;
         }
 
+        /**
+         * @param availabilityZones The Availability Zones in which to enable fast snapshot restore.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZones(List<String> availabilityZones) {
             return availabilityZones(Output.of(availabilityZones));
         }
 
+        /**
+         * @param availabilityZones The Availability Zones in which to enable fast snapshot restore.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }

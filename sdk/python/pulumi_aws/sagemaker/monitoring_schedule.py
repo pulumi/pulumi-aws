@@ -188,8 +188,8 @@ class MonitoringSchedule(pulumi.CustomResource):
         test = aws.sagemaker.MonitoringSchedule("test",
             name="my-monitoring-schedule",
             monitoring_schedule_config={
-                "monitoringJobDefinitionName": test_aws_sagemaker_data_quality_job_definition["name"],
-                "monitoringType": "DataQuality",
+                "monitoring_job_definition_name": test_aws_sagemaker_data_quality_job_definition["name"],
+                "monitoring_type": "DataQuality",
             })
         ```
 
@@ -227,8 +227,8 @@ class MonitoringSchedule(pulumi.CustomResource):
         test = aws.sagemaker.MonitoringSchedule("test",
             name="my-monitoring-schedule",
             monitoring_schedule_config={
-                "monitoringJobDefinitionName": test_aws_sagemaker_data_quality_job_definition["name"],
-                "monitoringType": "DataQuality",
+                "monitoring_job_definition_name": test_aws_sagemaker_data_quality_job_definition["name"],
+                "monitoring_type": "DataQuality",
             })
         ```
 

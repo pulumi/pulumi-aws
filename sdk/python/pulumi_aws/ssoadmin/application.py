@@ -397,8 +397,8 @@ class Application(pulumi.CustomResource):
             instance_arn=example.arns[0],
             portal_options={
                 "visibility": "ENABLED",
-                "signInOptions": {
-                    "applicationUrl": "http://example.com",
+                "sign_in_options": {
+                    "application_url": "http://example.com",
                     "origin": "APPLICATION",
                 },
             })
@@ -466,8 +466,8 @@ class Application(pulumi.CustomResource):
             instance_arn=example.arns[0],
             portal_options={
                 "visibility": "ENABLED",
-                "signInOptions": {
-                    "applicationUrl": "http://example.com",
+                "sign_in_options": {
+                    "application_url": "http://example.com",
                     "origin": "APPLICATION",
                 },
             })

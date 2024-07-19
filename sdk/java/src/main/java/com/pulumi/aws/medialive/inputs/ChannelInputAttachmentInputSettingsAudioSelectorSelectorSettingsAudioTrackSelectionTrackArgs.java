@@ -14,9 +14,17 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs();
 
+    /**
+     * 1-based integer value that maps to a specific audio track.
+     * 
+     */
     @Import(name="track", required=true)
     private Output<Integer> track;
 
+    /**
+     * @return 1-based integer value that maps to a specific audio track.
+     * 
+     */
     public Output<Integer> track() {
         return this.track;
     }
@@ -45,11 +53,23 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param track 1-based integer value that maps to a specific audio track.
+         * 
+         * @return builder
+         * 
+         */
         public Builder track(Output<Integer> track) {
             $.track = track;
             return this;
         }
 
+        /**
+         * @param track 1-based integer value that maps to a specific audio track.
+         * 
+         * @return builder
+         * 
+         */
         public Builder track(Integer track) {
             return track(Output.of(track));
         }

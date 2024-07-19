@@ -2928,6 +2928,7 @@ func (o RuleGroupRuleGroupReferenceSetsPtrOutput) IpSetReferences() RuleGroupRul
 }
 
 type RuleGroupRuleGroupReferenceSetsIpSetReference struct {
+	// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
 	IpSetReferences []RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference `pulumi:"ipSetReferences"`
 	Key             string                                                        `pulumi:"key"`
 }
@@ -2944,6 +2945,7 @@ type RuleGroupRuleGroupReferenceSetsIpSetReferenceInput interface {
 }
 
 type RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs struct {
+	// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
 	IpSetReferences RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayInput `pulumi:"ipSetReferences"`
 	Key             pulumi.StringInput                                                    `pulumi:"key"`
 }
@@ -2999,6 +3001,7 @@ func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) ToRuleGroupRuleGrou
 	return o
 }
 
+// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
 func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) IpSetReferences() RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupReferenceSetsIpSetReference) []RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference {
 		return v.IpSetReferences
@@ -6997,8 +7000,10 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateCon
 }
 
 type TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort struct {
+	// The lower limit of the port range. This must be less than or equal to the `toPort`.
 	FromPort int `pulumi:"fromPort"`
-	ToPort   int `pulumi:"toPort"`
+	// The upper limit of the port range. This must be greater than or equal to the `fromPort`.
+	ToPort int `pulumi:"toPort"`
 }
 
 // TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortInput is an input type that accepts TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs and TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortOutput values.
@@ -7013,8 +7018,10 @@ type TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfig
 }
 
 type TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs struct {
+	// The lower limit of the port range. This must be less than or equal to the `toPort`.
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	ToPort   pulumi.IntInput `pulumi:"toPort"`
+	// The upper limit of the port range. This must be greater than or equal to the `fromPort`.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
 func (TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs) ElementType() reflect.Type {
@@ -7068,12 +7075,14 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateCon
 	return o
 }
 
+// The lower limit of the port range. This must be less than or equal to the `toPort`.
 func (o TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort) int {
 		return v.FromPort
 	}).(pulumi.IntOutput)
 }
 
+// The upper limit of the port range. This must be greater than or equal to the `fromPort`.
 func (o TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort) int {
 		return v.ToPort

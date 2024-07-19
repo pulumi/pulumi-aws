@@ -20,6 +20,10 @@ public final class FeatureGroupOfflineStoreConfig {
      * 
      */
     private @Nullable FeatureGroupOfflineStoreConfigDataCatalogConfig dataCatalogConfig;
+    /**
+     * @return Set to `true` to turn Online Store On.
+     * 
+     */
     private @Nullable Boolean disableGlueTableCreation;
     /**
      * @return The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
@@ -40,6 +44,10 @@ public final class FeatureGroupOfflineStoreConfig {
     public Optional<FeatureGroupOfflineStoreConfigDataCatalogConfig> dataCatalogConfig() {
         return Optional.ofNullable(this.dataCatalogConfig);
     }
+    /**
+     * @return Set to `true` to turn Online Store On.
+     * 
+     */
     public Optional<Boolean> disableGlueTableCreation() {
         return Optional.ofNullable(this.disableGlueTableCreation);
     }

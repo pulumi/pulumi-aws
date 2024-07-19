@@ -14,9 +14,17 @@ public final class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs e
 
     public static final PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs Empty = new PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs();
 
+    /**
+     * The ARN of the Secrets Manager secret containing the credentials.
+     * 
+     */
     @Import(name="basicAuth", required=true)
     private Output<String> basicAuth;
 
+    /**
+     * @return The ARN of the Secrets Manager secret containing the credentials.
+     * 
+     */
     public Output<String> basicAuth() {
         return this.basicAuth;
     }
@@ -45,11 +53,23 @@ public final class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs e
             $ = new PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param basicAuth The ARN of the Secrets Manager secret containing the credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder basicAuth(Output<String> basicAuth) {
             $.basicAuth = basicAuth;
             return this;
         }
 
+        /**
+         * @param basicAuth The ARN of the Secrets Manager secret containing the credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder basicAuth(String basicAuth) {
             return basicAuth(Output.of(basicAuth));
         }

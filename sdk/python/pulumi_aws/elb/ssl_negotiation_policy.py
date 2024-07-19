@@ -244,11 +244,11 @@ class SslNegotiationPolicy(pulumi.CustomResource):
             name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[{
-                "instancePort": 8000,
-                "instanceProtocol": "https",
-                "lbPort": 443,
-                "lbProtocol": "https",
-                "sslCertificateId": "arn:aws:iam::123456789012:server-certificate/certName",
+                "instance_port": 8000,
+                "instance_protocol": "https",
+                "lb_port": 443,
+                "lb_protocol": "https",
+                "ssl_certificate_id": "arn:aws:iam::123456789012:server-certificate/certName",
             }])
         foo = aws.elb.SslNegotiationPolicy("foo",
             name="foo-policy",
@@ -320,11 +320,11 @@ class SslNegotiationPolicy(pulumi.CustomResource):
             name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[{
-                "instancePort": 8000,
-                "instanceProtocol": "https",
-                "lbPort": 443,
-                "lbProtocol": "https",
-                "sslCertificateId": "arn:aws:iam::123456789012:server-certificate/certName",
+                "instance_port": 8000,
+                "instance_protocol": "https",
+                "lb_port": 443,
+                "lb_protocol": "https",
+                "ssl_certificate_id": "arn:aws:iam::123456789012:server-certificate/certName",
             }])
         foo = aws.elb.SslNegotiationPolicy("foo",
             name="foo-policy",

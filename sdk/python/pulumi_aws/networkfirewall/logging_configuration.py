@@ -118,13 +118,13 @@ class LoggingConfiguration(pulumi.CustomResource):
         example = aws.networkfirewall.LoggingConfiguration("example",
             firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
-                "logDestinationConfigs": [{
-                    "logDestination": {
-                        "bucketName": example_aws_s3_bucket["bucket"],
+                "log_destination_configs": [{
+                    "log_destination": {
+                        "bucket_name": example_aws_s3_bucket["bucket"],
                         "prefix": "/example",
                     },
-                    "logDestinationType": "S3",
-                    "logType": "FLOW",
+                    "log_destination_type": "S3",
+                    "log_type": "FLOW",
                 }],
             })
         ```
@@ -138,12 +138,12 @@ class LoggingConfiguration(pulumi.CustomResource):
         example = aws.networkfirewall.LoggingConfiguration("example",
             firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
-                "logDestinationConfigs": [{
-                    "logDestination": {
-                        "logGroup": example_aws_cloudwatch_log_group["name"],
+                "log_destination_configs": [{
+                    "log_destination": {
+                        "log_group": example_aws_cloudwatch_log_group["name"],
                     },
-                    "logDestinationType": "CloudWatchLogs",
-                    "logType": "ALERT",
+                    "log_destination_type": "CloudWatchLogs",
+                    "log_type": "ALERT",
                 }],
             })
         ```
@@ -157,12 +157,12 @@ class LoggingConfiguration(pulumi.CustomResource):
         example = aws.networkfirewall.LoggingConfiguration("example",
             firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
-                "logDestinationConfigs": [{
-                    "logDestination": {
-                        "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
+                "log_destination_configs": [{
+                    "log_destination": {
+                        "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
                     },
-                    "logDestinationType": "KinesisDataFirehose",
-                    "logType": "ALERT",
+                    "log_destination_type": "KinesisDataFirehose",
+                    "log_type": "ALERT",
                 }],
             })
         ```
@@ -200,13 +200,13 @@ class LoggingConfiguration(pulumi.CustomResource):
         example = aws.networkfirewall.LoggingConfiguration("example",
             firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
-                "logDestinationConfigs": [{
-                    "logDestination": {
-                        "bucketName": example_aws_s3_bucket["bucket"],
+                "log_destination_configs": [{
+                    "log_destination": {
+                        "bucket_name": example_aws_s3_bucket["bucket"],
                         "prefix": "/example",
                     },
-                    "logDestinationType": "S3",
-                    "logType": "FLOW",
+                    "log_destination_type": "S3",
+                    "log_type": "FLOW",
                 }],
             })
         ```
@@ -220,12 +220,12 @@ class LoggingConfiguration(pulumi.CustomResource):
         example = aws.networkfirewall.LoggingConfiguration("example",
             firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
-                "logDestinationConfigs": [{
-                    "logDestination": {
-                        "logGroup": example_aws_cloudwatch_log_group["name"],
+                "log_destination_configs": [{
+                    "log_destination": {
+                        "log_group": example_aws_cloudwatch_log_group["name"],
                     },
-                    "logDestinationType": "CloudWatchLogs",
-                    "logType": "ALERT",
+                    "log_destination_type": "CloudWatchLogs",
+                    "log_type": "ALERT",
                 }],
             })
         ```
@@ -239,12 +239,12 @@ class LoggingConfiguration(pulumi.CustomResource):
         example = aws.networkfirewall.LoggingConfiguration("example",
             firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
-                "logDestinationConfigs": [{
-                    "logDestination": {
-                        "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
+                "log_destination_configs": [{
+                    "log_destination": {
+                        "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
                     },
-                    "logDestinationType": "KinesisDataFirehose",
-                    "logType": "ALERT",
+                    "log_destination_type": "KinesisDataFirehose",
+                    "log_type": "ALERT",
                 }],
             })
         ```

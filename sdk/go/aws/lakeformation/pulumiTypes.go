@@ -5689,8 +5689,9 @@ type GetPermissionsTableWithColumns struct {
 	// Name of the table resource.
 	//
 	// The following arguments are optional:
-	Name     string `pulumi:"name"`
-	Wildcard *bool  `pulumi:"wildcard"`
+	Name string `pulumi:"name"`
+	// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+	Wildcard *bool `pulumi:"wildcard"`
 }
 
 // GetPermissionsTableWithColumnsInput is an input type that accepts GetPermissionsTableWithColumnsArgs and GetPermissionsTableWithColumnsOutput values.
@@ -5716,7 +5717,8 @@ type GetPermissionsTableWithColumnsArgs struct {
 	// Name of the table resource.
 	//
 	// The following arguments are optional:
-	Name     pulumi.StringInput  `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
@@ -5824,6 +5826,7 @@ func (o GetPermissionsTableWithColumnsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsTableWithColumns) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
 func (o GetPermissionsTableWithColumnsOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetPermissionsTableWithColumns) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -5904,6 +5907,7 @@ func (o GetPermissionsTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
 func (o GetPermissionsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsTableWithColumns) *bool {
 		if v == nil {

@@ -24,9 +24,15 @@ namespace Pulumi.Aws.AppFlow.Inputs
             }
         }
 
+        /// <summary>
+        /// The secret manager ARN, which contains the client ID and client secret of the connected app.
+        /// </summary>
         [Input("clientCredentialsArn")]
         public Input<string>? ClientCredentialsArn { get; set; }
 
+        /// <summary>
+        /// A JSON web token (JWT) that authorizes access to Salesforce records.
+        /// </summary>
         [Input("jwtToken")]
         public Input<string>? JwtToken { get; set; }
 

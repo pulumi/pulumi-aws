@@ -13,9 +13,18 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings
     {
+        /// <summary>
+        /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        /// </summary>
         public readonly int? ConnectionRetryInterval;
         public readonly int? FilecacheDuration;
+        /// <summary>
+        /// Number of retry attempts.
+        /// </summary>
         public readonly int? NumRetries;
+        /// <summary>
+        /// Number of seconds to wait until a restart is initiated.
+        /// </summary>
         public readonly int? RestartDelay;
 
         [OutputConstructor]
