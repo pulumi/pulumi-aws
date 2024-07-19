@@ -12,20 +12,33 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionOriginGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+        /// </summary>
         [Input("connectionAttempts")]
         public Input<int>? ConnectionAttempts { get; set; }
 
+        /// <summary>
+        /// Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+        /// </summary>
         [Input("connectionTimeout")]
         public Input<int>? ConnectionTimeout { get; set; }
 
         [Input("customHeaders")]
         private InputList<Inputs.DistributionOriginCustomHeaderGetArgs>? _customHeaders;
+
+        /// <summary>
+        /// One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
+        /// </summary>
         public InputList<Inputs.DistributionOriginCustomHeaderGetArgs> CustomHeaders
         {
             get => _customHeaders ?? (_customHeaders = new InputList<Inputs.DistributionOriginCustomHeaderGetArgs>());
             set => _customHeaders = value;
         }
 
+        /// <summary>
+        /// The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+        /// </summary>
         [Input("customOriginConfig")]
         public Input<Inputs.DistributionOriginCustomOriginConfigGetArgs>? CustomOriginConfig { get; set; }
 
@@ -35,18 +48,30 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of a [CloudFront origin access control][8] for this origin.
+        /// </summary>
         [Input("originAccessControlId")]
         public Input<string>? OriginAccessControlId { get; set; }
 
         [Input("originId", required: true)]
         public Input<string> OriginId { get; set; } = null!;
 
+        /// <summary>
+        /// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
+        /// </summary>
         [Input("originPath")]
         public Input<string>? OriginPath { get; set; }
 
+        /// <summary>
+        /// CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+        /// </summary>
         [Input("originShield")]
         public Input<Inputs.DistributionOriginOriginShieldGetArgs>? OriginShield { get; set; }
 
+        /// <summary>
+        /// CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+        /// </summary>
         [Input("s3OriginConfig")]
         public Input<Inputs.DistributionOriginS3OriginConfigGetArgs>? S3OriginConfig { get; set; }
 

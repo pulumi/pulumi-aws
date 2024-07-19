@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataRepositoryAssociationS3 {
+    /**
+     * @return Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+     * 
+     */
     private @Nullable DataRepositoryAssociationS3AutoExportPolicy autoExportPolicy;
+    /**
+     * @return Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+     * 
+     */
     private @Nullable DataRepositoryAssociationS3AutoImportPolicy autoImportPolicy;
 
     private DataRepositoryAssociationS3() {}
+    /**
+     * @return Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+     * 
+     */
     public Optional<DataRepositoryAssociationS3AutoExportPolicy> autoExportPolicy() {
         return Optional.ofNullable(this.autoExportPolicy);
     }
+    /**
+     * @return Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+     * 
+     */
     public Optional<DataRepositoryAssociationS3AutoImportPolicy> autoImportPolicy() {
         return Optional.ofNullable(this.autoImportPolicy);
     }

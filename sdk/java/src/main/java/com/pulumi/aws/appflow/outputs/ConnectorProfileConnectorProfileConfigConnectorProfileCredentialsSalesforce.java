@@ -13,7 +13,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
     private @Nullable String accessToken;
+    /**
+     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * 
+     */
     private @Nullable String clientCredentialsArn;
+    /**
+     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
+     * 
+     */
     private @Nullable String jwtToken;
     private @Nullable String oauth2GrantType;
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest oauthRequest;
@@ -23,9 +31,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
+    /**
+     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * 
+     */
     public Optional<String> clientCredentialsArn() {
         return Optional.ofNullable(this.clientCredentialsArn);
     }
+    /**
+     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
+     * 
+     */
     public Optional<String> jwtToken() {
         return Optional.ofNullable(this.jwtToken);
     }

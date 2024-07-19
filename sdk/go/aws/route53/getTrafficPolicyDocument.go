@@ -123,18 +123,18 @@ import (
 //						Value: pulumi.StringRef("elb-444444.ap-northeast-2.elb.amazonaws.com"),
 //					},
 //				},
-//				Rules: pulumi.Array{
-//					route53.GetTrafficPolicyDocumentRule{
+//				Rules: []route53.GetTrafficPolicyDocumentRule{
+//					{
 //						Id:   "na_rule",
 //						Type: pulumi.StringRef("failover"),
-//						Primary: route53.GetTrafficPolicyDocumentRulePrimary{
+//						Primary: {
 //							EndpointReference: pulumi.StringRef("na_endpoint_a"),
 //						},
-//						Secondary: route53.GetTrafficPolicyDocumentRuleSecondary{
+//						Secondary: {
 //							EndpointReference: pulumi.StringRef("na_endpoint_b"),
 //						},
 //					},
-//					route53.GetTrafficPolicyDocumentRule{
+//					{
 //						Id:   "geoproximity_rule",
 //						Type: pulumi.StringRef("geoproximity"),
 //						GeoProximityLocations: []route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{

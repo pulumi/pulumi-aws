@@ -13,6 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack
     {
+        /// <summary>
+        /// 1-based integer value that maps to a specific audio track.
+        /// </summary>
         public readonly int Track;
 
         [OutputConstructor]

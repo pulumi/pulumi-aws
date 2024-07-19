@@ -246,12 +246,12 @@ class Repository(pulumi.CustomResource):
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
             catalog_data={
-                "aboutText": "About Text",
+                "about_text": "About Text",
                 "architectures": ["ARM"],
                 "description": "Description",
-                "logoImageBlob": std.filebase64(input=png).result,
-                "operatingSystems": ["Linux"],
-                "usageText": "Usage Text",
+                "logo_image_blob": std.filebase64(input=png).result,
+                "operating_systems": ["Linux"],
+                "usage_text": "Usage Text",
             },
             tags={
                 "env": "production",
@@ -293,12 +293,12 @@ class Repository(pulumi.CustomResource):
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
             catalog_data={
-                "aboutText": "About Text",
+                "about_text": "About Text",
                 "architectures": ["ARM"],
                 "description": "Description",
-                "logoImageBlob": std.filebase64(input=png).result,
-                "operatingSystems": ["Linux"],
-                "usageText": "Usage Text",
+                "logo_image_blob": std.filebase64(input=png).result,
+                "operating_systems": ["Linux"],
+                "usage_text": "Usage Text",
             },
             tags={
                 "env": "production",

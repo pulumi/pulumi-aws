@@ -22,9 +22,17 @@ public final class SigningJobSignedObjectS3Args extends com.pulumi.resources.Res
         return Optional.ofNullable(this.bucket);
     }
 
+    /**
+     * Key name of the object that contains your unsigned code.
+     * 
+     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
+    /**
+     * @return Key name of the object that contains your unsigned code.
+     * 
+     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
@@ -63,11 +71,23 @@ public final class SigningJobSignedObjectS3Args extends com.pulumi.resources.Res
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param key Key name of the object that contains your unsigned code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Key name of the object that contains your unsigned code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

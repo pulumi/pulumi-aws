@@ -21,51 +21,107 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs();
 
+    /**
+     * Ancillary Source Settings. See Ancillary Source Settings for more details.
+     * 
+     */
     @Import(name="ancillarySourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs> ancillarySourceSettings;
 
+    /**
+     * @return Ancillary Source Settings. See Ancillary Source Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs>> ancillarySourceSettings() {
         return Optional.ofNullable(this.ancillarySourceSettings);
     }
 
+    /**
+     * ARIB Source Settings.
+     * 
+     */
     @Import(name="aribSourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs> aribSourceSettings;
 
+    /**
+     * @return ARIB Source Settings.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs>> aribSourceSettings() {
         return Optional.ofNullable(this.aribSourceSettings);
     }
 
+    /**
+     * DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+     * 
+     */
     @Import(name="dvbSubSourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs> dvbSubSourceSettings;
 
+    /**
+     * @return DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs>> dvbSubSourceSettings() {
         return Optional.ofNullable(this.dvbSubSourceSettings);
     }
 
+    /**
+     * Embedded Source Settings. See Embedded Source Settings for more details.
+     * 
+     */
     @Import(name="embeddedSourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs> embeddedSourceSettings;
 
+    /**
+     * @return Embedded Source Settings. See Embedded Source Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs>> embeddedSourceSettings() {
         return Optional.ofNullable(this.embeddedSourceSettings);
     }
 
+    /**
+     * SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+     * 
+     */
     @Import(name="scte20SourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs> scte20SourceSettings;
 
+    /**
+     * @return SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs>> scte20SourceSettings() {
         return Optional.ofNullable(this.scte20SourceSettings);
     }
 
+    /**
+     * SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+     * 
+     */
     @Import(name="scte27SourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs> scte27SourceSettings;
 
+    /**
+     * @return SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs>> scte27SourceSettings() {
         return Optional.ofNullable(this.scte27SourceSettings);
     }
 
+    /**
+     * Teletext Source Settings. See Teletext Source Settings for more details.
+     * 
+     */
     @Import(name="teletextSourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs> teletextSourceSettings;
 
+    /**
+     * @return Teletext Source Settings. See Teletext Source Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs>> teletextSourceSettings() {
         return Optional.ofNullable(this.teletextSourceSettings);
     }
@@ -100,65 +156,149 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             $ = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ancillarySourceSettings Ancillary Source Settings. See Ancillary Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ancillarySourceSettings(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs> ancillarySourceSettings) {
             $.ancillarySourceSettings = ancillarySourceSettings;
             return this;
         }
 
+        /**
+         * @param ancillarySourceSettings Ancillary Source Settings. See Ancillary Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ancillarySourceSettings(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs ancillarySourceSettings) {
             return ancillarySourceSettings(Output.of(ancillarySourceSettings));
         }
 
+        /**
+         * @param aribSourceSettings ARIB Source Settings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aribSourceSettings(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs> aribSourceSettings) {
             $.aribSourceSettings = aribSourceSettings;
             return this;
         }
 
+        /**
+         * @param aribSourceSettings ARIB Source Settings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aribSourceSettings(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs aribSourceSettings) {
             return aribSourceSettings(Output.of(aribSourceSettings));
         }
 
+        /**
+         * @param dvbSubSourceSettings DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dvbSubSourceSettings(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs> dvbSubSourceSettings) {
             $.dvbSubSourceSettings = dvbSubSourceSettings;
             return this;
         }
 
+        /**
+         * @param dvbSubSourceSettings DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dvbSubSourceSettings(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs dvbSubSourceSettings) {
             return dvbSubSourceSettings(Output.of(dvbSubSourceSettings));
         }
 
+        /**
+         * @param embeddedSourceSettings Embedded Source Settings. See Embedded Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder embeddedSourceSettings(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs> embeddedSourceSettings) {
             $.embeddedSourceSettings = embeddedSourceSettings;
             return this;
         }
 
+        /**
+         * @param embeddedSourceSettings Embedded Source Settings. See Embedded Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder embeddedSourceSettings(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs embeddedSourceSettings) {
             return embeddedSourceSettings(Output.of(embeddedSourceSettings));
         }
 
+        /**
+         * @param scte20SourceSettings SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scte20SourceSettings(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs> scte20SourceSettings) {
             $.scte20SourceSettings = scte20SourceSettings;
             return this;
         }
 
+        /**
+         * @param scte20SourceSettings SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scte20SourceSettings(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs scte20SourceSettings) {
             return scte20SourceSettings(Output.of(scte20SourceSettings));
         }
 
+        /**
+         * @param scte27SourceSettings SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scte27SourceSettings(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs> scte27SourceSettings) {
             $.scte27SourceSettings = scte27SourceSettings;
             return this;
         }
 
+        /**
+         * @param scte27SourceSettings SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scte27SourceSettings(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs scte27SourceSettings) {
             return scte27SourceSettings(Output.of(scte27SourceSettings));
         }
 
+        /**
+         * @param teletextSourceSettings Teletext Source Settings. See Teletext Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teletextSourceSettings(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs> teletextSourceSettings) {
             $.teletextSourceSettings = teletextSourceSettings;
             return this;
         }
 
+        /**
+         * @param teletextSourceSettings Teletext Source Settings. See Teletext Source Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teletextSourceSettings(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs teletextSourceSettings) {
             return teletextSourceSettings(Output.of(teletextSourceSettings));
         }

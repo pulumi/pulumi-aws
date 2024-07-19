@@ -272,14 +272,14 @@ class Framework(pulumi.CustomResource):
             controls=[
                 {
                     "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-                    "inputParameters": [{
+                    "input_parameters": [{
                         "name": "requiredRetentionDays",
                         "value": "35",
                     }],
                 },
                 {
                     "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-                    "inputParameters": [
+                    "input_parameters": [
                         {
                             "name": "requiredFrequencyUnit",
                             "value": "hours",
@@ -300,7 +300,7 @@ class Framework(pulumi.CustomResource):
                 {
                     "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                     "scope": {
-                        "complianceResourceTypes": ["EBS"],
+                        "compliance_resource_types": ["EBS"],
                     },
                 },
                 {
@@ -308,7 +308,7 @@ class Framework(pulumi.CustomResource):
                 },
                 {
                     "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    "inputParameters": [
+                    "input_parameters": [
                         {
                             "name": "maxRetentionDays",
                             "value": "100",
@@ -319,12 +319,12 @@ class Framework(pulumi.CustomResource):
                         },
                     ],
                     "scope": {
-                        "complianceResourceTypes": ["EBS"],
+                        "compliance_resource_types": ["EBS"],
                     },
                 },
                 {
                     "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    "inputParameters": [
+                    "input_parameters": [
                         {
                             "name": "recoveryPointAgeUnit",
                             "value": "days",
@@ -335,7 +335,7 @@ class Framework(pulumi.CustomResource):
                         },
                     ],
                     "scope": {
-                        "complianceResourceTypes": ["EBS"],
+                        "compliance_resource_types": ["EBS"],
                     },
                 },
             ],
@@ -382,14 +382,14 @@ class Framework(pulumi.CustomResource):
             controls=[
                 {
                     "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-                    "inputParameters": [{
+                    "input_parameters": [{
                         "name": "requiredRetentionDays",
                         "value": "35",
                     }],
                 },
                 {
                     "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-                    "inputParameters": [
+                    "input_parameters": [
                         {
                             "name": "requiredFrequencyUnit",
                             "value": "hours",
@@ -410,7 +410,7 @@ class Framework(pulumi.CustomResource):
                 {
                     "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                     "scope": {
-                        "complianceResourceTypes": ["EBS"],
+                        "compliance_resource_types": ["EBS"],
                     },
                 },
                 {
@@ -418,7 +418,7 @@ class Framework(pulumi.CustomResource):
                 },
                 {
                     "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    "inputParameters": [
+                    "input_parameters": [
                         {
                             "name": "maxRetentionDays",
                             "value": "100",
@@ -429,12 +429,12 @@ class Framework(pulumi.CustomResource):
                         },
                     ],
                     "scope": {
-                        "complianceResourceTypes": ["EBS"],
+                        "compliance_resource_types": ["EBS"],
                     },
                 },
                 {
                     "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    "inputParameters": [
+                    "input_parameters": [
                         {
                             "name": "recoveryPointAgeUnit",
                             "value": "days",
@@ -445,7 +445,7 @@ class Framework(pulumi.CustomResource):
                         },
                     ],
                     "scope": {
-                        "complianceResourceTypes": ["EBS"],
+                        "compliance_resource_types": ["EBS"],
                     },
                 },
             ],

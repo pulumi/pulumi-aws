@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class BotClarificationPromptGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of times to prompt the user for information.
+        /// </summary>
         [Input("maxAttempts", required: true)]
         public Input<int> MaxAttempts { get; set; } = null!;
 

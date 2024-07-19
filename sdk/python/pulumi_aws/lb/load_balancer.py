@@ -1052,12 +1052,12 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type="network",
             subnet_mappings=[
                 {
-                    "subnetId": example1_aws_subnet["id"],
-                    "allocationId": example1["id"],
+                    "subnet_id": example1_aws_subnet["id"],
+                    "allocation_id": example1["id"],
                 },
                 {
-                    "subnetId": example2_aws_subnet["id"],
-                    "allocationId": example2["id"],
+                    "subnet_id": example2_aws_subnet["id"],
+                    "allocation_id": example2["id"],
                 },
             ])
         ```
@@ -1073,12 +1073,12 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type="network",
             subnet_mappings=[
                 {
-                    "subnetId": example1["id"],
-                    "privateIpv4Address": "10.0.1.15",
+                    "subnet_id": example1["id"],
+                    "private_ipv4_address": "10.0.1.15",
                 },
                 {
-                    "subnetId": example2["id"],
-                    "privateIpv4Address": "10.0.2.15",
+                    "subnet_id": example2["id"],
+                    "private_ipv4_address": "10.0.2.15",
                 },
             ])
         ```
@@ -1184,12 +1184,12 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type="network",
             subnet_mappings=[
                 {
-                    "subnetId": example1_aws_subnet["id"],
-                    "allocationId": example1["id"],
+                    "subnet_id": example1_aws_subnet["id"],
+                    "allocation_id": example1["id"],
                 },
                 {
-                    "subnetId": example2_aws_subnet["id"],
-                    "allocationId": example2["id"],
+                    "subnet_id": example2_aws_subnet["id"],
+                    "allocation_id": example2["id"],
                 },
             ])
         ```
@@ -1205,12 +1205,12 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type="network",
             subnet_mappings=[
                 {
-                    "subnetId": example1["id"],
-                    "privateIpv4Address": "10.0.1.15",
+                    "subnet_id": example1["id"],
+                    "private_ipv4_address": "10.0.1.15",
                 },
                 {
-                    "subnetId": example2["id"],
-                    "privateIpv4Address": "10.0.2.15",
+                    "subnet_id": example2["id"],
+                    "private_ipv4_address": "10.0.2.15",
                 },
             ])
         ```

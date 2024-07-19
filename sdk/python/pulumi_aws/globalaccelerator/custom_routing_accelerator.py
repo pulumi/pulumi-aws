@@ -325,9 +325,9 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
             ip_addresses=["1.2.3.4"],
             enabled=True,
             attributes={
-                "flowLogsEnabled": True,
-                "flowLogsS3Bucket": "example-bucket",
-                "flowLogsS3Prefix": "flow-logs/",
+                "flow_logs_enabled": True,
+                "flow_logs_s3_bucket": "example-bucket",
+                "flow_logs_s3_prefix": "flow-logs/",
             })
         ```
 
@@ -369,9 +369,9 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
             ip_addresses=["1.2.3.4"],
             enabled=True,
             attributes={
-                "flowLogsEnabled": True,
-                "flowLogsS3Bucket": "example-bucket",
-                "flowLogsS3Prefix": "flow-logs/",
+                "flow_logs_enabled": True,
+                "flow_logs_s3_bucket": "example-bucket",
+                "flow_logs_s3_prefix": "flow-logs/",
             })
         ```
 
