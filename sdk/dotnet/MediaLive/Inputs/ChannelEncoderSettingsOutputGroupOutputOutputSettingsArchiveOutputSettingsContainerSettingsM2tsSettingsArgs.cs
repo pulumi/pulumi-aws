@@ -129,6 +129,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("scte35Control")]
         public Input<string>? Scte35Control { get; set; }
 
+        /// <summary>
+        /// PID from which to read SCTE-35 messages.
+        /// </summary>
         [Input("scte35Pid")]
         public Input<string>? Scte35Pid { get; set; }
 

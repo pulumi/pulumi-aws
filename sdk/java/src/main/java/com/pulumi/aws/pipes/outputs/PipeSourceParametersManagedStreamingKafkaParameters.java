@@ -14,29 +14,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeSourceParametersManagedStreamingKafkaParameters {
+    /**
+     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * 
+     */
     private @Nullable Integer batchSize;
+    /**
+     * @return The name of the destination queue to consume. Maximum value of 200.
+     * 
+     */
     private @Nullable String consumerGroupId;
+    /**
+     * @return The credentials needed to access the resource. Detailed below.
+     * 
+     */
     private @Nullable PipeSourceParametersManagedStreamingKafkaParametersCredentials credentials;
+    /**
+     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * 
+     */
     private @Nullable Integer maximumBatchingWindowInSeconds;
+    /**
+     * @return The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * 
+     */
     private @Nullable String startingPosition;
+    /**
+     * @return The name of the topic that the pipe will read from. Maximum length of 249.
+     * 
+     */
     private String topicName;
 
     private PipeSourceParametersManagedStreamingKafkaParameters() {}
+    /**
+     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * 
+     */
     public Optional<Integer> batchSize() {
         return Optional.ofNullable(this.batchSize);
     }
+    /**
+     * @return The name of the destination queue to consume. Maximum value of 200.
+     * 
+     */
     public Optional<String> consumerGroupId() {
         return Optional.ofNullable(this.consumerGroupId);
     }
+    /**
+     * @return The credentials needed to access the resource. Detailed below.
+     * 
+     */
     public Optional<PipeSourceParametersManagedStreamingKafkaParametersCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
     }
+    /**
+     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * 
+     */
     public Optional<Integer> maximumBatchingWindowInSeconds() {
         return Optional.ofNullable(this.maximumBatchingWindowInSeconds);
     }
+    /**
+     * @return The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * 
+     */
     public Optional<String> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
+    /**
+     * @return The name of the topic that the pipe will read from. Maximum length of 249.
+     * 
+     */
     public String topicName() {
         return this.topicName;
     }

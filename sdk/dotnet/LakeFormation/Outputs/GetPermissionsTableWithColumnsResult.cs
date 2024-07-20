@@ -35,6 +35,9 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+        /// </summary>
         public readonly bool? Wildcard;
 
         [OutputConstructor]

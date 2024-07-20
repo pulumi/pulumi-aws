@@ -187,12 +187,12 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
             name="example",
             configuration={
-                "supportingAccessPoint": example_access_point.arn,
-                "transformationConfigurations": [{
+                "supporting_access_point": example_access_point.arn,
+                "transformation_configurations": [{
                     "actions": ["GetObject"],
-                    "contentTransformation": {
-                        "awsLambda": {
-                            "functionArn": example_aws_lambda_function["arn"],
+                    "content_transformation": {
+                        "aws_lambda": {
+                            "function_arn": example_aws_lambda_function["arn"],
                         },
                     },
                 }],
@@ -236,12 +236,12 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
             name="example",
             configuration={
-                "supportingAccessPoint": example_access_point.arn,
-                "transformationConfigurations": [{
+                "supporting_access_point": example_access_point.arn,
+                "transformation_configurations": [{
                     "actions": ["GetObject"],
-                    "contentTransformation": {
-                        "awsLambda": {
-                            "functionArn": example_aws_lambda_function["arn"],
+                    "content_transformation": {
+                        "aws_lambda": {
+                            "function_arn": example_aws_lambda_function["arn"],
                         },
                     },
                 }],

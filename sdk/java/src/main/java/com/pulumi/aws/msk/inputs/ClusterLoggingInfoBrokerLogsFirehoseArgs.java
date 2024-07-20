@@ -17,9 +17,17 @@ public final class ClusterLoggingInfoBrokerLogsFirehoseArgs extends com.pulumi.r
 
     public static final ClusterLoggingInfoBrokerLogsFirehoseArgs Empty = new ClusterLoggingInfoBrokerLogsFirehoseArgs();
 
+    /**
+     * Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+     * 
+     */
     @Import(name="deliveryStream")
     private @Nullable Output<String> deliveryStream;
 
+    /**
+     * @return Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+     * 
+     */
     public Optional<Output<String>> deliveryStream() {
         return Optional.ofNullable(this.deliveryStream);
     }
@@ -56,11 +64,23 @@ public final class ClusterLoggingInfoBrokerLogsFirehoseArgs extends com.pulumi.r
             $ = new ClusterLoggingInfoBrokerLogsFirehoseArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deliveryStream Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deliveryStream(@Nullable Output<String> deliveryStream) {
             $.deliveryStream = deliveryStream;
             return this;
         }
 
+        /**
+         * @param deliveryStream Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deliveryStream(String deliveryStream) {
             return deliveryStream(Output.of(deliveryStream));
         }

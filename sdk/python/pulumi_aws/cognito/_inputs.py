@@ -174,9 +174,21 @@ class IdentityPoolCognitoIdentityProviderArgs:
 if not MYPY:
     class IdentityPoolRoleAttachmentRoleMappingArgsDict(TypedDict):
         identity_provider: pulumi.Input[str]
+        """
+        A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
+        """
         type: pulumi.Input[str]
+        """
+        The role mapping type.
+        """
         ambiguous_role_resolution: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+        """
         mapping_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict']]]]
+        """
+        The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        """
 elif False:
     IdentityPoolRoleAttachmentRoleMappingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -187,6 +199,12 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
                  type: pulumi.Input[str],
                  ambiguous_role_resolution: Optional[pulumi.Input[str]] = None,
                  mapping_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]]] = None):
+        """
+        :param pulumi.Input[str] identity_provider: A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
+        :param pulumi.Input[str] type: The role mapping type.
+        :param pulumi.Input[str] ambiguous_role_resolution: Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        """
         pulumi.set(__self__, "identity_provider", identity_provider)
         pulumi.set(__self__, "type", type)
         if ambiguous_role_resolution is not None:
@@ -197,6 +215,9 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
     @property
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> pulumi.Input[str]:
+        """
+        A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
+        """
         return pulumi.get(self, "identity_provider")
 
     @identity_provider.setter
@@ -206,6 +227,9 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The role mapping type.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -215,6 +239,9 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
     @property
     @pulumi.getter(name="ambiguousRoleResolution")
     def ambiguous_role_resolution(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+        """
         return pulumi.get(self, "ambiguous_role_resolution")
 
     @ambiguous_role_resolution.setter
@@ -224,6 +251,9 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
     @property
     @pulumi.getter(name="mappingRules")
     def mapping_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]]]:
+        """
+        The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        """
         return pulumi.get(self, "mapping_rules")
 
     @mapping_rules.setter
@@ -234,9 +264,21 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
 if not MYPY:
     class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict(TypedDict):
         claim: pulumi.Input[str]
+        """
+        The claim name that must be present in the token, for example, "isAdmin" or "paid".
+        """
         match_type: pulumi.Input[str]
+        """
+        The match condition that specifies how closely the claim value in the IdP token must match Value.
+        """
         role_arn: pulumi.Input[str]
+        """
+        The role ARN.
+        """
         value: pulumi.Input[str]
+        """
+        A brief string that the claim must match, for example, "paid" or "yes".
+        """
 elif False:
     IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -247,6 +289,12 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
                  match_type: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] claim: The claim name that must be present in the token, for example, "isAdmin" or "paid".
+        :param pulumi.Input[str] match_type: The match condition that specifies how closely the claim value in the IdP token must match Value.
+        :param pulumi.Input[str] role_arn: The role ARN.
+        :param pulumi.Input[str] value: A brief string that the claim must match, for example, "paid" or "yes".
+        """
         pulumi.set(__self__, "claim", claim)
         pulumi.set(__self__, "match_type", match_type)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -255,6 +303,9 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     @property
     @pulumi.getter
     def claim(self) -> pulumi.Input[str]:
+        """
+        The claim name that must be present in the token, for example, "isAdmin" or "paid".
+        """
         return pulumi.get(self, "claim")
 
     @claim.setter
@@ -264,6 +315,9 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     @property
     @pulumi.getter(name="matchType")
     def match_type(self) -> pulumi.Input[str]:
+        """
+        The match condition that specifies how closely the claim value in the IdP token must match Value.
+        """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
@@ -273,6 +327,9 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The role ARN.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -282,6 +339,9 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A brief string that the claim must match, for example, "paid" or "yes".
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -476,7 +536,13 @@ class ManagedUserPoolClientTokenValidityUnitsArgs:
 if not MYPY:
     class ResourceServerScopeArgsDict(TypedDict):
         scope_description: pulumi.Input[str]
+        """
+        The scope description.
+        """
         scope_name: pulumi.Input[str]
+        """
+        The scope name.
+        """
 elif False:
     ResourceServerScopeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -485,12 +551,19 @@ class ResourceServerScopeArgs:
     def __init__(__self__, *,
                  scope_description: pulumi.Input[str],
                  scope_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] scope_description: The scope description.
+        :param pulumi.Input[str] scope_name: The scope name.
+        """
         pulumi.set(__self__, "scope_description", scope_description)
         pulumi.set(__self__, "scope_name", scope_name)
 
     @property
     @pulumi.getter(name="scopeDescription")
     def scope_description(self) -> pulumi.Input[str]:
+        """
+        The scope description.
+        """
         return pulumi.get(self, "scope_description")
 
     @scope_description.setter
@@ -500,6 +573,9 @@ class ResourceServerScopeArgs:
     @property
     @pulumi.getter(name="scopeName")
     def scope_name(self) -> pulumi.Input[str]:
+        """
+        The scope name.
+        """
         return pulumi.get(self, "scope_name")
 
     @scope_name.setter
@@ -633,6 +709,9 @@ if not MYPY:
     class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgsDict(TypedDict):
         event_action: pulumi.Input[str]
         notify: pulumi.Input[bool]
+        """
+        Whether to send a notification.
+        """
 elif False:
     RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -641,6 +720,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] notify: Whether to send a notification.
+        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
@@ -656,6 +738,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
     @property
     @pulumi.getter
     def notify(self) -> pulumi.Input[bool]:
+        """
+        Whether to send a notification.
+        """
         return pulumi.get(self, "notify")
 
     @notify.setter
@@ -667,6 +752,9 @@ if not MYPY:
     class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgsDict(TypedDict):
         event_action: pulumi.Input[str]
         notify: pulumi.Input[bool]
+        """
+        Whether to send a notification.
+        """
 elif False:
     RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -675,6 +763,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] notify: Whether to send a notification.
+        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
@@ -690,6 +781,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
     @property
     @pulumi.getter
     def notify(self) -> pulumi.Input[bool]:
+        """
+        Whether to send a notification.
+        """
         return pulumi.get(self, "notify")
 
     @notify.setter
@@ -701,6 +795,9 @@ if not MYPY:
     class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgsDict(TypedDict):
         event_action: pulumi.Input[str]
         notify: pulumi.Input[bool]
+        """
+        Whether to send a notification.
+        """
 elif False:
     RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -709,6 +806,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] notify: Whether to send a notification.
+        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
@@ -724,6 +824,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
     @property
     @pulumi.getter
     def notify(self) -> pulumi.Input[bool]:
+        """
+        Whether to send a notification.
+        """
         return pulumi.get(self, "notify")
 
     @notify.setter
@@ -865,8 +968,17 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
 if not MYPY:
     class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgsDict(TypedDict):
         html_body: pulumi.Input[str]
+        """
+        The email HTML body.
+        """
         subject: pulumi.Input[str]
+        """
+        The email subject.
+        """
         text_body: pulumi.Input[str]
+        """
+        The email text body.
+        """
 elif False:
     RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -876,6 +988,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
                  html_body: pulumi.Input[str],
                  subject: pulumi.Input[str],
                  text_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] html_body: The email HTML body.
+        :param pulumi.Input[str] subject: The email subject.
+        :param pulumi.Input[str] text_body: The email text body.
+        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -883,6 +1000,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> pulumi.Input[str]:
+        """
+        The email HTML body.
+        """
         return pulumi.get(self, "html_body")
 
     @html_body.setter
@@ -892,6 +1012,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @property
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
+        """
+        The email subject.
+        """
         return pulumi.get(self, "subject")
 
     @subject.setter
@@ -901,6 +1024,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> pulumi.Input[str]:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
     @text_body.setter
@@ -911,8 +1037,17 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
 if not MYPY:
     class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgsDict(TypedDict):
         html_body: pulumi.Input[str]
+        """
+        The email HTML body.
+        """
         subject: pulumi.Input[str]
+        """
+        The email subject.
+        """
         text_body: pulumi.Input[str]
+        """
+        The email text body.
+        """
 elif False:
     RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -922,6 +1057,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
                  html_body: pulumi.Input[str],
                  subject: pulumi.Input[str],
                  text_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] html_body: The email HTML body.
+        :param pulumi.Input[str] subject: The email subject.
+        :param pulumi.Input[str] text_body: The email text body.
+        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -929,6 +1069,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> pulumi.Input[str]:
+        """
+        The email HTML body.
+        """
         return pulumi.get(self, "html_body")
 
     @html_body.setter
@@ -938,6 +1081,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @property
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
+        """
+        The email subject.
+        """
         return pulumi.get(self, "subject")
 
     @subject.setter
@@ -947,6 +1093,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> pulumi.Input[str]:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
     @text_body.setter
@@ -957,8 +1106,17 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
 if not MYPY:
     class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgsDict(TypedDict):
         html_body: pulumi.Input[str]
+        """
+        The email HTML body.
+        """
         subject: pulumi.Input[str]
+        """
+        The email subject.
+        """
         text_body: pulumi.Input[str]
+        """
+        The email text body.
+        """
 elif False:
     RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -968,6 +1126,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
                  html_body: pulumi.Input[str],
                  subject: pulumi.Input[str],
                  text_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] html_body: The email HTML body.
+        :param pulumi.Input[str] subject: The email subject.
+        :param pulumi.Input[str] text_body: The email text body.
+        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -975,6 +1138,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> pulumi.Input[str]:
+        """
+        The email HTML body.
+        """
         return pulumi.get(self, "html_body")
 
     @html_body.setter
@@ -984,6 +1150,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @property
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
+        """
+        The email subject.
+        """
         return pulumi.get(self, "subject")
 
     @subject.setter
@@ -993,6 +1162,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> pulumi.Input[str]:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
     @text_body.setter

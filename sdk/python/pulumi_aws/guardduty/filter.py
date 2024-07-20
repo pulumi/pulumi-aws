@@ -325,19 +325,19 @@ class Filter(pulumi.CustomResource):
                     },
                     {
                         "field": "service.additionalInfo.threatListName",
-                        "notEquals": [
+                        "not_equals": [
                             "some-threat",
                             "another-threat",
                         ],
                     },
                     {
                         "field": "updatedAt",
-                        "greaterThan": "2020-01-01T00:00:00Z",
-                        "lessThan": "2020-02-01T00:00:00Z",
+                        "greater_than": "2020-01-01T00:00:00Z",
+                        "less_than": "2020-02-01T00:00:00Z",
                     },
                     {
                         "field": "severity",
-                        "greaterThanOrEqual": "4",
+                        "greater_than_or_equal": "4",
                     },
                 ],
             })
@@ -389,19 +389,19 @@ class Filter(pulumi.CustomResource):
                     },
                     {
                         "field": "service.additionalInfo.threatListName",
-                        "notEquals": [
+                        "not_equals": [
                             "some-threat",
                             "another-threat",
                         ],
                     },
                     {
                         "field": "updatedAt",
-                        "greaterThan": "2020-01-01T00:00:00Z",
-                        "lessThan": "2020-02-01T00:00:00Z",
+                        "greater_than": "2020-01-01T00:00:00Z",
+                        "less_than": "2020-02-01T00:00:00Z",
                     },
                     {
                         "field": "severity",
-                        "greaterThanOrEqual": "4",
+                        "greater_than_or_equal": "4",
                     },
                 ],
             })

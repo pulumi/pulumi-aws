@@ -417,7 +417,13 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
 if not MYPY:
     class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):
         data_storage: NotRequired[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgsDict']]
+        """
+        The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        """
         ecpu_per_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict']]]]
+        """
+        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
 elif False:
     ServerlessCacheCacheUsageLimitsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -426,6 +432,10 @@ class ServerlessCacheCacheUsageLimitsArgs:
     def __init__(__self__, *,
                  data_storage: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']] = None,
                  ecpu_per_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]] = None):
+        """
+        :param pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs'] data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]] ecpu_per_seconds: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
         if data_storage is not None:
             pulumi.set(__self__, "data_storage", data_storage)
         if ecpu_per_seconds is not None:
@@ -434,6 +444,9 @@ class ServerlessCacheCacheUsageLimitsArgs:
     @property
     @pulumi.getter(name="dataStorage")
     def data_storage(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']]:
+        """
+        The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        """
         return pulumi.get(self, "data_storage")
 
     @data_storage.setter
@@ -443,6 +456,9 @@ class ServerlessCacheCacheUsageLimitsArgs:
     @property
     @pulumi.getter(name="ecpuPerSeconds")
     def ecpu_per_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]:
+        """
+        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
         return pulumi.get(self, "ecpu_per_seconds")
 
     @ecpu_per_seconds.setter
@@ -453,6 +469,9 @@ class ServerlessCacheCacheUsageLimitsArgs:
 if not MYPY:
     class ServerlessCacheCacheUsageLimitsDataStorageArgsDict(TypedDict):
         unit: pulumi.Input[str]
+        """
+        The unit that the storage is measured in, in GB.
+        """
         maximum: NotRequired[pulumi.Input[int]]
         minimum: NotRequired[pulumi.Input[int]]
 elif False:
@@ -464,6 +483,9 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
                  unit: pulumi.Input[str],
                  maximum: Optional[pulumi.Input[int]] = None,
                  minimum: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] unit: The unit that the storage is measured in, in GB.
+        """
         pulumi.set(__self__, "unit", unit)
         if maximum is not None:
             pulumi.set(__self__, "maximum", maximum)
@@ -473,6 +495,9 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        The unit that the storage is measured in, in GB.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter

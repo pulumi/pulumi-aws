@@ -2033,7 +2033,8 @@ func (o MaintenanceWindowTargetTargetArrayOutput) Index(i pulumi.IntInput) Maint
 }
 
 type MaintenanceWindowTaskTarget struct {
-	Key    string   `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The array of strings.
 	Values []string `pulumi:"values"`
 }
 
@@ -2049,7 +2050,8 @@ type MaintenanceWindowTaskTargetInput interface {
 }
 
 type MaintenanceWindowTaskTargetArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The array of strings.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2108,6 +2110,7 @@ func (o MaintenanceWindowTaskTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The array of strings.
 func (o MaintenanceWindowTaskTargetOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2788,7 +2791,8 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters struct {
 	DocumentHash *string `pulumi:"documentHash"`
 	// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
 	DocumentHashType *string `pulumi:"documentHashType"`
-	DocumentVersion  *string `pulumi:"documentVersion"`
+	// The version of an Automation document to use during task execution.
+	DocumentVersion *string `pulumi:"documentVersion"`
 	// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
 	NotificationConfig *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig `pulumi:"notificationConfig"`
 	// The name of the Amazon S3 bucket.
@@ -2823,7 +2827,8 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs struc
 	DocumentHash pulumi.StringPtrInput `pulumi:"documentHash"`
 	// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
 	DocumentHashType pulumi.StringPtrInput `pulumi:"documentHashType"`
-	DocumentVersion  pulumi.StringPtrInput `pulumi:"documentVersion"`
+	// The version of an Automation document to use during task execution.
+	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
 	// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
 	NotificationConfig MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrInput `pulumi:"notificationConfig"`
 	// The name of the Amazon S3 bucket.
@@ -2941,6 +2946,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of an Automation document to use during task execution.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) DocumentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
 		return v.DocumentVersion
@@ -3053,6 +3059,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of an Automation document to use during task execution.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
 		if v == nil {

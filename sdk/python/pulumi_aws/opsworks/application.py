@@ -631,7 +631,7 @@ class Application(pulumi.CustomResource):
             }],
             enable_ssl=True,
             ssl_configurations=[{
-                "privateKey": std.file(input="./foobar.key").result,
+                "private_key": std.file(input="./foobar.key").result,
                 "certificate": std.file(input="./foobar.crt").result,
             }],
             document_root="public",
@@ -705,7 +705,7 @@ class Application(pulumi.CustomResource):
             }],
             enable_ssl=True,
             ssl_configurations=[{
-                "privateKey": std.file(input="./foobar.key").result,
+                "private_key": std.file(input="./foobar.key").result,
                 "certificate": std.file(input="./foobar.crt").result,
             }],
             document_root="public",

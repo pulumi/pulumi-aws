@@ -236,8 +236,8 @@ class ServerlessCluster(pulumi.CustomResource):
         example = aws.msk.ServerlessCluster("example",
             cluster_name="Example",
             vpc_configs=[{
-                "subnetIds": [__item["id"] for __item in example_aws_subnet],
-                "securityGroupIds": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                "security_group_ids": [example_aws_security_group["id"]],
             }],
             client_authentication={
                 "sasl": {
@@ -283,8 +283,8 @@ class ServerlessCluster(pulumi.CustomResource):
         example = aws.msk.ServerlessCluster("example",
             cluster_name="Example",
             vpc_configs=[{
-                "subnetIds": [__item["id"] for __item in example_aws_subnet],
-                "securityGroupIds": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                "security_group_ids": [example_aws_security_group["id"]],
             }],
             client_authentication={
                 "sasl": {

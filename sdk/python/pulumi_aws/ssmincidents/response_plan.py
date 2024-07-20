@@ -317,16 +317,16 @@ class ResponsePlan(pulumi.CustomResource):
             incident_template={
                 "title": "title",
                 "impact": 3,
-                "dedupeString": "dedupe",
-                "incidentTags": {
+                "dedupe_string": "dedupe",
+                "incident_tags": {
                     "key": "value",
                 },
-                "notificationTargets": [
+                "notification_targets": [
                     {
-                        "snsTopicArn": example1["arn"],
+                        "sns_topic_arn": example1["arn"],
                     },
                     {
-                        "snsTopicArn": example2["arn"],
+                        "sns_topic_arn": example2["arn"],
                     },
                 ],
                 "summary": "summary",
@@ -335,11 +335,11 @@ class ResponsePlan(pulumi.CustomResource):
             chat_channels=[topic["arn"]],
             engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
             action={
-                "ssmAutomations": [{
-                    "documentName": document1["name"],
-                    "roleArn": role1["arn"],
-                    "documentVersion": "version1",
-                    "targetAccount": "RESPONSE_PLAN_OWNER_ACCOUNT",
+                "ssm_automations": [{
+                    "document_name": document1["name"],
+                    "role_arn": role1["arn"],
+                    "document_version": "version1",
+                    "target_account": "RESPONSE_PLAN_OWNER_ACCOUNT",
                     "parameters": [
                         {
                             "name": "key",
@@ -353,17 +353,17 @@ class ResponsePlan(pulumi.CustomResource):
                             "values": ["bar"],
                         },
                     ],
-                    "dynamicParameters": {
-                        "someKey": "INVOLVED_RESOURCES",
-                        "anotherKey": "INCIDENT_RECORD_ARN",
+                    "dynamic_parameters": {
+                        "some_key": "INVOLVED_RESOURCES",
+                        "another_key": "INCIDENT_RECORD_ARN",
                     },
                 }],
             },
             integration={
                 "pagerduties": [{
                     "name": "pagerdutyIntergration",
-                    "serviceId": "example",
-                    "secretId": "example",
+                    "service_id": "example",
+                    "secret_id": "example",
                 }],
             },
             tags={
@@ -424,16 +424,16 @@ class ResponsePlan(pulumi.CustomResource):
             incident_template={
                 "title": "title",
                 "impact": 3,
-                "dedupeString": "dedupe",
-                "incidentTags": {
+                "dedupe_string": "dedupe",
+                "incident_tags": {
                     "key": "value",
                 },
-                "notificationTargets": [
+                "notification_targets": [
                     {
-                        "snsTopicArn": example1["arn"],
+                        "sns_topic_arn": example1["arn"],
                     },
                     {
-                        "snsTopicArn": example2["arn"],
+                        "sns_topic_arn": example2["arn"],
                     },
                 ],
                 "summary": "summary",
@@ -442,11 +442,11 @@ class ResponsePlan(pulumi.CustomResource):
             chat_channels=[topic["arn"]],
             engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
             action={
-                "ssmAutomations": [{
-                    "documentName": document1["name"],
-                    "roleArn": role1["arn"],
-                    "documentVersion": "version1",
-                    "targetAccount": "RESPONSE_PLAN_OWNER_ACCOUNT",
+                "ssm_automations": [{
+                    "document_name": document1["name"],
+                    "role_arn": role1["arn"],
+                    "document_version": "version1",
+                    "target_account": "RESPONSE_PLAN_OWNER_ACCOUNT",
                     "parameters": [
                         {
                             "name": "key",
@@ -460,17 +460,17 @@ class ResponsePlan(pulumi.CustomResource):
                             "values": ["bar"],
                         },
                     ],
-                    "dynamicParameters": {
-                        "someKey": "INVOLVED_RESOURCES",
-                        "anotherKey": "INCIDENT_RECORD_ARN",
+                    "dynamic_parameters": {
+                        "some_key": "INVOLVED_RESOURCES",
+                        "another_key": "INCIDENT_RECORD_ARN",
                     },
                 }],
             },
             integration={
                 "pagerduties": [{
                     "name": "pagerdutyIntergration",
-                    "serviceId": "example",
-                    "secretId": "example",
+                    "service_id": "example",
+                    "secret_id": "example",
                 }],
             },
             tags={

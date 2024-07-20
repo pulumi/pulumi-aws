@@ -134,11 +134,11 @@ class VpcEndpoint(pulumi.CustomResource):
         foo = aws.opensearch.VpcEndpoint("foo",
             domain_arn=domain1["arn"],
             vpc_options={
-                "securityGroupIds": [
+                "security_group_ids": [
                     test["id"],
                     test2["id"],
                 ],
-                "subnetIds": [
+                "subnet_ids": [
                     test_aws_subnet["id"],
                     test2_aws_subnet["id"],
                 ],
@@ -178,11 +178,11 @@ class VpcEndpoint(pulumi.CustomResource):
         foo = aws.opensearch.VpcEndpoint("foo",
             domain_arn=domain1["arn"],
             vpc_options={
-                "securityGroupIds": [
+                "security_group_ids": [
                     test["id"],
                     test2["id"],
                 ],
-                "subnetIds": [
+                "subnet_ids": [
                     test_aws_subnet["id"],
                     test2_aws_subnet["id"],
                 ],

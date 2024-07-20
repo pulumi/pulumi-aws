@@ -534,12 +534,12 @@ class ReceiptRule(pulumi.CustomResource):
             enabled=True,
             scan_enabled=True,
             add_header_actions=[{
-                "headerName": "Custom-Header",
-                "headerValue": "Added by SES",
+                "header_name": "Custom-Header",
+                "header_value": "Added by SES",
                 "position": 1,
             }],
             s3_actions=[{
-                "bucketName": "emails",
+                "bucket_name": "emails",
                 "position": 2,
             }])
         ```
@@ -592,12 +592,12 @@ class ReceiptRule(pulumi.CustomResource):
             enabled=True,
             scan_enabled=True,
             add_header_actions=[{
-                "headerName": "Custom-Header",
-                "headerValue": "Added by SES",
+                "header_name": "Custom-Header",
+                "header_value": "Added by SES",
                 "position": 1,
             }],
             s3_actions=[{
-                "bucketName": "emails",
+                "bucket_name": "emails",
                 "position": 2,
             }])
         ```

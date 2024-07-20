@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AssessmentRolesAll {
+    /**
+     * @return Amazon Resource Name (ARN) of the IAM role.
+     * 
+     */
     private String roleArn;
+    /**
+     * @return Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+     * 
+     */
     private String roleType;
 
     private AssessmentRolesAll() {}
+    /**
+     * @return Amazon Resource Name (ARN) of the IAM role.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+     * 
+     */
     public String roleType() {
         return this.roleType;
     }

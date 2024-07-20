@@ -664,8 +664,8 @@ class FlowLog(pulumi.CustomResource):
             traffic_type="ALL",
             vpc_id=example_aws_vpc["id"],
             destination_options={
-                "fileFormat": "parquet",
-                "perHourPartition": True,
+                "file_format": "parquet",
+                "per_hour_partition": True,
             })
         ```
 
@@ -777,8 +777,8 @@ class FlowLog(pulumi.CustomResource):
             traffic_type="ALL",
             vpc_id=example_aws_vpc["id"],
             destination_options={
-                "fileFormat": "parquet",
-                "perHourPartition": True,
+                "file_format": "parquet",
+                "per_hour_partition": True,
             })
         ```
 

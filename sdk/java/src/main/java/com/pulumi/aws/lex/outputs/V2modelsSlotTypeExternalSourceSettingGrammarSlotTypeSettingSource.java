@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource {
+    /**
+     * @return KMS key required to decrypt the contents of the grammar, if any.
+     * 
+     */
     private String kmsKeyArn;
+    /**
+     * @return Name of the Amazon S3 bucket that contains the grammar source.
+     * 
+     */
     private String s3BucketName;
+    /**
+     * @return Path to the grammar in the Amazon S3 bucket.
+     * 
+     */
     private String s3ObjectKey;
 
     private V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource() {}
+    /**
+     * @return KMS key required to decrypt the contents of the grammar, if any.
+     * 
+     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
+    /**
+     * @return Name of the Amazon S3 bucket that contains the grammar source.
+     * 
+     */
     public String s3BucketName() {
         return this.s3BucketName;
     }
+    /**
+     * @return Path to the grammar in the Amazon S3 bucket.
+     * 
+     */
     public String s3ObjectKey() {
         return this.s3ObjectKey;
     }

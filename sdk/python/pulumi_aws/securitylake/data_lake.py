@@ -230,18 +230,18 @@ class DataLake(pulumi.CustomResource):
             meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration={
                 "region": "eu-west-1",
-                "encryptionConfigurations": [{
-                    "kmsKeyId": "S3_MANAGED_KEY",
+                "encryption_configurations": [{
+                    "kms_key_id": "S3_MANAGED_KEY",
                 }],
-                "lifecycleConfiguration": {
+                "lifecycle_configuration": {
                     "transitions": [
                         {
                             "days": 31,
-                            "storageClass": "STANDARD_IA",
+                            "storage_class": "STANDARD_IA",
                         },
                         {
                             "days": 80,
-                            "storageClass": "ONEZONE_IA",
+                            "storage_class": "ONEZONE_IA",
                         },
                     ],
                     "expiration": {
@@ -261,8 +261,8 @@ class DataLake(pulumi.CustomResource):
             meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration={
                 "region": "eu-west-1",
-                "encryptionConfigurations": [{
-                    "kmsKeyId": "S3_MANAGED_KEY",
+                "encryption_configurations": [{
+                    "kms_key_id": "S3_MANAGED_KEY",
                 }],
             })
         ```
@@ -302,18 +302,18 @@ class DataLake(pulumi.CustomResource):
             meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration={
                 "region": "eu-west-1",
-                "encryptionConfigurations": [{
-                    "kmsKeyId": "S3_MANAGED_KEY",
+                "encryption_configurations": [{
+                    "kms_key_id": "S3_MANAGED_KEY",
                 }],
-                "lifecycleConfiguration": {
+                "lifecycle_configuration": {
                     "transitions": [
                         {
                             "days": 31,
-                            "storageClass": "STANDARD_IA",
+                            "storage_class": "STANDARD_IA",
                         },
                         {
                             "days": 80,
-                            "storageClass": "ONEZONE_IA",
+                            "storage_class": "ONEZONE_IA",
                         },
                     ],
                     "expiration": {
@@ -333,8 +333,8 @@ class DataLake(pulumi.CustomResource):
             meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration={
                 "region": "eu-west-1",
-                "encryptionConfigurations": [{
-                    "kmsKeyId": "S3_MANAGED_KEY",
+                "encryption_configurations": [{
+                    "kms_key_id": "S3_MANAGED_KEY",
                 }],
             })
         ```
