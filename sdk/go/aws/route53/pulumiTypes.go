@@ -497,10 +497,14 @@ func (o RecordGeolocationRoutingPolicyArrayOutput) Index(i pulumi.IntInput) Reco
 }
 
 type RecordGeoproximityRoutingPolicy struct {
-	AwsRegion      *string                                     `pulumi:"awsRegion"`
-	Bias           *int                                        `pulumi:"bias"`
-	Coordinates    []RecordGeoproximityRoutingPolicyCoordinate `pulumi:"coordinates"`
-	LocalZoneGroup *string                                     `pulumi:"localZoneGroup"`
+	// A AWS region where the resource is present.
+	AwsRegion *string `pulumi:"awsRegion"`
+	// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+	Bias *int `pulumi:"bias"`
+	// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+	Coordinates []RecordGeoproximityRoutingPolicyCoordinate `pulumi:"coordinates"`
+	// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+	LocalZoneGroup *string `pulumi:"localZoneGroup"`
 }
 
 // RecordGeoproximityRoutingPolicyInput is an input type that accepts RecordGeoproximityRoutingPolicyArgs and RecordGeoproximityRoutingPolicyOutput values.
@@ -515,10 +519,14 @@ type RecordGeoproximityRoutingPolicyInput interface {
 }
 
 type RecordGeoproximityRoutingPolicyArgs struct {
-	AwsRegion      pulumi.StringPtrInput                               `pulumi:"awsRegion"`
-	Bias           pulumi.IntPtrInput                                  `pulumi:"bias"`
-	Coordinates    RecordGeoproximityRoutingPolicyCoordinateArrayInput `pulumi:"coordinates"`
-	LocalZoneGroup pulumi.StringPtrInput                               `pulumi:"localZoneGroup"`
+	// A AWS region where the resource is present.
+	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
+	// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+	Bias pulumi.IntPtrInput `pulumi:"bias"`
+	// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+	Coordinates RecordGeoproximityRoutingPolicyCoordinateArrayInput `pulumi:"coordinates"`
+	// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+	LocalZoneGroup pulumi.StringPtrInput `pulumi:"localZoneGroup"`
 }
 
 func (RecordGeoproximityRoutingPolicyArgs) ElementType() reflect.Type {
@@ -598,20 +606,24 @@ func (o RecordGeoproximityRoutingPolicyOutput) ToRecordGeoproximityRoutingPolicy
 	}).(RecordGeoproximityRoutingPolicyPtrOutput)
 }
 
+// A AWS region where the resource is present.
 func (o RecordGeoproximityRoutingPolicyOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordGeoproximityRoutingPolicy) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
 }
 
+// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
 func (o RecordGeoproximityRoutingPolicyOutput) Bias() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RecordGeoproximityRoutingPolicy) *int { return v.Bias }).(pulumi.IntPtrOutput)
 }
 
+// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
 func (o RecordGeoproximityRoutingPolicyOutput) Coordinates() RecordGeoproximityRoutingPolicyCoordinateArrayOutput {
 	return o.ApplyT(func(v RecordGeoproximityRoutingPolicy) []RecordGeoproximityRoutingPolicyCoordinate {
 		return v.Coordinates
 	}).(RecordGeoproximityRoutingPolicyCoordinateArrayOutput)
 }
 
+// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
 func (o RecordGeoproximityRoutingPolicyOutput) LocalZoneGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordGeoproximityRoutingPolicy) *string { return v.LocalZoneGroup }).(pulumi.StringPtrOutput)
 }
@@ -640,6 +652,7 @@ func (o RecordGeoproximityRoutingPolicyPtrOutput) Elem() RecordGeoproximityRouti
 	}).(RecordGeoproximityRoutingPolicyOutput)
 }
 
+// A AWS region where the resource is present.
 func (o RecordGeoproximityRoutingPolicyPtrOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordGeoproximityRoutingPolicy) *string {
 		if v == nil {
@@ -649,6 +662,7 @@ func (o RecordGeoproximityRoutingPolicyPtrOutput) AwsRegion() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
 func (o RecordGeoproximityRoutingPolicyPtrOutput) Bias() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RecordGeoproximityRoutingPolicy) *int {
 		if v == nil {
@@ -658,6 +672,7 @@ func (o RecordGeoproximityRoutingPolicyPtrOutput) Bias() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
 func (o RecordGeoproximityRoutingPolicyPtrOutput) Coordinates() RecordGeoproximityRoutingPolicyCoordinateArrayOutput {
 	return o.ApplyT(func(v *RecordGeoproximityRoutingPolicy) []RecordGeoproximityRoutingPolicyCoordinate {
 		if v == nil {
@@ -667,6 +682,7 @@ func (o RecordGeoproximityRoutingPolicyPtrOutput) Coordinates() RecordGeoproximi
 	}).(RecordGeoproximityRoutingPolicyCoordinateArrayOutput)
 }
 
+// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
 func (o RecordGeoproximityRoutingPolicyPtrOutput) LocalZoneGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordGeoproximityRoutingPolicy) *string {
 		if v == nil {

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API tokens used by Dynatrace API to authenticate various API calls.
+        /// </summary>
         [Input("apiToken", required: true)]
         public Input<string> ApiToken { get; set; } = null!;
 

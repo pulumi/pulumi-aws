@@ -360,13 +360,13 @@ class AppAuthorization(pulumi.CustomResource):
             app_bundle_arn=arn,
             auth_type="apiKey",
             credential={
-                "apiKeyCredentials": [{
-                    "apiKey": "exampleapikeytoken",
+                "api_key_credentials": [{
+                    "api_key": "exampleapikeytoken",
                 }],
             },
             tenants=[{
-                "tenantDisplayName": "example",
-                "tenantIdentifier": "example",
+                "tenant_display_name": "example",
+                "tenant_identifier": "example",
             }])
         ```
 
@@ -401,13 +401,13 @@ class AppAuthorization(pulumi.CustomResource):
             app_bundle_arn=arn,
             auth_type="apiKey",
             credential={
-                "apiKeyCredentials": [{
-                    "apiKey": "exampleapikeytoken",
+                "api_key_credentials": [{
+                    "api_key": "exampleapikeytoken",
                 }],
             },
             tenants=[{
-                "tenantDisplayName": "example",
-                "tenantIdentifier": "example",
+                "tenant_display_name": "example",
+                "tenant_identifier": "example",
             }])
         ```
 

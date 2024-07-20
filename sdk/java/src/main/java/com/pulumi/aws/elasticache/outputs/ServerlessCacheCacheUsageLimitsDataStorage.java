@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 public final class ServerlessCacheCacheUsageLimitsDataStorage {
     private @Nullable Integer maximum;
     private @Nullable Integer minimum;
+    /**
+     * @return The unit that the storage is measured in, in GB.
+     * 
+     */
     private String unit;
 
     private ServerlessCacheCacheUsageLimitsDataStorage() {}
@@ -24,6 +28,10 @@ public final class ServerlessCacheCacheUsageLimitsDataStorage {
     public Optional<Integer> minimum() {
         return Optional.ofNullable(this.minimum);
     }
+    /**
+     * @return The unit that the storage is measured in, in GB.
+     * 
+     */
     public String unit() {
         return this.unit;
     }

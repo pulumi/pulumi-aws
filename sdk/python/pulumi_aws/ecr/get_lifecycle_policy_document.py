@@ -89,10 +89,10 @@ def get_lifecycle_policy_document(rules: Optional[Sequence[Union['GetLifecyclePo
         "priority": 1,
         "description": "This is a test.",
         "selection": {
-            "tagStatus": "tagged",
-            "tagPrefixLists": ["prod"],
-            "countType": "imageCountMoreThan",
-            "countNumber": 100,
+            "tag_status": "tagged",
+            "tag_prefix_lists": ["prod"],
+            "count_type": "imageCountMoreThan",
+            "count_number": 100,
         },
     }])
     example_lifecycle_policy = aws.ecr.LifecyclePolicy("example",
@@ -129,10 +129,10 @@ def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[S
         "priority": 1,
         "description": "This is a test.",
         "selection": {
-            "tagStatus": "tagged",
-            "tagPrefixLists": ["prod"],
-            "countType": "imageCountMoreThan",
-            "countNumber": 100,
+            "tag_status": "tagged",
+            "tag_prefix_lists": ["prod"],
+            "count_type": "imageCountMoreThan",
+            "count_number": 100,
         },
     }])
     example_lifecycle_policy = aws.ecr.LifecyclePolicy("example",

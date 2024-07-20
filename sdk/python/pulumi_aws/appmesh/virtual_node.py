@@ -314,17 +314,17 @@ class VirtualNode(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "backends": [{
-                    "virtualService": {
-                        "virtualServiceName": "servicea.simpleapp.local",
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
                     },
                 }],
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
                 }],
-                "serviceDiscovery": {
+                "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
                     },
@@ -344,23 +344,23 @@ class VirtualNode(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "backends": [{
-                    "virtualService": {
-                        "virtualServiceName": "servicea.simpleapp.local",
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
                     },
                 }],
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
                 }],
-                "serviceDiscovery": {
-                    "awsCloudMap": {
+                "service_discovery": {
+                    "aws_cloud_map": {
                         "attributes": {
                             "stack": "blue",
                         },
-                        "serviceName": "serviceb1",
-                        "namespaceName": example.name,
+                        "service_name": "serviceb1",
+                        "namespace_name": example.name,
                     },
                 },
             })
@@ -377,25 +377,25 @@ class VirtualNode(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "backends": [{
-                    "virtualService": {
-                        "virtualServiceName": "servicea.simpleapp.local",
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
                     },
                 }],
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
-                    "healthCheck": {
+                    "health_check": {
                         "protocol": "http",
                         "path": "/ping",
-                        "healthyThreshold": 2,
-                        "unhealthyThreshold": 2,
-                        "timeoutMillis": 2000,
-                        "intervalMillis": 5000,
+                        "healthy_threshold": 2,
+                        "unhealthy_threshold": 2,
+                        "timeout_millis": 2000,
+                        "interval_millis": 5000,
                     },
                 }],
-                "serviceDiscovery": {
+                "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
                     },
@@ -414,23 +414,23 @@ class VirtualNode(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "backends": [{
-                    "virtualService": {
-                        "virtualServiceName": "servicea.simpleapp.local",
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
                     },
                 }],
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
                 }],
-                "serviceDiscovery": {
+                "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
                     },
                 },
                 "logging": {
-                    "accessLog": {
+                    "access_log": {
                         "file": {
                             "path": "/dev/stdout",
                         },
@@ -488,17 +488,17 @@ class VirtualNode(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "backends": [{
-                    "virtualService": {
-                        "virtualServiceName": "servicea.simpleapp.local",
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
                     },
                 }],
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
                 }],
-                "serviceDiscovery": {
+                "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
                     },
@@ -518,23 +518,23 @@ class VirtualNode(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "backends": [{
-                    "virtualService": {
-                        "virtualServiceName": "servicea.simpleapp.local",
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
                     },
                 }],
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
                 }],
-                "serviceDiscovery": {
-                    "awsCloudMap": {
+                "service_discovery": {
+                    "aws_cloud_map": {
                         "attributes": {
                             "stack": "blue",
                         },
-                        "serviceName": "serviceb1",
-                        "namespaceName": example.name,
+                        "service_name": "serviceb1",
+                        "namespace_name": example.name,
                     },
                 },
             })
@@ -551,25 +551,25 @@ class VirtualNode(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "backends": [{
-                    "virtualService": {
-                        "virtualServiceName": "servicea.simpleapp.local",
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
                     },
                 }],
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
-                    "healthCheck": {
+                    "health_check": {
                         "protocol": "http",
                         "path": "/ping",
-                        "healthyThreshold": 2,
-                        "unhealthyThreshold": 2,
-                        "timeoutMillis": 2000,
-                        "intervalMillis": 5000,
+                        "healthy_threshold": 2,
+                        "unhealthy_threshold": 2,
+                        "timeout_millis": 2000,
+                        "interval_millis": 5000,
                     },
                 }],
-                "serviceDiscovery": {
+                "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
                     },
@@ -588,23 +588,23 @@ class VirtualNode(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "backends": [{
-                    "virtualService": {
-                        "virtualServiceName": "servicea.simpleapp.local",
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
                     },
                 }],
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
                 }],
-                "serviceDiscovery": {
+                "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
                     },
                 },
                 "logging": {
-                    "accessLog": {
+                    "access_log": {
                         "file": {
                             "path": "/dev/stdout",
                         },

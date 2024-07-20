@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class EventSourceMappingDestinationConfigOnFailure {
+    /**
+     * @return The Amazon Resource Name (ARN) of the destination resource.
+     * 
+     */
     private String destinationArn;
 
     private EventSourceMappingDestinationConfigOnFailure() {}
+    /**
+     * @return The Amazon Resource Name (ARN) of the destination resource.
+     * 
+     */
     public String destinationArn() {
         return this.destinationArn;
     }

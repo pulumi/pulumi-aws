@@ -17,9 +17,17 @@ public final class RepositoryAssociationS3RepositoryDetailArgs extends com.pulum
 
     public static final RepositoryAssociationS3RepositoryDetailArgs Empty = new RepositoryAssociationS3RepositoryDetailArgs();
 
+    /**
+     * The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
+     * 
+     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
+    /**
+     * @return The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
+     * 
+     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
@@ -56,11 +64,23 @@ public final class RepositoryAssociationS3RepositoryDetailArgs extends com.pulum
             $ = new RepositoryAssociationS3RepositoryDetailArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucketName The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
+        /**
+         * @param bucketName The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }

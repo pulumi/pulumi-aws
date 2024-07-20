@@ -363,20 +363,20 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
-                "vectorKnowledgeBaseConfiguration": {
-                    "embeddingModelArn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1",
+                "vector_knowledge_base_configuration": {
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
                 "type": "OPENSEARCH_SERVERLESS",
-                "opensearchServerlessConfiguration": {
-                    "collectionArn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vectorIndexName": "bedrock-knowledge-base-default-index",
-                    "fieldMapping": {
-                        "vectorField": "bedrock-knowledge-base-default-vector",
-                        "textField": "AMAZON_BEDROCK_TEXT_CHUNK",
-                        "metadataField": "AMAZON_BEDROCK_METADATA",
+                "opensearch_serverless_configuration": {
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
+                    "field_mapping": {
+                        "vector_field": "bedrock-knowledge-base-default-vector",
+                        "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
+                        "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
                 },
             })
@@ -420,20 +420,20 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
-                "vectorKnowledgeBaseConfiguration": {
-                    "embeddingModelArn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1",
+                "vector_knowledge_base_configuration": {
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
                 "type": "OPENSEARCH_SERVERLESS",
-                "opensearchServerlessConfiguration": {
-                    "collectionArn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vectorIndexName": "bedrock-knowledge-base-default-index",
-                    "fieldMapping": {
-                        "vectorField": "bedrock-knowledge-base-default-vector",
-                        "textField": "AMAZON_BEDROCK_TEXT_CHUNK",
-                        "metadataField": "AMAZON_BEDROCK_METADATA",
+                "opensearch_serverless_configuration": {
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
+                    "field_mapping": {
+                        "vector_field": "bedrock-knowledge-base-default-vector",
+                        "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
+                        "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
                 },
             })

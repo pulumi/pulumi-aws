@@ -995,6 +995,7 @@ func (o RepositoryAssociationRepositoryS3BucketPtrOutput) Name() pulumi.StringPt
 }
 
 type RepositoryAssociationS3RepositoryDetail struct {
+	// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 	BucketName    *string                                               `pulumi:"bucketName"`
 	CodeArtifacts []RepositoryAssociationS3RepositoryDetailCodeArtifact `pulumi:"codeArtifacts"`
 }
@@ -1011,6 +1012,7 @@ type RepositoryAssociationS3RepositoryDetailInput interface {
 }
 
 type RepositoryAssociationS3RepositoryDetailArgs struct {
+	// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 	BucketName    pulumi.StringPtrInput                                         `pulumi:"bucketName"`
 	CodeArtifacts RepositoryAssociationS3RepositoryDetailCodeArtifactArrayInput `pulumi:"codeArtifacts"`
 }
@@ -1066,6 +1068,7 @@ func (o RepositoryAssociationS3RepositoryDetailOutput) ToRepositoryAssociationS3
 	return o
 }
 
+// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 func (o RepositoryAssociationS3RepositoryDetailOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryAssociationS3RepositoryDetail) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }

@@ -348,7 +348,7 @@ class CostCategory(pulumi.CustomResource):
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
                             "values": ["-prod"],
-                            "matchOptions": ["ENDS_WITH"],
+                            "match_options": ["ENDS_WITH"],
                         },
                     },
                 },
@@ -358,7 +358,7 @@ class CostCategory(pulumi.CustomResource):
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
                             "values": ["-stg"],
-                            "matchOptions": ["ENDS_WITH"],
+                            "match_options": ["ENDS_WITH"],
                         },
                     },
                 },
@@ -368,7 +368,7 @@ class CostCategory(pulumi.CustomResource):
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
                             "values": ["-dev"],
-                            "matchOptions": ["ENDS_WITH"],
+                            "match_options": ["ENDS_WITH"],
                         },
                     },
                 },
@@ -420,7 +420,7 @@ class CostCategory(pulumi.CustomResource):
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
                             "values": ["-prod"],
-                            "matchOptions": ["ENDS_WITH"],
+                            "match_options": ["ENDS_WITH"],
                         },
                     },
                 },
@@ -430,7 +430,7 @@ class CostCategory(pulumi.CustomResource):
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
                             "values": ["-stg"],
-                            "matchOptions": ["ENDS_WITH"],
+                            "match_options": ["ENDS_WITH"],
                         },
                     },
                 },
@@ -440,7 +440,7 @@ class CostCategory(pulumi.CustomResource):
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
                             "values": ["-dev"],
-                            "matchOptions": ["ENDS_WITH"],
+                            "match_options": ["ENDS_WITH"],
                         },
                     },
                 },

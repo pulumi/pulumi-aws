@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class BotClarificationPrompt
     {
+        /// <summary>
+        /// The number of times to prompt the user for information.
+        /// </summary>
         public readonly int MaxAttempts;
         public readonly ImmutableArray<Outputs.BotClarificationPromptMessage> Messages;
         public readonly string? ResponseCard;

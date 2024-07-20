@@ -14,16 +14,32 @@ public final class IpSetIpSetDescriptorArgs extends com.pulumi.resources.Resourc
 
     public static final IpSetIpSetDescriptorArgs Empty = new IpSetIpSetDescriptorArgs();
 
+    /**
+     * The string like IPV4 or IPV6.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The string like IPV4 or IPV6.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * The CIDR notation.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return The CIDR notation.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -53,20 +69,44 @@ public final class IpSetIpSetDescriptorArgs extends com.pulumi.resources.Resourc
             $ = new IpSetIpSetDescriptorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type The string like IPV4 or IPV6.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The string like IPV4 or IPV6.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param value The CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

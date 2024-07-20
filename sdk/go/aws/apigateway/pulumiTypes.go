@@ -1737,8 +1737,11 @@ func (o StageCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
 }
 
 type UsagePlanApiStage struct {
-	ApiId     string                      `pulumi:"apiId"`
-	Stage     string                      `pulumi:"stage"`
+	// API Id of the associated API stage in a usage plan.
+	ApiId string `pulumi:"apiId"`
+	// API stage name of the associated API stage in a usage plan.
+	Stage string `pulumi:"stage"`
+	// The throttling limits of the usage plan.
 	Throttles []UsagePlanApiStageThrottle `pulumi:"throttles"`
 }
 
@@ -1754,8 +1757,11 @@ type UsagePlanApiStageInput interface {
 }
 
 type UsagePlanApiStageArgs struct {
-	ApiId     pulumi.StringInput                  `pulumi:"apiId"`
-	Stage     pulumi.StringInput                  `pulumi:"stage"`
+	// API Id of the associated API stage in a usage plan.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// API stage name of the associated API stage in a usage plan.
+	Stage pulumi.StringInput `pulumi:"stage"`
+	// The throttling limits of the usage plan.
 	Throttles UsagePlanApiStageThrottleArrayInput `pulumi:"throttles"`
 }
 
@@ -1810,14 +1816,17 @@ func (o UsagePlanApiStageOutput) ToUsagePlanApiStageOutputWithContext(ctx contex
 	return o
 }
 
+// API Id of the associated API stage in a usage plan.
 func (o UsagePlanApiStageOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) string { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// API stage name of the associated API stage in a usage plan.
 func (o UsagePlanApiStageOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) string { return v.Stage }).(pulumi.StringOutput)
 }
 
+// The throttling limits of the usage plan.
 func (o UsagePlanApiStageOutput) Throttles() UsagePlanApiStageThrottleArrayOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) []UsagePlanApiStageThrottle { return v.Throttles }).(UsagePlanApiStageThrottleArrayOutput)
 }
@@ -1958,8 +1967,11 @@ func (o UsagePlanApiStageThrottleArrayOutput) Index(i pulumi.IntInput) UsagePlan
 }
 
 type UsagePlanQuotaSettings struct {
-	Limit  int    `pulumi:"limit"`
-	Offset *int   `pulumi:"offset"`
+	// Maximum number of requests that can be made in a given time period.
+	Limit int `pulumi:"limit"`
+	// Number of requests subtracted from the given limit in the initial time period.
+	Offset *int `pulumi:"offset"`
+	// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 	Period string `pulumi:"period"`
 }
 
@@ -1975,8 +1987,11 @@ type UsagePlanQuotaSettingsInput interface {
 }
 
 type UsagePlanQuotaSettingsArgs struct {
-	Limit  pulumi.IntInput    `pulumi:"limit"`
+	// Maximum number of requests that can be made in a given time period.
+	Limit pulumi.IntInput `pulumi:"limit"`
+	// Number of requests subtracted from the given limit in the initial time period.
 	Offset pulumi.IntPtrInput `pulumi:"offset"`
+	// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 	Period pulumi.StringInput `pulumi:"period"`
 }
 
@@ -2057,14 +2072,17 @@ func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsPtrOutputWithConte
 	}).(UsagePlanQuotaSettingsPtrOutput)
 }
 
+// Maximum number of requests that can be made in a given time period.
 func (o UsagePlanQuotaSettingsOutput) Limit() pulumi.IntOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) int { return v.Limit }).(pulumi.IntOutput)
 }
 
+// Number of requests subtracted from the given limit in the initial time period.
 func (o UsagePlanQuotaSettingsOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
+// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 func (o UsagePlanQuotaSettingsOutput) Period() pulumi.StringOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) string { return v.Period }).(pulumi.StringOutput)
 }
@@ -2093,6 +2111,7 @@ func (o UsagePlanQuotaSettingsPtrOutput) Elem() UsagePlanQuotaSettingsOutput {
 	}).(UsagePlanQuotaSettingsOutput)
 }
 
+// Maximum number of requests that can be made in a given time period.
 func (o UsagePlanQuotaSettingsPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
 		if v == nil {
@@ -2102,6 +2121,7 @@ func (o UsagePlanQuotaSettingsPtrOutput) Limit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of requests subtracted from the given limit in the initial time period.
 func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
 		if v == nil {
@@ -2111,6 +2131,7 @@ func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *string {
 		if v == nil {

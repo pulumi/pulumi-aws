@@ -335,18 +335,18 @@ class Route(pulumi.CustomResource):
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
-                "httpRoute": {
+                "http_route": {
                     "match": {
                         "prefix": "/",
                     },
                     "action": {
-                        "weightedTargets": [
+                        "weighted_targets": [
                             {
-                                "virtualNode": serviceb1["name"],
+                                "virtual_node": serviceb1["name"],
                                 "weight": 90,
                             },
                             {
-                                "virtualNode": serviceb2["name"],
+                                "virtual_node": serviceb2["name"],
                                 "weight": 10,
                             },
                         ],
@@ -366,7 +366,7 @@ class Route(pulumi.CustomResource):
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
-                "httpRoute": {
+                "http_route": {
                     "match": {
                         "method": "POST",
                         "prefix": "/",
@@ -379,8 +379,8 @@ class Route(pulumi.CustomResource):
                         }],
                     },
                     "action": {
-                        "weightedTargets": [{
-                            "virtualNode": serviceb_aws_appmesh_virtual_node["name"],
+                        "weighted_targets": [{
+                            "virtual_node": serviceb_aws_appmesh_virtual_node["name"],
                             "weight": 100,
                         }],
                     },
@@ -399,21 +399,21 @@ class Route(pulumi.CustomResource):
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
-                "httpRoute": {
+                "http_route": {
                     "match": {
                         "prefix": "/",
                     },
-                    "retryPolicy": {
-                        "httpRetryEvents": ["server-error"],
-                        "maxRetries": 1,
-                        "perRetryTimeout": {
+                    "retry_policy": {
+                        "http_retry_events": ["server-error"],
+                        "max_retries": 1,
+                        "per_retry_timeout": {
                             "unit": "s",
                             "value": 15,
                         },
                     },
                     "action": {
-                        "weightedTargets": [{
-                            "virtualNode": serviceb_aws_appmesh_virtual_node["name"],
+                        "weighted_targets": [{
+                            "virtual_node": serviceb_aws_appmesh_virtual_node["name"],
                             "weight": 100,
                         }],
                     },
@@ -432,10 +432,10 @@ class Route(pulumi.CustomResource):
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
-                "tcpRoute": {
+                "tcp_route": {
                     "action": {
-                        "weightedTargets": [{
-                            "virtualNode": serviceb1["name"],
+                        "weighted_targets": [{
+                            "virtual_node": serviceb1["name"],
                             "weight": 100,
                         }],
                     },
@@ -482,18 +482,18 @@ class Route(pulumi.CustomResource):
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
-                "httpRoute": {
+                "http_route": {
                     "match": {
                         "prefix": "/",
                     },
                     "action": {
-                        "weightedTargets": [
+                        "weighted_targets": [
                             {
-                                "virtualNode": serviceb1["name"],
+                                "virtual_node": serviceb1["name"],
                                 "weight": 90,
                             },
                             {
-                                "virtualNode": serviceb2["name"],
+                                "virtual_node": serviceb2["name"],
                                 "weight": 10,
                             },
                         ],
@@ -513,7 +513,7 @@ class Route(pulumi.CustomResource):
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
-                "httpRoute": {
+                "http_route": {
                     "match": {
                         "method": "POST",
                         "prefix": "/",
@@ -526,8 +526,8 @@ class Route(pulumi.CustomResource):
                         }],
                     },
                     "action": {
-                        "weightedTargets": [{
-                            "virtualNode": serviceb_aws_appmesh_virtual_node["name"],
+                        "weighted_targets": [{
+                            "virtual_node": serviceb_aws_appmesh_virtual_node["name"],
                             "weight": 100,
                         }],
                     },
@@ -546,21 +546,21 @@ class Route(pulumi.CustomResource):
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
-                "httpRoute": {
+                "http_route": {
                     "match": {
                         "prefix": "/",
                     },
-                    "retryPolicy": {
-                        "httpRetryEvents": ["server-error"],
-                        "maxRetries": 1,
-                        "perRetryTimeout": {
+                    "retry_policy": {
+                        "http_retry_events": ["server-error"],
+                        "max_retries": 1,
+                        "per_retry_timeout": {
                             "unit": "s",
                             "value": 15,
                         },
                     },
                     "action": {
-                        "weightedTargets": [{
-                            "virtualNode": serviceb_aws_appmesh_virtual_node["name"],
+                        "weighted_targets": [{
+                            "virtual_node": serviceb_aws_appmesh_virtual_node["name"],
                             "weight": 100,
                         }],
                     },
@@ -579,10 +579,10 @@ class Route(pulumi.CustomResource):
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
-                "tcpRoute": {
+                "tcp_route": {
                     "action": {
-                        "weightedTargets": [{
-                            "virtualNode": serviceb1["name"],
+                        "weighted_targets": [{
+                            "virtual_node": serviceb1["name"],
                             "weight": 100,
                         }],
                     },

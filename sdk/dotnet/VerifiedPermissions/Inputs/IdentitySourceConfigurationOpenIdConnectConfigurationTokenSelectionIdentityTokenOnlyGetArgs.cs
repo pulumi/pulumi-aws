@@ -24,6 +24,9 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
             set => _clientIds = value;
         }
 
+        /// <summary>
+        /// The claim that determines the principal in OIDC access tokens.
+        /// </summary>
         [Input("principalIdClaim")]
         public Input<string>? PrincipalIdClaim { get; set; }
 

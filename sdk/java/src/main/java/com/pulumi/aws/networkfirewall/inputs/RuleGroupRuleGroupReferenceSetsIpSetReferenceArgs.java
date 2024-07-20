@@ -16,9 +16,17 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs extends com
 
     public static final RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs Empty = new RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs();
 
+    /**
+     * Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+     * 
+     */
     @Import(name="ipSetReferences", required=true)
     private Output<List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs>> ipSetReferences;
 
+    /**
+     * @return Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+     * 
+     */
     public Output<List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs>> ipSetReferences() {
         return this.ipSetReferences;
     }
@@ -55,15 +63,33 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs extends com
             $ = new RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ipSetReferences Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipSetReferences(Output<List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs>> ipSetReferences) {
             $.ipSetReferences = ipSetReferences;
             return this;
         }
 
+        /**
+         * @param ipSetReferences Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipSetReferences(List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs> ipSetReferences) {
             return ipSetReferences(Output.of(ipSetReferences));
         }
 
+        /**
+         * @param ipSetReferences Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs... ipSetReferences) {
             return ipSetReferences(List.of(ipSetReferences));
         }

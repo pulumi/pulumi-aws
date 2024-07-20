@@ -100,7 +100,7 @@ def get_supported_instance_types(release_label: Optional[str] = None,
     test_cluster = aws.emr.Cluster("test",
         release_label=release_label,
         master_instance_group={
-            "instanceType": instance_type,
+            "instance_type": instance_type,
         })
     ```
 
@@ -152,7 +152,7 @@ def get_supported_instance_types_output(release_label: Optional[pulumi.Input[str
     test_cluster = aws.emr.Cluster("test",
         release_label=release_label,
         master_instance_group={
-            "instanceType": instance_type,
+            "instance_type": instance_type,
         })
     ```
 

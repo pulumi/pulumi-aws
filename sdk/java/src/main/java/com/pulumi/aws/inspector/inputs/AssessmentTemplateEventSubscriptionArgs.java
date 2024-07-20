@@ -14,16 +14,32 @@ public final class AssessmentTemplateEventSubscriptionArgs extends com.pulumi.re
 
     public static final AssessmentTemplateEventSubscriptionArgs Empty = new AssessmentTemplateEventSubscriptionArgs();
 
+    /**
+     * The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
+     * 
+     */
     @Import(name="event", required=true)
     private Output<String> event;
 
+    /**
+     * @return The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
+     * 
+     */
     public Output<String> event() {
         return this.event;
     }
 
+    /**
+     * The ARN of the SNS topic to which notifications are sent.
+     * 
+     */
     @Import(name="topicArn", required=true)
     private Output<String> topicArn;
 
+    /**
+     * @return The ARN of the SNS topic to which notifications are sent.
+     * 
+     */
     public Output<String> topicArn() {
         return this.topicArn;
     }
@@ -53,20 +69,44 @@ public final class AssessmentTemplateEventSubscriptionArgs extends com.pulumi.re
             $ = new AssessmentTemplateEventSubscriptionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param event The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder event(Output<String> event) {
             $.event = event;
             return this;
         }
 
+        /**
+         * @param event The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder event(String event) {
             return event(Output.of(event));
         }
 
+        /**
+         * @param topicArn The ARN of the SNS topic to which notifications are sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicArn(Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
+        /**
+         * @param topicArn The ARN of the SNS topic to which notifications are sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }
