@@ -13,12 +13,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce {
     private @Nullable String instanceUrl;
+    /**
+     * @return Indicates whether the connector profile applies to a sandbox or production environment.
+     * 
+     */
     private @Nullable Boolean isSandboxEnvironment;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce() {}
     public Optional<String> instanceUrl() {
         return Optional.ofNullable(this.instanceUrl);
     }
+    /**
+     * @return Indicates whether the connector profile applies to a sandbox or production environment.
+     * 
+     */
     public Optional<Boolean> isSandboxEnvironment() {
         return Optional.ofNullable(this.isSandboxEnvironment);
     }

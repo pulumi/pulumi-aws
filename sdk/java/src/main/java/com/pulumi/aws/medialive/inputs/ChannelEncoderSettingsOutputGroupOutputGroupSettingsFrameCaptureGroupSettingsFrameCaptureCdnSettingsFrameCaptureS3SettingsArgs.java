@@ -15,9 +15,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs();
 
+    /**
+     * Specify the canned ACL to apply to each S3 request.
+     * 
+     */
     @Import(name="cannedAcl")
     private @Nullable Output<String> cannedAcl;
 
+    /**
+     * @return Specify the canned ACL to apply to each S3 request.
+     * 
+     */
     public Optional<Output<String>> cannedAcl() {
         return Optional.ofNullable(this.cannedAcl);
     }
@@ -46,11 +54,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cannedAcl Specify the canned ACL to apply to each S3 request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cannedAcl(@Nullable Output<String> cannedAcl) {
             $.cannedAcl = cannedAcl;
             return this;
         }
 
+        /**
+         * @param cannedAcl Specify the canned ACL to apply to each S3 request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cannedAcl(String cannedAcl) {
             return cannedAcl(Output.of(cannedAcl));
         }

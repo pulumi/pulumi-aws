@@ -13,10 +13,25 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class CostCategoryRuleRuleNot
     {
+        /// <summary>
+        /// Return results that match both `Dimension` objects.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CostCategoryRuleRuleNotAnd> Ands;
+        /// <summary>
+        /// Configuration block for the filter that's based on `CostCategory` values. See below.
+        /// </summary>
         public readonly Outputs.CostCategoryRuleRuleNotCostCategory? CostCategory;
+        /// <summary>
+        /// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        /// </summary>
         public readonly Outputs.CostCategoryRuleRuleNotDimension? Dimension;
+        /// <summary>
+        /// Return results that match both `Dimension` object.
+        /// </summary>
         public readonly Outputs.CostCategoryRuleRuleNotNot? Not;
+        /// <summary>
+        /// Return results that match both `Dimension` object.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CostCategoryRuleRuleNotOr> Ors;
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

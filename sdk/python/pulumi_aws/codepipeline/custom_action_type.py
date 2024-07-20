@@ -315,12 +315,12 @@ class CustomActionType(pulumi.CustomResource):
         example = aws.codepipeline.CustomActionType("example",
             category="Build",
             input_artifact_details={
-                "maximumCount": 1,
-                "minimumCount": 0,
+                "maximum_count": 1,
+                "minimum_count": 0,
             },
             output_artifact_details={
-                "maximumCount": 1,
-                "minimumCount": 0,
+                "maximum_count": 1,
+                "minimum_count": 0,
             },
             provider_name="example",
             version="1")
@@ -357,12 +357,12 @@ class CustomActionType(pulumi.CustomResource):
         example = aws.codepipeline.CustomActionType("example",
             category="Build",
             input_artifact_details={
-                "maximumCount": 1,
-                "minimumCount": 0,
+                "maximum_count": 1,
+                "minimum_count": 0,
             },
             output_artifact_details={
-                "maximumCount": 1,
-                "minimumCount": 0,
+                "maximum_count": 1,
+                "minimum_count": 0,
             },
             provider_name="example",
             version="1")

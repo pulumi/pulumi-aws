@@ -14,9 +14,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs();
 
+    /**
+     * The API tokens used by Dynatrace API to authenticate various API calls.
+     * 
+     */
     @Import(name="apiToken", required=true)
     private Output<String> apiToken;
 
+    /**
+     * @return The API tokens used by Dynatrace API to authenticate various API calls.
+     * 
+     */
     public Output<String> apiToken() {
         return this.apiToken;
     }
@@ -45,11 +53,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apiToken The API tokens used by Dynatrace API to authenticate various API calls.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiToken(Output<String> apiToken) {
             $.apiToken = apiToken;
             return this;
         }
 
+        /**
+         * @param apiToken The API tokens used by Dynatrace API to authenticate various API calls.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiToken(String apiToken) {
             return apiToken(Output.of(apiToken));
         }

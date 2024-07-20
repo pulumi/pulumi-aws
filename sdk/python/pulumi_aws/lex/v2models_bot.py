@@ -410,7 +410,7 @@ class V2modelsBot(pulumi.CustomResource):
         example = aws.lex.V2modelsBot("example",
             name="example",
             data_privacies=[{
-                "childDirected": "boolean",
+                "child_directed": "boolean",
             }],
             idle_session_ttl_in_seconds=10,
             role_arn="bot_example_arn",
@@ -461,7 +461,7 @@ class V2modelsBot(pulumi.CustomResource):
         example = aws.lex.V2modelsBot("example",
             name="example",
             data_privacies=[{
-                "childDirected": "boolean",
+                "child_directed": "boolean",
             }],
             idle_session_ttl_in_seconds=10,
             role_arn="bot_example_arn",

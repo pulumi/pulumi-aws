@@ -360,11 +360,11 @@ class JobQueue(pulumi.CustomResource):
             compute_environment_orders=[
                 {
                     "order": 1,
-                    "computeEnvironment": test_environment1["arn"],
+                    "compute_environment": test_environment1["arn"],
                 },
                 {
                     "order": 2,
-                    "computeEnvironment": test_environment2["arn"],
+                    "compute_environment": test_environment2["arn"],
                 },
             ])
         ```
@@ -378,11 +378,11 @@ class JobQueue(pulumi.CustomResource):
         example = aws.batch.SchedulingPolicy("example",
             name="example",
             fair_share_policy={
-                "computeReservation": 1,
-                "shareDecaySeconds": 3600,
-                "shareDistributions": [{
-                    "shareIdentifier": "A1*",
-                    "weightFactor": 0.1,
+                "compute_reservation": 1,
+                "share_decay_seconds": 3600,
+                "share_distributions": [{
+                    "share_identifier": "A1*",
+                    "weight_factor": 0.1,
                 }],
             })
         example_job_queue = aws.batch.JobQueue("example",
@@ -393,11 +393,11 @@ class JobQueue(pulumi.CustomResource):
             compute_environment_orders=[
                 {
                     "order": 1,
-                    "computeEnvironment": test_environment1["arn"],
+                    "compute_environment": test_environment1["arn"],
                 },
                 {
                     "order": 2,
-                    "computeEnvironment": test_environment2["arn"],
+                    "compute_environment": test_environment2["arn"],
                 },
             ])
         ```
@@ -445,11 +445,11 @@ class JobQueue(pulumi.CustomResource):
             compute_environment_orders=[
                 {
                     "order": 1,
-                    "computeEnvironment": test_environment1["arn"],
+                    "compute_environment": test_environment1["arn"],
                 },
                 {
                     "order": 2,
-                    "computeEnvironment": test_environment2["arn"],
+                    "compute_environment": test_environment2["arn"],
                 },
             ])
         ```
@@ -463,11 +463,11 @@ class JobQueue(pulumi.CustomResource):
         example = aws.batch.SchedulingPolicy("example",
             name="example",
             fair_share_policy={
-                "computeReservation": 1,
-                "shareDecaySeconds": 3600,
-                "shareDistributions": [{
-                    "shareIdentifier": "A1*",
-                    "weightFactor": 0.1,
+                "compute_reservation": 1,
+                "share_decay_seconds": 3600,
+                "share_distributions": [{
+                    "share_identifier": "A1*",
+                    "weight_factor": 0.1,
                 }],
             })
         example_job_queue = aws.batch.JobQueue("example",
@@ -478,11 +478,11 @@ class JobQueue(pulumi.CustomResource):
             compute_environment_orders=[
                 {
                     "order": 1,
-                    "computeEnvironment": test_environment1["arn"],
+                    "compute_environment": test_environment1["arn"],
                 },
                 {
                     "order": 2,
-                    "computeEnvironment": test_environment2["arn"],
+                    "compute_environment": test_environment2["arn"],
                 },
             ])
         ```

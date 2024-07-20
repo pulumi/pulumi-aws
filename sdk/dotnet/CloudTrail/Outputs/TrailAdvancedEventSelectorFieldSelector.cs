@@ -13,12 +13,33 @@ namespace Pulumi.Aws.CloudTrail.Outputs
     [OutputType]
     public sealed class TrailAdvancedEventSelectorFieldSelector
     {
+        /// <summary>
+        /// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+        /// </summary>
         public readonly ImmutableArray<string> EndsWiths;
+        /// <summary>
+        /// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+        /// </summary>
         public readonly ImmutableArray<string> Equals;
+        /// <summary>
+        /// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+        /// </summary>
         public readonly string Field;
+        /// <summary>
+        /// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+        /// </summary>
         public readonly ImmutableArray<string> NotEndsWiths;
+        /// <summary>
+        /// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+        /// </summary>
         public readonly ImmutableArray<string> NotEquals;
+        /// <summary>
+        /// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+        /// </summary>
         public readonly ImmutableArray<string> NotStartsWiths;
+        /// <summary>
+        /// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+        /// </summary>
         public readonly ImmutableArray<string> StartsWiths;
 
         [OutputConstructor]

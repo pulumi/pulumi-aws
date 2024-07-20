@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class AssessmentRolesAll
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM role.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+        /// </summary>
         public readonly string RoleType;
 
         [OutputConstructor]

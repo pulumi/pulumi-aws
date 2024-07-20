@@ -83,7 +83,7 @@ class EventSourcesConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.EventSourcesConfig("example", event_sources=[{
-            "amazonCodeGuruProfilers": [{
+            "amazon_code_guru_profilers": [{
                 "status": "ENABLED",
             }],
         }])
@@ -117,7 +117,7 @@ class EventSourcesConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.EventSourcesConfig("example", event_sources=[{
-            "amazonCodeGuruProfilers": [{
+            "amazon_code_guru_profilers": [{
                 "status": "ENABLED",
             }],
         }])

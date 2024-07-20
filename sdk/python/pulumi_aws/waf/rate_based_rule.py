@@ -292,7 +292,7 @@ class RateBasedRule(pulumi.CustomResource):
             rate_key="IP",
             rate_limit=100,
             predicates=[{
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
@@ -343,7 +343,7 @@ class RateBasedRule(pulumi.CustomResource):
             rate_key="IP",
             rate_limit=100,
             predicates=[{
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],

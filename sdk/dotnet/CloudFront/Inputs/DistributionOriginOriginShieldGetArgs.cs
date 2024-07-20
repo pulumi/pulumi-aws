@@ -18,6 +18,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
+        /// </summary>
         [Input("originShieldRegion")]
         public Input<string>? OriginShieldRegion { get; set; }
 

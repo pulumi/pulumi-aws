@@ -180,7 +180,7 @@ class UsagePlanKey(pulumi.CustomResource):
         myusageplan = aws.apigateway.UsagePlan("myusageplan",
             name="my_usage_plan",
             api_stages=[{
-                "apiId": test.id,
+                "api_id": test.id,
                 "stage": foo["stageName"],
             }])
         mykey = aws.apigateway.ApiKey("mykey", name="my_key")
@@ -224,7 +224,7 @@ class UsagePlanKey(pulumi.CustomResource):
         myusageplan = aws.apigateway.UsagePlan("myusageplan",
             name="my_usage_plan",
             api_stages=[{
-                "apiId": test.id,
+                "api_id": test.id,
                 "stage": foo["stageName"],
             }])
         mykey = aws.apigateway.ApiKey("mykey", name="my_key")

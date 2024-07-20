@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings {
     private @Nullable String h265PackagingType;
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings hlsSettings;
+    /**
+     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * 
+     */
     private @Nullable String nameModifier;
     private @Nullable String segmentModifier;
 
@@ -25,6 +29,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings hlsSettings() {
         return this.hlsSettings;
     }
+    /**
+     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * 
+     */
     public Optional<String> nameModifier() {
         return Optional.ofNullable(this.nameModifier);
     }

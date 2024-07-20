@@ -119,18 +119,18 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
         statements=[
             {
                 "sid": "Audit",
-                "dataIdentifiers": [
+                "data_identifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
                 "operation": {
                     "audit": {
-                        "findingsDestination": {
-                            "cloudwatchLogs": {
-                                "logGroup": audit["name"],
+                        "findings_destination": {
+                            "cloudwatch_logs": {
+                                "log_group": audit["name"],
                             },
                             "firehose": {
-                                "deliveryStream": audit_aws_kinesis_firehose_delivery_stream["name"],
+                                "delivery_stream": audit_aws_kinesis_firehose_delivery_stream["name"],
                             },
                             "s3": {
                                 "bucket": audit_aws_s3_bucket["bucket"],
@@ -141,13 +141,13 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
             },
             {
                 "sid": "Deidentify",
-                "dataIdentifiers": [
+                "data_identifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
                 "operation": {
                     "deidentify": {
-                        "maskConfig": {},
+                        "mask_config": {},
                     },
                 },
             },
@@ -203,18 +203,18 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
         statements=[
             {
                 "sid": "Audit",
-                "dataIdentifiers": [
+                "data_identifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
                 "operation": {
                     "audit": {
-                        "findingsDestination": {
-                            "cloudwatchLogs": {
-                                "logGroup": audit["name"],
+                        "findings_destination": {
+                            "cloudwatch_logs": {
+                                "log_group": audit["name"],
                             },
                             "firehose": {
-                                "deliveryStream": audit_aws_kinesis_firehose_delivery_stream["name"],
+                                "delivery_stream": audit_aws_kinesis_firehose_delivery_stream["name"],
                             },
                             "s3": {
                                 "bucket": audit_aws_s3_bucket["bucket"],
@@ -225,13 +225,13 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
             },
             {
                 "sid": "Deidentify",
-                "dataIdentifiers": [
+                "data_identifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
                 "operation": {
                     "deidentify": {
-                        "maskConfig": {},
+                        "mask_config": {},
                     },
                 },
             },

@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Pipes.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

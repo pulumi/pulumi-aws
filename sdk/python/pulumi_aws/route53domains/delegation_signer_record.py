@@ -224,7 +224,7 @@ class DelegationSignerRecord(pulumi.CustomResource):
             signing_attributes={
                 "algorithm": example_key_signing_key.signing_algorithm_type,
                 "flags": example_key_signing_key.flag,
-                "publicKey": example_key_signing_key.public_key,
+                "public_key": example_key_signing_key.public_key,
             })
         ```
 
@@ -325,7 +325,7 @@ class DelegationSignerRecord(pulumi.CustomResource):
             signing_attributes={
                 "algorithm": example_key_signing_key.signing_algorithm_type,
                 "flags": example_key_signing_key.flag,
-                "publicKey": example_key_signing_key.public_key,
+                "public_key": example_key_signing_key.public_key,
             })
         ```
 

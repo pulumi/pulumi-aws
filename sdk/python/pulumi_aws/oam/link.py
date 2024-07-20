@@ -319,7 +319,7 @@ class Link(pulumi.CustomResource):
         example = aws.oam.Link("example",
             label_template="$AccountName",
             link_configuration={
-                "logGroupConfiguration": {
+                "log_group_configuration": {
                     "filter": "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
                 },
             },
@@ -336,7 +336,7 @@ class Link(pulumi.CustomResource):
         example = aws.oam.Link("example",
             label_template="$AccountName",
             link_configuration={
-                "metricConfiguration": {
+                "metric_configuration": {
                     "filter": "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
                 },
             },
@@ -397,7 +397,7 @@ class Link(pulumi.CustomResource):
         example = aws.oam.Link("example",
             label_template="$AccountName",
             link_configuration={
-                "logGroupConfiguration": {
+                "log_group_configuration": {
                     "filter": "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
                 },
             },
@@ -414,7 +414,7 @@ class Link(pulumi.CustomResource):
         example = aws.oam.Link("example",
             label_template="$AccountName",
             link_configuration={
-                "metricConfiguration": {
+                "metric_configuration": {
                     "filter": "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
                 },
             },

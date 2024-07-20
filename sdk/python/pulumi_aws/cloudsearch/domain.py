@@ -283,26 +283,26 @@ class Domain(pulumi.CustomResource):
         example = aws.cloudsearch.Domain("example",
             name="example-domain",
             scaling_parameters={
-                "desiredInstanceType": "search.medium",
+                "desired_instance_type": "search.medium",
             },
             index_fields=[
                 {
                     "name": "headline",
                     "type": "text",
                     "search": True,
-                    "return": True,
+                    "return_": True,
                     "sort": True,
                     "highlight": False,
-                    "analysisScheme": "_en_default_",
+                    "analysis_scheme": "_en_default_",
                 },
                 {
                     "name": "price",
                     "type": "double",
                     "search": True,
                     "facet": True,
-                    "return": True,
+                    "return_": True,
                     "sort": True,
-                    "sourceFields": "headline",
+                    "source_fields": "headline",
                 },
             ])
         ```
@@ -343,26 +343,26 @@ class Domain(pulumi.CustomResource):
         example = aws.cloudsearch.Domain("example",
             name="example-domain",
             scaling_parameters={
-                "desiredInstanceType": "search.medium",
+                "desired_instance_type": "search.medium",
             },
             index_fields=[
                 {
                     "name": "headline",
                     "type": "text",
                     "search": True,
-                    "return": True,
+                    "return_": True,
                     "sort": True,
                     "highlight": False,
-                    "analysisScheme": "_en_default_",
+                    "analysis_scheme": "_en_default_",
                 },
                 {
                     "name": "price",
                     "type": "double",
                     "search": True,
                     "facet": True,
-                    "return": True,
+                    "return_": True,
                     "sort": True,
-                    "sourceFields": "headline",
+                    "source_fields": "headline",
                 },
             ])
         ```

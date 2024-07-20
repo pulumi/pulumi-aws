@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class SelectionConditionStringNotEqual {
+    /**
+     * @return The key in a key-value pair.
+     * 
+     */
     private String key;
+    /**
+     * @return The value in a key-value pair.
+     * 
+     */
     private String value;
 
     private SelectionConditionStringNotEqual() {}
+    /**
+     * @return The key in a key-value pair.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return The value in a key-value pair.
+     * 
+     */
     public String value() {
         return this.value;
     }

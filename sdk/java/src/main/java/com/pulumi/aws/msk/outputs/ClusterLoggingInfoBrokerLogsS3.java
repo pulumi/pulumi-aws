@@ -13,17 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterLoggingInfoBrokerLogsS3 {
+    /**
+     * @return Name of the S3 bucket to deliver logs to.
+     * 
+     */
     private @Nullable String bucket;
     private Boolean enabled;
+    /**
+     * @return Prefix to append to the folder name.
+     * 
+     */
     private @Nullable String prefix;
 
     private ClusterLoggingInfoBrokerLogsS3() {}
+    /**
+     * @return Name of the S3 bucket to deliver logs to.
+     * 
+     */
     public Optional<String> bucket() {
         return Optional.ofNullable(this.bucket);
     }
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Prefix to append to the folder name.
+     * 
+     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

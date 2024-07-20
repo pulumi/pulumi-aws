@@ -160,10 +160,10 @@ class GlobalTable(pulumi.CustomResource):
             name="myTable",
             replicas=[
                 {
-                    "regionName": "us-east-1",
+                    "region_name": "us-east-1",
                 },
                 {
-                    "regionName": "us-west-2",
+                    "region_name": "us-west-2",
                 },
             ],
             opts = pulumi.ResourceOptions(depends_on=[
@@ -230,10 +230,10 @@ class GlobalTable(pulumi.CustomResource):
             name="myTable",
             replicas=[
                 {
-                    "regionName": "us-east-1",
+                    "region_name": "us-east-1",
                 },
                 {
-                    "regionName": "us-west-2",
+                    "region_name": "us-west-2",
                 },
             ],
             opts = pulumi.ResourceOptions(depends_on=[

@@ -126,7 +126,7 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.NotificationChannel("example", sns={
-            "topicArn": example_aws_sns_topic["arn"],
+            "topic_arn": example_aws_sns_topic["arn"],
         })
         ```
 
@@ -138,10 +138,10 @@ class NotificationChannel(pulumi.CustomResource):
 
         example = aws.devopsguru.NotificationChannel("example",
             sns={
-                "topicArn": example_aws_sns_topic["arn"],
+                "topic_arn": example_aws_sns_topic["arn"],
             },
             filters={
-                "messageTypes": ["NEW_INSIGHT"],
+                "message_types": ["NEW_INSIGHT"],
                 "severities": ["HIGH"],
             })
         ```
@@ -179,7 +179,7 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.NotificationChannel("example", sns={
-            "topicArn": example_aws_sns_topic["arn"],
+            "topic_arn": example_aws_sns_topic["arn"],
         })
         ```
 
@@ -191,10 +191,10 @@ class NotificationChannel(pulumi.CustomResource):
 
         example = aws.devopsguru.NotificationChannel("example",
             sns={
-                "topicArn": example_aws_sns_topic["arn"],
+                "topic_arn": example_aws_sns_topic["arn"],
             },
             filters={
-                "messageTypes": ["NEW_INSIGHT"],
+                "message_types": ["NEW_INSIGHT"],
                 "severities": ["HIGH"],
             })
         ```
