@@ -425,7 +425,7 @@ class DataSource(pulumi.CustomResource):
             name="My Cool Data in S3",
             parameters={
                 "s3": {
-                    "manifestFileLocation": {
+                    "manifest_file_location": {
                         "bucket": "my-bucket",
                         "key": "path/to/manifest.json",
                     },
@@ -477,7 +477,7 @@ class DataSource(pulumi.CustomResource):
             name="My Cool Data in S3",
             parameters={
                 "s3": {
-                    "manifestFileLocation": {
+                    "manifest_file_location": {
                         "bucket": "my-bucket",
                         "key": "path/to/manifest.json",
                     },

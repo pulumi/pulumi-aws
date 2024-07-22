@@ -291,11 +291,11 @@ class DomainAssociation(pulumi.CustomResource):
             domain_name="example.com",
             sub_domains=[
                 {
-                    "branchName": master.branch_name,
+                    "branch_name": master.branch_name,
                     "prefix": "",
                 },
                 {
-                    "branchName": master.branch_name,
+                    "branch_name": master.branch_name,
                     "prefix": "www",
                 },
             ])
@@ -348,11 +348,11 @@ class DomainAssociation(pulumi.CustomResource):
             domain_name="example.com",
             sub_domains=[
                 {
-                    "branchName": master.branch_name,
+                    "branch_name": master.branch_name,
                     "prefix": "",
                 },
                 {
-                    "branchName": master.branch_name,
+                    "branch_name": master.branch_name,
                     "prefix": "www",
                 },
             ])

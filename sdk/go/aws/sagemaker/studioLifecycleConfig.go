@@ -40,7 +40,7 @@ import (
 //			_, err = sagemaker.NewStudioLifecycleConfig(ctx, "example", &sagemaker.StudioLifecycleConfigArgs{
 //				StudioLifecycleConfigName:    pulumi.String("example"),
 //				StudioLifecycleConfigAppType: pulumi.String("JupyterServer"),
-//				StudioLifecycleConfigContent: invokeBase64encode.Result,
+//				StudioLifecycleConfigContent: pulumi.String(invokeBase64encode.Result),
 //			})
 //			if err != nil {
 //				return err

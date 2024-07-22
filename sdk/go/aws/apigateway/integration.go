@@ -166,7 +166,7 @@ import (
 //				Role:           role.Arn,
 //				Handler:        pulumi.String("lambda.lambda_handler"),
 //				Runtime:        pulumi.String(lambda.RuntimePython3d7),
-//				SourceCodeHash: invokeFilebase64sha256.Result,
+//				SourceCodeHash: pulumi.String(invokeFilebase64sha256.Result),
 //			})
 //			if err != nil {
 //				return err

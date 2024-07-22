@@ -209,8 +209,8 @@ class SharedDirectory(pulumi.CustomResource):
             type="MicrosoftAD",
             edition="Standard",
             vpc_settings={
-                "vpcId": example_aws_vpc["id"],
-                "subnetIds": [__item["id"] for __item in example_aws_subnet],
+                "vpc_id": example_aws_vpc["id"],
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
             })
         example_shared_directory = aws.directoryservice.SharedDirectory("example",
             directory_id=example.id,
@@ -258,8 +258,8 @@ class SharedDirectory(pulumi.CustomResource):
             type="MicrosoftAD",
             edition="Standard",
             vpc_settings={
-                "vpcId": example_aws_vpc["id"],
-                "subnetIds": [__item["id"] for __item in example_aws_subnet],
+                "vpc_id": example_aws_vpc["id"],
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
             })
         example_shared_directory = aws.directoryservice.SharedDirectory("example",
             directory_id=example.id,

@@ -18,9 +18,17 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs extends com
 
     public static final LifecyclePolicyPolicyDetailsScheduleShareRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleShareRuleArgs();
 
+    /**
+     * The IDs of the AWS accounts with which to share the snapshots.
+     * 
+     */
     @Import(name="targetAccounts", required=true)
     private Output<List<String>> targetAccounts;
 
+    /**
+     * @return The IDs of the AWS accounts with which to share the snapshots.
+     * 
+     */
     public Output<List<String>> targetAccounts() {
         return this.targetAccounts;
     }
@@ -65,15 +73,33 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs extends com
             $ = new LifecyclePolicyPolicyDetailsScheduleShareRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param targetAccounts The IDs of the AWS accounts with which to share the snapshots.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetAccounts(Output<List<String>> targetAccounts) {
             $.targetAccounts = targetAccounts;
             return this;
         }
 
+        /**
+         * @param targetAccounts The IDs of the AWS accounts with which to share the snapshots.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetAccounts(List<String> targetAccounts) {
             return targetAccounts(Output.of(targetAccounts));
         }
 
+        /**
+         * @param targetAccounts The IDs of the AWS accounts with which to share the snapshots.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetAccounts(String... targetAccounts) {
             return targetAccounts(List.of(targetAccounts));
         }

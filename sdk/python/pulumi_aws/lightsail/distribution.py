@@ -560,24 +560,24 @@ class Distribution(pulumi.CustomResource):
             bundle_id="small_1_0",
             origin={
                 "name": test.name,
-                "regionName": test.region,
+                "region_name": test.region,
             },
             default_cache_behavior={
                 "behavior": "cache",
             },
             cache_behavior_settings={
-                "allowedHttpMethods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-                "cachedHttpMethods": "GET,HEAD",
-                "defaultTtl": 86400,
-                "maximumTtl": 31536000,
-                "minimumTtl": 0,
-                "forwardedCookies": {
+                "allowed_http_methods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+                "cached_http_methods": "GET,HEAD",
+                "default_ttl": 86400,
+                "maximum_ttl": 31536000,
+                "minimum_ttl": 0,
+                "forwarded_cookies": {
                     "option": "none",
                 },
-                "forwardedHeaders": {
+                "forwarded_headers": {
                     "option": "default",
                 },
-                "forwardedQueryStrings": {
+                "forwarded_query_strings": {
                     "option": False,
                 },
             })
@@ -610,7 +610,7 @@ class Distribution(pulumi.CustomResource):
             bundle_id="small_1_0",
             origin={
                 "name": test_instance.name,
-                "regionName": available.id,
+                "region_name": available.id,
             },
             default_cache_behavior={
                 "behavior": "cache",
@@ -651,7 +651,7 @@ class Distribution(pulumi.CustomResource):
             bundle_id="small_1_0",
             origin={
                 "name": test.name,
-                "regionName": available.id,
+                "region_name": available.id,
             },
             default_cache_behavior={
                 "behavior": "cache",
@@ -709,24 +709,24 @@ class Distribution(pulumi.CustomResource):
             bundle_id="small_1_0",
             origin={
                 "name": test.name,
-                "regionName": test.region,
+                "region_name": test.region,
             },
             default_cache_behavior={
                 "behavior": "cache",
             },
             cache_behavior_settings={
-                "allowedHttpMethods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-                "cachedHttpMethods": "GET,HEAD",
-                "defaultTtl": 86400,
-                "maximumTtl": 31536000,
-                "minimumTtl": 0,
-                "forwardedCookies": {
+                "allowed_http_methods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+                "cached_http_methods": "GET,HEAD",
+                "default_ttl": 86400,
+                "maximum_ttl": 31536000,
+                "minimum_ttl": 0,
+                "forwarded_cookies": {
                     "option": "none",
                 },
-                "forwardedHeaders": {
+                "forwarded_headers": {
                     "option": "default",
                 },
-                "forwardedQueryStrings": {
+                "forwarded_query_strings": {
                     "option": False,
                 },
             })
@@ -759,7 +759,7 @@ class Distribution(pulumi.CustomResource):
             bundle_id="small_1_0",
             origin={
                 "name": test_instance.name,
-                "regionName": available.id,
+                "region_name": available.id,
             },
             default_cache_behavior={
                 "behavior": "cache",
@@ -800,7 +800,7 @@ class Distribution(pulumi.CustomResource):
             bundle_id="small_1_0",
             origin={
                 "name": test.name,
-                "regionName": available.id,
+                "region_name": available.id,
             },
             default_cache_behavior={
                 "behavior": "cache",

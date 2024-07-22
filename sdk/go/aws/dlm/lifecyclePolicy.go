@@ -60,8 +60,8 @@ import (
 //				return err
 //			}
 //			dlmLifecycle, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: pulumi.Array{
-//					iam.GetPolicyDocumentStatement{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"ec2:CreateSnapshot",
@@ -75,7 +75,7 @@ import (
 //							"*",
 //						},
 //					},
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"ec2:CreateTags",

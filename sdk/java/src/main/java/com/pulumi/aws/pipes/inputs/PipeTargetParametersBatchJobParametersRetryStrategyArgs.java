@@ -15,9 +15,17 @@ public final class PipeTargetParametersBatchJobParametersRetryStrategyArgs exten
 
     public static final PipeTargetParametersBatchJobParametersRetryStrategyArgs Empty = new PipeTargetParametersBatchJobParametersRetryStrategyArgs();
 
+    /**
+     * The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+     * 
+     */
     @Import(name="attempts")
     private @Nullable Output<Integer> attempts;
 
+    /**
+     * @return The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+     * 
+     */
     public Optional<Output<Integer>> attempts() {
         return Optional.ofNullable(this.attempts);
     }
@@ -46,11 +54,23 @@ public final class PipeTargetParametersBatchJobParametersRetryStrategyArgs exten
             $ = new PipeTargetParametersBatchJobParametersRetryStrategyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param attempts The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attempts(@Nullable Output<Integer> attempts) {
             $.attempts = attempts;
             return this;
         }
 
+        /**
+         * @param attempts The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attempts(Integer attempts) {
             return attempts(Output.of(attempts));
         }

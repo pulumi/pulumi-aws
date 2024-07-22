@@ -143,14 +143,14 @@ class ProactiveEngagement(pulumi.CustomResource):
             enabled=True,
             emergency_contacts=[
                 {
-                    "contactNotes": "Notes",
-                    "emailAddress": "test@company.com",
-                    "phoneNumber": "+12358132134",
+                    "contact_notes": "Notes",
+                    "email_address": "test@company.com",
+                    "phone_number": "+12358132134",
                 },
                 {
-                    "contactNotes": "Notes 2",
-                    "emailAddress": "test2@company.com",
-                    "phoneNumber": "+12358132134",
+                    "contact_notes": "Notes 2",
+                    "email_address": "test2@company.com",
+                    "phone_number": "+12358132134",
                 },
             ],
             opts = pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
@@ -213,14 +213,14 @@ class ProactiveEngagement(pulumi.CustomResource):
             enabled=True,
             emergency_contacts=[
                 {
-                    "contactNotes": "Notes",
-                    "emailAddress": "test@company.com",
-                    "phoneNumber": "+12358132134",
+                    "contact_notes": "Notes",
+                    "email_address": "test@company.com",
+                    "phone_number": "+12358132134",
                 },
                 {
-                    "contactNotes": "Notes 2",
-                    "emailAddress": "test2@company.com",
-                    "phoneNumber": "+12358132134",
+                    "contact_notes": "Notes 2",
+                    "email_address": "test2@company.com",
+                    "phone_number": "+12358132134",
                 },
             ],
             opts = pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))

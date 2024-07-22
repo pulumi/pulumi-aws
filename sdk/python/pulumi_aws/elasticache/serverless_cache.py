@@ -632,11 +632,11 @@ class ServerlessCache(pulumi.CustomResource):
             engine="memcached",
             name="example",
             cache_usage_limits={
-                "dataStorage": {
+                "data_storage": {
                     "maximum": 10,
                     "unit": "GB",
                 },
-                "ecpuPerSeconds": [{
+                "ecpu_per_seconds": [{
                     "maximum": 5000,
                 }],
             },
@@ -657,11 +657,11 @@ class ServerlessCache(pulumi.CustomResource):
             engine="redis",
             name="example",
             cache_usage_limits={
-                "dataStorage": {
+                "data_storage": {
                     "maximum": 10,
                     "unit": "GB",
                 },
-                "ecpuPerSeconds": [{
+                "ecpu_per_seconds": [{
                     "maximum": 5000,
                 }],
             },
@@ -722,11 +722,11 @@ class ServerlessCache(pulumi.CustomResource):
             engine="memcached",
             name="example",
             cache_usage_limits={
-                "dataStorage": {
+                "data_storage": {
                     "maximum": 10,
                     "unit": "GB",
                 },
-                "ecpuPerSeconds": [{
+                "ecpu_per_seconds": [{
                     "maximum": 5000,
                 }],
             },
@@ -747,11 +747,11 @@ class ServerlessCache(pulumi.CustomResource):
             engine="redis",
             name="example",
             cache_usage_limits={
-                "dataStorage": {
+                "data_storage": {
                     "maximum": 10,
                     "unit": "GB",
                 },
-                "ecpuPerSeconds": [{
+                "ecpu_per_seconds": [{
                     "maximum": 5000,
                 }],
             },

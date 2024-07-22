@@ -13,10 +13,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll all;
     private @Nullable List<String> includedPaths;
 
     private RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern() {}
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }

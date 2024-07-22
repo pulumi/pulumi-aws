@@ -15,6 +15,9 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     {
         public readonly int? Maximum;
         public readonly int? Minimum;
+        /// <summary>
+        /// The unit that the storage is measured in, in GB.
+        /// </summary>
         public readonly string Unit;
 
         [OutputConstructor]

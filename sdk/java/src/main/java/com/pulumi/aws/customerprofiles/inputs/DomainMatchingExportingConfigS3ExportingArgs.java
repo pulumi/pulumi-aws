@@ -16,16 +16,32 @@ public final class DomainMatchingExportingConfigS3ExportingArgs extends com.pulu
 
     public static final DomainMatchingExportingConfigS3ExportingArgs Empty = new DomainMatchingExportingConfigS3ExportingArgs();
 
+    /**
+     * The name of the S3 bucket where Identity Resolution Jobs write result files.
+     * 
+     */
     @Import(name="s3BucketName", required=true)
     private Output<String> s3BucketName;
 
+    /**
+     * @return The name of the S3 bucket where Identity Resolution Jobs write result files.
+     * 
+     */
     public Output<String> s3BucketName() {
         return this.s3BucketName;
     }
 
+    /**
+     * The S3 key name of the location where Identity Resolution Jobs write result files.
+     * 
+     */
     @Import(name="s3KeyName")
     private @Nullable Output<String> s3KeyName;
 
+    /**
+     * @return The S3 key name of the location where Identity Resolution Jobs write result files.
+     * 
+     */
     public Optional<Output<String>> s3KeyName() {
         return Optional.ofNullable(this.s3KeyName);
     }
@@ -55,20 +71,44 @@ public final class DomainMatchingExportingConfigS3ExportingArgs extends com.pulu
             $ = new DomainMatchingExportingConfigS3ExportingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param s3BucketName The name of the S3 bucket where Identity Resolution Jobs write result files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3BucketName(Output<String> s3BucketName) {
             $.s3BucketName = s3BucketName;
             return this;
         }
 
+        /**
+         * @param s3BucketName The name of the S3 bucket where Identity Resolution Jobs write result files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3BucketName(String s3BucketName) {
             return s3BucketName(Output.of(s3BucketName));
         }
 
+        /**
+         * @param s3KeyName The S3 key name of the location where Identity Resolution Jobs write result files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3KeyName(@Nullable Output<String> s3KeyName) {
             $.s3KeyName = s3KeyName;
             return this;
         }
 
+        /**
+         * @param s3KeyName The S3 key name of the location where Identity Resolution Jobs write result files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3KeyName(String s3KeyName) {
             return s3KeyName(Output.of(s3KeyName));
         }

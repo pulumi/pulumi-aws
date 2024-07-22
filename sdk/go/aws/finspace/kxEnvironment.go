@@ -151,8 +151,8 @@ import (
 //								To:   pulumi.Int(53),
 //							},
 //							IcmpTypeCode: &finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs{
-//								Type: -1,
-//								Code: -1,
+//								Type: int(-1),
+//								Code: int(-1),
 //							},
 //						},
 //					},

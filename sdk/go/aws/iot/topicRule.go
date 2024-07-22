@@ -94,7 +94,7 @@ import (
 // return err
 // }
 // mypolicy := mytopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Effect: "Allow",
@@ -106,14 +106,14 @@ import (
 // },
 // },
 // },
-// }, nil), nil
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = iam.NewRolePolicy(ctx, "mypolicy", &iam.RolePolicyArgs{
 // Name: pulumi.String("mypolicy"),
 // Role: myrole.ID(),
-// Policy: mypolicy.ApplyT(func(mypolicy iam.GetPolicyDocumentResult) (*string, error) {
+// Policy: pulumi.String(mypolicy.ApplyT(func(mypolicy iam.GetPolicyDocumentResult) (*string, error) {
 // return &mypolicy.Json, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

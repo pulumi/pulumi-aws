@@ -39,7 +39,7 @@ import (
 // MskClusterArn: pulumi.Any(source.Arn),
 // },
 // VpcConfig: &msk.ReplicatorKafkaClusterVpcConfigArgs{
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:9,27-48),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:9,27-48)),
 // SecurityGroupsIds: pulumi.StringArray{
 // sourceAwsSecurityGroup.Id,
 // },
@@ -50,7 +50,7 @@ import (
 // MskClusterArn: pulumi.Any(target.Arn),
 // },
 // VpcConfig: &msk.ReplicatorKafkaClusterVpcConfigArgs{
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:17,27-48),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:17,27-48)),
 // SecurityGroupsIds: pulumi.StringArray{
 // targetAwsSecurityGroup.Id,
 // },

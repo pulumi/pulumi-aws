@@ -262,7 +262,7 @@ import (
 //	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-command/sdk/v1/go/command/local"
+//	"github.com/pulumi/pulumi-command/sdk/go/command/local"
 //	"github.com/pulumi/pulumi-null/sdk/go/null"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -306,7 +306,7 @@ import (
 //			}
 //			exampleResource, err := null.NewResource(ctx, "example", &null.ResourceArgs{
 //				Triggers: pulumi.StringMap{
-//					"rerun_upon_change_of": invokeJoin.Result,
+//					"rerun_upon_change_of": pulumi.String(invokeJoin.Result),
 //				},
 //			})
 //			if err != nil {

@@ -155,10 +155,10 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
             "id": "site_switch",
             "type": "failover",
             "primary": {
-                "endpointReference": "my_elb",
+                "endpoint_reference": "my_elb",
             },
             "secondary": {
-                "endpointReference": "site_down_banner",
+                "endpoint_reference": "site_down_banner",
             },
         }])
     example_traffic_policy = aws.route53.TrafficPolicy("example",
@@ -204,33 +204,33 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
                 "id": "na_rule",
                 "type": "failover",
                 "primary": {
-                    "endpointReference": "na_endpoint_a",
+                    "endpoint_reference": "na_endpoint_a",
                 },
                 "secondary": {
-                    "endpointReference": "na_endpoint_b",
+                    "endpoint_reference": "na_endpoint_b",
                 },
             },
             {
                 "id": "geoproximity_rule",
                 "type": "geoproximity",
-                "geoProximityLocations": [
+                "geo_proximity_locations": [
                     {
                         "region": "aws:route53:us-west-1",
                         "bias": "10",
-                        "evaluateTargetHealth": True,
-                        "ruleReference": "na_rule",
+                        "evaluate_target_health": True,
+                        "rule_reference": "na_rule",
                     },
                     {
                         "region": "aws:route53:eu-west-1",
                         "bias": "10",
-                        "evaluateTargetHealth": True,
-                        "endpointReference": "eu_endpoint",
+                        "evaluate_target_health": True,
+                        "endpoint_reference": "eu_endpoint",
                     },
                     {
                         "region": "aws:route53:ap-northeast-2",
                         "bias": "0",
-                        "evaluateTargetHealth": True,
-                        "endpointReference": "ap_endpoint",
+                        "evaluate_target_health": True,
+                        "endpoint_reference": "ap_endpoint",
                     },
                 ],
             },
@@ -309,10 +309,10 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
             "id": "site_switch",
             "type": "failover",
             "primary": {
-                "endpointReference": "my_elb",
+                "endpoint_reference": "my_elb",
             },
             "secondary": {
-                "endpointReference": "site_down_banner",
+                "endpoint_reference": "site_down_banner",
             },
         }])
     example_traffic_policy = aws.route53.TrafficPolicy("example",
@@ -358,33 +358,33 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
                 "id": "na_rule",
                 "type": "failover",
                 "primary": {
-                    "endpointReference": "na_endpoint_a",
+                    "endpoint_reference": "na_endpoint_a",
                 },
                 "secondary": {
-                    "endpointReference": "na_endpoint_b",
+                    "endpoint_reference": "na_endpoint_b",
                 },
             },
             {
                 "id": "geoproximity_rule",
                 "type": "geoproximity",
-                "geoProximityLocations": [
+                "geo_proximity_locations": [
                     {
                         "region": "aws:route53:us-west-1",
                         "bias": "10",
-                        "evaluateTargetHealth": True,
-                        "ruleReference": "na_rule",
+                        "evaluate_target_health": True,
+                        "rule_reference": "na_rule",
                     },
                     {
                         "region": "aws:route53:eu-west-1",
                         "bias": "10",
-                        "evaluateTargetHealth": True,
-                        "endpointReference": "eu_endpoint",
+                        "evaluate_target_health": True,
+                        "endpoint_reference": "eu_endpoint",
                     },
                     {
                         "region": "aws:route53:ap-northeast-2",
                         "bias": "0",
-                        "evaluateTargetHealth": True,
-                        "endpointReference": "ap_endpoint",
+                        "evaluate_target_health": True,
+                        "endpoint_reference": "ap_endpoint",
                     },
                 ],
             },

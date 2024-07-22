@@ -14,23 +14,47 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSo
 
     public static final V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs Empty = new V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs();
 
+    /**
+     * KMS key required to decrypt the contents of the grammar, if any.
+     * 
+     */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
+    /**
+     * @return KMS key required to decrypt the contents of the grammar, if any.
+     * 
+     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
 
+    /**
+     * Name of the Amazon S3 bucket that contains the grammar source.
+     * 
+     */
     @Import(name="s3BucketName", required=true)
     private Output<String> s3BucketName;
 
+    /**
+     * @return Name of the Amazon S3 bucket that contains the grammar source.
+     * 
+     */
     public Output<String> s3BucketName() {
         return this.s3BucketName;
     }
 
+    /**
+     * Path to the grammar in the Amazon S3 bucket.
+     * 
+     */
     @Import(name="s3ObjectKey", required=true)
     private Output<String> s3ObjectKey;
 
+    /**
+     * @return Path to the grammar in the Amazon S3 bucket.
+     * 
+     */
     public Output<String> s3ObjectKey() {
         return this.s3ObjectKey;
     }
@@ -61,29 +85,65 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSo
             $ = new V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param kmsKeyArn KMS key required to decrypt the contents of the grammar, if any.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn KMS key required to decrypt the contents of the grammar, if any.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
+        /**
+         * @param s3BucketName Name of the Amazon S3 bucket that contains the grammar source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3BucketName(Output<String> s3BucketName) {
             $.s3BucketName = s3BucketName;
             return this;
         }
 
+        /**
+         * @param s3BucketName Name of the Amazon S3 bucket that contains the grammar source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3BucketName(String s3BucketName) {
             return s3BucketName(Output.of(s3BucketName));
         }
 
+        /**
+         * @param s3ObjectKey Path to the grammar in the Amazon S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3ObjectKey(Output<String> s3ObjectKey) {
             $.s3ObjectKey = s3ObjectKey;
             return this;
         }
 
+        /**
+         * @param s3ObjectKey Path to the grammar in the Amazon S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3ObjectKey(String s3ObjectKey) {
             return s3ObjectKey(Output.of(s3ObjectKey));
         }

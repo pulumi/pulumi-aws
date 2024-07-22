@@ -68,8 +68,8 @@ import (
 //				EnableSsl: pulumi.Bool(true),
 //				SslConfigurations: opsworks.ApplicationSslConfigurationArray{
 //					&opsworks.ApplicationSslConfigurationArgs{
-//						PrivateKey:  invokeFile.Result,
-//						Certificate: invokeFile1.Result,
+//						PrivateKey:  pulumi.String(invokeFile.Result),
+//						Certificate: pulumi.String(invokeFile1.Result),
 //					},
 //				},
 //				DocumentRoot:       pulumi.String("public"),

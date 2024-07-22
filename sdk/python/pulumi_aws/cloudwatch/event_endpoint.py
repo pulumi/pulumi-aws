@@ -284,19 +284,19 @@ class EventEndpoint(pulumi.CustomResource):
             role_arn=replication["arn"],
             event_buses=[
                 {
-                    "eventBusArn": primary["arn"],
+                    "event_bus_arn": primary["arn"],
                 },
                 {
-                    "eventBusArn": secondary["arn"],
+                    "event_bus_arn": secondary["arn"],
                 },
             ],
             replication_config={
                 "state": "DISABLED",
             },
             routing_config={
-                "failoverConfig": {
+                "failover_config": {
                     "primary": {
-                        "healthCheck": primary_aws_route53_health_check["arn"],
+                        "health_check": primary_aws_route53_health_check["arn"],
                     },
                     "secondary": {
                         "route": "us-east-2",
@@ -344,19 +344,19 @@ class EventEndpoint(pulumi.CustomResource):
             role_arn=replication["arn"],
             event_buses=[
                 {
-                    "eventBusArn": primary["arn"],
+                    "event_bus_arn": primary["arn"],
                 },
                 {
-                    "eventBusArn": secondary["arn"],
+                    "event_bus_arn": secondary["arn"],
                 },
             ],
             replication_config={
                 "state": "DISABLED",
             },
             routing_config={
-                "failoverConfig": {
+                "failover_config": {
                     "primary": {
-                        "healthCheck": primary_aws_route53_health_check["arn"],
+                        "health_check": primary_aws_route53_health_check["arn"],
                     },
                     "secondary": {
                         "route": "us-east-2",

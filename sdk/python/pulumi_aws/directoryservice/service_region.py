@@ -260,8 +260,8 @@ class ServiceRegion(pulumi.CustomResource):
             password="SuperSecretPassw0rd",
             type="MicrosoftAD",
             vpc_settings={
-                "vpcId": example_vpc.id,
-                "subnetIds": [__item.id for __item in example_subnet],
+                "vpc_id": example_vpc.id,
+                "subnet_ids": [__item.id for __item in example_subnet],
             })
         available_secondary = aws.get_availability_zones(state="available",
             filters=[{
@@ -288,8 +288,8 @@ class ServiceRegion(pulumi.CustomResource):
             directory_id=example_directory.id,
             region_name=example.name,
             vpc_settings={
-                "vpcId": example_secondary.id,
-                "subnetIds": [__item.id for __item in example_secondary_subnet],
+                "vpc_id": example_secondary.id,
+                "subnet_ids": [__item.id for __item in example_secondary_subnet],
             },
             tags={
                 "Name": "Secondary",
@@ -356,8 +356,8 @@ class ServiceRegion(pulumi.CustomResource):
             password="SuperSecretPassw0rd",
             type="MicrosoftAD",
             vpc_settings={
-                "vpcId": example_vpc.id,
-                "subnetIds": [__item.id for __item in example_subnet],
+                "vpc_id": example_vpc.id,
+                "subnet_ids": [__item.id for __item in example_subnet],
             })
         available_secondary = aws.get_availability_zones(state="available",
             filters=[{
@@ -384,8 +384,8 @@ class ServiceRegion(pulumi.CustomResource):
             directory_id=example_directory.id,
             region_name=example.name,
             vpc_settings={
-                "vpcId": example_secondary.id,
-                "subnetIds": [__item.id for __item in example_secondary_subnet],
+                "vpc_id": example_secondary.id,
+                "subnet_ids": [__item.id for __item in example_secondary_subnet],
             },
             tags={
                 "Name": "Secondary",
