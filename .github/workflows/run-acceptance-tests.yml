@@ -71,6 +71,7 @@ jobs:
             echo $file
             file $file
             ls -la ${{ github.workspace }}/sdk
+            ls -la $file
             filename=$(basename $file)
             echo $filename
             language=$(echo $filename | sed 's/-.*//')

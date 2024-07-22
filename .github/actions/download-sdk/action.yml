@@ -13,7 +13,7 @@ runs:
       uses: actions/download-artifact@v4
       with:
         name: sdk.tar.gz
-        path: ${{ github.workspace}}/
+        path: ${{ github.workspace}}/sdk/
     - name: Uncompress SDK folder
       shell: bash
-      run: tar -zxf ${{ github.workspace }}/sdk.tar.gz -C ${{ github.workspace }}/sdk/
+      run: tar -zxf ${{ github.workspace }}/sdk/sdk.tar.gz -C ${{ github.workspace }}/sdk
