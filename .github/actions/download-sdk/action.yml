@@ -17,3 +17,8 @@ runs:
     - name: Uncompress SDK folder
       shell: bash
       run: tar -zxf ${{ github.workspace }}/sdk/sdk.tar.gz -C ${{ github.workspace }}/sdk
+    - name: List dir
+      shell: bash
+      run: |
+        ls ${{ github.workspace }}/sdk/python
+        ls ${{ github.workspace }}/sdk/python/bin

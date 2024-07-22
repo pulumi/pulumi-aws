@@ -183,11 +183,6 @@ jobs:
         pip3 install pipenv
     - name: Install dependencies
       run: make install_sdks
-    - name: Install gotestfmt
-      uses: GoTestTools/gotestfmt-action@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        version: v2.5.0
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -346,7 +341,7 @@ jobs:
               pip3 install virtualenv==20.0.23
               pip3 install pipenv
           - name: Install dependencies
-            run: make install_${{ matrix.language}}_sdk
+            run: make install_sdks
           - name: Configure AWS Credentials
             uses: aws-actions/configure-aws-credentials@v4
             with:
