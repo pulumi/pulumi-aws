@@ -297,7 +297,9 @@ jobs:
       timeout-minutes: 60
   provider_test:
       name: provider_test
-      needs: build_sdk
+      needs: 
+        - build_sdk
+        - combine_build_artifacts
       permissions:
           contents: read
           id-token: write
@@ -334,12 +336,9 @@ jobs:
               find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
           - run: dotnet nuget add source ${{ github.workspace }}/nuget
           - name: Download SDK
-            uses: actions/download-artifact@v4
+            uses: ./.github/actions/download-sdk
             with:
-              name: ${{ matrix.language }}-sdk.tar.gz
-              path: ${{ github.workspace}}/sdk/
-          - name: Uncompress SDK folder
-            run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{ github.workspace }}/sdk/${{ matrix.language }}
+              language: ${{ matrix.language }}
           - name: Update path
             run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
           - name: Install Python deps
@@ -348,11 +347,6 @@ jobs:
               pip3 install pipenv
           - name: Install dependencies
             run: make install_${{ matrix.language}}_sdk
-          - name: Install gotestfmt
-            uses: GoTestTools/gotestfmt-action@v2
-            with:
-              token: ${{ secrets.GITHUB_TOKEN }}
-              version: v2.5.0
           - name: Configure AWS Credentials
             uses: aws-actions/configure-aws-credentials@v4
             with:
@@ -362,25 +356,40 @@ jobs:
               role-duration-seconds: 3600
               role-session-name: aws@githubActions
               role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-          - name: Run provider tests
-            run: |
-              cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-          - if: failure() && github.event_name == 'push'
-            name: Notify Slack
-            uses: 8398a7/action-slack@v3
+          - name: Install gotestsum
+            run: go install gotest.tools/gotestsum@latest
+          - name: Download JUnit Summary from Previous Workflow
+            id: download-artifact
+            uses: dawidd6/action-download-artifact@v4
             with:
-              author_name: Failure in running ${{ matrix.language }} provider tests
-              fields: repo,commit,author,action
-              status: ${{ job.status }}
+              workflow_conclusion: success
+              name: junit-provider-test-summary
+              if_no_artifact_found: warn
+              # Uncomment the next line before pushing to main branch, that way all branches can
+              # benefit from timing data once it's established there.
+              # branch: main
+          - name: Generate go test Slice
+            id: test_split
+            uses: hashicorp-forge/go-test-split-action@v2.0.0
+            with:
+              working-directory: provider
+              flags: "-tags=all"
+              total: ${{ matrix.parallel }}
+              index: ${{ matrix.index }}
+              junit-summary: ./junit-provider-test-summary.xml
+          - name: Run provider tests
+            run: cd provider && gotestsum --junitfile node-summary.xml --format github-actions -- -v -count=1 -timeout 2h -tags=all -parallel 4 -run "${{ steps.test_split.outputs.run }}"
+          - name: Upload test artifacts
+            uses: actions/upload-artifact@v4
+            with:
+              name: junit-provider-test-summary-${{ matrix.index }}
+              path: node-summary.xml
+              retention-days: 1
       strategy:
           fail-fast: false
           matrix:
-              language:
-                  - nodejs
-                  - python
-                  - dotnet
-                  - go
-                  - java
+            parallel: [5]
+            index: [0, 1, 2, 3, 4]
   test_oidc:
       name: test_oidc
       needs: build_sdk
