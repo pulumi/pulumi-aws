@@ -200,9 +200,9 @@ import (
 //			}
 //			ssmLifecyclePolicy, err := iam.NewPolicy(ctx, "ssm_lifecycle", &iam.PolicyArgs{
 //				Name: pulumi.String("SSMLifecycle"),
-//				Policy: ssmLifecycle.ApplyT(func(ssmLifecycle iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(ssmLifecycle.ApplyT(func(ssmLifecycle iam.GetPolicyDocumentResult) (*string, error) {
 //					return &ssmLifecycle.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -338,17 +338,9 @@ import (
 // if err != nil {
 // return err
 // }
-// ecsEventsRunTaskWithAnyRole, err := iam.GetPolicyDocument(ctx, invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
-// Text: taskName.Arn,
-// Search: "/:\\d+$/",
-// Replace: ":*",
-// }, nil)
-// if err != nil {
-// return err
-// }
-// &iam.GetPolicyDocumentArgs{
-// Statements: pulumi.Array{
-// iam.GetPolicyDocumentStatement{
+// ecsEventsRunTaskWithAnyRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
 // Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "iam:PassRole",
@@ -357,13 +349,17 @@ import (
 // "*",
 // },
 // },
-// iam.GetPolicyDocumentStatement{
+// {
 // Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "ecs:RunTask",
 // },
 // Resources: interface{}{
-// invokeReplace.Result,
+// std.Replace(ctx, {
+// Text: taskName.Arn,
+// Search: "/:\\d+$/",
+// Replace: ":*",
+// }, nil).Result,
 // },
 // },
 // },
@@ -741,9 +737,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: exampleLogPolicy.ApplyT(func(exampleLogPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//				PolicyDocument: pulumi.String(exampleLogPolicy.ApplyT(func(exampleLogPolicy iam.GetPolicyDocumentResult) (*string, error) {
 //					return &exampleLogPolicy.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				PolicyName: pulumi.String("guardduty-log-publishing-policy"),
 //			})
 //			if err != nil {

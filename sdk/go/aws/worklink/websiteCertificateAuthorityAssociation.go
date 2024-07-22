@@ -41,7 +41,7 @@ import (
 //			}
 //			_, err = worklink.NewWebsiteCertificateAuthorityAssociation(ctx, "test", &worklink.WebsiteCertificateAuthorityAssociationArgs{
 //				FleetArn:    pulumi.Any(testAwsWorklinkFleet.Arn),
-//				Certificate: invokeFile.Result,
+//				Certificate: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

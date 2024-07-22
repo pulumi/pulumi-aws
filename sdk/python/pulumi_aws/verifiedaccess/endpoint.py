@@ -550,10 +550,10 @@ class Endpoint(pulumi.CustomResource):
             endpoint_domain_prefix="example",
             endpoint_type="load-balancer",
             load_balancer_options={
-                "loadBalancerArn": example_aws_lb["arn"],
+                "load_balancer_arn": example_aws_lb["arn"],
                 "port": 443,
                 "protocol": "https",
-                "subnetIds": [subnet["id"] for subnet in public],
+                "subnet_ids": [subnet["id"] for subnet in public],
             },
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
@@ -573,7 +573,7 @@ class Endpoint(pulumi.CustomResource):
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
             network_interface_options={
-                "networkInterfaceId": example_aws_network_interface["id"],
+                "network_interface_id": example_aws_network_interface["id"],
                 "port": 443,
                 "protocol": "https",
             },
@@ -632,10 +632,10 @@ class Endpoint(pulumi.CustomResource):
             endpoint_domain_prefix="example",
             endpoint_type="load-balancer",
             load_balancer_options={
-                "loadBalancerArn": example_aws_lb["arn"],
+                "load_balancer_arn": example_aws_lb["arn"],
                 "port": 443,
                 "protocol": "https",
-                "subnetIds": [subnet["id"] for subnet in public],
+                "subnet_ids": [subnet["id"] for subnet in public],
             },
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
@@ -655,7 +655,7 @@ class Endpoint(pulumi.CustomResource):
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
             network_interface_options={
-                "networkInterfaceId": example_aws_network_interface["id"],
+                "network_interface_id": example_aws_network_interface["id"],
                 "port": 443,
                 "protocol": "https",
             },

@@ -678,6 +678,11 @@ class UsagePlanApiStage(dict):
                  api_id: str,
                  stage: str,
                  throttles: Optional[Sequence['outputs.UsagePlanApiStageThrottle']] = None):
+        """
+        :param str api_id: API Id of the associated API stage in a usage plan.
+        :param str stage: API stage name of the associated API stage in a usage plan.
+        :param Sequence['UsagePlanApiStageThrottleArgs'] throttles: The throttling limits of the usage plan.
+        """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
         if throttles is not None:
@@ -686,16 +691,25 @@ class UsagePlanApiStage(dict):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> str:
+        """
+        API Id of the associated API stage in a usage plan.
+        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter
     def stage(self) -> str:
+        """
+        API stage name of the associated API stage in a usage plan.
+        """
         return pulumi.get(self, "stage")
 
     @property
     @pulumi.getter
     def throttles(self) -> Optional[Sequence['outputs.UsagePlanApiStageThrottle']]:
+        """
+        The throttling limits of the usage plan.
+        """
         return pulumi.get(self, "throttles")
 
 
@@ -766,6 +780,11 @@ class UsagePlanQuotaSettings(dict):
                  limit: int,
                  period: str,
                  offset: Optional[int] = None):
+        """
+        :param int limit: Maximum number of requests that can be made in a given time period.
+        :param str period: Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        :param int offset: Number of requests subtracted from the given limit in the initial time period.
+        """
         pulumi.set(__self__, "limit", limit)
         pulumi.set(__self__, "period", period)
         if offset is not None:
@@ -774,16 +793,25 @@ class UsagePlanQuotaSettings(dict):
     @property
     @pulumi.getter
     def limit(self) -> int:
+        """
+        Maximum number of requests that can be made in a given time period.
+        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter
     def period(self) -> str:
+        """
+        Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        """
         return pulumi.get(self, "period")
 
     @property
     @pulumi.getter
     def offset(self) -> Optional[int]:
+        """
+        Number of requests subtracted from the given limit in the initial time period.
+        """
         return pulumi.get(self, "offset")
 
 

@@ -80,9 +80,17 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
         return Optional.ofNullable(this.documentHashType);
     }
 
+    /**
+     * The version of an Automation document to use during task execution.
+     * 
+     */
     @Import(name="documentVersion")
     private @Nullable Output<String> documentVersion;
 
+    /**
+     * @return The version of an Automation document to use during task execution.
+     * 
+     */
     public Optional<Output<String>> documentVersion() {
         return Optional.ofNullable(this.documentVersion);
     }
@@ -295,11 +303,23 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
             return documentHashType(Output.of(documentHashType));
         }
 
+        /**
+         * @param documentVersion The version of an Automation document to use during task execution.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentVersion(@Nullable Output<String> documentVersion) {
             $.documentVersion = documentVersion;
             return this;
         }
 
+        /**
+         * @param documentVersion The version of an Automation document to use during task execution.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentVersion(String documentVersion) {
             return documentVersion(Output.of(documentVersion));
         }

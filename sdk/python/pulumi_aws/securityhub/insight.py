@@ -167,7 +167,7 @@ class Insight(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
             filters={
-                "awsAccountIds": [
+                "aws_account_ids": [
                     {
                         "comparison": "EQUALS",
                         "value": "1234567890",
@@ -192,8 +192,8 @@ class Insight(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
             filters={
-                "createdAts": [{
-                    "dateRange": {
+                "created_ats": [{
+                    "date_range": {
                         "unit": "DAYS",
                         "value": 5,
                     },
@@ -213,7 +213,7 @@ class Insight(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
             filters={
-                "networkDestinationIpv4s": [{
+                "network_destination_ipv4s": [{
                     "cidr": "10.0.0.0/16",
                 }],
             },
@@ -249,7 +249,7 @@ class Insight(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
             filters={
-                "resourceTags": [{
+                "resource_tags": [{
                     "comparison": "EQUALS",
                     "key": "Environment",
                     "value": "Production",
@@ -294,7 +294,7 @@ class Insight(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
             filters={
-                "awsAccountIds": [
+                "aws_account_ids": [
                     {
                         "comparison": "EQUALS",
                         "value": "1234567890",
@@ -319,8 +319,8 @@ class Insight(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
             filters={
-                "createdAts": [{
-                    "dateRange": {
+                "created_ats": [{
+                    "date_range": {
                         "unit": "DAYS",
                         "value": 5,
                     },
@@ -340,7 +340,7 @@ class Insight(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
             filters={
-                "networkDestinationIpv4s": [{
+                "network_destination_ipv4s": [{
                     "cidr": "10.0.0.0/16",
                 }],
             },
@@ -376,7 +376,7 @@ class Insight(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
             filters={
-                "resourceTags": [{
+                "resource_tags": [{
                     "comparison": "EQUALS",
                     "key": "Environment",
                     "value": "Production",

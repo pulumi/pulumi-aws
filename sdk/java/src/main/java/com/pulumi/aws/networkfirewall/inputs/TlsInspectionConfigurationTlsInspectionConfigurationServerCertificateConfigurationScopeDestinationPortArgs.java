@@ -14,16 +14,32 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
 
     public static final TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs Empty = new TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs();
 
+    /**
+     * The lower limit of the port range. This must be less than or equal to the `to_port`.
+     * 
+     */
     @Import(name="fromPort", required=true)
     private Output<Integer> fromPort;
 
+    /**
+     * @return The lower limit of the port range. This must be less than or equal to the `to_port`.
+     * 
+     */
     public Output<Integer> fromPort() {
         return this.fromPort;
     }
 
+    /**
+     * The upper limit of the port range. This must be greater than or equal to the `from_port`.
+     * 
+     */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
+    /**
+     * @return The upper limit of the port range. This must be greater than or equal to the `from_port`.
+     * 
+     */
     public Output<Integer> toPort() {
         return this.toPort;
     }
@@ -53,20 +69,44 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
             $ = new TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fromPort The lower limit of the port range. This must be less than or equal to the `to_port`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fromPort(Output<Integer> fromPort) {
             $.fromPort = fromPort;
             return this;
         }
 
+        /**
+         * @param fromPort The lower limit of the port range. This must be less than or equal to the `to_port`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fromPort(Integer fromPort) {
             return fromPort(Output.of(fromPort));
         }
 
+        /**
+         * @param toPort The upper limit of the port range. This must be greater than or equal to the `from_port`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder toPort(Output<Integer> toPort) {
             $.toPort = toPort;
             return this;
         }
 
+        /**
+         * @param toPort The upper limit of the port range. This must be greater than or equal to the `from_port`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder toPort(Integer toPort) {
             return toPort(Output.of(toPort));
         }

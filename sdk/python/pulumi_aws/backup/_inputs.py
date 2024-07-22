@@ -948,7 +948,13 @@ class SelectionConditionArgs:
 if not MYPY:
     class SelectionConditionStringEqualArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        The key in a key-value pair.
+        """
         value: pulumi.Input[str]
+        """
+        The value in a key-value pair.
+        """
 elif False:
     SelectionConditionStringEqualArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -957,12 +963,19 @@ class SelectionConditionStringEqualArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key in a key-value pair.
+        :param pulumi.Input[str] value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -972,6 +985,9 @@ class SelectionConditionStringEqualArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -982,7 +998,13 @@ class SelectionConditionStringEqualArgs:
 if not MYPY:
     class SelectionConditionStringLikeArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        The key in a key-value pair.
+        """
         value: pulumi.Input[str]
+        """
+        The value in a key-value pair.
+        """
 elif False:
     SelectionConditionStringLikeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -991,12 +1013,19 @@ class SelectionConditionStringLikeArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key in a key-value pair.
+        :param pulumi.Input[str] value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1006,6 +1035,9 @@ class SelectionConditionStringLikeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1016,7 +1048,13 @@ class SelectionConditionStringLikeArgs:
 if not MYPY:
     class SelectionConditionStringNotEqualArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        The key in a key-value pair.
+        """
         value: pulumi.Input[str]
+        """
+        The value in a key-value pair.
+        """
 elif False:
     SelectionConditionStringNotEqualArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1025,12 +1063,19 @@ class SelectionConditionStringNotEqualArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key in a key-value pair.
+        :param pulumi.Input[str] value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1040,6 +1085,9 @@ class SelectionConditionStringNotEqualArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1050,7 +1098,13 @@ class SelectionConditionStringNotEqualArgs:
 if not MYPY:
     class SelectionConditionStringNotLikeArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        The key in a key-value pair.
+        """
         value: pulumi.Input[str]
+        """
+        The value in a key-value pair.
+        """
 elif False:
     SelectionConditionStringNotLikeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1059,12 +1113,19 @@ class SelectionConditionStringNotLikeArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key in a key-value pair.
+        :param pulumi.Input[str] value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1074,6 +1135,9 @@ class SelectionConditionStringNotLikeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

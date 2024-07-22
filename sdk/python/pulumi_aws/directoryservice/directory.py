@@ -560,8 +560,8 @@ class Directory(pulumi.CustomResource):
             password="SuperSecretPassw0rd",
             size="Small",
             vpc_settings={
-                "vpcId": main.id,
-                "subnetIds": [
+                "vpc_id": main.id,
+                "subnet_ids": [
                     foo.id,
                     bar_subnet.id,
                 ],
@@ -592,8 +592,8 @@ class Directory(pulumi.CustomResource):
             edition="Standard",
             type="MicrosoftAD",
             vpc_settings={
-                "vpcId": main.id,
-                "subnetIds": [
+                "vpc_id": main.id,
+                "subnet_ids": [
                     foo.id,
                     bar_subnet.id,
                 ],
@@ -624,13 +624,13 @@ class Directory(pulumi.CustomResource):
             size="Small",
             type="ADConnector",
             connect_settings={
-                "customerDnsIps": ["A.B.C.D"],
-                "customerUsername": "Admin",
-                "subnetIds": [
+                "customer_dns_ips": ["A.B.C.D"],
+                "customer_username": "Admin",
+                "subnet_ids": [
                     foo.id,
                     bar.id,
                 ],
-                "vpcId": main.id,
+                "vpc_id": main.id,
             })
         ```
 
@@ -689,8 +689,8 @@ class Directory(pulumi.CustomResource):
             password="SuperSecretPassw0rd",
             size="Small",
             vpc_settings={
-                "vpcId": main.id,
-                "subnetIds": [
+                "vpc_id": main.id,
+                "subnet_ids": [
                     foo.id,
                     bar_subnet.id,
                 ],
@@ -721,8 +721,8 @@ class Directory(pulumi.CustomResource):
             edition="Standard",
             type="MicrosoftAD",
             vpc_settings={
-                "vpcId": main.id,
-                "subnetIds": [
+                "vpc_id": main.id,
+                "subnet_ids": [
                     foo.id,
                     bar_subnet.id,
                 ],
@@ -753,13 +753,13 @@ class Directory(pulumi.CustomResource):
             size="Small",
             type="ADConnector",
             connect_settings={
-                "customerDnsIps": ["A.B.C.D"],
-                "customerUsername": "Admin",
-                "subnetIds": [
+                "customer_dns_ips": ["A.B.C.D"],
+                "customer_username": "Admin",
+                "subnet_ids": [
                     foo.id,
                     bar.id,
                 ],
-                "vpcId": main.id,
+                "vpc_id": main.id,
             })
         ```
 

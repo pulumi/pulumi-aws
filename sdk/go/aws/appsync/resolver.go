@@ -155,7 +155,7 @@ import (
 //				ApiId: pulumi.Any(testAwsAppsyncGraphqlApi.Id),
 //				Field: pulumi.String("pipelineTest"),
 //				Kind:  pulumi.String("PIPELINE"),
-//				Code:  invokeFile.Result,
+//				Code:  pulumi.String(invokeFile.Result),
 //				Runtime: &appsync.ResolverRuntimeArgs{
 //					Name:           pulumi.String("APPSYNC_JS"),
 //					RuntimeVersion: pulumi.String("1.0.0"),

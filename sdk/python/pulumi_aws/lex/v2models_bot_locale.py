@@ -330,7 +330,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7,
             voice_settings={
-                "voiceId": "Kendra",
+                "voice_id": "Kendra",
                 "engine": "standard",
             })
         ```
@@ -391,7 +391,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7,
             voice_settings={
-                "voiceId": "Kendra",
+                "voice_id": "Kendra",
                 "engine": "standard",
             })
         ```

@@ -18,6 +18,10 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig errorHandlingConfig;
     private @Nullable List<String> idFieldNames;
     private String objectPath;
+    /**
+     * @return Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+     * 
+     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig successResponseHandlingConfig;
     private @Nullable String writeOperationType;
 
@@ -31,6 +35,10 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     public String objectPath() {
         return this.objectPath;
     }
+    /**
+     * @return Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+     * 
+     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig> successResponseHandlingConfig() {
         return Optional.ofNullable(this.successResponseHandlingConfig);
     }

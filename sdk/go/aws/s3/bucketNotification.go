@@ -74,9 +74,9 @@ import (
 //			}, nil)
 //			topicTopic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
 //				Name: pulumi.String("s3-event-notification-topic"),
-//				Policy: topic.ApplyT(func(topic iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(topic.ApplyT(func(topic iam.GetPolicyDocumentResult) (*string, error) {
 //					return &topic.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -156,9 +156,9 @@ import (
 //			}, nil)
 //			queueQueue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 //				Name: pulumi.String("s3-event-notification-queue"),
-//				Policy: queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
 //					return &queue.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -454,9 +454,9 @@ import (
 //			}, nil)
 //			queueQueue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 //				Name: pulumi.String("s3-event-notification-queue"),
-//				Policy: queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
 //					return &queue.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

@@ -29,9 +29,17 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
         return this.name;
     }
 
+    /**
+     * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -82,11 +90,23 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
             return name(Output.of(name));
         }
 
+        /**
+         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

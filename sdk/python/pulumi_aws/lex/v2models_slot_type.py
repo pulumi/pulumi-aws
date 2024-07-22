@@ -431,7 +431,7 @@ class V2modelsSlotType(pulumi.CustomResource):
             idle_session_ttl_in_seconds=60,
             role_arn=test_aws_iam_role["arn"],
             data_privacies=[{
-                "childDirected": True,
+                "child_directed": True,
             }])
         test_v2models_bot_locale = aws.lex.V2modelsBotLocale("test",
             locale_id="en_US",
@@ -500,7 +500,7 @@ class V2modelsSlotType(pulumi.CustomResource):
             idle_session_ttl_in_seconds=60,
             role_arn=test_aws_iam_role["arn"],
             data_privacies=[{
-                "childDirected": True,
+                "child_directed": True,
             }])
         test_v2models_bot_locale = aws.lex.V2modelsBotLocale("test",
             locale_id="en_US",

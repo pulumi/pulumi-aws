@@ -23,16 +23,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return Optional.ofNullable(this.accessToken);
     }
 
+    /**
+     * The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * 
+     */
     @Import(name="clientCredentialsArn")
     private @Nullable Output<String> clientCredentialsArn;
 
+    /**
+     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * 
+     */
     public Optional<Output<String>> clientCredentialsArn() {
         return Optional.ofNullable(this.clientCredentialsArn);
     }
 
+    /**
+     * A JSON web token (JWT) that authorizes access to Salesforce records.
+     * 
+     */
     @Import(name="jwtToken")
     private @Nullable Output<String> jwtToken;
 
+    /**
+     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
+     * 
+     */
     public Optional<Output<String>> jwtToken() {
         return Optional.ofNullable(this.jwtToken);
     }
@@ -96,20 +112,44 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return accessToken(Output.of(accessToken));
         }
 
+        /**
+         * @param clientCredentialsArn The secret manager ARN, which contains the client ID and client secret of the connected app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientCredentialsArn(@Nullable Output<String> clientCredentialsArn) {
             $.clientCredentialsArn = clientCredentialsArn;
             return this;
         }
 
+        /**
+         * @param clientCredentialsArn The secret manager ARN, which contains the client ID and client secret of the connected app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientCredentialsArn(String clientCredentialsArn) {
             return clientCredentialsArn(Output.of(clientCredentialsArn));
         }
 
+        /**
+         * @param jwtToken A JSON web token (JWT) that authorizes access to Salesforce records.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jwtToken(@Nullable Output<String> jwtToken) {
             $.jwtToken = jwtToken;
             return this;
         }
 
+        /**
+         * @param jwtToken A JSON web token (JWT) that authorizes access to Salesforce records.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jwtToken(String jwtToken) {
             return jwtToken(Output.of(jwtToken));
         }

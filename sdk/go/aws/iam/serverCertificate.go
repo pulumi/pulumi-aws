@@ -54,8 +54,8 @@ import (
 //			}
 //			_, err = iam.NewServerCertificate(ctx, "test_cert", &iam.ServerCertificateArgs{
 //				Name:            pulumi.String("some_test_cert"),
-//				CertificateBody: invokeFile.Result,
-//				PrivateKey:      invokeFile1.Result,
+//				CertificateBody: pulumi.String(invokeFile.Result),
+//				PrivateKey:      pulumi.String(invokeFile1.Result),
 //			})
 //			if err != nil {
 //				return err

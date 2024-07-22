@@ -487,8 +487,8 @@ class ClassificationJob(pulumi.CustomResource):
             job_type="ONE_TIME",
             name="NAME OF THE CLASSIFICATION JOB",
             s3_job_definition={
-                "bucketDefinitions": [{
-                    "accountId": "ACCOUNT ID",
+                "bucket_definitions": [{
+                    "account_id": "ACCOUNT ID",
                     "buckets": ["S3 BUCKET NAME"],
                 }],
             },
@@ -537,8 +537,8 @@ class ClassificationJob(pulumi.CustomResource):
             job_type="ONE_TIME",
             name="NAME OF THE CLASSIFICATION JOB",
             s3_job_definition={
-                "bucketDefinitions": [{
-                    "accountId": "ACCOUNT ID",
+                "bucket_definitions": [{
+                    "account_id": "ACCOUNT ID",
                     "buckets": ["S3 BUCKET NAME"],
                 }],
             },

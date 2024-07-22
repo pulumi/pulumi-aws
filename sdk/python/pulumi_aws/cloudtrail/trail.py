@@ -715,9 +715,9 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "readWriteType": "All",
-            "includeManagementEvents": True,
-            "dataResources": [{
+            "read_write_type": "All",
+            "include_management_events": True,
+            "data_resources": [{
                 "type": "AWS::Lambda::Function",
                 "values": ["arn:aws:lambda"],
             }],
@@ -731,9 +731,9 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "readWriteType": "All",
-            "includeManagementEvents": True,
-            "dataResources": [{
+            "read_write_type": "All",
+            "include_management_events": True,
+            "data_resources": [{
                 "type": "AWS::S3::Object",
                 "values": ["arn:aws:s3"],
             }],
@@ -748,9 +748,9 @@ class Trail(pulumi.CustomResource):
 
         important_bucket = aws.s3.get_bucket(bucket="important-bucket")
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "readWriteType": "All",
-            "includeManagementEvents": True,
-            "dataResources": [{
+            "read_write_type": "All",
+            "include_management_events": True,
+            "data_resources": [{
                 "type": "AWS::S3::Object",
                 "values": [f"{important_bucket.arn}/"],
             }],
@@ -768,14 +768,14 @@ class Trail(pulumi.CustomResource):
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
             {
                 "name": "Log all S3 objects events except for two S3 buckets",
-                "fieldSelectors": [
+                "field_selectors": [
                     {
                         "field": "eventCategory",
                         "equals": ["Data"],
                     },
                     {
                         "field": "resources.ARN",
-                        "notStartsWiths": [
+                        "not_starts_withs": [
                             f"{not_important_bucket_1.arn}/",
                             f"{not_important_bucket_2.arn}/",
                         ],
@@ -788,7 +788,7 @@ class Trail(pulumi.CustomResource):
             },
             {
                 "name": "Log readOnly and writeOnly management events",
-                "fieldSelectors": [{
+                "field_selectors": [{
                     "field": "eventCategory",
                     "equals": ["Management"],
                 }],
@@ -808,7 +808,7 @@ class Trail(pulumi.CustomResource):
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
             {
                 "name": "Log PutObject and DeleteObject events for two S3 buckets",
-                "fieldSelectors": [
+                "field_selectors": [
                     {
                         "field": "eventCategory",
                         "equals": ["Data"],
@@ -822,7 +822,7 @@ class Trail(pulumi.CustomResource):
                     },
                     {
                         "field": "resources.ARN",
-                        "startsWiths": [
+                        "starts_withs": [
                             f"{important_bucket_1.arn}/",
                             f"{important_bucket_2.arn}/",
                         ],
@@ -839,14 +839,14 @@ class Trail(pulumi.CustomResource):
             },
             {
                 "name": "Log Delete* events for one S3 bucket",
-                "fieldSelectors": [
+                "field_selectors": [
                     {
                         "field": "eventCategory",
                         "equals": ["Data"],
                     },
                     {
                         "field": "eventName",
-                        "startsWiths": ["Delete"],
+                        "starts_withs": ["Delete"],
                     },
                     {
                         "field": "resources.ARN",
@@ -998,9 +998,9 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "readWriteType": "All",
-            "includeManagementEvents": True,
-            "dataResources": [{
+            "read_write_type": "All",
+            "include_management_events": True,
+            "data_resources": [{
                 "type": "AWS::Lambda::Function",
                 "values": ["arn:aws:lambda"],
             }],
@@ -1014,9 +1014,9 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "readWriteType": "All",
-            "includeManagementEvents": True,
-            "dataResources": [{
+            "read_write_type": "All",
+            "include_management_events": True,
+            "data_resources": [{
                 "type": "AWS::S3::Object",
                 "values": ["arn:aws:s3"],
             }],
@@ -1031,9 +1031,9 @@ class Trail(pulumi.CustomResource):
 
         important_bucket = aws.s3.get_bucket(bucket="important-bucket")
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "readWriteType": "All",
-            "includeManagementEvents": True,
-            "dataResources": [{
+            "read_write_type": "All",
+            "include_management_events": True,
+            "data_resources": [{
                 "type": "AWS::S3::Object",
                 "values": [f"{important_bucket.arn}/"],
             }],
@@ -1051,14 +1051,14 @@ class Trail(pulumi.CustomResource):
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
             {
                 "name": "Log all S3 objects events except for two S3 buckets",
-                "fieldSelectors": [
+                "field_selectors": [
                     {
                         "field": "eventCategory",
                         "equals": ["Data"],
                     },
                     {
                         "field": "resources.ARN",
-                        "notStartsWiths": [
+                        "not_starts_withs": [
                             f"{not_important_bucket_1.arn}/",
                             f"{not_important_bucket_2.arn}/",
                         ],
@@ -1071,7 +1071,7 @@ class Trail(pulumi.CustomResource):
             },
             {
                 "name": "Log readOnly and writeOnly management events",
-                "fieldSelectors": [{
+                "field_selectors": [{
                     "field": "eventCategory",
                     "equals": ["Management"],
                 }],
@@ -1091,7 +1091,7 @@ class Trail(pulumi.CustomResource):
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
             {
                 "name": "Log PutObject and DeleteObject events for two S3 buckets",
-                "fieldSelectors": [
+                "field_selectors": [
                     {
                         "field": "eventCategory",
                         "equals": ["Data"],
@@ -1105,7 +1105,7 @@ class Trail(pulumi.CustomResource):
                     },
                     {
                         "field": "resources.ARN",
-                        "startsWiths": [
+                        "starts_withs": [
                             f"{important_bucket_1.arn}/",
                             f"{important_bucket_2.arn}/",
                         ],
@@ -1122,14 +1122,14 @@ class Trail(pulumi.CustomResource):
             },
             {
                 "name": "Log Delete* events for one S3 bucket",
-                "fieldSelectors": [
+                "field_selectors": [
                     {
                         "field": "eventCategory",
                         "equals": ["Data"],
                     },
                     {
                         "field": "eventName",
-                        "startsWiths": ["Delete"],
+                        "starts_withs": ["Delete"],
                     },
                     {
                         "field": "resources.ARN",

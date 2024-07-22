@@ -1000,6 +1000,9 @@ if not MYPY:
         Specifies the name of the job definition.
         """
         value: pulumi.Input[str]
+        """
+        The value of the environment variable.
+        """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesContainersEnvArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1010,6 +1013,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: Specifies the name of the job definition.
+        :param pulumi.Input[str] value: The value of the environment variable.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1029,6 +1033,9 @@ class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1300,7 +1307,13 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
 if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict(TypedDict):
         size_limit: pulumi.Input[str]
+        """
+        The maximum size of the volume. By default, there's no maximum size defined.
+        """
         medium: NotRequired[pulumi.Input[str]]
+        """
+        The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1309,6 +1322,10 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs:
     def __init__(__self__, *,
                  size_limit: pulumi.Input[str],
                  medium: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] size_limit: The maximum size of the volume. By default, there's no maximum size defined.
+        :param pulumi.Input[str] medium: The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        """
         pulumi.set(__self__, "size_limit", size_limit)
         if medium is not None:
             pulumi.set(__self__, "medium", medium)
@@ -1316,6 +1333,9 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs:
     @property
     @pulumi.getter(name="sizeLimit")
     def size_limit(self) -> pulumi.Input[str]:
+        """
+        The maximum size of the volume. By default, there's no maximum size defined.
+        """
         return pulumi.get(self, "size_limit")
 
     @size_limit.setter
@@ -1325,6 +1345,9 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs:
     @property
     @pulumi.getter
     def medium(self) -> Optional[pulumi.Input[str]]:
+        """
+        The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        """
         return pulumi.get(self, "medium")
 
     @medium.setter
@@ -1335,6 +1358,9 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs:
 if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict(TypedDict):
         path: pulumi.Input[str]
+        """
+        The path of the file or directory on the host to mount into containers on the pod.
+        """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1342,11 +1368,17 @@ elif False:
 class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] path: The path of the file or directory on the host to mount into containers on the pod.
+        """
         pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
+        """
+        The path of the file or directory on the host to mount into containers on the pod.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -1357,7 +1389,13 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs:
 if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict(TypedDict):
         secret_name: pulumi.Input[str]
+        """
+        The name of the secret. The name must be allowed as a DNS subdomain name.
+        """
         optional: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the secret or the secret's keys must be defined.
+        """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1366,6 +1404,10 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[str],
                  optional: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] secret_name: The name of the secret. The name must be allowed as a DNS subdomain name.
+        :param pulumi.Input[bool] optional: Specifies whether the secret or the secret's keys must be defined.
+        """
         pulumi.set(__self__, "secret_name", secret_name)
         if optional is not None:
             pulumi.set(__self__, "optional", optional)
@@ -1373,6 +1415,9 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs:
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[str]:
+        """
+        The name of the secret. The name must be allowed as a DNS subdomain name.
+        """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
@@ -1382,6 +1427,9 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs:
     @property
     @pulumi.getter
     def optional(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the secret or the secret's keys must be defined.
+        """
         return pulumi.get(self, "optional")
 
     @optional.setter
@@ -1689,8 +1737,14 @@ class JobQueueTimeoutsArgs:
 if not MYPY:
     class SchedulingPolicyFairSharePolicyArgsDict(TypedDict):
         compute_reservation: NotRequired[pulumi.Input[int]]
+        """
+        A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        """
         share_decay_seconds: NotRequired[pulumi.Input[int]]
         share_distributions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgsDict']]]]
+        """
+        One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+        """
 elif False:
     SchedulingPolicyFairSharePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1700,6 +1754,10 @@ class SchedulingPolicyFairSharePolicyArgs:
                  compute_reservation: Optional[pulumi.Input[int]] = None,
                  share_decay_seconds: Optional[pulumi.Input[int]] = None,
                  share_distributions: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]]] = None):
+        """
+        :param pulumi.Input[int] compute_reservation: A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        :param pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+        """
         if compute_reservation is not None:
             pulumi.set(__self__, "compute_reservation", compute_reservation)
         if share_decay_seconds is not None:
@@ -1710,6 +1768,9 @@ class SchedulingPolicyFairSharePolicyArgs:
     @property
     @pulumi.getter(name="computeReservation")
     def compute_reservation(self) -> Optional[pulumi.Input[int]]:
+        """
+        A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        """
         return pulumi.get(self, "compute_reservation")
 
     @compute_reservation.setter
@@ -1728,6 +1789,9 @@ class SchedulingPolicyFairSharePolicyArgs:
     @property
     @pulumi.getter(name="shareDistributions")
     def share_distributions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]]]:
+        """
+        One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+        """
         return pulumi.get(self, "share_distributions")
 
     @share_distributions.setter

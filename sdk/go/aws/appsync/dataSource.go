@@ -89,9 +89,9 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Name: pulumi.String("example"),
 //				Role: exampleRole.ID(),
-//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
 //					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

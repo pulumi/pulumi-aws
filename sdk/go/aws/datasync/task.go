@@ -34,7 +34,7 @@ import (
 //				Name:                   pulumi.String("example"),
 //				SourceLocationArn:      pulumi.Any(source.Arn),
 //				Options: &datasync.TaskOptionsArgs{
-//					BytesPerSecond: -1,
+//					BytesPerSecond: int(-1),
 //				},
 //			})
 //			if err != nil {

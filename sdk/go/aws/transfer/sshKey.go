@@ -89,11 +89,11 @@ import (
 //			_, err = transfer.NewSshKey(ctx, "example", &transfer.SshKeyArgs{
 //				ServerId: exampleServer.ID(),
 //				UserName: exampleUser.UserName,
-//				Body: std.TrimspaceOutput(ctx, std.TrimspaceOutputArgs{
+//				Body: pulumi.String(std.TrimspaceOutput(ctx, std.TrimspaceOutputArgs{
 //					Input: examplePrivateKey.PublicKeyOpenssh,
 //				}, nil).ApplyT(func(invoke std.TrimspaceResult) (*string, error) {
 //					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

@@ -286,13 +286,13 @@ class Workgroup(pulumi.CustomResource):
         example = aws.athena.Workgroup("example",
             name="example",
             configuration={
-                "enforceWorkgroupConfiguration": True,
-                "publishCloudwatchMetricsEnabled": True,
-                "resultConfiguration": {
-                    "outputLocation": f"s3://{example_aws_s3_bucket['bucket']}/output/",
-                    "encryptionConfiguration": {
-                        "encryptionOption": "SSE_KMS",
-                        "kmsKeyArn": example_aws_kms_key["arn"],
+                "enforce_workgroup_configuration": True,
+                "publish_cloudwatch_metrics_enabled": True,
+                "result_configuration": {
+                    "output_location": f"s3://{example_aws_s3_bucket['bucket']}/output/",
+                    "encryption_configuration": {
+                        "encryption_option": "SSE_KMS",
+                        "kms_key_arn": example_aws_kms_key["arn"],
                     },
                 },
             })
@@ -333,13 +333,13 @@ class Workgroup(pulumi.CustomResource):
         example = aws.athena.Workgroup("example",
             name="example",
             configuration={
-                "enforceWorkgroupConfiguration": True,
-                "publishCloudwatchMetricsEnabled": True,
-                "resultConfiguration": {
-                    "outputLocation": f"s3://{example_aws_s3_bucket['bucket']}/output/",
-                    "encryptionConfiguration": {
-                        "encryptionOption": "SSE_KMS",
-                        "kmsKeyArn": example_aws_kms_key["arn"],
+                "enforce_workgroup_configuration": True,
+                "publish_cloudwatch_metrics_enabled": True,
+                "result_configuration": {
+                    "output_location": f"s3://{example_aws_s3_bucket['bucket']}/output/",
+                    "encryption_configuration": {
+                        "encryption_option": "SSE_KMS",
+                        "kms_key_arn": example_aws_kms_key["arn"],
                     },
                 },
             })
