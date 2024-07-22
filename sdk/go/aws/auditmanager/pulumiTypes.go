@@ -276,7 +276,9 @@ func (o AssessmentRoleArrayOutput) Index(i pulumi.IntInput) AssessmentRoleOutput
 }
 
 type AssessmentRolesAll struct {
-	RoleArn  string `pulumi:"roleArn"`
+	// Amazon Resource Name (ARN) of the IAM role.
+	RoleArn string `pulumi:"roleArn"`
+	// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
 	RoleType string `pulumi:"roleType"`
 }
 
@@ -292,7 +294,9 @@ type AssessmentRolesAllInput interface {
 }
 
 type AssessmentRolesAllArgs struct {
-	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
+	// Amazon Resource Name (ARN) of the IAM role.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
 	RoleType pulumi.StringInput `pulumi:"roleType"`
 }
 
@@ -347,10 +351,12 @@ func (o AssessmentRolesAllOutput) ToAssessmentRolesAllOutputWithContext(ctx cont
 	return o
 }
 
+// Amazon Resource Name (ARN) of the IAM role.
 func (o AssessmentRolesAllOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentRolesAll) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
 func (o AssessmentRolesAllOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentRolesAll) string { return v.RoleType }).(pulumi.StringOutput)
 }

@@ -562,18 +562,18 @@ class Policy(pulumi.CustomResource):
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data={
                 "type": "WAF",
-                "managedServiceData": pulumi.Output.json_dumps({
+                "managed_service_data": pulumi.Output.json_dumps({
                     "type": "WAF",
-                    "ruleGroups": [{
+                    "rule_groups": [{
                         "id": example_rule_group.id,
-                        "overrideAction": {
+                        "override_action": {
                             "type": "COUNT",
                         },
                     }],
-                    "defaultAction": {
+                    "default_action": {
                         "type": "BLOCK",
                     },
-                    "overrideCustomerWebACLAssociation": False,
+                    "override_customer_web_aclassociation": False,
                 }),
             },
             tags={
@@ -633,18 +633,18 @@ class Policy(pulumi.CustomResource):
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data={
                 "type": "WAF",
-                "managedServiceData": pulumi.Output.json_dumps({
+                "managed_service_data": pulumi.Output.json_dumps({
                     "type": "WAF",
-                    "ruleGroups": [{
+                    "rule_groups": [{
                         "id": example_rule_group.id,
-                        "overrideAction": {
+                        "override_action": {
                             "type": "COUNT",
                         },
                     }],
-                    "defaultAction": {
+                    "default_action": {
                         "type": "BLOCK",
                     },
-                    "overrideCustomerWebACLAssociation": False,
+                    "override_customer_web_aclassociation": False,
                 }),
             },
             tags={

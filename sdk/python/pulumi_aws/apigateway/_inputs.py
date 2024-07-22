@@ -787,8 +787,17 @@ class StageCanarySettingsArgs:
 if not MYPY:
     class UsagePlanApiStageArgsDict(TypedDict):
         api_id: pulumi.Input[str]
+        """
+        API Id of the associated API stage in a usage plan.
+        """
         stage: pulumi.Input[str]
+        """
+        API stage name of the associated API stage in a usage plan.
+        """
         throttles: NotRequired[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgsDict']]]]
+        """
+        The throttling limits of the usage plan.
+        """
 elif False:
     UsagePlanApiStageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -798,6 +807,11 @@ class UsagePlanApiStageArgs:
                  api_id: pulumi.Input[str],
                  stage: pulumi.Input[str],
                  throttles: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]] = None):
+        """
+        :param pulumi.Input[str] api_id: API Id of the associated API stage in a usage plan.
+        :param pulumi.Input[str] stage: API stage name of the associated API stage in a usage plan.
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]] throttles: The throttling limits of the usage plan.
+        """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
         if throttles is not None:
@@ -806,6 +820,9 @@ class UsagePlanApiStageArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        API Id of the associated API stage in a usage plan.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -815,6 +832,9 @@ class UsagePlanApiStageArgs:
     @property
     @pulumi.getter
     def stage(self) -> pulumi.Input[str]:
+        """
+        API stage name of the associated API stage in a usage plan.
+        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -824,6 +844,9 @@ class UsagePlanApiStageArgs:
     @property
     @pulumi.getter
     def throttles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]:
+        """
+        The throttling limits of the usage plan.
+        """
         return pulumi.get(self, "throttles")
 
     @throttles.setter
@@ -905,8 +928,17 @@ class UsagePlanApiStageThrottleArgs:
 if not MYPY:
     class UsagePlanQuotaSettingsArgsDict(TypedDict):
         limit: pulumi.Input[int]
+        """
+        Maximum number of requests that can be made in a given time period.
+        """
         period: pulumi.Input[str]
+        """
+        Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        """
         offset: NotRequired[pulumi.Input[int]]
+        """
+        Number of requests subtracted from the given limit in the initial time period.
+        """
 elif False:
     UsagePlanQuotaSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -916,6 +948,11 @@ class UsagePlanQuotaSettingsArgs:
                  limit: pulumi.Input[int],
                  period: pulumi.Input[str],
                  offset: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] limit: Maximum number of requests that can be made in a given time period.
+        :param pulumi.Input[str] period: Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        :param pulumi.Input[int] offset: Number of requests subtracted from the given limit in the initial time period.
+        """
         pulumi.set(__self__, "limit", limit)
         pulumi.set(__self__, "period", period)
         if offset is not None:
@@ -924,6 +961,9 @@ class UsagePlanQuotaSettingsArgs:
     @property
     @pulumi.getter
     def limit(self) -> pulumi.Input[int]:
+        """
+        Maximum number of requests that can be made in a given time period.
+        """
         return pulumi.get(self, "limit")
 
     @limit.setter
@@ -933,6 +973,9 @@ class UsagePlanQuotaSettingsArgs:
     @property
     @pulumi.getter
     def period(self) -> pulumi.Input[str]:
+        """
+        Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -942,6 +985,9 @@ class UsagePlanQuotaSettingsArgs:
     @property
     @pulumi.getter
     def offset(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of requests subtracted from the given limit in the initial time period.
+        """
         return pulumi.get(self, "offset")
 
     @offset.setter

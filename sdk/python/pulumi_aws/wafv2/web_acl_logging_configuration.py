@@ -187,7 +187,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
             log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
             resource_arn=example_aws_wafv2_web_acl["arn"],
             redacted_fields=[{
-                "singleHeader": {
+                "single_header": {
                     "name": "user-agent",
                 },
             }])
@@ -203,19 +203,19 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
             log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
             resource_arn=example_aws_wafv2_web_acl["arn"],
             logging_filter={
-                "defaultBehavior": "KEEP",
+                "default_behavior": "KEEP",
                 "filters": [
                     {
                         "behavior": "DROP",
                         "conditions": [
                             {
-                                "actionCondition": {
+                                "action_condition": {
                                     "action": "COUNT",
                                 },
                             },
                             {
-                                "labelNameCondition": {
-                                    "labelName": "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
+                                "label_name_condition": {
+                                    "label_name": "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
                                 },
                             },
                         ],
@@ -224,7 +224,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                     {
                         "behavior": "KEEP",
                         "conditions": [{
-                            "actionCondition": {
+                            "action_condition": {
                                 "action": "ALLOW",
                             },
                         }],
@@ -272,7 +272,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
             log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
             resource_arn=example_aws_wafv2_web_acl["arn"],
             redacted_fields=[{
-                "singleHeader": {
+                "single_header": {
                     "name": "user-agent",
                 },
             }])
@@ -288,19 +288,19 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
             log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
             resource_arn=example_aws_wafv2_web_acl["arn"],
             logging_filter={
-                "defaultBehavior": "KEEP",
+                "default_behavior": "KEEP",
                 "filters": [
                     {
                         "behavior": "DROP",
                         "conditions": [
                             {
-                                "actionCondition": {
+                                "action_condition": {
                                     "action": "COUNT",
                                 },
                             },
                             {
-                                "labelNameCondition": {
-                                    "labelName": "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
+                                "label_name_condition": {
+                                    "label_name": "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
                                 },
                             },
                         ],
@@ -309,7 +309,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                     {
                         "behavior": "KEEP",
                         "conditions": [{
-                            "actionCondition": {
+                            "action_condition": {
                                 "action": "ALLOW",
                             },
                         }],

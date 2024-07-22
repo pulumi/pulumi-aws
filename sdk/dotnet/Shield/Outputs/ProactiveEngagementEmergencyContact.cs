@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Shield.Outputs
     [OutputType]
     public sealed class ProactiveEngagementEmergencyContact
     {
+        /// <summary>
+        /// Additional notes regarding the contact.
+        /// </summary>
         public readonly string? ContactNotes;
+        /// <summary>
+        /// A valid email address that will be used for this contact.
+        /// </summary>
         public readonly string EmailAddress;
+        /// <summary>
+        /// A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+        /// </summary>
         public readonly string? PhoneNumber;
 
         [OutputConstructor]

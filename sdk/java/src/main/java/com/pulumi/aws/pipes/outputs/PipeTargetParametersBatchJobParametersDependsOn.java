@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersBatchJobParametersDependsOn {
+    /**
+     * @return The job ID of the AWS Batch job that&#39;s associated with this dependency.
+     * 
+     */
     private @Nullable String jobId;
+    /**
+     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+     * 
+     */
     private @Nullable String type;
 
     private PipeTargetParametersBatchJobParametersDependsOn() {}
+    /**
+     * @return The job ID of the AWS Batch job that&#39;s associated with this dependency.
+     * 
+     */
     public Optional<String> jobId() {
         return Optional.ofNullable(this.jobId);
     }
+    /**
+     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -209,8 +209,8 @@ class RefreshSchedule(pulumi.CustomResource):
             data_set_id="dataset-id",
             schedule_id="schedule-id",
             schedule={
-                "refreshType": "FULL_REFRESH",
-                "scheduleFrequency": {
+                "refresh_type": "FULL_REFRESH",
+                "schedule_frequency": {
                     "interval": "HOURLY",
                 },
             })
@@ -226,13 +226,13 @@ class RefreshSchedule(pulumi.CustomResource):
             data_set_id="dataset-id",
             schedule_id="schedule-id",
             schedule={
-                "refreshType": "INCREMENTAL_REFRESH",
-                "scheduleFrequency": {
+                "refresh_type": "INCREMENTAL_REFRESH",
+                "schedule_frequency": {
                     "interval": "WEEKLY",
-                    "timeOfTheDay": "01:00",
+                    "time_of_the_day": "01:00",
                     "timezone": "Europe/London",
-                    "refreshOnDay": {
-                        "dayOfWeek": "MONDAY",
+                    "refresh_on_day": {
+                        "day_of_week": "MONDAY",
                     },
                 },
             })
@@ -248,13 +248,13 @@ class RefreshSchedule(pulumi.CustomResource):
             data_set_id="dataset-id",
             schedule_id="schedule-id",
             schedule={
-                "refreshType": "INCREMENTAL_REFRESH",
-                "scheduleFrequency": {
+                "refresh_type": "INCREMENTAL_REFRESH",
+                "schedule_frequency": {
                     "interval": "MONTHLY",
-                    "timeOfTheDay": "01:00",
+                    "time_of_the_day": "01:00",
                     "timezone": "Europe/London",
-                    "refreshOnDay": {
-                        "dayOfMonth": "1",
+                    "refresh_on_day": {
+                        "day_of_month": "1",
                     },
                 },
             })
@@ -298,8 +298,8 @@ class RefreshSchedule(pulumi.CustomResource):
             data_set_id="dataset-id",
             schedule_id="schedule-id",
             schedule={
-                "refreshType": "FULL_REFRESH",
-                "scheduleFrequency": {
+                "refresh_type": "FULL_REFRESH",
+                "schedule_frequency": {
                     "interval": "HOURLY",
                 },
             })
@@ -315,13 +315,13 @@ class RefreshSchedule(pulumi.CustomResource):
             data_set_id="dataset-id",
             schedule_id="schedule-id",
             schedule={
-                "refreshType": "INCREMENTAL_REFRESH",
-                "scheduleFrequency": {
+                "refresh_type": "INCREMENTAL_REFRESH",
+                "schedule_frequency": {
                     "interval": "WEEKLY",
-                    "timeOfTheDay": "01:00",
+                    "time_of_the_day": "01:00",
                     "timezone": "Europe/London",
-                    "refreshOnDay": {
-                        "dayOfWeek": "MONDAY",
+                    "refresh_on_day": {
+                        "day_of_week": "MONDAY",
                     },
                 },
             })
@@ -337,13 +337,13 @@ class RefreshSchedule(pulumi.CustomResource):
             data_set_id="dataset-id",
             schedule_id="schedule-id",
             schedule={
-                "refreshType": "INCREMENTAL_REFRESH",
-                "scheduleFrequency": {
+                "refresh_type": "INCREMENTAL_REFRESH",
+                "schedule_frequency": {
                     "interval": "MONTHLY",
-                    "timeOfTheDay": "01:00",
+                    "time_of_the_day": "01:00",
                     "timezone": "Europe/London",
-                    "refreshOnDay": {
-                        "dayOfMonth": "1",
+                    "refresh_on_day": {
+                        "day_of_month": "1",
                     },
                 },
             })

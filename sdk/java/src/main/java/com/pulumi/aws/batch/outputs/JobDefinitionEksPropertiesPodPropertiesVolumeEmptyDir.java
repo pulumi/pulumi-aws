@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir {
+    /**
+     * @return The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+     * 
+     */
     private @Nullable String medium;
+    /**
+     * @return The maximum size of the volume. By default, there&#39;s no maximum size defined.
+     * 
+     */
     private String sizeLimit;
 
     private JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir() {}
+    /**
+     * @return The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+     * 
+     */
     public Optional<String> medium() {
         return Optional.ofNullable(this.medium);
     }
+    /**
+     * @return The maximum size of the volume. By default, there&#39;s no maximum size defined.
+     * 
+     */
     public String sizeLimit() {
         return this.sizeLimit;
     }

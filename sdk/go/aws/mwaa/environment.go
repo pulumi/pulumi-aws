@@ -39,7 +39,7 @@ import (
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,24-37),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,24-37)),
 // },
 // SourceBucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 // })
@@ -76,7 +76,7 @@ import (
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:10,24-37),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:10,24-37)),
 // },
 // SourceBucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 // })
@@ -133,7 +133,7 @@ import (
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:28,24-37),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:28,24-37)),
 // },
 // SourceBucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 // })
@@ -166,7 +166,7 @@ import (
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,24-37),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,24-37)),
 // },
 // SourceBucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 // Tags: pulumi.StringMap{

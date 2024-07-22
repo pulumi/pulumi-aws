@@ -51,7 +51,7 @@ import (
 // return err
 // }
 // allowElbLogging := elbLogs.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Effect: "Allow",
@@ -71,13 +71,13 @@ import (
 // },
 // },
 // },
-// }, nil), nil
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = s3.NewBucketPolicy(ctx, "allow_elb_logging", &s3.BucketPolicyArgs{
 // Bucket: elbLogs.ID(),
-// Policy: allowElbLogging.ApplyT(func(allowElbLogging iam.GetPolicyDocumentResult) (*string, error) {
+// Policy: pulumi.String(allowElbLogging.ApplyT(func(allowElbLogging iam.GetPolicyDocumentResult) (*string, error) {
 // return &allowElbLogging.Json, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

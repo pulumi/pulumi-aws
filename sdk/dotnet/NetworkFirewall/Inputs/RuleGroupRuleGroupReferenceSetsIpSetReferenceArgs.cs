@@ -14,6 +14,10 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("ipSetReferences", required: true)]
         private InputList<Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs>? _ipSetReferences;
+
+        /// <summary>
+        /// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        /// </summary>
         public InputList<Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs> IpSetReferences
         {
             get => _ipSetReferences ?? (_ipSetReferences = new InputList<Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs>());

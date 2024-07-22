@@ -75,7 +75,7 @@ import (
 // example := pulumi.All(exampleBucketV2.Arn,exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // exampleBucketV2Arn := _args[0].(string)
 // exampleBucketV2Arn1 := _args[1].(string)
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Effect: "Allow",
@@ -140,13 +140,13 @@ import (
 // },
 // },
 // },
-// }, nil), nil
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 // Role: exampleRole.Name,
-// Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+// Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
 // return &example.Json, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

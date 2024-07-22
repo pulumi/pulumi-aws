@@ -60,9 +60,9 @@ import (
 //			}, nil)
 //			_, err = cloudwatch.NewLogDestinationPolicy(ctx, "test_destination_policy", &cloudwatch.LogDestinationPolicyArgs{
 //				DestinationName: testDestination.Name,
-//				AccessPolicy: testDestinationPolicy.ApplyT(func(testDestinationPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//				AccessPolicy: pulumi.String(testDestinationPolicy.ApplyT(func(testDestinationPolicy iam.GetPolicyDocumentResult) (*string, error) {
 //					return &testDestinationPolicy.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

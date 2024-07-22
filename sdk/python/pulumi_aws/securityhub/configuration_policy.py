@@ -168,20 +168,20 @@ class ConfigurationPolicy(pulumi.CustomResource):
             auto_enable=False,
             auto_enable_standards="NONE",
             organization_configuration={
-                "configurationType": "CENTRAL",
+                "configuration_type": "CENTRAL",
             },
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
             configuration_policy={
-                "serviceEnabled": True,
-                "enabledStandardArns": [
+                "service_enabled": True,
+                "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "securityControlsConfiguration": {
-                    "disabledControlIdentifiers": [],
+                "security_controls_configuration": {
+                    "disabled_control_identifiers": [],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
@@ -197,7 +197,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
             name="Disabled",
             description="This is an example of disabled configuration policy",
             configuration_policy={
-                "serviceEnabled": False,
+                "service_enabled": False,
             },
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
@@ -212,40 +212,40 @@ class ConfigurationPolicy(pulumi.CustomResource):
             name="Custom Controls",
             description="This is an example of configuration policy with custom control settings",
             configuration_policy={
-                "serviceEnabled": True,
-                "enabledStandardArns": [
+                "service_enabled": True,
+                "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "securityControlsConfiguration": {
-                    "enabledControlIdentifiers": [
+                "security_controls_configuration": {
+                    "enabled_control_identifiers": [
                         "APIGateway.1",
                         "IAM.7",
                     ],
-                    "securityControlCustomParameters": [
+                    "security_control_custom_parameters": [
                         {
-                            "securityControlId": "APIGateway.1",
+                            "security_control_id": "APIGateway.1",
                             "parameters": [{
                                 "name": "loggingLevel",
-                                "valueType": "CUSTOM",
+                                "value_type": "CUSTOM",
                                 "enum": {
                                     "value": "INFO",
                                 },
                             }],
                         },
                         {
-                            "securityControlId": "IAM.7",
+                            "security_control_id": "IAM.7",
                             "parameters": [
                                 {
                                     "name": "RequireLowercaseCharacters",
-                                    "valueType": "CUSTOM",
+                                    "value_type": "CUSTOM",
                                     "bool": {
                                         "value": False,
                                     },
                                 },
                                 {
                                     "name": "MaxPasswordAge",
-                                    "valueType": "CUSTOM",
+                                    "value_type": "CUSTOM",
                                     "int": {
                                         "value": 60,
                                     },
@@ -296,20 +296,20 @@ class ConfigurationPolicy(pulumi.CustomResource):
             auto_enable=False,
             auto_enable_standards="NONE",
             organization_configuration={
-                "configurationType": "CENTRAL",
+                "configuration_type": "CENTRAL",
             },
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
             configuration_policy={
-                "serviceEnabled": True,
-                "enabledStandardArns": [
+                "service_enabled": True,
+                "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "securityControlsConfiguration": {
-                    "disabledControlIdentifiers": [],
+                "security_controls_configuration": {
+                    "disabled_control_identifiers": [],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
@@ -325,7 +325,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
             name="Disabled",
             description="This is an example of disabled configuration policy",
             configuration_policy={
-                "serviceEnabled": False,
+                "service_enabled": False,
             },
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
@@ -340,40 +340,40 @@ class ConfigurationPolicy(pulumi.CustomResource):
             name="Custom Controls",
             description="This is an example of configuration policy with custom control settings",
             configuration_policy={
-                "serviceEnabled": True,
-                "enabledStandardArns": [
+                "service_enabled": True,
+                "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "securityControlsConfiguration": {
-                    "enabledControlIdentifiers": [
+                "security_controls_configuration": {
+                    "enabled_control_identifiers": [
                         "APIGateway.1",
                         "IAM.7",
                     ],
-                    "securityControlCustomParameters": [
+                    "security_control_custom_parameters": [
                         {
-                            "securityControlId": "APIGateway.1",
+                            "security_control_id": "APIGateway.1",
                             "parameters": [{
                                 "name": "loggingLevel",
-                                "valueType": "CUSTOM",
+                                "value_type": "CUSTOM",
                                 "enum": {
                                     "value": "INFO",
                                 },
                             }],
                         },
                         {
-                            "securityControlId": "IAM.7",
+                            "security_control_id": "IAM.7",
                             "parameters": [
                                 {
                                     "name": "RequireLowercaseCharacters",
-                                    "valueType": "CUSTOM",
+                                    "value_type": "CUSTOM",
                                     "bool": {
                                         "value": False,
                                     },
                                 },
                                 {
                                     "name": "MaxPasswordAge",
-                                    "valueType": "CUSTOM",
+                                    "value_type": "CUSTOM",
                                     "int": {
                                         "value": 60,
                                     },

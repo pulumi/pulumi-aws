@@ -75,7 +75,7 @@ import (
 //			_, err = s3.NewBucket(ctx, "b", &s3.BucketArgs{
 //				Bucket: pulumi.String("s3-website-test.mydomain.com"),
 //				Acl:    pulumi.String(s3.CannedAclPublicRead),
-//				Policy: invokeFile.Result,
+//				Policy: pulumi.String(invokeFile.Result),
 //				Website: &s3.BucketWebsiteArgs{
 //					IndexDocument: pulumi.String("index.html"),
 //					ErrorDocument: pulumi.String("error.html"),

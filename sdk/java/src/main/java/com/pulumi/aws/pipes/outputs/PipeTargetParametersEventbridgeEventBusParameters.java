@@ -12,23 +12,51 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersEventbridgeEventBusParameters {
+    /**
+     * @return A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+     * 
+     */
     private @Nullable String detailType;
+    /**
+     * @return The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+     * 
+     */
     private @Nullable String endpointId;
+    /**
+     * @return List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+     * 
+     */
     private @Nullable List<String> resources;
     /**
      * @return Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     private @Nullable String source;
+    /**
+     * @return The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+     * 
+     */
     private @Nullable String time;
 
     private PipeTargetParametersEventbridgeEventBusParameters() {}
+    /**
+     * @return A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+     * 
+     */
     public Optional<String> detailType() {
         return Optional.ofNullable(this.detailType);
     }
+    /**
+     * @return The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+     * 
+     */
     public Optional<String> endpointId() {
         return Optional.ofNullable(this.endpointId);
     }
+    /**
+     * @return List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+     * 
+     */
     public List<String> resources() {
         return this.resources == null ? List.of() : this.resources;
     }
@@ -39,6 +67,10 @@ public final class PipeTargetParametersEventbridgeEventBusParameters {
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }
+    /**
+     * @return The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+     * 
+     */
     public Optional<String> time() {
         return Optional.ofNullable(this.time);
     }

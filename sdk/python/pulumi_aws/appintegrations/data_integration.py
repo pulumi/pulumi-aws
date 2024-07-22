@@ -286,9 +286,9 @@ class DataIntegration(pulumi.CustomResource):
             kms_key=test["arn"],
             source_uri="Salesforce://AppFlow/example",
             schedule_config={
-                "firstExecutionFrom": "1439788442681",
+                "first_execution_from": "1439788442681",
                 "object": "Account",
-                "scheduleExpression": "rate(1 hour)",
+                "schedule_expression": "rate(1 hour)",
             },
             tags={
                 "Key1": "Value1",
@@ -333,9 +333,9 @@ class DataIntegration(pulumi.CustomResource):
             kms_key=test["arn"],
             source_uri="Salesforce://AppFlow/example",
             schedule_config={
-                "firstExecutionFrom": "1439788442681",
+                "first_execution_from": "1439788442681",
                 "object": "Account",
-                "scheduleExpression": "rate(1 hour)",
+                "schedule_expression": "rate(1 hour)",
             },
             tags={
                 "Key1": "Value1",

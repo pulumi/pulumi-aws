@@ -297,6 +297,9 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationArgs:
 if not MYPY:
     class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict(TypedDict):
         group_claim: pulumi.Input[str]
+        """
+        The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        """
         group_entity_type: pulumi.Input[str]
         """
         The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
@@ -310,6 +313,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArg
                  group_claim: pulumi.Input[str],
                  group_entity_type: pulumi.Input[str]):
         """
+        :param pulumi.Input[str] group_claim: The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
         :param pulumi.Input[str] group_entity_type: The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
         """
         pulumi.set(__self__, "group_claim", group_claim)
@@ -318,6 +322,9 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArg
     @property
     @pulumi.getter(name="groupClaim")
     def group_claim(self) -> pulumi.Input[str]:
+        """
+        The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        """
         return pulumi.get(self, "group_claim")
 
     @group_claim.setter
@@ -448,6 +455,9 @@ if not MYPY:
         The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
         """
         principal_id_claim: NotRequired[pulumi.Input[str]]
+        """
+        The claim that determines the principal in OIDC access tokens.
+        """
 elif False:
     IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -458,6 +468,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
                  principal_id_claim: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_ids: The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+        :param pulumi.Input[str] principal_id_claim: The claim that determines the principal in OIDC access tokens.
         """
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
@@ -479,6 +490,9 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
     @property
     @pulumi.getter(name="principalIdClaim")
     def principal_id_claim(self) -> Optional[pulumi.Input[str]]:
+        """
+        The claim that determines the principal in OIDC access tokens.
+        """
         return pulumi.get(self, "principal_id_claim")
 
     @principal_id_claim.setter
