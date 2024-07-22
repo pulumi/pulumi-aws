@@ -1,7 +1,0 @@
-name: gamelift-csharp
-runtime: dotnet
-description: A minimal AWS C# Pulumi program
-config:
-  pulumi:tags:
-    value:
-      pulumi:template: aws-csharp
