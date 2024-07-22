@@ -17,7 +17,7 @@ func TestGameLift(t *testing.T) {
 		return
 	}
 
-	ptest := pulumiTest(t, filepath.Join("test-programs", "gamelift-csharp"))
+	ptest := pulumiTest(t, filepath.Join("test-programs", "gamelift-typescript"))
 	ptest.SetConfig("customData", "A")
 	result1 := ptest.Up()
 	require.Equal(t, "A", result1.Outputs["CustomEventData"].Value)
