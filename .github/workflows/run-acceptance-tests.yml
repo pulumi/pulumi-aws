@@ -68,11 +68,15 @@ jobs:
           files=$(find ${{ github.workspace }} -name "*-sdk.tar.gz" -print)
           for file in $files
           do
+            echo $file
+            file $file
+            ls -la ${{ github.workspace }}/sdk
             filename=$(basename $file)
             echo $filename
             language=$(echo $filename | sed 's/-.*//')
+            echo $language
             mkdir -p ${{ github.workspace }}/sdk/$language/
-            tar -zxf $file -C ${{ github.workspace }}/sdk/$language/
+            tar -zxf $file -C ${{ github.workspace }}/sdk/$language
           done
       - name: Compress sdk
         run: tar -zcf sdk.tar.gz -C sdk .
