@@ -81,7 +81,7 @@ jobs:
             tar -zxf $file -C ${{ github.workspace }}/sdk/$language
           done
       - name: Compress sdk
-        run: tar -zcf sdk.tar.gz -C sdk .
+        run: tar -zcf sdk.tar.gz -C ${{ github.workspace }}/sdk .
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
