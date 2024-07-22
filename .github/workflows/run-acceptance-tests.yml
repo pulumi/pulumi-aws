@@ -64,15 +64,16 @@ jobs:
         with:
           pattern: "*-sdk.tar.gz"
           merge-multiple: true
+          path: ${{ github.workspace }}/sdk
       - name: Uncompress SDK folders
         run: |
           files=$(find ${{ github.workspace }} -name "*-sdk.tar.gz" -print)
+          echo $files
+          ls -R ${{ github.workspace }}/sdk
           for file in $files
           do
             echo $file
             file $file
-            ls -la ${{ github.workspace }}/sdk
-            ls -la $file
             filename=$(basename $file)
             echo $filename
             language=$(echo $filename | sed 's/-.*//')
