@@ -63,6 +63,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           pattern: "*-sdk.tar.gz"
+          merge-multiple: true
       - name: Uncompress SDK folders
         run: |
           files=$(find ${{ github.workspace }} -name "*-sdk.tar.gz" -print)
