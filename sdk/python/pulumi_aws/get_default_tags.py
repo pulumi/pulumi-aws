@@ -86,7 +86,7 @@ def get_default_tags(id: Optional[str] = None,
     example_group = aws.autoscaling.Group("example", tags=[{
         "key": entry["key"],
         "value": entry["value"],
-        "propagateAtLaunch": True,
+        "propagate_at_launch": True,
     } for entry in [{"key": k, "value": v} for k, v in example.tags]])
     ```
     """
@@ -129,7 +129,7 @@ def get_default_tags_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     example_group = aws.autoscaling.Group("example", tags=[{
         "key": entry["key"],
         "value": entry["value"],
-        "propagateAtLaunch": True,
+        "propagate_at_launch": True,
     } for entry in [{"key": k, "value": v} for k, v in example.tags]])
     ```
     """

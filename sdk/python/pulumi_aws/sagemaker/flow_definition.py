@@ -318,15 +318,15 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
             human_loop_config={
-                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
-                "taskAvailabilityLifetimeInSeconds": 1,
-                "taskCount": 1,
-                "taskDescription": "example",
-                "taskTitle": "example",
-                "workteamArn": example_aws_sagemaker_workteam["arn"],
+                "human_task_ui_arn": example_aws_sagemaker_human_task_ui["arn"],
+                "task_availability_lifetime_in_seconds": 1,
+                "task_count": 1,
+                "task_description": "example",
+                "task_title": "example",
+                "workteam_arn": example_aws_sagemaker_workteam["arn"],
             },
             output_config={
-                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+                "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
             })
         ```
 
@@ -340,21 +340,21 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
             human_loop_config={
-                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
-                "taskAvailabilityLifetimeInSeconds": 1,
-                "taskCount": 1,
-                "taskDescription": "example",
-                "taskTitle": "example",
-                "workteamArn": f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
-                "publicWorkforceTaskPrice": {
-                    "amountInUsd": {
+                "human_task_ui_arn": example_aws_sagemaker_human_task_ui["arn"],
+                "task_availability_lifetime_in_seconds": 1,
+                "task_count": 1,
+                "task_description": "example",
+                "task_title": "example",
+                "workteam_arn": f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
+                "public_workforce_task_price": {
+                    "amount_in_usd": {
                         "cents": 1,
-                        "tenthFractionsOfACent": 2,
+                        "tenth_fractions_of_a_cent": 2,
                     },
                 },
             },
             output_config={
-                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+                "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
             })
         ```
 
@@ -368,19 +368,19 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
             human_loop_config={
-                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
-                "taskAvailabilityLifetimeInSeconds": 1,
-                "taskCount": 1,
-                "taskDescription": "example",
-                "taskTitle": "example",
-                "workteamArn": example_aws_sagemaker_workteam["arn"],
+                "human_task_ui_arn": example_aws_sagemaker_human_task_ui["arn"],
+                "task_availability_lifetime_in_seconds": 1,
+                "task_count": 1,
+                "task_description": "example",
+                "task_title": "example",
+                "workteam_arn": example_aws_sagemaker_workteam["arn"],
             },
             human_loop_request_source={
-                "awsManagedHumanLoopRequestSource": "AWS/Textract/AnalyzeDocument/Forms/V1",
+                "aws_managed_human_loop_request_source": "AWS/Textract/AnalyzeDocument/Forms/V1",
             },
             human_loop_activation_config={
-                "humanLoopActivationConditionsConfig": {
-                    "humanLoopActivationConditions": \"\"\"        {
+                "human_loop_activation_conditions_config": {
+                    "human_loop_activation_conditions": \"\"\"        {
         \\x09\\x09\\x09"Conditions": [
         \\x09\\x09\\x09  {
         \\x09\\x09\\x09\\x09"ConditionType": "Sampling",
@@ -394,7 +394,7 @@ class FlowDefinition(pulumi.CustomResource):
                 },
             },
             output_config={
-                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+                "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
             })
         ```
 
@@ -437,15 +437,15 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
             human_loop_config={
-                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
-                "taskAvailabilityLifetimeInSeconds": 1,
-                "taskCount": 1,
-                "taskDescription": "example",
-                "taskTitle": "example",
-                "workteamArn": example_aws_sagemaker_workteam["arn"],
+                "human_task_ui_arn": example_aws_sagemaker_human_task_ui["arn"],
+                "task_availability_lifetime_in_seconds": 1,
+                "task_count": 1,
+                "task_description": "example",
+                "task_title": "example",
+                "workteam_arn": example_aws_sagemaker_workteam["arn"],
             },
             output_config={
-                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+                "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
             })
         ```
 
@@ -459,21 +459,21 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
             human_loop_config={
-                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
-                "taskAvailabilityLifetimeInSeconds": 1,
-                "taskCount": 1,
-                "taskDescription": "example",
-                "taskTitle": "example",
-                "workteamArn": f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
-                "publicWorkforceTaskPrice": {
-                    "amountInUsd": {
+                "human_task_ui_arn": example_aws_sagemaker_human_task_ui["arn"],
+                "task_availability_lifetime_in_seconds": 1,
+                "task_count": 1,
+                "task_description": "example",
+                "task_title": "example",
+                "workteam_arn": f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
+                "public_workforce_task_price": {
+                    "amount_in_usd": {
                         "cents": 1,
-                        "tenthFractionsOfACent": 2,
+                        "tenth_fractions_of_a_cent": 2,
                     },
                 },
             },
             output_config={
-                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+                "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
             })
         ```
 
@@ -487,19 +487,19 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
             human_loop_config={
-                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
-                "taskAvailabilityLifetimeInSeconds": 1,
-                "taskCount": 1,
-                "taskDescription": "example",
-                "taskTitle": "example",
-                "workteamArn": example_aws_sagemaker_workteam["arn"],
+                "human_task_ui_arn": example_aws_sagemaker_human_task_ui["arn"],
+                "task_availability_lifetime_in_seconds": 1,
+                "task_count": 1,
+                "task_description": "example",
+                "task_title": "example",
+                "workteam_arn": example_aws_sagemaker_workteam["arn"],
             },
             human_loop_request_source={
-                "awsManagedHumanLoopRequestSource": "AWS/Textract/AnalyzeDocument/Forms/V1",
+                "aws_managed_human_loop_request_source": "AWS/Textract/AnalyzeDocument/Forms/V1",
             },
             human_loop_activation_config={
-                "humanLoopActivationConditionsConfig": {
-                    "humanLoopActivationConditions": \"\"\"        {
+                "human_loop_activation_conditions_config": {
+                    "human_loop_activation_conditions": \"\"\"        {
         \\x09\\x09\\x09"Conditions": [
         \\x09\\x09\\x09  {
         \\x09\\x09\\x09\\x09"ConditionType": "Sampling",
@@ -513,7 +513,7 @@ class FlowDefinition(pulumi.CustomResource):
                 },
             },
             output_config={
-                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+                "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
             })
         ```
 

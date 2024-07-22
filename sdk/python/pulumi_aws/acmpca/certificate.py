@@ -305,10 +305,10 @@ class Certificate(pulumi.CustomResource):
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             },
             permanent_deletion_time_in_days=7)
@@ -371,10 +371,10 @@ class Certificate(pulumi.CustomResource):
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "keyAlgorithm": "RSA_4096",
-                "signingAlgorithm": "SHA512WITHRSA",
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
-                    "commonName": "example.com",
+                    "common_name": "example.com",
                 },
             },
             permanent_deletion_time_in_days=7)

@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
+    /**
+     * @return Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+     * 
+     */
     private String mapBlockKey;
     /**
      * @return When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -26,6 +30,10 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
     private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue value;
 
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot() {}
+    /**
+     * @return Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+     * 
+     */
     public String mapBlockKey() {
         return this.mapBlockKey;
     }

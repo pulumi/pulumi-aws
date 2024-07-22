@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CodeCatalyst.Inputs
 
     public sealed class DevEnvironmentPersistentStorageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+        /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;
 

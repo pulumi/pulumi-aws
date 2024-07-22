@@ -11,45 +11,125 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProfileMailingAddress {
+    /**
+     * @return The first line of a customer address.
+     * 
+     */
     private @Nullable String address1;
+    /**
+     * @return The second line of a customer address.
+     * 
+     */
     private @Nullable String address2;
+    /**
+     * @return The third line of a customer address.
+     * 
+     */
     private @Nullable String address3;
+    /**
+     * @return The fourth line of a customer address.
+     * 
+     */
     private @Nullable String address4;
+    /**
+     * @return The city in which a customer lives.
+     * 
+     */
     private @Nullable String city;
+    /**
+     * @return The country in which a customer lives.
+     * 
+     */
     private @Nullable String country;
+    /**
+     * @return The county in which a customer lives.
+     * 
+     */
     private @Nullable String county;
+    /**
+     * @return The postal code of a customer address.
+     * 
+     */
     private @Nullable String postalCode;
+    /**
+     * @return The province in which a customer lives.
+     * 
+     */
     private @Nullable String province;
+    /**
+     * @return The state in which a customer lives.
+     * 
+     */
     private @Nullable String state;
 
     private ProfileMailingAddress() {}
+    /**
+     * @return The first line of a customer address.
+     * 
+     */
     public Optional<String> address1() {
         return Optional.ofNullable(this.address1);
     }
+    /**
+     * @return The second line of a customer address.
+     * 
+     */
     public Optional<String> address2() {
         return Optional.ofNullable(this.address2);
     }
+    /**
+     * @return The third line of a customer address.
+     * 
+     */
     public Optional<String> address3() {
         return Optional.ofNullable(this.address3);
     }
+    /**
+     * @return The fourth line of a customer address.
+     * 
+     */
     public Optional<String> address4() {
         return Optional.ofNullable(this.address4);
     }
+    /**
+     * @return The city in which a customer lives.
+     * 
+     */
     public Optional<String> city() {
         return Optional.ofNullable(this.city);
     }
+    /**
+     * @return The country in which a customer lives.
+     * 
+     */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
     }
+    /**
+     * @return The county in which a customer lives.
+     * 
+     */
     public Optional<String> county() {
         return Optional.ofNullable(this.county);
     }
+    /**
+     * @return The postal code of a customer address.
+     * 
+     */
     public Optional<String> postalCode() {
         return Optional.ofNullable(this.postalCode);
     }
+    /**
+     * @return The province in which a customer lives.
+     * 
+     */
     public Optional<String> province() {
         return Optional.ofNullable(this.province);
     }
+    /**
+     * @return The state in which a customer lives.
+     * 
+     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }

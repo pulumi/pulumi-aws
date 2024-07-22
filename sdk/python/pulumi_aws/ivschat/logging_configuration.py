@@ -204,8 +204,8 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         example = aws.cloudwatch.LogGroup("example")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
-            "cloudwatchLogs": {
-                "logGroupName": example.name,
+            "cloudwatch_logs": {
+                "log_group_name": example.name,
             },
         })
         ```
@@ -232,8 +232,8 @@ class LoggingConfiguration(pulumi.CustomResource):
             name="pulumi-kinesis-firehose-extended-s3-example-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": example_role.arn,
-                "bucketArn": example_bucket_v2.arn,
+                "role_arn": example_role.arn,
+                "bucket_arn": example_bucket_v2.arn,
             },
             tags={
                 "LogDeliveryEnabled": "true",
@@ -243,7 +243,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             acl="private")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
             "firehose": {
-                "deliveryStreamName": example.name,
+                "delivery_stream_name": example.name,
             },
         })
         ```
@@ -281,8 +281,8 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         example = aws.cloudwatch.LogGroup("example")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
-            "cloudwatchLogs": {
-                "logGroupName": example.name,
+            "cloudwatch_logs": {
+                "log_group_name": example.name,
             },
         })
         ```
@@ -309,8 +309,8 @@ class LoggingConfiguration(pulumi.CustomResource):
             name="pulumi-kinesis-firehose-extended-s3-example-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": example_role.arn,
-                "bucketArn": example_bucket_v2.arn,
+                "role_arn": example_role.arn,
+                "bucket_arn": example_bucket_v2.arn,
             },
             tags={
                 "LogDeliveryEnabled": "true",
@@ -320,7 +320,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             acl="private")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
             "firehose": {
-                "deliveryStreamName": example.name,
+                "delivery_stream_name": example.name,
             },
         })
         ```

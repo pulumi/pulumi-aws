@@ -305,22 +305,22 @@ class HoursOfOperation(pulumi.CustomResource):
             configs=[
                 {
                     "day": "MONDAY",
-                    "endTime": {
+                    "end_time": {
                         "hours": 23,
                         "minutes": 8,
                     },
-                    "startTime": {
+                    "start_time": {
                         "hours": 8,
                         "minutes": 0,
                     },
                 },
                 {
                     "day": "TUESDAY",
-                    "endTime": {
+                    "end_time": {
                         "hours": 21,
                         "minutes": 0,
                     },
-                    "startTime": {
+                    "start_time": {
                         "hours": 9,
                         "minutes": 0,
                     },
@@ -372,22 +372,22 @@ class HoursOfOperation(pulumi.CustomResource):
             configs=[
                 {
                     "day": "MONDAY",
-                    "endTime": {
+                    "end_time": {
                         "hours": 23,
                         "minutes": 8,
                     },
-                    "startTime": {
+                    "start_time": {
                         "hours": 8,
                         "minutes": 0,
                     },
                 },
                 {
                     "day": "TUESDAY",
-                    "endTime": {
+                    "end_time": {
                         "hours": 21,
                         "minutes": 0,
                     },
-                    "startTime": {
+                    "start_time": {
                         "hours": 9,
                         "minutes": 0,
                     },

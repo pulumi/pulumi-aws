@@ -372,9 +372,9 @@ class Fleet(pulumi.CustomResource):
         example = aws.worklink.Fleet("example",
             name="example",
             network={
-                "vpcId": test_aws_vpc["id"],
-                "subnetIds": [[__item["id"] for __item in test_aws_subnet]],
-                "securityGroupIds": [test["id"]],
+                "vpc_id": test_aws_vpc["id"],
+                "subnet_ids": [[__item["id"] for __item in test_aws_subnet]],
+                "security_group_ids": [test["id"]],
             })
         ```
 
@@ -389,7 +389,7 @@ class Fleet(pulumi.CustomResource):
             name="tf-worklink-fleet",
             identity_provider={
                 "type": "SAML",
-                "samlMetadata": std.file(input="saml-metadata.xml").result,
+                "saml_metadata": std.file(input="saml-metadata.xml").result,
             })
         ```
 
@@ -442,9 +442,9 @@ class Fleet(pulumi.CustomResource):
         example = aws.worklink.Fleet("example",
             name="example",
             network={
-                "vpcId": test_aws_vpc["id"],
-                "subnetIds": [[__item["id"] for __item in test_aws_subnet]],
-                "securityGroupIds": [test["id"]],
+                "vpc_id": test_aws_vpc["id"],
+                "subnet_ids": [[__item["id"] for __item in test_aws_subnet]],
+                "security_group_ids": [test["id"]],
             })
         ```
 
@@ -459,7 +459,7 @@ class Fleet(pulumi.CustomResource):
             name="tf-worklink-fleet",
             identity_provider={
                 "type": "SAML",
-                "samlMetadata": std.file(input="saml-metadata.xml").result,
+                "saml_metadata": std.file(input="saml-metadata.xml").result,
             })
         ```
 

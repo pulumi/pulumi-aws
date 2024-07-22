@@ -481,7 +481,7 @@ class Schedule(pulumi.CustomResource):
             schedule_expression="rate(1 hours)",
             target={
                 "arn": example_aws_sqs_queue["arn"],
-                "roleArn": example_aws_iam_role["arn"],
+                "role_arn": example_aws_iam_role["arn"],
             })
         ```
 
@@ -501,10 +501,10 @@ class Schedule(pulumi.CustomResource):
             schedule_expression="rate(1 hours)",
             target={
                 "arn": "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                "roleArn": example_aws_iam_role["arn"],
+                "role_arn": example_aws_iam_role["arn"],
                 "input": pulumi.Output.json_dumps({
-                    "MessageBody": "Greetings, programs!",
-                    "QueueUrl": example.url,
+                    "message_body": "Greetings, programs!",
+                    "queue_url": example.url,
                 }),
             })
         ```
@@ -564,7 +564,7 @@ class Schedule(pulumi.CustomResource):
             schedule_expression="rate(1 hours)",
             target={
                 "arn": example_aws_sqs_queue["arn"],
-                "roleArn": example_aws_iam_role["arn"],
+                "role_arn": example_aws_iam_role["arn"],
             })
         ```
 
@@ -584,10 +584,10 @@ class Schedule(pulumi.CustomResource):
             schedule_expression="rate(1 hours)",
             target={
                 "arn": "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                "roleArn": example_aws_iam_role["arn"],
+                "role_arn": example_aws_iam_role["arn"],
                 "input": pulumi.Output.json_dumps({
-                    "MessageBody": "Greetings, programs!",
-                    "QueueUrl": example.url,
+                    "message_body": "Greetings, programs!",
+                    "queue_url": example.url,
                 }),
             })
         ```

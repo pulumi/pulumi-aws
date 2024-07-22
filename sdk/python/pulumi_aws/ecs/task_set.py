@@ -640,9 +640,9 @@ class TaskSet(pulumi.CustomResource):
             cluster=example_aws_ecs_cluster["id"],
             task_definition=example_aws_ecs_task_definition["arn"],
             load_balancers=[{
-                "targetGroupArn": example_aws_lb_target_group["arn"],
-                "containerName": "mongo",
-                "containerPort": 8080,
+                "target_group_arn": example_aws_lb_target_group["arn"],
+                "container_name": "mongo",
+                "container_port": 8080,
             }])
         ```
 
@@ -709,9 +709,9 @@ class TaskSet(pulumi.CustomResource):
             cluster=example_aws_ecs_cluster["id"],
             task_definition=example_aws_ecs_task_definition["arn"],
             load_balancers=[{
-                "targetGroupArn": example_aws_lb_target_group["arn"],
-                "containerName": "mongo",
-                "containerPort": 8080,
+                "target_group_arn": example_aws_lb_target_group["arn"],
+                "container_name": "mongo",
+                "container_port": 8080,
             }])
         ```
 

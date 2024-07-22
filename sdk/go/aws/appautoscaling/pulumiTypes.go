@@ -371,9 +371,12 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) StepAdjustments() PolicyS
 }
 
 type PolicyStepScalingPolicyConfigurationStepAdjustment struct {
+	// Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
 	MetricIntervalLowerBound *string `pulumi:"metricIntervalLowerBound"`
+	// Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
 	MetricIntervalUpperBound *string `pulumi:"metricIntervalUpperBound"`
-	ScalingAdjustment        int     `pulumi:"scalingAdjustment"`
+	// Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+	ScalingAdjustment int `pulumi:"scalingAdjustment"`
 }
 
 // PolicyStepScalingPolicyConfigurationStepAdjustmentInput is an input type that accepts PolicyStepScalingPolicyConfigurationStepAdjustmentArgs and PolicyStepScalingPolicyConfigurationStepAdjustmentOutput values.
@@ -388,9 +391,12 @@ type PolicyStepScalingPolicyConfigurationStepAdjustmentInput interface {
 }
 
 type PolicyStepScalingPolicyConfigurationStepAdjustmentArgs struct {
+	// Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
 	MetricIntervalLowerBound pulumi.StringPtrInput `pulumi:"metricIntervalLowerBound"`
+	// Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
 	MetricIntervalUpperBound pulumi.StringPtrInput `pulumi:"metricIntervalUpperBound"`
-	ScalingAdjustment        pulumi.IntInput       `pulumi:"scalingAdjustment"`
+	// Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+	ScalingAdjustment pulumi.IntInput `pulumi:"scalingAdjustment"`
 }
 
 func (PolicyStepScalingPolicyConfigurationStepAdjustmentArgs) ElementType() reflect.Type {
@@ -444,14 +450,17 @@ func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) ToPolicyStepSc
 	return o
 }
 
+// Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
 func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) MetricIntervalLowerBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfigurationStepAdjustment) *string { return v.MetricIntervalLowerBound }).(pulumi.StringPtrOutput)
 }
 
+// Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
 func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) MetricIntervalUpperBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfigurationStepAdjustment) *string { return v.MetricIntervalUpperBound }).(pulumi.StringPtrOutput)
 }
 
+// Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
 func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) ScalingAdjustment() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfigurationStepAdjustment) int { return v.ScalingAdjustment }).(pulumi.IntOutput)
 }
@@ -1842,7 +1851,9 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 }
 
 type ScheduledActionScalableTargetAction struct {
+	// Maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 	MaxCapacity *int `pulumi:"maxCapacity"`
+	// Minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
 	MinCapacity *int `pulumi:"minCapacity"`
 }
 
@@ -1858,7 +1869,9 @@ type ScheduledActionScalableTargetActionInput interface {
 }
 
 type ScheduledActionScalableTargetActionArgs struct {
+	// Maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
+	// Minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
 }
 
@@ -1939,10 +1952,12 @@ func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTarg
 	}).(ScheduledActionScalableTargetActionPtrOutput)
 }
 
+// Maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 func (o ScheduledActionScalableTargetActionOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
 func (o ScheduledActionScalableTargetActionOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
@@ -1971,6 +1986,7 @@ func (o ScheduledActionScalableTargetActionPtrOutput) Elem() ScheduledActionScal
 	}).(ScheduledActionScalableTargetActionOutput)
 }
 
+// Maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 func (o ScheduledActionScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) *int {
 		if v == nil {
@@ -1980,6 +1996,7 @@ func (o ScheduledActionScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
 func (o ScheduledActionScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) *int {
 		if v == nil {

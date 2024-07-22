@@ -21,37 +21,77 @@ public final class CostCategoryRuleRuleOrArgs extends com.pulumi.resources.Resou
 
     public static final CostCategoryRuleRuleOrArgs Empty = new CostCategoryRuleRuleOrArgs();
 
+    /**
+     * Return results that match both `Dimension` objects.
+     * 
+     */
     @Import(name="ands")
     private @Nullable Output<List<CostCategoryRuleRuleOrAndArgs>> ands;
 
+    /**
+     * @return Return results that match both `Dimension` objects.
+     * 
+     */
     public Optional<Output<List<CostCategoryRuleRuleOrAndArgs>>> ands() {
         return Optional.ofNullable(this.ands);
     }
 
+    /**
+     * Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * 
+     */
     @Import(name="costCategory")
     private @Nullable Output<CostCategoryRuleRuleOrCostCategoryArgs> costCategory;
 
+    /**
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * 
+     */
     public Optional<Output<CostCategoryRuleRuleOrCostCategoryArgs>> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
 
+    /**
+     * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * 
+     */
     @Import(name="dimension")
     private @Nullable Output<CostCategoryRuleRuleOrDimensionArgs> dimension;
 
+    /**
+     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * 
+     */
     public Optional<Output<CostCategoryRuleRuleOrDimensionArgs>> dimension() {
         return Optional.ofNullable(this.dimension);
     }
 
+    /**
+     * Return results that match both `Dimension` object.
+     * 
+     */
     @Import(name="not")
     private @Nullable Output<CostCategoryRuleRuleOrNotArgs> not;
 
+    /**
+     * @return Return results that match both `Dimension` object.
+     * 
+     */
     public Optional<Output<CostCategoryRuleRuleOrNotArgs>> not() {
         return Optional.ofNullable(this.not);
     }
 
+    /**
+     * Return results that match both `Dimension` object.
+     * 
+     */
     @Import(name="ors")
     private @Nullable Output<List<CostCategoryRuleRuleOrOrArgs>> ors;
 
+    /**
+     * @return Return results that match both `Dimension` object.
+     * 
+     */
     public Optional<Output<List<CostCategoryRuleRuleOrOrArgs>>> ors() {
         return Optional.ofNullable(this.ors);
     }
@@ -100,55 +140,127 @@ public final class CostCategoryRuleRuleOrArgs extends com.pulumi.resources.Resou
             $ = new CostCategoryRuleRuleOrArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ands Return results that match both `Dimension` objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ands(@Nullable Output<List<CostCategoryRuleRuleOrAndArgs>> ands) {
             $.ands = ands;
             return this;
         }
 
+        /**
+         * @param ands Return results that match both `Dimension` objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ands(List<CostCategoryRuleRuleOrAndArgs> ands) {
             return ands(Output.of(ands));
         }
 
+        /**
+         * @param ands Return results that match both `Dimension` objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ands(CostCategoryRuleRuleOrAndArgs... ands) {
             return ands(List.of(ands));
         }
 
+        /**
+         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder costCategory(@Nullable Output<CostCategoryRuleRuleOrCostCategoryArgs> costCategory) {
             $.costCategory = costCategory;
             return this;
         }
 
+        /**
+         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder costCategory(CostCategoryRuleRuleOrCostCategoryArgs costCategory) {
             return costCategory(Output.of(costCategory));
         }
 
+        /**
+         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimension(@Nullable Output<CostCategoryRuleRuleOrDimensionArgs> dimension) {
             $.dimension = dimension;
             return this;
         }
 
+        /**
+         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimension(CostCategoryRuleRuleOrDimensionArgs dimension) {
             return dimension(Output.of(dimension));
         }
 
+        /**
+         * @param not Return results that match both `Dimension` object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder not(@Nullable Output<CostCategoryRuleRuleOrNotArgs> not) {
             $.not = not;
             return this;
         }
 
+        /**
+         * @param not Return results that match both `Dimension` object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder not(CostCategoryRuleRuleOrNotArgs not) {
             return not(Output.of(not));
         }
 
+        /**
+         * @param ors Return results that match both `Dimension` object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ors(@Nullable Output<List<CostCategoryRuleRuleOrOrArgs>> ors) {
             $.ors = ors;
             return this;
         }
 
+        /**
+         * @param ors Return results that match both `Dimension` object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ors(List<CostCategoryRuleRuleOrOrArgs> ors) {
             return ors(Output.of(ors));
         }
 
+        /**
+         * @param ors Return results that match both `Dimension` object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ors(CostCategoryRuleRuleOrOrArgs... ors) {
             return ors(List.of(ors));
         }

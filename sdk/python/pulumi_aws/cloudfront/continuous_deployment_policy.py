@@ -192,7 +192,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             },
             traffic_config={
                 "type": "SingleWeight",
-                "singleWeightConfig": {
+                "single_weight_config": {
                     "weight": 0.01,
                 },
             })
@@ -215,11 +215,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             },
             traffic_config={
                 "type": "SingleWeight",
-                "singleWeightConfig": {
+                "single_weight_config": {
                     "weight": 0.01,
-                    "sessionStickinessConfig": {
-                        "idleTtl": 300,
-                        "maximumTtl": 600,
+                    "session_stickiness_config": {
+                        "idle_ttl": 300,
+                        "maximum_ttl": 600,
                     },
                 },
             })
@@ -239,7 +239,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             },
             traffic_config={
                 "type": "SingleHeader",
-                "singleHeaderConfig": {
+                "single_header_config": {
                     "header": "aws-cf-cd-example",
                     "value": "example",
                 },
@@ -288,7 +288,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             },
             traffic_config={
                 "type": "SingleWeight",
-                "singleWeightConfig": {
+                "single_weight_config": {
                     "weight": 0.01,
                 },
             })
@@ -311,11 +311,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             },
             traffic_config={
                 "type": "SingleWeight",
-                "singleWeightConfig": {
+                "single_weight_config": {
                     "weight": 0.01,
-                    "sessionStickinessConfig": {
-                        "idleTtl": 300,
-                        "maximumTtl": 600,
+                    "session_stickiness_config": {
+                        "idle_ttl": 300,
+                        "maximum_ttl": 600,
                     },
                 },
             })
@@ -335,7 +335,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             },
             traffic_config={
                 "type": "SingleHeader",
-                "singleHeaderConfig": {
+                "single_header_config": {
                     "header": "aws-cf-cd-example",
                     "value": "example",
                 },

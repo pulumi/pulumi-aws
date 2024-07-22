@@ -14,16 +14,32 @@ public final class AssessmentRolesAllArgs extends com.pulumi.resources.ResourceA
 
     public static final AssessmentRolesAllArgs Empty = new AssessmentRolesAllArgs();
 
+    /**
+     * Amazon Resource Name (ARN) of the IAM role.
+     * 
+     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the IAM role.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
+    /**
+     * Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+     * 
+     */
     @Import(name="roleType", required=true)
     private Output<String> roleType;
 
+    /**
+     * @return Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+     * 
+     */
     public Output<String> roleType() {
         return this.roleType;
     }
@@ -53,20 +69,44 @@ public final class AssessmentRolesAllArgs extends com.pulumi.resources.ResourceA
             $ = new AssessmentRolesAllArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param roleArn Amazon Resource Name (ARN) of the IAM role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
+        /**
+         * @param roleArn Amazon Resource Name (ARN) of the IAM role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
+        /**
+         * @param roleType Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleType(Output<String> roleType) {
             $.roleType = roleType;
             return this;
         }
 
+        /**
+         * @param roleType Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleType(String roleType) {
             return roleType(Output.of(roleType));
         }

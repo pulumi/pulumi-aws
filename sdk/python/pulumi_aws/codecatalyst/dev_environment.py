@@ -322,8 +322,8 @@ class DevEnvironment(pulumi.CustomResource):
             },
             inactivity_timeout_minutes=40,
             repositories=[{
-                "repositoryName": "pulumi-provider-aws",
-                "branchName": "main",
+                "repository_name": "pulumi-provider-aws",
+                "branch_name": "main",
             }])
         ```
 
@@ -368,8 +368,8 @@ class DevEnvironment(pulumi.CustomResource):
             },
             inactivity_timeout_minutes=40,
             repositories=[{
-                "repositoryName": "pulumi-provider-aws",
-                "branchName": "main",
+                "repository_name": "pulumi-provider-aws",
+                "branch_name": "main",
             }])
         ```
 

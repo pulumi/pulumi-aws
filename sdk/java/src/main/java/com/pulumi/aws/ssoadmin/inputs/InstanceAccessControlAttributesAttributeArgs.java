@@ -16,16 +16,32 @@ public final class InstanceAccessControlAttributesAttributeArgs extends com.pulu
 
     public static final InstanceAccessControlAttributesAttributeArgs Empty = new InstanceAccessControlAttributesAttributeArgs();
 
+    /**
+     * The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+     * 
+     */
     @Import(name="values", required=true)
     private Output<List<InstanceAccessControlAttributesAttributeValueArgs>> values;
 
+    /**
+     * @return The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+     * 
+     */
     public Output<List<InstanceAccessControlAttributesAttributeValueArgs>> values() {
         return this.values;
     }
@@ -55,24 +71,54 @@ public final class InstanceAccessControlAttributesAttributeArgs extends com.pulu
             $ = new InstanceAccessControlAttributesAttributeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param values The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(Output<List<InstanceAccessControlAttributesAttributeValueArgs>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<InstanceAccessControlAttributesAttributeValueArgs> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(InstanceAccessControlAttributesAttributeValueArgs... values) {
             return values(List.of(values));
         }

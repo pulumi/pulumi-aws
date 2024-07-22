@@ -219,9 +219,9 @@ class Workflow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Workflow("example", steps=[{
-            "deleteStepDetails": {
+            "delete_step_details": {
                 "name": "example",
-                "sourceFileLocation": "${original.file}",
+                "source_file_location": "${original.file}",
             },
             "type": "DELETE",
         }])
@@ -235,18 +235,18 @@ class Workflow(pulumi.CustomResource):
 
         example = aws.transfer.Workflow("example", steps=[
             {
-                "customStepDetails": {
+                "custom_step_details": {
                     "name": "example",
-                    "sourceFileLocation": "${original.file}",
+                    "source_file_location": "${original.file}",
                     "target": example_aws_lambda_function["arn"],
-                    "timeoutSeconds": 60,
+                    "timeout_seconds": 60,
                 },
                 "type": "CUSTOM",
             },
             {
-                "tagStepDetails": {
+                "tag_step_details": {
                     "name": "example",
-                    "sourceFileLocation": "${original.file}",
+                    "source_file_location": "${original.file}",
                     "tags": [{
                         "key": "Name",
                         "value": "Hello World",
@@ -290,9 +290,9 @@ class Workflow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Workflow("example", steps=[{
-            "deleteStepDetails": {
+            "delete_step_details": {
                 "name": "example",
-                "sourceFileLocation": "${original.file}",
+                "source_file_location": "${original.file}",
             },
             "type": "DELETE",
         }])
@@ -306,18 +306,18 @@ class Workflow(pulumi.CustomResource):
 
         example = aws.transfer.Workflow("example", steps=[
             {
-                "customStepDetails": {
+                "custom_step_details": {
                     "name": "example",
-                    "sourceFileLocation": "${original.file}",
+                    "source_file_location": "${original.file}",
                     "target": example_aws_lambda_function["arn"],
-                    "timeoutSeconds": 60,
+                    "timeout_seconds": 60,
                 },
                 "type": "CUSTOM",
             },
             {
-                "tagStepDetails": {
+                "tag_step_details": {
                     "name": "example",
-                    "sourceFileLocation": "${original.file}",
+                    "source_file_location": "${original.file}",
                     "tags": [{
                         "key": "Name",
                         "value": "Hello World",

@@ -13,10 +13,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll all;
     private @Nullable List<String> includedPaths;
 
     private WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern() {}
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }

@@ -17,30 +17,62 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs();
 
+    /**
+     * Document type specified in the Veeva document extract flow.
+     * 
+     */
     @Import(name="documentType")
     private @Nullable Output<String> documentType;
 
+    /**
+     * @return Document type specified in the Veeva document extract flow.
+     * 
+     */
     public Optional<Output<String>> documentType() {
         return Optional.ofNullable(this.documentType);
     }
 
+    /**
+     * Boolean value to include All Versions of files in Veeva document extract flow.
+     * 
+     */
     @Import(name="includeAllVersions")
     private @Nullable Output<Boolean> includeAllVersions;
 
+    /**
+     * @return Boolean value to include All Versions of files in Veeva document extract flow.
+     * 
+     */
     public Optional<Output<Boolean>> includeAllVersions() {
         return Optional.ofNullable(this.includeAllVersions);
     }
 
+    /**
+     * Boolean value to include file renditions in Veeva document extract flow.
+     * 
+     */
     @Import(name="includeRenditions")
     private @Nullable Output<Boolean> includeRenditions;
 
+    /**
+     * @return Boolean value to include file renditions in Veeva document extract flow.
+     * 
+     */
     public Optional<Output<Boolean>> includeRenditions() {
         return Optional.ofNullable(this.includeRenditions);
     }
 
+    /**
+     * Boolean value to include source files in Veeva document extract flow.
+     * 
+     */
     @Import(name="includeSourceFiles")
     private @Nullable Output<Boolean> includeSourceFiles;
 
+    /**
+     * @return Boolean value to include source files in Veeva document extract flow.
+     * 
+     */
     public Optional<Output<Boolean>> includeSourceFiles() {
         return Optional.ofNullable(this.includeSourceFiles);
     }
@@ -80,38 +112,86 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param documentType Document type specified in the Veeva document extract flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentType(@Nullable Output<String> documentType) {
             $.documentType = documentType;
             return this;
         }
 
+        /**
+         * @param documentType Document type specified in the Veeva document extract flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentType(String documentType) {
             return documentType(Output.of(documentType));
         }
 
+        /**
+         * @param includeAllVersions Boolean value to include All Versions of files in Veeva document extract flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeAllVersions(@Nullable Output<Boolean> includeAllVersions) {
             $.includeAllVersions = includeAllVersions;
             return this;
         }
 
+        /**
+         * @param includeAllVersions Boolean value to include All Versions of files in Veeva document extract flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeAllVersions(Boolean includeAllVersions) {
             return includeAllVersions(Output.of(includeAllVersions));
         }
 
+        /**
+         * @param includeRenditions Boolean value to include file renditions in Veeva document extract flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeRenditions(@Nullable Output<Boolean> includeRenditions) {
             $.includeRenditions = includeRenditions;
             return this;
         }
 
+        /**
+         * @param includeRenditions Boolean value to include file renditions in Veeva document extract flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeRenditions(Boolean includeRenditions) {
             return includeRenditions(Output.of(includeRenditions));
         }
 
+        /**
+         * @param includeSourceFiles Boolean value to include source files in Veeva document extract flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeSourceFiles(@Nullable Output<Boolean> includeSourceFiles) {
             $.includeSourceFiles = includeSourceFiles;
             return this;
         }
 
+        /**
+         * @param includeSourceFiles Boolean value to include source files in Veeva document extract flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeSourceFiles(Boolean includeSourceFiles) {
             return includeSourceFiles(Output.of(includeSourceFiles));
         }
