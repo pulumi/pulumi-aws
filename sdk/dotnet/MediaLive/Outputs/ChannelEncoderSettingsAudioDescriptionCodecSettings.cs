@@ -13,9 +13,21 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettings
     {
+        /// <summary>
+        /// Aac Settings. See AAC Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings? AacSettings;
+        /// <summary>
+        /// Ac3 Settings. See AC3 Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings? Ac3Settings;
+        /// <summary>
+        /// Eac3 Atmos Settings. See EAC3 Atmos Settings
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings? Eac3AtmosSettings;
+        /// <summary>
+        /// Eac3 Settings. See EAC3 Settings
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings? Eac3Settings;
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings? Mp2Settings;
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings? PassThroughSettings;

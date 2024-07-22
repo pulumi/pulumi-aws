@@ -15,9 +15,17 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs();
 
+    /**
+     * The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+     * 
+     */
     @Import(name="inputLossThresholdMsec")
     private @Nullable Output<Integer> inputLossThresholdMsec;
 
+    /**
+     * @return The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+     * 
+     */
     public Optional<Output<Integer>> inputLossThresholdMsec() {
         return Optional.ofNullable(this.inputLossThresholdMsec);
     }
@@ -46,11 +54,23 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             $ = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param inputLossThresholdMsec The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossThresholdMsec(@Nullable Output<Integer> inputLossThresholdMsec) {
             $.inputLossThresholdMsec = inputLossThresholdMsec;
             return this;
         }
 
+        /**
+         * @param inputLossThresholdMsec The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossThresholdMsec(Integer inputLossThresholdMsec) {
             return inputLossThresholdMsec(Output.of(inputLossThresholdMsec));
         }

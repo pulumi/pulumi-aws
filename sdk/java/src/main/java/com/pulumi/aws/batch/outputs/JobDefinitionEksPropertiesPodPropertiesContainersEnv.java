@@ -15,6 +15,10 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnv {
      * 
      */
     private String name;
+    /**
+     * @return The value of the environment variable.
+     * 
+     */
     private String value;
 
     private JobDefinitionEksPropertiesPodPropertiesContainersEnv() {}
@@ -25,6 +29,10 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnv {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The value of the environment variable.
+     * 
+     */
     public String value() {
         return this.value;
     }

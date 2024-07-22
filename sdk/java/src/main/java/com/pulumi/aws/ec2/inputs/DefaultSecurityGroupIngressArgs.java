@@ -19,9 +19,17 @@ public final class DefaultSecurityGroupIngressArgs extends com.pulumi.resources.
 
     public static final DefaultSecurityGroupIngressArgs Empty = new DefaultSecurityGroupIngressArgs();
 
+    /**
+     * List of CIDR blocks.
+     * 
+     */
     @Import(name="cidrBlocks")
     private @Nullable Output<List<String>> cidrBlocks;
 
+    /**
+     * @return List of CIDR blocks.
+     * 
+     */
     public Optional<Output<List<String>>> cidrBlocks() {
         return Optional.ofNullable(this.cidrBlocks);
     }
@@ -41,51 +49,107 @@ public final class DefaultSecurityGroupIngressArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Start port (or ICMP type number if protocol is `icmp`)
+     * 
+     */
     @Import(name="fromPort", required=true)
     private Output<Integer> fromPort;
 
+    /**
+     * @return Start port (or ICMP type number if protocol is `icmp`)
+     * 
+     */
     public Output<Integer> fromPort() {
         return this.fromPort;
     }
 
+    /**
+     * List of IPv6 CIDR blocks.
+     * 
+     */
     @Import(name="ipv6CidrBlocks")
     private @Nullable Output<List<String>> ipv6CidrBlocks;
 
+    /**
+     * @return List of IPv6 CIDR blocks.
+     * 
+     */
     public Optional<Output<List<String>>> ipv6CidrBlocks() {
         return Optional.ofNullable(this.ipv6CidrBlocks);
     }
 
+    /**
+     * List of prefix list IDs (for allowing access to VPC endpoints)
+     * 
+     */
     @Import(name="prefixListIds")
     private @Nullable Output<List<String>> prefixListIds;
 
+    /**
+     * @return List of prefix list IDs (for allowing access to VPC endpoints)
+     * 
+     */
     public Optional<Output<List<String>>> prefixListIds() {
         return Optional.ofNullable(this.prefixListIds);
     }
 
+    /**
+     * Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+     * 
+     */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
+    /**
+     * @return Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+     * 
+     */
     public Output<String> protocol() {
         return this.protocol;
     }
 
+    /**
+     * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+     * 
+     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
+    /**
+     * @return List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+     * 
+     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
 
+    /**
+     * Whether the security group itself will be added as a source to this egress rule.
+     * 
+     */
     @Import(name="self")
     private @Nullable Output<Boolean> self;
 
+    /**
+     * @return Whether the security group itself will be added as a source to this egress rule.
+     * 
+     */
     public Optional<Output<Boolean>> self() {
         return Optional.ofNullable(this.self);
     }
 
+    /**
+     * End range port (or ICMP code if protocol is `icmp`).
+     * 
+     */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
+    /**
+     * @return End range port (or ICMP code if protocol is `icmp`).
+     * 
+     */
     public Output<Integer> toPort() {
         return this.toPort;
     }
@@ -122,15 +186,33 @@ public final class DefaultSecurityGroupIngressArgs extends com.pulumi.resources.
             $ = new DefaultSecurityGroupIngressArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cidrBlocks List of CIDR blocks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrBlocks(@Nullable Output<List<String>> cidrBlocks) {
             $.cidrBlocks = cidrBlocks;
             return this;
         }
 
+        /**
+         * @param cidrBlocks List of CIDR blocks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrBlocks(List<String> cidrBlocks) {
             return cidrBlocks(Output.of(cidrBlocks));
         }
 
+        /**
+         * @param cidrBlocks List of CIDR blocks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrBlocks(String... cidrBlocks) {
             return cidrBlocks(List.of(cidrBlocks));
         }
@@ -156,77 +238,179 @@ public final class DefaultSecurityGroupIngressArgs extends com.pulumi.resources.
             return description(Output.of(description));
         }
 
+        /**
+         * @param fromPort Start port (or ICMP type number if protocol is `icmp`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder fromPort(Output<Integer> fromPort) {
             $.fromPort = fromPort;
             return this;
         }
 
+        /**
+         * @param fromPort Start port (or ICMP type number if protocol is `icmp`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder fromPort(Integer fromPort) {
             return fromPort(Output.of(fromPort));
         }
 
+        /**
+         * @param ipv6CidrBlocks List of IPv6 CIDR blocks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6CidrBlocks(@Nullable Output<List<String>> ipv6CidrBlocks) {
             $.ipv6CidrBlocks = ipv6CidrBlocks;
             return this;
         }
 
+        /**
+         * @param ipv6CidrBlocks List of IPv6 CIDR blocks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6CidrBlocks(List<String> ipv6CidrBlocks) {
             return ipv6CidrBlocks(Output.of(ipv6CidrBlocks));
         }
 
+        /**
+         * @param ipv6CidrBlocks List of IPv6 CIDR blocks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6CidrBlocks(String... ipv6CidrBlocks) {
             return ipv6CidrBlocks(List.of(ipv6CidrBlocks));
         }
 
+        /**
+         * @param prefixListIds List of prefix list IDs (for allowing access to VPC endpoints)
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefixListIds(@Nullable Output<List<String>> prefixListIds) {
             $.prefixListIds = prefixListIds;
             return this;
         }
 
+        /**
+         * @param prefixListIds List of prefix list IDs (for allowing access to VPC endpoints)
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefixListIds(List<String> prefixListIds) {
             return prefixListIds(Output.of(prefixListIds));
         }
 
+        /**
+         * @param prefixListIds List of prefix list IDs (for allowing access to VPC endpoints)
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefixListIds(String... prefixListIds) {
             return prefixListIds(List.of(prefixListIds));
         }
 
+        /**
+         * @param protocol Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
+        /**
+         * @param protocol Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
+        /**
+         * @param securityGroups List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
+        /**
+         * @param securityGroups List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
+        /**
+         * @param securityGroups List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
 
+        /**
+         * @param self Whether the security group itself will be added as a source to this egress rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder self(@Nullable Output<Boolean> self) {
             $.self = self;
             return this;
         }
 
+        /**
+         * @param self Whether the security group itself will be added as a source to this egress rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder self(Boolean self) {
             return self(Output.of(self));
         }
 
+        /**
+         * @param toPort End range port (or ICMP code if protocol is `icmp`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder toPort(Output<Integer> toPort) {
             $.toPort = toPort;
             return this;
         }
 
+        /**
+         * @param toPort End range port (or ICMP code if protocol is `icmp`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder toPort(Integer toPort) {
             return toPort(Output.of(toPort));
         }

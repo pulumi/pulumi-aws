@@ -15,16 +15,32 @@ public final class PipeSourceParametersSqsQueueParametersArgs extends com.pulumi
 
     public static final PipeSourceParametersSqsQueueParametersArgs Empty = new PipeSourceParametersSqsQueueParametersArgs();
 
+    /**
+     * The maximum number of records to include in each batch. Maximum value of 10000.
+     * 
+     */
     @Import(name="batchSize")
     private @Nullable Output<Integer> batchSize;
 
+    /**
+     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * 
+     */
     public Optional<Output<Integer>> batchSize() {
         return Optional.ofNullable(this.batchSize);
     }
 
+    /**
+     * The maximum length of a time to wait for events. Maximum value of 300.
+     * 
+     */
     @Import(name="maximumBatchingWindowInSeconds")
     private @Nullable Output<Integer> maximumBatchingWindowInSeconds;
 
+    /**
+     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * 
+     */
     public Optional<Output<Integer>> maximumBatchingWindowInSeconds() {
         return Optional.ofNullable(this.maximumBatchingWindowInSeconds);
     }
@@ -54,20 +70,44 @@ public final class PipeSourceParametersSqsQueueParametersArgs extends com.pulumi
             $ = new PipeSourceParametersSqsQueueParametersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
+         * 
+         * @return builder
+         * 
+         */
         public Builder batchSize(@Nullable Output<Integer> batchSize) {
             $.batchSize = batchSize;
             return this;
         }
 
+        /**
+         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
+         * 
+         * @return builder
+         * 
+         */
         public Builder batchSize(Integer batchSize) {
             return batchSize(Output.of(batchSize));
         }
 
+        /**
+         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumBatchingWindowInSeconds(@Nullable Output<Integer> maximumBatchingWindowInSeconds) {
             $.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }
 
+        /**
+         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumBatchingWindowInSeconds(Integer maximumBatchingWindowInSeconds) {
             return maximumBatchingWindowInSeconds(Output.of(maximumBatchingWindowInSeconds));
         }

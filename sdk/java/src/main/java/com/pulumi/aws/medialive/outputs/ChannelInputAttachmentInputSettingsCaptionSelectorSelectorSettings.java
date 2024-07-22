@@ -17,33 +17,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings {
+    /**
+     * @return Ancillary Source Settings. See Ancillary Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings ancillarySourceSettings;
+    /**
+     * @return ARIB Source Settings.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings aribSourceSettings;
+    /**
+     * @return DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings dvbSubSourceSettings;
+    /**
+     * @return Embedded Source Settings. See Embedded Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings embeddedSourceSettings;
+    /**
+     * @return SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings scte20SourceSettings;
+    /**
+     * @return SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings scte27SourceSettings;
+    /**
+     * @return Teletext Source Settings. See Teletext Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings teletextSourceSettings;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings() {}
+    /**
+     * @return Ancillary Source Settings. See Ancillary Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings> ancillarySourceSettings() {
         return Optional.ofNullable(this.ancillarySourceSettings);
     }
+    /**
+     * @return ARIB Source Settings.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings> aribSourceSettings() {
         return Optional.ofNullable(this.aribSourceSettings);
     }
+    /**
+     * @return DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings> dvbSubSourceSettings() {
         return Optional.ofNullable(this.dvbSubSourceSettings);
     }
+    /**
+     * @return Embedded Source Settings. See Embedded Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings> embeddedSourceSettings() {
         return Optional.ofNullable(this.embeddedSourceSettings);
     }
+    /**
+     * @return SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings> scte20SourceSettings() {
         return Optional.ofNullable(this.scte20SourceSettings);
     }
+    /**
+     * @return SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings> scte27SourceSettings() {
         return Optional.ofNullable(this.scte27SourceSettings);
     }
+    /**
+     * @return Teletext Source Settings. See Teletext Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings> teletextSourceSettings() {
         return Optional.ofNullable(this.teletextSourceSettings);
     }

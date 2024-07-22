@@ -13,6 +13,10 @@ import java.util.Objects;
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
     private Integer captionChannel;
     private String languageCode;
+    /**
+     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * 
+     */
     private String languageDescription;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping() {}
@@ -22,6 +26,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public String languageCode() {
         return this.languageCode;
     }
+    /**
+     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * 
+     */
     public String languageDescription() {
         return this.languageDescription;
     }

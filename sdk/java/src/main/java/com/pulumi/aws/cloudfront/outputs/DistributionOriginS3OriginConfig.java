@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DistributionOriginS3OriginConfig {
+    /**
+     * @return The CloudFront origin access identity to associate with the origin.
+     * 
+     */
     private String originAccessIdentity;
 
     private DistributionOriginS3OriginConfig() {}
+    /**
+     * @return The CloudFront origin access identity to associate with the origin.
+     * 
+     */
     public String originAccessIdentity() {
         return this.originAccessIdentity;
     }

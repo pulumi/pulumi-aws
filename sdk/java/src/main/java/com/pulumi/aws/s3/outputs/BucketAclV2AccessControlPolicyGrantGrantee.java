@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketAclV2AccessControlPolicyGrantGrantee {
+    /**
+     * @return Display name of the owner.
+     * 
+     */
     private @Nullable String displayName;
     /**
      * @return Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
@@ -35,6 +39,10 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
     private @Nullable String uri;
 
     private BucketAclV2AccessControlPolicyGrantGrantee() {}
+    /**
+     * @return Display name of the owner.
+     * 
+     */
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }

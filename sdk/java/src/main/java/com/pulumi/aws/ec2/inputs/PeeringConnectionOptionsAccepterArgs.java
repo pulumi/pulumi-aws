@@ -15,9 +15,17 @@ public final class PeeringConnectionOptionsAccepterArgs extends com.pulumi.resou
 
     public static final PeeringConnectionOptionsAccepterArgs Empty = new PeeringConnectionOptionsAccepterArgs();
 
+    /**
+     * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+     * 
+     */
     @Import(name="allowRemoteVpcDnsResolution")
     private @Nullable Output<Boolean> allowRemoteVpcDnsResolution;
 
+    /**
+     * @return Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+     * 
+     */
     public Optional<Output<Boolean>> allowRemoteVpcDnsResolution() {
         return Optional.ofNullable(this.allowRemoteVpcDnsResolution);
     }
@@ -46,11 +54,23 @@ public final class PeeringConnectionOptionsAccepterArgs extends com.pulumi.resou
             $ = new PeeringConnectionOptionsAccepterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowRemoteVpcDnsResolution Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowRemoteVpcDnsResolution(@Nullable Output<Boolean> allowRemoteVpcDnsResolution) {
             $.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
             return this;
         }
 
+        /**
+         * @param allowRemoteVpcDnsResolution Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowRemoteVpcDnsResolution(Boolean allowRemoteVpcDnsResolution) {
             return allowRemoteVpcDnsResolution(Output.of(allowRemoteVpcDnsResolution));
         }

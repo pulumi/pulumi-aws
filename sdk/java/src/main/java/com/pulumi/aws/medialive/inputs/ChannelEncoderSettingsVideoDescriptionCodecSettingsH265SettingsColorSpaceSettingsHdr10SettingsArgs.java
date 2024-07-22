@@ -15,16 +15,32 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs();
 
+    /**
+     * Sets the MaxCLL value for HDR10.
+     * 
+     */
     @Import(name="maxCll")
     private @Nullable Output<Integer> maxCll;
 
+    /**
+     * @return Sets the MaxCLL value for HDR10.
+     * 
+     */
     public Optional<Output<Integer>> maxCll() {
         return Optional.ofNullable(this.maxCll);
     }
 
+    /**
+     * Sets the MaxFALL value for HDR10.
+     * 
+     */
     @Import(name="maxFall")
     private @Nullable Output<Integer> maxFall;
 
+    /**
+     * @return Sets the MaxFALL value for HDR10.
+     * 
+     */
     public Optional<Output<Integer>> maxFall() {
         return Optional.ofNullable(this.maxFall);
     }
@@ -54,20 +70,44 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             $ = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxCll Sets the MaxCLL value for HDR10.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxCll(@Nullable Output<Integer> maxCll) {
             $.maxCll = maxCll;
             return this;
         }
 
+        /**
+         * @param maxCll Sets the MaxCLL value for HDR10.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxCll(Integer maxCll) {
             return maxCll(Output.of(maxCll));
         }
 
+        /**
+         * @param maxFall Sets the MaxFALL value for HDR10.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxFall(@Nullable Output<Integer> maxFall) {
             $.maxFall = maxFall;
             return this;
         }
 
+        /**
+         * @param maxFall Sets the MaxFALL value for HDR10.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxFall(Integer maxFall) {
             return maxFall(Output.of(maxFall));
         }

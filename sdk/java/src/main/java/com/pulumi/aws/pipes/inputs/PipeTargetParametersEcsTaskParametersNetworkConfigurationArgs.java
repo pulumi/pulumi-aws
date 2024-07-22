@@ -15,9 +15,17 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs
 
     public static final PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs Empty = new PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs();
 
+    /**
+     * Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+     * 
+     */
     @Import(name="awsVpcConfiguration")
     private @Nullable Output<PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs> awsVpcConfiguration;
 
+    /**
+     * @return Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+     * 
+     */
     public Optional<Output<PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs>> awsVpcConfiguration() {
         return Optional.ofNullable(this.awsVpcConfiguration);
     }
@@ -46,11 +54,23 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs
             $ = new PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsVpcConfiguration Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsVpcConfiguration(@Nullable Output<PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs> awsVpcConfiguration) {
             $.awsVpcConfiguration = awsVpcConfiguration;
             return this;
         }
 
+        /**
+         * @param awsVpcConfiguration Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsVpcConfiguration(PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs awsVpcConfiguration) {
             return awsVpcConfiguration(Output.of(awsVpcConfiguration));
         }

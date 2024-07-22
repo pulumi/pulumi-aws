@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeLogConfigurationS3LogDestination {
+    /**
+     * @return Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+     * 
+     */
     private String bucketName;
+    /**
+     * @return Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+     * 
+     */
     private String bucketOwner;
+    /**
+     * @return EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+     * 
+     */
     private @Nullable String outputFormat;
+    /**
+     * @return Prefix text with which to begin Amazon S3 log object names.
+     * 
+     */
     private @Nullable String prefix;
 
     private PipeLogConfigurationS3LogDestination() {}
+    /**
+     * @return Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+     * 
+     */
     public String bucketName() {
         return this.bucketName;
     }
+    /**
+     * @return Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+     * 
+     */
     public String bucketOwner() {
         return this.bucketOwner;
     }
+    /**
+     * @return EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+     * 
+     */
     public Optional<String> outputFormat() {
         return Optional.ofNullable(this.outputFormat);
     }
+    /**
+     * @return Prefix text with which to begin Amazon S3 log object names.
+     * 
+     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
