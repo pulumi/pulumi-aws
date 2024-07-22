@@ -13,10 +13,12 @@ import os
 import sys
 import typing
 import warnings
+import base64
 
 import pulumi
 import pulumi.runtime
 from pulumi.runtime.sync_await import _sync_await
+from pulumi.runtime.proto import resource_pb2
 
 from semver import VersionInfo as SemverVersion
 from parver import Version as PEP440Version
@@ -99,10 +101,6 @@ def _get_semver_version():
 # Determine the version once and cache the value, which measurably improves program performance.
 _version = _get_semver_version()
 _version_str = str(_version)
-
-
-def get_version():
-    return _version_str
 
 def get_resource_opts_defaults() -> pulumi.ResourceOptions:
     return pulumi.ResourceOptions(
@@ -324,3 +322,6 @@ def deprecated(message: str) -> typing.Callable[[C], C]:
 
 def get_plugin_download_url():
 	return None
+
+def get_version():
+     return _version_str

@@ -14,6 +14,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings
     {
         public readonly string? H265PackagingType;
+        /// <summary>
+        /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        /// </summary>
         public readonly string? NameModifier;
 
         [OutputConstructor]

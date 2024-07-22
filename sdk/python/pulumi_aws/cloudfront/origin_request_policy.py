@@ -231,20 +231,20 @@ class OriginRequestPolicy(pulumi.CustomResource):
             name="example-policy",
             comment="example comment",
             cookies_config={
-                "cookieBehavior": "whitelist",
+                "cookie_behavior": "whitelist",
                 "cookies": {
                     "items": ["example"],
                 },
             },
             headers_config={
-                "headerBehavior": "whitelist",
+                "header_behavior": "whitelist",
                 "headers": {
                     "items": ["example"],
                 },
             },
             query_strings_config={
-                "queryStringBehavior": "whitelist",
-                "queryStrings": {
+                "query_string_behavior": "whitelist",
+                "query_strings": {
                     "items": ["example"],
                 },
             })
@@ -285,20 +285,20 @@ class OriginRequestPolicy(pulumi.CustomResource):
             name="example-policy",
             comment="example comment",
             cookies_config={
-                "cookieBehavior": "whitelist",
+                "cookie_behavior": "whitelist",
                 "cookies": {
                     "items": ["example"],
                 },
             },
             headers_config={
-                "headerBehavior": "whitelist",
+                "header_behavior": "whitelist",
                 "headers": {
                     "items": ["example"],
                 },
             },
             query_strings_config={
-                "queryStringBehavior": "whitelist",
-                "queryStrings": {
+                "query_string_behavior": "whitelist",
+                "query_strings": {
                     "items": ["example"],
                 },
             })

@@ -42,15 +42,24 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("dialnorm")]
         public Input<int>? Dialnorm { get; set; }
 
+        /// <summary>
+        /// Sets the Dolby dynamic range compression profile.
+        /// </summary>
         [Input("drcLine")]
         public Input<string>? DrcLine { get; set; }
 
+        /// <summary>
+        /// Sets the profile for heavy Dolby dynamic range compression.
+        /// </summary>
         [Input("drcRf")]
         public Input<string>? DrcRf { get; set; }
 
         [Input("lfeControl")]
         public Input<string>? LfeControl { get; set; }
 
+        /// <summary>
+        /// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        /// </summary>
         [Input("lfeFilter")]
         public Input<string>? LfeFilter { get; set; }
 
@@ -66,6 +75,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("ltRtSurroundMixLevel")]
         public Input<double>? LtRtSurroundMixLevel { get; set; }
 
+        /// <summary>
+        /// Metadata control.
+        /// </summary>
         [Input("metadataControl")]
         public Input<string>? MetadataControl { get; set; }
 

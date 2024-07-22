@@ -15,9 +15,17 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs ex
 
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs();
 
+    /**
+     * Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -46,11 +54,23 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs ex
             $ = new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

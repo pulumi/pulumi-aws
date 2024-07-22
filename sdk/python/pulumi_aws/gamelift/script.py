@@ -255,7 +255,7 @@ class Script(pulumi.CustomResource):
             storage_location={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-                "roleArn": example_aws_iam_role["arn"],
+                "role_arn": example_aws_iam_role["arn"],
             })
         ```
 
@@ -295,7 +295,7 @@ class Script(pulumi.CustomResource):
             storage_location={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-                "roleArn": example_aws_iam_role["arn"],
+                "role_arn": example_aws_iam_role["arn"],
             })
         ```
 

@@ -1839,8 +1839,8 @@ class Instance(pulumi.CustomResource):
         this_instance = aws.ec2.Instance("this",
             ami=this.id,
             instance_market_options={
-                "spotOptions": {
-                    "maxPrice": "0.0031",
+                "spot_options": {
+                    "max_price": "0.0031",
                 },
             },
             instance_type=aws.ec2.InstanceType.T4G_NANO,
@@ -1877,11 +1877,11 @@ class Instance(pulumi.CustomResource):
             ami="ami-005e54dee72cc1d00",
             instance_type=aws.ec2.InstanceType.T2_MICRO,
             network_interfaces=[{
-                "networkInterfaceId": foo.id,
-                "deviceIndex": 0,
+                "network_interface_id": foo.id,
+                "device_index": 0,
             }],
             credit_specification={
-                "cpuCredits": "unlimited",
+                "cpu_credits": "unlimited",
             })
         ```
 
@@ -1914,8 +1914,8 @@ class Instance(pulumi.CustomResource):
             instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
             subnet_id=example_subnet.id,
             cpu_options={
-                "coreCount": 2,
-                "threadsPerCore": 2,
+                "core_count": 2,
+                "threads_per_core": 2,
             },
             tags={
                 "Name": "tf-example",
@@ -2072,8 +2072,8 @@ class Instance(pulumi.CustomResource):
         this_instance = aws.ec2.Instance("this",
             ami=this.id,
             instance_market_options={
-                "spotOptions": {
-                    "maxPrice": "0.0031",
+                "spot_options": {
+                    "max_price": "0.0031",
                 },
             },
             instance_type=aws.ec2.InstanceType.T4G_NANO,
@@ -2110,11 +2110,11 @@ class Instance(pulumi.CustomResource):
             ami="ami-005e54dee72cc1d00",
             instance_type=aws.ec2.InstanceType.T2_MICRO,
             network_interfaces=[{
-                "networkInterfaceId": foo.id,
-                "deviceIndex": 0,
+                "network_interface_id": foo.id,
+                "device_index": 0,
             }],
             credit_specification={
-                "cpuCredits": "unlimited",
+                "cpu_credits": "unlimited",
             })
         ```
 
@@ -2147,8 +2147,8 @@ class Instance(pulumi.CustomResource):
             instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
             subnet_id=example_subnet.id,
             cpu_options={
-                "coreCount": 2,
-                "threadsPerCore": 2,
+                "core_count": 2,
+                "threads_per_core": 2,
             },
             tags={
                 "Name": "tf-example",

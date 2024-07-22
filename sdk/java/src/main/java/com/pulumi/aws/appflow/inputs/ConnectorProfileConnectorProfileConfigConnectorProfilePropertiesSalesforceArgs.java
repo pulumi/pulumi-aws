@@ -23,9 +23,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.instanceUrl);
     }
 
+    /**
+     * Indicates whether the connector profile applies to a sandbox or production environment.
+     * 
+     */
     @Import(name="isSandboxEnvironment")
     private @Nullable Output<Boolean> isSandboxEnvironment;
 
+    /**
+     * @return Indicates whether the connector profile applies to a sandbox or production environment.
+     * 
+     */
     public Optional<Output<Boolean>> isSandboxEnvironment() {
         return Optional.ofNullable(this.isSandboxEnvironment);
     }
@@ -64,11 +72,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return instanceUrl(Output.of(instanceUrl));
         }
 
+        /**
+         * @param isSandboxEnvironment Indicates whether the connector profile applies to a sandbox or production environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isSandboxEnvironment(@Nullable Output<Boolean> isSandboxEnvironment) {
             $.isSandboxEnvironment = isSandboxEnvironment;
             return this;
         }
 
+        /**
+         * @param isSandboxEnvironment Indicates whether the connector profile applies to a sandbox or production environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isSandboxEnvironment(Boolean isSandboxEnvironment) {
             return isSandboxEnvironment(Output.of(isSandboxEnvironment));
         }

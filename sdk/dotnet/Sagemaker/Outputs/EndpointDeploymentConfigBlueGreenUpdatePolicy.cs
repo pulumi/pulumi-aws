@@ -14,7 +14,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class EndpointDeploymentConfigBlueGreenUpdatePolicy
     {
         public readonly int? MaximumExecutionTimeoutInSeconds;
+        /// <summary>
+        /// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+        /// </summary>
         public readonly int? TerminationWaitInSeconds;
+        /// <summary>
+        /// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+        /// </summary>
         public readonly Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration TrafficRoutingConfiguration;
 
         [OutputConstructor]

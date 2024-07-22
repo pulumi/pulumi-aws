@@ -294,8 +294,8 @@ class Environment(pulumi.CustomResource):
             description="Example AppConfig Environment",
             application_id=example_application.id,
             monitors=[{
-                "alarmArn": example_aws_cloudwatch_metric_alarm["arn"],
-                "alarmRoleArn": example_aws_iam_role["arn"],
+                "alarm_arn": example_aws_cloudwatch_metric_alarm["arn"],
+                "alarm_role_arn": example_aws_iam_role["arn"],
             }],
             tags={
                 "Type": "AppConfig Environment",
@@ -344,8 +344,8 @@ class Environment(pulumi.CustomResource):
             description="Example AppConfig Environment",
             application_id=example_application.id,
             monitors=[{
-                "alarmArn": example_aws_cloudwatch_metric_alarm["arn"],
-                "alarmRoleArn": example_aws_iam_role["arn"],
+                "alarm_arn": example_aws_cloudwatch_metric_alarm["arn"],
+                "alarm_role_arn": example_aws_iam_role["arn"],
             }],
             tags={
                 "Type": "AppConfig Environment",

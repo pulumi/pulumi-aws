@@ -44,6 +44,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string Name;
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettings? RemixSettings;
+        /// <summary>
+        /// Stream name RTMP destinations (URLs of type rtmp://)
+        /// </summary>
         public readonly string? StreamName;
 
         [OutputConstructor]

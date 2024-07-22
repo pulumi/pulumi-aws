@@ -34,8 +34,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: pulumi.Array{
-//					iam.GetPolicyDocumentStatement{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
 //						Sid: pulumi.StringRef("1"),
 //						Actions: []string{
 //							"s3:ListAllMyBuckets",
@@ -45,7 +45,7 @@ import (
 //							"arn:aws:s3:::*",
 //						},
 //					},
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"s3:ListBucket",
 //						},
@@ -64,7 +64,7 @@ import (
 //							},
 //						},
 //					},
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"s3:*",
 //						},
@@ -444,8 +444,8 @@ import (
 // return err
 // }
 // sourceTwo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: pulumi.Array{
-// iam.GetPolicyDocumentStatement{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
 // Sid: pulumi.StringRef("UniqueSidTwo"),
 // Actions: []string{
 // "iam:*",
@@ -454,7 +454,7 @@ import (
 // "*",
 // },
 // },
-// iam.GetPolicyDocumentStatement{
+// {
 // Actions: []string{
 // "lambda:*",
 // },

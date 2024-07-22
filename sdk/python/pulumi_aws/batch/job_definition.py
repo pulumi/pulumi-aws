@@ -650,8 +650,8 @@ class JobDefinition(pulumi.CustomResource):
             name=" tf_test_batch_job_definition_eks",
             type="container",
             eks_properties={
-                "podProperties": {
-                    "hostNetwork": True,
+                "pod_properties": {
+                    "host_network": True,
                     "containers": {
                         "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
                         "commands": [
@@ -860,8 +860,8 @@ class JobDefinition(pulumi.CustomResource):
             name=" tf_test_batch_job_definition_eks",
             type="container",
             eks_properties={
-                "podProperties": {
-                    "hostNetwork": True,
+                "pod_properties": {
+                    "host_network": True,
                     "containers": {
                         "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
                         "commands": [

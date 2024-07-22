@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecordGeoproximityRoutingPolicy {
+    /**
+     * @return A AWS region where the resource is present.
+     * 
+     */
     private @Nullable String awsRegion;
+    /**
+     * @return Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+     * 
+     */
     private @Nullable Integer bias;
+    /**
+     * @return Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+     * 
+     */
     private @Nullable List<RecordGeoproximityRoutingPolicyCoordinate> coordinates;
+    /**
+     * @return A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+     * 
+     */
     private @Nullable String localZoneGroup;
 
     private RecordGeoproximityRoutingPolicy() {}
+    /**
+     * @return A AWS region where the resource is present.
+     * 
+     */
     public Optional<String> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
+    /**
+     * @return Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+     * 
+     */
     public Optional<Integer> bias() {
         return Optional.ofNullable(this.bias);
     }
+    /**
+     * @return Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+     * 
+     */
     public List<RecordGeoproximityRoutingPolicyCoordinate> coordinates() {
         return this.coordinates == null ? List.of() : this.coordinates;
     }
+    /**
+     * @return A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+     * 
+     */
     public Optional<String> localZoneGroup() {
         return Optional.ofNullable(this.localZoneGroup);
     }

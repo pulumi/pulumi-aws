@@ -7398,9 +7398,11 @@ func (o PartitionStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.Boo
 }
 
 type PartitionStorageDescriptorColumn struct {
+	// Free-form text comment.
 	Comment *string `pulumi:"comment"`
 	Name    string  `pulumi:"name"`
-	Type    *string `pulumi:"type"`
+	// The datatype of data in the Column.
+	Type *string `pulumi:"type"`
 }
 
 // PartitionStorageDescriptorColumnInput is an input type that accepts PartitionStorageDescriptorColumnArgs and PartitionStorageDescriptorColumnOutput values.
@@ -7415,9 +7417,11 @@ type PartitionStorageDescriptorColumnInput interface {
 }
 
 type PartitionStorageDescriptorColumnArgs struct {
+	// Free-form text comment.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	Name    pulumi.StringInput    `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	// The datatype of data in the Column.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PartitionStorageDescriptorColumnArgs) ElementType() reflect.Type {
@@ -7471,6 +7475,7 @@ func (o PartitionStorageDescriptorColumnOutput) ToPartitionStorageDescriptorColu
 	return o
 }
 
+// Free-form text comment.
 func (o PartitionStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -7479,6 +7484,7 @@ func (o PartitionStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The datatype of data in the Column.
 func (o PartitionStorageDescriptorColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

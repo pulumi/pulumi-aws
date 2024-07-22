@@ -16,30 +16,62 @@ public final class PipeLogConfigurationS3LogDestinationArgs extends com.pulumi.r
 
     public static final PipeLogConfigurationS3LogDestinationArgs Empty = new PipeLogConfigurationS3LogDestinationArgs();
 
+    /**
+     * Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+     * 
+     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
+    /**
+     * @return Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+     * 
+     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
+    /**
+     * Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+     * 
+     */
     @Import(name="bucketOwner", required=true)
     private Output<String> bucketOwner;
 
+    /**
+     * @return Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+     * 
+     */
     public Output<String> bucketOwner() {
         return this.bucketOwner;
     }
 
+    /**
+     * EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+     * 
+     */
     @Import(name="outputFormat")
     private @Nullable Output<String> outputFormat;
 
+    /**
+     * @return EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+     * 
+     */
     public Optional<Output<String>> outputFormat() {
         return Optional.ofNullable(this.outputFormat);
     }
 
+    /**
+     * Prefix text with which to begin Amazon S3 log object names.
+     * 
+     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
+    /**
+     * @return Prefix text with which to begin Amazon S3 log object names.
+     * 
+     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -71,38 +103,86 @@ public final class PipeLogConfigurationS3LogDestinationArgs extends com.pulumi.r
             $ = new PipeLogConfigurationS3LogDestinationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucketName Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
+        /**
+         * @param bucketName Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
+        /**
+         * @param bucketOwner Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketOwner(Output<String> bucketOwner) {
             $.bucketOwner = bucketOwner;
             return this;
         }
 
+        /**
+         * @param bucketOwner Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketOwner(String bucketOwner) {
             return bucketOwner(Output.of(bucketOwner));
         }
 
+        /**
+         * @param outputFormat EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputFormat(@Nullable Output<String> outputFormat) {
             $.outputFormat = outputFormat;
             return this;
         }
 
+        /**
+         * @param outputFormat EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputFormat(String outputFormat) {
             return outputFormat(Output.of(outputFormat));
         }
 
+        /**
+         * @param prefix Prefix text with which to begin Amazon S3 log object names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
+        /**
+         * @param prefix Prefix text with which to begin Amazon S3 log object names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

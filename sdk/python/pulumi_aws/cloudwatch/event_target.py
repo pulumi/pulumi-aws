@@ -858,8 +858,8 @@ class EventTarget(pulumi.CustomResource):
             rule=every_hour["name"],
             role_arn=ecs_events.arn,
             ecs_target={
-                "taskCount": 1,
-                "taskDefinitionArn": task_name["arn"],
+                "task_count": 1,
+                "task_definition_arn": task_name["arn"],
             },
             input=json.dumps({
                 "containerOverrides": [{
@@ -887,11 +887,11 @@ class EventTarget(pulumi.CustomResource):
             arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
             rule=example_event_rule.id,
             http_target={
-                "queryStringParameters": {
-                    "Body": "$.detail.body",
+                "query_string_parameters": {
+                    "body": "$.detail.body",
                 },
-                "headerParameters": {
-                    "Env": "Test",
+                "header_parameters": {
+                    "env": "Test",
                 },
             })
         ```
@@ -946,11 +946,11 @@ class EventTarget(pulumi.CustomResource):
             arn=example_aws_lambda_function["arn"],
             rule=example_event_rule.id,
             input_transformer={
-                "inputPaths": {
+                "input_paths": {
                     "instance": "$.detail.instance",
                     "status": "$.detail.status",
                 },
-                "inputTemplate": \"\"\"{
+                "input_template": \"\"\"{
           "instance_id": <instance>,
           "instance_status": <status>
         }
@@ -969,11 +969,11 @@ class EventTarget(pulumi.CustomResource):
             arn=example_aws_lambda_function["arn"],
             rule=example_event_rule.id,
             input_transformer={
-                "inputPaths": {
+                "input_paths": {
                     "instance": "$.detail.instance",
                     "status": "$.detail.status",
                 },
-                "inputTemplate": "\\"<instance> is in state <status>\\"",
+                "input_template": "\\"<instance> is in state <status>\\"",
             })
         ```
 
@@ -1255,8 +1255,8 @@ class EventTarget(pulumi.CustomResource):
             rule=every_hour["name"],
             role_arn=ecs_events.arn,
             ecs_target={
-                "taskCount": 1,
-                "taskDefinitionArn": task_name["arn"],
+                "task_count": 1,
+                "task_definition_arn": task_name["arn"],
             },
             input=json.dumps({
                 "containerOverrides": [{
@@ -1284,11 +1284,11 @@ class EventTarget(pulumi.CustomResource):
             arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
             rule=example_event_rule.id,
             http_target={
-                "queryStringParameters": {
-                    "Body": "$.detail.body",
+                "query_string_parameters": {
+                    "body": "$.detail.body",
                 },
-                "headerParameters": {
-                    "Env": "Test",
+                "header_parameters": {
+                    "env": "Test",
                 },
             })
         ```
@@ -1343,11 +1343,11 @@ class EventTarget(pulumi.CustomResource):
             arn=example_aws_lambda_function["arn"],
             rule=example_event_rule.id,
             input_transformer={
-                "inputPaths": {
+                "input_paths": {
                     "instance": "$.detail.instance",
                     "status": "$.detail.status",
                 },
-                "inputTemplate": \"\"\"{
+                "input_template": \"\"\"{
           "instance_id": <instance>,
           "instance_status": <status>
         }
@@ -1366,11 +1366,11 @@ class EventTarget(pulumi.CustomResource):
             arn=example_aws_lambda_function["arn"],
             rule=example_event_rule.id,
             input_transformer={
-                "inputPaths": {
+                "input_paths": {
                     "instance": "$.detail.instance",
                     "status": "$.detail.status",
                 },
-                "inputTemplate": "\\"<instance> is in state <status>\\"",
+                "input_template": "\\"<instance> is in state <status>\\"",
             })
         ```
 

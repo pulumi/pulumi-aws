@@ -21,30 +21,62 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
 
     public static final ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs();
 
+    /**
+     * Aac Settings. See AAC Settings for more details.
+     * 
+     */
     @Import(name="aacSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs> aacSettings;
 
+    /**
+     * @return Aac Settings. See AAC Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs>> aacSettings() {
         return Optional.ofNullable(this.aacSettings);
     }
 
+    /**
+     * Ac3 Settings. See AC3 Settings for more details.
+     * 
+     */
     @Import(name="ac3Settings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs> ac3Settings;
 
+    /**
+     * @return Ac3 Settings. See AC3 Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs>> ac3Settings() {
         return Optional.ofNullable(this.ac3Settings);
     }
 
+    /**
+     * Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * 
+     */
     @Import(name="eac3AtmosSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs> eac3AtmosSettings;
 
+    /**
+     * @return Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs>> eac3AtmosSettings() {
         return Optional.ofNullable(this.eac3AtmosSettings);
     }
 
+    /**
+     * Eac3 Settings. See EAC3 Settings
+     * 
+     */
     @Import(name="eac3Settings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs> eac3Settings;
 
+    /**
+     * @return Eac3 Settings. See EAC3 Settings
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs>> eac3Settings() {
         return Optional.ofNullable(this.eac3Settings);
     }
@@ -100,38 +132,86 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
             $ = new ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aacSettings Aac Settings. See AAC Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aacSettings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs> aacSettings) {
             $.aacSettings = aacSettings;
             return this;
         }
 
+        /**
+         * @param aacSettings Aac Settings. See AAC Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aacSettings(ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs aacSettings) {
             return aacSettings(Output.of(aacSettings));
         }
 
+        /**
+         * @param ac3Settings Ac3 Settings. See AC3 Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ac3Settings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs> ac3Settings) {
             $.ac3Settings = ac3Settings;
             return this;
         }
 
+        /**
+         * @param ac3Settings Ac3 Settings. See AC3 Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ac3Settings(ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs ac3Settings) {
             return ac3Settings(Output.of(ac3Settings));
         }
 
+        /**
+         * @param eac3AtmosSettings Eac3 Atmos Settings. See EAC3 Atmos Settings
+         * 
+         * @return builder
+         * 
+         */
         public Builder eac3AtmosSettings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs> eac3AtmosSettings) {
             $.eac3AtmosSettings = eac3AtmosSettings;
             return this;
         }
 
+        /**
+         * @param eac3AtmosSettings Eac3 Atmos Settings. See EAC3 Atmos Settings
+         * 
+         * @return builder
+         * 
+         */
         public Builder eac3AtmosSettings(ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs eac3AtmosSettings) {
             return eac3AtmosSettings(Output.of(eac3AtmosSettings));
         }
 
+        /**
+         * @param eac3Settings Eac3 Settings. See EAC3 Settings
+         * 
+         * @return builder
+         * 
+         */
         public Builder eac3Settings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs> eac3Settings) {
             $.eac3Settings = eac3Settings;
             return this;
         }
 
+        /**
+         * @param eac3Settings Eac3 Settings. See EAC3 Settings
+         * 
+         * @return builder
+         * 
+         */
         public Builder eac3Settings(ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs eac3Settings) {
             return eac3Settings(Output.of(eac3Settings));
         }

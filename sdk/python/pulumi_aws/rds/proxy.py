@@ -437,10 +437,10 @@ class Proxy(pulumi.CustomResource):
             vpc_security_group_ids=[example_aws_security_group["id"]],
             vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[{
-                "authScheme": "SECRETS",
+                "auth_scheme": "SECRETS",
                 "description": "example",
-                "iamAuth": "DISABLED",
-                "secretArn": example_aws_secretsmanager_secret["arn"],
+                "iam_auth": "DISABLED",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
             }],
             tags={
                 "Name": "example",
@@ -494,10 +494,10 @@ class Proxy(pulumi.CustomResource):
             vpc_security_group_ids=[example_aws_security_group["id"]],
             vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[{
-                "authScheme": "SECRETS",
+                "auth_scheme": "SECRETS",
                 "description": "example",
-                "iamAuth": "DISABLED",
-                "secretArn": example_aws_secretsmanager_secret["arn"],
+                "iam_auth": "DISABLED",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
             }],
             tags={
                 "Name": "example",

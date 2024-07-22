@@ -505,9 +505,9 @@ class SnapshotImport(pulumi.CustomResource):
         example = aws.ebs.SnapshotImport("example",
             disk_container={
                 "format": "VHD",
-                "userBucket": {
-                    "s3Bucket": "disk-images",
-                    "s3Key": "source.vhd",
+                "user_bucket": {
+                    "s3_bucket": "disk-images",
+                    "s3_key": "source.vhd",
                 },
             },
             role_name="disk-image-import",
@@ -547,9 +547,9 @@ class SnapshotImport(pulumi.CustomResource):
         example = aws.ebs.SnapshotImport("example",
             disk_container={
                 "format": "VHD",
-                "userBucket": {
-                    "s3Bucket": "disk-images",
-                    "s3Key": "source.vhd",
+                "user_bucket": {
+                    "s3_bucket": "disk-images",
+                    "s3_key": "source.vhd",
                 },
             },
             role_name="disk-image-import",

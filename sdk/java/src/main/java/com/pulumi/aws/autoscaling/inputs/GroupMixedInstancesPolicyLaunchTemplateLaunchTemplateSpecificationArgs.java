@@ -15,16 +15,32 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
 
     public static final GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs Empty = new GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs();
 
+    /**
+     * ID of the launch template. Conflicts with `launch_template_name`.
+     * 
+     */
     @Import(name="launchTemplateId")
     private @Nullable Output<String> launchTemplateId;
 
+    /**
+     * @return ID of the launch template. Conflicts with `launch_template_name`.
+     * 
+     */
     public Optional<Output<String>> launchTemplateId() {
         return Optional.ofNullable(this.launchTemplateId);
     }
 
+    /**
+     * Name of the launch template. Conflicts with `launch_template_id`.
+     * 
+     */
     @Import(name="launchTemplateName")
     private @Nullable Output<String> launchTemplateName;
 
+    /**
+     * @return Name of the launch template. Conflicts with `launch_template_id`.
+     * 
+     */
     public Optional<Output<String>> launchTemplateName() {
         return Optional.ofNullable(this.launchTemplateName);
     }
@@ -62,20 +78,44 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
             $ = new GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param launchTemplateId ID of the launch template. Conflicts with `launch_template_name`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder launchTemplateId(@Nullable Output<String> launchTemplateId) {
             $.launchTemplateId = launchTemplateId;
             return this;
         }
 
+        /**
+         * @param launchTemplateId ID of the launch template. Conflicts with `launch_template_name`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder launchTemplateId(String launchTemplateId) {
             return launchTemplateId(Output.of(launchTemplateId));
         }
 
+        /**
+         * @param launchTemplateName Name of the launch template. Conflicts with `launch_template_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder launchTemplateName(@Nullable Output<String> launchTemplateName) {
             $.launchTemplateName = launchTemplateName;
             return this;
         }
 
+        /**
+         * @param launchTemplateName Name of the launch template. Conflicts with `launch_template_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder launchTemplateName(String launchTemplateName) {
             return launchTemplateName(Output.of(launchTemplateName));
         }

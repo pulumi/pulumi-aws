@@ -12,12 +12,18 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class PartitionStorageDescriptorColumnGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Free-form text comment.
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The datatype of data in the Column.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
