@@ -362,6 +362,8 @@ jobs:
               # Uncomment the next line before pushing to main branch, that way all branches can
               # benefit from timing data once it's established there.
               # branch: main
+          - name: List tests
+            run: cd provider && go test ./... -list . -tags=all -timeout 30m
           - name: Generate go test Slice
             id: test_split
             uses: hashicorp-forge/go-test-split-action@v2.0.0
