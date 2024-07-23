@@ -6,7 +6,7 @@ Subject: [PATCH] Normalize ecs.TaskDefinition containerDefinitions
 
 
 diff --git a/internal/service/ecs/task_definition_equivalency.go b/internal/service/ecs/task_definition_equivalency.go
-index 7aaa1e0679..1f7a81d4fd 100644
+index 7aaa1e0679..daf70eec25 100644
 --- a/internal/service/ecs/task_definition_equivalency.go
 +++ b/internal/service/ecs/task_definition_equivalency.go
 @@ -50,6 +50,10 @@ func (cd containerDefinitions) reduce(isAWSVPC bool) {
@@ -14,7 +14,7 @@ index 7aaa1e0679..1f7a81d4fd 100644
  			cd[i].Essential = aws.Bool(true)
  		}
 +		if def.HealthCheck != nil && def.HealthCheck.Timeout == nil {
-+			five := int64(5)
++			five := int32(5)
 +			def.HealthCheck.Timeout = &five
 +		}
  		for j, pm := range def.PortMappings {
