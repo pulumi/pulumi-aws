@@ -11,7 +11,9 @@ runs:
   steps:
     - name: Compress SDK folder
       shell: bash
-      run: tar -zcf sdk/${{ inputs.language }}.tar.gz -C sdk/${{ inputs.language }} .
+      run: |
+        ls ${{ github.workspace }}/sdk/python
+        tar -zcf sdk/${{ inputs.language }}.tar.gz -C sdk/${{ inputs.language }} .
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:

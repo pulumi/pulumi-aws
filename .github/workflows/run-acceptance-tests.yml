@@ -68,21 +68,20 @@ jobs:
       - name: Uncompress SDK folders
         run: |
           files=$(find ${{ github.workspace }} -name "*-sdk.tar.gz" -print)
-          echo $files
+          echo "$files"
           ls -R ${{ github.workspace }}/sdk
           for file in $files
           do
-            echo $file
-            file $file
+            echo "$file"
             filename=$(basename $file)
-            echo $filename
             language=$(echo $filename | sed 's/-.*//')
-            echo $language
             mkdir -p ${{ github.workspace }}/sdk/$language/
             tar -zxf $file -C ${{ github.workspace }}/sdk/$language
           done
       - name: Compress sdk
-        run: tar -zcf sdk.tar.gz -C ${{ github.workspace }}/sdk .
+        run: |
+          ls ${{ github.workspace }}/sdk/python
+          tar -zcf sdk.tar.gz -C ${{ github.workspace }}/sdk .
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
