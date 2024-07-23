@@ -196,8 +196,19 @@ ci-mgmt: .ci-mgmt.yaml
 		--template bridged-provider \
 		--config $<
 
+# Because some codegen depends on the version of the CLI used, we install a local CLI
+# version pinned to the same version as `provider/go.mod`.
+#
+# This logic compares the version of .pulumi/bin/pulumi already installed. If it matches
+# the desired version, we just print. Otherwise we (re)install pulumi at the desired
+# version.
 .pulumi/bin/pulumi: .pulumi/version
-	curl -fsSL https://get.pulumi.com | HOME=$(WORKING_DIR) sh -s -- --version $(shell cat .pulumi/version)
+	@if [ -x .pulumi/bin/pulumi ] && [ "v$$(cat .pulumi/version)" = "$$(.pulumi/bin/pulumi version)" ]; then \
+		echo "pulumi/bin/pulumi version: v$$(cat .pulumi/version)"; \
+	else \
+		curl -fsSL https://get.pulumi.com | \
+			HOME=$(WORKING_DIR) sh -s -- --version "$$(cat .pulumi/version)"; \
+	fi
 
 # Compute the version of Pulumi to use by inspecting the Go dependencies of the provider.
 .pulumi/version: provider/go.mod
