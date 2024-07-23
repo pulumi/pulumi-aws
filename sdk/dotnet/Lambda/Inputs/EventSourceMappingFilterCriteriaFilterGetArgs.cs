@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class EventSourceMappingFilterCriteriaFilterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 

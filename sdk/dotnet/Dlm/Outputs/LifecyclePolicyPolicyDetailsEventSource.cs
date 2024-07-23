@@ -14,6 +14,9 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsEventSource
     {
         public readonly Outputs.LifecyclePolicyPolicyDetailsEventSourceParameters Parameters;
+        /// <summary>
+        /// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride {
+    /**
+     * @return The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+     * 
+     */
     private @Nullable String deviceName;
+    /**
+     * @return The Elastic Inference accelerator type to use.
+     * 
+     */
     private @Nullable String deviceType;
 
     private PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride() {}
+    /**
+     * @return The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+     * 
+     */
     public Optional<String> deviceName() {
         return Optional.ofNullable(this.deviceName);
     }
+    /**
+     * @return The Elastic Inference accelerator type to use.
+     * 
+     */
     public Optional<String> deviceType() {
         return Optional.ofNullable(this.deviceType);
     }

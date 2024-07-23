@@ -1189,12 +1189,18 @@ class RuleGroupRuleGroupReferenceSetsIpSetReference(dict):
     def __init__(__self__, *,
                  ip_set_references: Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference'],
                  key: str):
+        """
+        :param Sequence['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs'] ip_set_references: Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        """
         pulumi.set(__self__, "ip_set_references", ip_set_references)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter(name="ipSetReferences")
     def ip_set_references(self) -> Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference']:
+        """
+        Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        """
         return pulumi.get(self, "ip_set_references")
 
     @property
@@ -2860,17 +2866,27 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     def __init__(__self__, *,
                  from_port: int,
                  to_port: int):
+        """
+        :param int from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
+        :param int to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "to_port", to_port)
 
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
+        """
+        The lower limit of the port range. This must be less than or equal to the `to_port`.
+        """
         return pulumi.get(self, "from_port")
 
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> int:
+        """
+        The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
         return pulumi.get(self, "to_port")
 
 

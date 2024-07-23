@@ -2308,14 +2308,24 @@ compatibility shim in favor of the new "name" field.`)
 
 			// GameLift
 
-			"aws_gamelift_alias":                     {Tok: awsResource(gameliftMod, "Alias")},
-			"aws_gamelift_build":                     {Tok: awsResource(gameliftMod, "Build")},
-			"aws_gamelift_fleet":                     {Tok: awsResource(gameliftMod, "Fleet")},
-			"aws_gamelift_game_session_queue":        {Tok: awsResource(gameliftMod, "GameSessionQueue")},
-			"aws_gamelift_game_server_group":         {Tok: awsResource(gameliftMod, "GameServerGroup")},
-			"aws_gamelift_script":                    {Tok: awsResource(gameliftMod, "Script")},
-			"aws_gamelift_matchmaking_configuration": {Tok: awsResource(gameliftMod, "MatchmakingConfiguration")},
-			"aws_gamelift_matchmaking_rule_set":      {Tok: awsResource(gameliftMod, "MatchmakingRuleSet")},
+			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
+			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
+			"aws_gamelift_fleet":              {Tok: awsResource(gameliftMod, "Fleet")},
+			"aws_gamelift_game_session_queue": {Tok: awsResource(gameliftMod, "GameSessionQueue")},
+			"aws_gamelift_game_server_group":  {Tok: awsResource(gameliftMod, "GameServerGroup")},
+			"aws_gamelift_script":             {Tok: awsResource(gameliftMod, "Script")},
+
+			"aws_gamelift_matchmaking_configuration": {
+				Tok: awsResource(gameliftMod, "MatchmakingConfiguration"),
+				DeprecationMessage: "This resource will be removed in the next major version. " +
+					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead",
+			},
+
+			"aws_gamelift_matchmaking_rule_set": {
+				Tok: awsResource(gameliftMod, "MatchmakingRuleSet"),
+				DeprecationMessage: "This resource will be removed in the next major version." +
+					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead",
+			},
 
 			// Glacier
 			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},

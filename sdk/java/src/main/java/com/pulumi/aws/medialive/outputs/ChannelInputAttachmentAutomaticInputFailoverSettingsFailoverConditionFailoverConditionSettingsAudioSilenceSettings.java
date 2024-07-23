@@ -14,12 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
     private String audioSelectorName;
+    /**
+     * @return The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+     * 
+     */
     private @Nullable Integer audioSilenceThresholdMsec;
 
     private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings() {}
     public String audioSelectorName() {
         return this.audioSelectorName;
     }
+    /**
+     * @return The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+     * 
+     */
     public Optional<Integer> audioSilenceThresholdMsec() {
         return Optional.ofNullable(this.audioSilenceThresholdMsec);
     }

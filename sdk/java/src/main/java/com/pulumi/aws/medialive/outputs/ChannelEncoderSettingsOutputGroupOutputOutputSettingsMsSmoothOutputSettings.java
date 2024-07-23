@@ -12,12 +12,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings {
     private @Nullable String h265PackagingType;
+    /**
+     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * 
+     */
     private @Nullable String nameModifier;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings() {}
     public Optional<String> h265PackagingType() {
         return Optional.ofNullable(this.h265PackagingType);
     }
+    /**
+     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * 
+     */
     public Optional<String> nameModifier() {
         return Optional.ofNullable(this.nameModifier);
     }

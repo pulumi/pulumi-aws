@@ -103,9 +103,8 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	if opts != nil && opts.region != "" {
 		test.SetConfig("aws:region", opts.region)
 	}
-	result := providertest.PreviewProviderUpgrade(
-		test, providerName, baselineVersion, optproviderupgrade.DisableAttach(),
-	)
+	result := providertest.PreviewProviderUpgrade(t, test, providerName, baselineVersion,
+		optproviderupgrade.DisableAttach())
 	assertpreview.HasNoReplacements(t, result)
 }
 
@@ -154,7 +153,7 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 		pt.Up()
 		grptLog := pt.GrpcLog()
 		grpcLogPath := filepath.Join(cacheDir, "grpc.json")
-		pt.T().Logf("writing grpc log to %s", grpcLogPath)
+		t.Logf("writing grpc log to %s", grpcLogPath)
 		grptLog.WriteTo(grpcLogPath)
 
 		e := pt.ExportStack()
@@ -202,7 +201,7 @@ func pulumiUpWithSnapshot(t *testing.T, pulumiTest *pulumitest.PulumiTest) {
 			return
 		}
 
-		pulumiTest.T().Log("Plan is not equal, re-running up")
+		t.Log("Plan is not equal, re-running up")
 	}
 	pulumiTest.Preview(optpreview.Plan(planFile))
 	upResult := pulumiTest.Up(optup.Plan(planFile))

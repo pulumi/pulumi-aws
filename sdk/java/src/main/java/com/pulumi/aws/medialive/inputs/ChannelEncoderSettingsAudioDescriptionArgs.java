@@ -146,9 +146,17 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         return Optional.ofNullable(this.remixSettings);
     }
 
+    /**
+     * Stream name RTMP destinations (URLs of type rtmp://)
+     * 
+     */
     @Import(name="streamName")
     private @Nullable Output<String> streamName;
 
+    /**
+     * @return Stream name RTMP destinations (URLs of type rtmp://)
+     * 
+     */
     public Optional<Output<String>> streamName() {
         return Optional.ofNullable(this.streamName);
     }
@@ -361,11 +369,23 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
             return remixSettings(Output.of(remixSettings));
         }
 
+        /**
+         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
+         * 
+         * @return builder
+         * 
+         */
         public Builder streamName(@Nullable Output<String> streamName) {
             $.streamName = streamName;
             return this;
         }
 
+        /**
+         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
+         * 
+         * @return builder
+         * 
+         */
         public Builder streamName(String streamName) {
             return streamName(Output.of(streamName));
         }

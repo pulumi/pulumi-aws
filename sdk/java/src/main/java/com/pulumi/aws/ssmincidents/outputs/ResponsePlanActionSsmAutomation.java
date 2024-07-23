@@ -15,29 +15,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResponsePlanActionSsmAutomation {
+    /**
+     * @return The automation document&#39;s name.
+     * 
+     */
     private String documentName;
+    /**
+     * @return The version of the automation document to use at runtime.
+     * 
+     */
     private @Nullable String documentVersion;
+    /**
+     * @return The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
+     * 
+     */
     private @Nullable Map<String,String> dynamicParameters;
+    /**
+     * @return The key-value pair parameters to use when the automation document runs. The following values are supported:
+     * 
+     */
     private @Nullable List<ResponsePlanActionSsmAutomationParameter> parameters;
+    /**
+     * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+     * 
+     */
     private String roleArn;
+    /**
+     * @return The account that the automation document runs in. This can be in either the management account or an application account.
+     * 
+     */
     private @Nullable String targetAccount;
 
     private ResponsePlanActionSsmAutomation() {}
+    /**
+     * @return The automation document&#39;s name.
+     * 
+     */
     public String documentName() {
         return this.documentName;
     }
+    /**
+     * @return The version of the automation document to use at runtime.
+     * 
+     */
     public Optional<String> documentVersion() {
         return Optional.ofNullable(this.documentVersion);
     }
+    /**
+     * @return The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
+     * 
+     */
     public Map<String,String> dynamicParameters() {
         return this.dynamicParameters == null ? Map.of() : this.dynamicParameters;
     }
+    /**
+     * @return The key-value pair parameters to use when the automation document runs. The following values are supported:
+     * 
+     */
     public List<ResponsePlanActionSsmAutomationParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }
+    /**
+     * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return The account that the automation document runs in. This can be in either the management account or an application account.
+     * 
+     */
     public Optional<String> targetAccount() {
         return Optional.ofNullable(this.targetAccount);
     }

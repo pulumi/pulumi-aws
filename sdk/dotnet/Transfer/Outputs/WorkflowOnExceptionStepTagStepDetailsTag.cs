@@ -14,6 +14,9 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class WorkflowOnExceptionStepTagStepDetailsTag
     {
         public readonly string Key;
+        /// <summary>
+        /// The value that corresponds to the key.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]
