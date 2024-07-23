@@ -67,14 +67,14 @@ jobs:
           path: ${{ github.workspace }}/sdk
       - name: Uncompress SDK folders
         run: |
-          files=$(find ${{ github.workspace }} -name "*-sdk.tar.gz" -print)
+          files=$(find ${{ github.workspace }}/sdk -name "*.tar.gz" -print)
           echo "$files"
           ls -R ${{ github.workspace }}/sdk
           for file in $files
           do
             echo "$file"
             filename=$(basename $file)
-            language=$(echo $filename | sed 's/-.*//')
+            language=$(echo $filename | sed 's/\..*//')
             mkdir -p ${{ github.workspace }}/sdk/$language/
             tar -zxf $file -C ${{ github.workspace }}/sdk/$language
           done
