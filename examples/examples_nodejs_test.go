@@ -614,6 +614,7 @@ func TestUpdateImportedLambda(t *testing.T) {
 
 func TestNoCodeLambda(t *testing.T) {
 	test := pulumitest.NewPulumiTest(t, "no-code-lambda",
+		opttest.SkipInstall(),
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
 	_, err := test.CurrentStack().Up(test.Context())
