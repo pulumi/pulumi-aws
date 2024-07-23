@@ -6162,4 +6162,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_vpc_endpoint_private_dns"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "vpcEndpointId"), nil
 	}
+	prov.Resources["aws_rekognition_stream_processor"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "name"), nil
+	}
 }
