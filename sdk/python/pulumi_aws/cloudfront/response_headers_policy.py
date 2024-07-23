@@ -322,17 +322,17 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             name="example-policy",
             comment="test comment",
             cors_config={
-                "accessControlAllowCredentials": True,
-                "accessControlAllowHeaders": {
+                "access_control_allow_credentials": True,
+                "access_control_allow_headers": {
                     "items": ["test"],
                 },
-                "accessControlAllowMethods": {
+                "access_control_allow_methods": {
                     "items": ["GET"],
                 },
-                "accessControlAllowOrigins": {
+                "access_control_allow_origins": {
                     "items": ["test.example.comtest"],
                 },
-                "originOverride": True,
+                "origin_override": True,
             })
         ```
 
@@ -377,7 +377,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             },
             server_timing_headers_config={
                 "enabled": True,
-                "samplingRate": 50,
+                "sampling_rate": 50,
             })
         ```
 
@@ -424,17 +424,17 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             name="example-policy",
             comment="test comment",
             cors_config={
-                "accessControlAllowCredentials": True,
-                "accessControlAllowHeaders": {
+                "access_control_allow_credentials": True,
+                "access_control_allow_headers": {
                     "items": ["test"],
                 },
-                "accessControlAllowMethods": {
+                "access_control_allow_methods": {
                     "items": ["GET"],
                 },
-                "accessControlAllowOrigins": {
+                "access_control_allow_origins": {
                     "items": ["test.example.comtest"],
                 },
-                "originOverride": True,
+                "origin_override": True,
             })
         ```
 
@@ -479,7 +479,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             },
             server_timing_headers_config={
                 "enabled": True,
-                "samplingRate": 50,
+                "sampling_rate": 50,
             })
         ```
 

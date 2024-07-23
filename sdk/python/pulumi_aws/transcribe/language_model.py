@@ -274,8 +274,8 @@ class LanguageModel(pulumi.CustomResource):
             model_name="example",
             base_model_name="NarrowBand",
             input_data_config={
-                "dataAccessRoleArn": example_role.arn,
-                "s3Uri": example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
+                "data_access_role_arn": example_role.arn,
+                "s3_uri": example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
             language_code="en-US",
             tags={
@@ -353,8 +353,8 @@ class LanguageModel(pulumi.CustomResource):
             model_name="example",
             base_model_name="NarrowBand",
             input_data_config={
-                "dataAccessRoleArn": example_role.arn,
-                "s3Uri": example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
+                "data_access_role_arn": example_role.arn,
+                "s3_uri": example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
             language_code="en-US",
             tags={

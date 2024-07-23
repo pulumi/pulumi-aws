@@ -885,7 +885,7 @@ class Broker(pulumi.CustomResource):
                 {
                     "username": "ExampleReplicationUser",
                     "password": "Example12345",
-                    "replicationUser": True,
+                    "replication_user": True,
                 },
             ])
         example = aws.mq.Broker("example",
@@ -906,7 +906,7 @@ class Broker(pulumi.CustomResource):
                 {
                     "username": "ExampleReplicationUser",
                     "password": "Example12345",
-                    "replicationUser": True,
+                    "replication_user": True,
                 },
             ])
         ```
@@ -1033,7 +1033,7 @@ class Broker(pulumi.CustomResource):
                 {
                     "username": "ExampleReplicationUser",
                     "password": "Example12345",
-                    "replicationUser": True,
+                    "replication_user": True,
                 },
             ])
         example = aws.mq.Broker("example",
@@ -1054,7 +1054,7 @@ class Broker(pulumi.CustomResource):
                 {
                     "username": "ExampleReplicationUser",
                     "password": "Example12345",
-                    "replicationUser": True,
+                    "replication_user": True,
                 },
             ])
         ```
