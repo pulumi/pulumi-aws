@@ -620,11 +620,11 @@ class ContainerRecipe(pulumi.CustomResource):
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository={
-                "repositoryName": example_aws_ecr_repository["name"],
+                "repository_name": example_aws_ecr_repository["name"],
                 "service": "ECR",
             },
             components=[{
-                "componentArn": example_aws_imagebuilder_component["arn"],
+                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -690,11 +690,11 @@ class ContainerRecipe(pulumi.CustomResource):
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository={
-                "repositoryName": example_aws_ecr_repository["name"],
+                "repository_name": example_aws_ecr_repository["name"],
                 "service": "ECR",
             },
             components=[{
-                "componentArn": example_aws_imagebuilder_component["arn"],
+                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",

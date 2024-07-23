@@ -266,12 +266,12 @@ class DefaultRouteTable(pulumi.CustomResource):
             default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
                 {
-                    "cidrBlock": "10.0.1.0/24",
-                    "gatewayId": example_aws_internet_gateway["id"],
+                    "cidr_block": "10.0.1.0/24",
+                    "gateway_id": example_aws_internet_gateway["id"],
                 },
                 {
-                    "ipv6CidrBlock": "::/0",
-                    "egressOnlyGatewayId": example_aws_egress_only_internet_gateway["id"],
+                    "ipv6_cidr_block": "::/0",
+                    "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
             tags={
@@ -335,12 +335,12 @@ class DefaultRouteTable(pulumi.CustomResource):
             default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
                 {
-                    "cidrBlock": "10.0.1.0/24",
-                    "gatewayId": example_aws_internet_gateway["id"],
+                    "cidr_block": "10.0.1.0/24",
+                    "gateway_id": example_aws_internet_gateway["id"],
                 },
                 {
-                    "ipv6CidrBlock": "::/0",
-                    "egressOnlyGatewayId": example_aws_egress_only_internet_gateway["id"],
+                    "ipv6_cidr_block": "::/0",
+                    "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
             tags={

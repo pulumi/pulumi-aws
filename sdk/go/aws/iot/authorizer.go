@@ -42,7 +42,7 @@ import (
 //				Status:                pulumi.String("ACTIVE"),
 //				TokenKeyName:          pulumi.String("Token-Header"),
 //				TokenSigningPublicKeys: pulumi.StringMap{
-//					"Key1": invokeFile.Result,
+//					"Key1": pulumi.String(invokeFile.Result),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),

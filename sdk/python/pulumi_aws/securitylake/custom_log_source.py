@@ -229,11 +229,11 @@ class CustomLogSource(pulumi.CustomResource):
             source_version="1.0",
             event_classes=["FILE_ACTIVITY"],
             configuration={
-                "crawlerConfiguration": {
-                    "roleArn": custom_log["arn"],
+                "crawler_configuration": {
+                    "role_arn": custom_log["arn"],
                 },
-                "providerIdentity": {
-                    "externalId": "example-id",
+                "provider_identity": {
+                    "external_id": "example-id",
                     "principal": "123456789012",
                 },
             },
@@ -281,11 +281,11 @@ class CustomLogSource(pulumi.CustomResource):
             source_version="1.0",
             event_classes=["FILE_ACTIVITY"],
             configuration={
-                "crawlerConfiguration": {
-                    "roleArn": custom_log["arn"],
+                "crawler_configuration": {
+                    "role_arn": custom_log["arn"],
                 },
-                "providerIdentity": {
-                    "externalId": "example-id",
+                "provider_identity": {
+                    "external_id": "example-id",
                     "principal": "123456789012",
                 },
             },

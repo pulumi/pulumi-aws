@@ -46,7 +46,7 @@ import (
 // return err
 // }
 // allowAuditLogging := bucket.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Sid: "Put bucket policy needed for audit logging",
@@ -83,13 +83,13 @@ import (
 // Resources: bucketAwsS3Bucket.Arn,
 // },
 // },
-// }, nil), nil
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = s3.NewBucketPolicy(ctx, "allow_audit_logging", &s3.BucketPolicyArgs{
 // Bucket: bucket.ID(),
-// Policy: allowAuditLogging.ApplyT(func(allowAuditLogging iam.GetPolicyDocumentResult) (*string, error) {
+// Policy: pulumi.String(allowAuditLogging.ApplyT(func(allowAuditLogging iam.GetPolicyDocumentResult) (*string, error) {
 // return &allowAuditLogging.Json, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

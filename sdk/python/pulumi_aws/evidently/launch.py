@@ -455,10 +455,10 @@ class Launch(pulumi.CustomResource):
             }],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
+                    "group_weights": {
+                        "variation1": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -480,10 +480,10 @@ class Launch(pulumi.CustomResource):
             }],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
+                    "group_weights": {
+                        "variation1": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -513,11 +513,11 @@ class Launch(pulumi.CustomResource):
             ],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
-                        "Variation2": 0,
+                    "group_weights": {
+                        "variation1": 0,
+                        "variation2": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -538,30 +538,30 @@ class Launch(pulumi.CustomResource):
             }],
             metric_monitors=[
                 {
-                    "metricDefinition": {
-                        "entityIdKey": "entity_id_key1",
-                        "eventPattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
+                    "metric_definition": {
+                        "entity_id_key": "entity_id_key1",
+                        "event_pattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
                         "name": "name1",
-                        "unitLabel": "unit_label1",
-                        "valueKey": "value_key1",
+                        "unit_label": "unit_label1",
+                        "value_key": "value_key1",
                     },
                 },
                 {
-                    "metricDefinition": {
-                        "entityIdKey": "entity_id_key2",
-                        "eventPattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
+                    "metric_definition": {
+                        "entity_id_key": "entity_id_key2",
+                        "event_pattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
                         "name": "name2",
-                        "unitLabel": "unit_label2",
-                        "valueKey": "value_key2",
+                        "unit_label": "unit_label2",
+                        "value_key": "value_key2",
                     },
                 },
             ],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
+                    "group_weights": {
+                        "variation1": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -583,10 +583,10 @@ class Launch(pulumi.CustomResource):
             }],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
+                    "group_weights": {
+                        "variation1": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -615,18 +615,18 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [
                     {
-                        "groupWeights": {
-                            "Variation1": 15,
-                            "Variation2": 10,
+                        "group_weights": {
+                            "variation1": 15,
+                            "variation2": 10,
                         },
-                        "startTime": "2024-01-07 01:43:59+00:00",
+                        "start_time": "2024-01-07 01:43:59+00:00",
                     },
                     {
-                        "groupWeights": {
-                            "Variation1": 20,
-                            "Variation2": 25,
+                        "group_weights": {
+                            "variation1": 20,
+                            "variation2": 25,
                         },
-                        "startTime": "2024-01-08 01:43:59+00:00",
+                        "start_time": "2024-01-08 01:43:59+00:00",
                     },
                 ],
             })
@@ -655,28 +655,28 @@ class Launch(pulumi.CustomResource):
             ],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
-                        "Variation2": 0,
+                    "group_weights": {
+                        "variation1": 0,
+                        "variation2": 0,
                     },
-                    "segmentOverrides": [
+                    "segment_overrides": [
                         {
-                            "evaluationOrder": 1,
+                            "evaluation_order": 1,
                             "segment": example_aws_evidently_segment["name"],
                             "weights": {
-                                "Variation2": 10000,
+                                "variation2": 10000,
                             },
                         },
                         {
-                            "evaluationOrder": 2,
+                            "evaluation_order": 2,
                             "segment": example_aws_evidently_segment["name"],
                             "weights": {
-                                "Variation1": 40000,
-                                "Variation2": 30000,
+                                "variation1": 40000,
+                                "variation2": 30000,
                             },
                         },
                     ],
-                    "startTime": "2024-01-08 01:43:59+00:00",
+                    "start_time": "2024-01-08 01:43:59+00:00",
                 }],
             })
         ```
@@ -736,10 +736,10 @@ class Launch(pulumi.CustomResource):
             }],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
+                    "group_weights": {
+                        "variation1": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -761,10 +761,10 @@ class Launch(pulumi.CustomResource):
             }],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
+                    "group_weights": {
+                        "variation1": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -794,11 +794,11 @@ class Launch(pulumi.CustomResource):
             ],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
-                        "Variation2": 0,
+                    "group_weights": {
+                        "variation1": 0,
+                        "variation2": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -819,30 +819,30 @@ class Launch(pulumi.CustomResource):
             }],
             metric_monitors=[
                 {
-                    "metricDefinition": {
-                        "entityIdKey": "entity_id_key1",
-                        "eventPattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
+                    "metric_definition": {
+                        "entity_id_key": "entity_id_key1",
+                        "event_pattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
                         "name": "name1",
-                        "unitLabel": "unit_label1",
-                        "valueKey": "value_key1",
+                        "unit_label": "unit_label1",
+                        "value_key": "value_key1",
                     },
                 },
                 {
-                    "metricDefinition": {
-                        "entityIdKey": "entity_id_key2",
-                        "eventPattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
+                    "metric_definition": {
+                        "entity_id_key": "entity_id_key2",
+                        "event_pattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
                         "name": "name2",
-                        "unitLabel": "unit_label2",
-                        "valueKey": "value_key2",
+                        "unit_label": "unit_label2",
+                        "value_key": "value_key2",
                     },
                 },
             ],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
+                    "group_weights": {
+                        "variation1": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -864,10 +864,10 @@ class Launch(pulumi.CustomResource):
             }],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
+                    "group_weights": {
+                        "variation1": 0,
                     },
-                    "startTime": "2024-01-07 01:43:59+00:00",
+                    "start_time": "2024-01-07 01:43:59+00:00",
                 }],
             })
         ```
@@ -896,18 +896,18 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [
                     {
-                        "groupWeights": {
-                            "Variation1": 15,
-                            "Variation2": 10,
+                        "group_weights": {
+                            "variation1": 15,
+                            "variation2": 10,
                         },
-                        "startTime": "2024-01-07 01:43:59+00:00",
+                        "start_time": "2024-01-07 01:43:59+00:00",
                     },
                     {
-                        "groupWeights": {
-                            "Variation1": 20,
-                            "Variation2": 25,
+                        "group_weights": {
+                            "variation1": 20,
+                            "variation2": 25,
                         },
-                        "startTime": "2024-01-08 01:43:59+00:00",
+                        "start_time": "2024-01-08 01:43:59+00:00",
                     },
                 ],
             })
@@ -936,28 +936,28 @@ class Launch(pulumi.CustomResource):
             ],
             scheduled_splits_config={
                 "steps": [{
-                    "groupWeights": {
-                        "Variation1": 0,
-                        "Variation2": 0,
+                    "group_weights": {
+                        "variation1": 0,
+                        "variation2": 0,
                     },
-                    "segmentOverrides": [
+                    "segment_overrides": [
                         {
-                            "evaluationOrder": 1,
+                            "evaluation_order": 1,
                             "segment": example_aws_evidently_segment["name"],
                             "weights": {
-                                "Variation2": 10000,
+                                "variation2": 10000,
                             },
                         },
                         {
-                            "evaluationOrder": 2,
+                            "evaluation_order": 2,
                             "segment": example_aws_evidently_segment["name"],
                             "weights": {
-                                "Variation1": 40000,
-                                "Variation2": 30000,
+                                "variation1": 40000,
+                                "variation2": 30000,
                             },
                         },
                     ],
-                    "startTime": "2024-01-08 01:43:59+00:00",
+                    "start_time": "2024-01-08 01:43:59+00:00",
                 }],
             })
         ```

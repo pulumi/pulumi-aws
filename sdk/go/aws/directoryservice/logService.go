@@ -64,9 +64,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "ad-log-policy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: ad_log_policy.ApplyT(func(ad_log_policy iam.GetPolicyDocumentResult) (*string, error) {
+//				PolicyDocument: pulumi.String(ad_log_policy.ApplyT(func(ad_log_policy iam.GetPolicyDocumentResult) (*string, error) {
 //					return &ad_log_policy.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				PolicyName: pulumi.String("ad-log-policy"),
 //			})
 //			if err != nil {

@@ -183,17 +183,17 @@ class Listener(pulumi.CustomResource):
             ip_address_type="IPV4",
             enabled=True,
             attributes={
-                "flowLogsEnabled": True,
-                "flowLogsS3Bucket": "example-bucket",
-                "flowLogsS3Prefix": "flow-logs/",
+                "flow_logs_enabled": True,
+                "flow_logs_s3_bucket": "example-bucket",
+                "flow_logs_s3_prefix": "flow-logs/",
             })
         example_listener = aws.globalaccelerator.Listener("example",
             accelerator_arn=example.id,
             client_affinity="SOURCE_IP",
             protocol="TCP",
             port_ranges=[{
-                "fromPort": 80,
-                "toPort": 80,
+                "from_port": 80,
+                "to_port": 80,
             }])
         ```
 
@@ -232,17 +232,17 @@ class Listener(pulumi.CustomResource):
             ip_address_type="IPV4",
             enabled=True,
             attributes={
-                "flowLogsEnabled": True,
-                "flowLogsS3Bucket": "example-bucket",
-                "flowLogsS3Prefix": "flow-logs/",
+                "flow_logs_enabled": True,
+                "flow_logs_s3_bucket": "example-bucket",
+                "flow_logs_s3_prefix": "flow-logs/",
             })
         example_listener = aws.globalaccelerator.Listener("example",
             accelerator_arn=example.id,
             client_affinity="SOURCE_IP",
             protocol="TCP",
             port_ranges=[{
-                "fromPort": 80,
-                "toPort": 80,
+                "from_port": 80,
+                "to_port": 80,
             }])
         ```
 

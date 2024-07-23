@@ -463,7 +463,7 @@ class Table(pulumi.CustomResource):
                     "name": "Message",
                     "type": "ASCII",
                 }],
-                "partitionKeys": [{
+                "partition_keys": [{
                     "name": "Message",
                 }],
             })
@@ -518,7 +518,7 @@ class Table(pulumi.CustomResource):
                     "name": "Message",
                     "type": "ASCII",
                 }],
-                "partitionKeys": [{
+                "partition_keys": [{
                     "name": "Message",
                 }],
             })

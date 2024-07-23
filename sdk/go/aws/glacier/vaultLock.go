@@ -59,9 +59,9 @@ import (
 //			}, nil)
 //			_, err = glacier.NewVaultLock(ctx, "example", &glacier.VaultLockArgs{
 //				CompleteLock: pulumi.Bool(false),
-//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
 //					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				VaultName: exampleVault.Name,
 //			})
 //			if err != nil {

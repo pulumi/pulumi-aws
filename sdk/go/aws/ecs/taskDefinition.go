@@ -112,7 +112,7 @@ import (
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: invokeFile.Result,
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				ProxyConfiguration: &ecs.TaskDefinitionProxyConfigurationArgs{
 //					Type:          pulumi.String("APPMESH"),
 //					ContainerName: pulumi.String("applicationContainerName"),
@@ -159,7 +159,7 @@ import (
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: invokeFile.Result,
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name: pulumi.String("service-storage"),
@@ -208,7 +208,7 @@ import (
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: invokeFile.Result,
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name: pulumi.String("service-storage"),
@@ -275,7 +275,7 @@ import (
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: invokeFile.Result,
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name: pulumi.String("service-storage"),

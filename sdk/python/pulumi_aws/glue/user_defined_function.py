@@ -317,7 +317,7 @@ class UserDefinedFunction(pulumi.CustomResource):
             owner_name="owner",
             owner_type="GROUP",
             resource_uris=[{
-                "resourceType": "ARCHIVE",
+                "resource_type": "ARCHIVE",
                 "uri": "uri",
             }])
         ```
@@ -364,7 +364,7 @@ class UserDefinedFunction(pulumi.CustomResource):
             owner_name="owner",
             owner_type="GROUP",
             resource_uris=[{
-                "resourceType": "ARCHIVE",
+                "resource_type": "ARCHIVE",
                 "uri": "uri",
             }])
         ```
