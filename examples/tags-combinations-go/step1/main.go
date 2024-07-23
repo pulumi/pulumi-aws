@@ -84,7 +84,8 @@ func main() {
 			return err
 		}
 
-		// refresh doesn't work for `forceDelete` & `acl` uncomment when fixed
+		// TODO: uncomment when https://github.com/pulumi/pulumi-aws/issues/4258 is fixed
+		// refresh doesn't work for `forceDelete` & `acl`
 		// getBucket, err := s3.GetBucketV2(ctx, "get-bucketv2"+testIdent, bucket.ID(), &s3.BucketV2State{}, pulumi.Provider(p))
 		// if err != nil {
 		// 	return err

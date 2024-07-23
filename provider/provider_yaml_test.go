@@ -560,7 +560,7 @@ func TestAccDefaultTags(t *testing.T) {
 				})
 				bucketName := outputs["id"].Value.(string)
 				tags := getBucketTagging(context.Background(), bucketName)
-				assert.Subset(t, tags, []types.Tag{
+				assert.Equal(t, tags, []types.Tag{
 					{
 						Key:   pulumi.StringRef("LocalTag"),
 						Value: pulumi.StringRef("foo"),

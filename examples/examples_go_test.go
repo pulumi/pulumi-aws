@@ -251,6 +251,7 @@ func (st tagsState) validateStateResult(phase int) func(
 			t.Logf("key=%s tags are as expected: %v", k, actualTagsJSON)
 
 			if k == "bucket" {
+				// TODO: uncomment when https://github.com/pulumi/pulumi-aws/issues/4258 is fixed
 				// getTags := stack.Outputs["get-bucket"].(string)
 				// assert.Equal(t, v.(string), getTags)
 				bucketName := stack.Outputs["bucket-name"].(string)
@@ -259,6 +260,7 @@ func (st tagsState) validateStateResult(phase int) func(
 					"bad bucket tags")
 			}
 			if k == "legacy-bucket" {
+				// TODO: uncomment when https://github.com/pulumi/pulumi-aws/issues/4258 is fixed
 				// getTags := stack.Outputs["get-legacy-bucket"].(string)
 				// assert.Equal(t, v.(string), getTags)
 				bucketName := stack.Outputs["legacy-bucket-name"].(string)
