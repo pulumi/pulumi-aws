@@ -5955,6 +5955,22 @@ compatibility shim in favor of the new "name" field.`)
 			prov.Resources[key].PreCheckCallback = applyTags
 		}
 
+		// also override read so that it works during import
+		// as a side effect this will also run during create and update, but since
+		// `tags` and `defaultTags` should always be equal then it doesn't really matter.
+		// One extra place that we make sure `tags=defaultTags` is fine.
+		if transform := prov.Resources[key].TransformOutputs; transform != nil {
+			prov.Resources[key].TransformOutputs = func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+				config, err := transform(ctx, pm)
+				if err != nil {
+					return nil, err
+				}
+				return applyTagsOutputs(ctx, config)
+			}
+		} else {
+			prov.Resources[key].TransformOutputs = applyTagsOutputs
+		}
+
 		if prov.Resources[key].GetFields() == nil {
 			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
 		}

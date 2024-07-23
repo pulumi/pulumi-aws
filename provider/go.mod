@@ -3,9 +3,12 @@ module github.com/pulumi/pulumi-aws/provider/v6
 go 1.22.5
 
 require (
+	github.com/aws/aws-sdk-go-v2 v1.30.3
 	github.com/aws/aws-sdk-go-v2/config v1.27.26
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.11
+	github.com/aws/aws-sdk-go-v2/service/appconfig v1.31.3
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.33.3
+	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.23.3
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.58.2
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.54
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.34.0
@@ -65,7 +68,6 @@ require (
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/aws/aws-sdk-go v1.54.18 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.30.3 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.3 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.17.26 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.7 // indirect
@@ -81,7 +83,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/amplify v1.23.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/apigateway v1.25.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/apigatewayv2 v1.22.3 // indirect
-	github.com/aws/aws-sdk-go-v2/service/appconfig v1.31.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appfabric v1.9.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appflow v1.43.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appintegrations v1.27.3 // indirect
@@ -229,7 +230,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/rekognition v1.43.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/resourceexplorer2 v1.12.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/resourcegroups v1.24.3 // indirect
-	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.23.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.13.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53 v1.42.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53domains v1.25.3 // indirect

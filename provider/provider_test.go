@@ -2,6 +2,8 @@
 package provider
 
 import (
+	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -32,6 +34,24 @@ func getEnvRegion(t *testing.T) string {
 		envRegion = "us-west-2"
 	}
 	return envRegion
+}
+
+func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args ...string) {
+	ctx := context.Background()
+	var env []string
+	workspace := ptest.CurrentStack().Workspace()
+	for k, v := range workspace.GetEnvVars() {
+		env = append(env, fmt.Sprintf("%s=%s", k, v))
+	}
+	stdin := bytes.NewReader([]byte{})
+	var arguments []string
+	arguments = append(arguments, args...)
+	arguments = append(arguments, "-s", ptest.CurrentStack().Name())
+	s1, s2, code, err := workspace.PulumiCommand().Run(ctx, workdir, stdin, nil, nil, env, arguments...)
+	t.Logf("stdout: %s", s1)
+	t.Logf("stderr: %s", s2)
+	t.Logf("code=%v", code)
+	require.NoError(t, err)
 }
 
 type testProviderUpgradeOptions struct {
