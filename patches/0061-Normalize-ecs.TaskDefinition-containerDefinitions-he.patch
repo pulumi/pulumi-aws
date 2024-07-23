@@ -6,17 +6,17 @@ Subject: [PATCH] Normalize ecs.TaskDefinition containerDefinitions
 
 
 diff --git a/internal/service/ecs/task_definition_equivalency.go b/internal/service/ecs/task_definition_equivalency.go
-index 3d757997b5..efd649fbdc 100644
+index 7aaa1e0679..1f7a81d4fd 100644
 --- a/internal/service/ecs/task_definition_equivalency.go
 +++ b/internal/service/ecs/task_definition_equivalency.go
-@@ -72,6 +72,10 @@ func (cd containerDefinitions) Reduce(isAWSVPC bool) error {
+@@ -50,6 +50,10 @@ func (cd containerDefinitions) reduce(isAWSVPC bool) {
  		if def.Essential == nil {
- 			def.Essential = aws.Bool(true)
+ 			cd[i].Essential = aws.Bool(true)
  		}
 +		if def.HealthCheck != nil && def.HealthCheck.Timeout == nil {
 +			five := int64(5)
 +			def.HealthCheck.Timeout = &five
 +		}
  		for j, pm := range def.PortMappings {
- 			if pm.Protocol != nil && aws.StringValue(pm.Protocol) == "tcp" {
- 				cd[i].PortMappings[j].Protocol = nil
+ 			if pm.Protocol == awstypes.TransportProtocolTcp {
+ 				cd[i].PortMappings[j].Protocol = ""

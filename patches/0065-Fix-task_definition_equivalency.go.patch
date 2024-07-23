@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Tue, 23 Jul 2024 17:24:22 -0400
+Subject: [PATCH] Fix task_definition_equivalency.go
+
+
+diff --git a/internal/service/ecs/task_definition_equivalency.go b/internal/service/ecs/task_definition_equivalency.go
+index 1f7a81d4fd..daf70eec25 100644
+--- a/internal/service/ecs/task_definition_equivalency.go
++++ b/internal/service/ecs/task_definition_equivalency.go
+@@ -51,7 +51,7 @@ func (cd containerDefinitions) reduce(isAWSVPC bool) {
+ 			cd[i].Essential = aws.Bool(true)
+ 		}
+ 		if def.HealthCheck != nil && def.HealthCheck.Timeout == nil {
+-			five := int64(5)
++			five := int32(5)
+ 			def.HealthCheck.Timeout = &five
+ 		}
+ 		for j, pm := range def.PortMappings {
