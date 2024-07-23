@@ -210,7 +210,7 @@ jobs:
       uses: hashicorp-forge/go-test-split-action@v2.0.0
       with:
         working-directory: examples
-        flags: "-tags=all"
+        flags: "-tags=all -timeout 30m"
         total: ${{ matrix.parallel }}
         index: ${{ matrix.index }}
         junit-summary: ./junit-test-summary.xml
@@ -367,7 +367,7 @@ jobs:
             uses: hashicorp-forge/go-test-split-action@v2.0.0
             with:
               working-directory: provider
-              flags: "-tags=all"
+              flags: "-tags=all -timeout 30m"
               total: ${{ matrix.parallel }}
               index: ${{ matrix.index }}
               junit-summary: ./junit-provider-test-summary.xml
