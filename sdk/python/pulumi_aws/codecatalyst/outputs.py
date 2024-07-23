@@ -58,11 +58,17 @@ class DevEnvironmentIdes(dict):
 class DevEnvironmentPersistentStorage(dict):
     def __init__(__self__, *,
                  size: int):
+        """
+        :param int size: The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+        """
         pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
     def size(self) -> int:
+        """
+        The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+        """
         return pulumi.get(self, "size")
 
 

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.OpsWorks.Outputs
     [OutputType]
     public sealed class CustomLayerLoadBasedAutoScaling
     {
+        /// <summary>
+        /// The downscaling settings, as defined below, used for load-based autoscaling
+        /// </summary>
         public readonly Outputs.CustomLayerLoadBasedAutoScalingDownscaling? Downscaling;
+        /// <summary>
+        /// Whether load-based auto scaling is enabled for the layer.
+        /// </summary>
         public readonly bool? Enable;
+        /// <summary>
+        /// The upscaling settings, as defined below, used for load-based autoscaling
+        /// </summary>
         public readonly Outputs.CustomLayerLoadBasedAutoScalingUpscaling? Upscaling;
 
         [OutputConstructor]

@@ -147,6 +147,7 @@ func (o ReplicationSetRegionArrayOutput) Index(i pulumi.IntInput) ReplicationSet
 }
 
 type ResponsePlanAction struct {
+	// The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
 	SsmAutomations []ResponsePlanActionSsmAutomation `pulumi:"ssmAutomations"`
 }
 
@@ -162,6 +163,7 @@ type ResponsePlanActionInput interface {
 }
 
 type ResponsePlanActionArgs struct {
+	// The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
 	SsmAutomations ResponsePlanActionSsmAutomationArrayInput `pulumi:"ssmAutomations"`
 }
 
@@ -242,6 +244,7 @@ func (o ResponsePlanActionOutput) ToResponsePlanActionPtrOutputWithContext(ctx c
 	}).(ResponsePlanActionPtrOutput)
 }
 
+// The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
 func (o ResponsePlanActionOutput) SsmAutomations() ResponsePlanActionSsmAutomationArrayOutput {
 	return o.ApplyT(func(v ResponsePlanAction) []ResponsePlanActionSsmAutomation { return v.SsmAutomations }).(ResponsePlanActionSsmAutomationArrayOutput)
 }
@@ -270,6 +273,7 @@ func (o ResponsePlanActionPtrOutput) Elem() ResponsePlanActionOutput {
 	}).(ResponsePlanActionOutput)
 }
 
+// The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
 func (o ResponsePlanActionPtrOutput) SsmAutomations() ResponsePlanActionSsmAutomationArrayOutput {
 	return o.ApplyT(func(v *ResponsePlanAction) []ResponsePlanActionSsmAutomation {
 		if v == nil {
@@ -280,12 +284,18 @@ func (o ResponsePlanActionPtrOutput) SsmAutomations() ResponsePlanActionSsmAutom
 }
 
 type ResponsePlanActionSsmAutomation struct {
-	DocumentName      string                                     `pulumi:"documentName"`
-	DocumentVersion   *string                                    `pulumi:"documentVersion"`
-	DynamicParameters map[string]string                          `pulumi:"dynamicParameters"`
-	Parameters        []ResponsePlanActionSsmAutomationParameter `pulumi:"parameters"`
-	RoleArn           string                                     `pulumi:"roleArn"`
-	TargetAccount     *string                                    `pulumi:"targetAccount"`
+	// The automation document's name.
+	DocumentName string `pulumi:"documentName"`
+	// The version of the automation document to use at runtime.
+	DocumentVersion *string `pulumi:"documentVersion"`
+	// The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
+	DynamicParameters map[string]string `pulumi:"dynamicParameters"`
+	// The key-value pair parameters to use when the automation document runs. The following values are supported:
+	Parameters []ResponsePlanActionSsmAutomationParameter `pulumi:"parameters"`
+	// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+	RoleArn string `pulumi:"roleArn"`
+	// The account that the automation document runs in. This can be in either the management account or an application account.
+	TargetAccount *string `pulumi:"targetAccount"`
 }
 
 // ResponsePlanActionSsmAutomationInput is an input type that accepts ResponsePlanActionSsmAutomationArgs and ResponsePlanActionSsmAutomationOutput values.
@@ -300,12 +310,18 @@ type ResponsePlanActionSsmAutomationInput interface {
 }
 
 type ResponsePlanActionSsmAutomationArgs struct {
-	DocumentName      pulumi.StringInput                                 `pulumi:"documentName"`
-	DocumentVersion   pulumi.StringPtrInput                              `pulumi:"documentVersion"`
-	DynamicParameters pulumi.StringMapInput                              `pulumi:"dynamicParameters"`
-	Parameters        ResponsePlanActionSsmAutomationParameterArrayInput `pulumi:"parameters"`
-	RoleArn           pulumi.StringInput                                 `pulumi:"roleArn"`
-	TargetAccount     pulumi.StringPtrInput                              `pulumi:"targetAccount"`
+	// The automation document's name.
+	DocumentName pulumi.StringInput `pulumi:"documentName"`
+	// The version of the automation document to use at runtime.
+	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
+	// The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
+	DynamicParameters pulumi.StringMapInput `pulumi:"dynamicParameters"`
+	// The key-value pair parameters to use when the automation document runs. The following values are supported:
+	Parameters ResponsePlanActionSsmAutomationParameterArrayInput `pulumi:"parameters"`
+	// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The account that the automation document runs in. This can be in either the management account or an application account.
+	TargetAccount pulumi.StringPtrInput `pulumi:"targetAccount"`
 }
 
 func (ResponsePlanActionSsmAutomationArgs) ElementType() reflect.Type {
@@ -359,28 +375,34 @@ func (o ResponsePlanActionSsmAutomationOutput) ToResponsePlanActionSsmAutomation
 	return o
 }
 
+// The automation document's name.
 func (o ResponsePlanActionSsmAutomationOutput) DocumentName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomation) string { return v.DocumentName }).(pulumi.StringOutput)
 }
 
+// The version of the automation document to use at runtime.
 func (o ResponsePlanActionSsmAutomationOutput) DocumentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomation) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
 }
 
+// The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
 func (o ResponsePlanActionSsmAutomationOutput) DynamicParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomation) map[string]string { return v.DynamicParameters }).(pulumi.StringMapOutput)
 }
 
+// The key-value pair parameters to use when the automation document runs. The following values are supported:
 func (o ResponsePlanActionSsmAutomationOutput) Parameters() ResponsePlanActionSsmAutomationParameterArrayOutput {
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomation) []ResponsePlanActionSsmAutomationParameter {
 		return v.Parameters
 	}).(ResponsePlanActionSsmAutomationParameterArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
 func (o ResponsePlanActionSsmAutomationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomation) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The account that the automation document runs in. This can be in either the management account or an application account.
 func (o ResponsePlanActionSsmAutomationOutput) TargetAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomation) *string { return v.TargetAccount }).(pulumi.StringPtrOutput)
 }
@@ -407,7 +429,8 @@ func (o ResponsePlanActionSsmAutomationArrayOutput) Index(i pulumi.IntInput) Res
 
 type ResponsePlanActionSsmAutomationParameter struct {
 	// The name of the response plan.
-	Name   string   `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The values for the associated parameter name.
 	Values []string `pulumi:"values"`
 }
 
@@ -424,7 +447,8 @@ type ResponsePlanActionSsmAutomationParameterInput interface {
 
 type ResponsePlanActionSsmAutomationParameterArgs struct {
 	// The name of the response plan.
-	Name   pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The values for the associated parameter name.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -484,6 +508,7 @@ func (o ResponsePlanActionSsmAutomationParameterOutput) Name() pulumi.StringOutp
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomationParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The values for the associated parameter name.
 func (o ResponsePlanActionSsmAutomationParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomationParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -846,6 +871,7 @@ func (o ResponsePlanIncidentTemplateNotificationTargetArrayOutput) Index(i pulum
 }
 
 type ResponsePlanIntegration struct {
+	// Details about the PagerDuty configuration for a response plan. The following values are supported:
 	Pagerduties []ResponsePlanIntegrationPagerduty `pulumi:"pagerduties"`
 }
 
@@ -861,6 +887,7 @@ type ResponsePlanIntegrationInput interface {
 }
 
 type ResponsePlanIntegrationArgs struct {
+	// Details about the PagerDuty configuration for a response plan. The following values are supported:
 	Pagerduties ResponsePlanIntegrationPagerdutyArrayInput `pulumi:"pagerduties"`
 }
 
@@ -941,6 +968,7 @@ func (o ResponsePlanIntegrationOutput) ToResponsePlanIntegrationPtrOutputWithCon
 	}).(ResponsePlanIntegrationPtrOutput)
 }
 
+// Details about the PagerDuty configuration for a response plan. The following values are supported:
 func (o ResponsePlanIntegrationOutput) Pagerduties() ResponsePlanIntegrationPagerdutyArrayOutput {
 	return o.ApplyT(func(v ResponsePlanIntegration) []ResponsePlanIntegrationPagerduty { return v.Pagerduties }).(ResponsePlanIntegrationPagerdutyArrayOutput)
 }
@@ -969,6 +997,7 @@ func (o ResponsePlanIntegrationPtrOutput) Elem() ResponsePlanIntegrationOutput {
 	}).(ResponsePlanIntegrationOutput)
 }
 
+// Details about the PagerDuty configuration for a response plan. The following values are supported:
 func (o ResponsePlanIntegrationPtrOutput) Pagerduties() ResponsePlanIntegrationPagerdutyArrayOutput {
 	return o.ApplyT(func(v *ResponsePlanIntegration) []ResponsePlanIntegrationPagerduty {
 		if v == nil {
@@ -980,8 +1009,12 @@ func (o ResponsePlanIntegrationPtrOutput) Pagerduties() ResponsePlanIntegrationP
 
 type ResponsePlanIntegrationPagerduty struct {
 	// The name of the response plan.
-	Name      string `pulumi:"name"`
-	SecretId  string `pulumi:"secretId"`
+	Name string `pulumi:"name"`
+	// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+	//
+	// For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
+	SecretId string `pulumi:"secretId"`
+	// The ID of the PagerDuty service that the response plan associated with the incident at launch.
 	ServiceId string `pulumi:"serviceId"`
 }
 
@@ -998,8 +1031,12 @@ type ResponsePlanIntegrationPagerdutyInput interface {
 
 type ResponsePlanIntegrationPagerdutyArgs struct {
 	// The name of the response plan.
-	Name      pulumi.StringInput `pulumi:"name"`
-	SecretId  pulumi.StringInput `pulumi:"secretId"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+	//
+	// For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// The ID of the PagerDuty service that the response plan associated with the incident at launch.
 	ServiceId pulumi.StringInput `pulumi:"serviceId"`
 }
 
@@ -1059,10 +1096,14 @@ func (o ResponsePlanIntegrationPagerdutyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIntegrationPagerduty) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+//
+// For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
 func (o ResponsePlanIntegrationPagerdutyOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIntegrationPagerduty) string { return v.SecretId }).(pulumi.StringOutput)
 }
 
+// The ID of the PagerDuty service that the response plan associated with the incident at launch.
 func (o ResponsePlanIntegrationPagerdutyOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIntegrationPagerduty) string { return v.ServiceId }).(pulumi.StringOutput)
 }

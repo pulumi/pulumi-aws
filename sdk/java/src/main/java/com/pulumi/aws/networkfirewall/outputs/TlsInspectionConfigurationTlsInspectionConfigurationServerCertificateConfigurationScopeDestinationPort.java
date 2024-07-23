@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort {
+    /**
+     * @return The lower limit of the port range. This must be less than or equal to the `to_port`.
+     * 
+     */
     private Integer fromPort;
+    /**
+     * @return The upper limit of the port range. This must be greater than or equal to the `from_port`.
+     * 
+     */
     private Integer toPort;
 
     private TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort() {}
+    /**
+     * @return The lower limit of the port range. This must be less than or equal to the `to_port`.
+     * 
+     */
     public Integer fromPort() {
         return this.fromPort;
     }
+    /**
+     * @return The upper limit of the port range. This must be greater than or equal to the `from_port`.
+     * 
+     */
     public Integer toPort() {
         return this.toPort;
     }

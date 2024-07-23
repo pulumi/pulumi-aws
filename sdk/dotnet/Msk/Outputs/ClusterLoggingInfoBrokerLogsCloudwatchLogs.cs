@@ -14,6 +14,9 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogs
     {
         public readonly bool Enabled;
+        /// <summary>
+        /// Name of the Cloudwatch Log Group to deliver logs to.
+        /// </summary>
         public readonly string? LogGroup;
 
         [OutputConstructor]

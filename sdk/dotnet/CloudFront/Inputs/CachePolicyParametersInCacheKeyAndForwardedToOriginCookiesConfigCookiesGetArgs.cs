@@ -14,6 +14,10 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         [Input("items")]
         private InputList<string>? _items;
+
+        /// <summary>
+        /// List of item names, such as cookies, headers, or query strings.
+        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());

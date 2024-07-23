@@ -18,23 +18,47 @@ public final class RuleGroupActivatedRuleArgs extends com.pulumi.resources.Resou
 
     public static final RuleGroupActivatedRuleArgs Empty = new RuleGroupActivatedRuleArgs();
 
+    /**
+     * Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+     * 
+     */
     @Import(name="action", required=true)
     private Output<RuleGroupActivatedRuleActionArgs> action;
 
+    /**
+     * @return Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+     * 
+     */
     public Output<RuleGroupActivatedRuleActionArgs> action() {
         return this.action;
     }
 
+    /**
+     * Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+     * 
+     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
+    /**
+     * @return Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+     * 
+     */
     public Output<Integer> priority() {
         return this.priority;
     }
 
+    /**
+     * The ID of a rule
+     * 
+     */
     @Import(name="ruleId", required=true)
     private Output<String> ruleId;
 
+    /**
+     * @return The ID of a rule
+     * 
+     */
     public Output<String> ruleId() {
         return this.ruleId;
     }
@@ -73,29 +97,65 @@ public final class RuleGroupActivatedRuleArgs extends com.pulumi.resources.Resou
             $ = new RuleGroupActivatedRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(Output<RuleGroupActivatedRuleActionArgs> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(RuleGroupActivatedRuleActionArgs action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param priority Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
+        /**
+         * @param priority Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
+        /**
+         * @param ruleId The ID of a rule
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleId(Output<String> ruleId) {
             $.ruleId = ruleId;
             return this;
         }
 
+        /**
+         * @param ruleId The ID of a rule
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleId(String ruleId) {
             return ruleId(Output.of(ruleId));
         }

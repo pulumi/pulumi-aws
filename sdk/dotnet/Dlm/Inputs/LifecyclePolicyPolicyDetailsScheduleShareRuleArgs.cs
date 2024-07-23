@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Dlm.Inputs
     {
         [Input("targetAccounts", required: true)]
         private InputList<string>? _targetAccounts;
+
+        /// <summary>
+        /// The IDs of the AWS accounts with which to share the snapshots.
+        /// </summary>
         public InputList<string> TargetAccounts
         {
             get => _targetAccounts ?? (_targetAccounts = new InputList<string>());
