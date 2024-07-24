@@ -85,6 +85,17 @@ resources:
       role: ${my-role.name}
       policyArn: ${policyArn}
 
+  upload-bucket:
+    type: aws:s3/bucketV2:BucketV2
+
+  upload-provider:
+    type: aws:s3:BucketObjectv2
+    properties:
+      bucket: ${upload-bucket.id}
+      key: pulumi-resource-aws
+      source:
+        fn::FileAsset: ${localProviderBuild}
+
   my-instance-profile:
     type: aws:iam/instanceProfile:InstanceProfile
     properties:
@@ -92,6 +103,9 @@ resources:
 
   inst:
     type: aws:ec2/instance:Instance
+    options:
+      dependsOn:
+        - ${upload-provider}
     properties:
       ami: ${ec2ami}
       instanceType: ${instanceType}
@@ -112,6 +126,9 @@ resources:
         echo "AcceptEnv PULUMI_COMMAND_STDERR" >> /tmp/sshd_config
         sudo cp /tmp/sshd_config /etc/ssh/sshd_config || echo "FAILED to set sshd_config"
         rm /tmp/sshd_config
+        # copy the file as part of instance startup is much faster than
+        # using command:remote
+        cd /tmp && aws s3 cp s3://${upload-bucket.id}/pulumi-resource-aws ./
 
   file-copy:
     type: command:remote:CopyFile
@@ -122,19 +139,6 @@ resources:
         privateKey: ${priv-key.privateKeyOpenssh}
       localPath: remote-program/Pulumi.yaml
       remotePath: "/tmp/Pulumi.yaml"
-    options:
-      ignoreChanges:
-        - connection
-
-  provider-copy:
-    type: command:remote:CopyFile
-    properties:
-      connection:
-        host: ${inst.publicIp}
-        user: ec2-user # The default user for Amazon Linux AMI
-        privateKey: ${priv-key.privateKeyOpenssh}
-      localPath: ${localProviderBuild}
-      remotePath: "/tmp/pulumi-resource-aws"
     options:
       ignoreChanges:
         - connection
@@ -185,9 +189,9 @@ resources:
         - connection
       dependsOn:
         - ${install-cmd}
-        - ${provider-copy}
 
 outputs:
   instanceId: ${inst.id}
   publicIp: ${inst.publicIp}
   commandOut: ${init-cmd.stdout}
+  bucket: ${upload-bucket.id}
