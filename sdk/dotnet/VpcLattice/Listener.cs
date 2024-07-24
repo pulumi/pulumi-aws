@@ -221,7 +221,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

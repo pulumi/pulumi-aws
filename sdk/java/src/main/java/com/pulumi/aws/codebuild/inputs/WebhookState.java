@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.inputs;
 
 import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupArgs;
+import com.pulumi.aws.codebuild.inputs.WebhookScopeConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -93,6 +94,21 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * 
+     */
+    @Import(name="scopeConfiguration")
+    private @Nullable Output<WebhookScopeConfigurationArgs> scopeConfiguration;
+
+    /**
+     * @return Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * 
+     */
+    public Optional<Output<WebhookScopeConfigurationArgs>> scopeConfiguration() {
+        return Optional.ofNullable(this.scopeConfiguration);
+    }
+
+    /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      * 
      */
@@ -130,6 +146,7 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         this.filterGroups = $.filterGroups;
         this.payloadUrl = $.payloadUrl;
         this.projectName = $.projectName;
+        this.scopeConfiguration = $.scopeConfiguration;
         this.secret = $.secret;
         this.url = $.url;
     }
@@ -265,6 +282,27 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
+        }
+
+        /**
+         * @param scopeConfiguration Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scopeConfiguration(@Nullable Output<WebhookScopeConfigurationArgs> scopeConfiguration) {
+            $.scopeConfiguration = scopeConfiguration;
+            return this;
+        }
+
+        /**
+         * @param scopeConfiguration Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scopeConfiguration(WebhookScopeConfigurationArgs scopeConfiguration) {
+            return scopeConfiguration(Output.of(scopeConfiguration));
         }
 
         /**

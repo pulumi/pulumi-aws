@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class SpaceSpaceSettingsCodeEditorAppSettings {
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     private SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private SpaceSpaceSettingsCodeEditorAppSettings() {}
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     public SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec() {

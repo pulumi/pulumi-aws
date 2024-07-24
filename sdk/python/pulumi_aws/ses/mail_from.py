@@ -174,7 +174,7 @@ class MailFrom(pulumi.CustomResource):
             name=example.mail_from_domain,
             type=aws.route53.RecordType.TXT,
             ttl=600,
-            records=["v=spf1 include:amazonses.com -all"])
+            records=["v=spf1 include:amazonses.com ~all"])
         ```
 
         ### Email Identity MAIL FROM
@@ -243,7 +243,7 @@ class MailFrom(pulumi.CustomResource):
             name=example.mail_from_domain,
             type=aws.route53.RecordType.TXT,
             ttl=600,
-            records=["v=spf1 include:amazonses.com -all"])
+            records=["v=spf1 include:amazonses.com ~all"])
         ```
 
         ### Email Identity MAIL FROM

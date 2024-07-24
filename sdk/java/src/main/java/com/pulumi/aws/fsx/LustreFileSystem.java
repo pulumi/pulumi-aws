@@ -244,6 +244,24 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return this.fileSystemTypeVersion;
     }
     /**
+     * A map of tags to apply to the file system&#39;s final backup.
+     * 
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     * 
+     */
+    @Export(name="finalBackupTags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> finalBackupTags;
+
+    /**
+     * @return A map of tags to apply to the file system&#39;s final backup.
+     * 
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> finalBackupTags() {
+        return Codegen.optional(this.finalBackupTags);
+    }
+    /**
      * S3 URI (with optional prefix) that you&#39;re using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
@@ -286,28 +304,28 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return this.kmsKeyId;
     }
     /**
-     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
      * 
      */
     @Export(name="logConfiguration", refs={LustreFileSystemLogConfiguration.class}, tree="[0]")
     private Output<LustreFileSystemLogConfiguration> logConfiguration;
 
     /**
-     * @return The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     * @return The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
      * 
      */
     public Output<LustreFileSystemLogConfiguration> logConfiguration() {
         return this.logConfiguration;
     }
     /**
-     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
      * 
      */
     @Export(name="metadataConfiguration", refs={LustreFileSystemMetadataConfiguration.class}, tree="[0]")
     private Output<LustreFileSystemMetadataConfiguration> metadataConfiguration;
 
     /**
-     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
      * 
      */
     public Output<LustreFileSystemMetadataConfiguration> metadataConfiguration() {
@@ -370,14 +388,14 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.perUnitStorageThroughput);
     }
     /**
-     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
      * 
      */
     @Export(name="rootSquashConfiguration", refs={LustreFileSystemRootSquashConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ LustreFileSystemRootSquashConfiguration> rootSquashConfiguration;
 
     /**
-     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
      * 
      */
     public Output<Optional<LustreFileSystemRootSquashConfiguration>> rootSquashConfiguration() {
@@ -396,6 +414,24 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> securityGroupIds() {
         return Codegen.optional(this.securityGroupIds);
+    }
+    /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
+     * 
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     * 
+     */
+    @Export(name="skipFinalBackup", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipFinalBackup;
+
+    /**
+     * @return When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
+     * 
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     * 
+     */
+    public Output<Optional<Boolean>> skipFinalBackup() {
+        return Codegen.optional(this.skipFinalBackup);
     }
     /**
      * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
@@ -428,12 +464,16 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
     /**
      * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="subnetIds", refs={String.class}, tree="[0]")
     private Output<String> subnetIds;
 
     /**
      * @return A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> subnetIds() {

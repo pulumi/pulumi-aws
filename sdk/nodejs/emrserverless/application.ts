@@ -126,6 +126,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly initialCapacities!: pulumi.Output<outputs.emrserverless.ApplicationInitialCapacity[] | undefined>;
     /**
+     * Enables the interactive use cases to use when running an application.
+     */
+    public readonly interactiveConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationInteractiveConfiguration>;
+    /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
     public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity>;
@@ -175,6 +179,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["autoStopConfiguration"] = state ? state.autoStopConfiguration : undefined;
             resourceInputs["imageConfiguration"] = state ? state.imageConfiguration : undefined;
             resourceInputs["initialCapacities"] = state ? state.initialCapacities : undefined;
+            resourceInputs["interactiveConfiguration"] = state ? state.interactiveConfiguration : undefined;
             resourceInputs["maximumCapacity"] = state ? state.maximumCapacity : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
@@ -195,6 +200,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
             resourceInputs["imageConfiguration"] = args ? args.imageConfiguration : undefined;
             resourceInputs["initialCapacities"] = args ? args.initialCapacities : undefined;
+            resourceInputs["interactiveConfiguration"] = args ? args.interactiveConfiguration : undefined;
             resourceInputs["maximumCapacity"] = args ? args.maximumCapacity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
@@ -237,6 +243,10 @@ export interface ApplicationState {
      * The capacity to initialize when the application is created.
      */
     initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[]>;
+    /**
+     * Enables the interactive use cases to use when running an application.
+     */
+    interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfiguration>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
@@ -293,6 +303,10 @@ export interface ApplicationArgs {
      * The capacity to initialize when the application is created.
      */
     initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[]>;
+    /**
+     * Enables the interactive use cases to use when running an application.
+     */
+    interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfiguration>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */

@@ -316,6 +316,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> ClusterEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+        /// </summary>
+        [Output("clusterMode")]
+        public Output<string> ClusterMode { get; private set; } = null!;
+
+        /// <summary>
         /// Address of the replication group configuration endpoint when cluster mode is enabled.
         /// </summary>
         [Output("configurationEndpointAddress")]
@@ -399,7 +405,9 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<string>> MemberClusters { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+        /// Specifies whether to enable Multi-AZ Support for the replication group.
+        /// If `true`, `automatic_failover_enabled` must also be enabled.
+        /// Defaults to `false`.
         /// </summary>
         [Output("multiAzEnabled")]
         public Output<bool?> MultiAzEnabled { get; private set; } = null!;
@@ -423,7 +431,11 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> NotificationTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
+        /// Number of cache clusters (primary and replicas) this replication group will have.
+        /// If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+        /// Updates will occur before other modifications.
+        /// Conflicts with `num_node_groups` and `replicas_per_node_group`.
+        /// Defaults to `1`.
         /// </summary>
         [Output("numCacheClusters")]
         public Output<int> NumCacheClusters { get; private set; } = null!;
@@ -431,6 +443,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Number of node groups (shards) for this Redis replication group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
+        /// Conflicts with `num_cache_clusters`.
         /// </summary>
         [Output("numNodeGroups")]
         public Output<int> NumNodeGroups { get; private set; } = null!;
@@ -469,6 +482,8 @@ namespace Pulumi.Aws.ElastiCache
         /// Number of replica nodes in each node group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Valid values are 0 to 5.
+        /// Conflicts with `num_cache_clusters`.
+        /// Can only be set if `num_node_groups` is set.
         /// </summary>
         [Output("replicasPerNodeGroup")]
         public Output<int> ReplicasPerNodeGroup { get; private set; } = null!;
@@ -566,7 +581,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ReplicationGroup(string name, ReplicationGroupArgs? args = null, CustomResourceOptions? options = null)
+        public ReplicationGroup(string name, ReplicationGroupArgs args, CustomResourceOptions? options = null)
             : base("aws:elasticache/replicationGroup:ReplicationGroup", name, args ?? new ReplicationGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -657,6 +672,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? AutomaticFailoverEnabled { get; set; }
 
         /// <summary>
+        /// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+        /// </summary>
+        [Input("clusterMode")]
+        public Input<string>? ClusterMode { get; set; }
+
+        /// <summary>
         /// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         /// </summary>
         [Input("dataTieringEnabled")]
@@ -665,8 +686,8 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// User-created description for the replication group. Must not be empty.
         /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
+        [Input("description", required: true)]
+        public Input<string> Description { get; set; } = null!;
 
         /// <summary>
         /// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
@@ -728,7 +749,9 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+        /// Specifies whether to enable Multi-AZ Support for the replication group.
+        /// If `true`, `automatic_failover_enabled` must also be enabled.
+        /// Defaults to `false`.
         /// </summary>
         [Input("multiAzEnabled")]
         public Input<bool>? MultiAzEnabled { get; set; }
@@ -752,7 +775,11 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
+        /// Number of cache clusters (primary and replicas) this replication group will have.
+        /// If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+        /// Updates will occur before other modifications.
+        /// Conflicts with `num_node_groups` and `replicas_per_node_group`.
+        /// Defaults to `1`.
         /// </summary>
         [Input("numCacheClusters")]
         public Input<int>? NumCacheClusters { get; set; }
@@ -760,6 +787,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Number of node groups (shards) for this Redis replication group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
+        /// Conflicts with `num_cache_clusters`.
         /// </summary>
         [Input("numNodeGroups")]
         public Input<int>? NumNodeGroups { get; set; }
@@ -792,6 +820,8 @@ namespace Pulumi.Aws.ElastiCache
         /// Number of replica nodes in each node group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Valid values are 0 to 5.
+        /// Conflicts with `num_cache_clusters`.
+        /// Can only be set if `num_node_groups` is set.
         /// </summary>
         [Input("replicasPerNodeGroup")]
         public Input<int>? ReplicasPerNodeGroup { get; set; }
@@ -974,6 +1004,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? ClusterEnabled { get; set; }
 
         /// <summary>
+        /// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+        /// </summary>
+        [Input("clusterMode")]
+        public Input<string>? ClusterMode { get; set; }
+
+        /// <summary>
         /// Address of the replication group configuration endpoint when cluster mode is enabled.
         /// </summary>
         [Input("configurationEndpointAddress")]
@@ -1069,7 +1105,9 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+        /// Specifies whether to enable Multi-AZ Support for the replication group.
+        /// If `true`, `automatic_failover_enabled` must also be enabled.
+        /// Defaults to `false`.
         /// </summary>
         [Input("multiAzEnabled")]
         public Input<bool>? MultiAzEnabled { get; set; }
@@ -1093,7 +1131,11 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
+        /// Number of cache clusters (primary and replicas) this replication group will have.
+        /// If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+        /// Updates will occur before other modifications.
+        /// Conflicts with `num_node_groups` and `replicas_per_node_group`.
+        /// Defaults to `1`.
         /// </summary>
         [Input("numCacheClusters")]
         public Input<int>? NumCacheClusters { get; set; }
@@ -1101,6 +1143,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Number of node groups (shards) for this Redis replication group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
+        /// Conflicts with `num_cache_clusters`.
         /// </summary>
         [Input("numNodeGroups")]
         public Input<int>? NumNodeGroups { get; set; }
@@ -1145,6 +1188,8 @@ namespace Pulumi.Aws.ElastiCache
         /// Number of replica nodes in each node group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Valid values are 0 to 5.
+        /// Conflicts with `num_cache_clusters`.
+        /// Can only be set if `num_node_groups` is set.
         /// </summary>
         [Input("replicasPerNodeGroup")]
         public Input<int>? ReplicasPerNodeGroup { get; set; }

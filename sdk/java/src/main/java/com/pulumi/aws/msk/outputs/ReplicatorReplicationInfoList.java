@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatorReplicationInfoList {
     /**
-     * @return Confguration relating to consumer group replication.
+     * @return Configuration relating to consumer group replication.
      * 
      */
     private List<ReplicatorReplicationInfoListConsumerGroupReplication> consumerGroupReplications;
@@ -45,7 +45,7 @@ public final class ReplicatorReplicationInfoList {
 
     private ReplicatorReplicationInfoList() {}
     /**
-     * @return Confguration relating to consumer group replication.
+     * @return Configuration relating to consumer group replication.
      * 
      */
     public List<ReplicatorReplicationInfoListConsumerGroupReplication> consumerGroupReplications() {

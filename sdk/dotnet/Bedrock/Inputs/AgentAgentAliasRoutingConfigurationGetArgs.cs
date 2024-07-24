@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("agentVersion", required: true)]
         public Input<string> AgentVersion { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of the Provisioned Throughput assigned to the agent alias.
+        /// </summary>
+        [Input("provisionedThroughput", required: true)]
+        public Input<string> ProvisionedThroughput { get; set; } = null!;
+
         public AgentAgentAliasRoutingConfigurationGetArgs()
         {
         }

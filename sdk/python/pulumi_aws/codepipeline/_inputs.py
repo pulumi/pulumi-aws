@@ -639,6 +639,7 @@ if not MYPY:
         """
         The order in which actions are run.
         """
+        timeout_in_minutes: NotRequired[pulumi.Input[int]]
 elif False:
     PipelineStageActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -656,7 +657,8 @@ class PipelineStageActionArgs:
                  output_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 run_order: Optional[pulumi.Input[int]] = None):
+                 run_order: Optional[pulumi.Input[int]] = None,
+                 timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
         :param pulumi.Input[str] name: The action declaration's name.
@@ -690,6 +692,8 @@ class PipelineStageActionArgs:
             pulumi.set(__self__, "role_arn", role_arn)
         if run_order is not None:
             pulumi.set(__self__, "run_order", run_order)
+        if timeout_in_minutes is not None:
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
 
     @property
     @pulumi.getter
@@ -834,6 +838,15 @@ class PipelineStageActionArgs:
     @run_order.setter
     def run_order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "run_order", value)
+
+    @property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout_in_minutes")
+
+    @timeout_in_minutes.setter
+    def timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_minutes", value)
 
 
 if not MYPY:

@@ -89,6 +89,30 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Target group with health requirements
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const tcp_example = new aws.lb.TargetGroup("tcp-example", {
+ *     name: "tf-example-lb-nlb-tg",
+ *     port: 80,
+ *     protocol: "TCP",
+ *     vpcId: main.id,
+ *     targetGroupHealth: {
+ *         dnsFailover: {
+ *             minimumHealthyTargetsCount: "1",
+ *             minimumHealthyTargetsPercentage: "off",
+ *         },
+ *         unhealthyStateRouting: {
+ *             minimumHealthyTargetsCount: 1,
+ *             minimumHealthyTargetsPercentage: "off",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Target Groups using their ARN. For example:
@@ -223,6 +247,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly targetFailovers!: pulumi.Output<outputs.alb.TargetGroupTargetFailover[]>;
     /**
+     * Target health requirements block. See targetGroupHealth for more information.
+     */
+    public readonly targetGroupHealth!: pulumi.Output<outputs.alb.TargetGroupTargetGroupHealth>;
+    /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
      */
     public readonly targetHealthStates!: pulumi.Output<outputs.alb.TargetGroupTargetHealthState[]>;
@@ -281,6 +309,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["targetFailovers"] = state ? state.targetFailovers : undefined;
+            resourceInputs["targetGroupHealth"] = state ? state.targetGroupHealth : undefined;
             resourceInputs["targetHealthStates"] = state ? state.targetHealthStates : undefined;
             resourceInputs["targetType"] = state ? state.targetType : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
@@ -305,6 +334,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["stickiness"] = args ? args.stickiness : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetFailovers"] = args ? args.targetFailovers : undefined;
+            resourceInputs["targetGroupHealth"] = args ? args.targetGroupHealth : undefined;
             resourceInputs["targetHealthStates"] = args ? args.targetHealthStates : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
@@ -422,6 +452,10 @@ export interface TargetGroupState {
      */
     targetFailovers?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetFailover>[]>;
     /**
+     * Target health requirements block. See targetGroupHealth for more information.
+     */
+    targetGroupHealth?: pulumi.Input<inputs.alb.TargetGroupTargetGroupHealth>;
+    /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
      */
     targetHealthStates?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetHealthState>[]>;
@@ -528,6 +562,10 @@ export interface TargetGroupArgs {
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */
     targetFailovers?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetFailover>[]>;
+    /**
+     * Target health requirements block. See targetGroupHealth for more information.
+     */
+    targetGroupHealth?: pulumi.Input<inputs.alb.TargetGroupTargetGroupHealth>;
     /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
      */

@@ -679,11 +679,11 @@ if not MYPY:
     class ServerWorkflowDetailsArgsDict(TypedDict):
         on_partial_upload: NotRequired[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgsDict']]
         """
-        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
+        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
         """
         on_upload: NotRequired[pulumi.Input['ServerWorkflowDetailsOnUploadArgsDict']]
         """
-        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
         """
 elif False:
     ServerWorkflowDetailsArgsDict: TypeAlias = Mapping[str, Any]
@@ -694,8 +694,8 @@ class ServerWorkflowDetailsArgs:
                  on_partial_upload: Optional[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs']] = None,
                  on_upload: Optional[pulumi.Input['ServerWorkflowDetailsOnUploadArgs']] = None):
         """
-        :param pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs'] on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
-        :param pulumi.Input['ServerWorkflowDetailsOnUploadArgs'] on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        :param pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs'] on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
+        :param pulumi.Input['ServerWorkflowDetailsOnUploadArgs'] on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
         """
         if on_partial_upload is not None:
             pulumi.set(__self__, "on_partial_upload", on_partial_upload)
@@ -706,7 +706,7 @@ class ServerWorkflowDetailsArgs:
     @pulumi.getter(name="onPartialUpload")
     def on_partial_upload(self) -> Optional[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs']]:
         """
-        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
+        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
         """
         return pulumi.get(self, "on_partial_upload")
 
@@ -718,7 +718,7 @@ class ServerWorkflowDetailsArgs:
     @pulumi.getter(name="onUpload")
     def on_upload(self) -> Optional[pulumi.Input['ServerWorkflowDetailsOnUploadArgs']]:
         """
-        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
         """
         return pulumi.get(self, "on_upload")
 

@@ -22507,17 +22507,25 @@ if not MYPY:
         """
         The inspection level to use for the Bot Control rule group.
         """
+        enable_machine_learning: NotRequired[pulumi.Input[bool]]
+        """
+        Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+        """
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs:
     def __init__(__self__, *,
-                 inspection_level: pulumi.Input[str]):
+                 inspection_level: pulumi.Input[str],
+                 enable_machine_learning: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] inspection_level: The inspection level to use for the Bot Control rule group.
+        :param pulumi.Input[bool] enable_machine_learning: Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
         """
         pulumi.set(__self__, "inspection_level", inspection_level)
+        if enable_machine_learning is not None:
+            pulumi.set(__self__, "enable_machine_learning", enable_machine_learning)
 
     @property
     @pulumi.getter(name="inspectionLevel")
@@ -22530,6 +22538,18 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @inspection_level.setter
     def inspection_level(self, value: pulumi.Input[str]):
         pulumi.set(self, "inspection_level", value)
+
+    @property
+    @pulumi.getter(name="enableMachineLearning")
+    def enable_machine_learning(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+        """
+        return pulumi.get(self, "enable_machine_learning")
+
+    @enable_machine_learning.setter
+    def enable_machine_learning(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_machine_learning", value)
 
 
 if not MYPY:

@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// <summary>
         /// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         /// </summary>
-        public readonly string? Throughput;
+        public readonly int? Throughput;
         /// <summary>
         /// Volume type.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             string? snapshotId,
 
-            string? throughput,
+            int? throughput,
 
             string? volumeType)
         {

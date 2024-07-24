@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fis.ExperimentTemplateArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateState;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateAction;
+import com.pulumi.aws.fis.outputs.ExperimentTemplateExperimentOptions;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateLogConfiguration;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateStopCondition;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateTarget;
@@ -125,6 +126,20 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      */
     public Output<String> description() {
         return this.description;
+    }
+    /**
+     * The experiment options for the experiment template. See experiment_options below for more details!
+     * 
+     */
+    @Export(name="experimentOptions", refs={ExperimentTemplateExperimentOptions.class}, tree="[0]")
+    private Output<ExperimentTemplateExperimentOptions> experimentOptions;
+
+    /**
+     * @return The experiment options for the experiment template. See experiment_options below for more details!
+     * 
+     */
+    public Output<ExperimentTemplateExperimentOptions> experimentOptions() {
+        return this.experimentOptions;
     }
     /**
      * The configuration for experiment logging. See below.

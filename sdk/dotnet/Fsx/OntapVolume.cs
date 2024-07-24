@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Fsx
     public partial class OntapVolume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         /// </summary>
         [Output("aggregateConfiguration")]
         public Output<Outputs.OntapVolumeAggregateConfiguration?> AggregateConfiguration { get; private set; } = null!;
@@ -106,6 +106,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to apply to the volume's final backup.
+        /// </summary>
+        [Output("finalBackupTags")]
+        public Output<ImmutableDictionary<string, string>?> FinalBackupTags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
@@ -156,7 +162,7 @@ namespace Pulumi.Aws.Fsx
         public Output<bool?> SkipFinalBackup { get; private set; } = null!;
 
         /// <summary>
-        /// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        /// The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         /// </summary>
         [Output("snaplockConfiguration")]
         public Output<Outputs.OntapVolumeSnaplockConfiguration?> SnaplockConfiguration { get; private set; } = null!;
@@ -175,6 +181,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Specifies the storage virtual machine in which to create the volume.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("storageVirtualMachineId")]
         public Output<string> StorageVirtualMachineId { get; private set; } = null!;
@@ -192,7 +200,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        /// The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         /// </summary>
         [Output("tieringPolicy")]
         public Output<Outputs.OntapVolumeTieringPolicy?> TieringPolicy { get; private set; } = null!;
@@ -262,7 +270,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class OntapVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         /// </summary>
         [Input("aggregateConfiguration")]
         public Input<Inputs.OntapVolumeAggregateConfigurationArgs>? AggregateConfiguration { get; set; }
@@ -278,6 +286,18 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("copyTagsToBackups")]
         public Input<bool>? CopyTagsToBackups { get; set; }
+
+        [Input("finalBackupTags")]
+        private InputMap<string>? _finalBackupTags;
+
+        /// <summary>
+        /// A map of tags to apply to the volume's final backup.
+        /// </summary>
+        public InputMap<string> FinalBackupTags
+        {
+            get => _finalBackupTags ?? (_finalBackupTags = new InputMap<string>());
+            set => _finalBackupTags = value;
+        }
 
         /// <summary>
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
@@ -322,7 +342,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        /// The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         /// </summary>
         [Input("snaplockConfiguration")]
         public Input<Inputs.OntapVolumeSnaplockConfigurationArgs>? SnaplockConfiguration { get; set; }
@@ -341,6 +361,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Specifies the storage virtual machine in which to create the volume.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("storageVirtualMachineId", required: true)]
         public Input<string> StorageVirtualMachineId { get; set; } = null!;
@@ -358,7 +380,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        /// The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         /// </summary>
         [Input("tieringPolicy")]
         public Input<Inputs.OntapVolumeTieringPolicyArgs>? TieringPolicy { get; set; }
@@ -384,7 +406,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class OntapVolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         /// </summary>
         [Input("aggregateConfiguration")]
         public Input<Inputs.OntapVolumeAggregateConfigurationGetArgs>? AggregateConfiguration { get; set; }
@@ -412,6 +434,18 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
+
+        [Input("finalBackupTags")]
+        private InputMap<string>? _finalBackupTags;
+
+        /// <summary>
+        /// A map of tags to apply to the volume's final backup.
+        /// </summary>
+        public InputMap<string> FinalBackupTags
+        {
+            get => _finalBackupTags ?? (_finalBackupTags = new InputMap<string>());
+            set => _finalBackupTags = value;
+        }
 
         /// <summary>
         /// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
@@ -462,7 +496,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        /// The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         /// </summary>
         [Input("snaplockConfiguration")]
         public Input<Inputs.OntapVolumeSnaplockConfigurationGetArgs>? SnaplockConfiguration { get; set; }
@@ -481,6 +515,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Specifies the storage virtual machine in which to create the volume.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("storageVirtualMachineId")]
         public Input<string>? StorageVirtualMachineId { get; set; }
@@ -511,7 +547,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        /// The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         /// </summary>
         [Input("tieringPolicy")]
         public Input<Inputs.OntapVolumeTieringPolicyGetArgs>? TieringPolicy { get; set; }

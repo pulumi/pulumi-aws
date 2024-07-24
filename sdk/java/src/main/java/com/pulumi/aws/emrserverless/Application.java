@@ -10,6 +10,7 @@ import com.pulumi.aws.emrserverless.outputs.ApplicationAutoStartConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationAutoStopConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationImageConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationInitialCapacity;
+import com.pulumi.aws.emrserverless.outputs.ApplicationInteractiveConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationMaximumCapacity;
 import com.pulumi.aws.emrserverless.outputs.ApplicationNetworkConfiguration;
 import com.pulumi.core.Output;
@@ -250,6 +251,20 @@ public class Application extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<ApplicationInitialCapacity>>> initialCapacities() {
         return Codegen.optional(this.initialCapacities);
+    }
+    /**
+     * Enables the interactive use cases to use when running an application.
+     * 
+     */
+    @Export(name="interactiveConfiguration", refs={ApplicationInteractiveConfiguration.class}, tree="[0]")
+    private Output<ApplicationInteractiveConfiguration> interactiveConfiguration;
+
+    /**
+     * @return Enables the interactive use cases to use when running an application.
+     * 
+     */
+    public Output<ApplicationInteractiveConfiguration> interactiveConfiguration() {
+        return this.interactiveConfiguration;
     }
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.

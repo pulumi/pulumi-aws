@@ -106,6 +106,10 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly bool AutomaticFailoverEnabled;
         /// <summary>
+        /// Whether cluster mode is enabled or disabled.
+        /// </summary>
+        public readonly string ClusterMode;
+        /// <summary>
         /// The configuration endpoint address to allow host discovery.
         /// </summary>
         public readonly string ConfigurationEndpointAddress;
@@ -175,6 +179,8 @@ namespace Pulumi.Aws.ElastiCache
 
             bool automaticFailoverEnabled,
 
+            string clusterMode,
+
             string configurationEndpointAddress,
 
             string description,
@@ -210,6 +216,7 @@ namespace Pulumi.Aws.ElastiCache
             Arn = arn;
             AuthTokenEnabled = authTokenEnabled;
             AutomaticFailoverEnabled = automaticFailoverEnabled;
+            ClusterMode = clusterMode;
             ConfigurationEndpointAddress = configurationEndpointAddress;
             Description = description;
             Id = id;

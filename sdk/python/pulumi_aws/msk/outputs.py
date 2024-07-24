@@ -46,11 +46,21 @@ __all__ = [
     'ReplicatorReplicationInfoList',
     'ReplicatorReplicationInfoListConsumerGroupReplication',
     'ReplicatorReplicationInfoListTopicReplication',
+    'ReplicatorReplicationInfoListTopicReplicationStartingPosition',
     'ServerlessClusterClientAuthentication',
     'ServerlessClusterClientAuthenticationSasl',
     'ServerlessClusterClientAuthenticationSaslIam',
     'ServerlessClusterVpcConfig',
     'GetBrokerNodesNodeInfoListResult',
+    'GetClusterBrokerNodeGroupInfoResult',
+    'GetClusterBrokerNodeGroupInfoConnectivityInfoResult',
+    'GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult',
+    'GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult',
+    'GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult',
+    'GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult',
+    'GetClusterBrokerNodeGroupInfoStorageInfoResult',
+    'GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult',
+    'GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult',
 ]
 
 @pulumi.output_type
@@ -1187,7 +1197,7 @@ class ReplicatorReplicationInfoList(dict):
                  source_kafka_cluster_alias: Optional[str] = None,
                  target_kafka_cluster_alias: Optional[str] = None):
         """
-        :param Sequence['ReplicatorReplicationInfoListConsumerGroupReplicationArgs'] consumer_group_replications: Confguration relating to consumer group replication.
+        :param Sequence['ReplicatorReplicationInfoListConsumerGroupReplicationArgs'] consumer_group_replications: Configuration relating to consumer group replication.
         :param str source_kafka_cluster_arn: The ARN of the source Kafka cluster.
         :param str target_compression_type: The type of compression to use writing records to target Kafka cluster.
         :param str target_kafka_cluster_arn: The ARN of the target Kafka cluster.
@@ -1207,7 +1217,7 @@ class ReplicatorReplicationInfoList(dict):
     @pulumi.getter(name="consumerGroupReplications")
     def consumer_group_replications(self) -> Sequence['outputs.ReplicatorReplicationInfoListConsumerGroupReplication']:
         """
-        Confguration relating to consumer group replication.
+        Configuration relating to consumer group replication.
         """
         return pulumi.get(self, "consumer_group_replications")
 
@@ -1344,6 +1354,8 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
             suggest = "copy_topic_configurations"
         elif key == "detectAndCopyNewTopics":
             suggest = "detect_and_copy_new_topics"
+        elif key == "startingPosition":
+            suggest = "starting_position"
         elif key == "topicsToExcludes":
             suggest = "topics_to_excludes"
 
@@ -1363,12 +1375,14 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
                  copy_access_control_lists_for_topics: Optional[bool] = None,
                  copy_topic_configurations: Optional[bool] = None,
                  detect_and_copy_new_topics: Optional[bool] = None,
+                 starting_position: Optional['outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition'] = None,
                  topics_to_excludes: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] topics_to_replicates: List of regular expression patterns indicating the topics to copy.
         :param bool copy_access_control_lists_for_topics: Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
         :param bool copy_topic_configurations: Whether to periodically configure remote topics to match their corresponding upstream topics.
         :param bool detect_and_copy_new_topics: Whether to periodically check for new topics and partitions.
+        :param 'ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs' starting_position: Configuration for specifying the position in the topics to start replicating from.
         :param Sequence[str] topics_to_excludes: List of regular expression patterns indicating the topics that should not be replica.
         """
         pulumi.set(__self__, "topics_to_replicates", topics_to_replicates)
@@ -1378,6 +1392,8 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
             pulumi.set(__self__, "copy_topic_configurations", copy_topic_configurations)
         if detect_and_copy_new_topics is not None:
             pulumi.set(__self__, "detect_and_copy_new_topics", detect_and_copy_new_topics)
+        if starting_position is not None:
+            pulumi.set(__self__, "starting_position", starting_position)
         if topics_to_excludes is not None:
             pulumi.set(__self__, "topics_to_excludes", topics_to_excludes)
 
@@ -1414,12 +1430,39 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
         return pulumi.get(self, "detect_and_copy_new_topics")
 
     @property
+    @pulumi.getter(name="startingPosition")
+    def starting_position(self) -> Optional['outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition']:
+        """
+        Configuration for specifying the position in the topics to start replicating from.
+        """
+        return pulumi.get(self, "starting_position")
+
+    @property
     @pulumi.getter(name="topicsToExcludes")
     def topics_to_excludes(self) -> Optional[Sequence[str]]:
         """
         List of regular expression patterns indicating the topics that should not be replica.
         """
         return pulumi.get(self, "topics_to_excludes")
+
+
+@pulumi.output_type
+class ReplicatorReplicationInfoListTopicReplicationStartingPosition(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        :param str type: The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -1596,5 +1639,183 @@ class GetBrokerNodesNodeInfoListResult(dict):
         ARN of the node
         """
         return pulumi.get(self, "node_arn")
+
+
+@pulumi.output_type
+class GetClusterBrokerNodeGroupInfoResult(dict):
+    def __init__(__self__, *,
+                 az_distribution: str,
+                 client_subnets: Sequence[str],
+                 connectivity_infos: Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoResult'],
+                 instance_type: str,
+                 security_groups: Sequence[str],
+                 storage_infos: Sequence['outputs.GetClusterBrokerNodeGroupInfoStorageInfoResult']):
+        pulumi.set(__self__, "az_distribution", az_distribution)
+        pulumi.set(__self__, "client_subnets", client_subnets)
+        pulumi.set(__self__, "connectivity_infos", connectivity_infos)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "storage_infos", storage_infos)
+
+    @property
+    @pulumi.getter(name="azDistribution")
+    def az_distribution(self) -> str:
+        return pulumi.get(self, "az_distribution")
+
+    @property
+    @pulumi.getter(name="clientSubnets")
+    def client_subnets(self) -> Sequence[str]:
+        return pulumi.get(self, "client_subnets")
+
+    @property
+    @pulumi.getter(name="connectivityInfos")
+    def connectivity_infos(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoResult']:
+        return pulumi.get(self, "connectivity_infos")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[str]:
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter(name="storageInfos")
+    def storage_infos(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoStorageInfoResult']:
+        return pulumi.get(self, "storage_infos")
+
+
+@pulumi.output_type
+class GetClusterBrokerNodeGroupInfoConnectivityInfoResult(dict):
+    def __init__(__self__, *,
+                 public_accesses: Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult'],
+                 vpc_connectivities: Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult']):
+        pulumi.set(__self__, "public_accesses", public_accesses)
+        pulumi.set(__self__, "vpc_connectivities", vpc_connectivities)
+
+    @property
+    @pulumi.getter(name="publicAccesses")
+    def public_accesses(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult']:
+        return pulumi.get(self, "public_accesses")
+
+    @property
+    @pulumi.getter(name="vpcConnectivities")
+    def vpc_connectivities(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult']:
+        return pulumi.get(self, "vpc_connectivities")
+
+
+@pulumi.output_type
+class GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult(dict):
+    def __init__(__self__, *,
+                 type: str):
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult(dict):
+    def __init__(__self__, *,
+                 client_authentications: Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult']):
+        pulumi.set(__self__, "client_authentications", client_authentications)
+
+    @property
+    @pulumi.getter(name="clientAuthentications")
+    def client_authentications(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult']:
+        return pulumi.get(self, "client_authentications")
+
+
+@pulumi.output_type
+class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 sasls: Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult'],
+                 tls: bool):
+        pulumi.set(__self__, "sasls", sasls)
+        pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def sasls(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult']:
+        return pulumi.get(self, "sasls")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> bool:
+        return pulumi.get(self, "tls")
+
+
+@pulumi.output_type
+class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult(dict):
+    def __init__(__self__, *,
+                 iam: bool,
+                 scram: bool):
+        pulumi.set(__self__, "iam", iam)
+        pulumi.set(__self__, "scram", scram)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> bool:
+        return pulumi.get(self, "iam")
+
+    @property
+    @pulumi.getter
+    def scram(self) -> bool:
+        return pulumi.get(self, "scram")
+
+
+@pulumi.output_type
+class GetClusterBrokerNodeGroupInfoStorageInfoResult(dict):
+    def __init__(__self__, *,
+                 ebs_storage_infos: Sequence['outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult']):
+        pulumi.set(__self__, "ebs_storage_infos", ebs_storage_infos)
+
+    @property
+    @pulumi.getter(name="ebsStorageInfos")
+    def ebs_storage_infos(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult']:
+        return pulumi.get(self, "ebs_storage_infos")
+
+
+@pulumi.output_type
+class GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult(dict):
+    def __init__(__self__, *,
+                 provisioned_throughputs: Sequence['outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult'],
+                 volume_size: int):
+        pulumi.set(__self__, "provisioned_throughputs", provisioned_throughputs)
+        pulumi.set(__self__, "volume_size", volume_size)
+
+    @property
+    @pulumi.getter(name="provisionedThroughputs")
+    def provisioned_throughputs(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult']:
+        return pulumi.get(self, "provisioned_throughputs")
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> int:
+        return pulumi.get(self, "volume_size")
+
+
+@pulumi.output_type
+class GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 volume_throughput: int):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "volume_throughput", volume_throughput)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="volumeThroughput")
+    def volume_throughput(self) -> int:
+        return pulumi.get(self, "volume_throughput")
 
 

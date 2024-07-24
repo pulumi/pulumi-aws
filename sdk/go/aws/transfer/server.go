@@ -281,6 +281,8 @@ import (
 //
 // ## Import
 //
+// In Terraform v1.5.0 and later, use an `import` Block to import Transfer Servers using the server `id`. For example:
+//
 // Using `pulumi import`, import Transfer Servers using the server `id`. For example:
 //
 // ```sh
@@ -300,7 +302,7 @@ type Server struct {
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
+	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails ServerEndpointDetailsPtrOutput `pulumi:"endpointDetails"`
 	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
 	EndpointType pulumi.StringPtrOutput `pulumi:"endpointType"`
@@ -322,7 +324,7 @@ type Server struct {
 	PostAuthenticationLoginBanner pulumi.StringPtrOutput `pulumi:"postAuthenticationLoginBanner"`
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner pulumi.StringPtrOutput `pulumi:"preAuthenticationLoginBanner"`
-	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
+	// The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
 	ProtocolDetails ServerProtocolDetailsOutput `pulumi:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `AS2`: File transfer over Applicability Statement 2
@@ -330,19 +332,24 @@ type Server struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions ServerS3StorageOptionsOutput `pulumi:"s3StorageOptions"`
 	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-	// * `TransferSecurityPolicy-2024-01`
-	// * `TransferSecurityPolicy-2023-05`
-	// * `TransferSecurityPolicy-2022-03`
-	// * `TransferSecurityPolicy-2020-06`
 	// * `TransferSecurityPolicy-2018-11`
-	// * `TransferSecurityPolicy-FIPS-2024-01`
-	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2024-01`
 	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2024-05`
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+	// * `TransferSecurityPolicy-Restricted-2018-11`
+	// * `TransferSecurityPolicy-Restricted-2020-06`
+	//
+	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
 	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
 	SftpAuthenticationMethods pulumi.StringOutput `pulumi:"sftpAuthenticationMethods"`
@@ -356,7 +363,7 @@ type Server struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
-	// Specifies the workflow details. See `workflowDetails` block below for details.
+	// Specifies the workflow details. See `workflowDetails` Block below for details.
 	WorkflowDetails ServerWorkflowDetailsPtrOutput `pulumi:"workflowDetails"`
 }
 
@@ -415,7 +422,7 @@ type serverState struct {
 	Domain *string `pulumi:"domain"`
 	// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint *string `pulumi:"endpoint"`
-	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
+	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails *ServerEndpointDetails `pulumi:"endpointDetails"`
 	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
 	EndpointType *string `pulumi:"endpointType"`
@@ -437,7 +444,7 @@ type serverState struct {
 	PostAuthenticationLoginBanner *string `pulumi:"postAuthenticationLoginBanner"`
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner *string `pulumi:"preAuthenticationLoginBanner"`
-	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
+	// The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
 	ProtocolDetails *ServerProtocolDetails `pulumi:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `AS2`: File transfer over Applicability Statement 2
@@ -445,19 +452,24 @@ type serverState struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions *ServerS3StorageOptions `pulumi:"s3StorageOptions"`
 	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-	// * `TransferSecurityPolicy-2024-01`
-	// * `TransferSecurityPolicy-2023-05`
-	// * `TransferSecurityPolicy-2022-03`
-	// * `TransferSecurityPolicy-2020-06`
 	// * `TransferSecurityPolicy-2018-11`
-	// * `TransferSecurityPolicy-FIPS-2024-01`
-	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2024-01`
 	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2024-05`
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+	// * `TransferSecurityPolicy-Restricted-2018-11`
+	// * `TransferSecurityPolicy-Restricted-2020-06`
+	//
+	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
 	SftpAuthenticationMethods *string `pulumi:"sftpAuthenticationMethods"`
@@ -471,7 +483,7 @@ type serverState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
-	// Specifies the workflow details. See `workflowDetails` block below for details.
+	// Specifies the workflow details. See `workflowDetails` Block below for details.
 	WorkflowDetails *ServerWorkflowDetails `pulumi:"workflowDetails"`
 }
 
@@ -486,7 +498,7 @@ type ServerState struct {
 	Domain pulumi.StringPtrInput
 	// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint pulumi.StringPtrInput
-	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
+	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails ServerEndpointDetailsPtrInput
 	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
 	EndpointType pulumi.StringPtrInput
@@ -508,7 +520,7 @@ type ServerState struct {
 	PostAuthenticationLoginBanner pulumi.StringPtrInput
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner pulumi.StringPtrInput
-	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
+	// The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
 	ProtocolDetails ServerProtocolDetailsPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `AS2`: File transfer over Applicability Statement 2
@@ -516,19 +528,24 @@ type ServerState struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayInput
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions ServerS3StorageOptionsPtrInput
 	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-	// * `TransferSecurityPolicy-2024-01`
-	// * `TransferSecurityPolicy-2023-05`
-	// * `TransferSecurityPolicy-2022-03`
-	// * `TransferSecurityPolicy-2020-06`
 	// * `TransferSecurityPolicy-2018-11`
-	// * `TransferSecurityPolicy-FIPS-2024-01`
-	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2024-01`
 	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2024-05`
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+	// * `TransferSecurityPolicy-Restricted-2018-11`
+	// * `TransferSecurityPolicy-Restricted-2020-06`
+	//
+	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName pulumi.StringPtrInput
 	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
 	SftpAuthenticationMethods pulumi.StringPtrInput
@@ -542,7 +559,7 @@ type ServerState struct {
 	TagsAll pulumi.StringMapInput
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
-	// Specifies the workflow details. See `workflowDetails` block below for details.
+	// Specifies the workflow details. See `workflowDetails` Block below for details.
 	WorkflowDetails ServerWorkflowDetailsPtrInput
 }
 
@@ -557,7 +574,7 @@ type serverArgs struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
 	Domain *string `pulumi:"domain"`
-	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
+	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails *ServerEndpointDetails `pulumi:"endpointDetails"`
 	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
 	EndpointType *string `pulumi:"endpointType"`
@@ -577,7 +594,7 @@ type serverArgs struct {
 	PostAuthenticationLoginBanner *string `pulumi:"postAuthenticationLoginBanner"`
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner *string `pulumi:"preAuthenticationLoginBanner"`
-	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
+	// The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
 	ProtocolDetails *ServerProtocolDetails `pulumi:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `AS2`: File transfer over Applicability Statement 2
@@ -585,19 +602,24 @@ type serverArgs struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions *ServerS3StorageOptions `pulumi:"s3StorageOptions"`
 	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-	// * `TransferSecurityPolicy-2024-01`
-	// * `TransferSecurityPolicy-2023-05`
-	// * `TransferSecurityPolicy-2022-03`
-	// * `TransferSecurityPolicy-2020-06`
 	// * `TransferSecurityPolicy-2018-11`
-	// * `TransferSecurityPolicy-FIPS-2024-01`
-	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2024-01`
 	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2024-05`
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+	// * `TransferSecurityPolicy-Restricted-2018-11`
+	// * `TransferSecurityPolicy-Restricted-2020-06`
+	//
+	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
 	SftpAuthenticationMethods *string `pulumi:"sftpAuthenticationMethods"`
@@ -607,7 +629,7 @@ type serverArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
-	// Specifies the workflow details. See `workflowDetails` block below for details.
+	// Specifies the workflow details. See `workflowDetails` Block below for details.
 	WorkflowDetails *ServerWorkflowDetails `pulumi:"workflowDetails"`
 }
 
@@ -619,7 +641,7 @@ type ServerArgs struct {
 	DirectoryId pulumi.StringPtrInput
 	// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
 	Domain pulumi.StringPtrInput
-	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
+	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails ServerEndpointDetailsPtrInput
 	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
 	EndpointType pulumi.StringPtrInput
@@ -639,7 +661,7 @@ type ServerArgs struct {
 	PostAuthenticationLoginBanner pulumi.StringPtrInput
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner pulumi.StringPtrInput
-	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
+	// The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
 	ProtocolDetails ServerProtocolDetailsPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `AS2`: File transfer over Applicability Statement 2
@@ -647,19 +669,24 @@ type ServerArgs struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayInput
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions ServerS3StorageOptionsPtrInput
 	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-	// * `TransferSecurityPolicy-2024-01`
-	// * `TransferSecurityPolicy-2023-05`
-	// * `TransferSecurityPolicy-2022-03`
-	// * `TransferSecurityPolicy-2020-06`
 	// * `TransferSecurityPolicy-2018-11`
-	// * `TransferSecurityPolicy-FIPS-2024-01`
-	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2024-01`
 	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2024-05`
 	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+	// * `TransferSecurityPolicy-Restricted-2018-11`
+	// * `TransferSecurityPolicy-Restricted-2020-06`
+	//
+	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName pulumi.StringPtrInput
 	// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
 	SftpAuthenticationMethods pulumi.StringPtrInput
@@ -669,7 +696,7 @@ type ServerArgs struct {
 	Tags pulumi.StringMapInput
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
-	// Specifies the workflow details. See `workflowDetails` block below for details.
+	// Specifies the workflow details. See `workflowDetails` Block below for details.
 	WorkflowDetails ServerWorkflowDetailsPtrInput
 }
 
@@ -785,7 +812,7 @@ func (o ServerOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
+// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 func (o ServerOutput) EndpointDetails() ServerEndpointDetailsPtrOutput {
 	return o.ApplyT(func(v *Server) ServerEndpointDetailsPtrOutput { return v.EndpointDetails }).(ServerEndpointDetailsPtrOutput)
 }
@@ -840,7 +867,7 @@ func (o ServerOutput) PreAuthenticationLoginBanner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PreAuthenticationLoginBanner }).(pulumi.StringPtrOutput)
 }
 
-// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
+// The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
 func (o ServerOutput) ProtocolDetails() ServerProtocolDetailsOutput {
 	return o.ApplyT(func(v *Server) ServerProtocolDetailsOutput { return v.ProtocolDetails }).(ServerProtocolDetailsOutput)
 }
@@ -854,22 +881,27 @@ func (o ServerOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
+// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 func (o ServerOutput) S3StorageOptions() ServerS3StorageOptionsOutput {
 	return o.ApplyT(func(v *Server) ServerS3StorageOptionsOutput { return v.S3StorageOptions }).(ServerS3StorageOptionsOutput)
 }
 
 // Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-// * `TransferSecurityPolicy-2024-01`
-// * `TransferSecurityPolicy-2023-05`
-// * `TransferSecurityPolicy-2022-03`
-// * `TransferSecurityPolicy-2020-06`
 // * `TransferSecurityPolicy-2018-11`
-// * `TransferSecurityPolicy-FIPS-2024-01`
-// * `TransferSecurityPolicy-FIPS-2023-05`
+// * `TransferSecurityPolicy-2020-06`
+// * `TransferSecurityPolicy-2022-03`
+// * `TransferSecurityPolicy-2023-05`
+// * `TransferSecurityPolicy-2024-01`
 // * `TransferSecurityPolicy-FIPS-2020-06`
+// * `TransferSecurityPolicy-FIPS-2023-05`
+// * `TransferSecurityPolicy-FIPS-2024-01`
+// * `TransferSecurityPolicy-FIPS-2024-05`
 // * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
 // * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+// * `TransferSecurityPolicy-Restricted-2018-11`
+// * `TransferSecurityPolicy-Restricted-2020-06`
+//
+// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
 }
@@ -901,7 +933,7 @@ func (o ServerOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the workflow details. See `workflowDetails` block below for details.
+// Specifies the workflow details. See `workflowDetails` Block below for details.
 func (o ServerOutput) WorkflowDetails() ServerWorkflowDetailsPtrOutput {
 	return o.ApplyT(func(v *Server) ServerWorkflowDetailsPtrOutput { return v.WorkflowDetails }).(ServerWorkflowDetailsPtrOutput)
 }

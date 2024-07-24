@@ -16,7 +16,27 @@ public final class AgentAgentActionGroupActionGroupExecutorArgs extends com.pulu
     public static final AgentAgentActionGroupActionGroupExecutorArgs Empty = new AgentAgentActionGroupActionGroupExecutorArgs();
 
     /**
+     * Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+     * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+     * Only one of `custom_control` or `lambda` can be specified.
+     * 
+     */
+    @Import(name="customControl")
+    private @Nullable Output<String> customControl;
+
+    /**
+     * @return Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+     * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+     * Only one of `custom_control` or `lambda` can be specified.
+     * 
+     */
+    public Optional<Output<String>> customControl() {
+        return Optional.ofNullable(this.customControl);
+    }
+
+    /**
      * ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+     * Only one of `lambda` or `custom_control` can be specified.
      * 
      */
     @Import(name="lambda")
@@ -24,6 +44,7 @@ public final class AgentAgentActionGroupActionGroupExecutorArgs extends com.pulu
 
     /**
      * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+     * Only one of `lambda` or `custom_control` can be specified.
      * 
      */
     public Optional<Output<String>> lambda() {
@@ -33,6 +54,7 @@ public final class AgentAgentActionGroupActionGroupExecutorArgs extends com.pulu
     private AgentAgentActionGroupActionGroupExecutorArgs() {}
 
     private AgentAgentActionGroupActionGroupExecutorArgs(AgentAgentActionGroupActionGroupExecutorArgs $) {
+        this.customControl = $.customControl;
         this.lambda = $.lambda;
     }
 
@@ -55,7 +77,33 @@ public final class AgentAgentActionGroupActionGroupExecutorArgs extends com.pulu
         }
 
         /**
+         * @param customControl Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+         * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+         * Only one of `custom_control` or `lambda` can be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customControl(@Nullable Output<String> customControl) {
+            $.customControl = customControl;
+            return this;
+        }
+
+        /**
+         * @param customControl Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+         * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+         * Only one of `custom_control` or `lambda` can be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customControl(String customControl) {
+            return customControl(Output.of(customControl));
+        }
+
+        /**
          * @param lambda ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+         * Only one of `lambda` or `custom_control` can be specified.
          * 
          * @return builder
          * 
@@ -67,6 +115,7 @@ public final class AgentAgentActionGroupActionGroupExecutorArgs extends com.pulu
 
         /**
          * @param lambda ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+         * Only one of `lambda` or `custom_control` can be specified.
          * 
          * @return builder
          * 

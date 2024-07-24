@@ -538,8 +538,10 @@ func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput) Inde
 }
 
 type ClusterConfiguration struct {
-	// The details of the execute command configuration. Detailed below.
+	// Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
 	ExecuteCommandConfiguration *ClusterConfigurationExecuteCommandConfiguration `pulumi:"executeCommandConfiguration"`
+	// Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
+	ManagedStorageConfiguration *ClusterConfigurationManagedStorageConfiguration `pulumi:"managedStorageConfiguration"`
 }
 
 // ClusterConfigurationInput is an input type that accepts ClusterConfigurationArgs and ClusterConfigurationOutput values.
@@ -554,8 +556,10 @@ type ClusterConfigurationInput interface {
 }
 
 type ClusterConfigurationArgs struct {
-	// The details of the execute command configuration. Detailed below.
+	// Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
 	ExecuteCommandConfiguration ClusterConfigurationExecuteCommandConfigurationPtrInput `pulumi:"executeCommandConfiguration"`
+	// Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
+	ManagedStorageConfiguration ClusterConfigurationManagedStorageConfigurationPtrInput `pulumi:"managedStorageConfiguration"`
 }
 
 func (ClusterConfigurationArgs) ElementType() reflect.Type {
@@ -635,11 +639,18 @@ func (o ClusterConfigurationOutput) ToClusterConfigurationPtrOutputWithContext(c
 	}).(ClusterConfigurationPtrOutput)
 }
 
-// The details of the execute command configuration. Detailed below.
+// Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
 func (o ClusterConfigurationOutput) ExecuteCommandConfiguration() ClusterConfigurationExecuteCommandConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterConfiguration) *ClusterConfigurationExecuteCommandConfiguration {
 		return v.ExecuteCommandConfiguration
 	}).(ClusterConfigurationExecuteCommandConfigurationPtrOutput)
+}
+
+// Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
+func (o ClusterConfigurationOutput) ManagedStorageConfiguration() ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterConfiguration) *ClusterConfigurationManagedStorageConfiguration {
+		return v.ManagedStorageConfiguration
+	}).(ClusterConfigurationManagedStorageConfigurationPtrOutput)
 }
 
 type ClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -666,7 +677,7 @@ func (o ClusterConfigurationPtrOutput) Elem() ClusterConfigurationOutput {
 	}).(ClusterConfigurationOutput)
 }
 
-// The details of the execute command configuration. Detailed below.
+// Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
 func (o ClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterConfigurationExecuteCommandConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterConfiguration) *ClusterConfigurationExecuteCommandConfiguration {
 		if v == nil {
@@ -676,12 +687,22 @@ func (o ClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterConf
 	}).(ClusterConfigurationExecuteCommandConfigurationPtrOutput)
 }
 
+// Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
+func (o ClusterConfigurationPtrOutput) ManagedStorageConfiguration() ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *ClusterConfiguration) *ClusterConfigurationManagedStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedStorageConfiguration
+	}).(ClusterConfigurationManagedStorageConfigurationPtrOutput)
+}
+
 type ClusterConfigurationExecuteCommandConfiguration struct {
-	// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+	// AWS Key Management Service key ID to encrypt the data between the local client and the container.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+	// Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
 	LogConfiguration *ClusterConfigurationExecuteCommandConfigurationLogConfiguration `pulumi:"logConfiguration"`
-	// The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+	// Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
 	Logging *string `pulumi:"logging"`
 }
 
@@ -697,11 +718,11 @@ type ClusterConfigurationExecuteCommandConfigurationInput interface {
 }
 
 type ClusterConfigurationExecuteCommandConfigurationArgs struct {
-	// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+	// AWS Key Management Service key ID to encrypt the data between the local client and the container.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+	// Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
 	LogConfiguration ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrInput `pulumi:"logConfiguration"`
-	// The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+	// Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
 	Logging pulumi.StringPtrInput `pulumi:"logging"`
 }
 
@@ -782,19 +803,19 @@ func (o ClusterConfigurationExecuteCommandConfigurationOutput) ToClusterConfigur
 	}).(ClusterConfigurationExecuteCommandConfigurationPtrOutput)
 }
 
-// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+// AWS Key Management Service key ID to encrypt the data between the local client and the container.
 func (o ClusterConfigurationExecuteCommandConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+// Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
 func (o ClusterConfigurationExecuteCommandConfigurationOutput) LogConfiguration() ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfiguration) *ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
 		return v.LogConfiguration
 	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput)
 }
 
-// The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+// Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
 func (o ClusterConfigurationExecuteCommandConfigurationOutput) Logging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfiguration) *string { return v.Logging }).(pulumi.StringPtrOutput)
 }
@@ -823,7 +844,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) Elem() Cluster
 	}).(ClusterConfigurationExecuteCommandConfigurationOutput)
 }
 
-// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+// AWS Key Management Service key ID to encrypt the data between the local client and the container.
 func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfiguration) *string {
 		if v == nil {
@@ -833,7 +854,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) KmsKeyId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+// Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
 func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) LogConfiguration() ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfiguration) *ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
 		if v == nil {
@@ -843,7 +864,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) LogConfigurati
 	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput)
 }
 
-// The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+// Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
 func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) Logging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfiguration) *string {
 		if v == nil {
@@ -854,15 +875,15 @@ func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) Logging() pulu
 }
 
 type ClusterConfigurationExecuteCommandConfigurationLogConfiguration struct {
-	// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+	// Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
 	CloudWatchEncryptionEnabled *bool `pulumi:"cloudWatchEncryptionEnabled"`
 	// The name of the CloudWatch log group to send logs to.
 	CloudWatchLogGroupName *string `pulumi:"cloudWatchLogGroupName"`
-	// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+	// Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
 	S3BucketEncryptionEnabled *bool `pulumi:"s3BucketEncryptionEnabled"`
-	// The name of the S3 bucket to send logs to.
+	// Name of the S3 bucket to send logs to.
 	S3BucketName *string `pulumi:"s3BucketName"`
-	// An optional folder in the S3 bucket to place logs in.
+	// Optional folder in the S3 bucket to place logs in.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
@@ -878,15 +899,15 @@ type ClusterConfigurationExecuteCommandConfigurationLogConfigurationInput interf
 }
 
 type ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs struct {
-	// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+	// Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
 	CloudWatchEncryptionEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchEncryptionEnabled"`
 	// The name of the CloudWatch log group to send logs to.
 	CloudWatchLogGroupName pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
-	// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+	// Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
 	S3BucketEncryptionEnabled pulumi.BoolPtrInput `pulumi:"s3BucketEncryptionEnabled"`
-	// The name of the S3 bucket to send logs to.
+	// Name of the S3 bucket to send logs to.
 	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
-	// An optional folder in the S3 bucket to place logs in.
+	// Optional folder in the S3 bucket to place logs in.
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
@@ -967,7 +988,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) T
 	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput)
 }
 
-// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+// Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *bool {
 		return v.CloudWatchEncryptionEnabled
@@ -981,19 +1002,19 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) C
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+// Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) S3BucketEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *bool {
 		return v.S3BucketEncryptionEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the S3 bucket to send logs to.
+// Name of the S3 bucket to send logs to.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
-// An optional folder in the S3 bucket to place logs in.
+// Optional folder in the S3 bucket to place logs in.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -1022,7 +1043,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
 	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput)
 }
 
-// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+// Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *bool {
 		if v == nil {
@@ -1042,7 +1063,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+// Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) S3BucketEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *bool {
 		if v == nil {
@@ -1052,7 +1073,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the S3 bucket to send logs to.
+// Name of the S3 bucket to send logs to.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string {
 		if v == nil {
@@ -1062,7 +1083,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional folder in the S3 bucket to place logs in.
+// Optional folder in the S3 bucket to place logs in.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string {
 		if v == nil {
@@ -1072,8 +1093,166 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterConfigurationManagedStorageConfiguration struct {
+	// AWS Key Management Service key ID for the Fargate ephemeral storage.
+	FargateEphemeralStorageKmsKeyId *string `pulumi:"fargateEphemeralStorageKmsKeyId"`
+	// AWS Key Management Service key ID to encrypt the managed storage.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+}
+
+// ClusterConfigurationManagedStorageConfigurationInput is an input type that accepts ClusterConfigurationManagedStorageConfigurationArgs and ClusterConfigurationManagedStorageConfigurationOutput values.
+// You can construct a concrete instance of `ClusterConfigurationManagedStorageConfigurationInput` via:
+//
+//	ClusterConfigurationManagedStorageConfigurationArgs{...}
+type ClusterConfigurationManagedStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterConfigurationManagedStorageConfigurationOutput() ClusterConfigurationManagedStorageConfigurationOutput
+	ToClusterConfigurationManagedStorageConfigurationOutputWithContext(context.Context) ClusterConfigurationManagedStorageConfigurationOutput
+}
+
+type ClusterConfigurationManagedStorageConfigurationArgs struct {
+	// AWS Key Management Service key ID for the Fargate ephemeral storage.
+	FargateEphemeralStorageKmsKeyId pulumi.StringPtrInput `pulumi:"fargateEphemeralStorageKmsKeyId"`
+	// AWS Key Management Service key ID to encrypt the managed storage.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+}
+
+func (ClusterConfigurationManagedStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfigurationManagedStorageConfiguration)(nil)).Elem()
+}
+
+func (i ClusterConfigurationManagedStorageConfigurationArgs) ToClusterConfigurationManagedStorageConfigurationOutput() ClusterConfigurationManagedStorageConfigurationOutput {
+	return i.ToClusterConfigurationManagedStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterConfigurationManagedStorageConfigurationArgs) ToClusterConfigurationManagedStorageConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationManagedStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationManagedStorageConfigurationOutput)
+}
+
+func (i ClusterConfigurationManagedStorageConfigurationArgs) ToClusterConfigurationManagedStorageConfigurationPtrOutput() ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return i.ToClusterConfigurationManagedStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterConfigurationManagedStorageConfigurationArgs) ToClusterConfigurationManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationManagedStorageConfigurationOutput).ToClusterConfigurationManagedStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterConfigurationManagedStorageConfigurationPtrInput is an input type that accepts ClusterConfigurationManagedStorageConfigurationArgs, ClusterConfigurationManagedStorageConfigurationPtr and ClusterConfigurationManagedStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterConfigurationManagedStorageConfigurationPtrInput` via:
+//
+//	        ClusterConfigurationManagedStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterConfigurationManagedStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterConfigurationManagedStorageConfigurationPtrOutput() ClusterConfigurationManagedStorageConfigurationPtrOutput
+	ToClusterConfigurationManagedStorageConfigurationPtrOutputWithContext(context.Context) ClusterConfigurationManagedStorageConfigurationPtrOutput
+}
+
+type clusterConfigurationManagedStorageConfigurationPtrType ClusterConfigurationManagedStorageConfigurationArgs
+
+func ClusterConfigurationManagedStorageConfigurationPtr(v *ClusterConfigurationManagedStorageConfigurationArgs) ClusterConfigurationManagedStorageConfigurationPtrInput {
+	return (*clusterConfigurationManagedStorageConfigurationPtrType)(v)
+}
+
+func (*clusterConfigurationManagedStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfigurationManagedStorageConfiguration)(nil)).Elem()
+}
+
+func (i *clusterConfigurationManagedStorageConfigurationPtrType) ToClusterConfigurationManagedStorageConfigurationPtrOutput() ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return i.ToClusterConfigurationManagedStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterConfigurationManagedStorageConfigurationPtrType) ToClusterConfigurationManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationManagedStorageConfigurationPtrOutput)
+}
+
+type ClusterConfigurationManagedStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterConfigurationManagedStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfigurationManagedStorageConfiguration)(nil)).Elem()
+}
+
+func (o ClusterConfigurationManagedStorageConfigurationOutput) ToClusterConfigurationManagedStorageConfigurationOutput() ClusterConfigurationManagedStorageConfigurationOutput {
+	return o
+}
+
+func (o ClusterConfigurationManagedStorageConfigurationOutput) ToClusterConfigurationManagedStorageConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationManagedStorageConfigurationOutput {
+	return o
+}
+
+func (o ClusterConfigurationManagedStorageConfigurationOutput) ToClusterConfigurationManagedStorageConfigurationPtrOutput() ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return o.ToClusterConfigurationManagedStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterConfigurationManagedStorageConfigurationOutput) ToClusterConfigurationManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterConfigurationManagedStorageConfiguration) *ClusterConfigurationManagedStorageConfiguration {
+		return &v
+	}).(ClusterConfigurationManagedStorageConfigurationPtrOutput)
+}
+
+// AWS Key Management Service key ID for the Fargate ephemeral storage.
+func (o ClusterConfigurationManagedStorageConfigurationOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationManagedStorageConfiguration) *string {
+		return v.FargateEphemeralStorageKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Key Management Service key ID to encrypt the managed storage.
+func (o ClusterConfigurationManagedStorageConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationManagedStorageConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type ClusterConfigurationManagedStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterConfigurationManagedStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfigurationManagedStorageConfiguration)(nil)).Elem()
+}
+
+func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) ToClusterConfigurationManagedStorageConfigurationPtrOutput() ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) ToClusterConfigurationManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationManagedStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) Elem() ClusterConfigurationManagedStorageConfigurationOutput {
+	return o.ApplyT(func(v *ClusterConfigurationManagedStorageConfiguration) ClusterConfigurationManagedStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterConfigurationManagedStorageConfiguration
+		return ret
+	}).(ClusterConfigurationManagedStorageConfigurationOutput)
+}
+
+// AWS Key Management Service key ID for the Fargate ephemeral storage.
+func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationManagedStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FargateEphemeralStorageKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Key Management Service key ID to encrypt the managed storage.
+func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationManagedStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterServiceConnectDefaults struct {
-	// The ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+	// ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -1089,7 +1268,7 @@ type ClusterServiceConnectDefaultsInput interface {
 }
 
 type ClusterServiceConnectDefaultsArgs struct {
-	// The ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+	// ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -1170,7 +1349,7 @@ func (o ClusterServiceConnectDefaultsOutput) ToClusterServiceConnectDefaultsPtrO
 	}).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
-// The ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+// ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
 func (o ClusterServiceConnectDefaultsOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterServiceConnectDefaults) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -1199,7 +1378,7 @@ func (o ClusterServiceConnectDefaultsPtrOutput) Elem() ClusterServiceConnectDefa
 	}).(ClusterServiceConnectDefaultsOutput)
 }
 
-// The ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+// ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
 func (o ClusterServiceConnectDefaultsPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServiceConnectDefaults) *string {
 		if v == nil {
@@ -1212,7 +1391,7 @@ func (o ClusterServiceConnectDefaultsPtrOutput) Namespace() pulumi.StringPtrOutp
 type ClusterSetting struct {
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name string `pulumi:"name"`
-	// The value to assign to the setting. Valid values are `enabled` and `disabled`.
+	// Value to assign to the setting. Valid values: `enabled`, `disabled`.
 	Value string `pulumi:"value"`
 }
 
@@ -1230,7 +1409,7 @@ type ClusterSettingInput interface {
 type ClusterSettingArgs struct {
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value to assign to the setting. Valid values are `enabled` and `disabled`.
+	// Value to assign to the setting. Valid values: `enabled`, `disabled`.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1290,7 +1469,7 @@ func (o ClusterSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value to assign to the setting. Valid values are `enabled` and `disabled`.
+// Value to assign to the setting. Valid values: `enabled`, `disabled`.
 func (o ClusterSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSetting) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4013,7 +4192,7 @@ type ServiceVolumeConfigurationManagedEbsVolume struct {
 	// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
-	Throughput *string `pulumi:"throughput"`
+	Throughput *int `pulumi:"throughput"`
 	// Volume type.
 	VolumeType *string `pulumi:"volumeType"`
 }
@@ -4045,7 +4224,7 @@ type ServiceVolumeConfigurationManagedEbsVolumeArgs struct {
 	// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
-	Throughput pulumi.StringPtrInput `pulumi:"throughput"`
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// Volume type.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
@@ -4163,8 +4342,8 @@ func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) SnapshotId() pulumi.St
 }
 
 // Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
-func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) Throughput() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.Throughput }).(pulumi.StringPtrOutput)
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 // Volume type.
@@ -4267,13 +4446,13 @@ func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) SnapshotId() pulumi
 }
 
 // Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
-func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) Throughput() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *string {
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *int {
 		if v == nil {
 			return nil
 		}
 		return v.Throughput
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Volume type.
@@ -8248,6 +8427,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationExecuteCommandConfigurationPtrInput)(nil)).Elem(), ClusterConfigurationExecuteCommandConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationExecuteCommandConfigurationLogConfigurationInput)(nil)).Elem(), ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrInput)(nil)).Elem(), ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationManagedStorageConfigurationInput)(nil)).Elem(), ClusterConfigurationManagedStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationManagedStorageConfigurationPtrInput)(nil)).Elem(), ClusterConfigurationManagedStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingInput)(nil)).Elem(), ClusterSettingArgs{})
@@ -8356,6 +8537,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterConfigurationExecuteCommandConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationManagedStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationManagedStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsOutput{})
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingOutput{})

@@ -153,6 +153,10 @@ namespace Pulumi.Aws.Msk
         /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         public readonly string BootstrapBrokersTls;
+        /// <summary>
+        /// Configuration block for the broker nodes of the Kafka cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoResult> BrokerNodeGroupInfos;
         public readonly string ClusterName;
         /// <summary>
         /// UUID of the MSK cluster, for use in IAM policies.
@@ -201,6 +205,8 @@ namespace Pulumi.Aws.Msk
 
             string bootstrapBrokersTls,
 
+            ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoResult> brokerNodeGroupInfos,
+
             string clusterName,
 
             string clusterUuid,
@@ -225,6 +231,7 @@ namespace Pulumi.Aws.Msk
             BootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
             BootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
             BootstrapBrokersTls = bootstrapBrokersTls;
+            BrokerNodeGroupInfos = brokerNodeGroupInfos;
             ClusterName = clusterName;
             ClusterUuid = clusterUuid;
             Id = id;

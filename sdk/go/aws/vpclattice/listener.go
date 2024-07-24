@@ -209,7 +209,7 @@ type Listener struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
 	Port pulumi.IntOutput `pulumi:"port"`
-	// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
@@ -271,7 +271,7 @@ type listenerState struct {
 	Name *string `pulumi:"name"`
 	// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
 	Port *int `pulumi:"port"`
-	// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol *string `pulumi:"protocol"`
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn *string `pulumi:"serviceArn"`
@@ -298,7 +298,7 @@ type ListenerState struct {
 	Name pulumi.StringPtrInput
 	// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
 	Port pulumi.IntPtrInput
-	// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringPtrInput
@@ -322,7 +322,7 @@ type listenerArgs struct {
 	Name *string `pulumi:"name"`
 	// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
 	Port *int `pulumi:"port"`
-	// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol string `pulumi:"protocol"`
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn *string `pulumi:"serviceArn"`
@@ -341,7 +341,7 @@ type ListenerArgs struct {
 	Name pulumi.StringPtrInput
 	// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
 	Port pulumi.IntPtrInput
-	// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol pulumi.StringInput
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringPtrInput
@@ -473,7 +473,7 @@ func (o ListenerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *Listener) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 func (o ListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }

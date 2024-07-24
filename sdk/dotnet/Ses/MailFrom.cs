@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ses
     ///         Ttl = 600,
     ///         Records = new[]
     ///         {
-    ///             "v=spf1 include:amazonses.com -all",
+    ///             "v=spf1 include:amazonses.com ~all",
     ///         },
     ///     });
     /// 

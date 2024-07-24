@@ -15,10 +15,12 @@ namespace Pulumi.Aws.Bedrock.Outputs
     {
         /// <summary>
         /// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+        /// Only one of `payload` or `s3` can be specified.
         /// </summary>
         public readonly string? Payload;
         /// <summary>
-        /// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+        /// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+        /// Only one of `s3` or `payload` can be specified.
         /// </summary>
         public readonly Outputs.AgentAgentActionGroupApiSchemaS3? S3;
 

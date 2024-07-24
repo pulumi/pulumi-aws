@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationGetArgs>? _promptConfigurations;
 
         /// <summary>
-        /// Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        /// Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationGetArgs> PromptConfigurations
         {

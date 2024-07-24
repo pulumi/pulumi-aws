@@ -78,9 +78,17 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.rootVolumeSecurityStyle);
     }
 
+    /**
+     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * 
+     */
     @Import(name="svmAdminPassword")
     private @Nullable Output<String> svmAdminPassword;
 
+    /**
+     * @return Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * 
+     */
     public Optional<Output<String>> svmAdminPassword() {
         return Optional.ofNullable(this.svmAdminPassword);
     }
@@ -213,11 +221,23 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
             return rootVolumeSecurityStyle(Output.of(rootVolumeSecurityStyle));
         }
 
+        /**
+         * @param svmAdminPassword Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+         * 
+         * @return builder
+         * 
+         */
         public Builder svmAdminPassword(@Nullable Output<String> svmAdminPassword) {
             $.svmAdminPassword = svmAdminPassword;
             return this;
         }
 
+        /**
+         * @param svmAdminPassword Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+         * 
+         * @return builder
+         * 
+         */
         public Builder svmAdminPassword(String svmAdminPassword) {
             return svmAdminPassword(Output.of(svmAdminPassword));
         }

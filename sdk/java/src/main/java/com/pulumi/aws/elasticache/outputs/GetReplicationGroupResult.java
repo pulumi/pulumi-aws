@@ -30,6 +30,11 @@ public final class GetReplicationGroupResult {
      */
     private Boolean automaticFailoverEnabled;
     /**
+     * @return Whether cluster mode is enabled or disabled.
+     * 
+     */
+    private String clusterMode;
+    /**
      * @return The configuration endpoint address to allow host discovery.
      * 
      */
@@ -127,6 +132,13 @@ public final class GetReplicationGroupResult {
      */
     public Boolean automaticFailoverEnabled() {
         return this.automaticFailoverEnabled;
+    }
+    /**
+     * @return Whether cluster mode is enabled or disabled.
+     * 
+     */
+    public String clusterMode() {
+        return this.clusterMode;
     }
     /**
      * @return The configuration endpoint address to allow host discovery.
@@ -249,6 +261,7 @@ public final class GetReplicationGroupResult {
         private String arn;
         private Boolean authTokenEnabled;
         private Boolean automaticFailoverEnabled;
+        private String clusterMode;
         private String configurationEndpointAddress;
         private String description;
         private String id;
@@ -271,6 +284,7 @@ public final class GetReplicationGroupResult {
     	      this.arn = defaults.arn;
     	      this.authTokenEnabled = defaults.authTokenEnabled;
     	      this.automaticFailoverEnabled = defaults.automaticFailoverEnabled;
+    	      this.clusterMode = defaults.clusterMode;
     	      this.configurationEndpointAddress = defaults.configurationEndpointAddress;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
@@ -311,6 +325,14 @@ public final class GetReplicationGroupResult {
               throw new MissingRequiredPropertyException("GetReplicationGroupResult", "automaticFailoverEnabled");
             }
             this.automaticFailoverEnabled = automaticFailoverEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clusterMode(String clusterMode) {
+            if (clusterMode == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "clusterMode");
+            }
+            this.clusterMode = clusterMode;
             return this;
         }
         @CustomType.Setter
@@ -452,6 +474,7 @@ public final class GetReplicationGroupResult {
             _resultValue.arn = arn;
             _resultValue.authTokenEnabled = authTokenEnabled;
             _resultValue.automaticFailoverEnabled = automaticFailoverEnabled;
+            _resultValue.clusterMode = clusterMode;
             _resultValue.configurationEndpointAddress = configurationEndpointAddress;
             _resultValue.description = description;
             _resultValue.id = id;

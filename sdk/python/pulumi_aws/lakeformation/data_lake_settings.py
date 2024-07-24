@@ -23,6 +23,7 @@ class DataLakeSettingsArgs:
     def __init__(__self__, *,
                  admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 allow_full_table_external_data_access: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
@@ -34,9 +35,10 @@ class DataLakeSettingsArgs:
         The set of arguments for constructing a DataLakeSettings resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        :param pulumi.Input[bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
@@ -48,6 +50,8 @@ class DataLakeSettingsArgs:
             pulumi.set(__self__, "admins", admins)
         if allow_external_data_filtering is not None:
             pulumi.set(__self__, "allow_external_data_filtering", allow_external_data_filtering)
+        if allow_full_table_external_data_access is not None:
+            pulumi.set(__self__, "allow_full_table_external_data_access", allow_full_table_external_data_access)
         if authorized_session_tag_value_lists is not None:
             pulumi.set(__self__, "authorized_session_tag_value_lists", authorized_session_tag_value_lists)
         if catalog_id is not None:
@@ -88,12 +92,24 @@ class DataLakeSettingsArgs:
         pulumi.set(self, "allow_external_data_filtering", value)
 
     @property
+    @pulumi.getter(name="allowFullTableExternalDataAccess")
+    def allow_full_table_external_data_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+
+        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        """
+        return pulumi.get(self, "allow_full_table_external_data_access")
+
+    @allow_full_table_external_data_access.setter
+    def allow_full_table_external_data_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_full_table_external_data_access", value)
+
+    @property
     @pulumi.getter(name="authorizedSessionTagValueLists")
     def authorized_session_tag_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-
-        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
@@ -179,6 +195,7 @@ class _DataLakeSettingsState:
     def __init__(__self__, *,
                  admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 allow_full_table_external_data_access: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
@@ -190,9 +207,10 @@ class _DataLakeSettingsState:
         Input properties used for looking up and filtering DataLakeSettings resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        :param pulumi.Input[bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
@@ -204,6 +222,8 @@ class _DataLakeSettingsState:
             pulumi.set(__self__, "admins", admins)
         if allow_external_data_filtering is not None:
             pulumi.set(__self__, "allow_external_data_filtering", allow_external_data_filtering)
+        if allow_full_table_external_data_access is not None:
+            pulumi.set(__self__, "allow_full_table_external_data_access", allow_full_table_external_data_access)
         if authorized_session_tag_value_lists is not None:
             pulumi.set(__self__, "authorized_session_tag_value_lists", authorized_session_tag_value_lists)
         if catalog_id is not None:
@@ -244,12 +264,24 @@ class _DataLakeSettingsState:
         pulumi.set(self, "allow_external_data_filtering", value)
 
     @property
+    @pulumi.getter(name="allowFullTableExternalDataAccess")
+    def allow_full_table_external_data_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+
+        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        """
+        return pulumi.get(self, "allow_full_table_external_data_access")
+
+    @allow_full_table_external_data_access.setter
+    def allow_full_table_external_data_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_full_table_external_data_access", value)
+
+    @property
     @pulumi.getter(name="authorizedSessionTagValueLists")
     def authorized_session_tag_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-
-        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
@@ -337,6 +369,7 @@ class DataLakeSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 allow_full_table_external_data_access: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
@@ -417,16 +450,18 @@ class DataLakeSettings(pulumi.CustomResource):
                 current["accountId"],
                 third_party["accountId"],
             ],
-            authorized_session_tag_value_lists=["Amazon EMR"])
+            authorized_session_tag_value_lists=["Amazon EMR"],
+            allow_full_table_external_data_access=True)
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        :param pulumi.Input[bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
@@ -512,7 +547,8 @@ class DataLakeSettings(pulumi.CustomResource):
                 current["accountId"],
                 third_party["accountId"],
             ],
-            authorized_session_tag_value_lists=["Amazon EMR"])
+            authorized_session_tag_value_lists=["Amazon EMR"],
+            allow_full_table_external_data_access=True)
         ```
 
         :param str resource_name: The name of the resource.
@@ -532,6 +568,7 @@ class DataLakeSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 allow_full_table_external_data_access: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
@@ -550,6 +587,7 @@ class DataLakeSettings(pulumi.CustomResource):
 
             __props__.__dict__["admins"] = admins
             __props__.__dict__["allow_external_data_filtering"] = allow_external_data_filtering
+            __props__.__dict__["allow_full_table_external_data_access"] = allow_full_table_external_data_access
             __props__.__dict__["authorized_session_tag_value_lists"] = authorized_session_tag_value_lists
             __props__.__dict__["catalog_id"] = catalog_id
             __props__.__dict__["create_database_default_permissions"] = create_database_default_permissions
@@ -569,6 +607,7 @@ class DataLakeSettings(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+            allow_full_table_external_data_access: Optional[pulumi.Input[bool]] = None,
             authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             catalog_id: Optional[pulumi.Input[str]] = None,
             create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
@@ -585,9 +624,10 @@ class DataLakeSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        :param pulumi.Input[bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
@@ -601,6 +641,7 @@ class DataLakeSettings(pulumi.CustomResource):
 
         __props__.__dict__["admins"] = admins
         __props__.__dict__["allow_external_data_filtering"] = allow_external_data_filtering
+        __props__.__dict__["allow_full_table_external_data_access"] = allow_full_table_external_data_access
         __props__.__dict__["authorized_session_tag_value_lists"] = authorized_session_tag_value_lists
         __props__.__dict__["catalog_id"] = catalog_id
         __props__.__dict__["create_database_default_permissions"] = create_database_default_permissions
@@ -627,12 +668,20 @@ class DataLakeSettings(pulumi.CustomResource):
         return pulumi.get(self, "allow_external_data_filtering")
 
     @property
+    @pulumi.getter(name="allowFullTableExternalDataAccess")
+    def allow_full_table_external_data_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+
+        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        """
+        return pulumi.get(self, "allow_full_table_external_data_access")
+
+    @property
     @pulumi.getter(name="authorizedSessionTagValueLists")
     def authorized_session_tag_value_lists(self) -> pulumi.Output[Sequence[str]]:
         """
         Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-
-        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 

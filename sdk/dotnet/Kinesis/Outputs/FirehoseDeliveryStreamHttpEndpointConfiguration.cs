@@ -58,6 +58,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration S3Configuration;
         /// <summary>
+        /// The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+        /// </summary>
+        public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
+        /// <summary>
         /// The HTTP endpoint URL to which Kinesis Firehose sends your data.
         /// </summary>
         public readonly string Url;
@@ -86,6 +90,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration,
 
+            Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration? secretsManagerConfiguration,
+
             string url)
         {
             AccessKey = accessKey;
@@ -99,6 +105,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             RoleArn = roleArn;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
+            SecretsManagerConfiguration = secretsManagerConfiguration;
             Url = url;
         }
     }

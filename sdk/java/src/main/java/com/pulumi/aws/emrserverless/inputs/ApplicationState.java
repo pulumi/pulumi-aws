@@ -7,6 +7,7 @@ import com.pulumi.aws.emrserverless.inputs.ApplicationAutoStartConfigurationArgs
 import com.pulumi.aws.emrserverless.inputs.ApplicationAutoStopConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationImageConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityArgs;
+import com.pulumi.aws.emrserverless.inputs.ApplicationInteractiveConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationMaximumCapacityArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationNetworkConfigurationArgs;
 import com.pulumi.core.Output;
@@ -111,6 +112,21 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<ApplicationInitialCapacityArgs>>> initialCapacities() {
         return Optional.ofNullable(this.initialCapacities);
+    }
+
+    /**
+     * Enables the interactive use cases to use when running an application.
+     * 
+     */
+    @Import(name="interactiveConfiguration")
+    private @Nullable Output<ApplicationInteractiveConfigurationArgs> interactiveConfiguration;
+
+    /**
+     * @return Enables the interactive use cases to use when running an application.
+     * 
+     */
+    public Optional<Output<ApplicationInteractiveConfigurationArgs>> interactiveConfiguration() {
+        return Optional.ofNullable(this.interactiveConfiguration);
     }
 
     /**
@@ -235,6 +251,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         this.autoStopConfiguration = $.autoStopConfiguration;
         this.imageConfiguration = $.imageConfiguration;
         this.initialCapacities = $.initialCapacities;
+        this.interactiveConfiguration = $.interactiveConfiguration;
         this.maximumCapacity = $.maximumCapacity;
         this.name = $.name;
         this.networkConfiguration = $.networkConfiguration;
@@ -396,6 +413,27 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder initialCapacities(ApplicationInitialCapacityArgs... initialCapacities) {
             return initialCapacities(List.of(initialCapacities));
+        }
+
+        /**
+         * @param interactiveConfiguration Enables the interactive use cases to use when running an application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interactiveConfiguration(@Nullable Output<ApplicationInteractiveConfigurationArgs> interactiveConfiguration) {
+            $.interactiveConfiguration = interactiveConfiguration;
+            return this;
+        }
+
+        /**
+         * @param interactiveConfiguration Enables the interactive use cases to use when running an application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interactiveConfiguration(ApplicationInteractiveConfigurationArgs interactiveConfiguration) {
+            return interactiveConfiguration(Output.of(interactiveConfiguration));
         }
 
         /**

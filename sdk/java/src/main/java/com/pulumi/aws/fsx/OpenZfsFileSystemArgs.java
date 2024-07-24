@@ -98,6 +98,21 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+     * 
+     */
+    @Import(name="deleteOptions")
+    private @Nullable Output<List<String>> deleteOptions;
+
+    /**
+     * @return List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+     * 
+     */
+    public Optional<Output<List<String>>> deleteOptions() {
+        return Optional.ofNullable(this.deleteOptions);
+    }
+
+    /**
      * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
      * 
      */
@@ -113,14 +128,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
      * 
      */
     @Import(name="diskIopsConfiguration")
     private @Nullable Output<OpenZfsFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
      * 
      */
     public Optional<Output<OpenZfsFileSystemDiskIopsConfigurationArgs>> diskIopsConfiguration() {
@@ -140,6 +155,21 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> endpointIpAddressRange() {
         return Optional.ofNullable(this.endpointIpAddressRange);
+    }
+
+    /**
+     * A map of tags to apply to the file system&#39;s final backup.
+     * 
+     */
+    @Import(name="finalBackupTags")
+    private @Nullable Output<Map<String,String>> finalBackupTags;
+
+    /**
+     * @return A map of tags to apply to the file system&#39;s final backup.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> finalBackupTags() {
+        return Optional.ofNullable(this.finalBackupTags);
     }
 
     /**
@@ -173,14 +203,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
      * 
      */
     @Import(name="rootVolumeConfiguration")
     private @Nullable Output<OpenZfsFileSystemRootVolumeConfigurationArgs> rootVolumeConfiguration;
 
     /**
-     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
      * 
      */
     public Optional<Output<OpenZfsFileSystemRootVolumeConfigurationArgs>> rootVolumeConfiguration() {
@@ -295,12 +325,16 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     /**
      * Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="throughputCapacity", required=true)
     private Output<Integer> throughputCapacity;
 
     /**
      * @return Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> throughputCapacity() {
@@ -330,9 +364,11 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         this.copyTagsToBackups = $.copyTagsToBackups;
         this.copyTagsToVolumes = $.copyTagsToVolumes;
         this.dailyAutomaticBackupStartTime = $.dailyAutomaticBackupStartTime;
+        this.deleteOptions = $.deleteOptions;
         this.deploymentType = $.deploymentType;
         this.diskIopsConfiguration = $.diskIopsConfiguration;
         this.endpointIpAddressRange = $.endpointIpAddressRange;
+        this.finalBackupTags = $.finalBackupTags;
         this.kmsKeyId = $.kmsKeyId;
         this.preferredSubnetId = $.preferredSubnetId;
         this.rootVolumeConfiguration = $.rootVolumeConfiguration;
@@ -471,6 +507,37 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param deleteOptions List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteOptions(@Nullable Output<List<String>> deleteOptions) {
+            $.deleteOptions = deleteOptions;
+            return this;
+        }
+
+        /**
+         * @param deleteOptions List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteOptions(List<String> deleteOptions) {
+            return deleteOptions(Output.of(deleteOptions));
+        }
+
+        /**
+         * @param deleteOptions List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteOptions(String... deleteOptions) {
+            return deleteOptions(List.of(deleteOptions));
+        }
+
+        /**
          * @param deploymentType The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
          * 
          * @return builder
@@ -492,7 +559,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -503,7 +570,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -531,6 +598,27 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder endpointIpAddressRange(String endpointIpAddressRange) {
             return endpointIpAddressRange(Output.of(endpointIpAddressRange));
+        }
+
+        /**
+         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder finalBackupTags(@Nullable Output<Map<String,String>> finalBackupTags) {
+            $.finalBackupTags = finalBackupTags;
+            return this;
+        }
+
+        /**
+         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder finalBackupTags(Map<String,String> finalBackupTags) {
+            return finalBackupTags(Output.of(finalBackupTags));
         }
 
         /**
@@ -576,7 +664,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -587,7 +675,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -776,6 +864,8 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param throughputCapacity Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -786,6 +876,8 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param throughputCapacity Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

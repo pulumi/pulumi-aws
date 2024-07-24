@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -332,6 +333,8 @@ type ReplicationGroup struct {
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
 	// Indicates if cluster mode is enabled.
 	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
+	// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+	ClusterMode pulumi.StringOutput `pulumi:"clusterMode"`
 	// Address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringOutput `pulumi:"configurationEndpointAddress"`
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
@@ -363,7 +366,9 @@ type ReplicationGroup struct {
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
 	// Identifiers of all the nodes that are part of this replication group.
 	MemberClusters pulumi.StringArrayOutput `pulumi:"memberClusters"`
-	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	// Specifies whether to enable Multi-AZ Support for the replication group.
+	// If `true`, `automaticFailoverEnabled` must also be enabled.
+	// Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrOutput `pulumi:"multiAzEnabled"`
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType pulumi.StringOutput `pulumi:"networkType"`
@@ -371,10 +376,15 @@ type ReplicationGroup struct {
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
-	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
+	// Number of cache clusters (primary and replicas) this replication group will have.
+	// If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
+	// Updates will occur before other modifications.
+	// Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
+	// Defaults to `1`.
 	NumCacheClusters pulumi.IntOutput `pulumi:"numCacheClusters"`
 	// Number of node groups (shards) for this Redis replication group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Conflicts with `numCacheClusters`.
 	NumNodeGroups pulumi.IntOutput `pulumi:"numNodeGroups"`
 	// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
@@ -389,6 +399,8 @@ type ReplicationGroup struct {
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
 	// Valid values are 0 to 5.
+	// Conflicts with `numCacheClusters`.
+	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup pulumi.IntOutput `pulumi:"replicasPerNodeGroup"`
 	// Replication group identifier. This parameter is stored as a lowercase string.
 	//
@@ -431,9 +443,12 @@ type ReplicationGroup struct {
 func NewReplicationGroup(ctx *pulumi.Context,
 	name string, args *ReplicationGroupArgs, opts ...pulumi.ResourceOption) (*ReplicationGroup, error) {
 	if args == nil {
-		args = &ReplicationGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
+	}
 	if args.AuthToken != nil {
 		args.AuthToken = pulumi.ToSecret(args.AuthToken).(pulumi.StringPtrInput)
 	}
@@ -482,6 +497,8 @@ type replicationGroupState struct {
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// Indicates if cluster mode is enabled.
 	ClusterEnabled *bool `pulumi:"clusterEnabled"`
+	// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+	ClusterMode *string `pulumi:"clusterMode"`
 	// Address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress *string `pulumi:"configurationEndpointAddress"`
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
@@ -513,7 +530,9 @@ type replicationGroupState struct {
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Identifiers of all the nodes that are part of this replication group.
 	MemberClusters []string `pulumi:"memberClusters"`
-	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	// Specifies whether to enable Multi-AZ Support for the replication group.
+	// If `true`, `automaticFailoverEnabled` must also be enabled.
+	// Defaults to `false`.
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType *string `pulumi:"networkType"`
@@ -521,10 +540,15 @@ type replicationGroupState struct {
 	NodeType *string `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
-	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
+	// Number of cache clusters (primary and replicas) this replication group will have.
+	// If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
+	// Updates will occur before other modifications.
+	// Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
+	// Defaults to `1`.
 	NumCacheClusters *int `pulumi:"numCacheClusters"`
 	// Number of node groups (shards) for this Redis replication group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Conflicts with `numCacheClusters`.
 	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
@@ -539,6 +563,8 @@ type replicationGroupState struct {
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
 	// Valid values are 0 to 5.
+	// Conflicts with `numCacheClusters`.
+	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 	// Replication group identifier. This parameter is stored as a lowercase string.
 	//
@@ -596,6 +622,8 @@ type ReplicationGroupState struct {
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// Indicates if cluster mode is enabled.
 	ClusterEnabled pulumi.BoolPtrInput
+	// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+	ClusterMode pulumi.StringPtrInput
 	// Address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringPtrInput
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
@@ -627,7 +655,9 @@ type ReplicationGroupState struct {
 	MaintenanceWindow pulumi.StringPtrInput
 	// Identifiers of all the nodes that are part of this replication group.
 	MemberClusters pulumi.StringArrayInput
-	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	// Specifies whether to enable Multi-AZ Support for the replication group.
+	// If `true`, `automaticFailoverEnabled` must also be enabled.
+	// Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrInput
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType pulumi.StringPtrInput
@@ -635,10 +665,15 @@ type ReplicationGroupState struct {
 	NodeType pulumi.StringPtrInput
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
-	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
+	// Number of cache clusters (primary and replicas) this replication group will have.
+	// If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
+	// Updates will occur before other modifications.
+	// Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
+	// Defaults to `1`.
 	NumCacheClusters pulumi.IntPtrInput
 	// Number of node groups (shards) for this Redis replication group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Conflicts with `numCacheClusters`.
 	NumNodeGroups pulumi.IntPtrInput
 	// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName pulumi.StringPtrInput
@@ -653,6 +688,8 @@ type ReplicationGroupState struct {
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
 	// Valid values are 0 to 5.
+	// Conflicts with `numCacheClusters`.
+	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
 	// Replication group identifier. This parameter is stored as a lowercase string.
 	//
@@ -710,10 +747,12 @@ type replicationGroupArgs struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
+	// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+	ClusterMode *string `pulumi:"clusterMode"`
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
-	Description *string `pulumi:"description"`
+	Description string `pulumi:"description"`
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
@@ -735,7 +774,9 @@ type replicationGroupArgs struct {
 	LogDeliveryConfigurations []ReplicationGroupLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	// Specifies whether to enable Multi-AZ Support for the replication group.
+	// If `true`, `automaticFailoverEnabled` must also be enabled.
+	// Defaults to `false`.
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType *string `pulumi:"networkType"`
@@ -743,10 +784,15 @@ type replicationGroupArgs struct {
 	NodeType *string `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
-	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
+	// Number of cache clusters (primary and replicas) this replication group will have.
+	// If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
+	// Updates will occur before other modifications.
+	// Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
+	// Defaults to `1`.
 	NumCacheClusters *int `pulumi:"numCacheClusters"`
 	// Number of node groups (shards) for this Redis replication group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Conflicts with `numCacheClusters`.
 	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
@@ -757,6 +803,8 @@ type replicationGroupArgs struct {
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
 	// Valid values are 0 to 5.
+	// Conflicts with `numCacheClusters`.
+	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 	// Replication group identifier. This parameter is stored as a lowercase string.
 	//
@@ -807,10 +855,12 @@ type ReplicationGroupArgs struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
+	// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+	ClusterMode pulumi.StringPtrInput
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
 	DataTieringEnabled pulumi.BoolPtrInput
 	// User-created description for the replication group. Must not be empty.
-	Description pulumi.StringPtrInput
+	Description pulumi.StringInput
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
@@ -832,7 +882,9 @@ type ReplicationGroupArgs struct {
 	LogDeliveryConfigurations ReplicationGroupLogDeliveryConfigurationArrayInput
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
-	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+	// Specifies whether to enable Multi-AZ Support for the replication group.
+	// If `true`, `automaticFailoverEnabled` must also be enabled.
+	// Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrInput
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType pulumi.StringPtrInput
@@ -840,10 +892,15 @@ type ReplicationGroupArgs struct {
 	NodeType pulumi.StringPtrInput
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
-	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
+	// Number of cache clusters (primary and replicas) this replication group will have.
+	// If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
+	// Updates will occur before other modifications.
+	// Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
+	// Defaults to `1`.
 	NumCacheClusters pulumi.IntPtrInput
 	// Number of node groups (shards) for this Redis replication group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Conflicts with `numCacheClusters`.
 	NumNodeGroups pulumi.IntPtrInput
 	// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName pulumi.StringPtrInput
@@ -854,6 +911,8 @@ type ReplicationGroupArgs struct {
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
 	// Valid values are 0 to 5.
+	// Conflicts with `numCacheClusters`.
+	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
 	// Replication group identifier. This parameter is stored as a lowercase string.
 	//
@@ -1017,6 +1076,11 @@ func (o ReplicationGroupOutput) ClusterEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.ClusterEnabled }).(pulumi.BoolOutput)
 }
 
+// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+func (o ReplicationGroupOutput) ClusterMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ClusterMode }).(pulumi.StringOutput)
+}
+
 // Address of the replication group configuration endpoint when cluster mode is enabled.
 func (o ReplicationGroupOutput) ConfigurationEndpointAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ConfigurationEndpointAddress }).(pulumi.StringOutput)
@@ -1089,7 +1153,9 @@ func (o ReplicationGroupOutput) MemberClusters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.MemberClusters }).(pulumi.StringArrayOutput)
 }
 
-// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
+// Specifies whether to enable Multi-AZ Support for the replication group.
+// If `true`, `automaticFailoverEnabled` must also be enabled.
+// Defaults to `false`.
 func (o ReplicationGroupOutput) MultiAzEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.MultiAzEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1109,13 +1175,18 @@ func (o ReplicationGroupOutput) NotificationTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
 }
 
-// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
+// Number of cache clusters (primary and replicas) this replication group will have.
+// If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
+// Updates will occur before other modifications.
+// Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
+// Defaults to `1`.
 func (o ReplicationGroupOutput) NumCacheClusters() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntOutput { return v.NumCacheClusters }).(pulumi.IntOutput)
 }
 
 // Number of node groups (shards) for this Redis replication group.
 // Changing this number will trigger a resizing operation before other settings modifications.
+// Conflicts with `numCacheClusters`.
 func (o ReplicationGroupOutput) NumNodeGroups() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntOutput { return v.NumNodeGroups }).(pulumi.IntOutput)
 }
@@ -1148,6 +1219,8 @@ func (o ReplicationGroupOutput) ReaderEndpointAddress() pulumi.StringOutput {
 // Number of replica nodes in each node group.
 // Changing this number will trigger a resizing operation before other settings modifications.
 // Valid values are 0 to 5.
+// Conflicts with `numCacheClusters`.
+// Can only be set if `numNodeGroups` is set.
 func (o ReplicationGroupOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntOutput { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
 }

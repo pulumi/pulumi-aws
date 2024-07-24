@@ -99,6 +99,10 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     public readonly enhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     */
+    public readonly executionRole!: pulumi.Output<string | undefined>;
+    /**
      * Amazon Resource Name (ARN) of the image recipe.
      */
     public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
@@ -142,6 +146,10 @@ export class ImagePipeline extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Configuration block with the workflow configuration. Detailed below.
+     */
+    public readonly workflows!: pulumi.Output<outputs.imagebuilder.ImagePipelineWorkflow[]>;
 
     /**
      * Create a ImagePipeline resource with the given unique name, arguments, and options.
@@ -165,6 +173,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["distributionConfigurationArn"] = state ? state.distributionConfigurationArn : undefined;
             resourceInputs["enhancedImageMetadataEnabled"] = state ? state.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["executionRole"] = state ? state.executionRole : undefined;
             resourceInputs["imageRecipeArn"] = state ? state.imageRecipeArn : undefined;
             resourceInputs["imageScanningConfiguration"] = state ? state.imageScanningConfiguration : undefined;
             resourceInputs["imageTestsConfiguration"] = state ? state.imageTestsConfiguration : undefined;
@@ -175,6 +184,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["workflows"] = state ? state.workflows : undefined;
         } else {
             const args = argsOrState as ImagePipelineArgs | undefined;
             if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
@@ -184,6 +194,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
             resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
             resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
             resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
@@ -192,6 +203,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workflows"] = args ? args.workflows : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dateCreated"] = undefined /*out*/;
             resourceInputs["dateLastRun"] = undefined /*out*/;
@@ -246,6 +258,10 @@ export interface ImagePipelineState {
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
+     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     */
+    executionRole?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the image recipe.
      */
     imageRecipeArn?: pulumi.Input<string>;
@@ -289,6 +305,10 @@ export interface ImagePipelineState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block with the workflow configuration. Detailed below.
+     */
+    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImagePipelineWorkflow>[]>;
 }
 
 /**
@@ -311,6 +331,10 @@ export interface ImagePipelineArgs {
      * Whether additional information about the image being created is collected. Defaults to `true`.
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    /**
+     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     */
+    executionRole?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      */
@@ -345,4 +369,8 @@ export interface ImagePipelineArgs {
      * Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block with the workflow configuration. Detailed below.
+     */
+    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImagePipelineWorkflow>[]>;
 }

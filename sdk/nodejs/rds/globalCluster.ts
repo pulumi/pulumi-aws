@@ -218,6 +218,10 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string>;
     /**
+     * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     */
+    public readonly engineLifecycleSupport!: pulumi.Output<string>;
+    /**
      * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      */
     public readonly engineVersion!: pulumi.Output<string>;
@@ -264,6 +268,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = state ? state.engineLifecycleSupport : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
@@ -280,6 +285,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
@@ -315,6 +321,10 @@ export interface GlobalClusterState {
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
      */
     engine?: pulumi.Input<string>;
+    /**
+     * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     */
+    engineLifecycleSupport?: pulumi.Input<string>;
     /**
      * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      */
@@ -362,6 +372,10 @@ export interface GlobalClusterArgs {
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
      */
     engine?: pulumi.Input<string>;
+    /**
+     * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     */
+    engineLifecycleSupport?: pulumi.Input<string>;
     /**
      * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      */

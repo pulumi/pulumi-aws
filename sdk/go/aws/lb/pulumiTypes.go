@@ -5538,6 +5538,478 @@ func (o TargetGroupTargetFailoverArrayOutput) Index(i pulumi.IntInput) TargetGro
 	}).(TargetGroupTargetFailoverOutput)
 }
 
+type TargetGroupTargetGroupHealth struct {
+	// Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+	DnsFailover *TargetGroupTargetGroupHealthDnsFailover `pulumi:"dnsFailover"`
+	// Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+	UnhealthyStateRouting *TargetGroupTargetGroupHealthUnhealthyStateRouting `pulumi:"unhealthyStateRouting"`
+}
+
+// TargetGroupTargetGroupHealthInput is an input type that accepts TargetGroupTargetGroupHealthArgs and TargetGroupTargetGroupHealthOutput values.
+// You can construct a concrete instance of `TargetGroupTargetGroupHealthInput` via:
+//
+//	TargetGroupTargetGroupHealthArgs{...}
+type TargetGroupTargetGroupHealthInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetGroupHealthOutput() TargetGroupTargetGroupHealthOutput
+	ToTargetGroupTargetGroupHealthOutputWithContext(context.Context) TargetGroupTargetGroupHealthOutput
+}
+
+type TargetGroupTargetGroupHealthArgs struct {
+	// Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+	DnsFailover TargetGroupTargetGroupHealthDnsFailoverPtrInput `pulumi:"dnsFailover"`
+	// Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+	UnhealthyStateRouting TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrInput `pulumi:"unhealthyStateRouting"`
+}
+
+func (TargetGroupTargetGroupHealthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetGroupHealth)(nil)).Elem()
+}
+
+func (i TargetGroupTargetGroupHealthArgs) ToTargetGroupTargetGroupHealthOutput() TargetGroupTargetGroupHealthOutput {
+	return i.ToTargetGroupTargetGroupHealthOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetGroupHealthArgs) ToTargetGroupTargetGroupHealthOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupHealthOutput)
+}
+
+func (i TargetGroupTargetGroupHealthArgs) ToTargetGroupTargetGroupHealthPtrOutput() TargetGroupTargetGroupHealthPtrOutput {
+	return i.ToTargetGroupTargetGroupHealthPtrOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetGroupHealthArgs) ToTargetGroupTargetGroupHealthPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupHealthOutput).ToTargetGroupTargetGroupHealthPtrOutputWithContext(ctx)
+}
+
+// TargetGroupTargetGroupHealthPtrInput is an input type that accepts TargetGroupTargetGroupHealthArgs, TargetGroupTargetGroupHealthPtr and TargetGroupTargetGroupHealthPtrOutput values.
+// You can construct a concrete instance of `TargetGroupTargetGroupHealthPtrInput` via:
+//
+//	        TargetGroupTargetGroupHealthArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetGroupTargetGroupHealthPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetGroupHealthPtrOutput() TargetGroupTargetGroupHealthPtrOutput
+	ToTargetGroupTargetGroupHealthPtrOutputWithContext(context.Context) TargetGroupTargetGroupHealthPtrOutput
+}
+
+type targetGroupTargetGroupHealthPtrType TargetGroupTargetGroupHealthArgs
+
+func TargetGroupTargetGroupHealthPtr(v *TargetGroupTargetGroupHealthArgs) TargetGroupTargetGroupHealthPtrInput {
+	return (*targetGroupTargetGroupHealthPtrType)(v)
+}
+
+func (*targetGroupTargetGroupHealthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupTargetGroupHealth)(nil)).Elem()
+}
+
+func (i *targetGroupTargetGroupHealthPtrType) ToTargetGroupTargetGroupHealthPtrOutput() TargetGroupTargetGroupHealthPtrOutput {
+	return i.ToTargetGroupTargetGroupHealthPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupTargetGroupHealthPtrType) ToTargetGroupTargetGroupHealthPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupHealthPtrOutput)
+}
+
+type TargetGroupTargetGroupHealthOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetGroupHealthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetGroupHealth)(nil)).Elem()
+}
+
+func (o TargetGroupTargetGroupHealthOutput) ToTargetGroupTargetGroupHealthOutput() TargetGroupTargetGroupHealthOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthOutput) ToTargetGroupTargetGroupHealthOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthOutput) ToTargetGroupTargetGroupHealthPtrOutput() TargetGroupTargetGroupHealthPtrOutput {
+	return o.ToTargetGroupTargetGroupHealthPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupTargetGroupHealthOutput) ToTargetGroupTargetGroupHealthPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupTargetGroupHealth) *TargetGroupTargetGroupHealth {
+		return &v
+	}).(TargetGroupTargetGroupHealthPtrOutput)
+}
+
+// Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+func (o TargetGroupTargetGroupHealthOutput) DnsFailover() TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetGroupHealth) *TargetGroupTargetGroupHealthDnsFailover { return v.DnsFailover }).(TargetGroupTargetGroupHealthDnsFailoverPtrOutput)
+}
+
+// Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+func (o TargetGroupTargetGroupHealthOutput) UnhealthyStateRouting() TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetGroupHealth) *TargetGroupTargetGroupHealthUnhealthyStateRouting {
+		return v.UnhealthyStateRouting
+	}).(TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput)
+}
+
+type TargetGroupTargetGroupHealthPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetGroupHealthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupTargetGroupHealth)(nil)).Elem()
+}
+
+func (o TargetGroupTargetGroupHealthPtrOutput) ToTargetGroupTargetGroupHealthPtrOutput() TargetGroupTargetGroupHealthPtrOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthPtrOutput) ToTargetGroupTargetGroupHealthPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthPtrOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthPtrOutput) Elem() TargetGroupTargetGroupHealthOutput {
+	return o.ApplyT(func(v *TargetGroupTargetGroupHealth) TargetGroupTargetGroupHealth {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupTargetGroupHealth
+		return ret
+	}).(TargetGroupTargetGroupHealthOutput)
+}
+
+// Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+func (o TargetGroupTargetGroupHealthPtrOutput) DnsFailover() TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return o.ApplyT(func(v *TargetGroupTargetGroupHealth) *TargetGroupTargetGroupHealthDnsFailover {
+		if v == nil {
+			return nil
+		}
+		return v.DnsFailover
+	}).(TargetGroupTargetGroupHealthDnsFailoverPtrOutput)
+}
+
+// Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+func (o TargetGroupTargetGroupHealthPtrOutput) UnhealthyStateRouting() TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return o.ApplyT(func(v *TargetGroupTargetGroupHealth) *TargetGroupTargetGroupHealthUnhealthyStateRouting {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyStateRouting
+	}).(TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput)
+}
+
+type TargetGroupTargetGroupHealthDnsFailover struct {
+	// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+	MinimumHealthyTargetsCount *string `pulumi:"minimumHealthyTargetsCount"`
+	// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+	MinimumHealthyTargetsPercentage *string `pulumi:"minimumHealthyTargetsPercentage"`
+}
+
+// TargetGroupTargetGroupHealthDnsFailoverInput is an input type that accepts TargetGroupTargetGroupHealthDnsFailoverArgs and TargetGroupTargetGroupHealthDnsFailoverOutput values.
+// You can construct a concrete instance of `TargetGroupTargetGroupHealthDnsFailoverInput` via:
+//
+//	TargetGroupTargetGroupHealthDnsFailoverArgs{...}
+type TargetGroupTargetGroupHealthDnsFailoverInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetGroupHealthDnsFailoverOutput() TargetGroupTargetGroupHealthDnsFailoverOutput
+	ToTargetGroupTargetGroupHealthDnsFailoverOutputWithContext(context.Context) TargetGroupTargetGroupHealthDnsFailoverOutput
+}
+
+type TargetGroupTargetGroupHealthDnsFailoverArgs struct {
+	// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+	MinimumHealthyTargetsCount pulumi.StringPtrInput `pulumi:"minimumHealthyTargetsCount"`
+	// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+	MinimumHealthyTargetsPercentage pulumi.StringPtrInput `pulumi:"minimumHealthyTargetsPercentage"`
+}
+
+func (TargetGroupTargetGroupHealthDnsFailoverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetGroupHealthDnsFailover)(nil)).Elem()
+}
+
+func (i TargetGroupTargetGroupHealthDnsFailoverArgs) ToTargetGroupTargetGroupHealthDnsFailoverOutput() TargetGroupTargetGroupHealthDnsFailoverOutput {
+	return i.ToTargetGroupTargetGroupHealthDnsFailoverOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetGroupHealthDnsFailoverArgs) ToTargetGroupTargetGroupHealthDnsFailoverOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthDnsFailoverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupHealthDnsFailoverOutput)
+}
+
+func (i TargetGroupTargetGroupHealthDnsFailoverArgs) ToTargetGroupTargetGroupHealthDnsFailoverPtrOutput() TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return i.ToTargetGroupTargetGroupHealthDnsFailoverPtrOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetGroupHealthDnsFailoverArgs) ToTargetGroupTargetGroupHealthDnsFailoverPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupHealthDnsFailoverOutput).ToTargetGroupTargetGroupHealthDnsFailoverPtrOutputWithContext(ctx)
+}
+
+// TargetGroupTargetGroupHealthDnsFailoverPtrInput is an input type that accepts TargetGroupTargetGroupHealthDnsFailoverArgs, TargetGroupTargetGroupHealthDnsFailoverPtr and TargetGroupTargetGroupHealthDnsFailoverPtrOutput values.
+// You can construct a concrete instance of `TargetGroupTargetGroupHealthDnsFailoverPtrInput` via:
+//
+//	        TargetGroupTargetGroupHealthDnsFailoverArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetGroupTargetGroupHealthDnsFailoverPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetGroupHealthDnsFailoverPtrOutput() TargetGroupTargetGroupHealthDnsFailoverPtrOutput
+	ToTargetGroupTargetGroupHealthDnsFailoverPtrOutputWithContext(context.Context) TargetGroupTargetGroupHealthDnsFailoverPtrOutput
+}
+
+type targetGroupTargetGroupHealthDnsFailoverPtrType TargetGroupTargetGroupHealthDnsFailoverArgs
+
+func TargetGroupTargetGroupHealthDnsFailoverPtr(v *TargetGroupTargetGroupHealthDnsFailoverArgs) TargetGroupTargetGroupHealthDnsFailoverPtrInput {
+	return (*targetGroupTargetGroupHealthDnsFailoverPtrType)(v)
+}
+
+func (*targetGroupTargetGroupHealthDnsFailoverPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupTargetGroupHealthDnsFailover)(nil)).Elem()
+}
+
+func (i *targetGroupTargetGroupHealthDnsFailoverPtrType) ToTargetGroupTargetGroupHealthDnsFailoverPtrOutput() TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return i.ToTargetGroupTargetGroupHealthDnsFailoverPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupTargetGroupHealthDnsFailoverPtrType) ToTargetGroupTargetGroupHealthDnsFailoverPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupHealthDnsFailoverPtrOutput)
+}
+
+type TargetGroupTargetGroupHealthDnsFailoverOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetGroupHealthDnsFailoverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetGroupHealthDnsFailover)(nil)).Elem()
+}
+
+func (o TargetGroupTargetGroupHealthDnsFailoverOutput) ToTargetGroupTargetGroupHealthDnsFailoverOutput() TargetGroupTargetGroupHealthDnsFailoverOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthDnsFailoverOutput) ToTargetGroupTargetGroupHealthDnsFailoverOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthDnsFailoverOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthDnsFailoverOutput) ToTargetGroupTargetGroupHealthDnsFailoverPtrOutput() TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return o.ToTargetGroupTargetGroupHealthDnsFailoverPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupTargetGroupHealthDnsFailoverOutput) ToTargetGroupTargetGroupHealthDnsFailoverPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupTargetGroupHealthDnsFailover) *TargetGroupTargetGroupHealthDnsFailover {
+		return &v
+	}).(TargetGroupTargetGroupHealthDnsFailoverPtrOutput)
+}
+
+// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+func (o TargetGroupTargetGroupHealthDnsFailoverOutput) MinimumHealthyTargetsCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetGroupHealthDnsFailover) *string { return v.MinimumHealthyTargetsCount }).(pulumi.StringPtrOutput)
+}
+
+// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+func (o TargetGroupTargetGroupHealthDnsFailoverOutput) MinimumHealthyTargetsPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetGroupHealthDnsFailover) *string { return v.MinimumHealthyTargetsPercentage }).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupTargetGroupHealthDnsFailoverPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetGroupHealthDnsFailoverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupTargetGroupHealthDnsFailover)(nil)).Elem()
+}
+
+func (o TargetGroupTargetGroupHealthDnsFailoverPtrOutput) ToTargetGroupTargetGroupHealthDnsFailoverPtrOutput() TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthDnsFailoverPtrOutput) ToTargetGroupTargetGroupHealthDnsFailoverPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthDnsFailoverPtrOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthDnsFailoverPtrOutput) Elem() TargetGroupTargetGroupHealthDnsFailoverOutput {
+	return o.ApplyT(func(v *TargetGroupTargetGroupHealthDnsFailover) TargetGroupTargetGroupHealthDnsFailover {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupTargetGroupHealthDnsFailover
+		return ret
+	}).(TargetGroupTargetGroupHealthDnsFailoverOutput)
+}
+
+// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+func (o TargetGroupTargetGroupHealthDnsFailoverPtrOutput) MinimumHealthyTargetsCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupTargetGroupHealthDnsFailover) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumHealthyTargetsCount
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+func (o TargetGroupTargetGroupHealthDnsFailoverPtrOutput) MinimumHealthyTargetsPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupTargetGroupHealthDnsFailover) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumHealthyTargetsPercentage
+	}).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupTargetGroupHealthUnhealthyStateRouting struct {
+	// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+	MinimumHealthyTargetsCount *int `pulumi:"minimumHealthyTargetsCount"`
+	// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+	MinimumHealthyTargetsPercentage *string `pulumi:"minimumHealthyTargetsPercentage"`
+}
+
+// TargetGroupTargetGroupHealthUnhealthyStateRoutingInput is an input type that accepts TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs and TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput values.
+// You can construct a concrete instance of `TargetGroupTargetGroupHealthUnhealthyStateRoutingInput` via:
+//
+//	TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs{...}
+type TargetGroupTargetGroupHealthUnhealthyStateRoutingInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetGroupHealthUnhealthyStateRoutingOutput() TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput
+	ToTargetGroupTargetGroupHealthUnhealthyStateRoutingOutputWithContext(context.Context) TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput
+}
+
+type TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs struct {
+	// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+	MinimumHealthyTargetsCount pulumi.IntPtrInput `pulumi:"minimumHealthyTargetsCount"`
+	// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+	MinimumHealthyTargetsPercentage pulumi.StringPtrInput `pulumi:"minimumHealthyTargetsPercentage"`
+}
+
+func (TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetGroupHealthUnhealthyStateRouting)(nil)).Elem()
+}
+
+func (i TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingOutput() TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput {
+	return i.ToTargetGroupTargetGroupHealthUnhealthyStateRoutingOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput)
+}
+
+func (i TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput() TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return i.ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput).ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutputWithContext(ctx)
+}
+
+// TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrInput is an input type that accepts TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs, TargetGroupTargetGroupHealthUnhealthyStateRoutingPtr and TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput values.
+// You can construct a concrete instance of `TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrInput` via:
+//
+//	        TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput() TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput
+	ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutputWithContext(context.Context) TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput
+}
+
+type targetGroupTargetGroupHealthUnhealthyStateRoutingPtrType TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs
+
+func TargetGroupTargetGroupHealthUnhealthyStateRoutingPtr(v *TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs) TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrInput {
+	return (*targetGroupTargetGroupHealthUnhealthyStateRoutingPtrType)(v)
+}
+
+func (*targetGroupTargetGroupHealthUnhealthyStateRoutingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupTargetGroupHealthUnhealthyStateRouting)(nil)).Elem()
+}
+
+func (i *targetGroupTargetGroupHealthUnhealthyStateRoutingPtrType) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput() TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return i.ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupTargetGroupHealthUnhealthyStateRoutingPtrType) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput)
+}
+
+type TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetGroupHealthUnhealthyStateRouting)(nil)).Elem()
+}
+
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingOutput() TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput() TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return o.ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupTargetGroupHealthUnhealthyStateRouting) *TargetGroupTargetGroupHealthUnhealthyStateRouting {
+		return &v
+	}).(TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput)
+}
+
+// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput) MinimumHealthyTargetsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetGroupHealthUnhealthyStateRouting) *int { return v.MinimumHealthyTargetsCount }).(pulumi.IntPtrOutput)
+}
+
+// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput) MinimumHealthyTargetsPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetGroupHealthUnhealthyStateRouting) *string {
+		return v.MinimumHealthyTargetsPercentage
+	}).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupTargetGroupHealthUnhealthyStateRouting)(nil)).Elem()
+}
+
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput() TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput) ToTargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutputWithContext(ctx context.Context) TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput) Elem() TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput {
+	return o.ApplyT(func(v *TargetGroupTargetGroupHealthUnhealthyStateRouting) TargetGroupTargetGroupHealthUnhealthyStateRouting {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupTargetGroupHealthUnhealthyStateRouting
+		return ret
+	}).(TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput)
+}
+
+// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput) MinimumHealthyTargetsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroupTargetGroupHealthUnhealthyStateRouting) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumHealthyTargetsCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput) MinimumHealthyTargetsPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupTargetGroupHealthUnhealthyStateRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumHealthyTargetsPercentage
+	}).(pulumi.StringPtrOutput)
+}
+
 type TargetGroupTargetHealthState struct {
 	// Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
 	EnableUnhealthyConnectionTermination bool `pulumi:"enableUnhealthyConnectionTermination"`
@@ -7225,6 +7697,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupStickinessPtrInput)(nil)).Elem(), TargetGroupStickinessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetFailoverInput)(nil)).Elem(), TargetGroupTargetFailoverArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetFailoverArrayInput)(nil)).Elem(), TargetGroupTargetFailoverArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetGroupHealthInput)(nil)).Elem(), TargetGroupTargetGroupHealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetGroupHealthPtrInput)(nil)).Elem(), TargetGroupTargetGroupHealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetGroupHealthDnsFailoverInput)(nil)).Elem(), TargetGroupTargetGroupHealthDnsFailoverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetGroupHealthDnsFailoverPtrInput)(nil)).Elem(), TargetGroupTargetGroupHealthDnsFailoverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetGroupHealthUnhealthyStateRoutingInput)(nil)).Elem(), TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrInput)(nil)).Elem(), TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetHealthStateInput)(nil)).Elem(), TargetGroupTargetHealthStateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetHealthStateArrayInput)(nil)).Elem(), TargetGroupTargetHealthStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionInput)(nil)).Elem(), GetListenerDefaultActionArgs{})
@@ -7312,6 +7790,12 @@ func init() {
 	pulumi.RegisterOutputType(TargetGroupStickinessPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetFailoverOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetFailoverArrayOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetGroupHealthOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetGroupHealthPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetGroupHealthDnsFailoverOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetGroupHealthDnsFailoverPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetGroupHealthUnhealthyStateRoutingOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetHealthStateOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetHealthStateArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionOutput{})

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.codebuild.WebhookArgs;
 import com.pulumi.aws.codebuild.inputs.WebhookState;
 import com.pulumi.aws.codebuild.outputs.WebhookFilterGroup;
+import com.pulumi.aws.codebuild.outputs.WebhookScopeConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -164,6 +165,20 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      */
     public Output<String> projectName() {
         return this.projectName;
+    }
+    /**
+     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * 
+     */
+    @Export(name="scopeConfiguration", refs={WebhookScopeConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ WebhookScopeConfiguration> scopeConfiguration;
+
+    /**
+     * @return Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * 
+     */
+    public Output<Optional<WebhookScopeConfiguration>> scopeConfiguration() {
+        return Codegen.optional(this.scopeConfiguration);
     }
     /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.

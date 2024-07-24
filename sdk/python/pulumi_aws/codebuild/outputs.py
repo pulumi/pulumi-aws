@@ -40,6 +40,7 @@ __all__ = [
     'ReportGroupExportConfigS3Destination',
     'WebhookFilterGroup',
     'WebhookFilterGroupFilter',
+    'WebhookScopeConfiguration',
 ]
 
 @pulumi.output_type
@@ -1743,5 +1744,46 @@ class WebhookFilterGroupFilter(dict):
         If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_matched_pattern")
+
+
+@pulumi.output_type
+class WebhookScopeConfiguration(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 scope: str,
+                 domain: Optional[str] = None):
+        """
+        :param str name: The name of either the enterprise or organization.
+        :param str scope: The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+        :param str domain: The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "scope", scope)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of either the enterprise or organization.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[str]:
+        """
+        The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+        """
+        return pulumi.get(self, "domain")
 
 

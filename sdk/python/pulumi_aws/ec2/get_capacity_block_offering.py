@@ -163,6 +163,19 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[int] = None,
     """
     Information about a single EC2 Capacity Block Offering.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
+        end_date_range="2024-05-30T15:04:05Z",
+        instance_count=1,
+        instance_type="p4d.24xlarge",
+        start_date_range="2024-04-28T15:04:05Z")
+    ```
+
 
     :param int capacity_duration_hours: The amount of time of the Capacity Block reservation in hours.
     :param str end_date_range: The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -202,6 +215,19 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityBlockOfferingResult]:
     """
     Information about a single EC2 Capacity Block Offering.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
+        end_date_range="2024-05-30T15:04:05Z",
+        instance_count=1,
+        instance_type="p4d.24xlarge",
+        start_date_range="2024-04-28T15:04:05Z")
+    ```
 
 
     :param int capacity_duration_hours: The amount of time of the Capacity Block reservation in hours.

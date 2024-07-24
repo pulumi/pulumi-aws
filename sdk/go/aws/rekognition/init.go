@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Collection{}
 	case "aws:rekognition/project:Project":
 		r = &Project{}
+	case "aws:rekognition/streamProcessor:StreamProcessor":
+		r = &StreamProcessor{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rekognition/project",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rekognition/streamProcessor",
 		&module{version},
 	)
 }

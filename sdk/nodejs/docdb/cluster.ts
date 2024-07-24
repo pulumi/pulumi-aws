@@ -120,7 +120,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
-     * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     * A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -363,7 +363,7 @@ export interface ClusterState {
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
-     * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     * A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
@@ -508,7 +508,7 @@ export interface ClusterArgs {
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
-     * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     * A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**

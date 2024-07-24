@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Msk.Inputs
         private InputList<Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs>? _consumerGroupReplications;
 
         /// <summary>
-        /// Confguration relating to consumer group replication.
+        /// Configuration relating to consumer group replication.
         /// </summary>
         public InputList<Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs> ConsumerGroupReplications
         {

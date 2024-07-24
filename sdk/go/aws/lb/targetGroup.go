@@ -181,6 +181,45 @@ import (
 //
 // ```
 //
+// ### Target group with health requirements
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewTargetGroup(ctx, "tcp-example", &lb.TargetGroupArgs{
+//				Name:     pulumi.String("tf-example-lb-nlb-tg"),
+//				Port:     pulumi.Int(80),
+//				Protocol: pulumi.String("TCP"),
+//				VpcId:    pulumi.Any(main.Id),
+//				TargetGroupHealth: &lb.TargetGroupTargetGroupHealthArgs{
+//					DnsFailover: &lb.TargetGroupTargetGroupHealthDnsFailoverArgs{
+//						MinimumHealthyTargetsCount:      pulumi.String("1"),
+//						MinimumHealthyTargetsPercentage: pulumi.String("off"),
+//					},
+//					UnhealthyStateRouting: &lb.TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs{
+//						MinimumHealthyTargetsCount:      pulumi.Int(1),
+//						MinimumHealthyTargetsPercentage: pulumi.String("off"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Target Groups using their ARN. For example:
@@ -242,6 +281,8 @@ type TargetGroup struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayOutput `pulumi:"targetFailovers"`
+	// Target health requirements block. See targetGroupHealth for more information.
+	TargetGroupHealth TargetGroupTargetGroupHealthOutput `pulumi:"targetGroupHealth"`
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates TargetGroupTargetHealthStateArrayOutput `pulumi:"targetHealthStates"`
 	// Type of target that you must specify when registering targets with this target group.
@@ -347,6 +388,8 @@ type targetGroupState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
+	// Target health requirements block. See targetGroupHealth for more information.
+	TargetGroupHealth *TargetGroupTargetGroupHealth `pulumi:"targetGroupHealth"`
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates []TargetGroupTargetHealthState `pulumi:"targetHealthStates"`
 	// Type of target that you must specify when registering targets with this target group.
@@ -417,6 +460,8 @@ type TargetGroupState struct {
 	TagsAll pulumi.StringMapInput
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
+	// Target health requirements block. See targetGroupHealth for more information.
+	TargetGroupHealth TargetGroupTargetGroupHealthPtrInput
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates TargetGroupTargetHealthStateArrayInput
 	// Type of target that you must specify when registering targets with this target group.
@@ -481,6 +526,8 @@ type targetGroupArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
+	// Target health requirements block. See targetGroupHealth for more information.
+	TargetGroupHealth *TargetGroupTargetGroupHealth `pulumi:"targetGroupHealth"`
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates []TargetGroupTargetHealthState `pulumi:"targetHealthStates"`
 	// Type of target that you must specify when registering targets with this target group.
@@ -542,6 +589,8 @@ type TargetGroupArgs struct {
 	Tags pulumi.StringMapInput
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
+	// Target health requirements block. See targetGroupHealth for more information.
+	TargetGroupHealth TargetGroupTargetGroupHealthPtrInput
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates TargetGroupTargetHealthStateArrayInput
 	// Type of target that you must specify when registering targets with this target group.
@@ -765,6 +814,11 @@ func (o TargetGroupOutput) TagsAll() pulumi.StringMapOutput {
 // Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 func (o TargetGroupOutput) TargetFailovers() TargetGroupTargetFailoverArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupTargetFailoverArrayOutput { return v.TargetFailovers }).(TargetGroupTargetFailoverArrayOutput)
+}
+
+// Target health requirements block. See targetGroupHealth for more information.
+func (o TargetGroupOutput) TargetGroupHealth() TargetGroupTargetGroupHealthOutput {
+	return o.ApplyT(func(v *TargetGroup) TargetGroupTargetGroupHealthOutput { return v.TargetGroupHealth }).(TargetGroupTargetGroupHealthOutput)
 }
 
 // Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.

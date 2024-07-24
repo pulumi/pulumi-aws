@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs;
 import com.pulumi.core.Output;
@@ -128,18 +129,18 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The private key for authentication.
+     * The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    @Import(name="privateKey", required=true)
-    private Output<String> privateKey;
+    @Import(name="privateKey")
+    private @Nullable Output<String> privateKey;
 
     /**
-     * @return The private key for authentication.
+     * @return The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public Output<String> privateKey() {
-        return this.privateKey;
+    public Optional<Output<String>> privateKey() {
+        return Optional.ofNullable(this.privateKey);
     }
 
     /**
@@ -233,6 +234,21 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
+     * The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+     * 
+     */
+    @Import(name="secretsManagerConfiguration")
+    private @Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration;
+
+    /**
+     * @return The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+     * 
+     */
+    public Optional<Output<FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs>> secretsManagerConfiguration() {
+        return Optional.ofNullable(this.secretsManagerConfiguration);
+    }
+
+    /**
      * The configuration for Snowflake role.
      * 
      */
@@ -278,18 +294,18 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The user for authentication.
+     * The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    @Import(name="user", required=true)
-    private Output<String> user;
+    @Import(name="user")
+    private @Nullable Output<String> user;
 
     /**
-     * @return The user for authentication.
+     * @return The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public Output<String> user() {
-        return this.user;
+    public Optional<Output<String>> user() {
+        return Optional.ofNullable(this.user);
     }
 
     private FirehoseDeliveryStreamSnowflakeConfigurationArgs() {}
@@ -309,6 +325,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         this.s3BackupMode = $.s3BackupMode;
         this.s3Configuration = $.s3Configuration;
         this.schema = $.schema;
+        this.secretsManagerConfiguration = $.secretsManagerConfiguration;
         this.snowflakeRoleConfiguration = $.snowflakeRoleConfiguration;
         this.snowflakeVpcConfiguration = $.snowflakeVpcConfiguration;
         this.table = $.table;
@@ -481,18 +498,18 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param privateKey The private key for authentication.
+         * @param privateKey The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
          */
-        public Builder privateKey(Output<String> privateKey) {
+        public Builder privateKey(@Nullable Output<String> privateKey) {
             $.privateKey = privateKey;
             return this;
         }
 
         /**
-         * @param privateKey The private key for authentication.
+         * @param privateKey The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
@@ -628,6 +645,27 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
+         * @param secretsManagerConfiguration The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretsManagerConfiguration(@Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration) {
+            $.secretsManagerConfiguration = secretsManagerConfiguration;
+            return this;
+        }
+
+        /**
+         * @param secretsManagerConfiguration The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretsManagerConfiguration(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs secretsManagerConfiguration) {
+            return secretsManagerConfiguration(Output.of(secretsManagerConfiguration));
+        }
+
+        /**
          * @param snowflakeRoleConfiguration The configuration for Snowflake role.
          * 
          * @return builder
@@ -691,18 +729,18 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param user The user for authentication.
+         * @param user The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
          */
-        public Builder user(Output<String> user) {
+        public Builder user(@Nullable Output<String> user) {
             $.user = user;
             return this;
         }
 
         /**
-         * @param user The user for authentication.
+         * @param user The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
@@ -718,9 +756,6 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
             if ($.database == null) {
                 throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSnowflakeConfigurationArgs", "database");
             }
-            if ($.privateKey == null) {
-                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSnowflakeConfigurationArgs", "privateKey");
-            }
             if ($.roleArn == null) {
                 throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSnowflakeConfigurationArgs", "roleArn");
             }
@@ -732,9 +767,6 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
             }
             if ($.table == null) {
                 throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSnowflakeConfigurationArgs", "table");
-            }
-            if ($.user == null) {
-                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSnowflakeConfigurationArgs", "user");
             }
             return $;
         }

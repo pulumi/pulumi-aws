@@ -138,6 +138,40 @@ namespace Pulumi.Aws.LB
     /// });
     /// ```
     /// 
+    /// ### Target group with health requirements
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tcp_example = new Aws.LB.TargetGroup("tcp-example", new()
+    ///     {
+    ///         Name = "tf-example-lb-nlb-tg",
+    ///         Port = 80,
+    ///         Protocol = "TCP",
+    ///         VpcId = main.Id,
+    ///         TargetGroupHealth = new Aws.LB.Inputs.TargetGroupTargetGroupHealthArgs
+    ///         {
+    ///             DnsFailover = new Aws.LB.Inputs.TargetGroupTargetGroupHealthDnsFailoverArgs
+    ///             {
+    ///                 MinimumHealthyTargetsCount = "1",
+    ///                 MinimumHealthyTargetsPercentage = "off",
+    ///             },
+    ///             UnhealthyStateRouting = new Aws.LB.Inputs.TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs
+    ///             {
+    ///                 MinimumHealthyTargetsCount = 1,
+    ///                 MinimumHealthyTargetsPercentage = "off",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Target Groups using their ARN. For example:
@@ -289,6 +323,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Output("targetFailovers")]
         public Output<ImmutableArray<Outputs.TargetGroupTargetFailover>> TargetFailovers { get; private set; } = null!;
+
+        /// <summary>
+        /// Target health requirements block. See target_group_health for more information.
+        /// </summary>
+        [Output("targetGroupHealth")]
+        public Output<Outputs.TargetGroupTargetGroupHealth> TargetGroupHealth { get; private set; } = null!;
 
         /// <summary>
         /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
@@ -497,6 +537,12 @@ namespace Pulumi.Aws.LB
             set => _targetFailovers = value;
         }
 
+        /// <summary>
+        /// Target health requirements block. See target_group_health for more information.
+        /// </summary>
+        [Input("targetGroupHealth")]
+        public Input<Inputs.TargetGroupTargetGroupHealthArgs>? TargetGroupHealth { get; set; }
+
         [Input("targetHealthStates")]
         private InputList<Inputs.TargetGroupTargetHealthStateArgs>? _targetHealthStates;
 
@@ -704,6 +750,12 @@ namespace Pulumi.Aws.LB
             get => _targetFailovers ?? (_targetFailovers = new InputList<Inputs.TargetGroupTargetFailoverGetArgs>());
             set => _targetFailovers = value;
         }
+
+        /// <summary>
+        /// Target health requirements block. See target_group_health for more information.
+        /// </summary>
+        [Input("targetGroupHealth")]
+        public Input<Inputs.TargetGroupTargetGroupHealthGetArgs>? TargetGroupHealth { get; set; }
 
         [Input("targetHealthStates")]
         private InputList<Inputs.TargetGroupTargetHealthStateGetArgs>? _targetHealthStates;

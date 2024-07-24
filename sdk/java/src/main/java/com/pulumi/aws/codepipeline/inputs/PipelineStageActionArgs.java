@@ -184,6 +184,13 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.runOrder);
     }
 
+    @Import(name="timeoutInMinutes")
+    private @Nullable Output<Integer> timeoutInMinutes;
+
+    public Optional<Output<Integer>> timeoutInMinutes() {
+        return Optional.ofNullable(this.timeoutInMinutes);
+    }
+
     /**
      * A string that identifies the action type.
      * 
@@ -213,6 +220,7 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         this.region = $.region;
         this.roleArn = $.roleArn;
         this.runOrder = $.runOrder;
+        this.timeoutInMinutes = $.timeoutInMinutes;
         this.version = $.version;
     }
 
@@ -483,6 +491,15 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
          */
         public Builder runOrder(Integer runOrder) {
             return runOrder(Output.of(runOrder));
+        }
+
+        public Builder timeoutInMinutes(@Nullable Output<Integer> timeoutInMinutes) {
+            $.timeoutInMinutes = timeoutInMinutes;
+            return this;
+        }
+
+        public Builder timeoutInMinutes(Integer timeoutInMinutes) {
+            return timeoutInMinutes(Output.of(timeoutInMinutes));
         }
 
         /**

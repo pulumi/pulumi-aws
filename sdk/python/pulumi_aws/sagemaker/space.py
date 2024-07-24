@@ -32,10 +32,10 @@ class SpaceArgs:
         The set of arguments for constructing a Space resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. See Ownership Settings below.
+        :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. See `ownership_settings` Block below.
         :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
-        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See Space Settings below.
-        :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
+        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
+        :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. See `space_sharing_settings` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "domain_id", domain_id)
@@ -79,7 +79,7 @@ class SpaceArgs:
     @pulumi.getter(name="ownershipSettings")
     def ownership_settings(self) -> Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]:
         """
-        A collection of ownership settings. See Ownership Settings below.
+        A collection of ownership settings. See `ownership_settings` Block below.
         """
         return pulumi.get(self, "ownership_settings")
 
@@ -103,7 +103,7 @@ class SpaceArgs:
     @pulumi.getter(name="spaceSettings")
     def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
         """
-        A collection of space settings. See Space Settings below.
+        A collection of space settings. See `space_settings` Block below.
         """
         return pulumi.get(self, "space_settings")
 
@@ -115,7 +115,7 @@ class SpaceArgs:
     @pulumi.getter(name="spaceSharingSettings")
     def space_sharing_settings(self) -> Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']]:
         """
-        A collection of space sharing settings. See Space Sharing Settings below.
+        A collection of space sharing settings. See `space_sharing_settings` Block below.
         """
         return pulumi.get(self, "space_sharing_settings")
 
@@ -155,11 +155,11 @@ class _SpaceState:
         :param pulumi.Input[str] arn: The space's Amazon Resource Name (ARN).
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
-        :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. See Ownership Settings below.
+        :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. See `ownership_settings` Block below.
         :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See Space Settings below.
-        :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
+        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
+        :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. See `space_sharing_settings` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
@@ -230,7 +230,7 @@ class _SpaceState:
     @pulumi.getter(name="ownershipSettings")
     def ownership_settings(self) -> Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]:
         """
-        A collection of ownership settings. See Ownership Settings below.
+        A collection of ownership settings. See `ownership_settings` Block below.
         """
         return pulumi.get(self, "ownership_settings")
 
@@ -266,7 +266,7 @@ class _SpaceState:
     @pulumi.getter(name="spaceSettings")
     def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
         """
-        A collection of space settings. See Space Settings below.
+        A collection of space settings. See `space_settings` Block below.
         """
         return pulumi.get(self, "space_settings")
 
@@ -278,7 +278,7 @@ class _SpaceState:
     @pulumi.getter(name="spaceSharingSettings")
     def space_sharing_settings(self) -> Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']]:
         """
-        A collection of space sharing settings. See Space Sharing Settings below.
+        A collection of space sharing settings. See `space_sharing_settings` Block below.
         """
         return pulumi.get(self, "space_sharing_settings")
 
@@ -364,11 +364,11 @@ class Space(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. See Ownership Settings below.
+        :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. See `ownership_settings` Block below.
         :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See Space Settings below.
-        :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
+        :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
+        :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. See `space_sharing_settings` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -478,11 +478,11 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The space's Amazon Resource Name (ARN).
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
-        :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. See Ownership Settings below.
+        :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. See `ownership_settings` Block below.
         :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See Space Settings below.
-        :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
+        :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
+        :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. See `space_sharing_settings` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
@@ -532,7 +532,7 @@ class Space(pulumi.CustomResource):
     @pulumi.getter(name="ownershipSettings")
     def ownership_settings(self) -> pulumi.Output[Optional['outputs.SpaceOwnershipSettings']]:
         """
-        A collection of ownership settings. See Ownership Settings below.
+        A collection of ownership settings. See `ownership_settings` Block below.
         """
         return pulumi.get(self, "ownership_settings")
 
@@ -556,7 +556,7 @@ class Space(pulumi.CustomResource):
     @pulumi.getter(name="spaceSettings")
     def space_settings(self) -> pulumi.Output[Optional['outputs.SpaceSpaceSettings']]:
         """
-        A collection of space settings. See Space Settings below.
+        A collection of space settings. See `space_settings` Block below.
         """
         return pulumi.get(self, "space_settings")
 
@@ -564,7 +564,7 @@ class Space(pulumi.CustomResource):
     @pulumi.getter(name="spaceSharingSettings")
     def space_sharing_settings(self) -> pulumi.Output[Optional['outputs.SpaceSpaceSharingSettings']]:
         """
-        A collection of space sharing settings. See Space Sharing Settings below.
+        A collection of space sharing settings. See `space_sharing_settings` Block below.
         """
         return pulumi.get(self, "space_sharing_settings")
 

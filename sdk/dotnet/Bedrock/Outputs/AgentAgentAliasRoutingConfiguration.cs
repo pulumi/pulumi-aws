@@ -17,11 +17,19 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Version of the agent with which the alias is associated.
         /// </summary>
         public readonly string AgentVersion;
+        /// <summary>
+        /// ARN of the Provisioned Throughput assigned to the agent alias.
+        /// </summary>
+        public readonly string ProvisionedThroughput;
 
         [OutputConstructor]
-        private AgentAgentAliasRoutingConfiguration(string agentVersion)
+        private AgentAgentAliasRoutingConfiguration(
+            string agentVersion,
+
+            string provisionedThroughput)
         {
             AgentVersion = agentVersion;
+            ProvisionedThroughput = provisionedThroughput;
         }
     }
 }

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetClusterResult',
@@ -26,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, cluster_name=None, cluster_uuid=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None, zookeeper_connect_string_tls=None):
+    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, broker_node_group_infos=None, cluster_name=None, cluster_uuid=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None, zookeeper_connect_string_tls=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,6 +52,9 @@ class GetClusterResult:
         if bootstrap_brokers_tls and not isinstance(bootstrap_brokers_tls, str):
             raise TypeError("Expected argument 'bootstrap_brokers_tls' to be a str")
         pulumi.set(__self__, "bootstrap_brokers_tls", bootstrap_brokers_tls)
+        if broker_node_group_infos and not isinstance(broker_node_group_infos, list):
+            raise TypeError("Expected argument 'broker_node_group_infos' to be a list")
+        pulumi.set(__self__, "broker_node_group_infos", broker_node_group_infos)
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -141,6 +145,14 @@ class GetClusterResult:
         return pulumi.get(self, "bootstrap_brokers_tls")
 
     @property
+    @pulumi.getter(name="brokerNodeGroupInfos")
+    def broker_node_group_infos(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoResult']:
+        """
+        Configuration block for the broker nodes of the Kafka cluster.
+        """
+        return pulumi.get(self, "broker_node_group_infos")
+
+    @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> str:
         return pulumi.get(self, "cluster_name")
@@ -216,6 +228,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             bootstrap_brokers_sasl_iam=self.bootstrap_brokers_sasl_iam,
             bootstrap_brokers_sasl_scram=self.bootstrap_brokers_sasl_scram,
             bootstrap_brokers_tls=self.bootstrap_brokers_tls,
+            broker_node_group_infos=self.broker_node_group_infos,
             cluster_name=self.cluster_name,
             cluster_uuid=self.cluster_uuid,
             id=self.id,
@@ -262,6 +275,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         bootstrap_brokers_sasl_iam=pulumi.get(__ret__, 'bootstrap_brokers_sasl_iam'),
         bootstrap_brokers_sasl_scram=pulumi.get(__ret__, 'bootstrap_brokers_sasl_scram'),
         bootstrap_brokers_tls=pulumi.get(__ret__, 'bootstrap_brokers_tls'),
+        broker_node_group_infos=pulumi.get(__ret__, 'broker_node_group_infos'),
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
         cluster_uuid=pulumi.get(__ret__, 'cluster_uuid'),
         id=pulumi.get(__ret__, 'id'),

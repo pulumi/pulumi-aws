@@ -6,13 +6,31 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs();
+
+    /**
+     * Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+     * 
+     */
+    @Import(name="enableMachineLearning")
+    private @Nullable Output<Boolean> enableMachineLearning;
+
+    /**
+     * @return Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> enableMachineLearning() {
+        return Optional.ofNullable(this.enableMachineLearning);
+    }
 
     /**
      * The inspection level to use for the Bot Control rule group.
@@ -32,6 +50,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs() {}
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs $) {
+        this.enableMachineLearning = $.enableMachineLearning;
         this.inspectionLevel = $.inspectionLevel;
     }
 
@@ -51,6 +70,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs defaults) {
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param enableMachineLearning Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMachineLearning(@Nullable Output<Boolean> enableMachineLearning) {
+            $.enableMachineLearning = enableMachineLearning;
+            return this;
+        }
+
+        /**
+         * @param enableMachineLearning Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMachineLearning(Boolean enableMachineLearning) {
+            return enableMachineLearning(Output.of(enableMachineLearning));
         }
 
         /**

@@ -143,6 +143,12 @@ namespace Pulumi.Aws.EmrServerless
         public Output<ImmutableArray<Outputs.ApplicationInitialCapacity>> InitialCapacities { get; private set; } = null!;
 
         /// <summary>
+        /// Enables the interactive use cases to use when running an application.
+        /// </summary>
+        [Output("interactiveConfiguration")]
+        public Output<Outputs.ApplicationInteractiveConfiguration> InteractiveConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         /// </summary>
         [Output("maximumCapacity")]
@@ -267,6 +273,12 @@ namespace Pulumi.Aws.EmrServerless
         }
 
         /// <summary>
+        /// Enables the interactive use cases to use when running an application.
+        /// </summary>
+        [Input("interactiveConfiguration")]
+        public Input<Inputs.ApplicationInteractiveConfigurationArgs>? InteractiveConfiguration { get; set; }
+
+        /// <summary>
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         /// </summary>
         [Input("maximumCapacity")]
@@ -357,6 +369,12 @@ namespace Pulumi.Aws.EmrServerless
             get => _initialCapacities ?? (_initialCapacities = new InputList<Inputs.ApplicationInitialCapacityGetArgs>());
             set => _initialCapacities = value;
         }
+
+        /// <summary>
+        /// Enables the interactive use cases to use when running an application.
+        /// </summary>
+        [Input("interactiveConfiguration")]
+        public Input<Inputs.ApplicationInteractiveConfigurationGetArgs>? InteractiveConfiguration { get; set; }
 
         /// <summary>
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.

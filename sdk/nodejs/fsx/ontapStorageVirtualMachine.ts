@@ -116,6 +116,9 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
      * Describes the SVM's subtype, e.g. `DEFAULT`
      */
     public /*out*/ readonly subtype!: pulumi.Output<string>;
+    /**
+     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+     */
     public readonly svmAdminPassword!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -212,6 +215,9 @@ export interface OntapStorageVirtualMachineState {
      * Describes the SVM's subtype, e.g. `DEFAULT`
      */
     subtype?: pulumi.Input<string>;
+    /**
+     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+     */
     svmAdminPassword?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -249,6 +255,9 @@ export interface OntapStorageVirtualMachineArgs {
      * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      */
     rootVolumeSecurityStyle?: pulumi.Input<string>;
+    /**
+     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+     */
     svmAdminPassword?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

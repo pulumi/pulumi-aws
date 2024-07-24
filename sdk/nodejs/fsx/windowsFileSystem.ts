@@ -106,7 +106,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      */
     public readonly auditLogConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
@@ -130,13 +130,17 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly deploymentType!: pulumi.Output<string | undefined>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      */
     public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    /**
+     * A map of tags to apply to the file system's final backup.
+     */
+    public readonly finalBackupTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
@@ -166,7 +170,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
      */
     public readonly selfManagedActiveDirectory!: pulumi.Output<outputs.fsx.WindowsFileSystemSelfManagedActiveDirectory | undefined>;
     /**
@@ -234,6 +238,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
             resourceInputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["finalBackupTags"] = state ? state.finalBackupTags : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
@@ -268,6 +273,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
             resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
             resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
+            resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -310,7 +316,7 @@ export interface WindowsFileSystemState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      */
     auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
@@ -334,13 +340,17 @@ export interface WindowsFileSystemState {
      */
     deploymentType?: pulumi.Input<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
     dnsName?: pulumi.Input<string>;
+    /**
+     * A map of tags to apply to the file system's final backup.
+     */
+    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
@@ -370,7 +380,7 @@ export interface WindowsFileSystemState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
      */
     selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
     /**
@@ -428,7 +438,7 @@ export interface WindowsFileSystemArgs {
      */
     aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      */
     auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
@@ -452,9 +462,13 @@ export interface WindowsFileSystemArgs {
      */
     deploymentType?: pulumi.Input<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
+    /**
+     * A map of tags to apply to the file system's final backup.
+     */
+    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
@@ -468,7 +482,7 @@ export interface WindowsFileSystemArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
      */
     selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
     /**

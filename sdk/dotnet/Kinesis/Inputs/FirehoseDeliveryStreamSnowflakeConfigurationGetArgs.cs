@@ -64,11 +64,11 @@ namespace Pulumi.Aws.Kinesis.Inputs
         [Input("metadataColumnName")]
         public Input<string>? MetadataColumnName { get; set; }
 
-        [Input("privateKey", required: true)]
+        [Input("privateKey")]
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// The private key for authentication.
+        /// The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -117,6 +117,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
+        /// The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+        /// </summary>
+        [Input("secretsManagerConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationGetArgs>? SecretsManagerConfiguration { get; set; }
+
+        /// <summary>
         /// The configuration for Snowflake role.
         /// </summary>
         [Input("snowflakeRoleConfiguration")]
@@ -135,10 +141,10 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> Table { get; set; } = null!;
 
         /// <summary>
-        /// The user for authentication.
+        /// The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        [Input("user", required: true)]
-        public Input<string> User { get; set; } = null!;
+        [Input("user")]
+        public Input<string>? User { get; set; }
 
         public FirehoseDeliveryStreamSnowflakeConfigurationGetArgs()
         {

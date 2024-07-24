@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .name(example.mailFromDomain())
  *             .type("TXT")
  *             .ttl("600")
- *             .records("v=spf1 include:amazonses.com -all")
+ *             .records("v=spf1 include:amazonses.com ~all")
  *             .build());
  * 
  *     }

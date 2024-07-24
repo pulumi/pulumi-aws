@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -111,18 +112,18 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+     * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    @Import(name="hecToken", required=true)
-    private Output<String> hecToken;
+    @Import(name="hecToken")
+    private @Nullable Output<String> hecToken;
 
     /**
-     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public Output<String> hecToken() {
-        return this.hecToken;
+    public Optional<Output<String>> hecToken() {
+        return Optional.ofNullable(this.hecToken);
     }
 
     /**
@@ -157,6 +158,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
 
     /**
      * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
      * 
      */
     @Import(name="s3BackupMode")
@@ -164,6 +166,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
 
     /**
      * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -185,6 +188,13 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         return this.s3Configuration;
     }
 
+    @Import(name="secretsManagerConfiguration")
+    private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration;
+
+    public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs>> secretsManagerConfiguration() {
+        return Optional.ofNullable(this.secretsManagerConfiguration);
+    }
+
     private FirehoseDeliveryStreamSplunkConfigurationArgs() {}
 
     private FirehoseDeliveryStreamSplunkConfigurationArgs(FirehoseDeliveryStreamSplunkConfigurationArgs $) {
@@ -199,6 +209,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         this.retryDuration = $.retryDuration;
         this.s3BackupMode = $.s3BackupMode;
         this.s3Configuration = $.s3Configuration;
+        this.secretsManagerConfiguration = $.secretsManagerConfiguration;
     }
 
     public static Builder builder() {
@@ -346,18 +357,18 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param hecToken The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+         * @param hecToken The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
          */
-        public Builder hecToken(Output<String> hecToken) {
+        public Builder hecToken(@Nullable Output<String> hecToken) {
             $.hecToken = hecToken;
             return this;
         }
 
         /**
-         * @param hecToken The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+         * @param hecToken The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
@@ -410,6 +421,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
 
         /**
          * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+         * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
          * 
          * @return builder
          * 
@@ -421,6 +433,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
 
         /**
          * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+         * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
          * 
          * @return builder
          * 
@@ -450,12 +463,18 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
             return s3Configuration(Output.of(s3Configuration));
         }
 
+        public Builder secretsManagerConfiguration(@Nullable Output<FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration) {
+            $.secretsManagerConfiguration = secretsManagerConfiguration;
+            return this;
+        }
+
+        public Builder secretsManagerConfiguration(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs secretsManagerConfiguration) {
+            return secretsManagerConfiguration(Output.of(secretsManagerConfiguration));
+        }
+
         public FirehoseDeliveryStreamSplunkConfigurationArgs build() {
             if ($.hecEndpoint == null) {
                 throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationArgs", "hecEndpoint");
-            }
-            if ($.hecToken == null) {
-                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationArgs", "hecToken");
             }
             if ($.s3Configuration == null) {
                 throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationArgs", "s3Configuration");

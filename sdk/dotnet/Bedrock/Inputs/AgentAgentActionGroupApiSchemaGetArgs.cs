@@ -14,12 +14,14 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         /// <summary>
         /// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+        /// Only one of `payload` or `s3` can be specified.
         /// </summary>
         [Input("payload")]
         public Input<string>? Payload { get; set; }
 
         /// <summary>
-        /// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+        /// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+        /// Only one of `s3` or `payload` can be specified.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.AgentAgentActionGroupApiSchemaS3GetArgs>? S3 { get; set; }

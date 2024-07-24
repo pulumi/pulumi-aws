@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -207,6 +212,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:rds/certificate:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
             case "aws:rds/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:rds/clusterActivityStream:ClusterActivityStream":
@@ -260,6 +267,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "rds/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterActivityStream", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterEndpoint", _module)

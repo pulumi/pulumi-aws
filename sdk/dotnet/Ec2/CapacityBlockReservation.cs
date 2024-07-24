@@ -15,6 +15,38 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** Once created, a reservation is valid for the `duration` of the provided `capacity_block_offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [EC2 Capacity Block Reservation Documentation](https://aws.amazon.com/ec2/instance-types/p5/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-blocks-pricing-billing.html).
     /// 
     /// &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = Aws.Ec2.GetCapacityBlockOffering.Invoke(new()
+    ///     {
+    ///         CapacityDurationHours = 24,
+    ///         EndDateRange = "2024-05-30T15:04:05Z",
+    ///         InstanceCount = 1,
+    ///         InstanceType = "p4d.24xlarge",
+    ///         StartDateRange = "2024-04-28T15:04:05Z",
+    ///     });
+    /// 
+    ///     var example = new Aws.Ec2.CapacityBlockReservation("example", new()
+    ///     {
+    ///         CapacityBlockOfferingId = test.Apply(getCapacityBlockOfferingResult =&gt; getCapacityBlockOfferingResult.CapacityBlockOfferingId),
+    ///         InstancePlatform = "Linux/UNIX",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "dev" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/capacityBlockReservation:CapacityBlockReservation")]
     public partial class CapacityBlockReservation : global::Pulumi.CustomResource

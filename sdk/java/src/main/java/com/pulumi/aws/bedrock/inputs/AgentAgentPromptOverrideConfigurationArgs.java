@@ -32,14 +32,14 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+     * Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
      * 
      */
     @Import(name="promptConfigurations", required=true)
     private Output<List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs>> promptConfigurations;
 
     /**
-     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
      * 
      */
     public Output<List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs>> promptConfigurations() {
@@ -93,7 +93,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
          * 
          * @return builder
          * 

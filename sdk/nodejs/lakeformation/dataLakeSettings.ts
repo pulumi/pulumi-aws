@@ -81,6 +81,7 @@ import * as utilities from "../utilities";
  *         thirdParty.accountId,
  *     ],
  *     authorizedSessionTagValueLists: ["Amazon EMR"],
+ *     allowFullTableExternalDataAccess: true,
  * });
  * ```
  */
@@ -121,9 +122,13 @@ export class DataLakeSettings extends pulumi.CustomResource {
      */
     public readonly allowExternalDataFiltering!: pulumi.Output<boolean | undefined>;
     /**
-     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      *
      * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
+     */
+    public readonly allowFullTableExternalDataAccess!: pulumi.Output<boolean | undefined>;
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
      */
     public readonly authorizedSessionTagValueLists!: pulumi.Output<string[]>;
     /**
@@ -166,6 +171,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
             const state = argsOrState as DataLakeSettingsState | undefined;
             resourceInputs["admins"] = state ? state.admins : undefined;
             resourceInputs["allowExternalDataFiltering"] = state ? state.allowExternalDataFiltering : undefined;
+            resourceInputs["allowFullTableExternalDataAccess"] = state ? state.allowFullTableExternalDataAccess : undefined;
             resourceInputs["authorizedSessionTagValueLists"] = state ? state.authorizedSessionTagValueLists : undefined;
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["createDatabaseDefaultPermissions"] = state ? state.createDatabaseDefaultPermissions : undefined;
@@ -177,6 +183,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
             const args = argsOrState as DataLakeSettingsArgs | undefined;
             resourceInputs["admins"] = args ? args.admins : undefined;
             resourceInputs["allowExternalDataFiltering"] = args ? args.allowExternalDataFiltering : undefined;
+            resourceInputs["allowFullTableExternalDataAccess"] = args ? args.allowFullTableExternalDataAccess : undefined;
             resourceInputs["authorizedSessionTagValueLists"] = args ? args.authorizedSessionTagValueLists : undefined;
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["createDatabaseDefaultPermissions"] = args ? args.createDatabaseDefaultPermissions : undefined;
@@ -203,9 +210,13 @@ export interface DataLakeSettingsState {
      */
     allowExternalDataFiltering?: pulumi.Input<boolean>;
     /**
-     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      *
      * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
+     */
+    allowFullTableExternalDataAccess?: pulumi.Input<boolean>;
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
      */
     authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -247,9 +258,13 @@ export interface DataLakeSettingsArgs {
      */
     allowExternalDataFiltering?: pulumi.Input<boolean>;
     /**
-     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      *
      * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
+     */
+    allowFullTableExternalDataAccess?: pulumi.Input<boolean>;
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
      */
     authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**

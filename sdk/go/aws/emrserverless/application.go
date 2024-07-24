@@ -138,6 +138,8 @@ type Application struct {
 	ImageConfiguration ApplicationImageConfigurationOutput `pulumi:"imageConfiguration"`
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayOutput `pulumi:"initialCapacities"`
+	// Enables the interactive use cases to use when running an application.
+	InteractiveConfiguration ApplicationInteractiveConfigurationOutput `pulumi:"interactiveConfiguration"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity ApplicationMaximumCapacityOutput `pulumi:"maximumCapacity"`
 	// The name of the application.
@@ -204,6 +206,8 @@ type applicationState struct {
 	ImageConfiguration *ApplicationImageConfiguration `pulumi:"imageConfiguration"`
 	// The capacity to initialize when the application is created.
 	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
+	// Enables the interactive use cases to use when running an application.
+	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
 	// The name of the application.
@@ -235,6 +239,8 @@ type ApplicationState struct {
 	ImageConfiguration ApplicationImageConfigurationPtrInput
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayInput
+	// Enables the interactive use cases to use when running an application.
+	InteractiveConfiguration ApplicationInteractiveConfigurationPtrInput
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity ApplicationMaximumCapacityPtrInput
 	// The name of the application.
@@ -268,6 +274,8 @@ type applicationArgs struct {
 	ImageConfiguration *ApplicationImageConfiguration `pulumi:"imageConfiguration"`
 	// The capacity to initialize when the application is created.
 	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
+	// Enables the interactive use cases to use when running an application.
+	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
 	// The name of the application.
@@ -294,6 +302,8 @@ type ApplicationArgs struct {
 	ImageConfiguration ApplicationImageConfigurationPtrInput
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayInput
+	// Enables the interactive use cases to use when running an application.
+	InteractiveConfiguration ApplicationInteractiveConfigurationPtrInput
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity ApplicationMaximumCapacityPtrInput
 	// The name of the application.
@@ -423,6 +433,11 @@ func (o ApplicationOutput) ImageConfiguration() ApplicationImageConfigurationOut
 // The capacity to initialize when the application is created.
 func (o ApplicationOutput) InitialCapacities() ApplicationInitialCapacityArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationInitialCapacityArrayOutput { return v.InitialCapacities }).(ApplicationInitialCapacityArrayOutput)
+}
+
+// Enables the interactive use cases to use when running an application.
+func (o ApplicationOutput) InteractiveConfiguration() ApplicationInteractiveConfigurationOutput {
+	return o.ApplyT(func(v *Application) ApplicationInteractiveConfigurationOutput { return v.InteractiveConfiguration }).(ApplicationInteractiveConfigurationOutput)
 }
 
 // The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
