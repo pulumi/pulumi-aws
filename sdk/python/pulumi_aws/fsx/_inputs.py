@@ -710,12 +710,12 @@ if not MYPY:
         iops: NotRequired[pulumi.Input[int]]
         """
         Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
-
-        !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
         """
         mode: NotRequired[pulumi.Input[str]]
         """
         Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+
+        !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
         """
 elif False:
     LustreFileSystemMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -727,9 +727,9 @@ class LustreFileSystemMetadataConfigurationArgs:
                  mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] iops: Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+        :param pulumi.Input[str] mode: Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
                
                !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
-        :param pulumi.Input[str] mode: Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
         """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
@@ -741,8 +741,6 @@ class LustreFileSystemMetadataConfigurationArgs:
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
         Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
-
-        !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
         """
         return pulumi.get(self, "iops")
 
@@ -755,6 +753,8 @@ class LustreFileSystemMetadataConfigurationArgs:
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
         Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+
+        !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
         """
         return pulumi.get(self, "mode")
 
@@ -1580,7 +1580,7 @@ if not MYPY:
         """
         autocommit_period: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgsDict']]
         """
-        The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+        The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
         """
         privileged_delete: NotRequired[pulumi.Input[str]]
         """
@@ -1588,7 +1588,7 @@ if not MYPY:
         """
         retention_period: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgsDict']]
         """
-        The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+        The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
         """
         volume_append_mode_enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -1609,9 +1609,9 @@ class OntapVolumeSnaplockConfigurationArgs:
         """
         :param pulumi.Input[str] snaplock_type: Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
         :param pulumi.Input[bool] audit_log_volume: Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs'] autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs'] autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
         :param pulumi.Input[str] privileged_delete: Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs'] retention_period: The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs'] retention_period: The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
         :param pulumi.Input[bool] volume_append_mode_enabled: Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
         """
         pulumi.set(__self__, "snaplock_type", snaplock_type)
@@ -1654,7 +1654,7 @@ class OntapVolumeSnaplockConfigurationArgs:
     @pulumi.getter(name="autocommitPeriod")
     def autocommit_period(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs']]:
         """
-        The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+        The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
         """
         return pulumi.get(self, "autocommit_period")
 
@@ -1678,7 +1678,7 @@ class OntapVolumeSnaplockConfigurationArgs:
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs']]:
         """
-        The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+        The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
         """
         return pulumi.get(self, "retention_period")
 
@@ -1755,15 +1755,15 @@ if not MYPY:
     class OntapVolumeSnaplockConfigurationRetentionPeriodArgsDict(TypedDict):
         default_retention: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgsDict']]
         """
-        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
         """
         maximum_retention: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgsDict']]
         """
-        The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
         """
         minimum_retention: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgsDict']]
         """
-        The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
         """
 elif False:
     OntapVolumeSnaplockConfigurationRetentionPeriodArgsDict: TypeAlias = Mapping[str, Any]
@@ -1775,9 +1775,9 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
                  maximum_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs']] = None,
                  minimum_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs']] = None):
         """
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs'] default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs'] maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs'] minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs'] default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs'] maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs'] minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
         """
         if default_retention is not None:
             pulumi.set(__self__, "default_retention", default_retention)
@@ -1790,7 +1790,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
     @pulumi.getter(name="defaultRetention")
     def default_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs']]:
         """
-        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
         """
         return pulumi.get(self, "default_retention")
 
@@ -1802,7 +1802,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
     @pulumi.getter(name="maximumRetention")
     def maximum_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs']]:
         """
-        The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
         """
         return pulumi.get(self, "maximum_retention")
 
@@ -1814,7 +1814,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
     @pulumi.getter(name="minimumRetention")
     def minimum_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs']]:
         """
-        The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
         """
         return pulumi.get(self, "minimum_retention")
 
@@ -1826,7 +1826,13 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
 if not MYPY:
     class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[str]]
+        """
+        The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        """
         value: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
 elif False:
     OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1835,6 +1841,10 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        :param pulumi.Input[int] value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
@@ -1843,6 +1853,9 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1852,6 +1865,9 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1862,7 +1878,13 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs:
 if not MYPY:
     class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[str]]
+        """
+        The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        """
         value: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
 elif False:
     OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1871,6 +1893,10 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        :param pulumi.Input[int] value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
@@ -1879,6 +1905,9 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1888,6 +1917,9 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1898,7 +1930,13 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs:
 if not MYPY:
     class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[str]]
+        """
+        The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        """
         value: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
 elif False:
     OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1907,6 +1945,10 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        :param pulumi.Input[int] value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
@@ -1915,6 +1957,9 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1924,6 +1969,9 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2047,7 +2095,7 @@ if not MYPY:
         """
         nfs_exports: NotRequired[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgsDict']]
         """
-        NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
         """
         read_only: NotRequired[pulumi.Input[bool]]
         """
@@ -2059,7 +2107,7 @@ if not MYPY:
         """
         user_and_group_quotas: NotRequired[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgsDict']]]]
         """
-        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
         """
 elif False:
     OpenZfsFileSystemRootVolumeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2076,10 +2124,10 @@ class OpenZfsFileSystemRootVolumeConfigurationArgs:
         """
         :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-        :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
         :param pulumi.Input[bool] read_only: specifies whether the volume is read-only. Default is false.
         :param pulumi.Input[int] record_size_kib: Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
         """
         if copy_tags_to_snapshots is not None:
             pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
@@ -2122,7 +2170,7 @@ class OpenZfsFileSystemRootVolumeConfigurationArgs:
     @pulumi.getter(name="nfsExports")
     def nfs_exports(self) -> Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs']]:
         """
-        NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
         """
         return pulumi.get(self, "nfs_exports")
 
@@ -2158,7 +2206,7 @@ class OpenZfsFileSystemRootVolumeConfigurationArgs:
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]]]:
         """
-        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
         """
         return pulumi.get(self, "user_and_group_quotas")
 
@@ -2171,7 +2219,7 @@ if not MYPY:
     class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgsDict(TypedDict):
         client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgsDict']]]
         """
-        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
         """
 elif False:
     OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgsDict: TypeAlias = Mapping[str, Any]
@@ -2181,7 +2229,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs:
     def __init__(__self__, *,
                  client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
@@ -2189,7 +2237,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs:
     @pulumi.getter(name="clientConfigurations")
     def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]]:
         """
-        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
         """
         return pulumi.get(self, "client_configurations")
 

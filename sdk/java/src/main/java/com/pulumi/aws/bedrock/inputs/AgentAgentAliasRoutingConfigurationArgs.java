@@ -29,10 +29,26 @@ public final class AgentAgentAliasRoutingConfigurationArgs extends com.pulumi.re
         return this.agentVersion;
     }
 
+    /**
+     * ARN of the Provisioned Throughput assigned to the agent alias.
+     * 
+     */
+    @Import(name="provisionedThroughput", required=true)
+    private Output<String> provisionedThroughput;
+
+    /**
+     * @return ARN of the Provisioned Throughput assigned to the agent alias.
+     * 
+     */
+    public Output<String> provisionedThroughput() {
+        return this.provisionedThroughput;
+    }
+
     private AgentAgentAliasRoutingConfigurationArgs() {}
 
     private AgentAgentAliasRoutingConfigurationArgs(AgentAgentAliasRoutingConfigurationArgs $) {
         this.agentVersion = $.agentVersion;
+        this.provisionedThroughput = $.provisionedThroughput;
     }
 
     public static Builder builder() {
@@ -74,9 +90,33 @@ public final class AgentAgentAliasRoutingConfigurationArgs extends com.pulumi.re
             return agentVersion(Output.of(agentVersion));
         }
 
+        /**
+         * @param provisionedThroughput ARN of the Provisioned Throughput assigned to the agent alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionedThroughput(Output<String> provisionedThroughput) {
+            $.provisionedThroughput = provisionedThroughput;
+            return this;
+        }
+
+        /**
+         * @param provisionedThroughput ARN of the Provisioned Throughput assigned to the agent alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionedThroughput(String provisionedThroughput) {
+            return provisionedThroughput(Output.of(provisionedThroughput));
+        }
+
         public AgentAgentAliasRoutingConfigurationArgs build() {
             if ($.agentVersion == null) {
                 throw new MissingRequiredPropertyException("AgentAgentAliasRoutingConfigurationArgs", "agentVersion");
+            }
+            if ($.provisionedThroughput == null) {
+                throw new MissingRequiredPropertyException("AgentAgentAliasRoutingConfigurationArgs", "provisionedThroughput");
             }
             return $;
         }

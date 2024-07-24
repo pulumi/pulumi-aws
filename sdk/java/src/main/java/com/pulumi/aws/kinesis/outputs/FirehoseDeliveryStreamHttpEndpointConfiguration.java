@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigur
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -72,6 +73,11 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      * 
      */
     private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration;
+    /**
+     * @return The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+     * 
+     */
+    private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
     /**
      * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
      * 
@@ -157,6 +163,13 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return this.s3Configuration;
     }
     /**
+     * @return The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+     * 
+     */
+    public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {
+        return Optional.ofNullable(this.secretsManagerConfiguration);
+    }
+    /**
      * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
      * 
      */
@@ -184,6 +197,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         private @Nullable String roleArn;
         private @Nullable String s3BackupMode;
         private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration;
+        private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
         private String url;
         public Builder() {}
         public Builder(FirehoseDeliveryStreamHttpEndpointConfiguration defaults) {
@@ -199,6 +213,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
     	      this.roleArn = defaults.roleArn;
     	      this.s3BackupMode = defaults.s3BackupMode;
     	      this.s3Configuration = defaults.s3Configuration;
+    	      this.secretsManagerConfiguration = defaults.secretsManagerConfiguration;
     	      this.url = defaults.url;
         }
 
@@ -271,6 +286,12 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder secretsManagerConfiguration(@Nullable FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration secretsManagerConfiguration) {
+
+            this.secretsManagerConfiguration = secretsManagerConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder url(String url) {
             if (url == null) {
               throw new MissingRequiredPropertyException("FirehoseDeliveryStreamHttpEndpointConfiguration", "url");
@@ -291,6 +312,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
             _resultValue.roleArn = roleArn;
             _resultValue.s3BackupMode = s3BackupMode;
             _resultValue.s3Configuration = s3Configuration;
+            _resultValue.secretsManagerConfiguration = secretsManagerConfiguration;
             _resultValue.url = url;
             return _resultValue;
         }

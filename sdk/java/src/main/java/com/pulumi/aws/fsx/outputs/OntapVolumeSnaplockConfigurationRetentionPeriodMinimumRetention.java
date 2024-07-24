@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
+    /**
+     * @return The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+     * 
+     */
     private @Nullable String type;
+    /**
+     * @return The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+     * 
+     */
     private @Nullable Integer value;
 
     private OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention() {}
+    /**
+     * @return The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
+    /**
+     * @return The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+     * 
+     */
     public Optional<Integer> value() {
         return Optional.ofNullable(this.value);
     }

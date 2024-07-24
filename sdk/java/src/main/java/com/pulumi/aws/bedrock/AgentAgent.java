@@ -287,18 +287,32 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.prepareAgent;
     }
     /**
-     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
      * 
      */
     @Export(name="promptOverrideConfigurations", refs={List.class,AgentAgentPromptOverrideConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations;
 
     /**
-     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
      * 
      */
     public Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations() {
         return this.promptOverrideConfigurations;
+    }
+    /**
+     * Whether the in-use check is skipped when deleting the agent.
+     * 
+     */
+    @Export(name="skipResourceInUseCheck", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> skipResourceInUseCheck;
+
+    /**
+     * @return Whether the in-use check is skipped when deleting the agent.
+     * 
+     */
+    public Output<Boolean> skipResourceInUseCheck() {
+        return this.skipResourceInUseCheck;
     }
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

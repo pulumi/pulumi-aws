@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Msk.Inputs
         [Input("detectAndCopyNewTopics")]
         public Input<bool>? DetectAndCopyNewTopics { get; set; }
 
+        /// <summary>
+        /// Configuration for specifying the position in the topics to start replicating from.
+        /// </summary>
+        [Input("startingPosition")]
+        public Input<Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionGetArgs>? StartingPosition { get; set; }
+
         [Input("topicsToExcludes")]
         private InputList<string>? _topicsToExcludes;
 

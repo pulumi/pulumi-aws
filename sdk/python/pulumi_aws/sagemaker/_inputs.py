@@ -9794,23 +9794,23 @@ if not MYPY:
         """
         code_editor_app_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgsDict']]
         """
-        The Code Editor application settings. See Code Editor App Settings below.
+        The Code Editor application settings. See `code_editor_app_settings` Block below.
         """
         custom_file_systems: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgsDict']]]]
         """
-        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
         """
         jupyter_lab_app_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgsDict']]
         """
-        The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         """
         jupyter_server_app_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgsDict']]
         """
-        The Jupyter server's app settings. See Jupyter Server App Settings below.
+        The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         """
         kernel_gateway_app_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgsDict']]
         """
-        The kernel gateway app settings. See Kernel Gateway App Settings below.
+        The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         """
         space_storage_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgsDict']]
 elif False:
@@ -9828,11 +9828,11 @@ class SpaceSpaceSettingsArgs:
                  space_storage_settings: Optional[pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgs']] = None):
         """
         :param pulumi.Input[str] app_type: The type of app created within the space.
-        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
-        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See Jupyter Lab App Settings below.
-        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
-        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
+        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See `code_editor_app_settings` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         """
         if app_type is not None:
             pulumi.set(__self__, "app_type", app_type)
@@ -9865,7 +9865,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="codeEditorAppSettings")
     def code_editor_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs']]:
         """
-        The Code Editor application settings. See Code Editor App Settings below.
+        The Code Editor application settings. See `code_editor_app_settings` Block below.
         """
         return pulumi.get(self, "code_editor_app_settings")
 
@@ -9877,7 +9877,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="customFileSystems")
     def custom_file_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]]]:
         """
-        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
         """
         return pulumi.get(self, "custom_file_systems")
 
@@ -9889,7 +9889,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="jupyterLabAppSettings")
     def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs']]:
         """
-        The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         """
         return pulumi.get(self, "jupyter_lab_app_settings")
 
@@ -9901,7 +9901,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="jupyterServerAppSettings")
     def jupyter_server_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs']]:
         """
-        The Jupyter server's app settings. See Jupyter Server App Settings below.
+        The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         """
         return pulumi.get(self, "jupyter_server_app_settings")
 
@@ -9913,7 +9913,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="kernelGatewayAppSettings")
     def kernel_gateway_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs']]:
         """
-        The kernel gateway app settings. See Kernel Gateway App Settings below.
+        The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
 
@@ -9935,7 +9935,7 @@ if not MYPY:
     class SpaceSpaceSettingsCodeEditorAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
 elif False:
     SpaceSpaceSettingsCodeEditorAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -9945,7 +9945,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsArgs:
     def __init__(__self__, *,
                  default_resource_spec: pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']):
         """
-        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
 
@@ -9953,7 +9953,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -10078,7 +10078,7 @@ if not MYPY:
     class SpaceSpaceSettingsCustomFileSystemArgsDict(TypedDict):
         efs_file_system: pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgsDict']
         """
-        A custom file system in Amazon EFS. see EFS File System below.
+        A custom file system in Amazon EFS. See `efs_file_system` Block below.
         """
 elif False:
     SpaceSpaceSettingsCustomFileSystemArgsDict: TypeAlias = Mapping[str, Any]
@@ -10088,7 +10088,7 @@ class SpaceSpaceSettingsCustomFileSystemArgs:
     def __init__(__self__, *,
                  efs_file_system: pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs']):
         """
-        :param pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs'] efs_file_system: A custom file system in Amazon EFS. see EFS File System below.
+        :param pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs'] efs_file_system: A custom file system in Amazon EFS. See `efs_file_system` Block below.
         """
         pulumi.set(__self__, "efs_file_system", efs_file_system)
 
@@ -10096,7 +10096,7 @@ class SpaceSpaceSettingsCustomFileSystemArgs:
     @pulumi.getter(name="efsFileSystem")
     def efs_file_system(self) -> pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs']:
         """
-        A custom file system in Amazon EFS. see EFS File System below.
+        A custom file system in Amazon EFS. See `efs_file_system` Block below.
         """
         return pulumi.get(self, "efs_file_system")
 
@@ -10140,11 +10140,11 @@ if not MYPY:
     class SpaceSpaceSettingsJupyterLabAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
 elif False:
     SpaceSpaceSettingsJupyterLabAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -10155,8 +10155,8 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
                  default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'],
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if code_repositories is not None:
@@ -10166,7 +10166,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -10178,7 +10178,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -10334,11 +10334,11 @@ if not MYPY:
     class SpaceSpaceSettingsJupyterServerAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -10354,8 +10354,8 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -10368,7 +10368,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -10380,7 +10380,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -10548,11 +10548,11 @@ if not MYPY:
     class SpaceSpaceSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -10568,8 +10568,8 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -10582,7 +10582,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -10594,7 +10594,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 

@@ -24,13 +24,15 @@ class WebhookArgs:
                  project_name: pulumi.Input[str],
                  branch_filter: Optional[pulumi.Input[str]] = None,
                  build_type: Optional[pulumi.Input[str]] = None,
-                 filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None):
+                 filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
+                 scope_configuration: Optional[pulumi.Input['WebhookScopeConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Webhook resource.
         :param pulumi.Input[str] project_name: The name of the build project.
         :param pulumi.Input[str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         :param pulumi.Input[str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
+        :param pulumi.Input['WebhookScopeConfigurationArgs'] scope_configuration: Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         """
         pulumi.set(__self__, "project_name", project_name)
         if branch_filter is not None:
@@ -39,6 +41,8 @@ class WebhookArgs:
             pulumi.set(__self__, "build_type", build_type)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
+        if scope_configuration is not None:
+            pulumi.set(__self__, "scope_configuration", scope_configuration)
 
     @property
     @pulumi.getter(name="projectName")
@@ -88,6 +92,18 @@ class WebhookArgs:
     def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]):
         pulumi.set(self, "filter_groups", value)
 
+    @property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> Optional[pulumi.Input['WebhookScopeConfigurationArgs']]:
+        """
+        Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        """
+        return pulumi.get(self, "scope_configuration")
+
+    @scope_configuration.setter
+    def scope_configuration(self, value: Optional[pulumi.Input['WebhookScopeConfigurationArgs']]):
+        pulumi.set(self, "scope_configuration", value)
+
 
 @pulumi.input_type
 class _WebhookState:
@@ -97,6 +113,7 @@ class _WebhookState:
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
                  payload_url: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 scope_configuration: Optional[pulumi.Input['WebhookScopeConfigurationArgs']] = None,
                  secret: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
@@ -106,6 +123,7 @@ class _WebhookState:
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         :param pulumi.Input[str] payload_url: The CodeBuild endpoint where webhook events are sent.
         :param pulumi.Input[str] project_name: The name of the build project.
+        :param pulumi.Input['WebhookScopeConfigurationArgs'] scope_configuration: Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         :param pulumi.Input[str] secret: The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         :param pulumi.Input[str] url: The URL to the webhook.
         """
@@ -119,6 +137,8 @@ class _WebhookState:
             pulumi.set(__self__, "payload_url", payload_url)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
+        if scope_configuration is not None:
+            pulumi.set(__self__, "scope_configuration", scope_configuration)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
         if url is not None:
@@ -185,6 +205,18 @@ class _WebhookState:
         pulumi.set(self, "project_name", value)
 
     @property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> Optional[pulumi.Input['WebhookScopeConfigurationArgs']]:
+        """
+        Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        """
+        return pulumi.get(self, "scope_configuration")
+
+    @scope_configuration.setter
+    def scope_configuration(self, value: Optional[pulumi.Input['WebhookScopeConfigurationArgs']]):
+        pulumi.set(self, "scope_configuration", value)
+
+    @property
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[str]]:
         """
@@ -218,6 +250,7 @@ class Webhook(pulumi.CustomResource):
                  build_type: Optional[pulumi.Input[str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 scope_configuration: Optional[pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
@@ -267,6 +300,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         :param pulumi.Input[str] project_name: The name of the build project.
+        :param pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']] scope_configuration: Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         """
         ...
     @overload
@@ -335,6 +369,7 @@ class Webhook(pulumi.CustomResource):
                  build_type: Optional[pulumi.Input[str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 scope_configuration: Optional[pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -350,6 +385,7 @@ class Webhook(pulumi.CustomResource):
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
+            __props__.__dict__["scope_configuration"] = scope_configuration
             __props__.__dict__["payload_url"] = None
             __props__.__dict__["secret"] = None
             __props__.__dict__["url"] = None
@@ -370,6 +406,7 @@ class Webhook(pulumi.CustomResource):
             filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
             payload_url: Optional[pulumi.Input[str]] = None,
             project_name: Optional[pulumi.Input[str]] = None,
+            scope_configuration: Optional[pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
             secret: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'Webhook':
         """
@@ -384,6 +421,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         :param pulumi.Input[str] payload_url: The CodeBuild endpoint where webhook events are sent.
         :param pulumi.Input[str] project_name: The name of the build project.
+        :param pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']] scope_configuration: Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         :param pulumi.Input[str] secret: The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         :param pulumi.Input[str] url: The URL to the webhook.
         """
@@ -396,6 +434,7 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["filter_groups"] = filter_groups
         __props__.__dict__["payload_url"] = payload_url
         __props__.__dict__["project_name"] = project_name
+        __props__.__dict__["scope_configuration"] = scope_configuration
         __props__.__dict__["secret"] = secret
         __props__.__dict__["url"] = url
         return Webhook(resource_name, opts=opts, __props__=__props__)
@@ -439,6 +478,14 @@ class Webhook(pulumi.CustomResource):
         The name of the build project.
         """
         return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> pulumi.Output[Optional['outputs.WebhookScopeConfiguration']]:
+        """
+        Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        """
+        return pulumi.get(self, "scope_configuration")
 
     @property
     @pulumi.getter

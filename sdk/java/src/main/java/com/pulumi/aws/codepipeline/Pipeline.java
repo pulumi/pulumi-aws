@@ -353,14 +353,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="triggers", refs={List.class,PipelineTrigger.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<PipelineTrigger>> triggers;
+    private Output<List<PipelineTrigger>> triggers;
 
     /**
      * @return A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
      * 
      */
-    public Output<Optional<List<PipelineTrigger>>> triggers() {
-        return Codegen.optional(this.triggers);
+    public Output<List<PipelineTrigger>> triggers() {
+        return this.triggers;
     }
     /**
      * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<bool>? AuditLogVolume { get; set; }
 
         /// <summary>
-        /// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+        /// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
         /// </summary>
         [Input("autocommitPeriod")]
         public Input<Inputs.OntapVolumeSnaplockConfigurationAutocommitPeriodArgs>? AutocommitPeriod { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<string>? PrivilegedDelete { get; set; }
 
         /// <summary>
-        /// The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+        /// The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodArgs>? RetentionPeriod { get; set; }

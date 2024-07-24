@@ -14,14 +14,22 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ClusterConfiguration
     {
         /// <summary>
-        /// The details of the execute command configuration. Detailed below.
+        /// Details of the execute command configuration. See `execute_command_configuration` Block for details.
         /// </summary>
         public readonly Outputs.ClusterConfigurationExecuteCommandConfiguration? ExecuteCommandConfiguration;
+        /// <summary>
+        /// Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+        /// </summary>
+        public readonly Outputs.ClusterConfigurationManagedStorageConfiguration? ManagedStorageConfiguration;
 
         [OutputConstructor]
-        private ClusterConfiguration(Outputs.ClusterConfigurationExecuteCommandConfiguration? executeCommandConfiguration)
+        private ClusterConfiguration(
+            Outputs.ClusterConfigurationExecuteCommandConfiguration? executeCommandConfiguration,
+
+            Outputs.ClusterConfigurationManagedStorageConfiguration? managedStorageConfiguration)
         {
             ExecuteCommandConfiguration = executeCommandConfiguration;
+            ManagedStorageConfiguration = managedStorageConfiguration;
         }
     }
 }

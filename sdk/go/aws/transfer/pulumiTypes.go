@@ -1273,9 +1273,9 @@ func (o ServerS3StorageOptionsPtrOutput) DirectoryListingOptimization() pulumi.S
 }
 
 type ServerWorkflowDetails struct {
-	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
 	OnPartialUpload *ServerWorkflowDetailsOnPartialUpload `pulumi:"onPartialUpload"`
-	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
 	OnUpload *ServerWorkflowDetailsOnUpload `pulumi:"onUpload"`
 }
 
@@ -1291,9 +1291,9 @@ type ServerWorkflowDetailsInput interface {
 }
 
 type ServerWorkflowDetailsArgs struct {
-	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
 	OnPartialUpload ServerWorkflowDetailsOnPartialUploadPtrInput `pulumi:"onPartialUpload"`
-	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
 	OnUpload ServerWorkflowDetailsOnUploadPtrInput `pulumi:"onUpload"`
 }
 
@@ -1374,12 +1374,12 @@ func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutputWithContext
 	}).(ServerWorkflowDetailsPtrOutput)
 }
 
-// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
 func (o ServerWorkflowDetailsOutput) OnPartialUpload() ServerWorkflowDetailsOnPartialUploadPtrOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnPartialUpload { return v.OnPartialUpload }).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
 }
 
-// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
 func (o ServerWorkflowDetailsOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload { return v.OnUpload }).(ServerWorkflowDetailsOnUploadPtrOutput)
 }
@@ -1408,7 +1408,7 @@ func (o ServerWorkflowDetailsPtrOutput) Elem() ServerWorkflowDetailsOutput {
 	}).(ServerWorkflowDetailsOutput)
 }
 
-// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
 func (o ServerWorkflowDetailsPtrOutput) OnPartialUpload() ServerWorkflowDetailsOnPartialUploadPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetails) *ServerWorkflowDetailsOnPartialUpload {
 		if v == nil {
@@ -1418,7 +1418,7 @@ func (o ServerWorkflowDetailsPtrOutput) OnPartialUpload() ServerWorkflowDetailsO
 	}).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
 }
 
-// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
 func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload {
 		if v == nil {

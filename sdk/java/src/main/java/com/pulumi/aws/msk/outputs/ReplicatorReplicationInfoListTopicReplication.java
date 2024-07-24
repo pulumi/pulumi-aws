@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.msk.outputs;
 
+import com.pulumi.aws.msk.outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -29,6 +30,11 @@ public final class ReplicatorReplicationInfoListTopicReplication {
      * 
      */
     private @Nullable Boolean detectAndCopyNewTopics;
+    /**
+     * @return Configuration for specifying the position in the topics to start replicating from.
+     * 
+     */
+    private @Nullable ReplicatorReplicationInfoListTopicReplicationStartingPosition startingPosition;
     /**
      * @return List of regular expression patterns indicating the topics that should not be replica.
      * 
@@ -63,6 +69,13 @@ public final class ReplicatorReplicationInfoListTopicReplication {
         return Optional.ofNullable(this.detectAndCopyNewTopics);
     }
     /**
+     * @return Configuration for specifying the position in the topics to start replicating from.
+     * 
+     */
+    public Optional<ReplicatorReplicationInfoListTopicReplicationStartingPosition> startingPosition() {
+        return Optional.ofNullable(this.startingPosition);
+    }
+    /**
      * @return List of regular expression patterns indicating the topics that should not be replica.
      * 
      */
@@ -89,6 +102,7 @@ public final class ReplicatorReplicationInfoListTopicReplication {
         private @Nullable Boolean copyAccessControlListsForTopics;
         private @Nullable Boolean copyTopicConfigurations;
         private @Nullable Boolean detectAndCopyNewTopics;
+        private @Nullable ReplicatorReplicationInfoListTopicReplicationStartingPosition startingPosition;
         private @Nullable List<String> topicsToExcludes;
         private List<String> topicsToReplicates;
         public Builder() {}
@@ -97,6 +111,7 @@ public final class ReplicatorReplicationInfoListTopicReplication {
     	      this.copyAccessControlListsForTopics = defaults.copyAccessControlListsForTopics;
     	      this.copyTopicConfigurations = defaults.copyTopicConfigurations;
     	      this.detectAndCopyNewTopics = defaults.detectAndCopyNewTopics;
+    	      this.startingPosition = defaults.startingPosition;
     	      this.topicsToExcludes = defaults.topicsToExcludes;
     	      this.topicsToReplicates = defaults.topicsToReplicates;
         }
@@ -117,6 +132,12 @@ public final class ReplicatorReplicationInfoListTopicReplication {
         public Builder detectAndCopyNewTopics(@Nullable Boolean detectAndCopyNewTopics) {
 
             this.detectAndCopyNewTopics = detectAndCopyNewTopics;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder startingPosition(@Nullable ReplicatorReplicationInfoListTopicReplicationStartingPosition startingPosition) {
+
+            this.startingPosition = startingPosition;
             return this;
         }
         @CustomType.Setter
@@ -144,6 +165,7 @@ public final class ReplicatorReplicationInfoListTopicReplication {
             _resultValue.copyAccessControlListsForTopics = copyAccessControlListsForTopics;
             _resultValue.copyTopicConfigurations = copyTopicConfigurations;
             _resultValue.detectAndCopyNewTopics = detectAndCopyNewTopics;
+            _resultValue.startingPosition = startingPosition;
             _resultValue.topicsToExcludes = topicsToExcludes;
             _resultValue.topicsToReplicates = topicsToReplicates;
             return _resultValue;

@@ -102,6 +102,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// </summary>
+        [Output("executionRole")]
+        public Output<string?> ExecutionRole { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Output("imageRecipeArn")]
@@ -162,6 +168,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block with the workflow configuration. Detailed below.
+        /// </summary>
+        [Output("workflows")]
+        public Output<ImmutableArray<Outputs.ImagePipelineWorkflow>> Workflows { get; private set; } = null!;
 
 
         /// <summary>
@@ -234,6 +246,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// </summary>
+        [Input("executionRole")]
+        public Input<string>? ExecutionRole { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Input("imageRecipeArn")]
@@ -287,6 +305,18 @@ namespace Pulumi.Aws.ImageBuilder
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("workflows")]
+        private InputList<Inputs.ImagePipelineWorkflowArgs>? _workflows;
+
+        /// <summary>
+        /// Configuration block with the workflow configuration. Detailed below.
+        /// </summary>
+        public InputList<Inputs.ImagePipelineWorkflowArgs> Workflows
+        {
+            get => _workflows ?? (_workflows = new InputList<Inputs.ImagePipelineWorkflowArgs>());
+            set => _workflows = value;
         }
 
         public ImagePipelineArgs()
@@ -350,6 +380,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("enhancedImageMetadataEnabled")]
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// </summary>
+        [Input("executionRole")]
+        public Input<string>? ExecutionRole { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
@@ -424,6 +460,18 @@ namespace Pulumi.Aws.ImageBuilder
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("workflows")]
+        private InputList<Inputs.ImagePipelineWorkflowGetArgs>? _workflows;
+
+        /// <summary>
+        /// Configuration block with the workflow configuration. Detailed below.
+        /// </summary>
+        public InputList<Inputs.ImagePipelineWorkflowGetArgs> Workflows
+        {
+            get => _workflows ?? (_workflows = new InputList<Inputs.ImagePipelineWorkflowGetArgs>());
+            set => _workflows = value;
         }
 
         public ImagePipelineState()

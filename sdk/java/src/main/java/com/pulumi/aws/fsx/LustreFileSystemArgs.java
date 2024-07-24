@@ -174,6 +174,25 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * A map of tags to apply to the file system&#39;s final backup.
+     * 
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     * 
+     */
+    @Import(name="finalBackupTags")
+    private @Nullable Output<Map<String,String>> finalBackupTags;
+
+    /**
+     * @return A map of tags to apply to the file system&#39;s final backup.
+     * 
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> finalBackupTags() {
+        return Optional.ofNullable(this.finalBackupTags);
+    }
+
+    /**
      * S3 URI (with optional prefix) that you&#39;re using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
@@ -219,14 +238,14 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
      * 
      */
     @Import(name="logConfiguration")
     private @Nullable Output<LustreFileSystemLogConfigurationArgs> logConfiguration;
 
     /**
-     * @return The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     * @return The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
      * 
      */
     public Optional<Output<LustreFileSystemLogConfigurationArgs>> logConfiguration() {
@@ -234,14 +253,14 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
      * 
      */
     @Import(name="metadataConfiguration")
     private @Nullable Output<LustreFileSystemMetadataConfigurationArgs> metadataConfiguration;
 
     /**
-     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
      * 
      */
     public Optional<Output<LustreFileSystemMetadataConfigurationArgs>> metadataConfiguration() {
@@ -264,14 +283,14 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
      * 
      */
     @Import(name="rootSquashConfiguration")
     private @Nullable Output<LustreFileSystemRootSquashConfigurationArgs> rootSquashConfiguration;
 
     /**
-     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
      * 
      */
     public Optional<Output<LustreFileSystemRootSquashConfigurationArgs>> rootSquashConfiguration() {
@@ -291,6 +310,25 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
+    }
+
+    /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
+     * 
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     * 
+     */
+    @Import(name="skipFinalBackup")
+    private @Nullable Output<Boolean> skipFinalBackup;
+
+    /**
+     * @return When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
+     * 
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     * 
+     */
+    public Optional<Output<Boolean>> skipFinalBackup() {
+        return Optional.ofNullable(this.skipFinalBackup);
     }
 
     /**
@@ -326,12 +364,16 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     /**
      * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="subnetIds", required=true)
     private Output<String> subnetIds;
 
     /**
      * @return A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> subnetIds() {
@@ -381,6 +423,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         this.driveCacheType = $.driveCacheType;
         this.exportPath = $.exportPath;
         this.fileSystemTypeVersion = $.fileSystemTypeVersion;
+        this.finalBackupTags = $.finalBackupTags;
         this.importPath = $.importPath;
         this.importedFileChunkSize = $.importedFileChunkSize;
         this.kmsKeyId = $.kmsKeyId;
@@ -389,6 +432,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         this.perUnitStorageThroughput = $.perUnitStorageThroughput;
         this.rootSquashConfiguration = $.rootSquashConfiguration;
         this.securityGroupIds = $.securityGroupIds;
+        this.skipFinalBackup = $.skipFinalBackup;
         this.storageCapacity = $.storageCapacity;
         this.storageType = $.storageType;
         this.subnetIds = $.subnetIds;
@@ -625,6 +669,31 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * 
+         * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder finalBackupTags(@Nullable Output<Map<String,String>> finalBackupTags) {
+            $.finalBackupTags = finalBackupTags;
+            return this;
+        }
+
+        /**
+         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * 
+         * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder finalBackupTags(Map<String,String> finalBackupTags) {
+            return finalBackupTags(Output.of(finalBackupTags));
+        }
+
+        /**
          * @param importPath S3 URI (with optional prefix) that you&#39;re using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
          * 
          * @return builder
@@ -688,7 +757,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -699,7 +768,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -709,7 +778,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -720,7 +789,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -751,7 +820,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -762,7 +831,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -800,6 +869,31 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
+        }
+
+        /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
+         * 
+         * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(@Nullable Output<Boolean> skipFinalBackup) {
+            $.skipFinalBackup = skipFinalBackup;
+            return this;
+        }
+
+        /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
+         * 
+         * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(Boolean skipFinalBackup) {
+            return skipFinalBackup(Output.of(skipFinalBackup));
         }
 
         /**
@@ -847,6 +941,8 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -857,6 +953,8 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

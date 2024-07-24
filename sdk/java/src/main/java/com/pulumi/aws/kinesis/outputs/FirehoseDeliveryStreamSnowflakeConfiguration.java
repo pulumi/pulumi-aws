@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration;
 import com.pulumi.core.annotations.CustomType;
@@ -54,10 +55,10 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
      */
     private @Nullable String metadataColumnName;
     /**
-     * @return The private key for authentication.
+     * @return The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private String privateKey;
+    private @Nullable String privateKey;
     /**
      * @return The processing configuration. See `processing_configuration` block below for details.
      * 
@@ -89,6 +90,11 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
      */
     private String schema;
     /**
+     * @return The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+     * 
+     */
+    private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
+    /**
      * @return The configuration for Snowflake role.
      * 
      */
@@ -104,10 +110,10 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
      */
     private String table;
     /**
-     * @return The user for authentication.
+     * @return The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private String user;
+    private @Nullable String user;
 
     private FirehoseDeliveryStreamSnowflakeConfiguration() {}
     /**
@@ -160,11 +166,11 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
         return Optional.ofNullable(this.metadataColumnName);
     }
     /**
-     * @return The private key for authentication.
+     * @return The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public String privateKey() {
-        return this.privateKey;
+    public Optional<String> privateKey() {
+        return Optional.ofNullable(this.privateKey);
     }
     /**
      * @return The processing configuration. See `processing_configuration` block below for details.
@@ -209,6 +215,13 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
         return this.schema;
     }
     /**
+     * @return The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+     * 
+     */
+    public Optional<FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {
+        return Optional.ofNullable(this.secretsManagerConfiguration);
+    }
+    /**
      * @return The configuration for Snowflake role.
      * 
      */
@@ -230,11 +243,11 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
         return this.table;
     }
     /**
-     * @return The user for authentication.
+     * @return The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public String user() {
-        return this.user;
+    public Optional<String> user() {
+        return Optional.ofNullable(this.user);
     }
 
     public static Builder builder() {
@@ -253,17 +266,18 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
         private String database;
         private @Nullable String keyPassphrase;
         private @Nullable String metadataColumnName;
-        private String privateKey;
+        private @Nullable String privateKey;
         private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration processingConfiguration;
         private @Nullable Integer retryDuration;
         private String roleArn;
         private @Nullable String s3BackupMode;
         private FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration s3Configuration;
         private String schema;
+        private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
         private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration snowflakeRoleConfiguration;
         private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration snowflakeVpcConfiguration;
         private String table;
-        private String user;
+        private @Nullable String user;
         public Builder() {}
         public Builder(FirehoseDeliveryStreamSnowflakeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -281,6 +295,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
     	      this.s3BackupMode = defaults.s3BackupMode;
     	      this.s3Configuration = defaults.s3Configuration;
     	      this.schema = defaults.schema;
+    	      this.secretsManagerConfiguration = defaults.secretsManagerConfiguration;
     	      this.snowflakeRoleConfiguration = defaults.snowflakeRoleConfiguration;
     	      this.snowflakeVpcConfiguration = defaults.snowflakeVpcConfiguration;
     	      this.table = defaults.table;
@@ -334,10 +349,8 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder privateKey(String privateKey) {
-            if (privateKey == null) {
-              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSnowflakeConfiguration", "privateKey");
-            }
+        public Builder privateKey(@Nullable String privateKey) {
+
             this.privateKey = privateKey;
             return this;
         }
@@ -384,6 +397,12 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder secretsManagerConfiguration(@Nullable FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration secretsManagerConfiguration) {
+
+            this.secretsManagerConfiguration = secretsManagerConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder snowflakeRoleConfiguration(@Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration snowflakeRoleConfiguration) {
 
             this.snowflakeRoleConfiguration = snowflakeRoleConfiguration;
@@ -404,10 +423,8 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder user(String user) {
-            if (user == null) {
-              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSnowflakeConfiguration", "user");
-            }
+        public Builder user(@Nullable String user) {
+
             this.user = user;
             return this;
         }
@@ -427,6 +444,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
             _resultValue.s3BackupMode = s3BackupMode;
             _resultValue.s3Configuration = s3Configuration;
             _resultValue.schema = schema;
+            _resultValue.secretsManagerConfiguration = secretsManagerConfiguration;
             _resultValue.snowflakeRoleConfiguration = snowflakeRoleConfiguration;
             _resultValue.snowflakeVpcConfiguration = snowflakeVpcConfiguration;
             _resultValue.table = table;

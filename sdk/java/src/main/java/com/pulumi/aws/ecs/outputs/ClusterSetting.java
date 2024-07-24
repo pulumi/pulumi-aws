@@ -16,7 +16,7 @@ public final class ClusterSetting {
      */
     private String name;
     /**
-     * @return The value to assign to the setting. Valid values are `enabled` and `disabled`.
+     * @return Value to assign to the setting. Valid values: `enabled`, `disabled`.
      * 
      */
     private String value;
@@ -30,7 +30,7 @@ public final class ClusterSetting {
         return this.name;
     }
     /**
-     * @return The value to assign to the setting. Valid values are `enabled` and `disabled`.
+     * @return Value to assign to the setting. Valid values: `enabled`, `disabled`.
      * 
      */
     public String value() {

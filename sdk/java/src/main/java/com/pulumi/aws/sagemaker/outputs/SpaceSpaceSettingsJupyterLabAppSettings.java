@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpaceSpaceSettingsJupyterLabAppSettings {
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
      * 
      */
     private @Nullable List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     private SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private SpaceSpaceSettingsJupyterLabAppSettings() {}
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
      * 
      */
     public List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories() {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     public SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec() {

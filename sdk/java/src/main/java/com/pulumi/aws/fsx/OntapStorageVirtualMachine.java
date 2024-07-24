@@ -221,9 +221,17 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
     public Output<String> subtype() {
         return this.subtype;
     }
+    /**
+     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * 
+     */
     @Export(name="svmAdminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> svmAdminPassword;
 
+    /**
+     * @return Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * 
+     */
     public Output<Optional<String>> svmAdminPassword() {
         return Codegen.optional(this.svmAdminPassword);
     }

@@ -50,9 +50,26 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+     * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      * 
      * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+     * 
+     */
+    @Import(name="allowFullTableExternalDataAccess")
+    private @Nullable Output<Boolean> allowFullTableExternalDataAccess;
+
+    /**
+     * @return Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+     * 
+     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+     * 
+     */
+    public Optional<Output<Boolean>> allowFullTableExternalDataAccess() {
+        return Optional.ofNullable(this.allowFullTableExternalDataAccess);
+    }
+
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
      * 
      */
     @Import(name="authorizedSessionTagValueLists")
@@ -60,8 +77,6 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
-     * 
-     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
     public Optional<Output<List<String>>> authorizedSessionTagValueLists() {
@@ -163,6 +178,7 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
     private DataLakeSettingsArgs(DataLakeSettingsArgs $) {
         this.admins = $.admins;
         this.allowExternalDataFiltering = $.allowExternalDataFiltering;
+        this.allowFullTableExternalDataAccess = $.allowFullTableExternalDataAccess;
         this.authorizedSessionTagValueLists = $.authorizedSessionTagValueLists;
         this.catalogId = $.catalogId;
         this.createDatabaseDefaultPermissions = $.createDatabaseDefaultPermissions;
@@ -243,9 +259,32 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+         * @param allowFullTableExternalDataAccess Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
          * 
          * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowFullTableExternalDataAccess(@Nullable Output<Boolean> allowFullTableExternalDataAccess) {
+            $.allowFullTableExternalDataAccess = allowFullTableExternalDataAccess;
+            return this;
+        }
+
+        /**
+         * @param allowFullTableExternalDataAccess Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+         * 
+         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowFullTableExternalDataAccess(Boolean allowFullTableExternalDataAccess) {
+            return allowFullTableExternalDataAccess(Output.of(allowFullTableExternalDataAccess));
+        }
+
+        /**
+         * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
          * 
          * @return builder
          * 
@@ -258,8 +297,6 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
          * 
-         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
-         * 
          * @return builder
          * 
          */
@@ -269,8 +306,6 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
-         * 
-         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
          * 
          * @return builder
          * 

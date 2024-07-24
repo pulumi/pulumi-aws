@@ -15,6 +15,11 @@ public final class AgentAgentAliasRoutingConfiguration {
      * 
      */
     private String agentVersion;
+    /**
+     * @return ARN of the Provisioned Throughput assigned to the agent alias.
+     * 
+     */
+    private String provisionedThroughput;
 
     private AgentAgentAliasRoutingConfiguration() {}
     /**
@@ -23,6 +28,13 @@ public final class AgentAgentAliasRoutingConfiguration {
      */
     public String agentVersion() {
         return this.agentVersion;
+    }
+    /**
+     * @return ARN of the Provisioned Throughput assigned to the agent alias.
+     * 
+     */
+    public String provisionedThroughput() {
+        return this.provisionedThroughput;
     }
 
     public static Builder builder() {
@@ -35,10 +47,12 @@ public final class AgentAgentAliasRoutingConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private String agentVersion;
+        private String provisionedThroughput;
         public Builder() {}
         public Builder(AgentAgentAliasRoutingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.agentVersion = defaults.agentVersion;
+    	      this.provisionedThroughput = defaults.provisionedThroughput;
         }
 
         @CustomType.Setter
@@ -49,9 +63,18 @@ public final class AgentAgentAliasRoutingConfiguration {
             this.agentVersion = agentVersion;
             return this;
         }
+        @CustomType.Setter
+        public Builder provisionedThroughput(String provisionedThroughput) {
+            if (provisionedThroughput == null) {
+              throw new MissingRequiredPropertyException("AgentAgentAliasRoutingConfiguration", "provisionedThroughput");
+            }
+            this.provisionedThroughput = provisionedThroughput;
+            return this;
+        }
         public AgentAgentAliasRoutingConfiguration build() {
             final var _resultValue = new AgentAgentAliasRoutingConfiguration();
             _resultValue.agentVersion = agentVersion;
+            _resultValue.provisionedThroughput = provisionedThroughput;
             return _resultValue;
         }
     }

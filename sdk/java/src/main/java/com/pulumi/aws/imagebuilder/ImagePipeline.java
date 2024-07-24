@@ -9,12 +9,14 @@ import com.pulumi.aws.imagebuilder.inputs.ImagePipelineState;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageTestsConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineSchedule;
+import com.pulumi.aws.imagebuilder.outputs.ImagePipelineWorkflow;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -201,6 +203,20 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enhancedImageMetadataEnabled);
     }
     /**
+     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    @Export(name="executionRole", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> executionRole;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    public Output<Optional<String>> executionRole() {
+        return Codegen.optional(this.executionRole);
+    }
+    /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
@@ -347,6 +363,20 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    @Export(name="workflows", refs={List.class,ImagePipelineWorkflow.class}, tree="[0,1]")
+    private Output<List<ImagePipelineWorkflow>> workflows;
+
+    /**
+     * @return Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    public Output<List<ImagePipelineWorkflow>> workflows() {
+        return this.workflows;
     }
 
     /**

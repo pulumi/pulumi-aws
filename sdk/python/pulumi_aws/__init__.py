@@ -3311,6 +3311,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datazone/project",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dax/cluster",
   "fqn": "pulumi_aws.dax",
   "classes": {
@@ -5991,6 +5999,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "grafana/workspaceServiceAccount",
+  "fqn": "pulumi_aws.grafana",
+  "classes": {
+   "aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount": "WorkspaceServiceAccount"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "grafana/workspaceServiceAccountToken",
+  "fqn": "pulumi_aws.grafana",
+  "classes": {
+   "aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken": "WorkspaceServiceAccountToken"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "guardduty/detector",
   "fqn": "pulumi_aws.guardduty",
   "classes": {
@@ -8647,6 +8671,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rds/certificate",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "rds/cluster",
   "fqn": "pulumi_aws.rds",
   "classes": {
@@ -9091,6 +9123,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rekognition",
   "classes": {
    "aws:rekognition/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rekognition/streamProcessor",
+  "fqn": "pulumi_aws.rekognition",
+  "classes": {
+   "aws:rekognition/streamProcessor:StreamProcessor": "StreamProcessor"
   }
  },
  {

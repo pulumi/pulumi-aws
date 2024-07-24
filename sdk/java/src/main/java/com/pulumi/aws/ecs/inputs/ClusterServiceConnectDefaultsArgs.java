@@ -15,14 +15,14 @@ public final class ClusterServiceConnectDefaultsArgs extends com.pulumi.resource
     public static final ClusterServiceConnectDefaultsArgs Empty = new ClusterServiceConnectDefaultsArgs();
 
     /**
-     * The ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
+     * ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return The ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
+     * @return ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
      * 
      */
     public Output<String> namespace() {
@@ -54,7 +54,7 @@ public final class ClusterServiceConnectDefaultsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param namespace The ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
+         * @param namespace ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ClusterServiceConnectDefaultsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param namespace The ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
+         * @param namespace ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
          * 
          * @return builder
          * 

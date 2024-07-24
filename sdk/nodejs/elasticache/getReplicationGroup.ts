@@ -56,6 +56,10 @@ export interface GetReplicationGroupResult {
      */
     readonly automaticFailoverEnabled: boolean;
     /**
+     * Whether cluster mode is enabled or disabled.
+     */
+    readonly clusterMode: string;
+    /**
      * The configuration endpoint address to allow host discovery.
      */
     readonly configurationEndpointAddress: string;

@@ -2161,6 +2161,39 @@ export namespace alb {
         onUnhealthy: pulumi.Input<string>;
     }
 
+    export interface TargetGroupTargetGroupHealth {
+        /**
+         * Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+         */
+        dnsFailover?: pulumi.Input<inputs.alb.TargetGroupTargetGroupHealthDnsFailover>;
+        /**
+         * Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+         */
+        unhealthyStateRouting?: pulumi.Input<inputs.alb.TargetGroupTargetGroupHealthUnhealthyStateRouting>;
+    }
+
+    export interface TargetGroupTargetGroupHealthDnsFailover {
+        /**
+         * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+         */
+        minimumHealthyTargetsCount?: pulumi.Input<string>;
+        /**
+         * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+         */
+        minimumHealthyTargetsPercentage?: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupTargetGroupHealthUnhealthyStateRouting {
+        /**
+         * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+         */
+        minimumHealthyTargetsCount?: pulumi.Input<number>;
+        /**
+         * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+         */
+        minimumHealthyTargetsPercentage?: pulumi.Input<string>;
+    }
+
     export interface TargetGroupTargetHealthState {
         /**
          * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
@@ -9846,7 +9879,14 @@ export namespace bcmdata {
 export namespace bedrock {
     export interface AgentAgentActionGroupActionGroupExecutor {
         /**
+         * Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+         * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+         * Only one of `customControl` or `lambda` can be specified.
+         */
+        customControl?: pulumi.Input<string>;
+        /**
          * ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+         * Only one of `lambda` or `customControl` can be specified.
          */
         lambda?: pulumi.Input<string>;
     }
@@ -9854,10 +9894,12 @@ export namespace bedrock {
     export interface AgentAgentActionGroupApiSchema {
         /**
          * JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+         * Only one of `payload` or `s3` can be specified.
          */
         payload?: pulumi.Input<string>;
         /**
-         * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+         * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+         * Only one of `s3` or `payload` can be specified.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchemaS3>;
     }
@@ -9873,11 +9915,67 @@ export namespace bedrock {
         s3ObjectKey?: pulumi.Input<string>;
     }
 
+    export interface AgentAgentActionGroupFunctionSchema {
+        /**
+         * Contains a list of functions.
+         * Each function describes and action in the action group.
+         * See `memberFunctions` Block for details.
+         */
+        memberFunctions?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctions>;
+    }
+
+    export interface AgentAgentActionGroupFunctionSchemaMemberFunctions {
+        /**
+         * Functions that each define an action in the action group. See `functions` Block for details.
+         */
+        functions?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction>[]>;
+    }
+
+    export interface AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction {
+        /**
+         * Description of the function and its purpose.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Name for the function.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter>[]>;
+    }
+
+    export interface AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter {
+        /**
+         * Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Name of the parameter.
+         *
+         * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+         */
+        mapBlockKey: pulumi.Input<string>;
+        /**
+         * Whether the parameter is required for the agent to complete the function for action group invocation.
+         */
+        required?: pulumi.Input<boolean>;
+        /**
+         * Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface AgentAgentAliasRoutingConfiguration {
         /**
          * Version of the agent with which the alias is associated.
          */
         agentVersion: pulumi.Input<string>;
+        /**
+         * ARN of the Provisioned Throughput assigned to the agent alias.
+         */
+        provisionedThroughput: pulumi.Input<string>;
     }
 
     export interface AgentAgentAliasTimeouts {
@@ -9901,7 +9999,7 @@ export namespace bedrock {
          */
         overrideLambda: pulumi.Input<string>;
         /**
-         * Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
+         * Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
          */
         promptConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfigurationPromptConfiguration>[]>;
     }
@@ -9912,7 +10010,7 @@ export namespace bedrock {
          */
         basePromptTemplate: pulumi.Input<string>;
         /**
-         * Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` block for details.
+         * Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` Block for details.
          */
         inferenceConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration>[]>;
         /**
@@ -13829,6 +13927,21 @@ export namespace codebuild {
          */
         type: pulumi.Input<string>;
     }
+
+    export interface WebhookScopeConfiguration {
+        /**
+         * The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * The name of either the enterprise or organization.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+         */
+        scope: pulumi.Input<string>;
+    }
 }
 
 export namespace codecatalyst {
@@ -14441,6 +14554,7 @@ export namespace codepipeline {
          * The order in which actions are run.
          */
         runOrder?: pulumi.Input<number>;
+        timeoutInMinutes?: pulumi.Input<number>;
         /**
          * A string that identifies the action type.
          */
@@ -18322,6 +18436,22 @@ export namespace datazone {
     }
 
     export interface DomainTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+    }
+
+    export interface ProjectFailureReason {
+        code: pulumi.Input<string>;
+        message: pulumi.Input<string>;
+    }
+
+    export interface ProjectTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
@@ -25460,29 +25590,33 @@ export namespace ecs {
 
     export interface ClusterConfiguration {
         /**
-         * The details of the execute command configuration. Detailed below.
+         * Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
          */
         executeCommandConfiguration?: pulumi.Input<inputs.ecs.ClusterConfigurationExecuteCommandConfiguration>;
+        /**
+         * Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
+         */
+        managedStorageConfiguration?: pulumi.Input<inputs.ecs.ClusterConfigurationManagedStorageConfiguration>;
     }
 
     export interface ClusterConfigurationExecuteCommandConfiguration {
         /**
-         * The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+         * AWS Key Management Service key ID to encrypt the data between the local client and the container.
          */
         kmsKeyId?: pulumi.Input<string>;
         /**
-         * The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+         * Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
          */
         logConfiguration?: pulumi.Input<inputs.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration>;
         /**
-         * The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+         * Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
          */
         logging?: pulumi.Input<string>;
     }
 
     export interface ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
         /**
-         * Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+         * Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
          */
         cloudWatchEncryptionEnabled?: pulumi.Input<boolean>;
         /**
@@ -25490,22 +25624,33 @@ export namespace ecs {
          */
         cloudWatchLogGroupName?: pulumi.Input<string>;
         /**
-         * Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+         * Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
          */
         s3BucketEncryptionEnabled?: pulumi.Input<boolean>;
         /**
-         * The name of the S3 bucket to send logs to.
+         * Name of the S3 bucket to send logs to.
          */
         s3BucketName?: pulumi.Input<string>;
         /**
-         * An optional folder in the S3 bucket to place logs in.
+         * Optional folder in the S3 bucket to place logs in.
          */
         s3KeyPrefix?: pulumi.Input<string>;
     }
 
+    export interface ClusterConfigurationManagedStorageConfiguration {
+        /**
+         * AWS Key Management Service key ID for the Fargate ephemeral storage.
+         */
+        fargateEphemeralStorageKmsKeyId?: pulumi.Input<string>;
+        /**
+         * AWS Key Management Service key ID to encrypt the managed storage.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
     export interface ClusterServiceConnectDefaults {
         /**
-         * The ARN of the `aws.servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+         * ARN of the `aws.servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
          */
         namespace: pulumi.Input<string>;
     }
@@ -25516,7 +25661,7 @@ export namespace ecs {
          */
         name: pulumi.Input<string>;
         /**
-         * The value to assign to the setting. Valid values are `enabled` and `disabled`.
+         * Value to assign to the setting. Valid values: `enabled`, `disabled`.
          */
         value: pulumi.Input<string>;
     }
@@ -26106,7 +26251,7 @@ export namespace ecs {
         /**
          * Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
          */
-        throughput?: pulumi.Input<string>;
+        throughput?: pulumi.Input<number>;
         /**
          * Volume type.
          */
@@ -28593,6 +28738,17 @@ export namespace emrserverless {
         memory: pulumi.Input<string>;
     }
 
+    export interface ApplicationInteractiveConfiguration {
+        /**
+         * Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
+         */
+        livyEndpointEnabled?: pulumi.Input<boolean>;
+        /**
+         * Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
+         */
+        studioEnabled?: pulumi.Input<boolean>;
+    }
+
     export interface ApplicationMaximumCapacity {
         /**
          * The maximum allowed CPU for an application.
@@ -29115,6 +29271,17 @@ export namespace fis {
         value: pulumi.Input<string>;
     }
 
+    export interface ExperimentTemplateExperimentOptions {
+        /**
+         * Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+         */
+        accountTargeting?: pulumi.Input<string>;
+        /**
+         * Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+         */
+        emptyTargetResolutionMode?: pulumi.Input<string>;
+    }
+
     export interface ExperimentTemplateLogConfiguration {
         /**
          * The configuration for experiment logging to Amazon CloudWatch Logs. See below.
@@ -29501,12 +29668,12 @@ export namespace fsx {
     export interface LustreFileSystemMetadataConfiguration {
         /**
          * Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
-         *
-         * !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
          */
         iops?: pulumi.Input<number>;
         /**
          * Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+         *
+         * !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
          */
         mode?: pulumi.Input<string>;
     }
@@ -29685,7 +29852,7 @@ export namespace fsx {
          */
         auditLogVolume?: pulumi.Input<boolean>;
         /**
-         * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+         * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
          */
         autocommitPeriod?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationAutocommitPeriod>;
         /**
@@ -29693,7 +29860,7 @@ export namespace fsx {
          */
         privilegedDelete?: pulumi.Input<string>;
         /**
-         * The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+         * The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
          */
         retentionPeriod?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriod>;
         /**
@@ -29719,31 +29886,49 @@ export namespace fsx {
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriod {
         /**
-         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
          */
         defaultRetention?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention>;
         /**
-         * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+         * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
          */
         maximumRetention?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention>;
         /**
-         * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+         * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
          */
         minimumRetention?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention>;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
+        /**
+         * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         */
         type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
         value?: pulumi.Input<number>;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
+        /**
+         * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         */
         type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
         value?: pulumi.Input<number>;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
+        /**
+         * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         */
         type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
         value?: pulumi.Input<number>;
     }
 
@@ -29779,7 +29964,7 @@ export namespace fsx {
          */
         dataCompressionType?: pulumi.Input<string>;
         /**
-         * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+         * NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
          */
         nfsExports?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfigurationNfsExports>;
         /**
@@ -29791,14 +29976,14 @@ export namespace fsx {
          */
         recordSizeKib?: pulumi.Input<number>;
         /**
-         * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
          */
         userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota>[]>;
     }
 
     export interface OpenZfsFileSystemRootVolumeConfigurationNfsExports {
         /**
-         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
          */
         clientConfigurations: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration>[]>;
     }
@@ -32562,6 +32747,38 @@ export namespace imagebuilder {
          * The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
          */
         timezone?: pulumi.Input<string>;
+    }
+
+    export interface ImagePipelineWorkflow {
+        /**
+         * The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
+         */
+        onFailure?: pulumi.Input<string>;
+        /**
+         * The parallel group in which to run a test Workflow.
+         */
+        parallelGroup?: pulumi.Input<string>;
+        /**
+         * Configuration block for the workflow parameters. Detailed below.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImagePipelineWorkflowParameter>[]>;
+        /**
+         * Amazon Resource Name (ARN) of the Image Builder Workflow.
+         *
+         * The following arguments are optional:
+         */
+        workflowArn: pulumi.Input<string>;
+    }
+
+    export interface ImagePipelineWorkflowParameter {
+        /**
+         * The name of the Workflow parameter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the Workflow parameter.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface ImageRecipeBlockDeviceMapping {
@@ -35531,6 +35748,10 @@ export namespace kinesis {
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration>;
         /**
+         * The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+         */
+        secretsManagerConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration>;
+        /**
          * The HTTP endpoint URL to which Kinesis Firehose sends your data.
          */
         url: pulumi.Input<string>;
@@ -35662,6 +35883,21 @@ export namespace kinesis {
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration {
+        /**
+         * Enables or disables the Secrets Manager configuration.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The ARN of the role the stream assumes.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         */
+        secretArn?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamKinesisSourceConfiguration {
@@ -36084,9 +36320,9 @@ export namespace kinesis {
          */
         dataTableName: pulumi.Input<string>;
         /**
-         * The password for the username above.
+         * The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        password: pulumi.Input<string>;
+        password?: pulumi.Input<string>;
         /**
          * The data processing configuration.  See `processingConfiguration` block below for details.
          */
@@ -36101,6 +36337,7 @@ export namespace kinesis {
         roleArn: pulumi.Input<string>;
         /**
          * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
          */
         s3BackupConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration>;
         /**
@@ -36111,10 +36348,11 @@ export namespace kinesis {
          * The S3 Configuration. See s3Configuration below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration>;
+        secretsManagerConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration>;
         /**
-         * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+         * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        username: pulumi.Input<string>;
+        username?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions {
@@ -36266,6 +36504,21 @@ export namespace kinesis {
         logStreamName?: pulumi.Input<string>;
     }
 
+    export interface FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration {
+        /**
+         * Enables or disables the Secrets Manager configuration.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The ARN of the role the stream assumes.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         */
+        secretArn?: pulumi.Input<string>;
+    }
+
     export interface FirehoseDeliveryStreamServerSideEncryption {
         /**
          * Whether to enable encryption at rest. Default is `false`.
@@ -36311,9 +36564,9 @@ export namespace kinesis {
          */
         metadataColumnName?: pulumi.Input<string>;
         /**
-         * The private key for authentication.
+         * The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        privateKey: pulumi.Input<string>;
+        privateKey?: pulumi.Input<string>;
         /**
          * The processing configuration. See `processingConfiguration` block below for details.
          */
@@ -36339,6 +36592,10 @@ export namespace kinesis {
          */
         schema: pulumi.Input<string>;
         /**
+         * The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+         */
+        secretsManagerConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration>;
+        /**
          * The configuration for Snowflake role.
          */
         snowflakeRoleConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration>;
@@ -36351,9 +36608,9 @@ export namespace kinesis {
          */
         table: pulumi.Input<string>;
         /**
-         * The user for authentication.
+         * The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        user: pulumi.Input<string>;
+        user?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions {
@@ -36462,6 +36719,21 @@ export namespace kinesis {
         logStreamName?: pulumi.Input<string>;
     }
 
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration {
+        /**
+         * Enables or disables the Secrets Manager configuration.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The ARN of the role the stream assumes.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         */
+        secretArn?: pulumi.Input<string>;
+    }
+
     export interface FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
         /**
          * Whether the Snowflake role is enabled.
@@ -36506,9 +36778,9 @@ export namespace kinesis {
          */
         hecEndpointType?: pulumi.Input<string>;
         /**
-         * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+         * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        hecToken: pulumi.Input<string>;
+        hecToken?: pulumi.Input<string>;
         /**
          * The data processing configuration.  See `processingConfiguration` block below for details.
          */
@@ -36519,12 +36791,14 @@ export namespace kinesis {
         retryDuration?: pulumi.Input<number>;
         /**
          * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
          */
         s3BackupMode?: pulumi.Input<string>;
         /**
          * The S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3Configuration>;
+        secretsManagerConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
@@ -36631,6 +36905,21 @@ export namespace kinesis {
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration {
+        /**
+         * Enables or disables the Secrets Manager configuration.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The ARN of the role the stream assumes.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         */
+        secretArn?: pulumi.Input<string>;
     }
 
     export interface StreamStreamModeDetails {
@@ -38824,6 +39113,39 @@ export namespace lb {
          * Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onDeregistration`. Default: `noRebalance`.
          */
         onUnhealthy: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupTargetGroupHealth {
+        /**
+         * Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+         */
+        dnsFailover?: pulumi.Input<inputs.lb.TargetGroupTargetGroupHealthDnsFailover>;
+        /**
+         * Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+         */
+        unhealthyStateRouting?: pulumi.Input<inputs.lb.TargetGroupTargetGroupHealthUnhealthyStateRouting>;
+    }
+
+    export interface TargetGroupTargetGroupHealthDnsFailover {
+        /**
+         * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+         */
+        minimumHealthyTargetsCount?: pulumi.Input<string>;
+        /**
+         * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+         */
+        minimumHealthyTargetsPercentage?: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupTargetGroupHealthUnhealthyStateRouting {
+        /**
+         * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+         */
+        minimumHealthyTargetsCount?: pulumi.Input<number>;
+        /**
+         * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+         */
+        minimumHealthyTargetsPercentage?: pulumi.Input<string>;
     }
 
     export interface TargetGroupTargetHealthState {
@@ -54868,7 +55190,7 @@ export namespace msk {
 
     export interface ReplicatorReplicationInfoList {
         /**
-         * Confguration relating to consumer group replication.
+         * Configuration relating to consumer group replication.
          */
         consumerGroupReplications: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorReplicationInfoListConsumerGroupReplication>[]>;
         sourceKafkaClusterAlias?: pulumi.Input<string>;
@@ -54924,6 +55246,10 @@ export namespace msk {
          */
         detectAndCopyNewTopics?: pulumi.Input<boolean>;
         /**
+         * Configuration for specifying the position in the topics to start replicating from.
+         */
+        startingPosition?: pulumi.Input<inputs.msk.ReplicatorReplicationInfoListTopicReplicationStartingPosition>;
+        /**
          * List of regular expression patterns indicating the topics that should not be replica.
          */
         topicsToExcludes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -54931,6 +55257,13 @@ export namespace msk {
          * List of regular expression patterns indicating the topics to copy.
          */
         topicsToReplicates: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ReplicatorReplicationInfoListTopicReplicationStartingPosition {
+        /**
+         * The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+         */
+        type?: pulumi.Input<string>;
     }
 
     export interface ServerlessClusterClientAuthentication {
@@ -61811,6 +62144,152 @@ export namespace rekognition {
          */
         delete?: pulumi.Input<string>;
     }
+
+    export interface StreamProcessorDataSharingPreference {
+        /**
+         * Whether you are sharing data with Rekognition to improve model performance.
+         */
+        optIn: pulumi.Input<boolean>;
+    }
+
+    export interface StreamProcessorInput {
+        /**
+         * Kinesis input stream. See `kinesisVideoStream`.
+         */
+        kinesisVideoStream?: pulumi.Input<inputs.rekognition.StreamProcessorInputKinesisVideoStream>;
+    }
+
+    export interface StreamProcessorInputKinesisVideoStream {
+        /**
+         * ARN of the Kinesis video stream stream that streams the source video.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface StreamProcessorNotificationChannel {
+        /**
+         * The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+         */
+        snsTopicArn?: pulumi.Input<string>;
+    }
+
+    export interface StreamProcessorOutput {
+        /**
+         * The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+         */
+        kinesisDataStream?: pulumi.Input<inputs.rekognition.StreamProcessorOutputKinesisDataStream>;
+        /**
+         * The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+         */
+        s3Destination?: pulumi.Input<inputs.rekognition.StreamProcessorOutputS3Destination>;
+    }
+
+    export interface StreamProcessorOutputKinesisDataStream {
+        /**
+         * ARN of the output Amazon Kinesis Data Streams stream.
+         */
+        arn?: pulumi.Input<string>;
+    }
+
+    export interface StreamProcessorOutputS3Destination {
+        /**
+         * Name of the Amazon S3 bucket you want to associate with the streaming video project.
+         */
+        bucket?: pulumi.Input<string>;
+        /**
+         * The prefix value of the location within the bucket that you want the information to be published to.
+         */
+        keyPrefix?: pulumi.Input<string>;
+    }
+
+    export interface StreamProcessorRegionsOfInterest {
+        /**
+         * Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+         */
+        boundingBox?: pulumi.Input<inputs.rekognition.StreamProcessorRegionsOfInterestBoundingBox>;
+        /**
+         * Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+         */
+        polygons: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorRegionsOfInterestPolygon>[]>;
+    }
+
+    export interface StreamProcessorRegionsOfInterestBoundingBox {
+        /**
+         * Height of the bounding box as a ratio of the overall image height.
+         */
+        height?: pulumi.Input<number>;
+        /**
+         * Left coordinate of the bounding box as a ratio of overall image width.
+         */
+        left?: pulumi.Input<number>;
+        /**
+         * Top coordinate of the bounding box as a ratio of overall image height.
+         */
+        top?: pulumi.Input<number>;
+        /**
+         * Width of the bounding box as a ratio of the overall image width.
+         */
+        width?: pulumi.Input<number>;
+    }
+
+    export interface StreamProcessorRegionsOfInterestPolygon {
+        /**
+         * The value of the X coordinate for a point on a Polygon.
+         */
+        x?: pulumi.Input<number>;
+        /**
+         * The value of the Y coordinate for a point on a Polygon.
+         */
+        y?: pulumi.Input<number>;
+    }
+
+    export interface StreamProcessorSettings {
+        /**
+         * Label detection settings to use on a streaming video. See `connectedHome`.
+         */
+        connectedHome?: pulumi.Input<inputs.rekognition.StreamProcessorSettingsConnectedHome>;
+        /**
+         * Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+         */
+        faceSearch?: pulumi.Input<inputs.rekognition.StreamProcessorSettingsFaceSearch>;
+    }
+
+    export interface StreamProcessorSettingsConnectedHome {
+        /**
+         * Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Minimum confidence required to label an object in the video.
+         */
+        minConfidence?: pulumi.Input<number>;
+    }
+
+    export interface StreamProcessorSettingsFaceSearch {
+        /**
+         * ID of a collection that contains faces that you want to search for.
+         */
+        collectionId: pulumi.Input<string>;
+        /**
+         * Minimum face match confidence score that must be met to return a result for a recognized face.
+         */
+        faceMatchThreshold?: pulumi.Input<number>;
+    }
+
+    export interface StreamProcessorTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
 }
 
 export namespace resourceexplorer {
@@ -66936,23 +67415,23 @@ export namespace sagemaker {
          */
         appType?: pulumi.Input<string>;
         /**
-         * The Code Editor application settings. See Code Editor App Settings below.
+         * The Code Editor application settings. See `codeEditorAppSettings` Block below.
          */
         codeEditorAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettings>;
         /**
-         * A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+         * A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `customFileSystem` Block below.
          */
         customFileSystems?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCustomFileSystem>[]>;
         /**
-         * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
          */
         jupyterLabAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettings>;
         /**
-         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         * The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
          */
         jupyterServerAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterServerAppSettings>;
         /**
-         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
          */
         kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettings>;
         spaceStorageSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsSpaceStorageSettings>;
@@ -66960,7 +67439,7 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsCodeEditorAppSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec>;
     }
@@ -66990,7 +67469,7 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsCustomFileSystem {
         /**
-         * A custom file system in Amazon EFS. see EFS File System below.
+         * A custom file system in Amazon EFS. See `efsFileSystem` Block below.
          */
         efsFileSystem: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCustomFileSystemEfsFileSystem>;
     }
@@ -67004,11 +67483,11 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsJupyterLabAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec>;
     }
@@ -67045,11 +67524,11 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsJupyterServerAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec>;
         /**
@@ -67090,11 +67569,11 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsKernelGatewayAppSettings {
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. See `customImage` Block below.
          */
         customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec>;
         /**
@@ -72374,11 +72853,11 @@ export namespace transfer {
 
     export interface ServerWorkflowDetails {
         /**
-         * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+         * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
          */
         onPartialUpload?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsOnPartialUpload>;
         /**
-         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
          */
         onUpload?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsOnUpload>;
     }
@@ -78422,6 +78901,10 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet {
+        /**
+         * Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+         */
+        enableMachineLearning?: pulumi.Input<boolean>;
         /**
          * The inspection level to use for the Bot Control rule group.
          */

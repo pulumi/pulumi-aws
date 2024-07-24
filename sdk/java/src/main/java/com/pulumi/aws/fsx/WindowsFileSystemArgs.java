@@ -54,14 +54,14 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
      * 
      */
     @Import(name="auditLogConfiguration")
     private @Nullable Output<WindowsFileSystemAuditLogConfigurationArgs> auditLogConfiguration;
 
     /**
-     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
      * 
      */
     public Optional<Output<WindowsFileSystemAuditLogConfigurationArgs>> auditLogConfiguration() {
@@ -144,18 +144,33 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
      * 
      */
     @Import(name="diskIopsConfiguration")
     private @Nullable Output<WindowsFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
      * 
      */
     public Optional<Output<WindowsFileSystemDiskIopsConfigurationArgs>> diskIopsConfiguration() {
         return Optional.ofNullable(this.diskIopsConfiguration);
+    }
+
+    /**
+     * A map of tags to apply to the file system&#39;s final backup.
+     * 
+     */
+    @Import(name="finalBackupTags")
+    private @Nullable Output<Map<String,String>> finalBackupTags;
+
+    /**
+     * @return A map of tags to apply to the file system&#39;s final backup.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> finalBackupTags() {
+        return Optional.ofNullable(this.finalBackupTags);
     }
 
     /**
@@ -204,14 +219,14 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
      * 
      */
     @Import(name="selfManagedActiveDirectory")
     private @Nullable Output<WindowsFileSystemSelfManagedActiveDirectoryArgs> selfManagedActiveDirectory;
 
     /**
-     * @return Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
+     * @return Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
      * 
      */
     public Optional<Output<WindowsFileSystemSelfManagedActiveDirectoryArgs>> selfManagedActiveDirectory() {
@@ -339,6 +354,7 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         this.dailyAutomaticBackupStartTime = $.dailyAutomaticBackupStartTime;
         this.deploymentType = $.deploymentType;
         this.diskIopsConfiguration = $.diskIopsConfiguration;
+        this.finalBackupTags = $.finalBackupTags;
         this.kmsKeyId = $.kmsKeyId;
         this.preferredSubnetId = $.preferredSubnetId;
         this.securityGroupIds = $.securityGroupIds;
@@ -423,7 +439,7 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -434,7 +450,7 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -549,7 +565,7 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -560,13 +576,34 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
          * 
          * @return builder
          * 
          */
         public Builder diskIopsConfiguration(WindowsFileSystemDiskIopsConfigurationArgs diskIopsConfiguration) {
             return diskIopsConfiguration(Output.of(diskIopsConfiguration));
+        }
+
+        /**
+         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder finalBackupTags(@Nullable Output<Map<String,String>> finalBackupTags) {
+            $.finalBackupTags = finalBackupTags;
+            return this;
+        }
+
+        /**
+         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder finalBackupTags(Map<String,String> finalBackupTags) {
+            return finalBackupTags(Output.of(finalBackupTags));
         }
 
         /**
@@ -643,7 +680,7 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param selfManagedActiveDirectory Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
+         * @param selfManagedActiveDirectory Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
          * 
          * @return builder
          * 
@@ -654,7 +691,7 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param selfManagedActiveDirectory Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
+         * @param selfManagedActiveDirectory Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
          * 
          * @return builder
          * 

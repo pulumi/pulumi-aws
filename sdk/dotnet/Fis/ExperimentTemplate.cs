@@ -96,6 +96,12 @@ namespace Pulumi.Aws.Fis
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The experiment options for the experiment template. See experiment_options below for more details!
+        /// </summary>
+        [Output("experimentOptions")]
+        public Output<Outputs.ExperimentTemplateExperimentOptions> ExperimentOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration for experiment logging. See below.
         /// </summary>
         [Output("logConfiguration")]
@@ -195,6 +201,12 @@ namespace Pulumi.Aws.Fis
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
+        /// The experiment options for the experiment template. See experiment_options below for more details!
+        /// </summary>
+        [Input("experimentOptions")]
+        public Input<Inputs.ExperimentTemplateExperimentOptionsArgs>? ExperimentOptions { get; set; }
+
+        /// <summary>
         /// The configuration for experiment logging. See below.
         /// </summary>
         [Input("logConfiguration")]
@@ -269,6 +281,12 @@ namespace Pulumi.Aws.Fis
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The experiment options for the experiment template. See experiment_options below for more details!
+        /// </summary>
+        [Input("experimentOptions")]
+        public Input<Inputs.ExperimentTemplateExperimentOptionsGetArgs>? ExperimentOptions { get; set; }
 
         /// <summary>
         /// The configuration for experiment logging. See below.

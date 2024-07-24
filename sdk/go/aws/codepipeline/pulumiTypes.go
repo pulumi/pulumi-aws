@@ -1078,7 +1078,8 @@ type PipelineStageAction struct {
 	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn *string `pulumi:"roleArn"`
 	// The order in which actions are run.
-	RunOrder *int `pulumi:"runOrder"`
+	RunOrder         *int `pulumi:"runOrder"`
+	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
 	// A string that identifies the action type.
 	Version string `pulumi:"version"`
 }
@@ -1116,7 +1117,8 @@ type PipelineStageActionArgs struct {
 	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// The order in which actions are run.
-	RunOrder pulumi.IntPtrInput `pulumi:"runOrder"`
+	RunOrder         pulumi.IntPtrInput `pulumi:"runOrder"`
+	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
 	// A string that identifies the action type.
 	Version pulumi.StringInput `pulumi:"version"`
 }
@@ -1225,6 +1227,10 @@ func (o PipelineStageActionOutput) RoleArn() pulumi.StringPtrOutput {
 // The order in which actions are run.
 func (o PipelineStageActionOutput) RunOrder() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *int { return v.RunOrder }).(pulumi.IntPtrOutput)
+}
+
+func (o PipelineStageActionOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipelineStageAction) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
 // A string that identifies the action type.

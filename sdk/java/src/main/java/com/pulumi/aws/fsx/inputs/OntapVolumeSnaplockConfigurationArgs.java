@@ -35,14 +35,14 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+     * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
      * 
      */
     @Import(name="autocommitPeriod")
     private @Nullable Output<OntapVolumeSnaplockConfigurationAutocommitPeriodArgs> autocommitPeriod;
 
     /**
-     * @return The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+     * @return The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationAutocommitPeriodArgs>> autocommitPeriod() {
@@ -65,14 +65,14 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+     * The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
      * 
      */
     @Import(name="retentionPeriod")
     private @Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodArgs> retentionPeriod;
 
     /**
-     * @return The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+     * @return The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationRetentionPeriodArgs>> retentionPeriod() {
@@ -160,7 +160,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param autocommitPeriod The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+         * @param autocommitPeriod The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param autocommitPeriod The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+         * @param autocommitPeriod The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionPeriod The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+         * @param retentionPeriod The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionPeriod The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+         * @param retentionPeriod The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
          * 
          * @return builder
          * 

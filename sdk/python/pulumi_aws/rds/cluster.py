@@ -48,6 +48,7 @@ class ClusterArgs:
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -110,6 +111,7 @@ class ClusterArgs:
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
@@ -189,6 +191,8 @@ class ClusterArgs:
             pulumi.set(__self__, "enable_local_write_forwarding", enable_local_write_forwarding)
         if enabled_cloudwatch_logs_exports is not None:
             pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
+        if engine_lifecycle_support is not None:
+            pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_mode is not None:
             pulumi.set(__self__, "engine_mode", engine_mode)
         if engine_version is not None:
@@ -565,6 +569,18 @@ class ClusterArgs:
         pulumi.set(self, "enabled_cloudwatch_logs_exports", value)
 
     @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @engine_lifecycle_support.setter
+    def engine_lifecycle_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_lifecycle_support", value)
+
+    @property
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> Optional[pulumi.Input[Union[str, 'EngineMode']]]:
         """
@@ -931,6 +947,7 @@ class _ClusterState:
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
@@ -1002,6 +1019,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: DNS address of the RDS instance
         :param pulumi.Input[Union[str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: Running version of the database.
@@ -1096,6 +1114,8 @@ class _ClusterState:
             pulumi.set(__self__, "endpoint", endpoint)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
+        if engine_lifecycle_support is not None:
+            pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_mode is not None:
             pulumi.set(__self__, "engine_mode", engine_mode)
         if engine_version is not None:
@@ -1533,6 +1553,18 @@ class _ClusterState:
         pulumi.set(self, "engine", value)
 
     @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @engine_lifecycle_support.setter
+    def engine_lifecycle_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_lifecycle_support", value)
+
+    @property
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> Optional[pulumi.Input[Union[str, 'EngineMode']]]:
         """
@@ -1959,6 +1991,7 @@ class Cluster(pulumi.CustomResource):
                  enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -2023,7 +2056,7 @@ class Cluster(pulumi.CustomResource):
             ],
             database_name="mydb",
             master_username="foo",
-            master_password="bar",
+            master_password="must_be_eight_characters",
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
@@ -2043,7 +2076,7 @@ class Cluster(pulumi.CustomResource):
             ],
             database_name="mydb",
             master_username="foo",
-            master_password="bar",
+            master_password="must_be_eight_characters",
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
@@ -2064,7 +2097,7 @@ class Cluster(pulumi.CustomResource):
             ],
             database_name="mydb",
             master_username="foo",
-            master_password="bar",
+            master_password="must_be_eight_characters",
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
@@ -2225,6 +2258,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[Union[str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
@@ -2294,7 +2328,7 @@ class Cluster(pulumi.CustomResource):
             ],
             database_name="mydb",
             master_username="foo",
-            master_password="bar",
+            master_password="must_be_eight_characters",
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
@@ -2314,7 +2348,7 @@ class Cluster(pulumi.CustomResource):
             ],
             database_name="mydb",
             master_username="foo",
-            master_password="bar",
+            master_password="must_be_eight_characters",
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
@@ -2335,7 +2369,7 @@ class Cluster(pulumi.CustomResource):
             ],
             database_name="mydb",
             master_username="foo",
-            master_password="bar",
+            master_password="must_be_eight_characters",
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
@@ -2503,6 +2537,7 @@ class Cluster(pulumi.CustomResource):
                  enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -2568,6 +2603,7 @@ class Cluster(pulumi.CustomResource):
             if engine is None and not opts.urn:
                 raise TypeError("Missing required property 'engine'")
             __props__.__dict__["engine"] = engine
+            __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
             __props__.__dict__["engine_mode"] = engine_mode
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
@@ -2647,6 +2683,7 @@ class Cluster(pulumi.CustomResource):
             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
+            engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
             engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
@@ -2723,6 +2760,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: DNS address of the RDS instance
         :param pulumi.Input[Union[str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: Running version of the database.
@@ -2791,6 +2829,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["engine"] = engine
+        __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
         __props__.__dict__["engine_mode"] = engine_mode
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["engine_version_actual"] = engine_version_actual
@@ -3071,6 +3110,14 @@ class Cluster(pulumi.CustomResource):
         Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         """
         return pulumi.get(self, "engine")
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> pulumi.Output[str]:
+        """
+        The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
 
     @property
     @pulumi.getter(name="engineMode")

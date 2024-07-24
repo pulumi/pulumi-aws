@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.msk.outputs;
 
+import com.pulumi.aws.msk.outputs.GetClusterBrokerNodeGroupInfo;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -52,6 +54,11 @@ public final class GetClusterResult {
      * 
      */
     private String bootstrapBrokersTls;
+    /**
+     * @return Configuration block for the broker nodes of the Kafka cluster.
+     * 
+     */
+    private List<GetClusterBrokerNodeGroupInfo> brokerNodeGroupInfos;
     private String clusterName;
     /**
      * @return UUID of the MSK cluster, for use in IAM policies.
@@ -146,6 +153,13 @@ public final class GetClusterResult {
     public String bootstrapBrokersTls() {
         return this.bootstrapBrokersTls;
     }
+    /**
+     * @return Configuration block for the broker nodes of the Kafka cluster.
+     * 
+     */
+    public List<GetClusterBrokerNodeGroupInfo> brokerNodeGroupInfos() {
+        return this.brokerNodeGroupInfos;
+    }
     public String clusterName() {
         return this.clusterName;
     }
@@ -216,6 +230,7 @@ public final class GetClusterResult {
         private String bootstrapBrokersSaslIam;
         private String bootstrapBrokersSaslScram;
         private String bootstrapBrokersTls;
+        private List<GetClusterBrokerNodeGroupInfo> brokerNodeGroupInfos;
         private String clusterName;
         private String clusterUuid;
         private String id;
@@ -235,6 +250,7 @@ public final class GetClusterResult {
     	      this.bootstrapBrokersSaslIam = defaults.bootstrapBrokersSaslIam;
     	      this.bootstrapBrokersSaslScram = defaults.bootstrapBrokersSaslScram;
     	      this.bootstrapBrokersTls = defaults.bootstrapBrokersTls;
+    	      this.brokerNodeGroupInfos = defaults.brokerNodeGroupInfos;
     	      this.clusterName = defaults.clusterName;
     	      this.clusterUuid = defaults.clusterUuid;
     	      this.id = defaults.id;
@@ -310,6 +326,17 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder brokerNodeGroupInfos(List<GetClusterBrokerNodeGroupInfo> brokerNodeGroupInfos) {
+            if (brokerNodeGroupInfos == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "brokerNodeGroupInfos");
+            }
+            this.brokerNodeGroupInfos = brokerNodeGroupInfos;
+            return this;
+        }
+        public Builder brokerNodeGroupInfos(GetClusterBrokerNodeGroupInfo... brokerNodeGroupInfos) {
+            return brokerNodeGroupInfos(List.of(brokerNodeGroupInfos));
+        }
+        @CustomType.Setter
         public Builder clusterName(String clusterName) {
             if (clusterName == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "clusterName");
@@ -383,6 +410,7 @@ public final class GetClusterResult {
             _resultValue.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
             _resultValue.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
             _resultValue.bootstrapBrokersTls = bootstrapBrokersTls;
+            _resultValue.brokerNodeGroupInfos = brokerNodeGroupInfos;
             _resultValue.clusterName = clusterName;
             _resultValue.clusterUuid = clusterUuid;
             _resultValue.id = id;

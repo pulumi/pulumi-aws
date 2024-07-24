@@ -47,6 +47,9 @@ __all__ = [
     'TargetGroupHealthCheck',
     'TargetGroupStickiness',
     'TargetGroupTargetFailover',
+    'TargetGroupTargetGroupHealth',
+    'TargetGroupTargetGroupHealthDnsFailover',
+    'TargetGroupTargetGroupHealthUnhealthyStateRouting',
     'TargetGroupTargetHealthState',
     'GetListenerDefaultActionResult',
     'GetListenerDefaultActionAuthenticateCognitoResult',
@@ -2247,6 +2250,156 @@ class TargetGroupTargetFailover(dict):
         Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
         """
         return pulumi.get(self, "on_unhealthy")
+
+
+@pulumi.output_type
+class TargetGroupTargetGroupHealth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsFailover":
+            suggest = "dns_failover"
+        elif key == "unhealthyStateRouting":
+            suggest = "unhealthy_state_routing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupTargetGroupHealth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupTargetGroupHealth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupTargetGroupHealth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_failover: Optional['outputs.TargetGroupTargetGroupHealthDnsFailover'] = None,
+                 unhealthy_state_routing: Optional['outputs.TargetGroupTargetGroupHealthUnhealthyStateRouting'] = None):
+        """
+        :param 'TargetGroupTargetGroupHealthDnsFailoverArgs' dns_failover: Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+        :param 'TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs' unhealthy_state_routing: Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+        """
+        if dns_failover is not None:
+            pulumi.set(__self__, "dns_failover", dns_failover)
+        if unhealthy_state_routing is not None:
+            pulumi.set(__self__, "unhealthy_state_routing", unhealthy_state_routing)
+
+    @property
+    @pulumi.getter(name="dnsFailover")
+    def dns_failover(self) -> Optional['outputs.TargetGroupTargetGroupHealthDnsFailover']:
+        """
+        Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+        """
+        return pulumi.get(self, "dns_failover")
+
+    @property
+    @pulumi.getter(name="unhealthyStateRouting")
+    def unhealthy_state_routing(self) -> Optional['outputs.TargetGroupTargetGroupHealthUnhealthyStateRouting']:
+        """
+        Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+        """
+        return pulumi.get(self, "unhealthy_state_routing")
+
+
+@pulumi.output_type
+class TargetGroupTargetGroupHealthDnsFailover(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumHealthyTargetsCount":
+            suggest = "minimum_healthy_targets_count"
+        elif key == "minimumHealthyTargetsPercentage":
+            suggest = "minimum_healthy_targets_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupTargetGroupHealthDnsFailover. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupTargetGroupHealthDnsFailover.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupTargetGroupHealthDnsFailover.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum_healthy_targets_count: Optional[str] = None,
+                 minimum_healthy_targets_percentage: Optional[str] = None):
+        """
+        :param str minimum_healthy_targets_count: The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+        :param str minimum_healthy_targets_percentage: The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+        """
+        if minimum_healthy_targets_count is not None:
+            pulumi.set(__self__, "minimum_healthy_targets_count", minimum_healthy_targets_count)
+        if minimum_healthy_targets_percentage is not None:
+            pulumi.set(__self__, "minimum_healthy_targets_percentage", minimum_healthy_targets_percentage)
+
+    @property
+    @pulumi.getter(name="minimumHealthyTargetsCount")
+    def minimum_healthy_targets_count(self) -> Optional[str]:
+        """
+        The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+        """
+        return pulumi.get(self, "minimum_healthy_targets_count")
+
+    @property
+    @pulumi.getter(name="minimumHealthyTargetsPercentage")
+    def minimum_healthy_targets_percentage(self) -> Optional[str]:
+        """
+        The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+        """
+        return pulumi.get(self, "minimum_healthy_targets_percentage")
+
+
+@pulumi.output_type
+class TargetGroupTargetGroupHealthUnhealthyStateRouting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumHealthyTargetsCount":
+            suggest = "minimum_healthy_targets_count"
+        elif key == "minimumHealthyTargetsPercentage":
+            suggest = "minimum_healthy_targets_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupTargetGroupHealthUnhealthyStateRouting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupTargetGroupHealthUnhealthyStateRouting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupTargetGroupHealthUnhealthyStateRouting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum_healthy_targets_count: Optional[int] = None,
+                 minimum_healthy_targets_percentage: Optional[str] = None):
+        """
+        :param int minimum_healthy_targets_count: The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+        :param str minimum_healthy_targets_percentage: The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+        """
+        if minimum_healthy_targets_count is not None:
+            pulumi.set(__self__, "minimum_healthy_targets_count", minimum_healthy_targets_count)
+        if minimum_healthy_targets_percentage is not None:
+            pulumi.set(__self__, "minimum_healthy_targets_percentage", minimum_healthy_targets_percentage)
+
+    @property
+    @pulumi.getter(name="minimumHealthyTargetsCount")
+    def minimum_healthy_targets_count(self) -> Optional[int]:
+        """
+        The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+        """
+        return pulumi.get(self, "minimum_healthy_targets_count")
+
+    @property
+    @pulumi.getter(name="minimumHealthyTargetsPercentage")
+    def minimum_healthy_targets_percentage(self) -> Optional[str]:
+        """
+        The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+        """
+        return pulumi.get(self, "minimum_healthy_targets_percentage")
 
 
 @pulumi.output_type

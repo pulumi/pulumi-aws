@@ -14,11 +14,13 @@ import javax.annotation.Nullable;
 public final class AgentAgentActionGroupApiSchema {
     /**
      * @return JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+     * Only one of `payload` or `s3` can be specified.
      * 
      */
     private @Nullable String payload;
     /**
-     * @return Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+     * @return Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+     * Only one of `s3` or `payload` can be specified.
      * 
      */
     private @Nullable AgentAgentActionGroupApiSchemaS3 s3;
@@ -26,13 +28,15 @@ public final class AgentAgentActionGroupApiSchema {
     private AgentAgentActionGroupApiSchema() {}
     /**
      * @return JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+     * Only one of `payload` or `s3` can be specified.
      * 
      */
     public Optional<String> payload() {
         return Optional.ofNullable(this.payload);
     }
     /**
-     * @return Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+     * @return Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+     * Only one of `s3` or `payload` can be specified.
      * 
      */
     public Optional<AgentAgentActionGroupApiSchemaS3> s3() {

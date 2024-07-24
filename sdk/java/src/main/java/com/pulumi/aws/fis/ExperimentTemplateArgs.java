@@ -4,6 +4,7 @@
 package com.pulumi.aws.fis;
 
 import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
+import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentOptionsArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateLogConfigurationArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
@@ -50,6 +51,21 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
      */
     public Output<String> description() {
         return this.description;
+    }
+
+    /**
+     * The experiment options for the experiment template. See experiment_options below for more details!
+     * 
+     */
+    @Import(name="experimentOptions")
+    private @Nullable Output<ExperimentTemplateExperimentOptionsArgs> experimentOptions;
+
+    /**
+     * @return The experiment options for the experiment template. See experiment_options below for more details!
+     * 
+     */
+    public Optional<Output<ExperimentTemplateExperimentOptionsArgs>> experimentOptions() {
+        return Optional.ofNullable(this.experimentOptions);
     }
 
     /**
@@ -136,6 +152,7 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
     private ExperimentTemplateArgs(ExperimentTemplateArgs $) {
         this.actions = $.actions;
         this.description = $.description;
+        this.experimentOptions = $.experimentOptions;
         this.logConfiguration = $.logConfiguration;
         this.roleArn = $.roleArn;
         this.stopConditions = $.stopConditions;
@@ -211,6 +228,27 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param experimentOptions The experiment options for the experiment template. See experiment_options below for more details!
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentOptions(@Nullable Output<ExperimentTemplateExperimentOptionsArgs> experimentOptions) {
+            $.experimentOptions = experimentOptions;
+            return this;
+        }
+
+        /**
+         * @param experimentOptions The experiment options for the experiment template. See experiment_options below for more details!
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentOptions(ExperimentTemplateExperimentOptionsArgs experimentOptions) {
+            return experimentOptions(Output.of(experimentOptions));
         }
 
         /**

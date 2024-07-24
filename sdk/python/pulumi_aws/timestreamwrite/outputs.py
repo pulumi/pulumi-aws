@@ -22,6 +22,12 @@ __all__ = [
     'TableRetentionProperties',
     'TableSchema',
     'TableSchemaCompositePartitionKey',
+    'GetTableMagneticStoreWritePropertyResult',
+    'GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationResult',
+    'GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult',
+    'GetTableRetentionPropertyResult',
+    'GetTableSchemaResult',
+    'GetTableSchemaCompositePartitionKeyResult',
 ]
 
 @pulumi.output_type
@@ -329,5 +335,176 @@ class TableSchemaCompositePartitionKey(dict):
         The name of the attribute used for a dimension key.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetTableMagneticStoreWritePropertyResult(dict):
+    def __init__(__self__, *,
+                 enable_magnetic_store_writes: bool,
+                 magnetic_store_rejected_data_locations: Sequence['outputs.GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationResult']):
+        """
+        :param bool enable_magnetic_store_writes: Flag that is set based on if magnetic store writes are enabled.
+        :param Sequence['GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArgs'] magnetic_store_rejected_data_locations: Object containing the following attributes to describe error reports for records rejected during magnetic store writes.
+        """
+        pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
+        pulumi.set(__self__, "magnetic_store_rejected_data_locations", magnetic_store_rejected_data_locations)
+
+    @property
+    @pulumi.getter(name="enableMagneticStoreWrites")
+    def enable_magnetic_store_writes(self) -> bool:
+        """
+        Flag that is set based on if magnetic store writes are enabled.
+        """
+        return pulumi.get(self, "enable_magnetic_store_writes")
+
+    @property
+    @pulumi.getter(name="magneticStoreRejectedDataLocations")
+    def magnetic_store_rejected_data_locations(self) -> Sequence['outputs.GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationResult']:
+        """
+        Object containing the following attributes to describe error reports for records rejected during magnetic store writes.
+        """
+        return pulumi.get(self, "magnetic_store_rejected_data_locations")
+
+
+@pulumi.output_type
+class GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationResult(dict):
+    def __init__(__self__, *,
+                 s3_configurations: Sequence['outputs.GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult']):
+        """
+        :param Sequence['GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs'] s3_configurations: Object containing the following attributes to describe the configuration of an s3 location to write error reports for records rejected.
+        """
+        pulumi.set(__self__, "s3_configurations", s3_configurations)
+
+    @property
+    @pulumi.getter(name="s3Configurations")
+    def s3_configurations(self) -> Sequence['outputs.GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult']:
+        """
+        Object containing the following attributes to describe the configuration of an s3 location to write error reports for records rejected.
+        """
+        return pulumi.get(self, "s3_configurations")
+
+
+@pulumi.output_type
+class GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult(dict):
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 encryption_option: str,
+                 kms_key_id: str,
+                 object_key_prefix: str):
+        """
+        :param str bucket_name: Name of S3 bucket.
+        :param str kms_key_id: AWS KMS key ID for S3 location with AWS maanged key.
+        :param str object_key_prefix: Object key preview for S3 location.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "encryption_option", encryption_option)
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "object_key_prefix", object_key_prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        Name of S3 bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="encryptionOption")
+    def encryption_option(self) -> str:
+        return pulumi.get(self, "encryption_option")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> str:
+        """
+        AWS KMS key ID for S3 location with AWS maanged key.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="objectKeyPrefix")
+    def object_key_prefix(self) -> str:
+        """
+        Object key preview for S3 location.
+        """
+        return pulumi.get(self, "object_key_prefix")
+
+
+@pulumi.output_type
+class GetTableRetentionPropertyResult(dict):
+    def __init__(__self__, *,
+                 magnetic_store_retention_period_in_days: int,
+                 memory_store_retention_period_in_hours: int):
+        """
+        :param int magnetic_store_retention_period_in_days: Duration in days in which the data must be stored in magnetic store.
+        :param int memory_store_retention_period_in_hours: Duration in hours in which the data must be stored in memory store.
+        """
+        pulumi.set(__self__, "magnetic_store_retention_period_in_days", magnetic_store_retention_period_in_days)
+        pulumi.set(__self__, "memory_store_retention_period_in_hours", memory_store_retention_period_in_hours)
+
+    @property
+    @pulumi.getter(name="magneticStoreRetentionPeriodInDays")
+    def magnetic_store_retention_period_in_days(self) -> int:
+        """
+        Duration in days in which the data must be stored in magnetic store.
+        """
+        return pulumi.get(self, "magnetic_store_retention_period_in_days")
+
+    @property
+    @pulumi.getter(name="memoryStoreRetentionPeriodInHours")
+    def memory_store_retention_period_in_hours(self) -> int:
+        """
+        Duration in hours in which the data must be stored in memory store.
+        """
+        return pulumi.get(self, "memory_store_retention_period_in_hours")
+
+
+@pulumi.output_type
+class GetTableSchemaResult(dict):
+    def __init__(__self__, *,
+                 composite_partition_keys: Sequence['outputs.GetTableSchemaCompositePartitionKeyResult']):
+        pulumi.set(__self__, "composite_partition_keys", composite_partition_keys)
+
+    @property
+    @pulumi.getter(name="compositePartitionKeys")
+    def composite_partition_keys(self) -> Sequence['outputs.GetTableSchemaCompositePartitionKeyResult']:
+        return pulumi.get(self, "composite_partition_keys")
+
+
+@pulumi.output_type
+class GetTableSchemaCompositePartitionKeyResult(dict):
+    def __init__(__self__, *,
+                 enforcement_in_record: str,
+                 name: str,
+                 type: str):
+        """
+        :param str name: Name of the Timestream table.
+        :param str type: Type of partition key.
+        """
+        pulumi.set(__self__, "enforcement_in_record", enforcement_in_record)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="enforcementInRecord")
+    def enforcement_in_record(self) -> str:
+        return pulumi.get(self, "enforcement_in_record")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Timestream table.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of partition key.
+        """
+        return pulumi.get(self, "type")
 
 

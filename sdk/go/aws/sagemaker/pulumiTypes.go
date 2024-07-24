@@ -22550,15 +22550,15 @@ func (o SpaceOwnershipSettingsPtrOutput) OwnerUserProfileName() pulumi.StringPtr
 type SpaceSpaceSettings struct {
 	// The type of app created within the space.
 	AppType *string `pulumi:"appType"`
-	// The Code Editor application settings. See Code Editor App Settings below.
+	// The Code Editor application settings. See `codeEditorAppSettings` Block below.
 	CodeEditorAppSettings *SpaceSpaceSettingsCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
-	// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+	// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `customFileSystem` Block below.
 	CustomFileSystems []SpaceSpaceSettingsCustomFileSystem `pulumi:"customFileSystems"`
-	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	// The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
 	JupyterLabAppSettings *SpaceSpaceSettingsJupyterLabAppSettings `pulumi:"jupyterLabAppSettings"`
-	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 	JupyterServerAppSettings *SpaceSpaceSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
-	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings *SpaceSpaceSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
 	SpaceStorageSettings     *SpaceSpaceSettingsSpaceStorageSettings     `pulumi:"spaceStorageSettings"`
 }
@@ -22577,15 +22577,15 @@ type SpaceSpaceSettingsInput interface {
 type SpaceSpaceSettingsArgs struct {
 	// The type of app created within the space.
 	AppType pulumi.StringPtrInput `pulumi:"appType"`
-	// The Code Editor application settings. See Code Editor App Settings below.
+	// The Code Editor application settings. See `codeEditorAppSettings` Block below.
 	CodeEditorAppSettings SpaceSpaceSettingsCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
-	// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+	// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `customFileSystem` Block below.
 	CustomFileSystems SpaceSpaceSettingsCustomFileSystemArrayInput `pulumi:"customFileSystems"`
-	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	// The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
 	JupyterLabAppSettings SpaceSpaceSettingsJupyterLabAppSettingsPtrInput `pulumi:"jupyterLabAppSettings"`
-	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 	JupyterServerAppSettings SpaceSpaceSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
-	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings SpaceSpaceSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
 	SpaceStorageSettings     SpaceSpaceSettingsSpaceStorageSettingsPtrInput     `pulumi:"spaceStorageSettings"`
 }
@@ -22672,29 +22672,29 @@ func (o SpaceSpaceSettingsOutput) AppType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) *string { return v.AppType }).(pulumi.StringPtrOutput)
 }
 
-// The Code Editor application settings. See Code Editor App Settings below.
+// The Code Editor application settings. See `codeEditorAppSettings` Block below.
 func (o SpaceSpaceSettingsOutput) CodeEditorAppSettings() SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsCodeEditorAppSettings { return v.CodeEditorAppSettings }).(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput)
 }
 
-// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `customFileSystem` Block below.
 func (o SpaceSpaceSettingsOutput) CustomFileSystems() SpaceSpaceSettingsCustomFileSystemArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) []SpaceSpaceSettingsCustomFileSystem { return v.CustomFileSystems }).(SpaceSpaceSettingsCustomFileSystemArrayOutput)
 }
 
-// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+// The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
 func (o SpaceSpaceSettingsOutput) JupyterLabAppSettings() SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsJupyterLabAppSettings { return v.JupyterLabAppSettings }).(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput)
 }
 
-// The Jupyter server's app settings. See Jupyter Server App Settings below.
+// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 func (o SpaceSpaceSettingsOutput) JupyterServerAppSettings() SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsJupyterServerAppSettings {
 		return v.JupyterServerAppSettings
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
-// The kernel gateway app settings. See Kernel Gateway App Settings below.
+// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 func (o SpaceSpaceSettingsOutput) KernelGatewayAppSettings() SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
@@ -22739,7 +22739,7 @@ func (o SpaceSpaceSettingsPtrOutput) AppType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Code Editor application settings. See Code Editor App Settings below.
+// The Code Editor application settings. See `codeEditorAppSettings` Block below.
 func (o SpaceSpaceSettingsPtrOutput) CodeEditorAppSettings() SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsCodeEditorAppSettings {
 		if v == nil {
@@ -22749,7 +22749,7 @@ func (o SpaceSpaceSettingsPtrOutput) CodeEditorAppSettings() SpaceSpaceSettingsC
 	}).(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput)
 }
 
-// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `customFileSystem` Block below.
 func (o SpaceSpaceSettingsPtrOutput) CustomFileSystems() SpaceSpaceSettingsCustomFileSystemArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettings) []SpaceSpaceSettingsCustomFileSystem {
 		if v == nil {
@@ -22759,7 +22759,7 @@ func (o SpaceSpaceSettingsPtrOutput) CustomFileSystems() SpaceSpaceSettingsCusto
 	}).(SpaceSpaceSettingsCustomFileSystemArrayOutput)
 }
 
-// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+// The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
 func (o SpaceSpaceSettingsPtrOutput) JupyterLabAppSettings() SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsJupyterLabAppSettings {
 		if v == nil {
@@ -22769,7 +22769,7 @@ func (o SpaceSpaceSettingsPtrOutput) JupyterLabAppSettings() SpaceSpaceSettingsJ
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput)
 }
 
-// The Jupyter server's app settings. See Jupyter Server App Settings below.
+// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 func (o SpaceSpaceSettingsPtrOutput) JupyterServerAppSettings() SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsJupyterServerAppSettings {
 		if v == nil {
@@ -22779,7 +22779,7 @@ func (o SpaceSpaceSettingsPtrOutput) JupyterServerAppSettings() SpaceSpaceSettin
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
-// The kernel gateway app settings. See Kernel Gateway App Settings below.
+// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 func (o SpaceSpaceSettingsPtrOutput) KernelGatewayAppSettings() SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsKernelGatewayAppSettings {
 		if v == nil {
@@ -22799,7 +22799,7 @@ func (o SpaceSpaceSettingsPtrOutput) SpaceStorageSettings() SpaceSpaceSettingsSp
 }
 
 type SpaceSpaceSettingsCodeEditorAppSettings struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -22815,7 +22815,7 @@ type SpaceSpaceSettingsCodeEditorAppSettingsInput interface {
 }
 
 type SpaceSpaceSettingsCodeEditorAppSettingsArgs struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -22896,7 +22896,7 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) ToSpaceSpaceSettingsCodeE
 	}).(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettings) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -22927,7 +22927,7 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) Elem() SpaceSpaceSetti
 	}).(SpaceSpaceSettingsCodeEditorAppSettingsOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettings) *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -23157,7 +23157,7 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) Sag
 }
 
 type SpaceSpaceSettingsCustomFileSystem struct {
-	// A custom file system in Amazon EFS. see EFS File System below.
+	// A custom file system in Amazon EFS. See `efsFileSystem` Block below.
 	EfsFileSystem SpaceSpaceSettingsCustomFileSystemEfsFileSystem `pulumi:"efsFileSystem"`
 }
 
@@ -23173,7 +23173,7 @@ type SpaceSpaceSettingsCustomFileSystemInput interface {
 }
 
 type SpaceSpaceSettingsCustomFileSystemArgs struct {
-	// A custom file system in Amazon EFS. see EFS File System below.
+	// A custom file system in Amazon EFS. See `efsFileSystem` Block below.
 	EfsFileSystem SpaceSpaceSettingsCustomFileSystemEfsFileSystemInput `pulumi:"efsFileSystem"`
 }
 
@@ -23228,7 +23228,7 @@ func (o SpaceSpaceSettingsCustomFileSystemOutput) ToSpaceSpaceSettingsCustomFile
 	return o
 }
 
-// A custom file system in Amazon EFS. see EFS File System below.
+// A custom file system in Amazon EFS. See `efsFileSystem` Block below.
 func (o SpaceSpaceSettingsCustomFileSystemOutput) EfsFileSystem() SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsCustomFileSystem) SpaceSpaceSettingsCustomFileSystemEfsFileSystem {
 		return v.EfsFileSystem
@@ -23308,9 +23308,9 @@ func (o SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput) FileSystemId() pu
 }
 
 type SpaceSpaceSettingsJupyterLabAppSettings struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 	CodeRepositories []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -23326,9 +23326,9 @@ type SpaceSpaceSettingsJupyterLabAppSettingsInput interface {
 }
 
 type SpaceSpaceSettingsJupyterLabAppSettingsArgs struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 	CodeRepositories SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -23409,14 +23409,14 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) ToSpaceSpaceSettingsJupyt
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) CodeRepositories() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettings) []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
 		return v.CodeRepositories
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettings) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -23447,7 +23447,7 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) Elem() SpaceSpaceSetti
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettings) []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
 		if v == nil {
@@ -23457,7 +23457,7 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() Spa
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettings) *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -23784,9 +23784,9 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) Sag
 }
 
 type SpaceSpaceSettingsJupyterServerAppSettings struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 	CodeRepositories []SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
@@ -23804,9 +23804,9 @@ type SpaceSpaceSettingsJupyterServerAppSettingsInput interface {
 }
 
 type SpaceSpaceSettingsJupyterServerAppSettingsArgs struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 	CodeRepositories SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
@@ -23889,14 +23889,14 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) ToSpaceSpaceSettingsJu
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) CodeRepositories() SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettings) []SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository {
 		return v.CodeRepositories
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettings) SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -23932,7 +23932,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) Elem() SpaceSpaceSe
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettings) []SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository {
 		if v == nil {
@@ -23942,7 +23942,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() 
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettings) *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -24281,9 +24281,9 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 }
 
 type SpaceSpaceSettingsKernelGatewayAppSettings struct {
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. See `customImage` Block below.
 	CustomImages []SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
@@ -24301,9 +24301,9 @@ type SpaceSpaceSettingsKernelGatewayAppSettingsInput interface {
 }
 
 type SpaceSpaceSettingsKernelGatewayAppSettingsArgs struct {
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. See `customImage` Block below.
 	CustomImages SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
@@ -24386,14 +24386,14 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) ToSpaceSpaceSettingsKe
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. See `customImage` Block below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) CustomImages() SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettings) []SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage {
 		return v.CustomImages
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettings) SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -24429,7 +24429,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) Elem() SpaceSpaceSe
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. See `customImage` Block below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettings) []SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage {
 		if v == nil {
@@ -24439,7 +24439,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() Spac
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettings) *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {

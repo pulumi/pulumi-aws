@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
     /**
-     * @return Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+     * @return Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
      * 
      */
     private @Nullable Boolean cloudWatchEncryptionEnabled;
@@ -23,24 +23,24 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
      */
     private @Nullable String cloudWatchLogGroupName;
     /**
-     * @return Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+     * @return Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
      * 
      */
     private @Nullable Boolean s3BucketEncryptionEnabled;
     /**
-     * @return The name of the S3 bucket to send logs to.
+     * @return Name of the S3 bucket to send logs to.
      * 
      */
     private @Nullable String s3BucketName;
     /**
-     * @return An optional folder in the S3 bucket to place logs in.
+     * @return Optional folder in the S3 bucket to place logs in.
      * 
      */
     private @Nullable String s3KeyPrefix;
 
     private ClusterConfigurationExecuteCommandConfigurationLogConfiguration() {}
     /**
-     * @return Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+     * @return Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
      * 
      */
     public Optional<Boolean> cloudWatchEncryptionEnabled() {
@@ -54,21 +54,21 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         return Optional.ofNullable(this.cloudWatchLogGroupName);
     }
     /**
-     * @return Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+     * @return Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
      * 
      */
     public Optional<Boolean> s3BucketEncryptionEnabled() {
         return Optional.ofNullable(this.s3BucketEncryptionEnabled);
     }
     /**
-     * @return The name of the S3 bucket to send logs to.
+     * @return Name of the S3 bucket to send logs to.
      * 
      */
     public Optional<String> s3BucketName() {
         return Optional.ofNullable(this.s3BucketName);
     }
     /**
-     * @return An optional folder in the S3 bucket to place logs in.
+     * @return Optional folder in the S3 bucket to place logs in.
      * 
      */
     public Optional<String> s3KeyPrefix() {

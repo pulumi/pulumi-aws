@@ -13,6 +13,28 @@ import * as utilities from "../utilities";
  * > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `capacityBlockOfferingId` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [EC2 Capacity Block Reservation Documentation](https://aws.amazon.com/ec2/instance-types/p5/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-blocks-pricing-billing.html).
  *
  * > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.ec2.getCapacityBlockOffering({
+ *     capacityDurationHours: 24,
+ *     endDateRange: "2024-05-30T15:04:05Z",
+ *     instanceCount: 1,
+ *     instanceType: "p4d.24xlarge",
+ *     startDateRange: "2024-04-28T15:04:05Z",
+ * });
+ * const example = new aws.ec2.CapacityBlockReservation("example", {
+ *     capacityBlockOfferingId: test.then(test => test.capacityBlockOfferingId),
+ *     instancePlatform: "Linux/UNIX",
+ *     tags: {
+ *         Environment: "dev",
+ *     },
+ * });
+ * ```
  */
 export class CapacityBlockReservation extends pulumi.CustomResource {
     /**

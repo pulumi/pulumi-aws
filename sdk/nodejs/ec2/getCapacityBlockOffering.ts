@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a single EC2 Capacity Block Offering.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getCapacityBlockOffering({
+ *     capacityDurationHours: 24,
+ *     endDateRange: "2024-05-30T15:04:05Z",
+ *     instanceCount: 1,
+ *     instanceType: "p4d.24xlarge",
+ *     startDateRange: "2024-04-28T15:04:05Z",
+ * });
+ * ```
  */
 export function getCapacityBlockOffering(args: GetCapacityBlockOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityBlockOfferingResult> {
 
@@ -81,6 +96,21 @@ export interface GetCapacityBlockOfferingResult {
 }
 /**
  * Information about a single EC2 Capacity Block Offering.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getCapacityBlockOffering({
+ *     capacityDurationHours: 24,
+ *     endDateRange: "2024-05-30T15:04:05Z",
+ *     instanceCount: 1,
+ *     instanceType: "p4d.24xlarge",
+ *     startDateRange: "2024-04-28T15:04:05Z",
+ * });
+ * ```
  */
 export function getCapacityBlockOfferingOutput(args: GetCapacityBlockOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityBlockOfferingResult> {
     return pulumi.output(args).apply((a: any) => getCapacityBlockOffering(a, opts))

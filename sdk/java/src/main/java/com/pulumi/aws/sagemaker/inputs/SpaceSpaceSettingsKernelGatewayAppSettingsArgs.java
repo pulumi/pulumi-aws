@@ -20,14 +20,14 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsArgs extends com.pu
     public static final SpaceSpaceSettingsKernelGatewayAppSettingsArgs Empty = new SpaceSpaceSettingsKernelGatewayAppSettingsArgs();
 
     /**
-     * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
      * 
      */
     @Import(name="customImages")
     private @Nullable Output<List<SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs>> customImages;
 
     /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
      * 
      */
     public Optional<Output<List<SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs>>> customImages() {
@@ -35,14 +35,14 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsArgs extends com.pu
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     @Import(name="defaultResourceSpec", required=true)
     private Output<SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     public Output<SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec() {
@@ -91,7 +91,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
          * 
          * @return builder
          * 

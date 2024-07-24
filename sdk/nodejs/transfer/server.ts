@@ -130,6 +130,8 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * In Terraform v1.5.0 and later, use an `import` Block to import Transfer Servers using the server `id`. For example:
+ *
  * Using `pulumi import`, import Transfer Servers using the server `id`. For example:
  *
  * ```sh
@@ -186,7 +188,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      */
     public readonly endpointDetails!: pulumi.Output<outputs.transfer.ServerEndpointDetails | undefined>;
     /**
@@ -230,7 +232,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly preAuthenticationLoginBanner!: pulumi.Output<string | undefined>;
     /**
-     * The protocol settings that are configured for your server. See `protocolDetails` block below for details.
+     * The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
      */
     public readonly protocolDetails!: pulumi.Output<outputs.transfer.ServerProtocolDetails>;
     /**
@@ -242,21 +244,26 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
+     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      */
     public readonly s3StorageOptions!: pulumi.Output<outputs.transfer.ServerS3StorageOptions>;
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2020-06`
      * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2024-01`
      * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2024-05`
      * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+     * * `TransferSecurityPolicy-Restricted-2018-11`
+     * * `TransferSecurityPolicy-Restricted-2020-06`
+     *
+     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      */
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     /**
@@ -282,7 +289,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly url!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the workflow details. See `workflowDetails` block below for details.
+     * Specifies the workflow details. See `workflowDetails` Block below for details.
      */
     public readonly workflowDetails!: pulumi.Output<outputs.transfer.ServerWorkflowDetails | undefined>;
 
@@ -386,7 +393,7 @@ export interface ServerState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      */
     endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails>;
     /**
@@ -430,7 +437,7 @@ export interface ServerState {
      */
     preAuthenticationLoginBanner?: pulumi.Input<string>;
     /**
-     * The protocol settings that are configured for your server. See `protocolDetails` block below for details.
+     * The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
      */
     protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetails>;
     /**
@@ -442,21 +449,26 @@ export interface ServerState {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
+     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      */
     s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptions>;
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2020-06`
      * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2024-01`
      * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2024-05`
      * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+     * * `TransferSecurityPolicy-Restricted-2018-11`
+     * * `TransferSecurityPolicy-Restricted-2020-06`
+     *
+     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      */
     securityPolicyName?: pulumi.Input<string>;
     /**
@@ -482,7 +494,7 @@ export interface ServerState {
      */
     url?: pulumi.Input<string>;
     /**
-     * Specifies the workflow details. See `workflowDetails` block below for details.
+     * Specifies the workflow details. See `workflowDetails` Block below for details.
      */
     workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetails>;
 }
@@ -504,7 +516,7 @@ export interface ServerArgs {
      */
     domain?: pulumi.Input<string>;
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      */
     endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails>;
     /**
@@ -544,7 +556,7 @@ export interface ServerArgs {
      */
     preAuthenticationLoginBanner?: pulumi.Input<string>;
     /**
-     * The protocol settings that are configured for your server. See `protocolDetails` block below for details.
+     * The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
      */
     protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetails>;
     /**
@@ -556,21 +568,26 @@ export interface ServerArgs {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
+     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      */
     s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptions>;
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2020-06`
      * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2024-01`
      * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2024-05`
      * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+     * * `TransferSecurityPolicy-Restricted-2018-11`
+     * * `TransferSecurityPolicy-Restricted-2020-06`
+     *
+     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      */
     securityPolicyName?: pulumi.Input<string>;
     /**
@@ -590,7 +607,7 @@ export interface ServerArgs {
      */
     url?: pulumi.Input<string>;
     /**
-     * Specifies the workflow details. See `workflowDetails` block below for details.
+     * Specifies the workflow details. See `workflowDetails` Block below for details.
      */
     workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetails>;
 }

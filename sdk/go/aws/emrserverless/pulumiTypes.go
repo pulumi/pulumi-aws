@@ -884,6 +884,162 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type ApplicationInteractiveConfiguration struct {
+	// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
+	LivyEndpointEnabled *bool `pulumi:"livyEndpointEnabled"`
+	// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
+	StudioEnabled *bool `pulumi:"studioEnabled"`
+}
+
+// ApplicationInteractiveConfigurationInput is an input type that accepts ApplicationInteractiveConfigurationArgs and ApplicationInteractiveConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationInteractiveConfigurationInput` via:
+//
+//	ApplicationInteractiveConfigurationArgs{...}
+type ApplicationInteractiveConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationInteractiveConfigurationOutput() ApplicationInteractiveConfigurationOutput
+	ToApplicationInteractiveConfigurationOutputWithContext(context.Context) ApplicationInteractiveConfigurationOutput
+}
+
+type ApplicationInteractiveConfigurationArgs struct {
+	// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
+	LivyEndpointEnabled pulumi.BoolPtrInput `pulumi:"livyEndpointEnabled"`
+	// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
+	StudioEnabled pulumi.BoolPtrInput `pulumi:"studioEnabled"`
+}
+
+func (ApplicationInteractiveConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInteractiveConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationInteractiveConfigurationArgs) ToApplicationInteractiveConfigurationOutput() ApplicationInteractiveConfigurationOutput {
+	return i.ToApplicationInteractiveConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationInteractiveConfigurationArgs) ToApplicationInteractiveConfigurationOutputWithContext(ctx context.Context) ApplicationInteractiveConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInteractiveConfigurationOutput)
+}
+
+func (i ApplicationInteractiveConfigurationArgs) ToApplicationInteractiveConfigurationPtrOutput() ApplicationInteractiveConfigurationPtrOutput {
+	return i.ToApplicationInteractiveConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationInteractiveConfigurationArgs) ToApplicationInteractiveConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInteractiveConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInteractiveConfigurationOutput).ToApplicationInteractiveConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationInteractiveConfigurationPtrInput is an input type that accepts ApplicationInteractiveConfigurationArgs, ApplicationInteractiveConfigurationPtr and ApplicationInteractiveConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationInteractiveConfigurationPtrInput` via:
+//
+//	        ApplicationInteractiveConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationInteractiveConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationInteractiveConfigurationPtrOutput() ApplicationInteractiveConfigurationPtrOutput
+	ToApplicationInteractiveConfigurationPtrOutputWithContext(context.Context) ApplicationInteractiveConfigurationPtrOutput
+}
+
+type applicationInteractiveConfigurationPtrType ApplicationInteractiveConfigurationArgs
+
+func ApplicationInteractiveConfigurationPtr(v *ApplicationInteractiveConfigurationArgs) ApplicationInteractiveConfigurationPtrInput {
+	return (*applicationInteractiveConfigurationPtrType)(v)
+}
+
+func (*applicationInteractiveConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInteractiveConfiguration)(nil)).Elem()
+}
+
+func (i *applicationInteractiveConfigurationPtrType) ToApplicationInteractiveConfigurationPtrOutput() ApplicationInteractiveConfigurationPtrOutput {
+	return i.ToApplicationInteractiveConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationInteractiveConfigurationPtrType) ToApplicationInteractiveConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInteractiveConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInteractiveConfigurationPtrOutput)
+}
+
+type ApplicationInteractiveConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInteractiveConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInteractiveConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationInteractiveConfigurationOutput) ToApplicationInteractiveConfigurationOutput() ApplicationInteractiveConfigurationOutput {
+	return o
+}
+
+func (o ApplicationInteractiveConfigurationOutput) ToApplicationInteractiveConfigurationOutputWithContext(ctx context.Context) ApplicationInteractiveConfigurationOutput {
+	return o
+}
+
+func (o ApplicationInteractiveConfigurationOutput) ToApplicationInteractiveConfigurationPtrOutput() ApplicationInteractiveConfigurationPtrOutput {
+	return o.ToApplicationInteractiveConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInteractiveConfigurationOutput) ToApplicationInteractiveConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInteractiveConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInteractiveConfiguration) *ApplicationInteractiveConfiguration {
+		return &v
+	}).(ApplicationInteractiveConfigurationPtrOutput)
+}
+
+// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
+func (o ApplicationInteractiveConfigurationOutput) LivyEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInteractiveConfiguration) *bool { return v.LivyEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
+func (o ApplicationInteractiveConfigurationOutput) StudioEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInteractiveConfiguration) *bool { return v.StudioEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationInteractiveConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInteractiveConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInteractiveConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationInteractiveConfigurationPtrOutput) ToApplicationInteractiveConfigurationPtrOutput() ApplicationInteractiveConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationInteractiveConfigurationPtrOutput) ToApplicationInteractiveConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInteractiveConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationInteractiveConfigurationPtrOutput) Elem() ApplicationInteractiveConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationInteractiveConfiguration) ApplicationInteractiveConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInteractiveConfiguration
+		return ret
+	}).(ApplicationInteractiveConfigurationOutput)
+}
+
+// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
+func (o ApplicationInteractiveConfigurationPtrOutput) LivyEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInteractiveConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LivyEndpointEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
+func (o ApplicationInteractiveConfigurationPtrOutput) StudioEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInteractiveConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StudioEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ApplicationMaximumCapacity struct {
 	// The maximum allowed CPU for an application.
 	Cpu string `pulumi:"cpu"`
@@ -1228,6 +1384,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityInitialCapacityConfigPtrInput)(nil)).Elem(), ApplicationInitialCapacityInitialCapacityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationInput)(nil)).Elem(), ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrInput)(nil)).Elem(), ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInteractiveConfigurationInput)(nil)).Elem(), ApplicationInteractiveConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInteractiveConfigurationPtrInput)(nil)).Elem(), ApplicationInteractiveConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumCapacityInput)(nil)).Elem(), ApplicationMaximumCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumCapacityPtrInput)(nil)).Elem(), ApplicationMaximumCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
@@ -1244,6 +1402,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInitialCapacityInitialCapacityConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInteractiveConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationInteractiveConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMaximumCapacityOutput{})
 	pulumi.RegisterOutputType(ApplicationMaximumCapacityPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationOutput{})

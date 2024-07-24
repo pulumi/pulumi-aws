@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .certificate import *
 from .cluster import *
 from .cluster_activity_stream import *
 from .cluster_endpoint import *

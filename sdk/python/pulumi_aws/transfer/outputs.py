@@ -556,8 +556,8 @@ class ServerWorkflowDetails(dict):
                  on_partial_upload: Optional['outputs.ServerWorkflowDetailsOnPartialUpload'] = None,
                  on_upload: Optional['outputs.ServerWorkflowDetailsOnUpload'] = None):
         """
-        :param 'ServerWorkflowDetailsOnPartialUploadArgs' on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
-        :param 'ServerWorkflowDetailsOnUploadArgs' on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        :param 'ServerWorkflowDetailsOnPartialUploadArgs' on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
+        :param 'ServerWorkflowDetailsOnUploadArgs' on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
         """
         if on_partial_upload is not None:
             pulumi.set(__self__, "on_partial_upload", on_partial_upload)
@@ -568,7 +568,7 @@ class ServerWorkflowDetails(dict):
     @pulumi.getter(name="onPartialUpload")
     def on_partial_upload(self) -> Optional['outputs.ServerWorkflowDetailsOnPartialUpload']:
         """
-        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
+        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
         """
         return pulumi.get(self, "on_partial_upload")
 
@@ -576,7 +576,7 @@ class ServerWorkflowDetails(dict):
     @pulumi.getter(name="onUpload")
     def on_upload(self) -> Optional['outputs.ServerWorkflowDetailsOnUpload']:
         """
-        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
         """
         return pulumi.get(self, "on_upload")
 

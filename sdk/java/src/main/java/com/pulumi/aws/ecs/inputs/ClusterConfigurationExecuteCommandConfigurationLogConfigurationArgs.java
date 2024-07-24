@@ -17,14 +17,14 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
     public static final ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs Empty = new ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs();
 
     /**
-     * Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+     * Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
      * 
      */
     @Import(name="cloudWatchEncryptionEnabled")
     private @Nullable Output<Boolean> cloudWatchEncryptionEnabled;
 
     /**
-     * @return Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+     * @return Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
      * 
      */
     public Optional<Output<Boolean>> cloudWatchEncryptionEnabled() {
@@ -47,14 +47,14 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
     }
 
     /**
-     * Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+     * Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
      * 
      */
     @Import(name="s3BucketEncryptionEnabled")
     private @Nullable Output<Boolean> s3BucketEncryptionEnabled;
 
     /**
-     * @return Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+     * @return Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
      * 
      */
     public Optional<Output<Boolean>> s3BucketEncryptionEnabled() {
@@ -62,14 +62,14 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
     }
 
     /**
-     * The name of the S3 bucket to send logs to.
+     * Name of the S3 bucket to send logs to.
      * 
      */
     @Import(name="s3BucketName")
     private @Nullable Output<String> s3BucketName;
 
     /**
-     * @return The name of the S3 bucket to send logs to.
+     * @return Name of the S3 bucket to send logs to.
      * 
      */
     public Optional<Output<String>> s3BucketName() {
@@ -77,14 +77,14 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
     }
 
     /**
-     * An optional folder in the S3 bucket to place logs in.
+     * Optional folder in the S3 bucket to place logs in.
      * 
      */
     @Import(name="s3KeyPrefix")
     private @Nullable Output<String> s3KeyPrefix;
 
     /**
-     * @return An optional folder in the S3 bucket to place logs in.
+     * @return Optional folder in the S3 bucket to place logs in.
      * 
      */
     public Optional<Output<String>> s3KeyPrefix() {
@@ -120,7 +120,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param cloudWatchEncryptionEnabled Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+         * @param cloudWatchEncryptionEnabled Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param cloudWatchEncryptionEnabled Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+         * @param cloudWatchEncryptionEnabled Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param s3BucketEncryptionEnabled Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+         * @param s3BucketEncryptionEnabled Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param s3BucketEncryptionEnabled Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+         * @param s3BucketEncryptionEnabled Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param s3BucketName The name of the S3 bucket to send logs to.
+         * @param s3BucketName Name of the S3 bucket to send logs to.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param s3BucketName The name of the S3 bucket to send logs to.
+         * @param s3BucketName Name of the S3 bucket to send logs to.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param s3KeyPrefix An optional folder in the S3 bucket to place logs in.
+         * @param s3KeyPrefix Optional folder in the S3 bucket to place logs in.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param s3KeyPrefix An optional folder in the S3 bucket to place logs in.
+         * @param s3KeyPrefix Optional folder in the S3 bucket to place logs in.
          * 
          * @return builder
          * 

@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         /// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         /// </summary>
         [Input("throughput")]
-        public Input<string>? Throughput { get; set; }
+        public Input<int>? Throughput { get; set; }
 
         /// <summary>
         /// Volume type.

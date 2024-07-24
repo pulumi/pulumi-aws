@@ -534,6 +534,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    @Import(name="engineLifecycleSupport")
+    private @Nullable Output<String> engineLifecycleSupport;
+
+    /**
+     * @return The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    public Optional<Output<String>> engineLifecycleSupport() {
+        return Optional.ofNullable(this.engineLifecycleSupport);
+    }
+
+    /**
      * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
@@ -1413,6 +1428,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.enabledCloudwatchLogsExports = $.enabledCloudwatchLogsExports;
         this.endpoint = $.endpoint;
         this.engine = $.engine;
+        this.engineLifecycleSupport = $.engineLifecycleSupport;
         this.engineVersion = $.engineVersion;
         this.engineVersionActual = $.engineVersionActual;
         this.finalSnapshotIdentifier = $.finalSnapshotIdentifier;
@@ -2186,6 +2202,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
+        }
+
+        /**
+         * @param engineLifecycleSupport The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engineLifecycleSupport(@Nullable Output<String> engineLifecycleSupport) {
+            $.engineLifecycleSupport = engineLifecycleSupport;
+            return this;
+        }
+
+        /**
+         * @param engineLifecycleSupport The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engineLifecycleSupport(String engineLifecycleSupport) {
+            return engineLifecycleSupport(Output.of(engineLifecycleSupport));
         }
 
         /**

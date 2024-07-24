@@ -76,7 +76,9 @@ type LookupClusterResult struct {
 	BootstrapBrokersSaslScram string `pulumi:"bootstrapBrokersSaslScram"`
 	// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
 	BootstrapBrokersTls string `pulumi:"bootstrapBrokersTls"`
-	ClusterName         string `pulumi:"clusterName"`
+	// Configuration block for the broker nodes of the Kafka cluster.
+	BrokerNodeGroupInfos []GetClusterBrokerNodeGroupInfo `pulumi:"brokerNodeGroupInfos"`
+	ClusterName          string                          `pulumi:"clusterName"`
 	// UUID of the MSK cluster, for use in IAM policies.
 	ClusterUuid string `pulumi:"clusterUuid"`
 	// The provider-assigned unique ID for this managed resource.
@@ -171,6 +173,11 @@ func (o LookupClusterResultOutput) BootstrapBrokersSaslScram() pulumi.StringOutp
 // One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
 func (o LookupClusterResultOutput) BootstrapBrokersTls() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.BootstrapBrokersTls }).(pulumi.StringOutput)
+}
+
+// Configuration block for the broker nodes of the Kafka cluster.
+func (o LookupClusterResultOutput) BrokerNodeGroupInfos() GetClusterBrokerNodeGroupInfoArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterBrokerNodeGroupInfo { return v.BrokerNodeGroupInfos }).(GetClusterBrokerNodeGroupInfoArrayOutput)
 }
 
 func (o LookupClusterResultOutput) ClusterName() pulumi.StringOutput {

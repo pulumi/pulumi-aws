@@ -100,6 +100,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
+        /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        /// </summary>
+        [Output("scopeConfiguration")]
+        public Output<Outputs.WebhookScopeConfiguration?> ScopeConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         /// </summary>
         [Output("secret")]
@@ -191,6 +197,12 @@ namespace Pulumi.Aws.CodeBuild
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
+        /// <summary>
+        /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        /// </summary>
+        [Input("scopeConfiguration")]
+        public Input<Inputs.WebhookScopeConfigurationArgs>? ScopeConfiguration { get; set; }
+
         public WebhookArgs()
         {
         }
@@ -234,6 +246,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
+
+        /// <summary>
+        /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        /// </summary>
+        [Input("scopeConfiguration")]
+        public Input<Inputs.WebhookScopeConfigurationGetArgs>? ScopeConfiguration { get; set; }
 
         [Input("secret")]
         private Input<string>? _secret;

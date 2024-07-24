@@ -22,6 +22,7 @@ __all__ = [
     'ApplicationInitialCapacity',
     'ApplicationInitialCapacityInitialCapacityConfig',
     'ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration',
+    'ApplicationInteractiveConfiguration',
     'ApplicationMaximumCapacity',
     'ApplicationNetworkConfiguration',
 ]
@@ -265,6 +266,56 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration(dict):
         The disk requirements for every worker instance of the worker type.
         """
         return pulumi.get(self, "disk")
+
+
+@pulumi.output_type
+class ApplicationInteractiveConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "livyEndpointEnabled":
+            suggest = "livy_endpoint_enabled"
+        elif key == "studioEnabled":
+            suggest = "studio_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInteractiveConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationInteractiveConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationInteractiveConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 livy_endpoint_enabled: Optional[bool] = None,
+                 studio_enabled: Optional[bool] = None):
+        """
+        :param bool livy_endpoint_enabled: Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
+        :param bool studio_enabled: Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
+        """
+        if livy_endpoint_enabled is not None:
+            pulumi.set(__self__, "livy_endpoint_enabled", livy_endpoint_enabled)
+        if studio_enabled is not None:
+            pulumi.set(__self__, "studio_enabled", studio_enabled)
+
+    @property
+    @pulumi.getter(name="livyEndpointEnabled")
+    def livy_endpoint_enabled(self) -> Optional[bool]:
+        """
+        Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
+        """
+        return pulumi.get(self, "livy_endpoint_enabled")
+
+    @property
+    @pulumi.getter(name="studioEnabled")
+    def studio_enabled(self) -> Optional[bool]:
+        """
+        Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
+        """
+        return pulumi.get(self, "studio_enabled")
 
 
 @pulumi.output_type

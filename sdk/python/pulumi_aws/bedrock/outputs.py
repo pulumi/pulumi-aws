@@ -19,6 +19,10 @@ __all__ = [
     'AgentAgentActionGroupActionGroupExecutor',
     'AgentAgentActionGroupApiSchema',
     'AgentAgentActionGroupApiSchemaS3',
+    'AgentAgentActionGroupFunctionSchema',
+    'AgentAgentActionGroupFunctionSchemaMemberFunctions',
+    'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction',
+    'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter',
     'AgentAgentAliasRoutingConfiguration',
     'AgentAgentAliasTimeouts',
     'AgentAgentPromptOverrideConfiguration',
@@ -67,7 +71,9 @@ class AgentAgentActionGroupActionGroupExecutor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lambda":
+        if key == "customControl":
+            suggest = "custom_control"
+        elif key == "lambda":
             suggest = "lambda_"
 
         if suggest:
@@ -82,18 +88,36 @@ class AgentAgentActionGroupActionGroupExecutor(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_control: Optional[str] = None,
                  lambda_: Optional[str] = None):
         """
+        :param str custom_control: Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+               To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+               Only one of `custom_control` or `lambda` can be specified.
         :param str lambda_: ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+               Only one of `lambda` or `custom_control` can be specified.
         """
+        if custom_control is not None:
+            pulumi.set(__self__, "custom_control", custom_control)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+
+    @property
+    @pulumi.getter(name="customControl")
+    def custom_control(self) -> Optional[str]:
+        """
+        Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+        To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+        Only one of `custom_control` or `lambda` can be specified.
+        """
+        return pulumi.get(self, "custom_control")
 
     @property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[str]:
         """
         ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+        Only one of `lambda` or `custom_control` can be specified.
         """
         return pulumi.get(self, "lambda_")
 
@@ -105,7 +129,9 @@ class AgentAgentActionGroupApiSchema(dict):
                  s3: Optional['outputs.AgentAgentActionGroupApiSchemaS3'] = None):
         """
         :param str payload: JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-        :param 'AgentAgentActionGroupApiSchemaS3Args' s3: Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+               Only one of `payload` or `s3` can be specified.
+        :param 'AgentAgentActionGroupApiSchemaS3Args' s3: Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+               Only one of `s3` or `payload` can be specified.
         """
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
@@ -117,6 +143,7 @@ class AgentAgentActionGroupApiSchema(dict):
     def payload(self) -> Optional[str]:
         """
         JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+        Only one of `payload` or `s3` can be specified.
         """
         return pulumi.get(self, "payload")
 
@@ -124,7 +151,8 @@ class AgentAgentActionGroupApiSchema(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.AgentAgentActionGroupApiSchemaS3']:
         """
-        Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+        Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+        Only one of `s3` or `payload` can be specified.
         """
         return pulumi.get(self, "s3")
 
@@ -180,12 +208,189 @@ class AgentAgentActionGroupApiSchemaS3(dict):
 
 
 @pulumi.output_type
+class AgentAgentActionGroupFunctionSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memberFunctions":
+            suggest = "member_functions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentAgentActionGroupFunctionSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentAgentActionGroupFunctionSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentAgentActionGroupFunctionSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 member_functions: Optional['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions'] = None):
+        """
+        :param 'AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs' member_functions: Contains a list of functions.
+               Each function describes and action in the action group.
+               See `member_functions` Block for details.
+        """
+        if member_functions is not None:
+            pulumi.set(__self__, "member_functions", member_functions)
+
+    @property
+    @pulumi.getter(name="memberFunctions")
+    def member_functions(self) -> Optional['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions']:
+        """
+        Contains a list of functions.
+        Each function describes and action in the action group.
+        See `member_functions` Block for details.
+        """
+        return pulumi.get(self, "member_functions")
+
+
+@pulumi.output_type
+class AgentAgentActionGroupFunctionSchemaMemberFunctions(dict):
+    def __init__(__self__, *,
+                 functions: Optional[Sequence['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction']] = None):
+        """
+        :param Sequence['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs'] functions: Functions that each define an action in the action group. See `functions` Block for details.
+        """
+        if functions is not None:
+            pulumi.set(__self__, "functions", functions)
+
+    @property
+    @pulumi.getter
+    def functions(self) -> Optional[Sequence['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction']]:
+        """
+        Functions that each define an action in the action group. See `functions` Block for details.
+        """
+        return pulumi.get(self, "functions")
+
+
+@pulumi.output_type
+class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter']] = None):
+        """
+        :param str name: Name for the function.
+        :param str description: Description of the function and its purpose.
+        :param Sequence['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs'] parameters: Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name for the function.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the function and its purpose.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter']]:
+        """
+        Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mapBlockKey":
+            suggest = "map_block_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 map_block_key: str,
+                 type: str,
+                 description: Optional[str] = None,
+                 required: Optional[bool] = None):
+        """
+        :param str map_block_key: Name of the parameter.
+               
+               **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+        :param str type: Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+        :param str description: Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+        :param bool required: Whether the parameter is required for the agent to complete the function for action group invocation.
+        """
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> str:
+        """
+        Name of the parameter.
+
+        **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+        """
+        return pulumi.get(self, "map_block_key")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[bool]:
+        """
+        Whether the parameter is required for the agent to complete the function for action group invocation.
+        """
+        return pulumi.get(self, "required")
+
+
+@pulumi.output_type
 class AgentAgentAliasRoutingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "agentVersion":
             suggest = "agent_version"
+        elif key == "provisionedThroughput":
+            suggest = "provisioned_throughput"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentAgentAliasRoutingConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -199,11 +404,14 @@ class AgentAgentAliasRoutingConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 agent_version: str):
+                 agent_version: str,
+                 provisioned_throughput: str):
         """
         :param str agent_version: Version of the agent with which the alias is associated.
+        :param str provisioned_throughput: ARN of the Provisioned Throughput assigned to the agent alias.
         """
         pulumi.set(__self__, "agent_version", agent_version)
+        pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -212,6 +420,14 @@ class AgentAgentAliasRoutingConfiguration(dict):
         Version of the agent with which the alias is associated.
         """
         return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="provisionedThroughput")
+    def provisioned_throughput(self) -> str:
+        """
+        ARN of the Provisioned Throughput assigned to the agent alias.
+        """
+        return pulumi.get(self, "provisioned_throughput")
 
 
 @pulumi.output_type
@@ -283,7 +499,7 @@ class AgentAgentPromptOverrideConfiguration(dict):
                  prompt_configurations: Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration']):
         """
         :param str override_lambda: ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
-        :param Sequence['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs'] prompt_configurations: Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        :param Sequence['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs'] prompt_configurations: Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
         """
         pulumi.set(__self__, "override_lambda", override_lambda)
         pulumi.set(__self__, "prompt_configurations", prompt_configurations)
@@ -300,7 +516,7 @@ class AgentAgentPromptOverrideConfiguration(dict):
     @pulumi.getter(name="promptConfigurations")
     def prompt_configurations(self) -> Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration']:
         """
-        Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
         """
         return pulumi.get(self, "prompt_configurations")
 
@@ -343,7 +559,7 @@ class AgentAgentPromptOverrideConfigurationPromptConfiguration(dict):
                  prompt_type: str):
         """
         :param str base_prompt_template: prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
-        :param Sequence['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs'] inference_configurations: Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` block for details.
+        :param Sequence['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs'] inference_configurations: Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
         :param str parser_mode: Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
         :param str prompt_creation_mode: Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
         :param str prompt_state: Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
@@ -368,7 +584,7 @@ class AgentAgentPromptOverrideConfigurationPromptConfiguration(dict):
     @pulumi.getter(name="inferenceConfigurations")
     def inference_configurations(self) -> Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration']:
         """
-        Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` block for details.
+        Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
         """
         return pulumi.get(self, "inference_configurations")
 

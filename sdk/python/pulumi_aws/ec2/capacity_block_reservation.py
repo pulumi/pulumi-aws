@@ -397,6 +397,25 @@ class CapacityBlockReservation(pulumi.CustomResource):
 
         > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
+            end_date_range="2024-05-30T15:04:05Z",
+            instance_count=1,
+            instance_type="p4d.24xlarge",
+            start_date_range="2024-04-28T15:04:05Z")
+        example = aws.ec2.CapacityBlockReservation("example",
+            capacity_block_offering_id=test.capacity_block_offering_id,
+            instance_platform="Linux/UNIX",
+            tags={
+                "Environment": "dev",
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capacity_block_offering_id: The Capacity Block Reservation ID.
@@ -415,6 +434,25 @@ class CapacityBlockReservation(pulumi.CustomResource):
         > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `capacity_block_offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [EC2 Capacity Block Reservation Documentation](https://aws.amazon.com/ec2/instance-types/p5/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-blocks-pricing-billing.html).
 
         > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
+            end_date_range="2024-05-30T15:04:05Z",
+            instance_count=1,
+            instance_type="p4d.24xlarge",
+            start_date_range="2024-04-28T15:04:05Z")
+        example = aws.ec2.CapacityBlockReservation("example",
+            capacity_block_offering_id=test.capacity_block_offering_id,
+            instance_platform="Linux/UNIX",
+            tags={
+                "Environment": "dev",
+            })
+        ```
 
         :param str resource_name: The name of the resource.
         :param CapacityBlockReservationArgs args: The arguments to use to populate this resource's properties.

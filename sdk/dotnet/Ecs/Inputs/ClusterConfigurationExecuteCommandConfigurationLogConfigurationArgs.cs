@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+        /// Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
         /// </summary>
         [Input("cloudWatchEncryptionEnabled")]
         public Input<bool>? CloudWatchEncryptionEnabled { get; set; }
@@ -25,19 +25,19 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<string>? CloudWatchLogGroupName { get; set; }
 
         /// <summary>
-        /// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+        /// Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
         /// </summary>
         [Input("s3BucketEncryptionEnabled")]
         public Input<bool>? S3BucketEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// The name of the S3 bucket to send logs to.
+        /// Name of the S3 bucket to send logs to.
         /// </summary>
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }
 
         /// <summary>
-        /// An optional folder in the S3 bucket to place logs in.
+        /// Optional folder in the S3 bucket to place logs in.
         /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }

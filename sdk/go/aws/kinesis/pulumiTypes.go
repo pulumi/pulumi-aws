@@ -9460,6 +9460,8 @@ type FirehoseDeliveryStreamHttpEndpointConfiguration struct {
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 	// The S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration `pulumi:"s3Configuration"`
+	// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+	SecretsManagerConfiguration *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 	// The HTTP endpoint URL to which Kinesis Firehose sends your data.
 	Url string `pulumi:"url"`
 }
@@ -9498,6 +9500,8 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationArgs struct {
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 	// The S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
+	// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+	SecretsManagerConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 	// The HTTP endpoint URL to which Kinesis Firehose sends your data.
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -9642,6 +9646,13 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) S3Configuration()
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput)
 }
 
+// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration {
+		return v.SecretsManagerConfiguration
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
 // The HTTP endpoint URL to which Kinesis Firehose sends your data.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) string { return v.Url }).(pulumi.StringOutput)
@@ -9779,6 +9790,16 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) S3Configuratio
 		}
 		return &v.S3Configuration
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
+}
+
+// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerConfiguration
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
 // The HTTP endpoint URL to which Kinesis Firehose sends your data.
@@ -11109,6 +11130,187 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatch
 			return nil
 		}
 		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration struct {
+	// Enables or disables the Secrets Manager configuration.
+	Enabled *bool `pulumi:"enabled"`
+	// The ARN of the role the stream assumes.
+	RoleArn *string `pulumi:"roleArn"`
+	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs and FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs{...}
+type FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs struct {
+	// Enables or disables the Secrets Manager configuration.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The ARN of the role the stream assumes.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput).ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs, FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtr and FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrType FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs
+
+func FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtr(v *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrInput {
+	return (*firehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+// Enables or disables the Secrets Manager configuration.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the role the stream assumes.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *string {
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *string {
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput)
+}
+
+// Enables or disables the Secrets Manager configuration.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the role the stream assumes.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14995,8 +15197,8 @@ type FirehoseDeliveryStreamRedshiftConfiguration struct {
 	DataTableColumns *string `pulumi:"dataTableColumns"`
 	// The name of the table in the redshift cluster that the s3 bucket will copy to.
 	DataTableName string `pulumi:"dataTableName"`
-	// The password for the username above.
-	Password string `pulumi:"password"`
+	// The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+	Password *string `pulumi:"password"`
 	// The data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
@@ -15004,13 +15206,15 @@ type FirehoseDeliveryStreamRedshiftConfiguration struct {
 	// The arn of the role the stream assumes.
 	RoleArn string `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+	// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
 	S3BackupConfiguration *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration `pulumi:"s3BackupConfiguration"`
 	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 	// The S3 Configuration. See s3Configuration below for details.
-	S3Configuration FirehoseDeliveryStreamRedshiftConfigurationS3Configuration `pulumi:"s3Configuration"`
-	// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
-	Username string `pulumi:"username"`
+	S3Configuration             FirehoseDeliveryStreamRedshiftConfigurationS3Configuration              `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
+	// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+	Username *string `pulumi:"username"`
 }
 
 // FirehoseDeliveryStreamRedshiftConfigurationInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationArgs and FirehoseDeliveryStreamRedshiftConfigurationOutput values.
@@ -15035,8 +15239,8 @@ type FirehoseDeliveryStreamRedshiftConfigurationArgs struct {
 	DataTableColumns pulumi.StringPtrInput `pulumi:"dataTableColumns"`
 	// The name of the table in the redshift cluster that the s3 bucket will copy to.
 	DataTableName pulumi.StringInput `pulumi:"dataTableName"`
-	// The password for the username above.
-	Password pulumi.StringInput `pulumi:"password"`
+	// The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
@@ -15044,13 +15248,15 @@ type FirehoseDeliveryStreamRedshiftConfigurationArgs struct {
 	// The arn of the role the stream assumes.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+	// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
 	S3BackupConfiguration FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
 	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 	// The S3 Configuration. See s3Configuration below for details.
-	S3Configuration FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
-	// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
-	Username pulumi.StringInput `pulumi:"username"`
+	S3Configuration             FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationInput                `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
+	// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (FirehoseDeliveryStreamRedshiftConfigurationArgs) ElementType() reflect.Type {
@@ -15157,9 +15363,9 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) DataTableName() pulum
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) string { return v.DataTableName }).(pulumi.StringOutput)
 }
 
-// The password for the username above.
-func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) string { return v.Password }).(pulumi.StringOutput)
+// The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The data processing configuration.  See `processingConfiguration` block below for details.
@@ -15180,6 +15386,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) RoleArn() pulumi.Stri
 }
 
 // The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) S3BackupConfiguration() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
 		return v.S3BackupConfiguration
@@ -15198,9 +15405,15 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) S3Configuration() Fir
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput)
 }
 
-// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
-func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) string { return v.Username }).(pulumi.StringOutput)
+func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration {
+		return v.SecretsManagerConfiguration
+	}).(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -15277,13 +15490,13 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) DataTableName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password for the username above.
+// The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Password
+		return v.Password
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15318,6 +15531,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) RoleArn() pulumi.S
 }
 
 // The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) S3BackupConfiguration() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
 		if v == nil {
@@ -15347,13 +15561,22 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) S3Configuration() 
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput)
 }
 
-// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerConfiguration
+	}).(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Username
+		return v.Username
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16866,6 +17089,185 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLogg
 	}).(pulumi.StringPtrOutput)
 }
 
+type FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration struct {
+	// Enables or disables the Secrets Manager configuration.
+	Enabled *bool `pulumi:"enabled"`
+	// The ARN of the role the stream assumes.
+	RoleArn *string `pulumi:"roleArn"`
+	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs and FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs{...}
+type FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput
+	ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput
+}
+
+type FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs struct {
+	// Enables or disables the Secrets Manager configuration.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The ARN of the role the stream assumes.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput).ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs, FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtr and FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput
+	ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrType FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs
+
+func FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtr(v *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrInput {
+	return (*firehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrType) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrType) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+// Enables or disables the Secrets Manager configuration.
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the role the stream assumes.
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *string {
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *string {
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput) ToFirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput)
+}
+
+// Enables or disables the Secrets Manager configuration.
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the role the stream assumes.
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type FirehoseDeliveryStreamServerSideEncryption struct {
 	// Whether to enable encryption at rest. Default is `false`.
 	Enabled *bool `pulumi:"enabled"`
@@ -17056,8 +17458,8 @@ type FirehoseDeliveryStreamSnowflakeConfiguration struct {
 	KeyPassphrase *string `pulumi:"keyPassphrase"`
 	// The name of the metadata column.
 	MetadataColumnName *string `pulumi:"metadataColumnName"`
-	// The private key for authentication.
-	PrivateKey string `pulumi:"privateKey"`
+	// The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+	PrivateKey *string `pulumi:"privateKey"`
 	// The processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
@@ -17070,14 +17472,16 @@ type FirehoseDeliveryStreamSnowflakeConfiguration struct {
 	S3Configuration FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration `pulumi:"s3Configuration"`
 	// The Snowflake schema name.
 	Schema string `pulumi:"schema"`
+	// The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+	SecretsManagerConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 	// The configuration for Snowflake role.
 	SnowflakeRoleConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration `pulumi:"snowflakeRoleConfiguration"`
 	// The VPC configuration for Snowflake.
 	SnowflakeVpcConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration `pulumi:"snowflakeVpcConfiguration"`
 	// The Snowflake table name.
 	Table string `pulumi:"table"`
-	// The user for authentication.
-	User string `pulumi:"user"`
+	// The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+	User *string `pulumi:"user"`
 }
 
 // FirehoseDeliveryStreamSnowflakeConfigurationInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationArgs and FirehoseDeliveryStreamSnowflakeConfigurationOutput values.
@@ -17106,8 +17510,8 @@ type FirehoseDeliveryStreamSnowflakeConfigurationArgs struct {
 	KeyPassphrase pulumi.StringPtrInput `pulumi:"keyPassphrase"`
 	// The name of the metadata column.
 	MetadataColumnName pulumi.StringPtrInput `pulumi:"metadataColumnName"`
-	// The private key for authentication.
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	// The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
 	// The processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
@@ -17120,14 +17524,16 @@ type FirehoseDeliveryStreamSnowflakeConfigurationArgs struct {
 	S3Configuration FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
 	// The Snowflake schema name.
 	Schema pulumi.StringInput `pulumi:"schema"`
+	// The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+	SecretsManagerConfiguration FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 	// The configuration for Snowflake role.
 	SnowflakeRoleConfiguration FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrInput `pulumi:"snowflakeRoleConfiguration"`
 	// The VPC configuration for Snowflake.
 	SnowflakeVpcConfiguration FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrInput `pulumi:"snowflakeVpcConfiguration"`
 	// The Snowflake table name.
 	Table pulumi.StringInput `pulumi:"table"`
-	// The user for authentication.
-	User pulumi.StringInput `pulumi:"user"`
+	// The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+	User pulumi.StringPtrInput `pulumi:"user"`
 }
 
 func (FirehoseDeliveryStreamSnowflakeConfigurationArgs) ElementType() reflect.Type {
@@ -17244,9 +17650,9 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) MetadataColumnName()
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.MetadataColumnName }).(pulumi.StringPtrOutput)
 }
 
-// The private key for authentication.
-func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.PrivateKey }).(pulumi.StringOutput)
+// The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
 // The processing configuration. See `processingConfiguration` block below for details.
@@ -17283,6 +17689,13 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) Schema() pulumi.Stri
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.Schema }).(pulumi.StringOutput)
 }
 
+// The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration {
+		return v.SecretsManagerConfiguration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
 // The configuration for Snowflake role.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) SnowflakeRoleConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
@@ -17302,9 +17715,9 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) Table() pulumi.Strin
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.Table }).(pulumi.StringOutput)
 }
 
-// The user for authentication.
-func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) User() pulumi.StringOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.User }).(pulumi.StringOutput)
+// The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -17401,13 +17814,13 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) MetadataColumnNam
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private key for authentication.
+// The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PrivateKey
+		return v.PrivateKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17471,6 +17884,16 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Schema() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerConfiguration
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
 // The configuration for Snowflake role.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SnowflakeRoleConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
@@ -17501,13 +17924,13 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Table() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user for authentication.
+// The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.User
+		return v.User
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -18558,6 +18981,187 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLog
 	}).(pulumi.StringPtrOutput)
 }
 
+type FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration struct {
+	// Enables or disables the Secrets Manager configuration.
+	Enabled *bool `pulumi:"enabled"`
+	// The ARN of the role the stream assumes.
+	RoleArn *string `pulumi:"roleArn"`
+	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs and FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs{...}
+type FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs struct {
+	// Enables or disables the Secrets Manager configuration.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The ARN of the role the stream assumes.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput).ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs, FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtr and FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput
+	ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrType FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs
+
+func FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtr(v *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrInput {
+	return (*firehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrType) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+// Enables or disables the Secrets Manager configuration.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the role the stream assumes.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *string {
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *string {
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput) ToFirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput)
+}
+
+// Enables or disables the Secrets Manager configuration.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the role the stream assumes.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration struct {
 	// Whether the Snowflake role is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -18868,16 +19472,18 @@ type FirehoseDeliveryStreamSplunkConfiguration struct {
 	HecEndpoint string `pulumi:"hecEndpoint"`
 	// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
 	HecEndpointType *string `pulumi:"hecEndpointType"`
-	// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-	HecToken string `pulumi:"hecToken"`
+	// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+	HecToken *string `pulumi:"hecToken"`
 	// The data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
 	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+	// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 	// The S3 Configuration. See `s3Configuration` block below for details.
-	S3Configuration FirehoseDeliveryStreamSplunkConfigurationS3Configuration `pulumi:"s3Configuration"`
+	S3Configuration             FirehoseDeliveryStreamSplunkConfigurationS3Configuration              `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 }
 
 // FirehoseDeliveryStreamSplunkConfigurationInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationArgs and FirehoseDeliveryStreamSplunkConfigurationOutput values.
@@ -18904,16 +19510,18 @@ type FirehoseDeliveryStreamSplunkConfigurationArgs struct {
 	HecEndpoint pulumi.StringInput `pulumi:"hecEndpoint"`
 	// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
 	HecEndpointType pulumi.StringPtrInput `pulumi:"hecEndpointType"`
-	// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-	HecToken pulumi.StringInput `pulumi:"hecToken"`
+	// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+	HecToken pulumi.StringPtrInput `pulumi:"hecToken"`
 	// The data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
 	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+	// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 	// The S3 Configuration. See `s3Configuration` block below for details.
-	S3Configuration FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
+	S3Configuration             FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationInput                `pulumi:"s3Configuration"`
+	SecretsManagerConfiguration FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 }
 
 func (FirehoseDeliveryStreamSplunkConfigurationArgs) ElementType() reflect.Type {
@@ -19025,9 +19633,9 @@ func (o FirehoseDeliveryStreamSplunkConfigurationOutput) HecEndpointType() pulum
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *string { return v.HecEndpointType }).(pulumi.StringPtrOutput)
 }
 
-// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-func (o FirehoseDeliveryStreamSplunkConfigurationOutput) HecToken() pulumi.StringOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) string { return v.HecToken }).(pulumi.StringOutput)
+// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+func (o FirehoseDeliveryStreamSplunkConfigurationOutput) HecToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *string { return v.HecToken }).(pulumi.StringPtrOutput)
 }
 
 // The data processing configuration.  See `processingConfiguration` block below for details.
@@ -19043,6 +19651,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationOutput) RetryDuration() pulumi.
 }
 
 // Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
@@ -19052,6 +19661,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationOutput) S3Configuration() Fireh
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) FirehoseDeliveryStreamSplunkConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput)
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration {
+		return v.SecretsManagerConfiguration
+	}).(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -19138,13 +19753,13 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecEndpointType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.HecToken
+		return v.HecToken
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19169,6 +19784,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) RetryDuration() pulu
 }
 
 // Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *string {
 		if v == nil {
@@ -19186,6 +19802,15 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) S3Configuration() Fi
 		}
 		return &v.S3Configuration
 	}).(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerConfiguration
+	}).(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions struct {
@@ -20231,6 +20856,183 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggin
 	}).(pulumi.StringPtrOutput)
 }
 
+type FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration struct {
+	// Enables or disables the Secrets Manager configuration.
+	Enabled *bool `pulumi:"enabled"`
+	// The ARN of the role the stream assumes.
+	RoleArn *string `pulumi:"roleArn"`
+	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs and FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs{...}
+type FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput
+	ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput
+}
+
+type FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs struct {
+	// Enables or disables the Secrets Manager configuration.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The ARN of the role the stream assumes.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput).ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs, FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtr and FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput
+	ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrType FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs
+
+func FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtr(v *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrInput {
+	return (*firehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrType) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrType) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput)
+}
+
+// Enables or disables the Secrets Manager configuration.
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the role the stream assumes.
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *string {
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput) ToFirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput)
+}
+
+// Enables or disables the Secrets Manager configuration.
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the role the stream assumes.
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type StreamStreamModeDetails struct {
 	// Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
 	StreamMode string `pulumi:"streamMode"`
@@ -20589,6 +21391,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamKinesisSourceConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamKinesisSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamKinesisSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamMskSourceConfigurationArgs{})
@@ -20647,6 +21451,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamServerSideEncryptionInput)(nil)).Elem(), FirehoseDeliveryStreamServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamServerSideEncryptionPtrInput)(nil)).Elem(), FirehoseDeliveryStreamServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationArgs{})
@@ -20663,6 +21469,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs{})
@@ -20681,6 +21489,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamStreamModeDetailsInput)(nil)).Elem(), StreamStreamModeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamStreamModeDetailsPtrInput)(nil)).Elem(), StreamStreamModeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStreamStreamModeDetailInput)(nil)).Elem(), GetStreamStreamModeDetailArgs{})
@@ -20808,6 +21618,8 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamKinesisSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamMskSourceConfigurationOutput{})
@@ -20866,6 +21678,8 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamServerSideEncryptionOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamServerSideEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationOutput{})
@@ -20882,6 +21696,8 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput{})
@@ -20900,6 +21716,8 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamStreamModeDetailsOutput{})
 	pulumi.RegisterOutputType(StreamStreamModeDetailsPtrOutput{})
 	pulumi.RegisterOutputType(GetStreamStreamModeDetailOutput{})

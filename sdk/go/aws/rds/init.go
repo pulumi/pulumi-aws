@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:rds/certificate:Certificate":
+		r = &Certificate{}
 	case "aws:rds/cluster:Cluster":
 		r = &Cluster{}
 	case "aws:rds/clusterActivityStream:ClusterActivityStream":
@@ -82,6 +84,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/certificate",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/cluster",

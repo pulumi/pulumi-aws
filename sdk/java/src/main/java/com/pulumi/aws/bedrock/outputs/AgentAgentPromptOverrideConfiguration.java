@@ -18,7 +18,7 @@ public final class AgentAgentPromptOverrideConfiguration {
      */
     private String overrideLambda;
     /**
-     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
      * 
      */
     private List<AgentAgentPromptOverrideConfigurationPromptConfiguration> promptConfigurations;
@@ -32,7 +32,7 @@ public final class AgentAgentPromptOverrideConfiguration {
         return this.overrideLambda;
     }
     /**
-     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
      * 
      */
     public List<AgentAgentPromptOverrideConfigurationPromptConfiguration> promptConfigurations() {

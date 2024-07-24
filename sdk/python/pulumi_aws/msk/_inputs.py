@@ -75,6 +75,8 @@ __all__ = [
     'ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict',
     'ReplicatorReplicationInfoListTopicReplicationArgs',
     'ReplicatorReplicationInfoListTopicReplicationArgsDict',
+    'ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs',
+    'ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict',
     'ServerlessClusterClientAuthenticationArgs',
     'ServerlessClusterClientAuthenticationArgsDict',
     'ServerlessClusterClientAuthenticationSaslArgs',
@@ -1356,7 +1358,7 @@ if not MYPY:
     class ReplicatorReplicationInfoListArgsDict(TypedDict):
         consumer_group_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict']]]
         """
-        Confguration relating to consumer group replication.
+        Configuration relating to consumer group replication.
         """
         source_kafka_cluster_arn: pulumi.Input[str]
         """
@@ -1390,7 +1392,7 @@ class ReplicatorReplicationInfoListArgs:
                  source_kafka_cluster_alias: Optional[pulumi.Input[str]] = None,
                  target_kafka_cluster_alias: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]] consumer_group_replications: Confguration relating to consumer group replication.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]] consumer_group_replications: Configuration relating to consumer group replication.
         :param pulumi.Input[str] source_kafka_cluster_arn: The ARN of the source Kafka cluster.
         :param pulumi.Input[str] target_compression_type: The type of compression to use writing records to target Kafka cluster.
         :param pulumi.Input[str] target_kafka_cluster_arn: The ARN of the target Kafka cluster.
@@ -1410,7 +1412,7 @@ class ReplicatorReplicationInfoListArgs:
     @pulumi.getter(name="consumerGroupReplications")
     def consumer_group_replications(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]]:
         """
-        Confguration relating to consumer group replication.
+        Configuration relating to consumer group replication.
         """
         return pulumi.get(self, "consumer_group_replications")
 
@@ -1594,6 +1596,10 @@ if not MYPY:
         """
         Whether to periodically check for new topics and partitions.
         """
+        starting_position: NotRequired[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict']]
+        """
+        Configuration for specifying the position in the topics to start replicating from.
+        """
         topics_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         List of regular expression patterns indicating the topics that should not be replica.
@@ -1608,12 +1614,14 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
                  copy_access_control_lists_for_topics: Optional[pulumi.Input[bool]] = None,
                  copy_topic_configurations: Optional[pulumi.Input[bool]] = None,
                  detect_and_copy_new_topics: Optional[pulumi.Input[bool]] = None,
+                 starting_position: Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']] = None,
                  topics_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics_to_replicates: List of regular expression patterns indicating the topics to copy.
         :param pulumi.Input[bool] copy_access_control_lists_for_topics: Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
         :param pulumi.Input[bool] copy_topic_configurations: Whether to periodically configure remote topics to match their corresponding upstream topics.
         :param pulumi.Input[bool] detect_and_copy_new_topics: Whether to periodically check for new topics and partitions.
+        :param pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs'] starting_position: Configuration for specifying the position in the topics to start replicating from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics_to_excludes: List of regular expression patterns indicating the topics that should not be replica.
         """
         pulumi.set(__self__, "topics_to_replicates", topics_to_replicates)
@@ -1623,6 +1631,8 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
             pulumi.set(__self__, "copy_topic_configurations", copy_topic_configurations)
         if detect_and_copy_new_topics is not None:
             pulumi.set(__self__, "detect_and_copy_new_topics", detect_and_copy_new_topics)
+        if starting_position is not None:
+            pulumi.set(__self__, "starting_position", starting_position)
         if topics_to_excludes is not None:
             pulumi.set(__self__, "topics_to_excludes", topics_to_excludes)
 
@@ -1675,6 +1685,18 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
         pulumi.set(self, "detect_and_copy_new_topics", value)
 
     @property
+    @pulumi.getter(name="startingPosition")
+    def starting_position(self) -> Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']]:
+        """
+        Configuration for specifying the position in the topics to start replicating from.
+        """
+        return pulumi.get(self, "starting_position")
+
+    @starting_position.setter
+    def starting_position(self, value: Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']]):
+        pulumi.set(self, "starting_position", value)
+
+    @property
     @pulumi.getter(name="topicsToExcludes")
     def topics_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1685,6 +1707,38 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
     @topics_to_excludes.setter
     def topics_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "topics_to_excludes", value)
+
+
+if not MYPY:
+    class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+        """
+elif False:
+    ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

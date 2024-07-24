@@ -38,14 +38,14 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Code Editor application settings. See Code Editor App Settings below.
+     * The Code Editor application settings. See `code_editor_app_settings` Block below.
      * 
      */
     @Import(name="codeEditorAppSettings")
     private @Nullable Output<SpaceSpaceSettingsCodeEditorAppSettingsArgs> codeEditorAppSettings;
 
     /**
-     * @return The Code Editor application settings. See Code Editor App Settings below.
+     * @return The Code Editor application settings. See `code_editor_app_settings` Block below.
      * 
      */
     public Optional<Output<SpaceSpaceSettingsCodeEditorAppSettingsArgs>> codeEditorAppSettings() {
@@ -53,14 +53,14 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+     * A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
      * 
      */
     @Import(name="customFileSystems")
     private @Nullable Output<List<SpaceSpaceSettingsCustomFileSystemArgs>> customFileSystems;
 
     /**
-     * @return A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+     * @return A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
      * 
      */
     public Optional<Output<List<SpaceSpaceSettingsCustomFileSystemArgs>>> customFileSystems() {
@@ -68,14 +68,14 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
      * 
      */
     @Import(name="jupyterLabAppSettings")
     private @Nullable Output<SpaceSpaceSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings;
 
     /**
-     * @return The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * @return The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
      * 
      */
     public Optional<Output<SpaceSpaceSettingsJupyterLabAppSettingsArgs>> jupyterLabAppSettings() {
@@ -83,14 +83,14 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     @Import(name="jupyterServerAppSettings")
     private @Nullable Output<SpaceSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
 
     /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     public Optional<Output<SpaceSpaceSettingsJupyterServerAppSettingsArgs>> jupyterServerAppSettings() {
@@ -98,14 +98,14 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     @Import(name="kernelGatewayAppSettings")
     private @Nullable Output<SpaceSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
 
     /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * @return The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     public Optional<Output<SpaceSpaceSettingsKernelGatewayAppSettingsArgs>> kernelGatewayAppSettings() {
@@ -171,7 +171,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param codeEditorAppSettings The Code Editor application settings. See Code Editor App Settings below.
+         * @param codeEditorAppSettings The Code Editor application settings. See `code_editor_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param codeEditorAppSettings The Code Editor application settings. See Code Editor App Settings below.
+         * @param codeEditorAppSettings The Code Editor application settings. See `code_editor_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param jupyterLabAppSettings The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * @param jupyterLabAppSettings The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param jupyterLabAppSettings The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * @param jupyterLabAppSettings The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
          * 
          * @return builder
          * 

@@ -856,7 +856,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineTrigger']]]:
+    def triggers(self) -> pulumi.Output[Sequence['outputs.PipelineTrigger']]:
         """
         A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         """

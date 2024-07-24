@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterConfigurationExecuteCommandConfiguration {
     /**
-     * @return The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+     * @return AWS Key Management Service key ID to encrypt the data between the local client and the container.
      * 
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
      * 
      */
     private @Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration;
     /**
-     * @return The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+     * @return Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
      * 
      */
     private @Nullable String logging;
 
     private ClusterConfigurationExecuteCommandConfiguration() {}
     /**
-     * @return The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+     * @return AWS Key Management Service key ID to encrypt the data between the local client and the container.
      * 
      */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
      * 
      */
     public Optional<ClusterConfigurationExecuteCommandConfigurationLogConfiguration> logConfiguration() {
         return Optional.ofNullable(this.logConfiguration);
     }
     /**
-     * @return The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+     * @return Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
      * 
      */
     public Optional<String> logging() {

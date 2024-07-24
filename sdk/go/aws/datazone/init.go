@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Domain{}
 	case "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration":
 		r = &EnvironmentBlueprintConfiguration{}
+	case "aws:datazone/project:Project":
+		r = &Project{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"datazone/environmentBlueprintConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"datazone/project",
 		&module{version},
 	)
 }

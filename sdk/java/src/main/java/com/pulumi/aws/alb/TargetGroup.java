@@ -9,6 +9,7 @@ import com.pulumi.aws.alb.inputs.TargetGroupState;
 import com.pulumi.aws.alb.outputs.TargetGroupHealthCheck;
 import com.pulumi.aws.alb.outputs.TargetGroupStickiness;
 import com.pulumi.aws.alb.outputs.TargetGroupTargetFailover;
+import com.pulumi.aws.alb.outputs.TargetGroupTargetGroupHealth;
 import com.pulumi.aws.alb.outputs.TargetGroupTargetHealthState;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
@@ -227,6 +228,57 @@ import javax.annotation.Nullable;
  *             .vpcId(main.id())
  *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
  *                 .enableUnhealthyConnectionTermination(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Target group with health requirements
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.TargetGroup;
+ * import com.pulumi.aws.lb.TargetGroupArgs;
+ * import com.pulumi.aws.lb.inputs.TargetGroupTargetGroupHealthArgs;
+ * import com.pulumi.aws.lb.inputs.TargetGroupTargetGroupHealthDnsFailoverArgs;
+ * import com.pulumi.aws.lb.inputs.TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tcp_example = new TargetGroup("tcp-example", TargetGroupArgs.builder()
+ *             .name("tf-example-lb-nlb-tg")
+ *             .port(80)
+ *             .protocol("TCP")
+ *             .vpcId(main.id())
+ *             .targetGroupHealth(TargetGroupTargetGroupHealthArgs.builder()
+ *                 .dnsFailover(TargetGroupTargetGroupHealthDnsFailoverArgs.builder()
+ *                     .minimumHealthyTargetsCount("1")
+ *                     .minimumHealthyTargetsPercentage("off")
+ *                     .build())
+ *                 .unhealthyStateRouting(TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs.builder()
+ *                     .minimumHealthyTargetsCount("1")
+ *                     .minimumHealthyTargetsPercentage("off")
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -578,6 +630,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<List<TargetGroupTargetFailover>> targetFailovers() {
         return this.targetFailovers;
+    }
+    /**
+     * Target health requirements block. See target_group_health for more information.
+     * 
+     */
+    @Export(name="targetGroupHealth", refs={TargetGroupTargetGroupHealth.class}, tree="[0]")
+    private Output<TargetGroupTargetGroupHealth> targetGroupHealth;
+
+    /**
+     * @return Target health requirements block. See target_group_health for more information.
+     * 
+     */
+    public Output<TargetGroupTargetGroupHealth> targetGroupHealth() {
+        return this.targetGroupHealth;
     }
     /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.

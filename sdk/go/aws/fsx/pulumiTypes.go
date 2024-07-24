@@ -1220,10 +1220,10 @@ func (o LustreFileSystemLogConfigurationPtrOutput) Level() pulumi.StringPtrOutpu
 
 type LustreFileSystemMetadataConfiguration struct {
 	// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
-	//
-	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 	Iops *int `pulumi:"iops"`
 	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+	//
+	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -1240,10 +1240,10 @@ type LustreFileSystemMetadataConfigurationInput interface {
 
 type LustreFileSystemMetadataConfigurationArgs struct {
 	// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
-	//
-	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+	//
+	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -1325,13 +1325,13 @@ func (o LustreFileSystemMetadataConfigurationOutput) ToLustreFileSystemMetadataC
 }
 
 // Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
-//
-// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 func (o LustreFileSystemMetadataConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LustreFileSystemMetadataConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 // Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+//
+// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 func (o LustreFileSystemMetadataConfigurationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LustreFileSystemMetadataConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -1361,8 +1361,6 @@ func (o LustreFileSystemMetadataConfigurationPtrOutput) Elem() LustreFileSystemM
 }
 
 // Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
-//
-// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 func (o LustreFileSystemMetadataConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystemMetadataConfiguration) *int {
 		if v == nil {
@@ -1373,6 +1371,8 @@ func (o LustreFileSystemMetadataConfigurationPtrOutput) Iops() pulumi.IntPtrOutp
 }
 
 // Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+//
+// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 func (o LustreFileSystemMetadataConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystemMetadataConfiguration) *string {
 		if v == nil {
@@ -3138,11 +3138,11 @@ func (o OntapVolumeAggregateConfigurationPtrOutput) TotalConstituents() pulumi.I
 type OntapVolumeSnaplockConfiguration struct {
 	// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
 	AuditLogVolume *bool `pulumi:"auditLogVolume"`
-	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
 	AutocommitPeriod *OntapVolumeSnaplockConfigurationAutocommitPeriod `pulumi:"autocommitPeriod"`
 	// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
 	PrivilegedDelete *string `pulumi:"privilegedDelete"`
-	// The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+	// The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
 	RetentionPeriod *OntapVolumeSnaplockConfigurationRetentionPeriod `pulumi:"retentionPeriod"`
 	// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
 	SnaplockType string `pulumi:"snaplockType"`
@@ -3164,11 +3164,11 @@ type OntapVolumeSnaplockConfigurationInput interface {
 type OntapVolumeSnaplockConfigurationArgs struct {
 	// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
 	AuditLogVolume pulumi.BoolPtrInput `pulumi:"auditLogVolume"`
-	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
 	AutocommitPeriod OntapVolumeSnaplockConfigurationAutocommitPeriodPtrInput `pulumi:"autocommitPeriod"`
 	// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
 	PrivilegedDelete pulumi.StringPtrInput `pulumi:"privilegedDelete"`
-	// The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+	// The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
 	RetentionPeriod OntapVolumeSnaplockConfigurationRetentionPeriodPtrInput `pulumi:"retentionPeriod"`
 	// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
 	SnaplockType pulumi.StringInput `pulumi:"snaplockType"`
@@ -3258,7 +3258,7 @@ func (o OntapVolumeSnaplockConfigurationOutput) AuditLogVolume() pulumi.BoolPtrO
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *bool { return v.AuditLogVolume }).(pulumi.BoolPtrOutput)
 }
 
-// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
 func (o OntapVolumeSnaplockConfigurationOutput) AutocommitPeriod() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationAutocommitPeriod {
 		return v.AutocommitPeriod
@@ -3270,7 +3270,7 @@ func (o OntapVolumeSnaplockConfigurationOutput) PrivilegedDelete() pulumi.String
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *string { return v.PrivilegedDelete }).(pulumi.StringPtrOutput)
 }
 
-// The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+// The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
 func (o OntapVolumeSnaplockConfigurationOutput) RetentionPeriod() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationRetentionPeriod {
 		return v.RetentionPeriod
@@ -3321,7 +3321,7 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) AuditLogVolume() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
 func (o OntapVolumeSnaplockConfigurationPtrOutput) AutocommitPeriod() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationAutocommitPeriod {
 		if v == nil {
@@ -3341,7 +3341,7 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) PrivilegedDelete() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+// The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
 func (o OntapVolumeSnaplockConfigurationPtrOutput) RetentionPeriod() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationRetentionPeriod {
 		if v == nil {
@@ -3528,11 +3528,11 @@ func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Value() pulum
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriod struct {
-	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
 	DefaultRetention *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention `pulumi:"defaultRetention"`
-	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
 	MaximumRetention *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention `pulumi:"maximumRetention"`
-	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
 	MinimumRetention *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention `pulumi:"minimumRetention"`
 }
 
@@ -3548,11 +3548,11 @@ type OntapVolumeSnaplockConfigurationRetentionPeriodInput interface {
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodArgs struct {
-	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
 	DefaultRetention OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrInput `pulumi:"defaultRetention"`
-	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
 	MaximumRetention OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrInput `pulumi:"maximumRetention"`
-	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
 	MinimumRetention OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrInput `pulumi:"minimumRetention"`
 }
 
@@ -3633,21 +3633,21 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOntapVolumeSnap
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
 }
 
-// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) DefaultRetention() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
 		return v.DefaultRetention
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
-// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) MaximumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
 		return v.MaximumRetention
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
-// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) MinimumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
 		return v.MinimumRetention
@@ -3678,7 +3678,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) Elem() OntapVo
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodOutput)
 }
 
-// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) DefaultRetention() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
 		if v == nil {
@@ -3688,7 +3688,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) DefaultRetenti
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
-// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MaximumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
 		if v == nil {
@@ -3698,7 +3698,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MaximumRetenti
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
-// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MinimumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
 		if v == nil {
@@ -3709,8 +3709,10 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MinimumRetenti
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention struct {
-	Type  *string `pulumi:"type"`
-	Value *int    `pulumi:"value"`
+	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	Type *string `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value *int `pulumi:"value"`
 }
 
 // OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs and OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput values.
@@ -3725,8 +3727,10 @@ type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionInput interf
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs struct {
-	Type  pulumi.StringPtrInput `pulumi:"type"`
-	Value pulumi.IntPtrInput    `pulumi:"value"`
+	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
 func (OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ElementType() reflect.Type {
@@ -3806,10 +3810,12 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) T
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
+// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -3838,6 +3844,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput)
 }
 
+// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *string {
 		if v == nil {
@@ -3847,6 +3854,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *int {
 		if v == nil {
@@ -3857,8 +3865,10 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention struct {
-	Type  *string `pulumi:"type"`
-	Value *int    `pulumi:"value"`
+	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	Type *string `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value *int `pulumi:"value"`
 }
 
 // OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs and OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput values.
@@ -3873,8 +3883,10 @@ type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionInput interf
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs struct {
-	Type  pulumi.StringPtrInput `pulumi:"type"`
-	Value pulumi.IntPtrInput    `pulumi:"value"`
+	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
 func (OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ElementType() reflect.Type {
@@ -3954,10 +3966,12 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) T
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
+// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -3986,6 +4000,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput)
 }
 
+// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *string {
 		if v == nil {
@@ -3995,6 +4010,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *int {
 		if v == nil {
@@ -4005,8 +4021,10 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention struct {
-	Type  *string `pulumi:"type"`
-	Value *int    `pulumi:"value"`
+	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	Type *string `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value *int `pulumi:"value"`
 }
 
 // OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs and OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput values.
@@ -4021,8 +4039,10 @@ type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionInput interf
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs struct {
-	Type  pulumi.StringPtrInput `pulumi:"type"`
-	Value pulumi.IntPtrInput    `pulumi:"value"`
+	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
 func (OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ElementType() reflect.Type {
@@ -4102,10 +4122,12 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) T
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput)
 }
 
+// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -4134,6 +4156,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput)
 }
 
+// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *string {
 		if v == nil {
@@ -4143,6 +4166,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *int {
 		if v == nil {
@@ -4469,13 +4493,13 @@ type OpenZfsFileSystemRootVolumeConfiguration struct {
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
 	// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType *string `pulumi:"dataCompressionType"`
-	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
 	NfsExports *OpenZfsFileSystemRootVolumeConfigurationNfsExports `pulumi:"nfsExports"`
 	// specifies whether the volume is read-only. Default is false.
 	ReadOnly *bool `pulumi:"readOnly"`
 	// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib *int `pulumi:"recordSizeKib"`
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
 	UserAndGroupQuotas []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
 }
 
@@ -4495,13 +4519,13 @@ type OpenZfsFileSystemRootVolumeConfigurationArgs struct {
 	CopyTagsToSnapshots pulumi.BoolPtrInput `pulumi:"copyTagsToSnapshots"`
 	// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrInput `pulumi:"dataCompressionType"`
-	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
 	NfsExports OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput `pulumi:"nfsExports"`
 	// specifies whether the volume is read-only. Default is false.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
 	// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrInput `pulumi:"recordSizeKib"`
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
 	UserAndGroupQuotas OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput `pulumi:"userAndGroupQuotas"`
 }
 
@@ -4592,7 +4616,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationOutput) DataCompressionType() pu
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *string { return v.DataCompressionType }).(pulumi.StringPtrOutput)
 }
 
-// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) NfsExports() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *OpenZfsFileSystemRootVolumeConfigurationNfsExports {
 		return v.NfsExports
@@ -4609,7 +4633,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationOutput) RecordSizeKib() pulumi.I
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *int { return v.RecordSizeKib }).(pulumi.IntPtrOutput)
 }
 
-// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) UserAndGroupQuotas() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
 		return v.UserAndGroupQuotas
@@ -4660,7 +4684,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) DataCompressionType()
 	}).(pulumi.StringPtrOutput)
 }
 
-// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+// NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) NfsExports() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *OpenZfsFileSystemRootVolumeConfigurationNfsExports {
 		if v == nil {
@@ -4690,7 +4714,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) RecordSizeKib() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) UserAndGroupQuotas() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
 		if v == nil {
@@ -4701,7 +4725,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) UserAndGroupQuotas() 
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExports struct {
-	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
 	ClientConfigurations []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration `pulumi:"clientConfigurations"`
 }
 
@@ -4717,7 +4741,7 @@ type OpenZfsFileSystemRootVolumeConfigurationNfsExportsInput interface {
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs struct {
-	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
 	ClientConfigurations OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput `pulumi:"clientConfigurations"`
 }
 
@@ -4798,7 +4822,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ToOpenZfsFileS
 	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
 }
 
-// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ClientConfigurations() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExports) []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
 		return v.ClientConfigurations
@@ -4829,7 +4853,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) Elem() Open
 	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput)
 }
 
-// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ClientConfigurations() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfigurationNfsExports) []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
 		if v == nil {

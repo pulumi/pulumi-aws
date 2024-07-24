@@ -30,14 +30,14 @@ public final class ClusterSettingArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The value to assign to the setting. Valid values are `enabled` and `disabled`.
+     * Value to assign to the setting. Valid values: `enabled`, `disabled`.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value to assign to the setting. Valid values are `enabled` and `disabled`.
+     * @return Value to assign to the setting. Valid values: `enabled`, `disabled`.
      * 
      */
     public Output<String> value() {
@@ -91,7 +91,7 @@ public final class ClusterSettingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param value The value to assign to the setting. Valid values are `enabled` and `disabled`.
+         * @param value Value to assign to the setting. Valid values: `enabled`, `disabled`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ClusterSettingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param value The value to assign to the setting. Valid values are `enabled` and `disabled`.
+         * @param value Value to assign to the setting. Valid values: `enabled`, `disabled`.
          * 
          * @return builder
          * 

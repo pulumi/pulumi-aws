@@ -70,14 +70,14 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Details about the routing configuration of the alias. See `routing_configuration` block for details.
+     * Details about the routing configuration of the alias. See `routing_configuration` Block for details.
      * 
      */
     @Import(name="routingConfigurations")
     private @Nullable Output<List<AgentAgentAliasRoutingConfigurationArgs>> routingConfigurations;
 
     /**
-     * @return Details about the routing configuration of the alias. See `routing_configuration` block for details.
+     * @return Details about the routing configuration of the alias. See `routing_configuration` Block for details.
      * 
      */
     public Optional<Output<List<AgentAgentAliasRoutingConfigurationArgs>>> routingConfigurations() {
@@ -203,7 +203,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` block for details.
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` block for details.
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` block for details.
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` Block for details.
          * 
          * @return builder
          * 
