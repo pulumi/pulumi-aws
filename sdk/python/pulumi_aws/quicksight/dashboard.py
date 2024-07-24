@@ -520,11 +520,11 @@ class Dashboard(pulumi.CustomResource):
             name="example-name",
             version_description="version",
             source_entity={
-                "sourceTemplate": {
+                "source_template": {
                     "arn": source["arn"],
-                    "dataSetReferences": [{
-                        "dataSetArn": dataset["arn"],
-                        "dataSetPlaceholder": "1",
+                    "data_set_references": [{
+                        "data_set_arn": dataset["arn"],
+                        "data_set_placeholder": "1",
                     }],
                 },
             })
@@ -575,11 +575,11 @@ class Dashboard(pulumi.CustomResource):
             name="example-name",
             version_description="version",
             source_entity={
-                "sourceTemplate": {
+                "source_template": {
                     "arn": source["arn"],
-                    "dataSetReferences": [{
-                        "dataSetArn": dataset["arn"],
-                        "dataSetPlaceholder": "1",
+                    "data_set_references": [{
+                        "data_set_arn": dataset["arn"],
+                        "data_set_placeholder": "1",
                     }],
                 },
             })

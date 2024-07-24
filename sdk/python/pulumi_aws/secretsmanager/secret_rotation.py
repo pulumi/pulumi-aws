@@ -201,7 +201,7 @@ class SecretRotation(pulumi.CustomResource):
             secret_id=example_aws_secretsmanager_secret["id"],
             rotation_lambda_arn=example_aws_lambda_function["arn"],
             rotation_rules={
-                "automaticallyAfterDays": 30,
+                "automatically_after_days": 30,
             })
         ```
 
@@ -249,7 +249,7 @@ class SecretRotation(pulumi.CustomResource):
             secret_id=example_aws_secretsmanager_secret["id"],
             rotation_lambda_arn=example_aws_lambda_function["arn"],
             rotation_rules={
-                "automaticallyAfterDays": 30,
+                "automatically_after_days": 30,
             })
         ```
 

@@ -110,13 +110,13 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataCellsFilter("example", table_data={
-            "databaseName": test["name"],
+            "database_name": test["name"],
             "name": "example",
-            "tableCatalogId": current["accountId"],
-            "tableName": test_aws_glue_catalog_table["name"],
-            "columnNames": ["my_column"],
-            "rowFilter": {
-                "filterExpression": "my_column='example'",
+            "table_catalog_id": current["accountId"],
+            "table_name": test_aws_glue_catalog_table["name"],
+            "column_names": ["my_column"],
+            "row_filter": {
+                "filter_expression": "my_column='example'",
             },
         })
         ```
@@ -151,13 +151,13 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataCellsFilter("example", table_data={
-            "databaseName": test["name"],
+            "database_name": test["name"],
             "name": "example",
-            "tableCatalogId": current["accountId"],
-            "tableName": test_aws_glue_catalog_table["name"],
-            "columnNames": ["my_column"],
-            "rowFilter": {
-                "filterExpression": "my_column='example'",
+            "table_catalog_id": current["accountId"],
+            "table_name": test_aws_glue_catalog_table["name"],
+            "column_names": ["my_column"],
+            "row_filter": {
+                "filter_expression": "my_column='example'",
             },
         })
         ```

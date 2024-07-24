@@ -105,7 +105,7 @@ import (
 //				Name:           pulumi.String("api_gateway_authorizer"),
 //				Role:           lambda.Arn,
 //				Handler:        pulumi.String("exports.example"),
-//				SourceCodeHash: invokeFilebase64sha256.Result,
+//				SourceCodeHash: pulumi.String(invokeFilebase64sha256.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -135,9 +135,9 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "invocation_policy", &iam.RolePolicyArgs{
 //				Name: pulumi.String("default"),
 //				Role: invocationRole.ID(),
-//				Policy: invocationPolicy.ApplyT(func(invocationPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(invocationPolicy.ApplyT(func(invocationPolicy iam.GetPolicyDocumentResult) (*string, error) {
 //					return &invocationPolicy.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

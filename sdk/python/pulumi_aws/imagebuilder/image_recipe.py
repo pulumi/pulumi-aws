@@ -470,15 +470,15 @@ class ImageRecipe(pulumi.CustomResource):
 
         example = aws.imagebuilder.ImageRecipe("example",
             block_device_mappings=[{
-                "deviceName": "/dev/xvdb",
+                "device_name": "/dev/xvdb",
                 "ebs": {
-                    "deleteOnTermination": "true",
-                    "volumeSize": 100,
-                    "volumeType": "gp2",
+                    "delete_on_termination": "true",
+                    "volume_size": 100,
+                    "volume_type": "gp2",
                 },
             }],
             components=[{
-                "componentArn": example_aws_imagebuilder_component["arn"],
+                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -535,15 +535,15 @@ class ImageRecipe(pulumi.CustomResource):
 
         example = aws.imagebuilder.ImageRecipe("example",
             block_device_mappings=[{
-                "deviceName": "/dev/xvdb",
+                "device_name": "/dev/xvdb",
                 "ebs": {
-                    "deleteOnTermination": "true",
-                    "volumeSize": 100,
-                    "volumeType": "gp2",
+                    "delete_on_termination": "true",
+                    "volume_size": 100,
+                    "volume_type": "gp2",
                 },
             }],
             components=[{
-                "componentArn": example_aws_imagebuilder_component["arn"],
+                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",

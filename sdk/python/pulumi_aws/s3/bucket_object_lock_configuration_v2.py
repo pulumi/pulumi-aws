@@ -232,7 +232,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("example",
             bucket=example.id,
             rule={
-                "defaultRetention": {
+                "default_retention": {
                     "mode": "COMPLIANCE",
                     "days": 5,
                 },
@@ -300,7 +300,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("example",
             bucket=example.id,
             rule={
-                "defaultRetention": {
+                "default_retention": {
                     "mode": "COMPLIANCE",
                     "days": 5,
                 },

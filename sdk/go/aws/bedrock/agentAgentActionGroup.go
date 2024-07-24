@@ -46,7 +46,7 @@ import (
 //					Lambda: pulumi.String("arn:aws:lambda:us-west-2:123456789012:function:example-function"),
 //				},
 //				ApiSchema: &bedrock.AgentAgentActionGroupApiSchemaArgs{
-//					Payload: invokeFile.Result,
+//					Payload: pulumi.String(invokeFile.Result),
 //				},
 //			})
 //			if err != nil {
@@ -182,7 +182,7 @@ import (
 //					CustomControl: pulumi.String("RETURN_CONTROL"),
 //				},
 //				ApiSchema: &bedrock.AgentAgentActionGroupApiSchemaArgs{
-//					Payload: invokeFile.Result,
+//					Payload: pulumi.String(invokeFile.Result),
 //				},
 //			})
 //			if err != nil {

@@ -165,8 +165,8 @@ class DirectoryConfig(pulumi.CustomResource):
             directory_name="NAME OF DIRECTORY",
             organizational_unit_distinguished_names=["DISTINGUISHED NAME"],
             service_account_credentials={
-                "accountName": "NAME OF ACCOUNT",
-                "accountPassword": "PASSWORD OF ACCOUNT",
+                "account_name": "NAME OF ACCOUNT",
+                "account_password": "PASSWORD OF ACCOUNT",
             })
         ```
 
@@ -203,8 +203,8 @@ class DirectoryConfig(pulumi.CustomResource):
             directory_name="NAME OF DIRECTORY",
             organizational_unit_distinguished_names=["DISTINGUISHED NAME"],
             service_account_credentials={
-                "accountName": "NAME OF ACCOUNT",
-                "accountPassword": "PASSWORD OF ACCOUNT",
+                "account_name": "NAME OF ACCOUNT",
+                "account_password": "PASSWORD OF ACCOUNT",
             })
         ```
 

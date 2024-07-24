@@ -117,9 +117,9 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "cloudwatchLogs": {
+                "cloudwatch_logs": {
                     "enabled": True,
-                    "logGroup": example_aws_cloudwatch_log_group["id"],
+                    "log_group": example_aws_cloudwatch_log_group["id"],
                 },
             },
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
@@ -133,8 +133,8 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "kinesisDataFirehose": {
-                    "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
+                "kinesis_data_firehose": {
+                    "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
                     "enabled": True,
                 },
             },
@@ -150,7 +150,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
                 "s3": {
-                    "bucketName": example_aws_s3_bucket["id"],
+                    "bucket_name": example_aws_s3_bucket["id"],
                     "enabled": True,
                     "prefix": "example",
                 },
@@ -166,16 +166,16 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "cloudwatchLogs": {
+                "cloudwatch_logs": {
                     "enabled": True,
-                    "logGroup": example_aws_cloudwatch_log_group["id"],
+                    "log_group": example_aws_cloudwatch_log_group["id"],
                 },
-                "kinesisDataFirehose": {
-                    "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
+                "kinesis_data_firehose": {
+                    "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
                     "enabled": True,
                 },
                 "s3": {
-                    "bucketName": example_aws_s3_bucket["id"],
+                    "bucket_name": example_aws_s3_bucket["id"],
                     "enabled": True,
                 },
             },
@@ -190,7 +190,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "includeTrustContext": True,
+                "include_trust_context": True,
             },
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
@@ -203,7 +203,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "logVersion": "ocsf-1.0.0-rc.2",
+                "log_version": "ocsf-1.0.0-rc.2",
             },
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
@@ -240,9 +240,9 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "cloudwatchLogs": {
+                "cloudwatch_logs": {
                     "enabled": True,
-                    "logGroup": example_aws_cloudwatch_log_group["id"],
+                    "log_group": example_aws_cloudwatch_log_group["id"],
                 },
             },
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
@@ -256,8 +256,8 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "kinesisDataFirehose": {
-                    "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
+                "kinesis_data_firehose": {
+                    "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
                     "enabled": True,
                 },
             },
@@ -273,7 +273,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
                 "s3": {
-                    "bucketName": example_aws_s3_bucket["id"],
+                    "bucket_name": example_aws_s3_bucket["id"],
                     "enabled": True,
                     "prefix": "example",
                 },
@@ -289,16 +289,16 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "cloudwatchLogs": {
+                "cloudwatch_logs": {
                     "enabled": True,
-                    "logGroup": example_aws_cloudwatch_log_group["id"],
+                    "log_group": example_aws_cloudwatch_log_group["id"],
                 },
-                "kinesisDataFirehose": {
-                    "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
+                "kinesis_data_firehose": {
+                    "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
                     "enabled": True,
                 },
                 "s3": {
-                    "bucketName": example_aws_s3_bucket["id"],
+                    "bucket_name": example_aws_s3_bucket["id"],
                     "enabled": True,
                 },
             },
@@ -313,7 +313,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "includeTrustContext": True,
+                "include_trust_context": True,
             },
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
@@ -326,7 +326,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
             access_logs={
-                "logVersion": "ocsf-1.0.0-rc.2",
+                "log_version": "ocsf-1.0.0-rc.2",
             },
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```

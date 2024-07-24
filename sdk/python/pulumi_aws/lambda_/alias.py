@@ -253,8 +253,8 @@ class Alias(pulumi.CustomResource):
             function_name=lambda_function_test["arn"],
             function_version="1",
             routing_config={
-                "additionalVersionWeights": {
-                    "2": 0.5,
+                "additional_version_weights": {
+                    "_2": 0.5,
                 },
             })
         ```
@@ -299,8 +299,8 @@ class Alias(pulumi.CustomResource):
             function_name=lambda_function_test["arn"],
             function_version="1",
             routing_config={
-                "additionalVersionWeights": {
-                    "2": 0.5,
+                "additional_version_weights": {
+                    "_2": 0.5,
                 },
             })
         ```

@@ -32,8 +32,8 @@ import (
 // Name: pulumi.String("example"),
 // VpcConfig: &devicefarm.TestGridProjectVpcConfigArgs{
 // VpcId: pulumi.Any(exampleAwsVpc.Id),
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,24-46),
-// SecurityGroupIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:5,24-53),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,24-46)),
+// SecurityGroupIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:5,24-53)),
 // },
 // })
 // if err != nil {

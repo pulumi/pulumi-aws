@@ -118,9 +118,9 @@ import (
 //				},
 //			}, nil)
 //			cloud9Eip, err := ec2.NewEip(ctx, "cloud9_eip", &ec2.EipArgs{
-//				Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (*string, error) {
+//				Instance: pulumi.String(cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (*string, error) {
 //					return &cloud9Instance.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {

@@ -130,9 +130,9 @@ import (
 //			}, nil)
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucketV2.ID(),
-//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
 //					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

@@ -271,7 +271,7 @@ class RecordingConfiguration(pulumi.CustomResource):
             name="recording_configuration-1",
             destination_configuration={
                 "s3": {
-                    "bucketName": "ivs-stream-archive",
+                    "bucket_name": "ivs-stream-archive",
                 },
             })
         ```
@@ -313,7 +313,7 @@ class RecordingConfiguration(pulumi.CustomResource):
             name="recording_configuration-1",
             destination_configuration={
                 "s3": {
-                    "bucketName": "ivs-stream-archive",
+                    "bucket_name": "ivs-stream-archive",
                 },
             })
         ```

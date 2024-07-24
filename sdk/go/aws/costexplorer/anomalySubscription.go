@@ -206,7 +206,7 @@ import (
 // snsTopicPolicy := pulumi.All(costAnomalyUpdates.Arn,costAnomalyUpdates.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // costAnomalyUpdatesArn := _args[0].(string)
 // costAnomalyUpdatesArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // PolicyId: "__default_policy_ID",
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -263,13 +263,13 @@ import (
 // },
 // },
 // },
-// }, nil), nil
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 // Arn: costAnomalyUpdates.Arn,
-// Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
+// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
 // return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

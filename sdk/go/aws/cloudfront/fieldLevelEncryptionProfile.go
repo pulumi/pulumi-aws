@@ -37,7 +37,7 @@ import (
 //			}
 //			example, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
 //				Comment:    pulumi.String("test public key"),
-//				EncodedKey: invokeFile.Result,
+//				EncodedKey: pulumi.String(invokeFile.Result),
 //				Name:       pulumi.String("test_key"),
 //			})
 //			if err != nil {

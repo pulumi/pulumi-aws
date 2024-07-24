@@ -427,11 +427,11 @@ class Pipeline(pulumi.CustomResource):
             role=test_role["arn"],
             content_config={
                 "bucket": content_bucket["id"],
-                "storageClass": "Standard",
+                "storage_class": "Standard",
             },
             thumbnail_config={
                 "bucket": thumb_bucket["id"],
-                "storageClass": "Standard",
+                "storage_class": "Standard",
             })
         ```
 
@@ -484,11 +484,11 @@ class Pipeline(pulumi.CustomResource):
             role=test_role["arn"],
             content_config={
                 "bucket": content_bucket["id"],
-                "storageClass": "Standard",
+                "storage_class": "Standard",
             },
             thumbnail_config={
                 "bucket": thumb_bucket["id"],
-                "storageClass": "Standard",
+                "storage_class": "Standard",
             })
         ```
 

@@ -62,7 +62,7 @@ import (
 //			_, err = cognito.NewUserPoolUICustomization(ctx, "example", &cognito.UserPoolUICustomizationArgs{
 //				ClientId:   exampleUserPoolClient.ID(),
 //				Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
-//				ImageFile:  invokeFilebase64.Result,
+//				ImageFile:  pulumi.String(invokeFilebase64.Result),
 //				UserPoolId: exampleUserPoolDomain.UserPoolId,
 //			})
 //			if err != nil {
@@ -110,7 +110,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolUICustomization(ctx, "example", &cognito.UserPoolUICustomizationArgs{
 //				Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
-//				ImageFile:  invokeFilebase64.Result,
+//				ImageFile:  pulumi.String(invokeFilebase64.Result),
 //				UserPoolId: exampleUserPoolDomain.UserPoolId,
 //			})
 //			if err != nil {

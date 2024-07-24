@@ -1542,30 +1542,30 @@ class Group(pulumi.CustomResource):
                 example2["id"],
             ],
             instance_maintenance_policy={
-                "minHealthyPercentage": 90,
-                "maxHealthyPercentage": 120,
+                "min_healthy_percentage": 90,
+                "max_healthy_percentage": 120,
             },
             initial_lifecycle_hooks=[{
                 "name": "foobar",
-                "defaultResult": "CONTINUE",
-                "heartbeatTimeout": 2000,
-                "lifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING",
-                "notificationMetadata": json.dumps({
+                "default_result": "CONTINUE",
+                "heartbeat_timeout": 2000,
+                "lifecycle_transition": "autoscaling:EC2_INSTANCE_LAUNCHING",
+                "notification_metadata": json.dumps({
                     "foo": "bar",
                 }),
-                "notificationTargetArn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
-                "roleArn": "arn:aws:iam::123456789012:role/S3Access",
+                "notification_target_arn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
+                "role_arn": "arn:aws:iam::123456789012:role/S3Access",
             }],
             tags=[
                 {
                     "key": "foo",
                     "value": "bar",
-                    "propagateAtLaunch": True,
+                    "propagate_at_launch": True,
                 },
                 {
                     "key": "lorem",
                     "value": "ipsum",
-                    "propagateAtLaunch": False,
+                    "propagate_at_launch": False,
                 },
             ])
         ```
@@ -1607,18 +1607,18 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy={
-                "launchTemplate": {
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example.id,
+                "launch_template": {
+                    "launch_template_specification": {
+                        "launch_template_id": example.id,
                     },
                     "overrides": [
                         {
-                            "instanceType": "c4.large",
-                            "weightedCapacity": "3",
+                            "instance_type": "c4.large",
+                            "weighted_capacity": "3",
                         },
                         {
-                            "instanceType": "c3.large",
-                            "weightedCapacity": "2",
+                            "instance_type": "c3.large",
+                            "weighted_capacity": "2",
                         },
                     ],
                 },
@@ -1645,23 +1645,23 @@ class Group(pulumi.CustomResource):
                 example2["id"],
             ],
             mixed_instances_policy={
-                "instancesDistribution": {
-                    "onDemandBaseCapacity": 0,
-                    "onDemandPercentageAboveBaseCapacity": 25,
-                    "spotAllocationStrategy": "capacity-optimized",
+                "instances_distribution": {
+                    "on_demand_base_capacity": 0,
+                    "on_demand_percentage_above_base_capacity": 25,
+                    "spot_allocation_strategy": "capacity-optimized",
                 },
-                "launchTemplate": {
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example.id,
+                "launch_template": {
+                    "launch_template_specification": {
+                        "launch_template_id": example.id,
                     },
                     "overrides": [
                         {
-                            "instanceType": "c4.large",
-                            "weightedCapacity": "3",
+                            "instance_type": "c4.large",
+                            "weighted_capacity": "3",
                         },
                         {
-                            "instanceType": "c3.large",
-                            "weightedCapacity": "2",
+                            "instance_type": "c3.large",
+                            "weighted_capacity": "2",
                         },
                     ],
                 },
@@ -1689,21 +1689,21 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy={
-                "launchTemplate": {
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example.id,
+                "launch_template": {
+                    "launch_template_specification": {
+                        "launch_template_id": example.id,
                     },
                     "overrides": [
                         {
-                            "instanceType": "c4.large",
-                            "weightedCapacity": "3",
+                            "instance_type": "c4.large",
+                            "weighted_capacity": "3",
                         },
                         {
-                            "instanceType": "c6g.large",
-                            "launchTemplateSpecification": {
-                                "launchTemplateId": example2.id,
+                            "instance_type": "c6g.large",
+                            "launch_template_specification": {
+                                "launch_template_id": example2.id,
                             },
-                            "weightedCapacity": "2",
+                            "weighted_capacity": "2",
                         },
                     ],
                 },
@@ -1728,16 +1728,16 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy={
-                "launchTemplate": {
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example.id,
+                "launch_template": {
+                    "launch_template_specification": {
+                        "launch_template_id": example.id,
                     },
                     "overrides": [{
-                        "instanceRequirements": {
-                            "memoryMib": {
+                        "instance_requirements": {
+                            "memory_mib": {
                                 "min": 1000,
                             },
-                            "vcpuCount": {
+                            "vcpu_count": {
                                 "min": 4,
                             },
                         },
@@ -1772,12 +1772,12 @@ class Group(pulumi.CustomResource):
                 {
                     "key": "explicit1",
                     "value": "value1",
-                    "propagateAtLaunch": True,
+                    "propagate_at_launch": True,
                 },
                 {
                     "key": "explicit2",
                     "value": "value2",
-                    "propagateAtLaunch": True,
+                    "propagate_at_launch": True,
                 },
             ],
             name="foobar3-test",
@@ -1817,12 +1817,12 @@ class Group(pulumi.CustomResource):
             tags=[{
                 "key": "Key",
                 "value": "Value",
-                "propagateAtLaunch": True,
+                "propagate_at_launch": True,
             }],
             instance_refresh={
                 "strategy": "Rolling",
                 "preferences": {
-                    "minHealthyPercentage": 50,
+                    "min_healthy_percentage": 50,
                 },
                 "triggers": ["tag"],
             })
@@ -1844,11 +1844,11 @@ class Group(pulumi.CustomResource):
             max_size=5,
             min_size=1,
             warm_pool={
-                "poolState": "Hibernated",
-                "minSize": 1,
-                "maxGroupPreparedCapacity": 10,
-                "instanceReusePolicy": {
-                    "reuseOnScaleIn": True,
+                "pool_state": "Hibernated",
+                "min_size": 1,
+                "max_group_prepared_capacity": 10,
+                "instance_reuse_policy": {
+                    "reuse_on_scale_in": True,
                 },
             })
         ```
@@ -2054,30 +2054,30 @@ class Group(pulumi.CustomResource):
                 example2["id"],
             ],
             instance_maintenance_policy={
-                "minHealthyPercentage": 90,
-                "maxHealthyPercentage": 120,
+                "min_healthy_percentage": 90,
+                "max_healthy_percentage": 120,
             },
             initial_lifecycle_hooks=[{
                 "name": "foobar",
-                "defaultResult": "CONTINUE",
-                "heartbeatTimeout": 2000,
-                "lifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING",
-                "notificationMetadata": json.dumps({
+                "default_result": "CONTINUE",
+                "heartbeat_timeout": 2000,
+                "lifecycle_transition": "autoscaling:EC2_INSTANCE_LAUNCHING",
+                "notification_metadata": json.dumps({
                     "foo": "bar",
                 }),
-                "notificationTargetArn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
-                "roleArn": "arn:aws:iam::123456789012:role/S3Access",
+                "notification_target_arn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
+                "role_arn": "arn:aws:iam::123456789012:role/S3Access",
             }],
             tags=[
                 {
                     "key": "foo",
                     "value": "bar",
-                    "propagateAtLaunch": True,
+                    "propagate_at_launch": True,
                 },
                 {
                     "key": "lorem",
                     "value": "ipsum",
-                    "propagateAtLaunch": False,
+                    "propagate_at_launch": False,
                 },
             ])
         ```
@@ -2119,18 +2119,18 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy={
-                "launchTemplate": {
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example.id,
+                "launch_template": {
+                    "launch_template_specification": {
+                        "launch_template_id": example.id,
                     },
                     "overrides": [
                         {
-                            "instanceType": "c4.large",
-                            "weightedCapacity": "3",
+                            "instance_type": "c4.large",
+                            "weighted_capacity": "3",
                         },
                         {
-                            "instanceType": "c3.large",
-                            "weightedCapacity": "2",
+                            "instance_type": "c3.large",
+                            "weighted_capacity": "2",
                         },
                     ],
                 },
@@ -2157,23 +2157,23 @@ class Group(pulumi.CustomResource):
                 example2["id"],
             ],
             mixed_instances_policy={
-                "instancesDistribution": {
-                    "onDemandBaseCapacity": 0,
-                    "onDemandPercentageAboveBaseCapacity": 25,
-                    "spotAllocationStrategy": "capacity-optimized",
+                "instances_distribution": {
+                    "on_demand_base_capacity": 0,
+                    "on_demand_percentage_above_base_capacity": 25,
+                    "spot_allocation_strategy": "capacity-optimized",
                 },
-                "launchTemplate": {
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example.id,
+                "launch_template": {
+                    "launch_template_specification": {
+                        "launch_template_id": example.id,
                     },
                     "overrides": [
                         {
-                            "instanceType": "c4.large",
-                            "weightedCapacity": "3",
+                            "instance_type": "c4.large",
+                            "weighted_capacity": "3",
                         },
                         {
-                            "instanceType": "c3.large",
-                            "weightedCapacity": "2",
+                            "instance_type": "c3.large",
+                            "weighted_capacity": "2",
                         },
                     ],
                 },
@@ -2201,21 +2201,21 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy={
-                "launchTemplate": {
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example.id,
+                "launch_template": {
+                    "launch_template_specification": {
+                        "launch_template_id": example.id,
                     },
                     "overrides": [
                         {
-                            "instanceType": "c4.large",
-                            "weightedCapacity": "3",
+                            "instance_type": "c4.large",
+                            "weighted_capacity": "3",
                         },
                         {
-                            "instanceType": "c6g.large",
-                            "launchTemplateSpecification": {
-                                "launchTemplateId": example2.id,
+                            "instance_type": "c6g.large",
+                            "launch_template_specification": {
+                                "launch_template_id": example2.id,
                             },
-                            "weightedCapacity": "2",
+                            "weighted_capacity": "2",
                         },
                     ],
                 },
@@ -2240,16 +2240,16 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy={
-                "launchTemplate": {
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example.id,
+                "launch_template": {
+                    "launch_template_specification": {
+                        "launch_template_id": example.id,
                     },
                     "overrides": [{
-                        "instanceRequirements": {
-                            "memoryMib": {
+                        "instance_requirements": {
+                            "memory_mib": {
                                 "min": 1000,
                             },
-                            "vcpuCount": {
+                            "vcpu_count": {
                                 "min": 4,
                             },
                         },
@@ -2284,12 +2284,12 @@ class Group(pulumi.CustomResource):
                 {
                     "key": "explicit1",
                     "value": "value1",
-                    "propagateAtLaunch": True,
+                    "propagate_at_launch": True,
                 },
                 {
                     "key": "explicit2",
                     "value": "value2",
-                    "propagateAtLaunch": True,
+                    "propagate_at_launch": True,
                 },
             ],
             name="foobar3-test",
@@ -2329,12 +2329,12 @@ class Group(pulumi.CustomResource):
             tags=[{
                 "key": "Key",
                 "value": "Value",
-                "propagateAtLaunch": True,
+                "propagate_at_launch": True,
             }],
             instance_refresh={
                 "strategy": "Rolling",
                 "preferences": {
-                    "minHealthyPercentage": 50,
+                    "min_healthy_percentage": 50,
                 },
                 "triggers": ["tag"],
             })
@@ -2356,11 +2356,11 @@ class Group(pulumi.CustomResource):
             max_size=5,
             min_size=1,
             warm_pool={
-                "poolState": "Hibernated",
-                "minSize": 1,
-                "maxGroupPreparedCapacity": 10,
-                "instanceReusePolicy": {
-                    "reuseOnScaleIn": True,
+                "pool_state": "Hibernated",
+                "min_size": 1,
+                "max_group_prepared_capacity": 10,
+                "instance_reuse_policy": {
+                    "reuse_on_scale_in": True,
                 },
             })
         ```

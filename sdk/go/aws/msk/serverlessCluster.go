@@ -33,7 +33,7 @@ import (
 // ClusterName: pulumi.String("Example"),
 // VpcConfigs: msk.ServerlessClusterVpcConfigArray{
 // &msk.ServerlessClusterVpcConfigArgs{
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },

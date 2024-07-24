@@ -414,7 +414,7 @@ class StackSetInstance(pulumi.CustomResource):
 
         example = aws.cloudformation.StackSetInstance("example",
             deployment_targets={
-                "organizationalUnitIds": [example_aws_organizations_organization["roots"][0]["id"]],
+                "organizational_unit_ids": [example_aws_organizations_organization["roots"][0]["id"]],
             },
             region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])
@@ -522,7 +522,7 @@ class StackSetInstance(pulumi.CustomResource):
 
         example = aws.cloudformation.StackSetInstance("example",
             deployment_targets={
-                "organizationalUnitIds": [example_aws_organizations_organization["roots"][0]["id"]],
+                "organizational_unit_ids": [example_aws_organizations_organization["roots"][0]["id"]],
             },
             region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])

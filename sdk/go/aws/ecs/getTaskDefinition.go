@@ -65,9 +65,9 @@ import (
 //				Name:         pulumi.String("mongo"),
 //				Cluster:      foo.ID(),
 //				DesiredCount: pulumi.Int(2),
-//				TaskDefinition: mongo.ApplyT(func(mongo ecs.GetTaskDefinitionResult) (*string, error) {
+//				TaskDefinition: pulumi.String(mongo.ApplyT(func(mongo ecs.GetTaskDefinitionResult) (*string, error) {
 //					return &mongo.Arn, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

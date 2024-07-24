@@ -379,7 +379,7 @@ class Zone(pulumi.CustomResource):
         private = aws.route53.Zone("private",
             name="example.com",
             vpcs=[{
-                "vpcId": example["id"],
+                "vpc_id": example["id"],
             }])
         ```
 
@@ -457,7 +457,7 @@ class Zone(pulumi.CustomResource):
         private = aws.route53.Zone("private",
             name="example.com",
             vpcs=[{
-                "vpcId": example["id"],
+                "vpc_id": example["id"],
             }])
         ```
 
