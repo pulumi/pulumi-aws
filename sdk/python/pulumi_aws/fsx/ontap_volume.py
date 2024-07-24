@@ -794,7 +794,7 @@ class OntapVolume(pulumi.CustomResource):
             storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
             tiering_policy={
                 "name": "AUTO",
-                "coolingPeriod": 31,
+                "cooling_period": 31,
             })
         ```
 
@@ -872,7 +872,7 @@ class OntapVolume(pulumi.CustomResource):
             storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
             tiering_policy={
                 "name": "AUTO",
-                "coolingPeriod": 31,
+                "cooling_period": 31,
             })
         ```
 

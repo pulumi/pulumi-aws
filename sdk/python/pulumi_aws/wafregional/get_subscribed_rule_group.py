@@ -84,12 +84,12 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
     acl = aws.wafregional.WebAcl("acl", rules=[
         {
             "priority": 1,
-            "ruleId": by_name.id,
+            "rule_id": by_name.id,
             "type": "GROUP",
         },
         {
             "priority": 2,
-            "ruleId": by_metric_name.id,
+            "rule_id": by_metric_name.id,
             "type": "GROUP",
         },
     ])
@@ -129,12 +129,12 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
     acl = aws.wafregional.WebAcl("acl", rules=[
         {
             "priority": 1,
-            "ruleId": by_name.id,
+            "rule_id": by_name.id,
             "type": "GROUP",
         },
         {
             "priority": 2,
-            "ruleId": by_metric_name.id,
+            "rule_id": by_metric_name.id,
             "type": "GROUP",
         },
     ])

@@ -205,7 +205,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "regionName": current.name,
+            "region_name": current.name,
         }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
@@ -224,7 +224,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "regionName": current.name,
+            "region_name": current.name,
         }])
         ipv6_test_public = aws.ec2.VpcIpamPool("ipv6_test_public",
             address_family="ipv6",
@@ -280,7 +280,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "regionName": current.name,
+            "region_name": current.name,
         }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
@@ -299,7 +299,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "regionName": current.name,
+            "region_name": current.name,
         }])
         ipv6_test_public = aws.ec2.VpcIpamPool("ipv6_test_public",
             address_family="ipv6",

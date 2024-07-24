@@ -41,7 +41,7 @@ import (
 //				CloudHsmClusterId:      pulumi.Any(cloudHsmClusterId),
 //				CustomKeyStoreName:     pulumi.String("kms-custom-key-store-test"),
 //				KeyStorePassword:       pulumi.String("noplaintextpasswords1"),
-//				TrustAnchorCertificate: invokeFile.Result,
+//				TrustAnchorCertificate: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

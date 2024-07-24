@@ -77,8 +77,8 @@ def get_hosted_zone_id(region: Optional[str] = None,
         type=aws.route53.RecordType.A,
         aliases=[{
             "name": main_aws_apprunner_custom_domain_association["dnsTarget"],
-            "zoneId": main.id,
-            "evaluateTargetHealth": True,
+            "zone_id": main.id,
+            "evaluate_target_health": True,
         }])
     ```
 
@@ -116,8 +116,8 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = No
         type=aws.route53.RecordType.A,
         aliases=[{
             "name": main_aws_apprunner_custom_domain_association["dnsTarget"],
-            "zoneId": main.id,
-            "evaluateTargetHealth": True,
+            "zone_id": main.id,
+            "evaluate_target_health": True,
         }])
     ```
 

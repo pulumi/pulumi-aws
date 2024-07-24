@@ -688,11 +688,11 @@ class VpcEndpoint(pulumi.CustomResource):
             subnet_configurations=[
                 {
                     "ipv4": "10.0.1.10",
-                    "subnetId": example1["id"],
+                    "subnet_id": example1["id"],
                 },
                 {
                     "ipv4": "10.0.2.10",
-                    "subnetId": example2["id"],
+                    "subnet_id": example2["id"],
                 },
             ],
             subnet_ids=[
@@ -816,11 +816,11 @@ class VpcEndpoint(pulumi.CustomResource):
             subnet_configurations=[
                 {
                     "ipv4": "10.0.1.10",
-                    "subnetId": example1["id"],
+                    "subnet_id": example1["id"],
                 },
                 {
                     "ipv4": "10.0.2.10",
-                    "subnetId": example2["id"],
+                    "subnet_id": example2["id"],
                 },
             ],
             subnet_ids=[

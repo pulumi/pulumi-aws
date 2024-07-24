@@ -148,9 +148,9 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "metric_stream_to_firehose", &iam.RolePolicyArgs{
 //				Name: pulumi.String("default"),
 //				Role: metricStreamToFirehoseRole.ID(),
-//				Policy: metricStreamToFirehose.ApplyT(func(metricStreamToFirehose iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(metricStreamToFirehose.ApplyT(func(metricStreamToFirehose iam.GetPolicyDocumentResult) (*string, error) {
 //					return &metricStreamToFirehose.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -186,9 +186,9 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "firehose_to_s3", &iam.RolePolicyArgs{
 //				Name: pulumi.String("default"),
 //				Role: firehoseToS3Role.ID(),
-//				Policy: firehoseToS3.ApplyT(func(firehoseToS3 iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(firehoseToS3.ApplyT(func(firehoseToS3 iam.GetPolicyDocumentResult) (*string, error) {
 //					return &firehoseToS3.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

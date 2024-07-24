@@ -306,7 +306,7 @@ import (
 //			}
 //			exampleResource, err := null.NewResource(ctx, "example", &null.ResourceArgs{
 //				Triggers: pulumi.StringMap{
-//					"rerun_upon_change_of": invokeJoin.Result,
+//					"rerun_upon_change_of": pulumi.String(invokeJoin.Result),
 //				},
 //			})
 //			if err != nil {

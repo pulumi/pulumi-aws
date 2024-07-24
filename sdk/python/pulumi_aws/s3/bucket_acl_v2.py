@@ -190,7 +190,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
-                "objectOwnership": "BucketOwnerPreferred",
+                "object_ownership": "BucketOwnerPreferred",
             })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
@@ -211,7 +211,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
-                "objectOwnership": "BucketOwnerPreferred",
+                "object_ownership": "BucketOwnerPreferred",
             })
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
             bucket=example.id,
@@ -239,7 +239,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
-                "objectOwnership": "BucketOwnerPreferred",
+                "object_ownership": "BucketOwnerPreferred",
             })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
@@ -333,7 +333,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
-                "objectOwnership": "BucketOwnerPreferred",
+                "object_ownership": "BucketOwnerPreferred",
             })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
@@ -354,7 +354,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
-                "objectOwnership": "BucketOwnerPreferred",
+                "object_ownership": "BucketOwnerPreferred",
             })
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
             bucket=example.id,
@@ -382,7 +382,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
-                "objectOwnership": "BucketOwnerPreferred",
+                "object_ownership": "BucketOwnerPreferred",
             })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,

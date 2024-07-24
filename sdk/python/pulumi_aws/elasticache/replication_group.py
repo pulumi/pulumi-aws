@@ -1673,15 +1673,15 @@ class ReplicationGroup(pulumi.CustomResource):
             log_delivery_configurations=[
                 {
                     "destination": example["name"],
-                    "destinationType": "cloudwatch-logs",
-                    "logFormat": "text",
-                    "logType": "slow-log",
+                    "destination_type": "cloudwatch-logs",
+                    "log_format": "text",
+                    "log_type": "slow-log",
                 },
                 {
                     "destination": example_aws_kinesis_firehose_delivery_stream["name"],
-                    "destinationType": "kinesis-firehose",
-                    "logFormat": "json",
-                    "logType": "engine-log",
+                    "destination_type": "kinesis-firehose",
+                    "log_format": "json",
+                    "log_type": "engine-log",
                 },
             ])
         ```
@@ -1933,15 +1933,15 @@ class ReplicationGroup(pulumi.CustomResource):
             log_delivery_configurations=[
                 {
                     "destination": example["name"],
-                    "destinationType": "cloudwatch-logs",
-                    "logFormat": "text",
-                    "logType": "slow-log",
+                    "destination_type": "cloudwatch-logs",
+                    "log_format": "text",
+                    "log_type": "slow-log",
                 },
                 {
                     "destination": example_aws_kinesis_firehose_delivery_stream["name"],
-                    "destinationType": "kinesis-firehose",
-                    "logFormat": "json",
-                    "logType": "engine-log",
+                    "destination_type": "kinesis-firehose",
+                    "log_format": "json",
+                    "log_type": "engine-log",
                 },
             ])
         ```

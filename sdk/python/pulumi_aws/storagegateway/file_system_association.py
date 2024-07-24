@@ -345,7 +345,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
-                "domainName": test_aws_directory_service_directory["name"],
+                "domain_name": test_aws_directory_service_directory["name"],
                 "password": test_aws_directory_service_directory["password"],
                 "username": "Admin",
             })
@@ -362,7 +362,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             username="Admin",
             password=test_aws_directory_service_directory["password"],
             cache_attributes={
-                "cacheStaleTimeoutInSeconds": 400,
+                "cache_stale_timeout_in_seconds": 400,
             },
             audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```
@@ -433,7 +433,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
-                "domainName": test_aws_directory_service_directory["name"],
+                "domain_name": test_aws_directory_service_directory["name"],
                 "password": test_aws_directory_service_directory["password"],
                 "username": "Admin",
             })
@@ -450,7 +450,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             username="Admin",
             password=test_aws_directory_service_directory["password"],
             cache_attributes={
-                "cacheStaleTimeoutInSeconds": 400,
+                "cache_stale_timeout_in_seconds": 400,
             },
             audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```

@@ -198,22 +198,22 @@ import (
 //				return err
 //			}
 //			example := exampleCluster.Identities.ApplyT(func(identities []eks.ClusterIdentity) (tls.GetCertificateResult, error) {
-//				return tls.GetCertificateOutput(ctx, tls.GetCertificateOutputArgs{
+//				return tls.GetCertificateResult(interface{}(tls.GetCertificateOutput(ctx, tls.GetCertificateOutputArgs{
 //					Url: identities[0].Oidcs[0].Issuer,
-//				}, nil), nil
+//				}, nil))), nil
 //			}).(tls.GetCertificateResultOutput)
 //			exampleOpenIdConnectProvider, err := iam.NewOpenIdConnectProvider(ctx, "example", &iam.OpenIdConnectProviderArgs{
 //				ClientIdLists: pulumi.StringArray{
 //					pulumi.String("sts.amazonaws.com"),
 //				},
 //				ThumbprintLists: pulumi.StringArray{
-//					example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//					pulumi.String(example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
 //						return &example.Certificates[0].Sha1Fingerprint, nil
-//					}).(pulumi.StringPtrOutput),
+//					}).(pulumi.StringPtrOutput)),
 //				},
-//				Url: example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//				Url: pulumi.String(example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
 //					return &example.Url, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -252,9 +252,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: exampleAssumeRolePolicy.ApplyT(func(exampleAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//				AssumeRolePolicy: pulumi.String(exampleAssumeRolePolicy.ApplyT(func(exampleAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
 //					return &exampleAssumeRolePolicy.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Name: pulumi.String("example"),
 //			})
 //			if err != nil {

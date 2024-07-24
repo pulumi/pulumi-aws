@@ -189,9 +189,9 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
             name="test profile",
             encryption_entities={
                 "items": [{
-                    "publicKeyId": example.id,
-                    "providerId": "test provider",
-                    "fieldPatterns": {
+                    "public_key_id": example.id,
+                    "provider_id": "test provider",
+                    "field_patterns": {
                         "items": ["DateOfBirth"],
                     },
                 }],
@@ -237,9 +237,9 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
             name="test profile",
             encryption_entities={
                 "items": [{
-                    "publicKeyId": example.id,
-                    "providerId": "test provider",
-                    "fieldPatterns": {
+                    "public_key_id": example.id,
+                    "provider_id": "test provider",
+                    "field_patterns": {
                         "items": ["DateOfBirth"],
                     },
                 }],

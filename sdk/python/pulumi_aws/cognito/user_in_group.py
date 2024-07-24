@@ -146,11 +146,11 @@ class UserInGroup(pulumi.CustomResource):
         example = aws.cognito.UserPool("example",
             name="example",
             password_policy={
-                "temporaryPasswordValidityDays": 7,
-                "minimumLength": 6,
-                "requireUppercase": False,
-                "requireSymbols": False,
-                "requireNumbers": False,
+                "temporary_password_validity_days": 7,
+                "minimum_length": 6,
+                "require_uppercase": False,
+                "require_symbols": False,
+                "require_numbers": False,
             })
         example_user = aws.cognito.User("example",
             user_pool_id=example.id,
@@ -188,11 +188,11 @@ class UserInGroup(pulumi.CustomResource):
         example = aws.cognito.UserPool("example",
             name="example",
             password_policy={
-                "temporaryPasswordValidityDays": 7,
-                "minimumLength": 6,
-                "requireUppercase": False,
-                "requireSymbols": False,
-                "requireNumbers": False,
+                "temporary_password_validity_days": 7,
+                "minimum_length": 6,
+                "require_uppercase": False,
+                "require_symbols": False,
+                "require_numbers": False,
             })
         example_user = aws.cognito.User("example",
             user_pool_id=example.id,

@@ -612,9 +612,9 @@ class Fleet(pulumi.CustomResource):
             fleet_type="ON_DEMAND",
             name="example-fleet-name",
             runtime_configuration={
-                "serverProcesses": [{
-                    "concurrentExecutions": 1,
-                    "launchPath": "C:\\\\game\\\\GomokuServer.exe",
+                "server_processes": [{
+                    "concurrent_executions": 1,
+                    "launch_path": "C:\\\\game\\\\GomokuServer.exe",
                 }],
             })
         ```
@@ -665,9 +665,9 @@ class Fleet(pulumi.CustomResource):
             fleet_type="ON_DEMAND",
             name="example-fleet-name",
             runtime_configuration={
-                "serverProcesses": [{
-                    "concurrentExecutions": 1,
-                    "launchPath": "C:\\\\game\\\\GomokuServer.exe",
+                "server_processes": [{
+                    "concurrent_executions": 1,
+                    "launch_path": "C:\\\\game\\\\GomokuServer.exe",
                 }],
             })
         ```

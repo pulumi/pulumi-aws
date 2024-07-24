@@ -317,8 +317,8 @@ class Stream(pulumi.CustomResource):
             role_arn="sample-role-arn",
             inclusive_start_time="2021-01-01T00:00:00Z",
             kinesis_configuration={
-                "aggregationEnabled": False,
-                "streamArn": "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
+                "aggregation_enabled": False,
+                "stream_arn": "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
             },
             tags={
                 "example": "tag",
@@ -356,8 +356,8 @@ class Stream(pulumi.CustomResource):
             role_arn="sample-role-arn",
             inclusive_start_time="2021-01-01T00:00:00Z",
             kinesis_configuration={
-                "aggregationEnabled": False,
-                "streamArn": "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
+                "aggregation_enabled": False,
+                "stream_arn": "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
             },
             tags={
                 "example": "tag",

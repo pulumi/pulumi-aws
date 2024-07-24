@@ -124,12 +124,12 @@ class RegexMatchSet(pulumi.CustomResource):
         example = aws.wafregional.RegexMatchSet("example",
             name="example",
             regex_match_tuples=[{
-                "fieldToMatch": {
+                "field_to_match": {
                     "data": "User-Agent",
                     "type": "HEADER",
                 },
-                "regexPatternSetId": example_regex_pattern_set.id,
-                "textTransformation": "NONE",
+                "regex_pattern_set_id": example_regex_pattern_set.id,
+                "text_transformation": "NONE",
             }])
         ```
 
@@ -170,12 +170,12 @@ class RegexMatchSet(pulumi.CustomResource):
         example = aws.wafregional.RegexMatchSet("example",
             name="example",
             regex_match_tuples=[{
-                "fieldToMatch": {
+                "field_to_match": {
                     "data": "User-Agent",
                     "type": "HEADER",
                 },
-                "regexPatternSetId": example_regex_pattern_set.id,
-                "textTransformation": "NONE",
+                "regex_pattern_set_id": example_regex_pattern_set.id,
+                "text_transformation": "NONE",
             }])
         ```
 

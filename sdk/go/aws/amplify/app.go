@@ -163,7 +163,7 @@ import (
 //			_, err = amplify.NewApp(ctx, "example", &amplify.AppArgs{
 //				Name:                 pulumi.String("example"),
 //				EnableBasicAuth:      pulumi.Bool(true),
-//				BasicAuthCredentials: invokeBase64encode.Result,
+//				BasicAuthCredentials: pulumi.String(invokeBase64encode.Result),
 //			})
 //			if err != nil {
 //				return err

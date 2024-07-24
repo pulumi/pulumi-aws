@@ -300,8 +300,8 @@ class CustomPlugin(pulumi.CustomResource):
             content_type="ZIP",
             location={
                 "s3": {
-                    "bucketArn": example.arn,
-                    "fileKey": example_bucket_objectv2.key,
+                    "bucket_arn": example.arn,
+                    "file_key": example_bucket_objectv2.key,
                 },
             })
         ```
@@ -351,8 +351,8 @@ class CustomPlugin(pulumi.CustomResource):
             content_type="ZIP",
             location={
                 "s3": {
-                    "bucketArn": example.arn,
-                    "fileKey": example_bucket_objectv2.key,
+                    "bucket_arn": example.arn,
+                    "file_key": example_bucket_objectv2.key,
                 },
             })
         ```

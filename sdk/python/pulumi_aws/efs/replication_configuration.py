@@ -203,8 +203,8 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
             destination={
-                "availabilityZoneName": "us-west-2b",
-                "kmsKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+                "availability_zone_name": "us-west-2b",
+                "kms_key_id": "1234abcd-12ab-34cd-56ef-1234567890ab",
             })
         ```
 
@@ -218,7 +218,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
             destination={
-                "fileSystemId": "fs-1234567890",
+                "file_system_id": "fs-1234567890",
                 "region": "us-west-2",
             })
         ```
@@ -273,8 +273,8 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
             destination={
-                "availabilityZoneName": "us-west-2b",
-                "kmsKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+                "availability_zone_name": "us-west-2b",
+                "kms_key_id": "1234abcd-12ab-34cd-56ef-1234567890ab",
             })
         ```
 
@@ -288,7 +288,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
             destination={
-                "fileSystemId": "fs-1234567890",
+                "file_system_id": "fs-1234567890",
                 "region": "us-west-2",
             })
         ```

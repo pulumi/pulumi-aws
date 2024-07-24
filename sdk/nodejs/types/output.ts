@@ -7370,7 +7370,7 @@ export namespace appstream {
          * String to string map that contains additional attributes used to describe the application.
          * * `Name` - Name of the application.
          */
-        metadata: {[key: string]: any};
+        metadata: {[key: string]: string};
         /**
          * Name of the image being searched for. Cannot be used with nameRegex or arn.
          */
@@ -10225,11 +10225,11 @@ export namespace batch {
         /**
          * The type and quantity of the resources to reserve for the container.
          */
-        limits: {[key: string]: any};
+        limits: {[key: string]: string};
         /**
          * The type and quantity of the resources to request for the container.
          */
-        requests: {[key: string]: any};
+        requests: {[key: string]: string};
     }
 
     export interface GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext {
@@ -10271,7 +10271,7 @@ export namespace batch {
         /**
          * Key-value pairs used to identify, sort, and organize cube resources.
          */
-        labels: {[key: string]: any};
+        labels: {[key: string]: string};
     }
 
     export interface GetJobDefinitionEksPropertyPodPropertyVolume {
@@ -10518,7 +10518,7 @@ export namespace batch {
         /**
          * The configuration options to send to the log driver.
          */
-        options: {[key: string]: any};
+        options: {[key: string]: string};
         /**
          * The secrets to pass to the log configuration.
          */
@@ -11000,7 +11000,7 @@ export namespace bcmdata {
         /**
          * Table configuration.
          */
-        tableConfigurations?: {[key: string]: {[key: string]: any}};
+        tableConfigurations?: {[key: string]: {[key: string]: string}};
     }
 
     export interface ExportExportDestinationConfiguration {
@@ -71605,19 +71605,19 @@ export namespace s3 {
 
     export interface BucketCorsRule {
         /**
-         * Specifies which headers are allowed.
+         * List of headers allowed.
          */
         allowedHeaders?: string[];
         /**
-         * Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+         * One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
          */
         allowedMethods: string[];
         /**
-         * Specifies which origins are allowed.
+         * One or more origins you want customers to be able to access the bucket from.
          */
         allowedOrigins: string[];
         /**
-         * Specifies expose header in the response.
+         * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
          */
         exposeHeaders?: string[];
         /**
@@ -71834,7 +71834,7 @@ export namespace s3 {
          */
         enabled: boolean;
         /**
-         * Specifies a period in the object's expire (documented below).
+         * Specifies a period in the object's expire. See Expiration below for details.
          */
         expiration?: outputs.s3.BucketLifecycleRuleExpiration;
         /**
@@ -71842,13 +71842,11 @@ export namespace s3 {
          */
         id: string;
         /**
-         * Specifies when noncurrent object versions expire (documented below).
+         * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
          */
         noncurrentVersionExpiration?: outputs.s3.BucketLifecycleRuleNoncurrentVersionExpiration;
         /**
-         * Specifies when noncurrent object versions transitions (documented below).
-         *
-         * At least one of `abortIncompleteMultipartUploadDays`, `expiration`, `transition`, `noncurrentVersionExpiration`, `noncurrentVersionTransition` must be specified.
+         * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
          */
         noncurrentVersionTransitions?: outputs.s3.BucketLifecycleRuleNoncurrentVersionTransition[];
         /**
@@ -71860,7 +71858,7 @@ export namespace s3 {
          */
         tags?: {[key: string]: string};
         /**
-         * Specifies a period in the object's transitions (documented below).
+         * Specifies a period in the object's transitions. See Transition below for details.
          */
         transitions?: outputs.s3.BucketLifecycleRuleTransition[];
     }
@@ -71915,7 +71913,7 @@ export namespace s3 {
 
     export interface BucketLogging {
         /**
-         * The name of the bucket that will receive the log objects.
+         * Name of the bucket that will receive the log objects.
          */
         targetBucket: string;
         /**
@@ -72062,39 +72060,33 @@ export namespace s3 {
 
     export interface BucketObjectLockConfiguration {
         /**
-         * Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+         * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
          */
         objectLockEnabled: string;
         /**
-         * The Object Lock rule in place for this bucket.
+         * Object Lock rule in place for this bucket (documented below).
          */
         rule?: outputs.s3.BucketObjectLockConfigurationRule;
     }
 
     export interface BucketObjectLockConfigurationRule {
         /**
-         * The default retention period that you want to apply to new objects placed in this bucket.
+         * Default retention period that you want to apply to new objects placed in this bucket (documented below).
          */
         defaultRetention: outputs.s3.BucketObjectLockConfigurationRuleDefaultRetention;
     }
 
     export interface BucketObjectLockConfigurationRuleDefaultRetention {
         /**
-         * The number of days that you want to specify for the default retention period.
+         * Number of days that you want to specify for the default retention period.
          */
         days?: number;
         /**
-         * The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+         * Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
          */
         mode: string;
         /**
-         * The number of years that you want to specify for the default retention period.
-         *
-         * Either `days` or `years` must be specified, but not both.
-         *
-         * > **NOTE on `objectLockConfiguration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
-         * When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
-         * Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
+         * Number of years that you want to specify for the default retention period.
          */
         years?: number;
     }
@@ -72345,7 +72337,7 @@ export namespace s3 {
 
     export interface BucketReplicationConfiguration {
         /**
-         * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+         * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
          */
         role: string;
         /**
@@ -72376,7 +72368,7 @@ export namespace s3 {
          */
         prefix?: string;
         /**
-         * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          */
         priority?: number;
         /**
@@ -72384,24 +72376,22 @@ export namespace s3 {
          */
         sourceSelectionCriteria?: outputs.s3.BucketReplicationConfigurationRuleSourceSelectionCriteria;
         /**
-         * The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-         *
-         * > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+         * Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
          */
         status: string;
     }
 
     export interface BucketReplicationConfigurationRuleDestination {
         /**
-         * Specifies the overrides to use for object owners on replication. Must be used in conjunction with `accountId` owner override configuration.
+         * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
          */
         accessControlTranslation?: outputs.s3.BucketReplicationConfigurationRuleDestinationAccessControlTranslation;
         /**
-         * The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
+         * Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
          */
         accountId?: string;
         /**
-         * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+         * ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
          */
         bucket: string;
         /**
@@ -72425,7 +72415,7 @@ export namespace s3 {
 
     export interface BucketReplicationConfigurationRuleDestinationAccessControlTranslation {
         /**
-         * The override value for the owner on replicated objects. Currently only `Destination` is supported.
+         * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
          */
         owner: string;
     }
@@ -72436,7 +72426,7 @@ export namespace s3 {
          */
         minutes?: number;
         /**
-         * The status of replication metrics. Either `Enabled` or `Disabled`.
+         * Status of replication metrics. Either `Enabled` or `Disabled`.
          */
         status?: string;
     }
@@ -72447,7 +72437,7 @@ export namespace s3 {
          */
         minutes?: number;
         /**
-         * The status of RTC. Either `Enabled` or `Disabled`.
+         * Status of RTC. Either `Enabled` or `Disabled`.
          */
         status?: string;
     }
@@ -72481,14 +72471,14 @@ export namespace s3 {
 
     export interface BucketServerSideEncryptionConfiguration {
         /**
-         * A single object for server-side encryption by default configuration. (documented below)
+         * Single object for server-side encryption by default configuration. (documented below)
          */
         rule: outputs.s3.BucketServerSideEncryptionConfigurationRule;
     }
 
     export interface BucketServerSideEncryptionConfigurationRule {
         /**
-         * A single object for setting server-side encryption by default. (documented below)
+         * Single object for setting server-side encryption by default. (documented below)
          */
         applyServerSideEncryptionByDefault: outputs.s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault;
         /**
@@ -72499,11 +72489,11 @@ export namespace s3 {
 
     export interface BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
         /**
-         * The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
+         * AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
          */
         kmsMasterKeyId?: string;
         /**
-         * The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+         * Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
          */
         sseAlgorithm: string;
     }
@@ -72925,7 +72915,7 @@ export namespace s3 {
 
     export interface BucketWebsite {
         /**
-         * An absolute path to the document to return in case of a 4XX error.
+         * Absolute path to the document to return in case of a 4XX error.
          */
         errorDocument?: string;
         /**
@@ -72933,14 +72923,12 @@ export namespace s3 {
          */
         indexDocument?: string;
         /**
-         * A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+         * Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
          */
         redirectAllRequestsTo?: string;
         /**
-         * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
-         *
-         * The `CORS` object supports the following:
          */
         routingRules?: string;
     }
