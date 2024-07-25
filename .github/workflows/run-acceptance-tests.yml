@@ -224,7 +224,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: junit-test-summary-${{ matrix.index }}
-        path: node-summary.xml
+        path: examples/node-summary.xml
         retention-days: 1
     strategy:
       fail-fast: false
@@ -243,14 +243,25 @@ jobs:
 
       - name: Download artifacts
         uses: actions/download-artifact@v4
+        pattern: "junit-*.xml"
+        merge-multiple: true
 
       - name: Install junit-report-merger
         run: npm install -g junit-report-merger
 
-      - name: Merge reports
+      - name: Merge examples reports
         run: jrm ./junit-test-summary.xml "junit-test-summary-0/*.xml" "junit-test-summary-1/*.xml" "junit-test-summary-2/*.xml" "junit-test-summary-3/*.xml" "junit-test-summary-4/*.xml"
 
-      - name: Upload test artifacts
+      - name: Merge provider reports
+        run: jrm ./junit-provider-test-summary.xml "junit-provider-test-summary-0/*.xml" "junit-provider-test-summary-1/*.xml" "junit-provider-test-summary-2/*.xml" "junit-provider-test-summary-3/*.xml" "junit-provider-test-summary-4/*.xml"
+
+      - name: Upload provider artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-provider-test-summary
+          path: ./junit-provider-test-summary.xml
+
+      - name: Upload examples artifacts
         uses: actions/upload-artifact@v4
         with:
           name: junit-test-summary
@@ -387,7 +398,7 @@ jobs:
             uses: actions/upload-artifact@v4
             with:
               name: junit-provider-test-summary-${{ matrix.index }}
-              path: node-summary.xml
+              path: provider/node-summary.xml
               retention-days: 1
       strategy:
           fail-fast: false
