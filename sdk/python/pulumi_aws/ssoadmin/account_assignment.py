@@ -247,9 +247,9 @@ class AccountAssignment(pulumi.CustomResource):
             name="AWSReadOnlyAccess")
         example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
             alternate_identifier={
-                "uniqueAttribute": {
-                    "attributePath": "DisplayName",
-                    "attributeValue": "ExampleGroup",
+                "unique_attribute": {
+                    "attribute_path": "DisplayName",
+                    "attribute_value": "ExampleGroup",
                 },
             })
         example_account_assignment = aws.ssoadmin.AccountAssignment("example",
@@ -330,9 +330,9 @@ class AccountAssignment(pulumi.CustomResource):
             name="AWSReadOnlyAccess")
         example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
             alternate_identifier={
-                "uniqueAttribute": {
-                    "attributePath": "DisplayName",
-                    "attributeValue": "ExampleGroup",
+                "unique_attribute": {
+                    "attribute_path": "DisplayName",
+                    "attribute_value": "ExampleGroup",
                 },
             })
         example_account_assignment = aws.ssoadmin.AccountAssignment("example",

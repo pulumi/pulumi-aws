@@ -72,16 +72,16 @@ class PolicyStepScalingPolicyConfiguration(dict):
                import pulumi_aws as aws
                
                ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
-                   "stepAdjustments": [
+                   "step_adjustments": [
                        {
-                           "metricIntervalLowerBound": "1",
-                           "metricIntervalUpperBound": "2",
-                           "scalingAdjustment": -1,
+                           "metric_interval_lower_bound": "1",
+                           "metric_interval_upper_bound": "2",
+                           "scaling_adjustment": -1,
                        },
                        {
-                           "metricIntervalLowerBound": "2",
-                           "metricIntervalUpperBound": "3",
-                           "scalingAdjustment": 1,
+                           "metric_interval_lower_bound": "2",
+                           "metric_interval_upper_bound": "3",
+                           "scaling_adjustment": 1,
                        },
                    ],
                })
@@ -141,16 +141,16 @@ class PolicyStepScalingPolicyConfiguration(dict):
         import pulumi_aws as aws
 
         ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
-            "stepAdjustments": [
+            "step_adjustments": [
                 {
-                    "metricIntervalLowerBound": "1",
-                    "metricIntervalUpperBound": "2",
-                    "scalingAdjustment": -1,
+                    "metric_interval_lower_bound": "1",
+                    "metric_interval_upper_bound": "2",
+                    "scaling_adjustment": -1,
                 },
                 {
-                    "metricIntervalLowerBound": "2",
-                    "metricIntervalUpperBound": "3",
-                    "scalingAdjustment": 1,
+                    "metric_interval_lower_bound": "2",
+                    "metric_interval_upper_bound": "3",
+                    "scaling_adjustment": 1,
                 },
             ],
         })

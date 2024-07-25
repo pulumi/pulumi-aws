@@ -287,33 +287,33 @@ class Replicator(pulumi.CustomResource):
             service_execution_role_arn=source_aws_iam_role["arn"],
             kafka_clusters=[
                 {
-                    "amazonMskCluster": {
-                        "mskClusterArn": source["arn"],
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": source["arn"],
                     },
-                    "vpcConfig": {
-                        "subnetIds": [__item["id"] for __item in source_aws_subnet],
-                        "securityGroupsIds": [source_aws_security_group["id"]],
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in source_aws_subnet],
+                        "security_groups_ids": [source_aws_security_group["id"]],
                     },
                 },
                 {
-                    "amazonMskCluster": {
-                        "mskClusterArn": target["arn"],
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": target["arn"],
                     },
-                    "vpcConfig": {
-                        "subnetIds": [__item["id"] for __item in target_aws_subnet],
-                        "securityGroupsIds": [target_aws_security_group["id"]],
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in target_aws_subnet],
+                        "security_groups_ids": [target_aws_security_group["id"]],
                     },
                 },
             ],
             replication_info_list={
-                "sourceKafkaClusterArn": source["arn"],
-                "targetKafkaClusterArn": target["arn"],
-                "targetCompressionType": "NONE",
-                "topicReplications": [{
-                    "topicsToReplicates": [".*"],
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_arn": target["arn"],
+                "target_compression_type": "NONE",
+                "topic_replications": [{
+                    "topics_to_replicates": [".*"],
                 }],
-                "consumerGroupReplications": [{
-                    "consumerGroupsToReplicates": [".*"],
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
                 }],
             })
         ```
@@ -357,33 +357,33 @@ class Replicator(pulumi.CustomResource):
             service_execution_role_arn=source_aws_iam_role["arn"],
             kafka_clusters=[
                 {
-                    "amazonMskCluster": {
-                        "mskClusterArn": source["arn"],
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": source["arn"],
                     },
-                    "vpcConfig": {
-                        "subnetIds": [__item["id"] for __item in source_aws_subnet],
-                        "securityGroupsIds": [source_aws_security_group["id"]],
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in source_aws_subnet],
+                        "security_groups_ids": [source_aws_security_group["id"]],
                     },
                 },
                 {
-                    "amazonMskCluster": {
-                        "mskClusterArn": target["arn"],
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": target["arn"],
                     },
-                    "vpcConfig": {
-                        "subnetIds": [__item["id"] for __item in target_aws_subnet],
-                        "securityGroupsIds": [target_aws_security_group["id"]],
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in target_aws_subnet],
+                        "security_groups_ids": [target_aws_security_group["id"]],
                     },
                 },
             ],
             replication_info_list={
-                "sourceKafkaClusterArn": source["arn"],
-                "targetKafkaClusterArn": target["arn"],
-                "targetCompressionType": "NONE",
-                "topicReplications": [{
-                    "topicsToReplicates": [".*"],
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_arn": target["arn"],
+                "target_compression_type": "NONE",
+                "topic_replications": [{
+                    "topics_to_replicates": [".*"],
                 }],
-                "consumerGroupReplications": [{
-                    "consumerGroupsToReplicates": [".*"],
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
                 }],
             })
         ```

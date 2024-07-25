@@ -948,9 +948,9 @@ class Server(pulumi.CustomResource):
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
             endpoint_details={
-                "addressAllocationIds": [example_aws_eip["id"]],
-                "subnetIds": [example_aws_subnet["id"]],
-                "vpcId": example_aws_vpc["id"],
+                "address_allocation_ids": [example_aws_eip["id"]],
+                "subnet_ids": [example_aws_subnet["id"]],
+                "vpc_id": example_aws_vpc["id"],
             })
         ```
 
@@ -985,8 +985,8 @@ class Server(pulumi.CustomResource):
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
             endpoint_details={
-                "subnetIds": [example_aws_subnet["id"]],
-                "vpcId": example_aws_vpc["id"],
+                "subnet_ids": [example_aws_subnet["id"]],
+                "vpc_id": example_aws_vpc["id"],
             },
             protocols=[
                 "FTP",
@@ -1122,9 +1122,9 @@ class Server(pulumi.CustomResource):
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
             endpoint_details={
-                "addressAllocationIds": [example_aws_eip["id"]],
-                "subnetIds": [example_aws_subnet["id"]],
-                "vpcId": example_aws_vpc["id"],
+                "address_allocation_ids": [example_aws_eip["id"]],
+                "subnet_ids": [example_aws_subnet["id"]],
+                "vpc_id": example_aws_vpc["id"],
             })
         ```
 
@@ -1159,8 +1159,8 @@ class Server(pulumi.CustomResource):
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
             endpoint_details={
-                "subnetIds": [example_aws_subnet["id"]],
-                "vpcId": example_aws_vpc["id"],
+                "subnet_ids": [example_aws_subnet["id"]],
+                "vpc_id": example_aws_vpc["id"],
             },
             protocols=[
                 "FTP",

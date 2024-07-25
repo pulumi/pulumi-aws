@@ -806,7 +806,7 @@ class App(pulumi.CustomResource):
                 "*/**",
             ],
             auto_branch_creation_config={
-                "enableAutoBuild": True,
+                "enable_auto_build": True,
             })
         ```
 
@@ -990,7 +990,7 @@ class App(pulumi.CustomResource):
                 "*/**",
             ],
             auto_branch_creation_config={
-                "enableAutoBuild": True,
+                "enable_auto_build": True,
             })
         ```
 

@@ -412,37 +412,37 @@ class Flow(pulumi.CustomResource):
         example_flow = aws.appflow.Flow("example",
             name="example",
             source_flow_config={
-                "connectorType": "S3",
-                "sourceConnectorProperties": {
+                "connector_type": "S3",
+                "source_connector_properties": {
                     "s3": {
-                        "bucketName": example_source_bucket_policy.bucket,
-                        "bucketPrefix": "example",
+                        "bucket_name": example_source_bucket_policy.bucket,
+                        "bucket_prefix": "example",
                     },
                 },
             },
             destination_flow_configs=[{
-                "connectorType": "S3",
-                "destinationConnectorProperties": {
+                "connector_type": "S3",
+                "destination_connector_properties": {
                     "s3": {
-                        "bucketName": example_destination_bucket_policy.bucket,
-                        "s3OutputFormatConfig": {
-                            "prefixConfig": {
-                                "prefixType": "PATH",
+                        "bucket_name": example_destination_bucket_policy.bucket,
+                        "s3_output_format_config": {
+                            "prefix_config": {
+                                "prefix_type": "PATH",
                             },
                         },
                     },
                 },
             }],
             tasks=[{
-                "sourceFields": ["exampleField"],
-                "destinationField": "exampleField",
-                "taskType": "Map",
-                "connectorOperators": [{
+                "source_fields": ["exampleField"],
+                "destination_field": "exampleField",
+                "task_type": "Map",
+                "connector_operators": [{
                     "s3": "NO_OP",
                 }],
             }],
             trigger_config={
-                "triggerType": "OnDemand",
+                "trigger_type": "OnDemand",
             })
         ```
 
@@ -531,37 +531,37 @@ class Flow(pulumi.CustomResource):
         example_flow = aws.appflow.Flow("example",
             name="example",
             source_flow_config={
-                "connectorType": "S3",
-                "sourceConnectorProperties": {
+                "connector_type": "S3",
+                "source_connector_properties": {
                     "s3": {
-                        "bucketName": example_source_bucket_policy.bucket,
-                        "bucketPrefix": "example",
+                        "bucket_name": example_source_bucket_policy.bucket,
+                        "bucket_prefix": "example",
                     },
                 },
             },
             destination_flow_configs=[{
-                "connectorType": "S3",
-                "destinationConnectorProperties": {
+                "connector_type": "S3",
+                "destination_connector_properties": {
                     "s3": {
-                        "bucketName": example_destination_bucket_policy.bucket,
-                        "s3OutputFormatConfig": {
-                            "prefixConfig": {
-                                "prefixType": "PATH",
+                        "bucket_name": example_destination_bucket_policy.bucket,
+                        "s3_output_format_config": {
+                            "prefix_config": {
+                                "prefix_type": "PATH",
                             },
                         },
                     },
                 },
             }],
             tasks=[{
-                "sourceFields": ["exampleField"],
-                "destinationField": "exampleField",
-                "taskType": "Map",
-                "connectorOperators": [{
+                "source_fields": ["exampleField"],
+                "destination_field": "exampleField",
+                "task_type": "Map",
+                "connector_operators": [{
                     "s3": "NO_OP",
                 }],
             }],
             trigger_config={
-                "triggerType": "OnDemand",
+                "trigger_type": "OnDemand",
             })
         ```
 

@@ -53,15 +53,15 @@ import (
 //				return err
 //			}
 //			_, err = dynamodb.NewTag(ctx, "test", &dynamodb.TagArgs{
-//				ResourceArn: example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
-//					return std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
+//				ResourceArn: pulumi.String(example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
+//					return std.ReplaceResult(interface{}(std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
 //						Text:    arn,
 //						Search:  current.Name,
 //						Replace: replica.Name,
-//					}, nil), nil
+//					}, nil))), nil
 //				}).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
 //					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Key:   pulumi.String("testkey"),
 //				Value: pulumi.String("testvalue"),
 //			})

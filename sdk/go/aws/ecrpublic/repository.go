@@ -45,7 +45,7 @@ import (
 //						pulumi.String("ARM"),
 //					},
 //					Description:   pulumi.String("Description"),
-//					LogoImageBlob: invokeFilebase64.Result,
+//					LogoImageBlob: pulumi.String(invokeFilebase64.Result),
 //					OperatingSystems: pulumi.StringArray{
 //						pulumi.String("Linux"),
 //					},

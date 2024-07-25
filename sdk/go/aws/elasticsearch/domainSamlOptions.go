@@ -59,7 +59,7 @@ import (
 //					Enabled: pulumi.Bool(true),
 //					Idp: &elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs{
 //						EntityId:        pulumi.String("https://example.com"),
-//						MetadataContent: invokeFile.Result,
+//						MetadataContent: pulumi.String(invokeFile.Result),
 //					},
 //				},
 //			})

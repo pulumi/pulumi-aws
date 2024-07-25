@@ -40,7 +40,7 @@ import (
 //			}
 //			_, err = iam.NewSigningCertificate(ctx, "test_cert", &iam.SigningCertificateArgs{
 //				Username:        pulumi.String("some_test_cert"),
-//				CertificateBody: invokeFile.Result,
+//				CertificateBody: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

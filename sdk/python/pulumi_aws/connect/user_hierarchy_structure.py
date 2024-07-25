@@ -119,7 +119,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
         example = aws.connect.UserHierarchyStructure("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure={
-                "levelOne": {
+                "level_one": {
                     "name": "levelone",
                 },
             })
@@ -134,19 +134,19 @@ class UserHierarchyStructure(pulumi.CustomResource):
         example = aws.connect.UserHierarchyStructure("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure={
-                "levelOne": {
+                "level_one": {
                     "name": "levelone",
                 },
-                "levelTwo": {
+                "level_two": {
                     "name": "leveltwo",
                 },
-                "levelThree": {
+                "level_three": {
                     "name": "levelthree",
                 },
-                "levelFour": {
+                "level_four": {
                     "name": "levelfour",
                 },
-                "levelFive": {
+                "level_five": {
                     "name": "levelfive",
                 },
             })
@@ -186,7 +186,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
         example = aws.connect.UserHierarchyStructure("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure={
-                "levelOne": {
+                "level_one": {
                     "name": "levelone",
                 },
             })
@@ -201,19 +201,19 @@ class UserHierarchyStructure(pulumi.CustomResource):
         example = aws.connect.UserHierarchyStructure("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure={
-                "levelOne": {
+                "level_one": {
                     "name": "levelone",
                 },
-                "levelTwo": {
+                "level_two": {
                     "name": "leveltwo",
                 },
-                "levelThree": {
+                "level_three": {
                     "name": "levelthree",
                 },
-                "levelFour": {
+                "level_four": {
                     "name": "levelfour",
                 },
-                "levelFive": {
+                "level_five": {
                     "name": "levelfive",
                 },
             })

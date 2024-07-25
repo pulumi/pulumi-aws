@@ -103,7 +103,7 @@ import (
 //					StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
 //						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 //							MetricIntervalUpperBound: pulumi.String("0"),
-//							ScalingAdjustment:        -1,
+//							ScalingAdjustment:        int(-1),
 //						},
 //					},
 //				},

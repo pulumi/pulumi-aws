@@ -265,7 +265,7 @@ class NfsLocation(pulumi.CustomResource):
             server_hostname="nfs.example.com",
             subdirectory="/exported/path",
             on_prem_config={
-                "agentArns": [example_aws_datasync_agent["arn"]],
+                "agent_arns": [example_aws_datasync_agent["arn"]],
             })
         ```
 
@@ -306,7 +306,7 @@ class NfsLocation(pulumi.CustomResource):
             server_hostname="nfs.example.com",
             subdirectory="/exported/path",
             on_prem_config={
-                "agentArns": [example_aws_datasync_agent["arn"]],
+                "agent_arns": [example_aws_datasync_agent["arn"]],
             })
         ```
 

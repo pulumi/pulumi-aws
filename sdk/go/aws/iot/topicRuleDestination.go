@@ -31,7 +31,7 @@ import (
 // SecurityGroups: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,22-44),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,22-44)),
 // VpcId: pulumi.Any(exampleAwsVpc.Id),
 // },
 // })

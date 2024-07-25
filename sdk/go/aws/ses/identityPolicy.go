@@ -59,9 +59,9 @@ import (
 //			_, err = ses.NewIdentityPolicy(ctx, "example", &ses.IdentityPolicyArgs{
 //				Identity: exampleDomainIdentity.Arn,
 //				Name:     pulumi.String("example"),
-//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
 //					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

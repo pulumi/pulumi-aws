@@ -267,14 +267,14 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeCallAnalyticsProcessor",
-                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
-                        "languageCode": "en-US",
+                    "amazon_transcribe_call_analytics_processor_configuration": {
+                        "language_code": "en-US",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example.arn,
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example.arn,
                     },
                 },
             ],
@@ -309,33 +309,33 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeCallAnalyticsProcessor",
-                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
-                        "callAnalyticsStreamCategories": [
+                    "amazon_transcribe_call_analytics_processor_configuration": {
+                        "call_analytics_stream_categories": [
                             "category_1",
                             "category_2",
                         ],
-                        "contentRedactionType": "PII",
-                        "enablePartialResultsStabilization": True,
-                        "filterPartialResults": True,
-                        "languageCode": "en-US",
-                        "languageModelName": "MyLanguageModel",
-                        "partialResultsStability": "high",
-                        "piiEntityTypes": "ADDRESS,BANK_ACCOUNT_NUMBER",
-                        "postCallAnalyticsSettings": {
-                            "contentRedactionOutput": "redacted",
-                            "dataAccessRoleArn": post_call_role.arn,
-                            "outputEncryptionKmsKeyId": "MyKmsKeyId",
-                            "outputLocation": "s3://MyBucket",
+                        "content_redaction_type": "PII",
+                        "enable_partial_results_stabilization": True,
+                        "filter_partial_results": True,
+                        "language_code": "en-US",
+                        "language_model_name": "MyLanguageModel",
+                        "partial_results_stability": "high",
+                        "pii_entity_types": "ADDRESS,BANK_ACCOUNT_NUMBER",
+                        "post_call_analytics_settings": {
+                            "content_redaction_output": "redacted",
+                            "data_access_role_arn": post_call_role.arn,
+                            "output_encryption_kms_key_id": "MyKmsKeyId",
+                            "output_location": "s3://MyBucket",
                         },
-                        "vocabularyFilterMethod": "mask",
-                        "vocabularyFilterName": "MyVocabularyFilter",
-                        "vocabularyName": "MyVocabulary",
+                        "vocabulary_filter_method": "mask",
+                        "vocabulary_filter_name": "MyVocabularyFilter",
+                        "vocabulary_name": "MyVocabulary",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example["arn"],
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example["arn"],
                     },
                 },
             ])
@@ -353,14 +353,14 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeCallAnalyticsProcessor",
-                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
-                        "languageCode": "en-US",
+                    "amazon_transcribe_call_analytics_processor_configuration": {
+                        "language_code": "en-US",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example["arn"],
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example["arn"],
                     },
                 },
             ],
@@ -369,27 +369,27 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 "rules": [
                     {
                         "type": "IssueDetection",
-                        "issueDetectionConfiguration": {
-                            "ruleName": "MyIssueDetectionRule",
+                        "issue_detection_configuration": {
+                            "rule_name": "MyIssueDetectionRule",
                         },
                     },
                     {
                         "type": "KeywordMatch",
-                        "keywordMatchConfiguration": {
+                        "keyword_match_configuration": {
                             "keywords": [
                                 "keyword1",
                                 "keyword2",
                             ],
                             "negate": False,
-                            "ruleName": "MyKeywordMatchRule",
+                            "rule_name": "MyKeywordMatchRule",
                         },
                     },
                     {
                         "type": "Sentiment",
-                        "sentimentConfiguration": {
-                            "ruleName": "MySentimentRule",
-                            "sentimentType": "NEGATIVE",
-                            "timePeriod": 60,
+                        "sentiment_configuration": {
+                            "rule_name": "MySentimentRule",
+                            "sentiment_type": "NEGATIVE",
+                            "time_period": 60,
                         },
                     },
                 ],
@@ -408,24 +408,24 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeProcessor",
-                    "amazonTranscribeProcessorConfiguration": {
-                        "contentIdentificationType": "PII",
-                        "enablePartialResultsStabilization": True,
-                        "filterPartialResults": True,
-                        "languageCode": "en-US",
-                        "languageModelName": "MyLanguageModel",
-                        "partialResultsStability": "high",
-                        "piiEntityTypes": "ADDRESS,BANK_ACCOUNT_NUMBER",
-                        "showSpeakerLabel": True,
-                        "vocabularyFilterMethod": "mask",
-                        "vocabularyFilterName": "MyVocabularyFilter",
-                        "vocabularyName": "MyVocabulary",
+                    "amazon_transcribe_processor_configuration": {
+                        "content_identification_type": "PII",
+                        "enable_partial_results_stabilization": True,
+                        "filter_partial_results": True,
+                        "language_code": "en-US",
+                        "language_model_name": "MyLanguageModel",
+                        "partial_results_stability": "high",
+                        "pii_entity_types": "ADDRESS,BANK_ACCOUNT_NUMBER",
+                        "show_speaker_label": True,
+                        "vocabulary_filter_method": "mask",
+                        "vocabulary_filter_name": "MyVocabularyFilter",
+                        "vocabulary_name": "MyVocabulary",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example["arn"],
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example["arn"],
                     },
                 },
             ])
@@ -443,33 +443,33 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "VoiceAnalyticsProcessor",
-                    "voiceAnalyticsProcessorConfiguration": {
-                        "speakerSearchStatus": "Enabled",
-                        "voiceToneAnalysisStatus": "Enabled",
+                    "voice_analytics_processor_configuration": {
+                        "speaker_search_status": "Enabled",
+                        "voice_tone_analysis_status": "Enabled",
                     },
                 },
                 {
                     "type": "LambdaFunctionSink",
-                    "lambdaFunctionSinkConfiguration": {
-                        "insightsTarget": "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
+                    "lambda_function_sink_configuration": {
+                        "insights_target": "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
                     },
                 },
                 {
                     "type": "SnsTopicSink",
-                    "snsTopicSinkConfiguration": {
-                        "insightsTarget": "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
+                    "sns_topic_sink_configuration": {
+                        "insights_target": "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
                     },
                 },
                 {
                     "type": "SqsQueueSink",
-                    "sqsQueueSinkConfiguration": {
-                        "insightsTarget": "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
+                    "sqs_queue_sink_configuration": {
+                        "insights_target": "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": test["arn"],
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": test["arn"],
                     },
                 },
             ])
@@ -486,7 +486,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             resource_access_role_arn=example["arn"],
             elements=[{
                 "type": "S3RecordingSink",
-                "s3RecordingSinkConfiguration": {
+                "s3_recording_sink_configuration": {
                     "destination": "arn:aws:s3:::MyBucket",
                 },
             }])
@@ -546,14 +546,14 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeCallAnalyticsProcessor",
-                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
-                        "languageCode": "en-US",
+                    "amazon_transcribe_call_analytics_processor_configuration": {
+                        "language_code": "en-US",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example.arn,
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example.arn,
                     },
                 },
             ],
@@ -588,33 +588,33 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeCallAnalyticsProcessor",
-                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
-                        "callAnalyticsStreamCategories": [
+                    "amazon_transcribe_call_analytics_processor_configuration": {
+                        "call_analytics_stream_categories": [
                             "category_1",
                             "category_2",
                         ],
-                        "contentRedactionType": "PII",
-                        "enablePartialResultsStabilization": True,
-                        "filterPartialResults": True,
-                        "languageCode": "en-US",
-                        "languageModelName": "MyLanguageModel",
-                        "partialResultsStability": "high",
-                        "piiEntityTypes": "ADDRESS,BANK_ACCOUNT_NUMBER",
-                        "postCallAnalyticsSettings": {
-                            "contentRedactionOutput": "redacted",
-                            "dataAccessRoleArn": post_call_role.arn,
-                            "outputEncryptionKmsKeyId": "MyKmsKeyId",
-                            "outputLocation": "s3://MyBucket",
+                        "content_redaction_type": "PII",
+                        "enable_partial_results_stabilization": True,
+                        "filter_partial_results": True,
+                        "language_code": "en-US",
+                        "language_model_name": "MyLanguageModel",
+                        "partial_results_stability": "high",
+                        "pii_entity_types": "ADDRESS,BANK_ACCOUNT_NUMBER",
+                        "post_call_analytics_settings": {
+                            "content_redaction_output": "redacted",
+                            "data_access_role_arn": post_call_role.arn,
+                            "output_encryption_kms_key_id": "MyKmsKeyId",
+                            "output_location": "s3://MyBucket",
                         },
-                        "vocabularyFilterMethod": "mask",
-                        "vocabularyFilterName": "MyVocabularyFilter",
-                        "vocabularyName": "MyVocabulary",
+                        "vocabulary_filter_method": "mask",
+                        "vocabulary_filter_name": "MyVocabularyFilter",
+                        "vocabulary_name": "MyVocabulary",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example["arn"],
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example["arn"],
                     },
                 },
             ])
@@ -632,14 +632,14 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeCallAnalyticsProcessor",
-                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
-                        "languageCode": "en-US",
+                    "amazon_transcribe_call_analytics_processor_configuration": {
+                        "language_code": "en-US",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example["arn"],
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example["arn"],
                     },
                 },
             ],
@@ -648,27 +648,27 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 "rules": [
                     {
                         "type": "IssueDetection",
-                        "issueDetectionConfiguration": {
-                            "ruleName": "MyIssueDetectionRule",
+                        "issue_detection_configuration": {
+                            "rule_name": "MyIssueDetectionRule",
                         },
                     },
                     {
                         "type": "KeywordMatch",
-                        "keywordMatchConfiguration": {
+                        "keyword_match_configuration": {
                             "keywords": [
                                 "keyword1",
                                 "keyword2",
                             ],
                             "negate": False,
-                            "ruleName": "MyKeywordMatchRule",
+                            "rule_name": "MyKeywordMatchRule",
                         },
                     },
                     {
                         "type": "Sentiment",
-                        "sentimentConfiguration": {
-                            "ruleName": "MySentimentRule",
-                            "sentimentType": "NEGATIVE",
-                            "timePeriod": 60,
+                        "sentiment_configuration": {
+                            "rule_name": "MySentimentRule",
+                            "sentiment_type": "NEGATIVE",
+                            "time_period": 60,
                         },
                     },
                 ],
@@ -687,24 +687,24 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "AmazonTranscribeProcessor",
-                    "amazonTranscribeProcessorConfiguration": {
-                        "contentIdentificationType": "PII",
-                        "enablePartialResultsStabilization": True,
-                        "filterPartialResults": True,
-                        "languageCode": "en-US",
-                        "languageModelName": "MyLanguageModel",
-                        "partialResultsStability": "high",
-                        "piiEntityTypes": "ADDRESS,BANK_ACCOUNT_NUMBER",
-                        "showSpeakerLabel": True,
-                        "vocabularyFilterMethod": "mask",
-                        "vocabularyFilterName": "MyVocabularyFilter",
-                        "vocabularyName": "MyVocabulary",
+                    "amazon_transcribe_processor_configuration": {
+                        "content_identification_type": "PII",
+                        "enable_partial_results_stabilization": True,
+                        "filter_partial_results": True,
+                        "language_code": "en-US",
+                        "language_model_name": "MyLanguageModel",
+                        "partial_results_stability": "high",
+                        "pii_entity_types": "ADDRESS,BANK_ACCOUNT_NUMBER",
+                        "show_speaker_label": True,
+                        "vocabulary_filter_method": "mask",
+                        "vocabulary_filter_name": "MyVocabularyFilter",
+                        "vocabulary_name": "MyVocabulary",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": example["arn"],
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": example["arn"],
                     },
                 },
             ])
@@ -722,33 +722,33 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             elements=[
                 {
                     "type": "VoiceAnalyticsProcessor",
-                    "voiceAnalyticsProcessorConfiguration": {
-                        "speakerSearchStatus": "Enabled",
-                        "voiceToneAnalysisStatus": "Enabled",
+                    "voice_analytics_processor_configuration": {
+                        "speaker_search_status": "Enabled",
+                        "voice_tone_analysis_status": "Enabled",
                     },
                 },
                 {
                     "type": "LambdaFunctionSink",
-                    "lambdaFunctionSinkConfiguration": {
-                        "insightsTarget": "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
+                    "lambda_function_sink_configuration": {
+                        "insights_target": "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
                     },
                 },
                 {
                     "type": "SnsTopicSink",
-                    "snsTopicSinkConfiguration": {
-                        "insightsTarget": "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
+                    "sns_topic_sink_configuration": {
+                        "insights_target": "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
                     },
                 },
                 {
                     "type": "SqsQueueSink",
-                    "sqsQueueSinkConfiguration": {
-                        "insightsTarget": "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
+                    "sqs_queue_sink_configuration": {
+                        "insights_target": "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
                     },
                 },
                 {
                     "type": "KinesisDataStreamSink",
-                    "kinesisDataStreamSinkConfiguration": {
-                        "insightsTarget": test["arn"],
+                    "kinesis_data_stream_sink_configuration": {
+                        "insights_target": test["arn"],
                     },
                 },
             ])
@@ -765,7 +765,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             resource_access_role_arn=example["arn"],
             elements=[{
                 "type": "S3RecordingSink",
-                "s3RecordingSinkConfiguration": {
+                "s3_recording_sink_configuration": {
                     "destination": "arn:aws:s3:::MyBucket",
                 },
             }])

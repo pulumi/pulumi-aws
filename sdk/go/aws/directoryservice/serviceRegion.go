@@ -66,16 +66,16 @@ import (
 //
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
 // VpcId: exampleVpc.ID(),
-// AvailabilityZone: available.Names[val0],
-// CidrBlock: exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// return std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+// AvailabilityZone: pulumi.String(available.Names[val0]),
+// CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
+// return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 // Input: cidrBlock,
 // Newbits: 8,
 // Netnum: val0,
-// }, nil), nil
+// }, nil))), nil
 // }).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
 // return invoke.Result, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Primary"),
 // },
@@ -128,16 +128,16 @@ import (
 //
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-secondary-%v", key0), &ec2.SubnetArgs{
 // VpcId: example_secondary.ID(),
-// AvailabilityZone: available_secondary.Names[val0],
-// CidrBlock: example_secondary.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// return std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+// AvailabilityZone: pulumi.String(available_secondary.Names[val0]),
+// CidrBlock: pulumi.String(example_secondary.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
+// return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 // Input: cidrBlock,
 // Newbits: 8,
 // Netnum: val0,
-// }, nil), nil
+// }, nil))), nil
 // }).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
 // return invoke.Result, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Secondary"),
 // },
