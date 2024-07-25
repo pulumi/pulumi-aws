@@ -245,7 +245,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           merge-multiple: true
-          pattern: "junit-*.xml"
+          pattern: "junit-*"
 
       - name: Install junit-report-merger
         run: npm install -g junit-report-merger
