@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketObjectLockConfiguration {
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      */
     private String objectLockEnabled;
     /**
-     * @return The Object Lock rule in place for this bucket.
+     * @return Object Lock rule in place for this bucket (documented below).
      * 
      */
     private @Nullable BucketObjectLockConfigurationRule rule;
 
     private BucketObjectLockConfiguration() {}
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      */
     public String objectLockEnabled() {
         return this.objectLockEnabled;
     }
     /**
-     * @return The Object Lock rule in place for this bucket.
+     * @return Object Lock rule in place for this bucket (documented below).
      * 
      */
     public Optional<BucketObjectLockConfigurationRule> rule() {

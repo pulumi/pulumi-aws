@@ -13,19 +13,19 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketReplicationConfigurationRuleDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         /// </summary>
         [Input("accessControlTranslation")]
         public Input<Inputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslationGetArgs>? AccessControlTranslation { get; set; }
 
         /// <summary>
-        /// The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        /// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        /// ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;

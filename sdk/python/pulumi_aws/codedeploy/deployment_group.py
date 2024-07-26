@@ -698,7 +698,7 @@ class DeploymentGroup(pulumi.CustomResource):
             deployment_group_name="example-group",
             service_role_arn=example.arn,
             ec2_tag_sets=[{
-                "ec2TagFilters": [
+                "ec2_tag_filters": [
                     {
                         "key": "filterkey1",
                         "type": "KEY_AND_VALUE",
@@ -712,9 +712,9 @@ class DeploymentGroup(pulumi.CustomResource):
                 ],
             }],
             trigger_configurations=[{
-                "triggerEvents": ["DeploymentFailure"],
-                "triggerName": "example-trigger",
-                "triggerTargetArn": example_topic.arn,
+                "trigger_events": ["DeploymentFailure"],
+                "trigger_name": "example-trigger",
+                "trigger_target_arn": example_topic.arn,
             }],
             auto_rollback_configuration={
                 "enabled": True,
@@ -746,28 +746,28 @@ class DeploymentGroup(pulumi.CustomResource):
                 "events": ["DEPLOYMENT_FAILURE"],
             },
             blue_green_deployment_config={
-                "deploymentReadyOption": {
-                    "actionOnTimeout": "CONTINUE_DEPLOYMENT",
+                "deployment_ready_option": {
+                    "action_on_timeout": "CONTINUE_DEPLOYMENT",
                 },
-                "terminateBlueInstancesOnDeploymentSuccess": {
+                "terminate_blue_instances_on_deployment_success": {
                     "action": "TERMINATE",
-                    "terminationWaitTimeInMinutes": 5,
+                    "termination_wait_time_in_minutes": 5,
                 },
             },
             deployment_style={
-                "deploymentOption": "WITH_TRAFFIC_CONTROL",
-                "deploymentType": "BLUE_GREEN",
+                "deployment_option": "WITH_TRAFFIC_CONTROL",
+                "deployment_type": "BLUE_GREEN",
             },
             ecs_service={
-                "clusterName": example_aws_ecs_cluster["name"],
-                "serviceName": example_aws_ecs_service["name"],
+                "cluster_name": example_aws_ecs_cluster["name"],
+                "service_name": example_aws_ecs_service["name"],
             },
             load_balancer_info={
-                "targetGroupPairInfo": {
-                    "prodTrafficRoute": {
-                        "listenerArns": [example_aws_lb_listener["arn"]],
+                "target_group_pair_info": {
+                    "prod_traffic_route": {
+                        "listener_arns": [example_aws_lb_listener["arn"]],
                     },
-                    "targetGroups": [
+                    "target_groups": [
                         {
                             "name": blue["name"],
                         },
@@ -791,23 +791,23 @@ class DeploymentGroup(pulumi.CustomResource):
             deployment_group_name="example-group",
             service_role_arn=example_aws_iam_role["arn"],
             deployment_style={
-                "deploymentOption": "WITH_TRAFFIC_CONTROL",
-                "deploymentType": "BLUE_GREEN",
+                "deployment_option": "WITH_TRAFFIC_CONTROL",
+                "deployment_type": "BLUE_GREEN",
             },
             load_balancer_info={
-                "elbInfos": [{
+                "elb_infos": [{
                     "name": example_aws_elb["name"],
                 }],
             },
             blue_green_deployment_config={
-                "deploymentReadyOption": {
-                    "actionOnTimeout": "STOP_DEPLOYMENT",
-                    "waitTimeInMinutes": 60,
+                "deployment_ready_option": {
+                    "action_on_timeout": "STOP_DEPLOYMENT",
+                    "wait_time_in_minutes": 60,
                 },
-                "greenFleetProvisioningOption": {
+                "green_fleet_provisioning_option": {
                     "action": "DISCOVER_EXISTING",
                 },
-                "terminateBlueInstancesOnDeploymentSuccess": {
+                "terminate_blue_instances_on_deployment_success": {
                     "action": "KEEP_ALIVE",
                 },
             })
@@ -879,7 +879,7 @@ class DeploymentGroup(pulumi.CustomResource):
             deployment_group_name="example-group",
             service_role_arn=example.arn,
             ec2_tag_sets=[{
-                "ec2TagFilters": [
+                "ec2_tag_filters": [
                     {
                         "key": "filterkey1",
                         "type": "KEY_AND_VALUE",
@@ -893,9 +893,9 @@ class DeploymentGroup(pulumi.CustomResource):
                 ],
             }],
             trigger_configurations=[{
-                "triggerEvents": ["DeploymentFailure"],
-                "triggerName": "example-trigger",
-                "triggerTargetArn": example_topic.arn,
+                "trigger_events": ["DeploymentFailure"],
+                "trigger_name": "example-trigger",
+                "trigger_target_arn": example_topic.arn,
             }],
             auto_rollback_configuration={
                 "enabled": True,
@@ -927,28 +927,28 @@ class DeploymentGroup(pulumi.CustomResource):
                 "events": ["DEPLOYMENT_FAILURE"],
             },
             blue_green_deployment_config={
-                "deploymentReadyOption": {
-                    "actionOnTimeout": "CONTINUE_DEPLOYMENT",
+                "deployment_ready_option": {
+                    "action_on_timeout": "CONTINUE_DEPLOYMENT",
                 },
-                "terminateBlueInstancesOnDeploymentSuccess": {
+                "terminate_blue_instances_on_deployment_success": {
                     "action": "TERMINATE",
-                    "terminationWaitTimeInMinutes": 5,
+                    "termination_wait_time_in_minutes": 5,
                 },
             },
             deployment_style={
-                "deploymentOption": "WITH_TRAFFIC_CONTROL",
-                "deploymentType": "BLUE_GREEN",
+                "deployment_option": "WITH_TRAFFIC_CONTROL",
+                "deployment_type": "BLUE_GREEN",
             },
             ecs_service={
-                "clusterName": example_aws_ecs_cluster["name"],
-                "serviceName": example_aws_ecs_service["name"],
+                "cluster_name": example_aws_ecs_cluster["name"],
+                "service_name": example_aws_ecs_service["name"],
             },
             load_balancer_info={
-                "targetGroupPairInfo": {
-                    "prodTrafficRoute": {
-                        "listenerArns": [example_aws_lb_listener["arn"]],
+                "target_group_pair_info": {
+                    "prod_traffic_route": {
+                        "listener_arns": [example_aws_lb_listener["arn"]],
                     },
-                    "targetGroups": [
+                    "target_groups": [
                         {
                             "name": blue["name"],
                         },
@@ -972,23 +972,23 @@ class DeploymentGroup(pulumi.CustomResource):
             deployment_group_name="example-group",
             service_role_arn=example_aws_iam_role["arn"],
             deployment_style={
-                "deploymentOption": "WITH_TRAFFIC_CONTROL",
-                "deploymentType": "BLUE_GREEN",
+                "deployment_option": "WITH_TRAFFIC_CONTROL",
+                "deployment_type": "BLUE_GREEN",
             },
             load_balancer_info={
-                "elbInfos": [{
+                "elb_infos": [{
                     "name": example_aws_elb["name"],
                 }],
             },
             blue_green_deployment_config={
-                "deploymentReadyOption": {
-                    "actionOnTimeout": "STOP_DEPLOYMENT",
-                    "waitTimeInMinutes": 60,
+                "deployment_ready_option": {
+                    "action_on_timeout": "STOP_DEPLOYMENT",
+                    "wait_time_in_minutes": 60,
                 },
-                "greenFleetProvisioningOption": {
+                "green_fleet_provisioning_option": {
                     "action": "DISCOVER_EXISTING",
                 },
-                "terminateBlueInstancesOnDeploymentSuccess": {
+                "terminate_blue_instances_on_deployment_success": {
                     "action": "KEEP_ALIVE",
                 },
             })

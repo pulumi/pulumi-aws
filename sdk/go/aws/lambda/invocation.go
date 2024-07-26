@@ -61,7 +61,7 @@ import (
 //			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
 //				FunctionName: pulumi.Any(lambdaFunctionTest.FunctionName),
 //				Triggers: pulumi.StringMap{
-//					"redeployment": invokeSha1.Result,
+//					"redeployment": pulumi.String(invokeSha1.Result),
 //				},
 //				Input: pulumi.String(json1),
 //			})

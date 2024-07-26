@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// <summary>
         /// The configuration options to send to the log driver.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Options;
+        public readonly ImmutableDictionary<string, string> Options;
         /// <summary>
         /// The secrets to pass to the log configuration.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Batch.Outputs
         private GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationResult(
             string logDriver,
 
-            ImmutableDictionary<string, object> options,
+            ImmutableDictionary<string, string> options,
 
             ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionResult> secretOptions)
         {

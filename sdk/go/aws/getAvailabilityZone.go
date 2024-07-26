@@ -83,7 +83,7 @@ import (
 //			}
 //			// Create a VPC for the region associated with the AZ
 //			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock: invokeCidrsubnet.Result,
+//				CidrBlock: pulumi.String(invokeCidrsubnet.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -91,15 +91,15 @@ import (
 //			// Create a subnet for the AZ within the regional VPC
 //			_, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
 //				VpcId: exampleVpc.ID(),
-//				CidrBlock: exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-//					return std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//				CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
+//					return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //						Input:   cidrBlock,
 //						Newbits: 4,
-//						Netnum:  azNumber[example.NameSuffix],
-//					}, nil), nil
+//						Netnum:  pulumi.Int(azNumber[example.NameSuffix]),
+//					}, nil))), nil
 //				}).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
 //					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

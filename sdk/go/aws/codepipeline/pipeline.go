@@ -215,9 +215,9 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "codepipeline_policy", &iam.RolePolicyArgs{
 //				Name: pulumi.String("codepipeline_policy"),
 //				Role: codepipelineRole.ID(),
-//				Policy: codepipelinePolicy.ApplyT(func(codepipelinePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(codepipelinePolicy.ApplyT(func(codepipelinePolicy iam.GetPolicyDocumentResult) (*string, error) {
 //					return &codepipelinePolicy.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

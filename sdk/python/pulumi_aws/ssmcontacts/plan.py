@@ -118,7 +118,7 @@ class Plan(pulumi.CustomResource):
         example = aws.ssmcontacts.Plan("example",
             contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
             stages=[{
-                "durationInMinutes": 1,
+                "duration_in_minutes": 1,
             }])
         ```
 
@@ -134,7 +134,7 @@ class Plan(pulumi.CustomResource):
         plan = aws.ssmcontacts.Plan("plan",
             contact_id=contact.arn,
             stages=[{
-                "durationInMinutes": 1,
+                "duration_in_minutes": 1,
             }])
         ```
 
@@ -156,24 +156,24 @@ class Plan(pulumi.CustomResource):
         test = aws.ssmcontacts.Plan("test",
             contact_id=escalation_plan.arn,
             stages=[{
-                "durationInMinutes": 0,
+                "duration_in_minutes": 0,
                 "targets": [
                     {
-                        "contactTargetInfo": {
-                            "isEssential": False,
-                            "contactId": contact_one.arn,
+                        "contact_target_info": {
+                            "is_essential": False,
+                            "contact_id": contact_one.arn,
                         },
                     },
                     {
-                        "contactTargetInfo": {
-                            "isEssential": True,
-                            "contactId": contact_two.arn,
+                        "contact_target_info": {
+                            "is_essential": True,
+                            "contact_id": contact_two.arn,
                         },
                     },
                     {
-                        "channelTargetInfo": {
-                            "retryIntervalInMinutes": 2,
-                            "contactChannelId": channel["arn"],
+                        "channel_target_info": {
+                            "retry_interval_in_minutes": 2,
+                            "contact_channel_id": channel["arn"],
                         },
                     },
                 ],
@@ -213,7 +213,7 @@ class Plan(pulumi.CustomResource):
         example = aws.ssmcontacts.Plan("example",
             contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
             stages=[{
-                "durationInMinutes": 1,
+                "duration_in_minutes": 1,
             }])
         ```
 
@@ -229,7 +229,7 @@ class Plan(pulumi.CustomResource):
         plan = aws.ssmcontacts.Plan("plan",
             contact_id=contact.arn,
             stages=[{
-                "durationInMinutes": 1,
+                "duration_in_minutes": 1,
             }])
         ```
 
@@ -251,24 +251,24 @@ class Plan(pulumi.CustomResource):
         test = aws.ssmcontacts.Plan("test",
             contact_id=escalation_plan.arn,
             stages=[{
-                "durationInMinutes": 0,
+                "duration_in_minutes": 0,
                 "targets": [
                     {
-                        "contactTargetInfo": {
-                            "isEssential": False,
-                            "contactId": contact_one.arn,
+                        "contact_target_info": {
+                            "is_essential": False,
+                            "contact_id": contact_one.arn,
                         },
                     },
                     {
-                        "contactTargetInfo": {
-                            "isEssential": True,
-                            "contactId": contact_two.arn,
+                        "contact_target_info": {
+                            "is_essential": True,
+                            "contact_id": contact_two.arn,
                         },
                     },
                     {
-                        "channelTargetInfo": {
-                            "retryIntervalInMinutes": 2,
-                            "contactChannelId": channel["arn"],
+                        "channel_target_info": {
+                            "retry_interval_in_minutes": 2,
+                            "contact_channel_id": channel["arn"],
                         },
                     },
                 ],

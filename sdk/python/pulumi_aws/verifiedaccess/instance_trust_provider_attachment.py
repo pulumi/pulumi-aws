@@ -117,7 +117,7 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
             policy_reference_name="example",
             trust_provider_type="device",
             device_options={
-                "tenantId": "example",
+                "tenant_id": "example",
             })
         example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
             verifiedaccess_instance_id=example.id,
@@ -158,7 +158,7 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
             policy_reference_name="example",
             trust_provider_type="device",
             device_options={
-                "tenantId": "example",
+                "tenant_id": "example",
             })
         example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
             verifiedaccess_instance_id=example.id,

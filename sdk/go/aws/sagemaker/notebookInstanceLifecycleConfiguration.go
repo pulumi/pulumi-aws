@@ -44,8 +44,8 @@ import (
 //			}
 //			_, err = sagemaker.NewNotebookInstanceLifecycleConfiguration(ctx, "lc", &sagemaker.NotebookInstanceLifecycleConfigurationArgs{
 //				Name:     pulumi.String("foo"),
-//				OnCreate: invokeBase64encode.Result,
-//				OnStart:  invokeBase64encode1.Result,
+//				OnCreate: pulumi.String(invokeBase64encode.Result),
+//				OnStart:  pulumi.String(invokeBase64encode1.Result),
 //			})
 //			if err != nil {
 //				return err

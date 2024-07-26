@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Batch.Outputs
         /// <summary>
         /// Key-value pairs used to identify, sort, and organize cube resources.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Labels;
+        public readonly ImmutableDictionary<string, string> Labels;
 
         [OutputConstructor]
-        private GetJobDefinitionEksPropertyPodPropertyMetadataResult(ImmutableDictionary<string, object> labels)
+        private GetJobDefinitionEksPropertyPodPropertyMetadataResult(ImmutableDictionary<string, string> labels)
         {
             Labels = labels;
         }

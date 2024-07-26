@@ -256,7 +256,7 @@ class Vault(pulumi.CustomResource):
         my_archive_vault = aws.glacier.Vault("my_archive",
             name="MyArchive",
             notification={
-                "snsTopic": aws_sns_topic.arn,
+                "sns_topic": aws_sns_topic.arn,
                 "events": [
                     "ArchiveRetrievalCompleted",
                     "InventoryRetrievalCompleted",
@@ -318,7 +318,7 @@ class Vault(pulumi.CustomResource):
         my_archive_vault = aws.glacier.Vault("my_archive",
             name="MyArchive",
             notification={
-                "snsTopic": aws_sns_topic.arn,
+                "sns_topic": aws_sns_topic.arn,
                 "events": [
                     "ArchiveRetrievalCompleted",
                     "InventoryRetrievalCompleted",

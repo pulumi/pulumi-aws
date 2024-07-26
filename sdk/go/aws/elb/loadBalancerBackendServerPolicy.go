@@ -63,7 +63,7 @@ import (
 //				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
 //					&elb.LoadBalancerPolicyPolicyAttributeArgs{
 //						Name:  pulumi.String("PublicKey"),
-//						Value: invokeFile.Result,
+//						Value: pulumi.String(invokeFile.Result),
 //					},
 //				},
 //			})

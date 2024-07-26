@@ -496,8 +496,8 @@ class MetricStream(pulumi.CustomResource):
             name="metric-stream-test-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_to_s3_role.arn,
-                "bucketArn": bucket.arn,
+                "role_arn": firehose_to_s3_role.arn,
+                "bucket_arn": bucket.arn,
             })
         main = aws.cloudwatch.MetricStream("main",
             name="my-metric-stream",
@@ -507,14 +507,14 @@ class MetricStream(pulumi.CustomResource):
             include_filters=[
                 {
                     "namespace": "AWS/EC2",
-                    "metricNames": [
+                    "metric_names": [
                         "CPUUtilization",
                         "NetworkOut",
                     ],
                 },
                 {
                     "namespace": "AWS/EBS",
-                    "metricNames": [],
+                    "metric_names": [],
                 },
             ])
         # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
@@ -567,19 +567,19 @@ class MetricStream(pulumi.CustomResource):
             output_format="json",
             statistics_configurations=[
                 {
-                    "additionalStatistics": [
+                    "additional_statistics": [
                         "p1",
                         "tm99",
                     ],
-                    "includeMetrics": [{
-                        "metricName": "CPUUtilization",
+                    "include_metrics": [{
+                        "metric_name": "CPUUtilization",
                         "namespace": "AWS/EC2",
                     }],
                 },
                 {
-                    "additionalStatistics": ["TS(50.5:)"],
-                    "includeMetrics": [{
-                        "metricName": "CPUUtilization",
+                    "additional_statistics": ["TS(50.5:)"],
+                    "include_metrics": [{
+                        "metric_name": "CPUUtilization",
                         "namespace": "AWS/EC2",
                     }],
                 },
@@ -652,8 +652,8 @@ class MetricStream(pulumi.CustomResource):
             name="metric-stream-test-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_to_s3_role.arn,
-                "bucketArn": bucket.arn,
+                "role_arn": firehose_to_s3_role.arn,
+                "bucket_arn": bucket.arn,
             })
         main = aws.cloudwatch.MetricStream("main",
             name="my-metric-stream",
@@ -663,14 +663,14 @@ class MetricStream(pulumi.CustomResource):
             include_filters=[
                 {
                     "namespace": "AWS/EC2",
-                    "metricNames": [
+                    "metric_names": [
                         "CPUUtilization",
                         "NetworkOut",
                     ],
                 },
                 {
                     "namespace": "AWS/EBS",
-                    "metricNames": [],
+                    "metric_names": [],
                 },
             ])
         # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
@@ -723,19 +723,19 @@ class MetricStream(pulumi.CustomResource):
             output_format="json",
             statistics_configurations=[
                 {
-                    "additionalStatistics": [
+                    "additional_statistics": [
                         "p1",
                         "tm99",
                     ],
-                    "includeMetrics": [{
-                        "metricName": "CPUUtilization",
+                    "include_metrics": [{
+                        "metric_name": "CPUUtilization",
                         "namespace": "AWS/EC2",
                     }],
                 },
                 {
-                    "additionalStatistics": ["TS(50.5:)"],
-                    "includeMetrics": [{
-                        "metricName": "CPUUtilization",
+                    "additional_statistics": ["TS(50.5:)"],
+                    "include_metrics": [{
+                        "metric_name": "CPUUtilization",
                         "namespace": "AWS/EC2",
                     }],
                 },

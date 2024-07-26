@@ -190,7 +190,7 @@ class VirtualCluster(pulumi.CustomResource):
                 "id": example_aws_eks_cluster["name"],
                 "type": "EKS",
                 "info": {
-                    "eksInfo": {
+                    "eks_info": {
                         "namespace": "default",
                     },
                 },
@@ -234,7 +234,7 @@ class VirtualCluster(pulumi.CustomResource):
                 "id": example_aws_eks_cluster["name"],
                 "type": "EKS",
                 "info": {
-                    "eksInfo": {
+                    "eks_info": {
                         "namespace": "default",
                     },
                 },

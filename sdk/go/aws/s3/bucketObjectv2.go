@@ -41,7 +41,7 @@ import (
 //				Bucket: pulumi.Any("your_bucket_name"),
 //				Key:    pulumi.String("new_object_key"),
 //				Source: pulumi.NewFileAsset("path/to/file"),
-//				Etag:   invokeFilemd5.Result,
+//				Etag:   pulumi.String(invokeFilemd5.Result),
 //			})
 //			if err != nil {
 //				return err

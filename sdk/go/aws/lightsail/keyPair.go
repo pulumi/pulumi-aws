@@ -96,7 +96,7 @@ import (
 //			}
 //			_, err = lightsail.NewKeyPair(ctx, "lg_key_pair", &lightsail.KeyPairArgs{
 //				Name:      pulumi.String("importing"),
-//				PublicKey: invokeFile.Result,
+//				PublicKey: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

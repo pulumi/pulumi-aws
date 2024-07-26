@@ -541,7 +541,7 @@ class FileSystem(pulumi.CustomResource):
         foo_with_lifecyle_policy = aws.efs.FileSystem("foo_with_lifecyle_policy",
             creation_token="my-product",
             lifecycle_policies=[{
-                "transitionToIa": "AFTER_30_DAYS",
+                "transition_to_ia": "AFTER_30_DAYS",
             }])
         ```
 
@@ -602,7 +602,7 @@ class FileSystem(pulumi.CustomResource):
         foo_with_lifecyle_policy = aws.efs.FileSystem("foo_with_lifecyle_policy",
             creation_token="my-product",
             lifecycle_policies=[{
-                "transitionToIa": "AFTER_30_DAYS",
+                "transition_to_ia": "AFTER_30_DAYS",
             }])
         ```
 

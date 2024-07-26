@@ -126,7 +126,7 @@ import (
 //				ApiId:      pulumi.Any(exampleAwsAppsyncGraphqlApi.Id),
 //				DataSource: pulumi.Any(exampleAwsAppsyncDatasource.Name),
 //				Name:       pulumi.String("example"),
-//				Code:       invokeFile.Result,
+//				Code:       pulumi.String(invokeFile.Result),
 //				Runtime: &appsync.FunctionRuntimeArgs{
 //					Name:           pulumi.String("APPSYNC_JS"),
 //					RuntimeVersion: pulumi.String("1.0.0"),

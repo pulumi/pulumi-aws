@@ -121,7 +121,7 @@ import (
 //			}
 //			_, err = opensearchingest.NewPipeline(ctx, "example", &opensearchingest.PipelineArgs{
 //				PipelineName:              pulumi.String("example"),
-//				PipelineConfigurationBody: invokeFile.Result,
+//				PipelineConfigurationBody: pulumi.String(invokeFile.Result),
 //				MaxUnits:                  pulumi.Int(1),
 //				MinUnits:                  pulumi.Int(1),
 //			})

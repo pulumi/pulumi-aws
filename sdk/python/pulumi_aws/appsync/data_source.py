@@ -497,7 +497,7 @@ class DataSource(pulumi.CustomResource):
             service_role_arn=example_role.arn,
             type="AMAZON_DYNAMODB",
             dynamodb_config={
-                "tableName": example_table.name,
+                "table_name": example_table.name,
             })
         ```
 
@@ -577,7 +577,7 @@ class DataSource(pulumi.CustomResource):
             service_role_arn=example_role.arn,
             type="AMAZON_DYNAMODB",
             dynamodb_config={
-                "tableName": example_table.name,
+                "table_name": example_table.name,
             })
         ```
 

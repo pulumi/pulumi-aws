@@ -576,10 +576,10 @@ class CustomModel(pulumi.CustomResource):
                 "learningRateWarmupSteps": "0",
             },
             output_data_config={
-                "s3Uri": f"s3://{output['id']}/data/",
+                "s3_uri": f"s3://{output['id']}/data/",
             },
             training_data_config={
-                "s3Uri": f"s3://{training['id']}/data/train.jsonl",
+                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
             })
         ```
 
@@ -632,10 +632,10 @@ class CustomModel(pulumi.CustomResource):
                 "learningRateWarmupSteps": "0",
             },
             output_data_config={
-                "s3Uri": f"s3://{output['id']}/data/",
+                "s3_uri": f"s3://{output['id']}/data/",
             },
             training_data_config={
-                "s3Uri": f"s3://{training['id']}/data/train.jsonl",
+                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
             })
         ```
 

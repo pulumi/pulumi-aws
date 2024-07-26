@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Batch.Outputs
         /// <summary>
         /// The type and quantity of the resources to reserve for the container.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Limits;
+        public readonly ImmutableDictionary<string, string> Limits;
         /// <summary>
         /// The type and quantity of the resources to request for the container.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Requests;
+        public readonly ImmutableDictionary<string, string> Requests;
 
         [OutputConstructor]
         private GetJobDefinitionEksPropertyPodPropertyContainerResourceResult(
-            ImmutableDictionary<string, object> limits,
+            ImmutableDictionary<string, string> limits,
 
-            ImmutableDictionary<string, object> requests)
+            ImmutableDictionary<string, string> requests)
         {
             Limits = limits;
             Requests = requests;

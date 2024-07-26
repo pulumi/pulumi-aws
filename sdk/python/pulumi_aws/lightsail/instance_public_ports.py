@@ -126,8 +126,8 @@ class InstancePublicPorts(pulumi.CustomResource):
             instance_name=test.name,
             port_infos=[{
                 "protocol": "tcp",
-                "fromPort": 80,
-                "toPort": 80,
+                "from_port": 80,
+                "to_port": 80,
             }])
         ```
 
@@ -164,8 +164,8 @@ class InstancePublicPorts(pulumi.CustomResource):
             instance_name=test.name,
             port_infos=[{
                 "protocol": "tcp",
-                "fromPort": 80,
-                "toPort": 80,
+                "from_port": 80,
+                "to_port": 80,
             }])
         ```
 
