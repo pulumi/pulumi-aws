@@ -17,6 +17,7 @@ from .get_partition import *
 from .get_region import *
 from .get_regions import *
 from .get_service import *
+from .get_service_principal import *
 from .provider import *
 from ._inputs import *
 from . import outputs
@@ -10715,6 +10716,14 @@ _utilities.register(
   "fqn": "pulumi_aws.shield",
   "classes": {
    "aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation": "ProtectionHealthCheckAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "shield/subscription",
+  "fqn": "pulumi_aws.shield",
+  "classes": {
+   "aws:shield/subscription:Subscription": "Subscription"
   }
  },
  {

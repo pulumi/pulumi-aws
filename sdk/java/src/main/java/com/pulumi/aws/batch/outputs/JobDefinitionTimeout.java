@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobDefinitionTimeout {
     /**
-     * @return The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+     * @return Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
      * 
      */
     private @Nullable Integer attemptDurationSeconds;
 
     private JobDefinitionTimeout() {}
     /**
-     * @return The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+     * @return Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
      * 
      */
     public Optional<Integer> attemptDurationSeconds() {

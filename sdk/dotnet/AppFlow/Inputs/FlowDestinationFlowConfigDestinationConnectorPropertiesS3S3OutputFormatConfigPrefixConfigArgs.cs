@@ -18,6 +18,18 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("prefixFormat")]
         public Input<string>? PrefixFormat { get; set; }
 
+        [Input("prefixHierarchies")]
+        private InputList<string>? _prefixHierarchies;
+
+        /// <summary>
+        /// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+        /// </summary>
+        public InputList<string> PrefixHierarchies
+        {
+            get => _prefixHierarchies ?? (_prefixHierarchies = new InputList<string>());
+            set => _prefixHierarchies = value;
+        }
+
         /// <summary>
         /// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
         /// </summary>

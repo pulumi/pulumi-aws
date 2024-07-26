@@ -30,12 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				Name: pulumi.String("example"),
 //				ConnectionProperties: pulumi.StringMap{
 //					"JDBC_CONNECTION_URL": pulumi.String("jdbc:mysql://example.com/exampledatabase"),
 //					"PASSWORD":            pulumi.String("examplepassword"),
 //					"USERNAME":            pulumi.String("exampleusername"),
 //				},
-//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,11 +68,11 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				Name: pulumi.String("example"),
 //				ConnectionProperties: pulumi.StringMap{
 //					"JDBC_CONNECTION_URL": pulumi.String("jdbc:mysql://example.com/exampledatabase"),
 //					"SECRET_ID":           pulumi.String(example.Name),
 //				},
-//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -102,12 +102,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				Name: pulumi.String("example"),
 //				ConnectionProperties: pulumi.StringMap{
 //					"JDBC_CONNECTION_URL": pulumi.String(fmt.Sprintf("jdbc:mysql://%v/exampledatabase", exampleAwsRdsCluster.Endpoint)),
 //					"PASSWORD":            pulumi.String("examplepassword"),
 //					"USERNAME":            pulumi.String("exampleusername"),
 //				},
-//				Name: pulumi.String("example"),
 //				PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
 //					AvailabilityZone: pulumi.Any(exampleAwsSubnet.AvailabilityZone),
 //					SecurityGroupIdLists: pulumi.StringArray{
@@ -148,7 +148,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleConnector, err := glue.NewConnection(ctx, "example_connector", &glue.ConnectionArgs{
+//			example1, err := glue.NewConnection(ctx, "example1", &glue.ConnectionArgs{
+//				Name:           pulumi.String("example1"),
 //				ConnectionType: pulumi.String("CUSTOM"),
 //				ConnectionProperties: pulumi.StringMap{
 //					"CONNECTOR_CLASS_NAME": pulumi.String("net.snowflake.client.jdbc.SnowflakeDriver"),
@@ -156,7 +157,6 @@ import (
 //					"CONNECTOR_URL":        pulumi.String("s3://example/snowflake-jdbc.jar"),
 //					"JDBC_CONNECTION_URL":  pulumi.String("[[\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\"],\",\"]"),
 //				},
-//				Name: pulumi.String("example_connector"),
 //				MatchCriterias: pulumi.StringArray{
 //					pulumi.String("template-connection"),
 //				},
@@ -165,7 +165,8 @@ import (
 //				return err
 //			}
 //			// Reference the connector using match_criteria with the connector created above.
-//			_, err = glue.NewConnection(ctx, "example_connection", &glue.ConnectionArgs{
+//			_, err = glue.NewConnection(ctx, "example2", &glue.ConnectionArgs{
+//				Name:           pulumi.String("example2"),
 //				ConnectionType: pulumi.String("CUSTOM"),
 //				ConnectionProperties: pulumi.StringMap{
 //					"CONNECTOR_CLASS_NAME": pulumi.String("net.snowflake.client.jdbc.SnowflakeDriver"),
@@ -174,10 +175,365 @@ import (
 //					"JDBC_CONNECTION_URL":  pulumi.String("jdbc:snowflake://example.com/?user=${user}&password=${password}"),
 //					"SECRET_ID":            pulumi.String(example.Name),
 //				},
-//				Name: pulumi.String("example"),
 //				MatchCriterias: pulumi.StringArray{
 //					pulumi.String("Connection"),
-//					exampleConnector.Name,
+//					example1.Name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Azure Cosmos Connection
+//
+// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azurecosmos).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("example-secret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"username": "exampleusername",
+//				"password": "examplepassword",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+//				SecretId:     example.ID(),
+//				SecretString: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				Name:           pulumi.String("example"),
+//				ConnectionType: pulumi.String("AZURECOSMOS"),
+//				ConnectionProperties: pulumi.StringMap{
+//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//							"secretId":                     name,
+//							"spark.cosmos.accountEndpoint": "https://exampledbaccount.documents.azure.com:443/",
+//						})
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return pulumi.String(json1), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Azure SQL Connection
+//
+// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azuresql).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("example-secret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"username": "exampleusername",
+//				"password": "examplepassword",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+//				SecretId:     example.ID(),
+//				SecretString: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				Name:           pulumi.String("example"),
+//				ConnectionType: pulumi.String("AZURECOSMOS"),
+//				ConnectionProperties: pulumi.StringMap{
+//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//							"secretId": name,
+//							"url":      "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase",
+//						})
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return pulumi.String(json1), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Google BigQuery Connection
+//
+// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-bigquery).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("example-secret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"credentials": std.Base64encode(ctx, &std.Base64encodeArgs{
+//					Input: `{
+//	  "type": "service_account",
+//	  "project_id": "example-project",
+//	  "private_key_id": "example-key",
+//	  "private_key": "-----BEGIN RSA PRIVATE KEY-----\nREDACTED\n-----END RSA PRIVATE KEY-----",
+//	  "client_email": "example-project@appspot.gserviceaccount.com",
+//	  "client_id": example-client",
+//	  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+//	  "token_uri": "https://oauth2.googleapis.com/token",
+//	  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+//	  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
+//	  "universe_domain": "googleapis.com"
+//	}
+//
+// `,
+//
+//				}, nil).Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+//				SecretId:     example.ID(),
+//				SecretString: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				Name:           pulumi.String("example"),
+//				ConnectionType: pulumi.String("BIGQUERY"),
+//				ConnectionProperties: pulumi.StringMap{
+//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//							"secretId": name,
+//						})
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return pulumi.String(json1), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### OpenSearch Service Connection
+//
+// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-opensearch).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("example-secret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"opensearch.net.http.auth.user": "exampleusername",
+//				"opensearch.net.http.auth.pass": "examplepassword",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+//				SecretId:     example.ID(),
+//				SecretString: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				Name:           pulumi.String("example"),
+//				ConnectionType: pulumi.String("OPENSEARCH"),
+//				ConnectionProperties: pulumi.StringMap{
+//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//							"secretId":                     name,
+//							"opensearch.nodes":             "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com",
+//							"opensearch.port":              "443",
+//							"opensearch.aws.sigv4.region":  "us-east-1",
+//							"opensearch.nodes.wan.only":    "true",
+//							"opensearch.aws.sigv4.enabled": "true",
+//						})
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return pulumi.String(json1), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Snowflake Connection
+//
+// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-snowflake).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("example-secret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"sfUser":     "exampleusername",
+//				"sfPassword": "examplepassword",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+//				SecretId:     example.ID(),
+//				SecretString: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				Name:           pulumi.String("example"),
+//				ConnectionType: pulumi.String("SNOWFLAKE"),
+//				ConnectionProperties: pulumi.StringMap{
+//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//							"secretId": name,
+//							"sfRole":   "EXAMPLEETLROLE",
+//							"sfUrl":    "exampleorg-exampleconnection.snowflakecomputing.com",
+//						})
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return pulumi.String(json1), nil
+//					}).(pulumi.StringOutput),
 //				},
 //			})
 //			if err != nil {
@@ -199,21 +555,25 @@ import (
 type Connection struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Glue Connection.
+	// ARN of the Glue Connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// A map of key-value pairs used as parameters for this connection.
+	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+	//
+	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties pulumi.StringMapOutput `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
 	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A list of criteria that can be used in selecting this connection.
+	// List of criteria that can be used in selecting this connection.
 	MatchCriterias pulumi.StringArrayOutput `pulumi:"matchCriterias"`
-	// The name of the connection.
+	// Name of the connection.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrOutput `pulumi:"physicalConnectionRequirements"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -260,21 +620,25 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	// The ARN of the Glue Connection.
+	// ARN of the Glue Connection.
 	Arn *string `pulumi:"arn"`
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
-	// A map of key-value pairs used as parameters for this connection.
+	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+	//
+	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
-	// A list of criteria that can be used in selecting this connection.
+	// List of criteria that can be used in selecting this connection.
 	MatchCriterias []string `pulumi:"matchCriterias"`
-	// The name of the connection.
+	// Name of the connection.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -285,21 +649,25 @@ type connectionState struct {
 }
 
 type ConnectionState struct {
-	// The ARN of the Glue Connection.
+	// ARN of the Glue Connection.
 	Arn pulumi.StringPtrInput
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput
-	// A map of key-value pairs used as parameters for this connection.
+	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+	//
+	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties pulumi.StringMapInput
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
-	// A list of criteria that can be used in selecting this connection.
+	// List of criteria that can be used in selecting this connection.
 	MatchCriterias pulumi.StringArrayInput
-	// The name of the connection.
+	// Name of the connection.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -314,19 +682,23 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
-	// A map of key-value pairs used as parameters for this connection.
+	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+	//
+	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
-	// A list of criteria that can be used in selecting this connection.
+	// List of criteria that can be used in selecting this connection.
 	MatchCriterias []string `pulumi:"matchCriterias"`
-	// The name of the connection.
+	// Name of the connection.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -334,19 +706,23 @@ type connectionArgs struct {
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput
-	// A map of key-value pairs used as parameters for this connection.
+	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+	//
+	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties pulumi.StringMapInput
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
-	// A list of criteria that can be used in selecting this connection.
+	// List of criteria that can be used in selecting this connection.
 	MatchCriterias pulumi.StringArrayInput
-	// The name of the connection.
+	// Name of the connection.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -439,22 +815,24 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-// The ARN of the Glue Connection.
+// ARN of the Glue Connection.
 func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 func (o ConnectionOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// A map of key-value pairs used as parameters for this connection.
+// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+//
+// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 func (o ConnectionOutput) ConnectionProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.ConnectionProperties }).(pulumi.StringMapOutput)
 }
 
-// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
 func (o ConnectionOutput) ConnectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
 }
@@ -464,17 +842,19 @@ func (o ConnectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of criteria that can be used in selecting this connection.
+// List of criteria that can be used in selecting this connection.
 func (o ConnectionOutput) MatchCriterias() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringArrayOutput { return v.MatchCriterias }).(pulumi.StringArrayOutput)
 }
 
-// The name of the connection.
+// Name of the connection.
+//
+// The following arguments are optional:
 func (o ConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 func (o ConnectionOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
 	return o.ApplyT(func(v *Connection) ConnectionPhysicalConnectionRequirementsPtrOutput {
 		return v.PhysicalConnectionRequirements

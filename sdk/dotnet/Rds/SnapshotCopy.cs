@@ -143,6 +143,12 @@ namespace Pulumi.Aws.Rds
         [Output("presignedUrl")]
         public Output<string?> PresignedUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        /// </summary>
+        [Output("sharedAccounts")]
+        public Output<ImmutableArray<string>> SharedAccounts { get; private set; } = null!;
+
         [Output("snapshotType")]
         public Output<string> SnapshotType { get; private set; } = null!;
 
@@ -270,6 +276,18 @@ namespace Pulumi.Aws.Rds
         [Input("presignedUrl")]
         public Input<string>? PresignedUrl { get; set; }
 
+        [Input("sharedAccounts")]
+        private InputList<string>? _sharedAccounts;
+
+        /// <summary>
+        /// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        /// </summary>
+        public InputList<string> SharedAccounts
+        {
+            get => _sharedAccounts ?? (_sharedAccounts = new InputList<string>());
+            set => _sharedAccounts = value;
+        }
+
         /// <summary>
         /// Snapshot identifier of the source snapshot.
         /// </summary>
@@ -388,6 +406,18 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("presignedUrl")]
         public Input<string>? PresignedUrl { get; set; }
+
+        [Input("sharedAccounts")]
+        private InputList<string>? _sharedAccounts;
+
+        /// <summary>
+        /// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        /// </summary>
+        public InputList<string> SharedAccounts
+        {
+            get => _sharedAccounts ?? (_sharedAccounts = new InputList<string>());
+            set => _sharedAccounts = value;
+        }
 
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }

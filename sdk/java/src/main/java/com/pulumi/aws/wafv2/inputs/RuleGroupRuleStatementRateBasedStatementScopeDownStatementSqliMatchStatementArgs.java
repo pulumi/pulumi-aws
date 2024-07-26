@@ -34,9 +34,17 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
         return Optional.ofNullable(this.fieldToMatch);
     }
 
+    /**
+     * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+     * 
+     */
     @Import(name="sensitivityLevel")
     private @Nullable Output<String> sensitivityLevel;
 
+    /**
+     * @return Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+     * 
+     */
     public Optional<Output<String>> sensitivityLevel() {
         return Optional.ofNullable(this.sensitivityLevel);
     }
@@ -107,11 +115,23 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
             return fieldToMatch(Output.of(fieldToMatch));
         }
 
+        /**
+         * @param sensitivityLevel Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sensitivityLevel(@Nullable Output<String> sensitivityLevel) {
             $.sensitivityLevel = sensitivityLevel;
             return this;
         }
 
+        /**
+         * @param sensitivityLevel Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sensitivityLevel(String sensitivityLevel) {
             return sensitivityLevel(Output.of(sensitivityLevel));
         }

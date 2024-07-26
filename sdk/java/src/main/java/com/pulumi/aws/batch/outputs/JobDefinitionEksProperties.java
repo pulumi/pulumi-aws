@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class JobDefinitionEksProperties {
     /**
-     * @return The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+     * @return Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
      * 
      */
     private JobDefinitionEksPropertiesPodProperties podProperties;
 
     private JobDefinitionEksProperties() {}
     /**
-     * @return The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+     * @return Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
      * 
      */
     public JobDefinitionEksPropertiesPodProperties podProperties() {

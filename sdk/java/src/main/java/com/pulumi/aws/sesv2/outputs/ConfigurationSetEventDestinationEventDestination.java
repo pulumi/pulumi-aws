@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination;
+import com.pulumi.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination;
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination;
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination;
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination;
@@ -19,7 +20,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationSetEventDestinationEventDestination {
     /**
-     * @return An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+     * @return An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
      * 
      */
     private @Nullable ConfigurationSetEventDestinationEventDestinationCloudWatchDestination cloudWatchDestination;
@@ -28,32 +29,31 @@ public final class ConfigurationSetEventDestinationEventDestination {
      * 
      */
     private @Nullable Boolean enabled;
+    private @Nullable ConfigurationSetEventDestinationEventDestinationEventBridgeDestination eventBridgeDestination;
     /**
-     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
      * 
      */
     private @Nullable ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination kinesisFirehoseDestination;
     /**
      * @return An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
      * 
-     * The following arguments are optional:
-     * 
      */
     private List<String> matchingEventTypes;
     /**
-     * @return An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+     * @return An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
      * 
      */
     private @Nullable ConfigurationSetEventDestinationEventDestinationPinpointDestination pinpointDestination;
     /**
-     * @return An object that defines an Amazon SNS destination for email events. See sns_destination below.
+     * @return An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
      * 
      */
     private @Nullable ConfigurationSetEventDestinationEventDestinationSnsDestination snsDestination;
 
     private ConfigurationSetEventDestinationEventDestination() {}
     /**
-     * @return An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+     * @return An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
      * 
      */
     public Optional<ConfigurationSetEventDestinationEventDestinationCloudWatchDestination> cloudWatchDestination() {
@@ -66,8 +66,11 @@ public final class ConfigurationSetEventDestinationEventDestination {
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    public Optional<ConfigurationSetEventDestinationEventDestinationEventBridgeDestination> eventBridgeDestination() {
+        return Optional.ofNullable(this.eventBridgeDestination);
+    }
     /**
-     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
      * 
      */
     public Optional<ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination> kinesisFirehoseDestination() {
@@ -76,21 +79,19 @@ public final class ConfigurationSetEventDestinationEventDestination {
     /**
      * @return An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
      * 
-     * The following arguments are optional:
-     * 
      */
     public List<String> matchingEventTypes() {
         return this.matchingEventTypes;
     }
     /**
-     * @return An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+     * @return An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
      * 
      */
     public Optional<ConfigurationSetEventDestinationEventDestinationPinpointDestination> pinpointDestination() {
         return Optional.ofNullable(this.pinpointDestination);
     }
     /**
-     * @return An object that defines an Amazon SNS destination for email events. See sns_destination below.
+     * @return An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
      * 
      */
     public Optional<ConfigurationSetEventDestinationEventDestinationSnsDestination> snsDestination() {
@@ -108,6 +109,7 @@ public final class ConfigurationSetEventDestinationEventDestination {
     public static final class Builder {
         private @Nullable ConfigurationSetEventDestinationEventDestinationCloudWatchDestination cloudWatchDestination;
         private @Nullable Boolean enabled;
+        private @Nullable ConfigurationSetEventDestinationEventDestinationEventBridgeDestination eventBridgeDestination;
         private @Nullable ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination kinesisFirehoseDestination;
         private List<String> matchingEventTypes;
         private @Nullable ConfigurationSetEventDestinationEventDestinationPinpointDestination pinpointDestination;
@@ -117,6 +119,7 @@ public final class ConfigurationSetEventDestinationEventDestination {
     	      Objects.requireNonNull(defaults);
     	      this.cloudWatchDestination = defaults.cloudWatchDestination;
     	      this.enabled = defaults.enabled;
+    	      this.eventBridgeDestination = defaults.eventBridgeDestination;
     	      this.kinesisFirehoseDestination = defaults.kinesisFirehoseDestination;
     	      this.matchingEventTypes = defaults.matchingEventTypes;
     	      this.pinpointDestination = defaults.pinpointDestination;
@@ -133,6 +136,12 @@ public final class ConfigurationSetEventDestinationEventDestination {
         public Builder enabled(@Nullable Boolean enabled) {
 
             this.enabled = enabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder eventBridgeDestination(@Nullable ConfigurationSetEventDestinationEventDestinationEventBridgeDestination eventBridgeDestination) {
+
+            this.eventBridgeDestination = eventBridgeDestination;
             return this;
         }
         @CustomType.Setter
@@ -168,6 +177,7 @@ public final class ConfigurationSetEventDestinationEventDestination {
             final var _resultValue = new ConfigurationSetEventDestinationEventDestination();
             _resultValue.cloudWatchDestination = cloudWatchDestination;
             _resultValue.enabled = enabled;
+            _resultValue.eventBridgeDestination = eventBridgeDestination;
             _resultValue.kinesisFirehoseDestination = kinesisFirehoseDestination;
             _resultValue.matchingEventTypes = matchingEventTypes;
             _resultValue.pinpointDestination = pinpointDestination;

@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly int? MinCapacity;
         /// <summary>
+        /// Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+        /// </summary>
+        public readonly int? SecondsBeforeTimeout;
+        /// <summary>
         /// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
         /// </summary>
         public readonly int? SecondsUntilAutoPause;
@@ -42,6 +46,8 @@ namespace Pulumi.Aws.Rds.Outputs
 
             int? minCapacity,
 
+            int? secondsBeforeTimeout,
+
             int? secondsUntilAutoPause,
 
             string? timeoutAction)
@@ -49,6 +55,7 @@ namespace Pulumi.Aws.Rds.Outputs
             AutoPause = autoPause;
             MaxCapacity = maxCapacity;
             MinCapacity = minCapacity;
+            SecondsBeforeTimeout = secondsBeforeTimeout;
             SecondsUntilAutoPause = secondsUntilAutoPause;
             TimeoutAction = timeoutAction;
         }

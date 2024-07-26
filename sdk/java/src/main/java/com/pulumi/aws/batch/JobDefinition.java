@@ -329,42 +329,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:batch/jobDefinition:JobDefinition")
 public class JobDefinition extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of the job definition, includes revision (`:#`).
+     * ARN of the job definition, includes revision (`:#`).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the job definition, includes revision (`:#`).
+     * @return ARN of the job definition, includes revision (`:#`).
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The ARN without the revision number.
+     * ARN without the revision number.
      * 
      */
     @Export(name="arnPrefix", refs={String.class}, tree="[0]")
     private Output<String> arnPrefix;
 
     /**
-     * @return The ARN without the revision number.
+     * @return ARN without the revision number.
      * 
      */
     public Output<String> arnPrefix() {
         return this.arnPrefix;
     }
     /**
-     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     @Export(name="containerProperties", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerProperties;
 
     /**
-     * @return A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * @return Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     public Output<Optional<String>> containerProperties() {
@@ -385,126 +385,126 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deregisterOnNewRevision);
     }
     /**
-     * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     @Export(name="eksProperties", refs={JobDefinitionEksProperties.class}, tree="[0]")
     private Output</* @Nullable */ JobDefinitionEksProperties> eksProperties;
 
     /**
-     * @return A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * @return Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     public Output<Optional<JobDefinitionEksProperties>> eksProperties() {
         return Codegen.optional(this.eksProperties);
     }
     /**
-     * Specifies the name of the job definition.
+     * Name of the job definition.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the job definition.
+     * @return Name of the job definition.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      * 
      */
     @Export(name="nodeProperties", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nodeProperties;
 
     /**
-     * @return A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * @return Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      * 
      */
     public Output<Optional<String>> nodeProperties() {
         return Codegen.optional(this.nodeProperties);
     }
     /**
-     * Specifies the parameter substitution placeholders to set in the job definition.
+     * Parameter substitution placeholders to set in the job definition.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
-     * @return Specifies the parameter substitution placeholders to set in the job definition.
+     * @return Parameter substitution placeholders to set in the job definition.
      * 
      */
     public Output<Optional<Map<String,String>>> parameters() {
         return Codegen.optional(this.parameters);
     }
     /**
-     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+     * Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      * 
      */
     @Export(name="platformCapabilities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> platformCapabilities;
 
     /**
-     * @return The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+     * @return Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      * 
      */
     public Output<Optional<List<String>>> platformCapabilities() {
         return Codegen.optional(this.platformCapabilities);
     }
     /**
-     * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+     * Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      * 
      */
     @Export(name="propagateTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> propagateTags;
 
     /**
-     * @return Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+     * @return Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> propagateTags() {
         return Codegen.optional(this.propagateTags);
     }
     /**
-     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+     * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
      * 
      */
     @Export(name="retryStrategy", refs={JobDefinitionRetryStrategy.class}, tree="[0]")
     private Output</* @Nullable */ JobDefinitionRetryStrategy> retryStrategy;
 
     /**
-     * @return Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+     * @return Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
      * 
      */
     public Output<Optional<JobDefinitionRetryStrategy>> retryStrategy() {
         return Codegen.optional(this.retryStrategy);
     }
     /**
-     * The revision of the job definition.
+     * Revision of the job definition.
      * 
      */
     @Export(name="revision", refs={Integer.class}, tree="[0]")
     private Output<Integer> revision;
 
     /**
-     * @return The revision of the job definition.
+     * @return Revision of the job definition.
      * 
      */
     public Output<Integer> revision() {
         return this.revision;
     }
     /**
-     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     * Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
      * 
      */
     @Export(name="schedulingPriority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> schedulingPriority;
 
     /**
-     * @return The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     * @return Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
      * 
      */
     public Output<Optional<Integer>> schedulingPriority() {
@@ -525,7 +525,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -536,28 +536,28 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+     * Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      * 
      */
     @Export(name="timeout", refs={JobDefinitionTimeout.class}, tree="[0]")
     private Output</* @Nullable */ JobDefinitionTimeout> timeout;
 
     /**
-     * @return Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+     * @return Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      * 
      */
     public Output<Optional<JobDefinitionTimeout>> timeout() {
         return Codegen.optional(this.timeout);
     }
     /**
-     * The type of job definition. Must be `container` or `multinode`.
+     * Type of job definition. Must be `container` or `multinode`.
      * 
      * The following arguments are optional:
      * 
@@ -566,7 +566,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
     private Output<String> type;
 
     /**
-     * @return The type of job definition. Must be `container` or `multinode`.
+     * @return Type of job definition. Must be `container` or `multinode`.
      * 
      * The following arguments are optional:
      * 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Batch.Outputs
     {
         public readonly string MountPath;
         /// <summary>
-        /// Specifies the name of the job definition.
+        /// Name of the job definition.
         /// </summary>
         public readonly string Name;
         public readonly bool? ReadOnly;

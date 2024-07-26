@@ -114,7 +114,7 @@ index e8e1a272eb..a4a1625554 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/ec2/ec2_instance_connect_endpoint.go b/internal/service/ec2/ec2_instance_connect_endpoint.go
-index 90273f5fb2..7eb040c4e2 100644
+index 0d83e03d8b..69f1612f75 100644
 --- a/internal/service/ec2/ec2_instance_connect_endpoint.go
 +++ b/internal/service/ec2/ec2_instance_connect_endpoint.go
 @@ -118,7 +118,7 @@ func (r *instanceConnectEndpointResource) Schema(ctx context.Context, req resour
@@ -127,10 +127,10 @@ index 90273f5fb2..7eb040c4e2 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/vpc_security_group_ingress_rule.go b/internal/service/ec2/vpc_security_group_ingress_rule.go
-index 9d5de83433..f9d99d2663 100644
+index 318432e2d8..e14f6ce740 100644
 --- a/internal/service/ec2/vpc_security_group_ingress_rule.go
 +++ b/internal/service/ec2/vpc_security_group_ingress_rule.go
-@@ -226,7 +226,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
+@@ -227,7 +227,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

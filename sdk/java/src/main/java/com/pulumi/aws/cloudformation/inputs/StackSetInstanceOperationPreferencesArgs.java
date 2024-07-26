@@ -18,6 +18,21 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
     public static final StackSetInstanceOperationPreferencesArgs Empty = new StackSetInstanceOperationPreferencesArgs();
 
     /**
+     * Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+     * 
+     */
+    @Import(name="concurrencyMode")
+    private @Nullable Output<String> concurrencyMode;
+
+    /**
+     * @return Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+     * 
+     */
+    public Optional<Output<String>> concurrencyMode() {
+        return Optional.ofNullable(this.concurrencyMode);
+    }
+
+    /**
      * Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
@@ -110,6 +125,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
     private StackSetInstanceOperationPreferencesArgs() {}
 
     private StackSetInstanceOperationPreferencesArgs(StackSetInstanceOperationPreferencesArgs $) {
+        this.concurrencyMode = $.concurrencyMode;
         this.failureToleranceCount = $.failureToleranceCount;
         this.failureTolerancePercentage = $.failureTolerancePercentage;
         this.maxConcurrentCount = $.maxConcurrentCount;
@@ -134,6 +150,27 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
 
         public Builder(StackSetInstanceOperationPreferencesArgs defaults) {
             $ = new StackSetInstanceOperationPreferencesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param concurrencyMode Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder concurrencyMode(@Nullable Output<String> concurrencyMode) {
+            $.concurrencyMode = concurrencyMode;
+            return this;
+        }
+
+        /**
+         * @param concurrencyMode Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder concurrencyMode(String concurrencyMode) {
+            return concurrencyMode(Output.of(concurrencyMode));
         }
 
         /**

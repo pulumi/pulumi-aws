@@ -26,6 +26,7 @@ class SnapshotCopyArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  presigned_url: Optional[pulumi.Input[str]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_custom_availability_zone: Optional[pulumi.Input[str]] = None):
         """
@@ -37,6 +38,7 @@ class SnapshotCopyArgs:
         :param pulumi.Input[str] kms_key_id: KMS key ID.
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         """
@@ -52,6 +54,8 @@ class SnapshotCopyArgs:
             pulumi.set(__self__, "option_group_name", option_group_name)
         if presigned_url is not None:
             pulumi.set(__self__, "presigned_url", presigned_url)
+        if shared_accounts is not None:
+            pulumi.set(__self__, "shared_accounts", shared_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_custom_availability_zone is not None:
@@ -142,6 +146,18 @@ class SnapshotCopyArgs:
         pulumi.set(self, "presigned_url", value)
 
     @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        """
+        return pulumi.get(self, "shared_accounts")
+
+    @shared_accounts.setter
+    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_accounts", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -183,6 +199,7 @@ class _SnapshotCopyState:
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  presigned_url: Optional[pulumi.Input[str]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_type: Optional[pulumi.Input[str]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
@@ -207,6 +224,7 @@ class _SnapshotCopyState:
         :param pulumi.Input[str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
@@ -244,6 +262,8 @@ class _SnapshotCopyState:
             pulumi.set(__self__, "port", port)
         if presigned_url is not None:
             pulumi.set(__self__, "presigned_url", presigned_url)
+        if shared_accounts is not None:
+            pulumi.set(__self__, "shared_accounts", shared_accounts)
         if snapshot_type is not None:
             pulumi.set(__self__, "snapshot_type", snapshot_type)
         if source_db_snapshot_identifier is not None:
@@ -432,6 +452,18 @@ class _SnapshotCopyState:
         pulumi.set(self, "presigned_url", value)
 
     @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        """
+        return pulumi.get(self, "shared_accounts")
+
+    @shared_accounts.setter
+    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_accounts", value)
+
+    @property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "snapshot_type")
@@ -548,6 +580,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  presigned_url: Optional[pulumi.Input[str]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_custom_availability_zone: Optional[pulumi.Input[str]] = None,
@@ -596,6 +629,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: KMS key ID.
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
@@ -663,6 +697,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  presigned_url: Optional[pulumi.Input[str]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_custom_availability_zone: Optional[pulumi.Input[str]] = None,
@@ -681,6 +716,7 @@ class SnapshotCopy(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["option_group_name"] = option_group_name
             __props__.__dict__["presigned_url"] = presigned_url
+            __props__.__dict__["shared_accounts"] = shared_accounts
             if source_db_snapshot_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'source_db_snapshot_identifier'")
             __props__.__dict__["source_db_snapshot_identifier"] = source_db_snapshot_identifier
@@ -727,6 +763,7 @@ class SnapshotCopy(pulumi.CustomResource):
             option_group_name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             presigned_url: Optional[pulumi.Input[str]] = None,
+            shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_type: Optional[pulumi.Input[str]] = None,
             source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
             source_region: Optional[pulumi.Input[str]] = None,
@@ -756,6 +793,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
@@ -783,6 +821,7 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__.__dict__["option_group_name"] = option_group_name
         __props__.__dict__["port"] = port
         __props__.__dict__["presigned_url"] = presigned_url
+        __props__.__dict__["shared_accounts"] = shared_accounts
         __props__.__dict__["snapshot_type"] = snapshot_type
         __props__.__dict__["source_db_snapshot_identifier"] = source_db_snapshot_identifier
         __props__.__dict__["source_region"] = source_region
@@ -902,6 +941,14 @@ class SnapshotCopy(pulumi.CustomResource):
         he URL that contains a Signature Version 4 signed request.
         """
         return pulumi.get(self, "presigned_url")
+
+    @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        """
+        return pulumi.get(self, "shared_accounts")
 
     @property
     @pulumi.getter(name="snapshotType")

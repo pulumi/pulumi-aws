@@ -248,11 +248,14 @@ namespace Pulumi.Aws.Mwaa
         public Output<ImmutableArray<Outputs.EnvironmentLastUpdated>> LastUpdateds { get; private set; } = null!;
 
         /// <summary>
-        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.EnvironmentLoggingConfiguration> LoggingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// </summary>
         [Output("maxWebservers")]
         public Output<int> MaxWebservers { get; private set; } = null!;
 
@@ -262,6 +265,9 @@ namespace Pulumi.Aws.Mwaa
         [Output("maxWorkers")]
         public Output<int> MaxWorkers { get; private set; } = null!;
 
+        /// <summary>
+        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// </summary>
         [Output("minWebservers")]
         public Output<int> MinWebservers { get; private set; } = null!;
 
@@ -278,7 +284,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.EnvironmentNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
@@ -482,11 +488,14 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? KmsKey { get; set; }
 
         /// <summary>
-        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// </summary>
         [Input("maxWebservers")]
         public Input<int>? MaxWebservers { get; set; }
 
@@ -496,6 +505,9 @@ namespace Pulumi.Aws.Mwaa
         [Input("maxWorkers")]
         public Input<int>? MaxWorkers { get; set; }
 
+        /// <summary>
+        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// </summary>
         [Input("minWebservers")]
         public Input<int>? MinWebservers { get; set; }
 
@@ -512,7 +524,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         /// </summary>
         [Input("networkConfiguration", required: true)]
         public Input<Inputs.EnvironmentNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
@@ -677,11 +689,14 @@ namespace Pulumi.Aws.Mwaa
         }
 
         /// <summary>
-        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// </summary>
         [Input("maxWebservers")]
         public Input<int>? MaxWebservers { get; set; }
 
@@ -691,6 +706,9 @@ namespace Pulumi.Aws.Mwaa
         [Input("maxWorkers")]
         public Input<int>? MaxWorkers { get; set; }
 
+        /// <summary>
+        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// </summary>
         [Input("minWebservers")]
         public Input<int>? MinWebservers { get; set; }
 
@@ -707,7 +725,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.EnvironmentNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }

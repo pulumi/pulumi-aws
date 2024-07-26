@@ -202,7 +202,9 @@ class StackSetInstanceOperationPreferences(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "failureToleranceCount":
+        if key == "concurrencyMode":
+            suggest = "concurrency_mode"
+        elif key == "failureToleranceCount":
             suggest = "failure_tolerance_count"
         elif key == "failureTolerancePercentage":
             suggest = "failure_tolerance_percentage"
@@ -227,6 +229,7 @@ class StackSetInstanceOperationPreferences(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 concurrency_mode: Optional[str] = None,
                  failure_tolerance_count: Optional[int] = None,
                  failure_tolerance_percentage: Optional[int] = None,
                  max_concurrent_count: Optional[int] = None,
@@ -234,6 +237,7 @@ class StackSetInstanceOperationPreferences(dict):
                  region_concurrency_type: Optional[str] = None,
                  region_orders: Optional[Sequence[str]] = None):
         """
+        :param str concurrency_mode: Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
         :param int failure_tolerance_count: Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
         :param int failure_tolerance_percentage: Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
         :param int max_concurrent_count: Maximum number of accounts in which to perform this operation at one time.
@@ -241,6 +245,8 @@ class StackSetInstanceOperationPreferences(dict):
         :param str region_concurrency_type: Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
         :param Sequence[str] region_orders: Order of the Regions in where you want to perform the stack operation.
         """
+        if concurrency_mode is not None:
+            pulumi.set(__self__, "concurrency_mode", concurrency_mode)
         if failure_tolerance_count is not None:
             pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
@@ -253,6 +259,14 @@ class StackSetInstanceOperationPreferences(dict):
             pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
         if region_orders is not None:
             pulumi.set(__self__, "region_orders", region_orders)
+
+    @property
+    @pulumi.getter(name="concurrencyMode")
+    def concurrency_mode(self) -> Optional[str]:
+        """
+        Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+        """
+        return pulumi.get(self, "concurrency_mode")
 
     @property
     @pulumi.getter(name="failureToleranceCount")

@@ -9813,6 +9813,9 @@ if not MYPY:
         The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         """
         space_storage_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgsDict']]
+        """
+        The storage settings. See `space_storage_settings` Block below.
+        """
 elif False:
     SpaceSpaceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9833,6 +9836,7 @@ class SpaceSpaceSettingsArgs:
         :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgs'] space_storage_settings: The storage settings. See `space_storage_settings` Block below.
         """
         if app_type is not None:
             pulumi.set(__self__, "app_type", app_type)
@@ -9924,6 +9928,9 @@ class SpaceSpaceSettingsArgs:
     @property
     @pulumi.getter(name="spaceStorageSettings")
     def space_storage_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgs']]:
+        """
+        The storage settings. See `space_storage_settings` Block below.
+        """
         return pulumi.get(self, "space_storage_settings")
 
     @space_storage_settings.setter
@@ -10800,6 +10807,9 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
 if not MYPY:
     class SpaceSpaceSettingsSpaceStorageSettingsArgsDict(TypedDict):
         ebs_storage_settings: pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgsDict']
+        """
+        A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+        """
 elif False:
     SpaceSpaceSettingsSpaceStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -10807,11 +10817,17 @@ elif False:
 class SpaceSpaceSettingsSpaceStorageSettingsArgs:
     def __init__(__self__, *,
                  ebs_storage_settings: pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs']):
+        """
+        :param pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs'] ebs_storage_settings: A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+        """
         pulumi.set(__self__, "ebs_storage_settings", ebs_storage_settings)
 
     @property
     @pulumi.getter(name="ebsStorageSettings")
     def ebs_storage_settings(self) -> pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs']:
+        """
+        A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+        """
         return pulumi.get(self, "ebs_storage_settings")
 
     @ebs_storage_settings.setter
@@ -10822,6 +10838,9 @@ class SpaceSpaceSettingsSpaceStorageSettingsArgs:
 if not MYPY:
     class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgsDict(TypedDict):
         ebs_volume_size_in_gb: pulumi.Input[int]
+        """
+        The size of an EBS storage volume for a space.
+        """
 elif False:
     SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -10829,11 +10848,17 @@ elif False:
 class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs:
     def __init__(__self__, *,
                  ebs_volume_size_in_gb: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] ebs_volume_size_in_gb: The size of an EBS storage volume for a space.
+        """
         pulumi.set(__self__, "ebs_volume_size_in_gb", ebs_volume_size_in_gb)
 
     @property
     @pulumi.getter(name="ebsVolumeSizeInGb")
     def ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        The size of an EBS storage volume for a space.
+        """
         return pulumi.get(self, "ebs_volume_size_in_gb")
 
     @ebs_volume_size_in_gb.setter

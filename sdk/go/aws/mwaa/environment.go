@@ -214,17 +214,19 @@ type Environment struct {
 	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey       pulumi.StringPtrOutput            `pulumi:"kmsKey"`
 	LastUpdateds EnvironmentLastUpdatedArrayOutput `pulumi:"lastUpdateds"`
-	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration EnvironmentLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
-	MaxWebservers        pulumi.IntOutput                      `pulumi:"maxWebservers"`
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	MaxWebservers pulumi.IntOutput `pulumi:"maxWebservers"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers    pulumi.IntOutput `pulumi:"maxWorkers"`
+	MaxWorkers pulumi.IntOutput `pulumi:"maxWorkers"`
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
 	MinWebservers pulumi.IntOutput `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers pulumi.IntOutput `pulumi:"minWorkers"`
 	// The name of the Apache Airflow Environment
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
 	NetworkConfiguration EnvironmentNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// The plugins.zip file version you want to use.
 	PluginsS3ObjectVersion pulumi.StringOutput `pulumi:"pluginsS3ObjectVersion"`
@@ -333,17 +335,19 @@ type environmentState struct {
 	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey       *string                  `pulumi:"kmsKey"`
 	LastUpdateds []EnvironmentLastUpdated `pulumi:"lastUpdateds"`
-	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
-	MaxWebservers        *int                             `pulumi:"maxWebservers"`
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	MaxWebservers *int `pulumi:"maxWebservers"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers    *int `pulumi:"maxWorkers"`
+	MaxWorkers *int `pulumi:"maxWorkers"`
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
 	MinWebservers *int `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers *int `pulumi:"minWorkers"`
 	// The name of the Apache Airflow Environment
 	Name *string `pulumi:"name"`
-	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
 	NetworkConfiguration *EnvironmentNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The plugins.zip file version you want to use.
 	PluginsS3ObjectVersion *string `pulumi:"pluginsS3ObjectVersion"`
@@ -404,17 +408,19 @@ type EnvironmentState struct {
 	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey       pulumi.StringPtrInput
 	LastUpdateds EnvironmentLastUpdatedArrayInput
-	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrInput
-	MaxWebservers        pulumi.IntPtrInput
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	MaxWebservers pulumi.IntPtrInput
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers    pulumi.IntPtrInput
+	MaxWorkers pulumi.IntPtrInput
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
 	MinWebservers pulumi.IntPtrInput
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers pulumi.IntPtrInput
 	// The name of the Apache Airflow Environment
 	Name pulumi.StringPtrInput
-	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
 	NetworkConfiguration EnvironmentNetworkConfigurationPtrInput
 	// The plugins.zip file version you want to use.
 	PluginsS3ObjectVersion pulumi.StringPtrInput
@@ -471,17 +477,19 @@ type environmentArgs struct {
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey *string `pulumi:"kmsKey"`
-	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
-	MaxWebservers        *int                             `pulumi:"maxWebservers"`
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	MaxWebservers *int `pulumi:"maxWebservers"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers    *int `pulumi:"maxWorkers"`
+	MaxWorkers *int `pulumi:"maxWorkers"`
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
 	MinWebservers *int `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers *int `pulumi:"minWorkers"`
 	// The name of the Apache Airflow Environment
 	Name *string `pulumi:"name"`
-	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
 	NetworkConfiguration EnvironmentNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The plugins.zip file version you want to use.
 	PluginsS3ObjectVersion *string `pulumi:"pluginsS3ObjectVersion"`
@@ -523,17 +531,19 @@ type EnvironmentArgs struct {
 	ExecutionRoleArn pulumi.StringInput
 	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey pulumi.StringPtrInput
-	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrInput
-	MaxWebservers        pulumi.IntPtrInput
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	MaxWebservers pulumi.IntPtrInput
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers    pulumi.IntPtrInput
+	MaxWorkers pulumi.IntPtrInput
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
 	MinWebservers pulumi.IntPtrInput
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers pulumi.IntPtrInput
 	// The name of the Apache Airflow Environment
 	Name pulumi.StringPtrInput
-	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+	// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
 	NetworkConfiguration EnvironmentNetworkConfigurationInput
 	// The plugins.zip file version you want to use.
 	PluginsS3ObjectVersion pulumi.StringPtrInput
@@ -701,11 +711,12 @@ func (o EnvironmentOutput) LastUpdateds() EnvironmentLastUpdatedArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentLastUpdatedArrayOutput { return v.LastUpdateds }).(EnvironmentLastUpdatedArrayOutput)
 }
 
-// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 func (o EnvironmentOutput) LoggingConfiguration() EnvironmentLoggingConfigurationOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentLoggingConfigurationOutput { return v.LoggingConfiguration }).(EnvironmentLoggingConfigurationOutput)
 }
 
+// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
 func (o EnvironmentOutput) MaxWebservers() pulumi.IntOutput {
 	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MaxWebservers }).(pulumi.IntOutput)
 }
@@ -715,6 +726,7 @@ func (o EnvironmentOutput) MaxWorkers() pulumi.IntOutput {
 	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MaxWorkers }).(pulumi.IntOutput)
 }
 
+// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
 func (o EnvironmentOutput) MinWebservers() pulumi.IntOutput {
 	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MinWebservers }).(pulumi.IntOutput)
 }
@@ -729,7 +741,7 @@ func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
 func (o EnvironmentOutput) NetworkConfiguration() EnvironmentNetworkConfigurationOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentNetworkConfigurationOutput { return v.NetworkConfiguration }).(EnvironmentNetworkConfigurationOutput)
 }

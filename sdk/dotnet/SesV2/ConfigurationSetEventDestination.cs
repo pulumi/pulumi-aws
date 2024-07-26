@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ## Example Usage
     /// 
-    /// ### Cloud Watch Destination
+    /// ### CloudWatch Destination
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -46,6 +46,42 @@ namespace Pulumi.Aws.SesV2
     ///                         DimensionValueSource = "MESSAGE_TAG",
     ///                     },
     ///                 },
+    ///             },
+    ///             Enabled = true,
+    ///             MatchingEventTypes = new[]
+    ///             {
+    ///                 "SEND",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### EventBridge Destination
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = Aws.CloudWatch.GetEventBus.Invoke(new()
+    ///     {
+    ///         Name = "default",
+    ///     });
+    /// 
+    ///     var example = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
+    ///     {
+    ///         ConfigurationSetName = exampleAwsSesv2ConfigurationSet.ConfigurationSetName,
+    ///         EventDestinationName = "example",
+    ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
+    ///         {
+    ///             EventBridgeDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs
+    ///             {
+    ///                 EventBusArn = @default.Apply(@default =&gt; @default.Apply(getEventBusResult =&gt; getEventBusResult.Arn)),
     ///             },
     ///             Enabled = true,
     ///             MatchingEventTypes = new[]
@@ -191,7 +227,7 @@ namespace Pulumi.Aws.SesV2
         public Output<Outputs.ConfigurationSetEventDestinationEventDestination> EventDestination { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines the event destination. See event_destination below.
+        /// An object that defines the event destination. See `event_destination` Block for details.
         /// </summary>
         [Output("eventDestinationName")]
         public Output<string> EventDestinationName { get; private set; } = null!;
@@ -255,7 +291,7 @@ namespace Pulumi.Aws.SesV2
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationArgs> EventDestination { get; set; } = null!;
 
         /// <summary>
-        /// An object that defines the event destination. See event_destination below.
+        /// An object that defines the event destination. See `event_destination` Block for details.
         /// </summary>
         [Input("eventDestinationName", required: true)]
         public Input<string> EventDestinationName { get; set; } = null!;
@@ -281,7 +317,7 @@ namespace Pulumi.Aws.SesV2
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationGetArgs>? EventDestination { get; set; }
 
         /// <summary>
-        /// An object that defines the event destination. See event_destination below.
+        /// An object that defines the event destination. See `event_destination` Block for details.
         /// </summary>
         [Input("eventDestinationName")]
         public Input<string>? EventDestinationName { get; set; }

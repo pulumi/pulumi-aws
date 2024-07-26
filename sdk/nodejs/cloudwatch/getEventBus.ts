@@ -50,6 +50,10 @@ export interface GetEventBusResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+     */
+    readonly kmsKeyIdentifier: string;
     readonly name: string;
 }
 /**

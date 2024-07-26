@@ -25,14 +25,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountA
     }
 
     /**
-     * Specifies the name of the job definition.
+     * Name of the job definition.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the job definition.
+     * @return Name of the job definition.
      * 
      */
     public Output<String> name() {
@@ -82,7 +82,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountA
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountA
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 

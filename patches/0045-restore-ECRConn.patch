@@ -5,18 +5,18 @@ Subject: [PATCH] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go
-index 1fc533168a..460d122df8 100644
+index d86f45d0d6..c2c0f3598a 100644
 --- a/internal/conns/awsclient_gen.go
 +++ b/internal/conns/awsclient_gen.go
-@@ -214,6 +214,7 @@ import (
+@@ -218,6 +218,7 @@ import (
+ 	batch_sdkv1 "github.com/aws/aws-sdk-go/service/batch"
  	connect_sdkv1 "github.com/aws/aws-sdk-go/service/connect"
  	directconnect_sdkv1 "github.com/aws/aws-sdk-go/service/directconnect"
- 	ec2_sdkv1 "github.com/aws/aws-sdk-go/service/ec2"
 +	ecr_sdkv1 "github.com/aws/aws-sdk-go/service/ecr"
  	elasticsearchservice_sdkv1 "github.com/aws/aws-sdk-go/service/elasticsearchservice"
  	emr_sdkv1 "github.com/aws/aws-sdk-go/service/emr"
- 	fsx_sdkv1 "github.com/aws/aws-sdk-go/service/fsx"
-@@ -594,6 +595,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
+ 	gamelift_sdkv1 "github.com/aws/aws-sdk-go/service/gamelift"
+@@ -589,6 +590,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
  	return errs.Must(client[*ec2_sdkv2.Client](ctx, c, names.EC2, make(map[string]any)))
  }
  

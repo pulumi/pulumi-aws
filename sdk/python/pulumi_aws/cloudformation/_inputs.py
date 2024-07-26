@@ -229,6 +229,10 @@ class StackSetInstanceDeploymentTargetsArgs:
 
 if not MYPY:
     class StackSetInstanceOperationPreferencesArgsDict(TypedDict):
+        concurrency_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+        """
         failure_tolerance_count: NotRequired[pulumi.Input[int]]
         """
         Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
@@ -259,6 +263,7 @@ elif False:
 @pulumi.input_type
 class StackSetInstanceOperationPreferencesArgs:
     def __init__(__self__, *,
+                 concurrency_mode: Optional[pulumi.Input[str]] = None,
                  failure_tolerance_count: Optional[pulumi.Input[int]] = None,
                  failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,
                  max_concurrent_count: Optional[pulumi.Input[int]] = None,
@@ -266,6 +271,7 @@ class StackSetInstanceOperationPreferencesArgs:
                  region_concurrency_type: Optional[pulumi.Input[str]] = None,
                  region_orders: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[str] concurrency_mode: Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
         :param pulumi.Input[int] failure_tolerance_count: Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
         :param pulumi.Input[int] failure_tolerance_percentage: Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
         :param pulumi.Input[int] max_concurrent_count: Maximum number of accounts in which to perform this operation at one time.
@@ -273,6 +279,8 @@ class StackSetInstanceOperationPreferencesArgs:
         :param pulumi.Input[str] region_concurrency_type: Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] region_orders: Order of the Regions in where you want to perform the stack operation.
         """
+        if concurrency_mode is not None:
+            pulumi.set(__self__, "concurrency_mode", concurrency_mode)
         if failure_tolerance_count is not None:
             pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
@@ -285,6 +293,18 @@ class StackSetInstanceOperationPreferencesArgs:
             pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
         if region_orders is not None:
             pulumi.set(__self__, "region_orders", region_orders)
+
+    @property
+    @pulumi.getter(name="concurrencyMode")
+    def concurrency_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+        """
+        return pulumi.get(self, "concurrency_mode")
+
+    @concurrency_mode.setter
+    def concurrency_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "concurrency_mode", value)
 
     @property
     @pulumi.getter(name="failureToleranceCount")

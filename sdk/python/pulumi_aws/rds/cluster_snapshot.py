@@ -21,15 +21,19 @@ class ClusterSnapshotArgs:
     def __init__(__self__, *,
                  db_cluster_identifier: pulumi.Input[str],
                  db_cluster_snapshot_identifier: pulumi.Input[str],
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClusterSnapshot resource.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
+        if shared_accounts is not None:
+            pulumi.set(__self__, "shared_accounts", shared_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -58,6 +62,18 @@ class ClusterSnapshotArgs:
         pulumi.set(self, "db_cluster_snapshot_identifier", value)
 
     @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        """
+        return pulumi.get(self, "shared_accounts")
+
+    @shared_accounts.setter
+    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_accounts", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -83,6 +99,7 @@ class _ClusterSnapshotState:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  license_model: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_type: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_snapshot_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -102,6 +119,7 @@ class _ClusterSnapshotState:
         :param pulumi.Input[str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[int] port: Port that the DB cluster was listening on at the time of the snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -128,6 +146,8 @@ class _ClusterSnapshotState:
             pulumi.set(__self__, "license_model", license_model)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if shared_accounts is not None:
+            pulumi.set(__self__, "shared_accounts", shared_accounts)
         if snapshot_type is not None:
             pulumi.set(__self__, "snapshot_type", snapshot_type)
         if source_db_cluster_snapshot_arn is not None:
@@ -267,6 +287,18 @@ class _ClusterSnapshotState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        """
+        return pulumi.get(self, "shared_accounts")
+
+    @shared_accounts.setter
+    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_accounts", value)
+
+    @property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "snapshot_type")
@@ -353,6 +385,7 @@ class ClusterSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -381,6 +414,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -428,6 +462,7 @@ class ClusterSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -444,6 +479,7 @@ class ClusterSnapshot(pulumi.CustomResource):
             if db_cluster_snapshot_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_cluster_snapshot_identifier'")
             __props__.__dict__["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+            __props__.__dict__["shared_accounts"] = shared_accounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["allocated_storage"] = None
             __props__.__dict__["availability_zones"] = None
@@ -479,6 +515,7 @@ class ClusterSnapshot(pulumi.CustomResource):
             kms_key_id: Optional[pulumi.Input[str]] = None,
             license_model: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
+            shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_type: Optional[pulumi.Input[str]] = None,
             source_db_cluster_snapshot_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -503,6 +540,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[int] port: Port that the DB cluster was listening on at the time of the snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -523,6 +561,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["license_model"] = license_model
         __props__.__dict__["port"] = port
+        __props__.__dict__["shared_accounts"] = shared_accounts
         __props__.__dict__["snapshot_type"] = snapshot_type
         __props__.__dict__["source_db_cluster_snapshot_arn"] = source_db_cluster_snapshot_arn
         __props__.__dict__["status"] = status
@@ -611,6 +650,14 @@ class ClusterSnapshot(pulumi.CustomResource):
         Port that the DB cluster was listening on at the time of the snapshot.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        """
+        return pulumi.get(self, "shared_accounts")
 
     @property
     @pulumi.getter(name="snapshotType")

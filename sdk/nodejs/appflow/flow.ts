@@ -166,6 +166,10 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly kmsArn!: pulumi.Output<string>;
     /**
+     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     */
+    public readonly metadataCatalogConfig!: pulumi.Output<outputs.appflow.FlowMetadataCatalogConfig>;
+    /**
      * Name of the flow.
      */
     public readonly name!: pulumi.Output<string>;
@@ -210,6 +214,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["destinationFlowConfigs"] = state ? state.destinationFlowConfigs : undefined;
             resourceInputs["flowStatus"] = state ? state.flowStatus : undefined;
             resourceInputs["kmsArn"] = state ? state.kmsArn : undefined;
+            resourceInputs["metadataCatalogConfig"] = state ? state.metadataCatalogConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["sourceFlowConfig"] = state ? state.sourceFlowConfig : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -233,6 +238,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["destinationFlowConfigs"] = args ? args.destinationFlowConfigs : undefined;
             resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
+            resourceInputs["metadataCatalogConfig"] = args ? args.metadataCatalogConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -271,6 +277,10 @@ export interface FlowState {
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
     kmsArn?: pulumi.Input<string>;
+    /**
+     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     */
+    metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfig>;
     /**
      * Name of the flow.
      */
@@ -315,6 +325,10 @@ export interface FlowArgs {
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
     kmsArn?: pulumi.Input<string>;
+    /**
+     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     */
+    metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfig>;
     /**
      * Name of the flow.
      */

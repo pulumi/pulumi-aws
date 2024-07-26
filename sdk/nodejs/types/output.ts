@@ -2991,6 +2991,10 @@ export namespace appflow {
          */
         prefixFormat?: string;
         /**
+         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         */
+        prefixHierarchies: string[];
+        /**
          * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
          */
         prefixType?: string;
@@ -3111,6 +3115,10 @@ export namespace appflow {
          */
         prefixFormat?: string;
         /**
+         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         */
+        prefixHierarchies: string[];
+        /**
          * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
          */
         prefixType: string;
@@ -3136,6 +3144,25 @@ export namespace appflow {
          * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowMetadataCatalogConfig {
+        glueDataCatalog?: outputs.appflow.FlowMetadataCatalogConfigGlueDataCatalog;
+    }
+
+    export interface FlowMetadataCatalogConfigGlueDataCatalog {
+        /**
+         * The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+         */
+        databaseName: string;
+        /**
+         * The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+         */
+        roleArn: string;
+        /**
+         * A naming prefix for each Data Catalog table that Amazon AppFlow creates
+         */
+        tablePrefix: string;
     }
 
     export interface FlowSourceFlowConfig {
@@ -10729,84 +10756,88 @@ export namespace batch {
 
     export interface JobDefinitionEksProperties {
         /**
-         * The properties for the Kubernetes pod resources of a job. See `podProperties` below.
+         * Properties for the Kubernetes pod resources of a job. See `podProperties` below.
          */
         podProperties: outputs.batch.JobDefinitionEksPropertiesPodProperties;
     }
 
     export interface JobDefinitionEksPropertiesPodProperties {
         /**
-         * The properties of the container that's used on the Amazon EKS pod. See containers below.
+         * Properties of the container that's used on the Amazon EKS pod. See containers below.
          */
         containers: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainers;
         /**
-         * The DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+         * DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
          */
         dnsPolicy?: string;
         /**
-         * Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+         * Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
          */
         hostNetwork?: boolean;
+        /**
+         * List of Kubernetes secret resources. See `imagePullSecret` below.
+         */
+        imagePullSecrets?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesImagePullSecret[];
         /**
          * Metadata about the Kubernetes pod.
          */
         metadata?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesMetadata;
         /**
-         * The name of the service account that's used to run the pod.
+         * Name of the service account that's used to run the pod.
          */
         serviceAccountName?: string;
         /**
-         * Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         * Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
          */
         volumes?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesVolume[];
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesContainers {
         /**
-         * An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+         * Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
          */
         args?: string[];
         /**
-         * The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+         * Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
          */
         commands?: string[];
         /**
-         * The environment variables to pass to a container. See EKS Environment below.
+         * Environment variables to pass to a container. See EKS Environment below.
          */
         envs?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersEnv[];
         /**
-         * The Docker image used to start the container.
+         * Docker image used to start the container.
          */
         image: string;
         /**
-         * The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+         * Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
          */
         imagePullPolicy?: string;
         /**
-         * The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+         * Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
          */
         name?: string;
         /**
-         * The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         * Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
          */
         resources?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersResources;
         /**
-         * The security context for a job.
+         * Security context for a job.
          */
         securityContext?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext;
         /**
-         * The volume mounts for the container.
+         * Volume mounts for the container.
          */
         volumeMounts?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount[];
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesContainersEnv {
         /**
-         * Specifies the name of the job definition.
+         * Name of the job definition.
          */
         name: string;
         /**
-         * The value of the environment variable.
+         * Value of the environment variable.
          */
         value: string;
     }
@@ -10827,10 +10858,17 @@ export namespace batch {
     export interface JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount {
         mountPath: string;
         /**
-         * Specifies the name of the job definition.
+         * Name of the job definition.
          */
         name: string;
         readOnly?: boolean;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesImagePullSecret {
+        /**
+         * Unique identifier.
+         */
+        name: string;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesMetadata {
@@ -10841,7 +10879,7 @@ export namespace batch {
         emptyDir?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir;
         hostPath?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath;
         /**
-         * Specifies the name of the job definition.
+         * Name of the job definition.
          */
         name?: string;
         secret?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeSecret;
@@ -10849,66 +10887,66 @@ export namespace batch {
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir {
         /**
-         * The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+         * Medium to store the volume. The default value is an empty string, which uses the storage of the node.
          */
         medium?: string;
         /**
-         * The maximum size of the volume. By default, there's no maximum size defined.
+         * Maximum size of the volume. By default, there's no maximum size defined.
          */
         sizeLimit: string;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolumeHostPath {
         /**
-         * The path of the file or directory on the host to mount into containers on the pod.
+         * Path of the file or directory on the host to mount into containers on the pod.
          */
         path: string;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolumeSecret {
         /**
-         * Specifies whether the secret or the secret's keys must be defined.
+         * Whether the secret or the secret's keys must be defined.
          */
         optional?: boolean;
         /**
-         * The name of the secret. The name must be allowed as a DNS subdomain name.
+         * Name of the secret. The name must be allowed as a DNS subdomain name.
          */
         secretName: string;
     }
 
     export interface JobDefinitionRetryStrategy {
         /**
-         * The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+         * Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
          */
         attempts?: number;
         /**
-         * The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+         * Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
          */
         evaluateOnExits?: outputs.batch.JobDefinitionRetryStrategyEvaluateOnExit[];
     }
 
     export interface JobDefinitionRetryStrategyEvaluateOnExit {
         /**
-         * Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+         * Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
          */
         action: string;
         /**
-         * A glob pattern to match against the decimal representation of the exit code returned for a job.
+         * Glob pattern to match against the decimal representation of the exit code returned for a job.
          */
         onExitCode?: string;
         /**
-         * A glob pattern to match against the reason returned for a job.
+         * Glob pattern to match against the reason returned for a job.
          */
         onReason?: string;
         /**
-         * A glob pattern to match against the status reason returned for a job.
+         * Glob pattern to match against the status reason returned for a job.
          */
         onStatusReason?: string;
     }
 
     export interface JobDefinitionTimeout {
         /**
-         * The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+         * Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
          */
         attemptDurationSeconds?: number;
     }
@@ -12815,6 +12853,10 @@ export namespace cloudformation {
     }
 
     export interface StackSetInstanceOperationPreferences {
+        /**
+         * Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+         */
+        concurrencyMode?: string;
         /**
          * Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
          */
@@ -36734,7 +36776,7 @@ export namespace glue {
          */
         customDatatypes?: string[];
         /**
-         * The delimiter used in the Csv to separate columns.
+         * The delimiter used in the CSV to separate columns.
          */
         delimiter?: string;
         /**
@@ -36749,6 +36791,9 @@ export namespace glue {
          * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
          */
         quoteSymbol?: string;
+        /**
+         * The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+         */
         serde: string;
     }
 
@@ -69618,6 +69663,10 @@ export namespace rds {
          */
         minCapacity?: number;
         /**
+         * Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+         */
+        secondsBeforeTimeout?: number;
+        /**
          * Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
          */
         secondsUntilAutoPause?: number;
@@ -75571,6 +75620,9 @@ export namespace sagemaker {
          * The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
          */
         kernelGatewayAppSettings?: outputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettings;
+        /**
+         * The storage settings. See `spaceStorageSettings` Block below.
+         */
         spaceStorageSettings: outputs.sagemaker.SpaceSpaceSettingsSpaceStorageSettings;
     }
 
@@ -75758,10 +75810,16 @@ export namespace sagemaker {
     }
 
     export interface SpaceSpaceSettingsSpaceStorageSettings {
+        /**
+         * A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
+         */
         ebsStorageSettings: outputs.sagemaker.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings;
     }
 
     export interface SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
+        /**
+         * The size of an EBS storage volume for a space.
+         */
         ebsVolumeSizeInGb: number;
     }
 
@@ -78775,31 +78833,34 @@ export namespace securitylake {
 
     export interface SubscriberSource {
         /**
-         * Amazon Security Lake supports log and event collection for natively supported AWS services.
+         * Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
          */
         awsLogSourceResource?: outputs.securitylake.SubscriberSourceAwsLogSourceResource;
         /**
-         * Amazon Security Lake supports custom source types.
+         * Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
          */
         customLogSourceResource?: outputs.securitylake.SubscriberSourceCustomLogSourceResource;
     }
 
     export interface SubscriberSourceAwsLogSourceResource {
         /**
-         * The name for a third-party custom source. This must be a Regionally unique value.
+         * Provides data expiration details of Amazon Security Lake object.
          */
         sourceName: string;
         /**
-         * The version for a third-party custom source. This must be a Regionally unique value.
+         * Provides data storage transition details of Amazon Security Lake object.
          */
         sourceVersion: string;
     }
 
     export interface SubscriberSourceCustomLogSourceResource {
         /**
-         * The attributes of a third-party custom source.
+         * The attributes of the third-party custom source. See `attributes` Block below.
          */
         attributes: outputs.securitylake.SubscriberSourceCustomLogSourceResourceAttribute[];
+        /**
+         * The details of the log provider for the third-party custom source. See `provider` Block below.
+         */
         providers: outputs.securitylake.SubscriberSourceCustomLogSourceResourceProvider[];
         /**
          * The name for a third-party custom source. This must be a Regionally unique value.
@@ -79458,36 +79519,35 @@ export namespace sesv2 {
 
     export interface ConfigurationSetEventDestinationEventDestination {
         /**
-         * An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+         * An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
          */
         cloudWatchDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination;
         /**
          * When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
          */
         enabled?: boolean;
+        eventBridgeDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination;
         /**
-         * An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+         * An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
          */
         kinesisFirehoseDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination;
         /**
          * An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-         *
-         * The following arguments are optional:
          */
         matchingEventTypes: string[];
         /**
-         * An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+         * An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
          */
         pinpointDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestination;
         /**
-         * An object that defines an Amazon SNS destination for email events. See snsDestination below.
+         * An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
          */
         snsDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestination;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
         /**
-         * An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+         * An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
          */
         dimensionConfigurations: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration[];
     }
@@ -79505,6 +79565,13 @@ export namespace sesv2 {
          * The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
          */
         dimensionValueSource: string;
+    }
+
+    export interface ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+         */
+        eventBusArn: string;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
@@ -84996,6 +85063,9 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
@@ -86028,6 +86098,9 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
@@ -88809,6 +88882,9 @@ export namespace wafv2 {
          * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          */
         fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
@@ -90436,6 +90512,9 @@ export namespace wafv2 {
          * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          */
         fieldToMatch?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
@@ -91672,6 +91751,9 @@ export namespace wafv2 {
          * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          */
         fieldToMatch?: outputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.

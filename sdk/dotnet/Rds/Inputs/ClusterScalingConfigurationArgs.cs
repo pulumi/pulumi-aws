@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<int>? MinCapacity { get; set; }
 
         /// <summary>
+        /// Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+        /// </summary>
+        [Input("secondsBeforeTimeout")]
+        public Input<int>? SecondsBeforeTimeout { get; set; }
+
+        /// <summary>
         /// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
         /// </summary>
         [Input("secondsUntilAutoPause")]

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class JobDefinitionEksPropertiesPodPropertiesVolumeSecretGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the secret or the secret's keys must be defined.
+        /// Whether the secret or the secret's keys must be defined.
         /// </summary>
         [Input("optional")]
         public Input<bool>? Optional { get; set; }
 
         /// <summary>
-        /// The name of the secret. The name must be allowed as a DNS subdomain name.
+        /// Name of the secret. The name must be allowed as a DNS subdomain name.
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;

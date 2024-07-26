@@ -17,14 +17,14 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
     public static final JobDefinitionRetryStrategyEvaluateOnExitArgs Empty = new JobDefinitionRetryStrategyEvaluateOnExitArgs();
 
     /**
-     * Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+     * Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+     * @return Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
      * 
      */
     public Output<String> action() {
@@ -32,14 +32,14 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
     }
 
     /**
-     * A glob pattern to match against the decimal representation of the exit code returned for a job.
+     * Glob pattern to match against the decimal representation of the exit code returned for a job.
      * 
      */
     @Import(name="onExitCode")
     private @Nullable Output<String> onExitCode;
 
     /**
-     * @return A glob pattern to match against the decimal representation of the exit code returned for a job.
+     * @return Glob pattern to match against the decimal representation of the exit code returned for a job.
      * 
      */
     public Optional<Output<String>> onExitCode() {
@@ -47,14 +47,14 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
     }
 
     /**
-     * A glob pattern to match against the reason returned for a job.
+     * Glob pattern to match against the reason returned for a job.
      * 
      */
     @Import(name="onReason")
     private @Nullable Output<String> onReason;
 
     /**
-     * @return A glob pattern to match against the reason returned for a job.
+     * @return Glob pattern to match against the reason returned for a job.
      * 
      */
     public Optional<Output<String>> onReason() {
@@ -62,14 +62,14 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
     }
 
     /**
-     * A glob pattern to match against the status reason returned for a job.
+     * Glob pattern to match against the status reason returned for a job.
      * 
      */
     @Import(name="onStatusReason")
     private @Nullable Output<String> onStatusReason;
 
     /**
-     * @return A glob pattern to match against the status reason returned for a job.
+     * @return Glob pattern to match against the status reason returned for a job.
      * 
      */
     public Optional<Output<String>> onStatusReason() {
@@ -104,7 +104,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param action Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+         * @param action Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param action Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+         * @param action Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param onExitCode A glob pattern to match against the decimal representation of the exit code returned for a job.
+         * @param onExitCode Glob pattern to match against the decimal representation of the exit code returned for a job.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param onExitCode A glob pattern to match against the decimal representation of the exit code returned for a job.
+         * @param onExitCode Glob pattern to match against the decimal representation of the exit code returned for a job.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param onReason A glob pattern to match against the reason returned for a job.
+         * @param onReason Glob pattern to match against the reason returned for a job.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param onReason A glob pattern to match against the reason returned for a job.
+         * @param onReason Glob pattern to match against the reason returned for a job.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param onStatusReason A glob pattern to match against the status reason returned for a job.
+         * @param onStatusReason Glob pattern to match against the status reason returned for a job.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         /**
-         * @param onStatusReason A glob pattern to match against the status reason returned for a job.
+         * @param onStatusReason Glob pattern to match against the status reason returned for a job.
          * 
          * @return builder
          * 

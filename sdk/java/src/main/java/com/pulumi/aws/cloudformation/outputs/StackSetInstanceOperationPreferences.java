@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StackSetInstanceOperationPreferences {
     /**
+     * @return Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+     * 
+     */
+    private @Nullable String concurrencyMode;
+    /**
      * @return Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
@@ -45,6 +50,13 @@ public final class StackSetInstanceOperationPreferences {
     private @Nullable List<String> regionOrders;
 
     private StackSetInstanceOperationPreferences() {}
+    /**
+     * @return Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+     * 
+     */
+    public Optional<String> concurrencyMode() {
+        return Optional.ofNullable(this.concurrencyMode);
+    }
     /**
      * @return Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
@@ -97,6 +109,7 @@ public final class StackSetInstanceOperationPreferences {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String concurrencyMode;
         private @Nullable Integer failureToleranceCount;
         private @Nullable Integer failureTolerancePercentage;
         private @Nullable Integer maxConcurrentCount;
@@ -106,6 +119,7 @@ public final class StackSetInstanceOperationPreferences {
         public Builder() {}
         public Builder(StackSetInstanceOperationPreferences defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.concurrencyMode = defaults.concurrencyMode;
     	      this.failureToleranceCount = defaults.failureToleranceCount;
     	      this.failureTolerancePercentage = defaults.failureTolerancePercentage;
     	      this.maxConcurrentCount = defaults.maxConcurrentCount;
@@ -114,6 +128,12 @@ public final class StackSetInstanceOperationPreferences {
     	      this.regionOrders = defaults.regionOrders;
         }
 
+        @CustomType.Setter
+        public Builder concurrencyMode(@Nullable String concurrencyMode) {
+
+            this.concurrencyMode = concurrencyMode;
+            return this;
+        }
         @CustomType.Setter
         public Builder failureToleranceCount(@Nullable Integer failureToleranceCount) {
 
@@ -155,6 +175,7 @@ public final class StackSetInstanceOperationPreferences {
         }
         public StackSetInstanceOperationPreferences build() {
             final var _resultValue = new StackSetInstanceOperationPreferences();
+            _resultValue.concurrencyMode = concurrencyMode;
             _resultValue.failureToleranceCount = failureToleranceCount;
             _resultValue.failureTolerancePercentage = failureTolerancePercentage;
             _resultValue.maxConcurrentCount = maxConcurrentCount;

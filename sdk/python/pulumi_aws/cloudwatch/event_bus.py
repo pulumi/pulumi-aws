@@ -20,16 +20,20 @@ __all__ = ['EventBusArgs', 'EventBus']
 class EventBusArgs:
     def __init__(__self__, *,
                  event_source_name: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
         :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if event_source_name is not None:
             pulumi.set(__self__, "event_source_name", event_source_name)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -46,6 +50,18 @@ class EventBusArgs:
     @event_source_name.setter
     def event_source_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_source_name", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_identifier", value)
 
     @property
     @pulumi.getter
@@ -77,6 +93,7 @@ class _EventBusState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -84,6 +101,7 @@ class _EventBusState:
         Input properties used for looking up and filtering EventBus resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the event bus.
         :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,6 +110,8 @@ class _EventBusState:
             pulumi.set(__self__, "arn", arn)
         if event_source_name is not None:
             pulumi.set(__self__, "event_source_name", event_source_name)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -125,6 +145,18 @@ class _EventBusState:
     @event_source_name.setter
     def event_source_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_source_name", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_identifier", value)
 
     @property
     @pulumi.getter
@@ -170,6 +202,7 @@ class EventBus(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -208,6 +241,7 @@ class EventBus(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -265,6 +299,7 @@ class EventBus(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -277,6 +312,7 @@ class EventBus(pulumi.CustomResource):
             __props__ = EventBusArgs.__new__(EventBusArgs)
 
             __props__.__dict__["event_source_name"] = event_source_name
+            __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -293,6 +329,7 @@ class EventBus(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             event_source_name: Optional[pulumi.Input[str]] = None,
+            kms_key_identifier: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'EventBus':
@@ -305,6 +342,7 @@ class EventBus(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the event bus.
         :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -315,6 +353,7 @@ class EventBus(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["event_source_name"] = event_source_name
+        __props__.__dict__["kms_key_identifier"] = kms_key_identifier
         __props__.__dict__["name"] = name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -335,6 +374,14 @@ class EventBus(pulumi.CustomResource):
         The partner event source that the new event bus will be matched with. Must match `name`.
         """
         return pulumi.get(self, "event_source_name")
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        """
+        return pulumi.get(self, "kms_key_identifier")
 
     @property
     @pulumi.getter

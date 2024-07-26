@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class SpaceSpaceSettingsSpaceStorageSettings {
+    /**
+     * @return A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+     * 
+     */
     private SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings ebsStorageSettings;
 
     private SpaceSpaceSettingsSpaceStorageSettings() {}
+    /**
+     * @return A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+     * 
+     */
     public SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings ebsStorageSettings() {
         return this.ebsStorageSettings;
     }

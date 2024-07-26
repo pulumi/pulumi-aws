@@ -154,14 +154,14 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
      * 
      */
     @Export(name="disableApiStop", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableApiStop;
 
     /**
-     * @return If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * @return If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
      * 
      */
     public Output<Optional<Boolean>> disableApiStop() {
@@ -169,7 +169,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
     }
     /**
      * If `true`, enables [EC2 Instance
-     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
      * 
      */
     @Export(name="disableApiTermination", refs={Boolean.class}, tree="[0]")
@@ -177,7 +177,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return If `true`, enables [EC2 Instance
-     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
      * 
      */
     public Output<Optional<Boolean>> disableApiTermination() {

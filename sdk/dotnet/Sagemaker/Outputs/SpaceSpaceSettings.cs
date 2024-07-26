@@ -37,6 +37,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
+        /// <summary>
+        /// The storage settings. See `space_storage_settings` Block below.
+        /// </summary>
         public readonly Outputs.SpaceSpaceSettingsSpaceStorageSettings? SpaceStorageSettings;
 
         [OutputConstructor]

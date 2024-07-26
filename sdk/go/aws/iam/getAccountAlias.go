@@ -32,7 +32,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("accountId", current.AccountAlias)
+//			ctx.Export("accountAlias", current.AccountAlias)
 //			return nil
 //		})
 //	}

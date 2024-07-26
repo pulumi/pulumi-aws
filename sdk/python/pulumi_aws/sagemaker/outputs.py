@@ -8342,6 +8342,7 @@ class SpaceSpaceSettings(dict):
         :param 'SpaceSpaceSettingsJupyterLabAppSettingsArgs' jupyter_lab_app_settings: The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         :param 'SpaceSpaceSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         :param 'SpaceSpaceSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
+        :param 'SpaceSpaceSettingsSpaceStorageSettingsArgs' space_storage_settings: The storage settings. See `space_storage_settings` Block below.
         """
         if app_type is not None:
             pulumi.set(__self__, "app_type", app_type)
@@ -8409,6 +8410,9 @@ class SpaceSpaceSettings(dict):
     @property
     @pulumi.getter(name="spaceStorageSettings")
     def space_storage_settings(self) -> Optional['outputs.SpaceSpaceSettingsSpaceStorageSettings']:
+        """
+        The storage settings. See `space_storage_settings` Block below.
+        """
         return pulumi.get(self, "space_storage_settings")
 
 
@@ -9213,11 +9217,17 @@ class SpaceSpaceSettingsSpaceStorageSettings(dict):
 
     def __init__(__self__, *,
                  ebs_storage_settings: 'outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings'):
+        """
+        :param 'SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs' ebs_storage_settings: A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+        """
         pulumi.set(__self__, "ebs_storage_settings", ebs_storage_settings)
 
     @property
     @pulumi.getter(name="ebsStorageSettings")
     def ebs_storage_settings(self) -> 'outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings':
+        """
+        A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+        """
         return pulumi.get(self, "ebs_storage_settings")
 
 
@@ -9242,11 +9252,17 @@ class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings(dict):
 
     def __init__(__self__, *,
                  ebs_volume_size_in_gb: int):
+        """
+        :param int ebs_volume_size_in_gb: The size of an EBS storage volume for a space.
+        """
         pulumi.set(__self__, "ebs_volume_size_in_gb", ebs_volume_size_in_gb)
 
     @property
     @pulumi.getter(name="ebsVolumeSizeInGb")
     def ebs_volume_size_in_gb(self) -> int:
+        """
+        The size of an EBS storage volume for a space.
+        """
         return pulumi.get(self, "ebs_volume_size_in_gb")
 
 

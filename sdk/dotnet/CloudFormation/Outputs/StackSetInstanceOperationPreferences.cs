@@ -14,6 +14,10 @@ namespace Pulumi.Aws.CloudFormation.Outputs
     public sealed class StackSetInstanceOperationPreferences
     {
         /// <summary>
+        /// Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+        /// </summary>
+        public readonly string? ConcurrencyMode;
+        /// <summary>
         /// Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
         /// </summary>
         public readonly int? FailureToleranceCount;
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.CloudFormation.Outputs
 
         [OutputConstructor]
         private StackSetInstanceOperationPreferences(
+            string? concurrencyMode,
+
             int? failureToleranceCount,
 
             int? failureTolerancePercentage,
@@ -52,6 +58,7 @@ namespace Pulumi.Aws.CloudFormation.Outputs
 
             ImmutableArray<string> regionOrders)
         {
+            ConcurrencyMode = concurrencyMode;
             FailureToleranceCount = failureToleranceCount;
             FailureTolerancePercentage = failureTolerancePercentage;
             MaxConcurrentCount = maxConcurrentCount;

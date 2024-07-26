@@ -553,14 +553,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="caCertificateIdentifier", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> caCertificateIdentifier;
+    private Output<String> caCertificateIdentifier;
 
     /**
      * @return The CA certificate identifier to use for the DB cluster&#39;s server certificate.
      * 
      */
-    public Output<Optional<String>> caCertificateIdentifier() {
-        return Codegen.optional(this.caCertificateIdentifier);
+    public Output<String> caCertificateIdentifier() {
+        return this.caCertificateIdentifier;
     }
     /**
      * Expiration date of the DB instance’s server certificate

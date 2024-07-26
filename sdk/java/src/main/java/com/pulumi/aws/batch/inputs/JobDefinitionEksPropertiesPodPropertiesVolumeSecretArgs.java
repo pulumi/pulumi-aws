@@ -18,14 +18,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs exten
     public static final JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs Empty = new JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs();
 
     /**
-     * Specifies whether the secret or the secret&#39;s keys must be defined.
+     * Whether the secret or the secret&#39;s keys must be defined.
      * 
      */
     @Import(name="optional")
     private @Nullable Output<Boolean> optional;
 
     /**
-     * @return Specifies whether the secret or the secret&#39;s keys must be defined.
+     * @return Whether the secret or the secret&#39;s keys must be defined.
      * 
      */
     public Optional<Output<Boolean>> optional() {
@@ -33,14 +33,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs exten
     }
 
     /**
-     * The name of the secret. The name must be allowed as a DNS subdomain name.
+     * Name of the secret. The name must be allowed as a DNS subdomain name.
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return The name of the secret. The name must be allowed as a DNS subdomain name.
+     * @return Name of the secret. The name must be allowed as a DNS subdomain name.
      * 
      */
     public Output<String> secretName() {
@@ -73,7 +73,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs exten
         }
 
         /**
-         * @param optional Specifies whether the secret or the secret&#39;s keys must be defined.
+         * @param optional Whether the secret or the secret&#39;s keys must be defined.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs exten
         }
 
         /**
-         * @param optional Specifies whether the secret or the secret&#39;s keys must be defined.
+         * @param optional Whether the secret or the secret&#39;s keys must be defined.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs exten
         }
 
         /**
-         * @param secretName The name of the secret. The name must be allowed as a DNS subdomain name.
+         * @param secretName Name of the secret. The name must be allowed as a DNS subdomain name.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs exten
         }
 
         /**
-         * @param secretName The name of the secret. The name must be allowed as a DNS subdomain name.
+         * @param secretName Name of the secret. The name must be allowed as a DNS subdomain name.
          * 
          * @return builder
          * 

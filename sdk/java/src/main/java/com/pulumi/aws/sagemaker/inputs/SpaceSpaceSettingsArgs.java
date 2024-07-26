@@ -112,9 +112,17 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
 
+    /**
+     * The storage settings. See `space_storage_settings` Block below.
+     * 
+     */
     @Import(name="spaceStorageSettings")
     private @Nullable Output<SpaceSpaceSettingsSpaceStorageSettingsArgs> spaceStorageSettings;
 
+    /**
+     * @return The storage settings. See `space_storage_settings` Block below.
+     * 
+     */
     public Optional<Output<SpaceSpaceSettingsSpaceStorageSettingsArgs>> spaceStorageSettings() {
         return Optional.ofNullable(this.spaceStorageSettings);
     }
@@ -285,11 +293,23 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
             return kernelGatewayAppSettings(Output.of(kernelGatewayAppSettings));
         }
 
+        /**
+         * @param spaceStorageSettings The storage settings. See `space_storage_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder spaceStorageSettings(@Nullable Output<SpaceSpaceSettingsSpaceStorageSettingsArgs> spaceStorageSettings) {
             $.spaceStorageSettings = spaceStorageSettings;
             return this;
         }
 
+        /**
+         * @param spaceStorageSettings The storage settings. See `space_storage_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder spaceStorageSettings(SpaceSpaceSettingsSpaceStorageSettingsArgs spaceStorageSettings) {
             return spaceStorageSettings(Output.of(spaceStorageSettings));
         }

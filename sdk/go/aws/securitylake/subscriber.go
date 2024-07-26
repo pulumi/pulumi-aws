@@ -64,6 +64,7 @@ import (
 type Subscriber struct {
 	pulumi.CustomResourceState
 
+	// The Amazon S3 or Lake Formation access type.
 	AccessType pulumi.StringOutput `pulumi:"accessType"`
 	// ARN of the Data Lake.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -75,13 +76,13 @@ type Subscriber struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The ARN for the Amazon Security Lake Amazon S3 bucket.
 	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
-	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 	Source SubscriberSourcePtrOutput `pulumi:"source"`
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription pulumi.StringPtrOutput `pulumi:"subscriberDescription"`
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint pulumi.StringOutput `pulumi:"subscriberEndpoint"`
-	// The AWS identity used to access your data.
+	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
 	SubscriberIdentity SubscriberSubscriberIdentityPtrOutput `pulumi:"subscriberIdentity"`
 	// The name of your Security Lake subscriber account.
 	SubscriberName pulumi.StringPtrOutput `pulumi:"subscriberName"`
@@ -126,6 +127,7 @@ func GetSubscriber(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subscriber resources.
 type subscriberState struct {
+	// The Amazon S3 or Lake Formation access type.
 	AccessType *string `pulumi:"accessType"`
 	// ARN of the Data Lake.
 	Arn *string `pulumi:"arn"`
@@ -137,13 +139,13 @@ type subscriberState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The ARN for the Amazon Security Lake Amazon S3 bucket.
 	S3BucketArn *string `pulumi:"s3BucketArn"`
-	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 	Source *SubscriberSource `pulumi:"source"`
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription *string `pulumi:"subscriberDescription"`
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint *string `pulumi:"subscriberEndpoint"`
-	// The AWS identity used to access your data.
+	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
 	SubscriberIdentity *SubscriberSubscriberIdentity `pulumi:"subscriberIdentity"`
 	// The name of your Security Lake subscriber account.
 	SubscriberName *string `pulumi:"subscriberName"`
@@ -159,6 +161,7 @@ type subscriberState struct {
 }
 
 type SubscriberState struct {
+	// The Amazon S3 or Lake Formation access type.
 	AccessType pulumi.StringPtrInput
 	// ARN of the Data Lake.
 	Arn pulumi.StringPtrInput
@@ -170,13 +173,13 @@ type SubscriberState struct {
 	RoleArn pulumi.StringPtrInput
 	// The ARN for the Amazon Security Lake Amazon S3 bucket.
 	S3BucketArn pulumi.StringPtrInput
-	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 	Source SubscriberSourcePtrInput
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription pulumi.StringPtrInput
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint pulumi.StringPtrInput
-	// The AWS identity used to access your data.
+	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
 	SubscriberIdentity SubscriberSubscriberIdentityPtrInput
 	// The name of your Security Lake subscriber account.
 	SubscriberName pulumi.StringPtrInput
@@ -196,12 +199,13 @@ func (SubscriberState) ElementType() reflect.Type {
 }
 
 type subscriberArgs struct {
+	// The Amazon S3 or Lake Formation access type.
 	AccessType *string `pulumi:"accessType"`
-	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 	Source *SubscriberSource `pulumi:"source"`
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription *string `pulumi:"subscriberDescription"`
-	// The AWS identity used to access your data.
+	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
 	SubscriberIdentity *SubscriberSubscriberIdentity `pulumi:"subscriberIdentity"`
 	// The name of your Security Lake subscriber account.
 	SubscriberName *string `pulumi:"subscriberName"`
@@ -212,12 +216,13 @@ type subscriberArgs struct {
 
 // The set of arguments for constructing a Subscriber resource.
 type SubscriberArgs struct {
+	// The Amazon S3 or Lake Formation access type.
 	AccessType pulumi.StringPtrInput
-	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 	Source SubscriberSourcePtrInput
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription pulumi.StringPtrInput
-	// The AWS identity used to access your data.
+	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
 	SubscriberIdentity SubscriberSubscriberIdentityPtrInput
 	// The name of your Security Lake subscriber account.
 	SubscriberName pulumi.StringPtrInput
@@ -313,6 +318,7 @@ func (o SubscriberOutput) ToSubscriberOutputWithContext(ctx context.Context) Sub
 	return o
 }
 
+// The Amazon S3 or Lake Formation access type.
 func (o SubscriberOutput) AccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.AccessType }).(pulumi.StringOutput)
 }
@@ -342,7 +348,7 @@ func (o SubscriberOutput) S3BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
 }
 
-// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 func (o SubscriberOutput) Source() SubscriberSourcePtrOutput {
 	return o.ApplyT(func(v *Subscriber) SubscriberSourcePtrOutput { return v.Source }).(SubscriberSourcePtrOutput)
 }
@@ -357,7 +363,7 @@ func (o SubscriberOutput) SubscriberEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.SubscriberEndpoint }).(pulumi.StringOutput)
 }
 
-// The AWS identity used to access your data.
+// The AWS identity used to access your data. See `subscriberIdentity` Block below.
 func (o SubscriberOutput) SubscriberIdentity() SubscriberSubscriberIdentityPtrOutput {
 	return o.ApplyT(func(v *Subscriber) SubscriberSubscriberIdentityPtrOutput { return v.SubscriberIdentity }).(SubscriberSubscriberIdentityPtrOutput)
 }

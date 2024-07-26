@@ -17,14 +17,14 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
     public static final SubscriberSourceAwsLogSourceResourceArgs Empty = new SubscriberSourceAwsLogSourceResourceArgs();
 
     /**
-     * The name for a third-party custom source. This must be a Regionally unique value.
+     * Provides data expiration details of Amazon Security Lake object.
      * 
      */
     @Import(name="sourceName", required=true)
     private Output<String> sourceName;
 
     /**
-     * @return The name for a third-party custom source. This must be a Regionally unique value.
+     * @return Provides data expiration details of Amazon Security Lake object.
      * 
      */
     public Output<String> sourceName() {
@@ -32,14 +32,14 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
     }
 
     /**
-     * The version for a third-party custom source. This must be a Regionally unique value.
+     * Provides data storage transition details of Amazon Security Lake object.
      * 
      */
     @Import(name="sourceVersion")
     private @Nullable Output<String> sourceVersion;
 
     /**
-     * @return The version for a third-party custom source. This must be a Regionally unique value.
+     * @return Provides data storage transition details of Amazon Security Lake object.
      * 
      */
     public Optional<Output<String>> sourceVersion() {
@@ -72,7 +72,7 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param sourceName The name for a third-party custom source. This must be a Regionally unique value.
+         * @param sourceName Provides data expiration details of Amazon Security Lake object.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param sourceName The name for a third-party custom source. This must be a Regionally unique value.
+         * @param sourceName Provides data expiration details of Amazon Security Lake object.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param sourceVersion The version for a third-party custom source. This must be a Regionally unique value.
+         * @param sourceVersion Provides data storage transition details of Amazon Security Lake object.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param sourceVersion The version for a third-party custom source. This must be a Regionally unique value.
+         * @param sourceVersion Provides data storage transition details of Amazon Security Lake object.
          * 
          * @return builder
          * 

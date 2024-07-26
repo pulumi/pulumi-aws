@@ -181,23 +181,31 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
      * 
      */
     @Import(name="loggingConfiguration")
     private @Nullable Output<EnvironmentLoggingConfigurationArgs> loggingConfiguration;
 
     /**
-     * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+     * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
      * 
      */
     public Optional<Output<EnvironmentLoggingConfigurationArgs>> loggingConfiguration() {
         return Optional.ofNullable(this.loggingConfiguration);
     }
 
+    /**
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     @Import(name="maxWebservers")
     private @Nullable Output<Integer> maxWebservers;
 
+    /**
+     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     public Optional<Output<Integer>> maxWebservers() {
         return Optional.ofNullable(this.maxWebservers);
     }
@@ -217,9 +225,17 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.maxWorkers);
     }
 
+    /**
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     @Import(name="minWebservers")
     private @Nullable Output<Integer> minWebservers;
 
+    /**
+     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     public Optional<Output<Integer>> minWebservers() {
         return Optional.ofNullable(this.minWebservers);
     }
@@ -255,14 +271,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
      * 
      */
     @Import(name="networkConfiguration")
     private @Nullable Output<EnvironmentNetworkConfigurationArgs> networkConfiguration;
 
     /**
-     * @return Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+     * @return Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
      * 
      */
     public Optional<Output<EnvironmentNetworkConfigurationArgs>> networkConfiguration() {
@@ -800,7 +816,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfiguration The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+         * @param loggingConfiguration The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -811,7 +827,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfiguration The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+         * @param loggingConfiguration The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -820,11 +836,23 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
             return loggingConfiguration(Output.of(loggingConfiguration));
         }
 
+        /**
+         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxWebservers(@Nullable Output<Integer> maxWebservers) {
             $.maxWebservers = maxWebservers;
             return this;
         }
 
+        /**
+         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxWebservers(Integer maxWebservers) {
             return maxWebservers(Output.of(maxWebservers));
         }
@@ -850,11 +878,23 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
             return maxWorkers(Output.of(maxWorkers));
         }
 
+        /**
+         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minWebservers(@Nullable Output<Integer> minWebservers) {
             $.minWebservers = minWebservers;
             return this;
         }
 
+        /**
+         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minWebservers(Integer minWebservers) {
             return minWebservers(Output.of(minWebservers));
         }
@@ -902,7 +942,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+         * @param networkConfiguration Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -913,7 +953,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+         * @param networkConfiguration Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
          * 
          * @return builder
          * 

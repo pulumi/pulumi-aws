@@ -227,6 +227,12 @@ namespace Pulumi.Aws.AppFlow
         public Output<string> KmsArn { get; private set; } = null!;
 
         /// <summary>
+        /// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+        /// </summary>
+        [Output("metadataCatalogConfig")]
+        public Output<Outputs.FlowMetadataCatalogConfig> MetadataCatalogConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the flow.
         /// </summary>
         [Output("name")]
@@ -333,6 +339,12 @@ namespace Pulumi.Aws.AppFlow
         public Input<string>? KmsArn { get; set; }
 
         /// <summary>
+        /// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+        /// </summary>
+        [Input("metadataCatalogConfig")]
+        public Input<Inputs.FlowMetadataCatalogConfigArgs>? MetadataCatalogConfig { get; set; }
+
+        /// <summary>
         /// Name of the flow.
         /// </summary>
         [Input("name")]
@@ -417,6 +429,12 @@ namespace Pulumi.Aws.AppFlow
         /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }
+
+        /// <summary>
+        /// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+        /// </summary>
+        [Input("metadataCatalogConfig")]
+        public Input<Inputs.FlowMetadataCatalogConfigGetArgs>? MetadataCatalogConfig { get; set; }
 
         /// <summary>
         /// Name of the flow.

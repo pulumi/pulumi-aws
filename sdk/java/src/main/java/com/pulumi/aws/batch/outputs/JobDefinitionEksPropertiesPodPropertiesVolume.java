@@ -17,7 +17,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolume {
     private @Nullable JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir emptyDir;
     private @Nullable JobDefinitionEksPropertiesPodPropertiesVolumeHostPath hostPath;
     /**
-     * @return Specifies the name of the job definition.
+     * @return Name of the job definition.
      * 
      */
     private @Nullable String name;
@@ -31,7 +31,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolume {
         return Optional.ofNullable(this.hostPath);
     }
     /**
-     * @return Specifies the name of the job definition.
+     * @return Name of the job definition.
      * 
      */
     public Optional<String> name() {

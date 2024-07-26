@@ -18,6 +18,9 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("fieldToMatch")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs>? FieldToMatch { get; set; }
 
+        /// <summary>
+        /// Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+        /// </summary>
         [Input("sensitivityLevel")]
         public Input<string>? SensitivityLevel { get; set; }
 

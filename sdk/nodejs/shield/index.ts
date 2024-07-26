@@ -40,6 +40,11 @@ export type ProtectionHealthCheckAssociation = import("./protectionHealthCheckAs
 export const ProtectionHealthCheckAssociation: typeof import("./protectionHealthCheckAssociation").ProtectionHealthCheckAssociation = null as any;
 utilities.lazyLoad(exports, ["ProtectionHealthCheckAssociation"], () => require("./protectionHealthCheckAssociation"));
 
+export { SubscriptionArgs, SubscriptionState } from "./subscription";
+export type Subscription = import("./subscription").Subscription;
+export const Subscription: typeof import("./subscription").Subscription = null as any;
+utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -59,6 +64,8 @@ const _module = {
                 return new ProtectionGroup(name, <any>undefined, { urn })
             case "aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation":
                 return new ProtectionHealthCheckAssociation(name, <any>undefined, { urn })
+            case "aws:shield/subscription:Subscription":
+                return new Subscription(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -71,3 +78,4 @@ pulumi.runtime.registerResourceModule("aws", "shield/proactiveEngagement", _modu
 pulumi.runtime.registerResourceModule("aws", "shield/protection", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/protectionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/protectionHealthCheckAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "shield/subscription", _module)

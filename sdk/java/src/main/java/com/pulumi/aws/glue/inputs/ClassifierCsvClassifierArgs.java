@@ -78,14 +78,14 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The delimiter used in the Csv to separate columns.
+     * The delimiter used in the CSV to separate columns.
      * 
      */
     @Import(name="delimiter")
     private @Nullable Output<String> delimiter;
 
     /**
-     * @return The delimiter used in the Csv to separate columns.
+     * @return The delimiter used in the CSV to separate columns.
      * 
      */
     public Optional<Output<String>> delimiter() {
@@ -137,9 +137,17 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.quoteSymbol);
     }
 
+    /**
+     * The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+     * 
+     */
     @Import(name="serde")
     private @Nullable Output<String> serde;
 
+    /**
+     * @return The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+     * 
+     */
     public Optional<Output<String>> serde() {
         return Optional.ofNullable(this.serde);
     }
@@ -271,7 +279,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param delimiter The delimiter used in the Csv to separate columns.
+         * @param delimiter The delimiter used in the CSV to separate columns.
          * 
          * @return builder
          * 
@@ -282,7 +290,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param delimiter The delimiter used in the Csv to separate columns.
+         * @param delimiter The delimiter used in the CSV to separate columns.
          * 
          * @return builder
          * 
@@ -364,11 +372,23 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
             return quoteSymbol(Output.of(quoteSymbol));
         }
 
+        /**
+         * @param serde The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serde(@Nullable Output<String> serde) {
             $.serde = serde;
             return this;
         }
 
+        /**
+         * @param serde The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serde(String serde) {
             return serde(Output.of(serde));
         }

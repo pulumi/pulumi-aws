@@ -55,7 +55,7 @@ class TopicArgs:
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[str] display_name: The display name for the topic
-        :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] firehose_success_feedback_sample_rate: Percentage of success to sample
@@ -219,7 +219,7 @@ class TopicArgs:
     @pulumi.getter(name="fifoTopic")
     def fifo_topic(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         """
         return pulumi.get(self, "fifo_topic")
 
@@ -501,7 +501,7 @@ class _TopicState:
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[str] display_name: The display name for the topic
-        :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] firehose_success_feedback_sample_rate: Percentage of success to sample
@@ -702,7 +702,7 @@ class _TopicState:
     @pulumi.getter(name="fifoTopic")
     def fifo_topic(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         """
         return pulumi.get(self, "fifo_topic")
 
@@ -1081,7 +1081,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[str] display_name: The display name for the topic
-        :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] firehose_success_feedback_sample_rate: Percentage of success to sample
@@ -1322,7 +1322,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[str] display_name: The display name for the topic
-        :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] firehose_success_feedback_sample_rate: Percentage of success to sample
@@ -1458,7 +1458,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="fifoTopic")
     def fifo_topic(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         """
         return pulumi.get(self, "fifo_topic")
 

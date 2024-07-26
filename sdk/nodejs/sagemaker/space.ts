@@ -73,7 +73,7 @@ export class Space extends pulumi.CustomResource {
      */
     public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string>;
     /**
-     * A collection of ownership settings. See `ownershipSettings` Block below.
+     * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
      */
     public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
     /**
@@ -89,7 +89,7 @@ export class Space extends pulumi.CustomResource {
      */
     public readonly spaceSettings!: pulumi.Output<outputs.sagemaker.SpaceSpaceSettings | undefined>;
     /**
-     * A collection of space sharing settings. See `spaceSharingSettings` Block below.
+     * A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
      */
     public readonly spaceSharingSettings!: pulumi.Output<outputs.sagemaker.SpaceSpaceSharingSettings | undefined>;
     /**
@@ -173,7 +173,7 @@ export interface SpaceState {
      */
     homeEfsFileSystemUid?: pulumi.Input<string>;
     /**
-     * A collection of ownership settings. See `ownershipSettings` Block below.
+     * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
      */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
     /**
@@ -189,7 +189,7 @@ export interface SpaceState {
      */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
     /**
-     * A collection of space sharing settings. See `spaceSharingSettings` Block below.
+     * A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
      */
     spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSharingSettings>;
     /**
@@ -217,7 +217,7 @@ export interface SpaceArgs {
      */
     domainId: pulumi.Input<string>;
     /**
-     * A collection of ownership settings. See `ownershipSettings` Block below.
+     * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
      */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
     /**
@@ -233,7 +233,7 @@ export interface SpaceArgs {
      */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
     /**
-     * A collection of space sharing settings. See `spaceSharingSettings` Block below.
+     * A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
      */
     spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSharingSettings>;
     /**

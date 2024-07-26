@@ -366,7 +366,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly taskRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     * Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      */
     public readonly trackLatest!: pulumi.Output<boolean | undefined>;
     /**
@@ -540,7 +540,7 @@ export interface TaskDefinitionState {
      */
     taskRoleArn?: pulumi.Input<string>;
     /**
-     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     * Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      */
     trackLatest?: pulumi.Input<boolean>;
     /**
@@ -624,7 +624,7 @@ export interface TaskDefinitionArgs {
      */
     taskRoleArn?: pulumi.Input<string>;
     /**
-     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     * Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      */
     trackLatest?: pulumi.Input<boolean>;
     /**

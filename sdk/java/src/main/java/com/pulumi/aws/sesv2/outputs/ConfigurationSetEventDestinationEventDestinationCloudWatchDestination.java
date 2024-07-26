@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
     /**
-     * @return An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+     * @return An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
      * 
      */
     private List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration> dimensionConfigurations;
 
     private ConfigurationSetEventDestinationEventDestinationCloudWatchDestination() {}
     /**
-     * @return An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+     * @return An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
      * 
      */
     public List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration> dimensionConfigurations() {

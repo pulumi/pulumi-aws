@@ -7485,6 +7485,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param str sensitivity_level: Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -7513,6 +7514,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @property
     @pulumi.getter(name="sensitivityLevel")
     def sensitivity_level(self) -> Optional[str]:
+        """
+        Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+        """
         return pulumi.get(self, "sensitivity_level")
 
 
@@ -11493,6 +11497,7 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param str sensitivity_level: Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -11521,6 +11526,9 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
     @property
     @pulumi.getter(name="sensitivityLevel")
     def sensitivity_level(self) -> Optional[str]:
+        """
+        Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+        """
         return pulumi.get(self, "sensitivity_level")
 
 
@@ -22139,6 +22147,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         """
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param str sensitivity_level: Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -22165,6 +22174,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @property
     @pulumi.getter(name="sensitivityLevel")
     def sensitivity_level(self) -> Optional[str]:
+        """
+        Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+        """
         return pulumi.get(self, "sensitivity_level")
 
 
@@ -28233,6 +28245,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(
         """
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param str sensitivity_level: Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -28259,6 +28272,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(
     @property
     @pulumi.getter(name="sensitivityLevel")
     def sensitivity_level(self) -> Optional[str]:
+        """
+        Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+        """
         return pulumi.get(self, "sensitivity_level")
 
 
@@ -32977,6 +32993,7 @@ class WebAclRuleStatementSqliMatchStatement(dict):
         """
         :param Sequence['WebAclRuleStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param str sensitivity_level: Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -33003,6 +33020,9 @@ class WebAclRuleStatementSqliMatchStatement(dict):
     @property
     @pulumi.getter(name="sensitivityLevel")
     def sensitivity_level(self) -> Optional[str]:
+        """
+        Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+        """
         return pulumi.get(self, "sensitivity_level")
 
 

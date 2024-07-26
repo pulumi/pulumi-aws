@@ -14,9 +14,12 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     public sealed class SubscriberSourceCustomLogSourceResource
     {
         /// <summary>
-        /// The attributes of a third-party custom source.
+        /// The attributes of the third-party custom source. See `attributes` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubscriberSourceCustomLogSourceResourceAttribute> Attributes;
+        /// <summary>
+        /// The details of the log provider for the third-party custom source. See `provider` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SubscriberSourceCustomLogSourceResourceProvider> Providers;
         /// <summary>
         /// The name for a third-party custom source. This must be a Regionally unique value.

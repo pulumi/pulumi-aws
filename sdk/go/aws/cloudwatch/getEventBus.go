@@ -61,8 +61,10 @@ type LookupEventBusResult struct {
 	// ARN.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+	KmsKeyIdentifier string `pulumi:"kmsKeyIdentifier"`
+	Name             string `pulumi:"name"`
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
@@ -111,6 +113,11 @@ func (o LookupEventBusResultOutput) Arn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupEventBusResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+func (o LookupEventBusResultOutput) KmsKeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventBusResult) string { return v.KmsKeyIdentifier }).(pulumi.StringOutput)
 }
 
 func (o LookupEventBusResultOutput) Name() pulumi.StringOutput {

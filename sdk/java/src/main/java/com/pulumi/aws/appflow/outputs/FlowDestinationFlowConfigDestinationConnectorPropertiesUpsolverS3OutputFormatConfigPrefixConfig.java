@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,6 +18,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
      * 
      */
     private @Nullable String prefixFormat;
+    /**
+     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+     * 
+     */
+    private @Nullable List<String> prefixHierarchies;
     /**
      * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
      * 
@@ -30,6 +36,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
      */
     public Optional<String> prefixFormat() {
         return Optional.ofNullable(this.prefixFormat);
+    }
+    /**
+     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+     * 
+     */
+    public List<String> prefixHierarchies() {
+        return this.prefixHierarchies == null ? List.of() : this.prefixHierarchies;
     }
     /**
      * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
@@ -49,11 +62,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String prefixFormat;
+        private @Nullable List<String> prefixHierarchies;
         private String prefixType;
         public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.prefixFormat = defaults.prefixFormat;
+    	      this.prefixHierarchies = defaults.prefixHierarchies;
     	      this.prefixType = defaults.prefixType;
         }
 
@@ -62,6 +77,15 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
             this.prefixFormat = prefixFormat;
             return this;
+        }
+        @CustomType.Setter
+        public Builder prefixHierarchies(@Nullable List<String> prefixHierarchies) {
+
+            this.prefixHierarchies = prefixHierarchies;
+            return this;
+        }
+        public Builder prefixHierarchies(String... prefixHierarchies) {
+            return prefixHierarchies(List.of(prefixHierarchies));
         }
         @CustomType.Setter
         public Builder prefixType(String prefixType) {
@@ -74,6 +98,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
         public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig build() {
             final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig();
             _resultValue.prefixFormat = prefixFormat;
+            _resultValue.prefixHierarchies = prefixHierarchies;
             _resultValue.prefixType = prefixType;
             return _resultValue;
         }

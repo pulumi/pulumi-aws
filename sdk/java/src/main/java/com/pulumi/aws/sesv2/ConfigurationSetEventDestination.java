@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Cloud Watch Destination
+ * ### CloudWatch Destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -62,6 +62,57 @@ import javax.annotation.Nullable;
  *                         .dimensionName("example")
  *                         .dimensionValueSource("MESSAGE_TAG")
  *                         .build())
+ *                     .build())
+ *                 .enabled(true)
+ *                 .matchingEventTypes("SEND")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### EventBridge Destination
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+ * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
+ * import com.pulumi.aws.sesv2.ConfigurationSetEventDestination;
+ * import com.pulumi.aws.sesv2.ConfigurationSetEventDestinationArgs;
+ * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationArgs;
+ * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var default = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
+ *             .name("default")
+ *             .build());
+ * 
+ *         var example = new ConfigurationSetEventDestination("example", ConfigurationSetEventDestinationArgs.builder()
+ *             .configurationSetName(exampleAwsSesv2ConfigurationSet.configurationSetName())
+ *             .eventDestinationName("example")
+ *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
+ *                 .eventBridgeDestination(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs.builder()
+ *                     .eventBusArn(default_.arn())
  *                     .build())
  *                 .enabled(true)
  *                 .matchingEventTypes("SEND")
@@ -268,14 +319,14 @@ public class ConfigurationSetEventDestination extends com.pulumi.resources.Custo
         return this.eventDestination;
     }
     /**
-     * An object that defines the event destination. See event_destination below.
+     * An object that defines the event destination. See `event_destination` Block for details.
      * 
      */
     @Export(name="eventDestinationName", refs={String.class}, tree="[0]")
     private Output<String> eventDestinationName;
 
     /**
-     * @return An object that defines the event destination. See event_destination below.
+     * @return An object that defines the event destination. See `event_destination` Block for details.
      * 
      */
     public Output<String> eventDestinationName() {

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Lambda
     /// Refer to the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) for supported runtimes.
     /// 
     /// &gt; Deletion of this resource returns the runtime update mode to `Auto` (the default behavior).
-    /// To leave the configured runtime management options in-place, use a `removed` block withe destroy lifecycle set to `false`.
+    /// To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
     /// 
     /// ## Example Usage
     /// 

@@ -39,6 +39,8 @@ __all__ = [
     'JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs',
     'JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgsDict',
+    'JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs',
+    'JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesMetadataArgs',
     'JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesVolumeArgs',
@@ -644,7 +646,7 @@ if not MYPY:
     class JobDefinitionEksPropertiesArgsDict(TypedDict):
         pod_properties: pulumi.Input['JobDefinitionEksPropertiesPodPropertiesArgsDict']
         """
-        The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+        Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
         """
 elif False:
     JobDefinitionEksPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -654,7 +656,7 @@ class JobDefinitionEksPropertiesArgs:
     def __init__(__self__, *,
                  pod_properties: pulumi.Input['JobDefinitionEksPropertiesPodPropertiesArgs']):
         """
-        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesArgs'] pod_properties: The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesArgs'] pod_properties: Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
         """
         pulumi.set(__self__, "pod_properties", pod_properties)
 
@@ -662,7 +664,7 @@ class JobDefinitionEksPropertiesArgs:
     @pulumi.getter(name="podProperties")
     def pod_properties(self) -> pulumi.Input['JobDefinitionEksPropertiesPodPropertiesArgs']:
         """
-        The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+        Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
         """
         return pulumi.get(self, "pod_properties")
 
@@ -675,15 +677,19 @@ if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesArgsDict(TypedDict):
         containers: pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersArgsDict']
         """
-        The properties of the container that's used on the Amazon EKS pod. See containers below.
+        Properties of the container that's used on the Amazon EKS pod. See containers below.
         """
         dns_policy: NotRequired[pulumi.Input[str]]
         """
-        The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+        DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
         """
         host_network: NotRequired[pulumi.Input[bool]]
         """
-        Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        """
+        image_pull_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgsDict']]]]
+        """
+        List of Kubernetes secret resources. See `image_pull_secret` below.
         """
         metadata: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict']]
         """
@@ -691,11 +697,11 @@ if not MYPY:
         """
         service_account_name: NotRequired[pulumi.Input[str]]
         """
-        The name of the service account that's used to run the pod.
+        Name of the service account that's used to run the pod.
         """
         volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgsDict']]]]
         """
-        Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
         """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -706,22 +712,26 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
                  containers: pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersArgs'],
                  dns_policy: Optional[pulumi.Input[str]] = None,
                  host_network: Optional[pulumi.Input[bool]] = None,
+                 image_pull_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs']]]] = None,
                  metadata: Optional[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesMetadataArgs']] = None,
                  service_account_name: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]]] = None):
         """
-        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersArgs'] containers: The properties of the container that's used on the Amazon EKS pod. See containers below.
-        :param pulumi.Input[str] dns_policy: The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
-        :param pulumi.Input[bool] host_network: Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersArgs'] containers: Properties of the container that's used on the Amazon EKS pod. See containers below.
+        :param pulumi.Input[str] dns_policy: DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+        :param pulumi.Input[bool] host_network: Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs']]] image_pull_secrets: List of Kubernetes secret resources. See `image_pull_secret` below.
         :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesMetadataArgs'] metadata: Metadata about the Kubernetes pod.
-        :param pulumi.Input[str] service_account_name: The name of the service account that's used to run the pod.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]] volumes: Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        :param pulumi.Input[str] service_account_name: Name of the service account that's used to run the pod.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]] volumes: Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
         """
         pulumi.set(__self__, "containers", containers)
         if dns_policy is not None:
             pulumi.set(__self__, "dns_policy", dns_policy)
         if host_network is not None:
             pulumi.set(__self__, "host_network", host_network)
+        if image_pull_secrets is not None:
+            pulumi.set(__self__, "image_pull_secrets", image_pull_secrets)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if service_account_name is not None:
@@ -733,7 +743,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter
     def containers(self) -> pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersArgs']:
         """
-        The properties of the container that's used on the Amazon EKS pod. See containers below.
+        Properties of the container that's used on the Amazon EKS pod. See containers below.
         """
         return pulumi.get(self, "containers")
 
@@ -745,7 +755,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter(name="dnsPolicy")
     def dns_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+        DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
         """
         return pulumi.get(self, "dns_policy")
 
@@ -757,13 +767,25 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter(name="hostNetwork")
     def host_network(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
         """
         return pulumi.get(self, "host_network")
 
     @host_network.setter
     def host_network(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "host_network", value)
+
+    @property
+    @pulumi.getter(name="imagePullSecrets")
+    def image_pull_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs']]]]:
+        """
+        List of Kubernetes secret resources. See `image_pull_secret` below.
+        """
+        return pulumi.get(self, "image_pull_secrets")
+
+    @image_pull_secrets.setter
+    def image_pull_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs']]]]):
+        pulumi.set(self, "image_pull_secrets", value)
 
     @property
     @pulumi.getter
@@ -781,7 +803,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter(name="serviceAccountName")
     def service_account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the service account that's used to run the pod.
+        Name of the service account that's used to run the pod.
         """
         return pulumi.get(self, "service_account_name")
 
@@ -793,7 +815,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter
     def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]]]:
         """
-        Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
         """
         return pulumi.get(self, "volumes")
 
@@ -806,39 +828,39 @@ if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesContainersArgsDict(TypedDict):
         image: pulumi.Input[str]
         """
-        The Docker image used to start the container.
+        Docker image used to start the container.
         """
         args: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+        Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
         """
         commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+        Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
         """
         envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersEnvArgsDict']]]]
         """
-        The environment variables to pass to a container. See EKS Environment below.
+        Environment variables to pass to a container. See EKS Environment below.
         """
         image_pull_policy: NotRequired[pulumi.Input[str]]
         """
-        The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+        Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
         """
         name: NotRequired[pulumi.Input[str]]
         """
-        The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+        Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
         """
         resources: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgsDict']]
         """
-        The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
         """
         security_context: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgsDict']]
         """
-        The security context for a job.
+        Security context for a job.
         """
         volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgsDict']]]]
         """
-        The volume mounts for the container.
+        Volume mounts for the container.
         """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesContainersArgsDict: TypeAlias = Mapping[str, Any]
@@ -856,15 +878,15 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
                  security_context: Optional[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs']] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs']]]] = None):
         """
-        :param pulumi.Input[str] image: The Docker image used to start the container.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] args: An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs']]] envs: The environment variables to pass to a container. See EKS Environment below.
-        :param pulumi.Input[str] image_pull_policy: The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-        :param pulumi.Input[str] name: The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
-        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs'] resources: The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs'] security_context: The security context for a job.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs']]] volume_mounts: The volume mounts for the container.
+        :param pulumi.Input[str] image: Docker image used to start the container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] args: Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs']]] envs: Environment variables to pass to a container. See EKS Environment below.
+        :param pulumi.Input[str] image_pull_policy: Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+        :param pulumi.Input[str] name: Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs'] resources: Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs'] security_context: Security context for a job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs']]] volume_mounts: Volume mounts for the container.
         """
         pulumi.set(__self__, "image", image)
         if args is not None:
@@ -888,7 +910,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
     @pulumi.getter
     def image(self) -> pulumi.Input[str]:
         """
-        The Docker image used to start the container.
+        Docker image used to start the container.
         """
         return pulumi.get(self, "image")
 
@@ -900,7 +922,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
     @pulumi.getter
     def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+        Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
         """
         return pulumi.get(self, "args")
 
@@ -912,7 +934,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
     @pulumi.getter
     def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+        Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
         """
         return pulumi.get(self, "commands")
 
@@ -924,7 +946,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
     @pulumi.getter
     def envs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs']]]]:
         """
-        The environment variables to pass to a container. See EKS Environment below.
+        Environment variables to pass to a container. See EKS Environment below.
         """
         return pulumi.get(self, "envs")
 
@@ -936,7 +958,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
     @pulumi.getter(name="imagePullPolicy")
     def image_pull_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+        Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
         """
         return pulumi.get(self, "image_pull_policy")
 
@@ -948,7 +970,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+        Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
         """
         return pulumi.get(self, "name")
 
@@ -960,7 +982,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs']]:
         """
-        The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
         """
         return pulumi.get(self, "resources")
 
@@ -972,7 +994,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
     @pulumi.getter(name="securityContext")
     def security_context(self) -> Optional[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs']]:
         """
-        The security context for a job.
+        Security context for a job.
         """
         return pulumi.get(self, "security_context")
 
@@ -984,7 +1006,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
     @pulumi.getter(name="volumeMounts")
     def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs']]]]:
         """
-        The volume mounts for the container.
+        Volume mounts for the container.
         """
         return pulumi.get(self, "volume_mounts")
 
@@ -997,11 +1019,11 @@ if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
-        Specifies the name of the job definition.
+        Name of the job definition.
         """
         value: pulumi.Input[str]
         """
-        The value of the environment variable.
+        Value of the environment variable.
         """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesContainersEnvArgsDict: TypeAlias = Mapping[str, Any]
@@ -1012,8 +1034,8 @@ class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs:
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Specifies the name of the job definition.
-        :param pulumi.Input[str] value: The value of the environment variable.
+        :param pulumi.Input[str] name: Name of the job definition.
+        :param pulumi.Input[str] value: Value of the environment variable.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1022,7 +1044,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the job definition.
+        Name of the job definition.
         """
         return pulumi.get(self, "name")
 
@@ -1034,7 +1056,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of the environment variable.
+        Value of the environment variable.
         """
         return pulumi.get(self, "value")
 
@@ -1159,7 +1181,7 @@ if not MYPY:
         mount_path: pulumi.Input[str]
         name: pulumi.Input[str]
         """
-        Specifies the name of the job definition.
+        Name of the job definition.
         """
         read_only: NotRequired[pulumi.Input[bool]]
 elif False:
@@ -1172,7 +1194,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs:
                  name: pulumi.Input[str],
                  read_only: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name of the job definition.
+        :param pulumi.Input[str] name: Name of the job definition.
         """
         pulumi.set(__self__, "mount_path", mount_path)
         pulumi.set(__self__, "name", name)
@@ -1192,7 +1214,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the job definition.
+        Name of the job definition.
         """
         return pulumi.get(self, "name")
 
@@ -1208,6 +1230,37 @@ class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs:
     @read_only.setter
     def read_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "read_only", value)
+
+
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Unique identifier.
+        """
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Unique identifier.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Unique identifier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 if not MYPY:
@@ -1239,7 +1292,7 @@ if not MYPY:
         host_path: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict']]
         name: NotRequired[pulumi.Input[str]]
         """
-        Specifies the name of the job definition.
+        Name of the job definition.
         """
         secret: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict']]
 elif False:
@@ -1253,7 +1306,7 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs']] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name of the job definition.
+        :param pulumi.Input[str] name: Name of the job definition.
         """
         if empty_dir is not None:
             pulumi.set(__self__, "empty_dir", empty_dir)
@@ -1286,7 +1339,7 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the job definition.
+        Name of the job definition.
         """
         return pulumi.get(self, "name")
 
@@ -1308,11 +1361,11 @@ if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict(TypedDict):
         size_limit: pulumi.Input[str]
         """
-        The maximum size of the volume. By default, there's no maximum size defined.
+        Maximum size of the volume. By default, there's no maximum size defined.
         """
         medium: NotRequired[pulumi.Input[str]]
         """
-        The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        Medium to store the volume. The default value is an empty string, which uses the storage of the node.
         """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict: TypeAlias = Mapping[str, Any]
@@ -1323,8 +1376,8 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs:
                  size_limit: pulumi.Input[str],
                  medium: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] size_limit: The maximum size of the volume. By default, there's no maximum size defined.
-        :param pulumi.Input[str] medium: The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        :param pulumi.Input[str] size_limit: Maximum size of the volume. By default, there's no maximum size defined.
+        :param pulumi.Input[str] medium: Medium to store the volume. The default value is an empty string, which uses the storage of the node.
         """
         pulumi.set(__self__, "size_limit", size_limit)
         if medium is not None:
@@ -1334,7 +1387,7 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs:
     @pulumi.getter(name="sizeLimit")
     def size_limit(self) -> pulumi.Input[str]:
         """
-        The maximum size of the volume. By default, there's no maximum size defined.
+        Maximum size of the volume. By default, there's no maximum size defined.
         """
         return pulumi.get(self, "size_limit")
 
@@ -1346,7 +1399,7 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs:
     @pulumi.getter
     def medium(self) -> Optional[pulumi.Input[str]]:
         """
-        The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        Medium to store the volume. The default value is an empty string, which uses the storage of the node.
         """
         return pulumi.get(self, "medium")
 
@@ -1359,7 +1412,7 @@ if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict(TypedDict):
         path: pulumi.Input[str]
         """
-        The path of the file or directory on the host to mount into containers on the pod.
+        Path of the file or directory on the host to mount into containers on the pod.
         """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict: TypeAlias = Mapping[str, Any]
@@ -1369,7 +1422,7 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] path: The path of the file or directory on the host to mount into containers on the pod.
+        :param pulumi.Input[str] path: Path of the file or directory on the host to mount into containers on the pod.
         """
         pulumi.set(__self__, "path", path)
 
@@ -1377,7 +1430,7 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the file or directory on the host to mount into containers on the pod.
+        Path of the file or directory on the host to mount into containers on the pod.
         """
         return pulumi.get(self, "path")
 
@@ -1390,11 +1443,11 @@ if not MYPY:
     class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict(TypedDict):
         secret_name: pulumi.Input[str]
         """
-        The name of the secret. The name must be allowed as a DNS subdomain name.
+        Name of the secret. The name must be allowed as a DNS subdomain name.
         """
         optional: NotRequired[pulumi.Input[bool]]
         """
-        Specifies whether the secret or the secret's keys must be defined.
+        Whether the secret or the secret's keys must be defined.
         """
 elif False:
     JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict: TypeAlias = Mapping[str, Any]
@@ -1405,8 +1458,8 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs:
                  secret_name: pulumi.Input[str],
                  optional: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] secret_name: The name of the secret. The name must be allowed as a DNS subdomain name.
-        :param pulumi.Input[bool] optional: Specifies whether the secret or the secret's keys must be defined.
+        :param pulumi.Input[str] secret_name: Name of the secret. The name must be allowed as a DNS subdomain name.
+        :param pulumi.Input[bool] optional: Whether the secret or the secret's keys must be defined.
         """
         pulumi.set(__self__, "secret_name", secret_name)
         if optional is not None:
@@ -1416,7 +1469,7 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[str]:
         """
-        The name of the secret. The name must be allowed as a DNS subdomain name.
+        Name of the secret. The name must be allowed as a DNS subdomain name.
         """
         return pulumi.get(self, "secret_name")
 
@@ -1428,7 +1481,7 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs:
     @pulumi.getter
     def optional(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the secret or the secret's keys must be defined.
+        Whether the secret or the secret's keys must be defined.
         """
         return pulumi.get(self, "optional")
 
@@ -1441,11 +1494,11 @@ if not MYPY:
     class JobDefinitionRetryStrategyArgsDict(TypedDict):
         attempts: NotRequired[pulumi.Input[int]]
         """
-        The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+        Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
         """
         evaluate_on_exits: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgsDict']]]]
         """
-        The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+        Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
         """
 elif False:
     JobDefinitionRetryStrategyArgsDict: TypeAlias = Mapping[str, Any]
@@ -1456,8 +1509,8 @@ class JobDefinitionRetryStrategyArgs:
                  attempts: Optional[pulumi.Input[int]] = None,
                  evaluate_on_exits: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgs']]]] = None):
         """
-        :param pulumi.Input[int] attempts: The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgs']]] evaluate_on_exits: The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+        :param pulumi.Input[int] attempts: Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgs']]] evaluate_on_exits: Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
         """
         if attempts is not None:
             pulumi.set(__self__, "attempts", attempts)
@@ -1468,7 +1521,7 @@ class JobDefinitionRetryStrategyArgs:
     @pulumi.getter
     def attempts(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+        Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
         """
         return pulumi.get(self, "attempts")
 
@@ -1480,7 +1533,7 @@ class JobDefinitionRetryStrategyArgs:
     @pulumi.getter(name="evaluateOnExits")
     def evaluate_on_exits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgs']]]]:
         """
-        The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+        Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
         """
         return pulumi.get(self, "evaluate_on_exits")
 
@@ -1493,19 +1546,19 @@ if not MYPY:
     class JobDefinitionRetryStrategyEvaluateOnExitArgsDict(TypedDict):
         action: pulumi.Input[str]
         """
-        Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+        Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
         """
         on_exit_code: NotRequired[pulumi.Input[str]]
         """
-        A glob pattern to match against the decimal representation of the exit code returned for a job.
+        Glob pattern to match against the decimal representation of the exit code returned for a job.
         """
         on_reason: NotRequired[pulumi.Input[str]]
         """
-        A glob pattern to match against the reason returned for a job.
+        Glob pattern to match against the reason returned for a job.
         """
         on_status_reason: NotRequired[pulumi.Input[str]]
         """
-        A glob pattern to match against the status reason returned for a job.
+        Glob pattern to match against the status reason returned for a job.
         """
 elif False:
     JobDefinitionRetryStrategyEvaluateOnExitArgsDict: TypeAlias = Mapping[str, Any]
@@ -1518,10 +1571,10 @@ class JobDefinitionRetryStrategyEvaluateOnExitArgs:
                  on_reason: Optional[pulumi.Input[str]] = None,
                  on_status_reason: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
-        :param pulumi.Input[str] on_exit_code: A glob pattern to match against the decimal representation of the exit code returned for a job.
-        :param pulumi.Input[str] on_reason: A glob pattern to match against the reason returned for a job.
-        :param pulumi.Input[str] on_status_reason: A glob pattern to match against the status reason returned for a job.
+        :param pulumi.Input[str] action: Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+        :param pulumi.Input[str] on_exit_code: Glob pattern to match against the decimal representation of the exit code returned for a job.
+        :param pulumi.Input[str] on_reason: Glob pattern to match against the reason returned for a job.
+        :param pulumi.Input[str] on_status_reason: Glob pattern to match against the status reason returned for a job.
         """
         pulumi.set(__self__, "action", action)
         if on_exit_code is not None:
@@ -1535,7 +1588,7 @@ class JobDefinitionRetryStrategyEvaluateOnExitArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+        Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
         """
         return pulumi.get(self, "action")
 
@@ -1547,7 +1600,7 @@ class JobDefinitionRetryStrategyEvaluateOnExitArgs:
     @pulumi.getter(name="onExitCode")
     def on_exit_code(self) -> Optional[pulumi.Input[str]]:
         """
-        A glob pattern to match against the decimal representation of the exit code returned for a job.
+        Glob pattern to match against the decimal representation of the exit code returned for a job.
         """
         return pulumi.get(self, "on_exit_code")
 
@@ -1559,7 +1612,7 @@ class JobDefinitionRetryStrategyEvaluateOnExitArgs:
     @pulumi.getter(name="onReason")
     def on_reason(self) -> Optional[pulumi.Input[str]]:
         """
-        A glob pattern to match against the reason returned for a job.
+        Glob pattern to match against the reason returned for a job.
         """
         return pulumi.get(self, "on_reason")
 
@@ -1571,7 +1624,7 @@ class JobDefinitionRetryStrategyEvaluateOnExitArgs:
     @pulumi.getter(name="onStatusReason")
     def on_status_reason(self) -> Optional[pulumi.Input[str]]:
         """
-        A glob pattern to match against the status reason returned for a job.
+        Glob pattern to match against the status reason returned for a job.
         """
         return pulumi.get(self, "on_status_reason")
 
@@ -1584,7 +1637,7 @@ if not MYPY:
     class JobDefinitionTimeoutArgsDict(TypedDict):
         attempt_duration_seconds: NotRequired[pulumi.Input[int]]
         """
-        The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+        Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
 elif False:
     JobDefinitionTimeoutArgsDict: TypeAlias = Mapping[str, Any]
@@ -1594,7 +1647,7 @@ class JobDefinitionTimeoutArgs:
     def __init__(__self__, *,
                  attempt_duration_seconds: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] attempt_duration_seconds: The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+        :param pulumi.Input[int] attempt_duration_seconds: Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
         if attempt_duration_seconds is not None:
             pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
@@ -1603,7 +1656,7 @@ class JobDefinitionTimeoutArgs:
     @pulumi.getter(name="attemptDurationSeconds")
     def attempt_duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+        Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
         return pulumi.get(self, "attempt_duration_seconds")
 

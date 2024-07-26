@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     public sealed class SubscriberSourceAwsLogSourceResource
     {
         /// <summary>
-        /// The name for a third-party custom source. This must be a Regionally unique value.
+        /// Provides data expiration details of Amazon Security Lake object.
         /// </summary>
         public readonly string SourceName;
         /// <summary>
-        /// The version for a third-party custom source. This must be a Regionally unique value.
+        /// Provides data storage transition details of Amazon Security Lake object.
         /// </summary>
         public readonly string? SourceVersion;
 

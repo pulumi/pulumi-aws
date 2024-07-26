@@ -70,9 +70,11 @@ type ClusterSnapshot struct {
 	// License model information for the restored DB cluster.
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port                       pulumi.IntOutput    `pulumi:"port"`
-	SnapshotType               pulumi.StringOutput `pulumi:"snapshotType"`
-	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
+	Port pulumi.IntOutput `pulumi:"port"`
+	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts             pulumi.StringArrayOutput `pulumi:"sharedAccounts"`
+	SnapshotType               pulumi.StringOutput      `pulumi:"snapshotType"`
+	SourceDbClusterSnapshotArn pulumi.StringOutput      `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Whether the DB cluster snapshot is encrypted.
@@ -142,9 +144,11 @@ type clusterSnapshotState struct {
 	// License model information for the restored DB cluster.
 	LicenseModel *string `pulumi:"licenseModel"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port                       *int    `pulumi:"port"`
-	SnapshotType               *string `pulumi:"snapshotType"`
-	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
+	Port *int `pulumi:"port"`
+	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts             []string `pulumi:"sharedAccounts"`
+	SnapshotType               *string  `pulumi:"snapshotType"`
+	SourceDbClusterSnapshotArn *string  `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
 	Status *string `pulumi:"status"`
 	// Whether the DB cluster snapshot is encrypted.
@@ -179,7 +183,9 @@ type ClusterSnapshotState struct {
 	// License model information for the restored DB cluster.
 	LicenseModel pulumi.StringPtrInput
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port                       pulumi.IntPtrInput
+	Port pulumi.IntPtrInput
+	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts             pulumi.StringArrayInput
 	SnapshotType               pulumi.StringPtrInput
 	SourceDbClusterSnapshotArn pulumi.StringPtrInput
 	// The status of this DB Cluster Snapshot.
@@ -205,6 +211,8 @@ type clusterSnapshotArgs struct {
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier string `pulumi:"dbClusterSnapshotIdentifier"`
+	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts []string `pulumi:"sharedAccounts"`
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -215,6 +223,8 @@ type ClusterSnapshotArgs struct {
 	DbClusterIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringInput
+	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts pulumi.StringArrayInput
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -354,6 +364,11 @@ func (o ClusterSnapshotOutput) LicenseModel() pulumi.StringOutput {
 // Port that the DB cluster was listening on at the time of the snapshot.
 func (o ClusterSnapshotOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+}
+
+// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+func (o ClusterSnapshotOutput) SharedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringArrayOutput { return v.SharedAccounts }).(pulumi.StringArrayOutput)
 }
 
 func (o ClusterSnapshotOutput) SnapshotType() pulumi.StringOutput {

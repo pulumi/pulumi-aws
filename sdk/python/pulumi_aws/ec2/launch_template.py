@@ -68,9 +68,9 @@ class LaunchTemplateArgs:
                Specification below for more details.
         :param pulumi.Input[int] default_version: Default Version of the launch template.
         :param pulumi.Input[str] description: Description of the launch template.
-        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
-               Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+               Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
@@ -260,7 +260,7 @@ class LaunchTemplateArgs:
     @pulumi.getter(name="disableApiStop")
     def disable_api_stop(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         """
         return pulumi.get(self, "disable_api_stop")
 
@@ -273,7 +273,7 @@ class LaunchTemplateArgs:
     def disable_api_termination(self) -> Optional[pulumi.Input[bool]]:
         """
         If `true`, enables [EC2 Instance
-        Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         """
         return pulumi.get(self, "disable_api_termination")
 
@@ -690,9 +690,9 @@ class _LaunchTemplateState:
                Specification below for more details.
         :param pulumi.Input[int] default_version: Default Version of the launch template.
         :param pulumi.Input[str] description: Description of the launch template.
-        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
-               Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+               Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
@@ -905,7 +905,7 @@ class _LaunchTemplateState:
     @pulumi.getter(name="disableApiStop")
     def disable_api_stop(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         """
         return pulumi.get(self, "disable_api_stop")
 
@@ -918,7 +918,7 @@ class _LaunchTemplateState:
     def disable_api_termination(self) -> Optional[pulumi.Input[bool]]:
         """
         If `true`, enables [EC2 Instance
-        Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         """
         return pulumi.get(self, "disable_api_termination")
 
@@ -1370,9 +1370,9 @@ class LaunchTemplate(pulumi.CustomResource):
                Specification below for more details.
         :param pulumi.Input[int] default_version: Default Version of the launch template.
         :param pulumi.Input[str] description: Description of the launch template.
-        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
-               Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+               Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
@@ -1593,9 +1593,9 @@ class LaunchTemplate(pulumi.CustomResource):
                Specification below for more details.
         :param pulumi.Input[int] default_version: Default Version of the launch template.
         :param pulumi.Input[str] description: Description of the launch template.
-        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
-               Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+               Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
@@ -1742,7 +1742,7 @@ class LaunchTemplate(pulumi.CustomResource):
     @pulumi.getter(name="disableApiStop")
     def disable_api_stop(self) -> pulumi.Output[Optional[bool]]:
         """
-        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         """
         return pulumi.get(self, "disable_api_stop")
 
@@ -1751,7 +1751,7 @@ class LaunchTemplate(pulumi.CustomResource):
     def disable_api_termination(self) -> pulumi.Output[Optional[bool]]:
         """
         If `true`, enables [EC2 Instance
-        Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         """
         return pulumi.get(self, "disable_api_termination")
 

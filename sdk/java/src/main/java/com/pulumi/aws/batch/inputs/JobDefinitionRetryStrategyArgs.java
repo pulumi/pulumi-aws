@@ -18,14 +18,14 @@ public final class JobDefinitionRetryStrategyArgs extends com.pulumi.resources.R
     public static final JobDefinitionRetryStrategyArgs Empty = new JobDefinitionRetryStrategyArgs();
 
     /**
-     * The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+     * Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
      * 
      */
     @Import(name="attempts")
     private @Nullable Output<Integer> attempts;
 
     /**
-     * @return The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+     * @return Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
      * 
      */
     public Optional<Output<Integer>> attempts() {
@@ -33,14 +33,14 @@ public final class JobDefinitionRetryStrategyArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+     * Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
      * 
      */
     @Import(name="evaluateOnExits")
     private @Nullable Output<List<JobDefinitionRetryStrategyEvaluateOnExitArgs>> evaluateOnExits;
 
     /**
-     * @return The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+     * @return Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
      * 
      */
     public Optional<Output<List<JobDefinitionRetryStrategyEvaluateOnExitArgs>>> evaluateOnExits() {
@@ -73,7 +73,7 @@ public final class JobDefinitionRetryStrategyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param attempts The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+         * @param attempts Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class JobDefinitionRetryStrategyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param attempts The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+         * @param attempts Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class JobDefinitionRetryStrategyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluateOnExits The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+         * @param evaluateOnExits Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class JobDefinitionRetryStrategyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluateOnExits The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+         * @param evaluateOnExits Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class JobDefinitionRetryStrategyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluateOnExits The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+         * @param evaluateOnExits Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
          * 
          * @return builder
          * 

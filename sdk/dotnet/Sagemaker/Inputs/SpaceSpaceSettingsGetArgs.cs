@@ -54,6 +54,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.SpaceSpaceSettingsKernelGatewayAppSettingsGetArgs>? KernelGatewayAppSettings { get; set; }
 
+        /// <summary>
+        /// The storage settings. See `space_storage_settings` Block below.
+        /// </summary>
         [Input("spaceStorageSettings")]
         public Input<Inputs.SpaceSpaceSettingsSpaceStorageSettingsGetArgs>? SpaceStorageSettings { get; set; }
 

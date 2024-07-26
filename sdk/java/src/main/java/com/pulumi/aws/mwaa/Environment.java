@@ -397,22 +397,30 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.lastUpdateds;
     }
     /**
-     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
      * 
      */
     @Export(name="loggingConfiguration", refs={EnvironmentLoggingConfiguration.class}, tree="[0]")
     private Output<EnvironmentLoggingConfiguration> loggingConfiguration;
 
     /**
-     * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+     * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
      * 
      */
     public Output<EnvironmentLoggingConfiguration> loggingConfiguration() {
         return this.loggingConfiguration;
     }
+    /**
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     @Export(name="maxWebservers", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxWebservers;
 
+    /**
+     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     public Output<Integer> maxWebservers() {
         return this.maxWebservers;
     }
@@ -430,9 +438,17 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<Integer> maxWorkers() {
         return this.maxWorkers;
     }
+    /**
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     @Export(name="minWebservers", refs={Integer.class}, tree="[0]")
     private Output<Integer> minWebservers;
 
+    /**
+     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     public Output<Integer> minWebservers() {
         return this.minWebservers;
     }
@@ -465,14 +481,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
      * 
      */
     @Export(name="networkConfiguration", refs={EnvironmentNetworkConfiguration.class}, tree="[0]")
     private Output<EnvironmentNetworkConfiguration> networkConfiguration;
 
     /**
-     * @return Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+     * @return Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
      * 
      */
     public Output<EnvironmentNetworkConfiguration> networkConfiguration() {

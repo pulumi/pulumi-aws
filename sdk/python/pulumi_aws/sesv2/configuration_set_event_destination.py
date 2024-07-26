@@ -28,7 +28,7 @@ class ConfigurationSetEventDestinationArgs:
         The set of arguments for constructing a ConfigurationSetEventDestination resource.
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
-        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See event_destination below.
+        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         pulumi.set(__self__, "event_destination", event_destination)
@@ -62,7 +62,7 @@ class ConfigurationSetEventDestinationArgs:
     @pulumi.getter(name="eventDestinationName")
     def event_destination_name(self) -> pulumi.Input[str]:
         """
-        An object that defines the event destination. See event_destination below.
+        An object that defines the event destination. See `event_destination` Block for details.
         """
         return pulumi.get(self, "event_destination_name")
 
@@ -81,7 +81,7 @@ class _ConfigurationSetEventDestinationState:
         Input properties used for looking up and filtering ConfigurationSetEventDestination resources.
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
-        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See event_destination below.
+        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
         """
         if configuration_set_name is not None:
             pulumi.set(__self__, "configuration_set_name", configuration_set_name)
@@ -118,7 +118,7 @@ class _ConfigurationSetEventDestinationState:
     @pulumi.getter(name="eventDestinationName")
     def event_destination_name(self) -> Optional[pulumi.Input[str]]:
         """
-        An object that defines the event destination. See event_destination below.
+        An object that defines the event destination. See `event_destination` Block for details.
         """
         return pulumi.get(self, "event_destination_name")
 
@@ -141,7 +141,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Cloud Watch Destination
+        ### CloudWatch Destination
 
         ```python
         import pulumi
@@ -158,6 +158,25 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                         "dimension_name": "example",
                         "dimension_value_source": "MESSAGE_TAG",
                     }],
+                },
+                "enabled": True,
+                "matching_event_types": ["SEND"],
+            })
+        ```
+
+        ### EventBridge Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.cloudwatch.get_event_bus(name="default")
+        example = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example_aws_sesv2_configuration_set["configurationSetName"],
+            event_destination_name="example",
+            event_destination={
+                "event_bridge_destination": {
+                    "event_bus_arn": default.arn,
                 },
                 "enabled": True,
                 "matching_event_types": ["SEND"],
@@ -234,7 +253,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: A name that identifies the event destination within the configuration set.
-        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See event_destination below.
+        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
         """
         ...
     @overload
@@ -247,7 +266,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Cloud Watch Destination
+        ### CloudWatch Destination
 
         ```python
         import pulumi
@@ -264,6 +283,25 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                         "dimension_name": "example",
                         "dimension_value_source": "MESSAGE_TAG",
                     }],
+                },
+                "enabled": True,
+                "matching_event_types": ["SEND"],
+            })
+        ```
+
+        ### EventBridge Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.cloudwatch.get_event_bus(name="default")
+        example = aws.sesv2.ConfigurationSetEventDestination("example",
+            configuration_set_name=example_aws_sesv2_configuration_set["configurationSetName"],
+            event_destination_name="example",
+            event_destination={
+                "event_bridge_destination": {
+                    "event_bus_arn": default.arn,
                 },
                 "enabled": True,
                 "matching_event_types": ["SEND"],
@@ -394,7 +432,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: A name that identifies the event destination within the configuration set.
-        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See event_destination below.
+        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -425,7 +463,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     @pulumi.getter(name="eventDestinationName")
     def event_destination_name(self) -> pulumi.Output[str]:
         """
-        An object that defines the event destination. See event_destination below.
+        An object that defines the event destination. See `event_destination` Block for details.
         """
         return pulumi.get(self, "event_destination_name")
 

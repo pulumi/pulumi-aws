@@ -13,11 +13,11 @@ import (
 
 // Provides a Glue Classifier resource.
 //
-// > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
+// > **NOTE:** It is only valid to create one type of classifier (CSV, grok, JSON, or XML). Changing classifier types will recreate the classifier.
 //
 // ## Example Usage
 //
-// ### Csv Classifier
+// ### CSV Classifier
 //
 // ```go
 // package main
@@ -153,7 +153,7 @@ import (
 type Classifier struct {
 	pulumi.CustomResourceState
 
-	// A classifier for Csv content. Defined below.
+	// A classifier for CSV content. Defined below.
 	CsvClassifier ClassifierCsvClassifierPtrOutput `pulumi:"csvClassifier"`
 	// A classifier that uses grok patterns. Defined below.
 	GrokClassifier ClassifierGrokClassifierPtrOutput `pulumi:"grokClassifier"`
@@ -195,7 +195,7 @@ func GetClassifier(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Classifier resources.
 type classifierState struct {
-	// A classifier for Csv content. Defined below.
+	// A classifier for CSV content. Defined below.
 	CsvClassifier *ClassifierCsvClassifier `pulumi:"csvClassifier"`
 	// A classifier that uses grok patterns. Defined below.
 	GrokClassifier *ClassifierGrokClassifier `pulumi:"grokClassifier"`
@@ -208,7 +208,7 @@ type classifierState struct {
 }
 
 type ClassifierState struct {
-	// A classifier for Csv content. Defined below.
+	// A classifier for CSV content. Defined below.
 	CsvClassifier ClassifierCsvClassifierPtrInput
 	// A classifier that uses grok patterns. Defined below.
 	GrokClassifier ClassifierGrokClassifierPtrInput
@@ -225,7 +225,7 @@ func (ClassifierState) ElementType() reflect.Type {
 }
 
 type classifierArgs struct {
-	// A classifier for Csv content. Defined below.
+	// A classifier for CSV content. Defined below.
 	CsvClassifier *ClassifierCsvClassifier `pulumi:"csvClassifier"`
 	// A classifier that uses grok patterns. Defined below.
 	GrokClassifier *ClassifierGrokClassifier `pulumi:"grokClassifier"`
@@ -239,7 +239,7 @@ type classifierArgs struct {
 
 // The set of arguments for constructing a Classifier resource.
 type ClassifierArgs struct {
-	// A classifier for Csv content. Defined below.
+	// A classifier for CSV content. Defined below.
 	CsvClassifier ClassifierCsvClassifierPtrInput
 	// A classifier that uses grok patterns. Defined below.
 	GrokClassifier ClassifierGrokClassifierPtrInput
@@ -338,7 +338,7 @@ func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) Cla
 	return o
 }
 
-// A classifier for Csv content. Defined below.
+// A classifier for CSV content. Defined below.
 func (o ClassifierOutput) CsvClassifier() ClassifierCsvClassifierPtrOutput {
 	return o.ApplyT(func(v *Classifier) ClassifierCsvClassifierPtrOutput { return v.CsvClassifier }).(ClassifierCsvClassifierPtrOutput)
 }

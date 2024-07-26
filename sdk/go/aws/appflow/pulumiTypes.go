@@ -12499,6 +12499,8 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig struct {
 	// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat *string `pulumi:"prefixFormat"`
+	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+	PrefixHierarchies []string `pulumi:"prefixHierarchies"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType *string `pulumi:"prefixType"`
 }
@@ -12517,6 +12519,8 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs struct {
 	// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat pulumi.StringPtrInput `pulumi:"prefixFormat"`
+	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+	PrefixHierarchies pulumi.StringArrayInput `pulumi:"prefixHierarchies"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType pulumi.StringPtrInput `pulumi:"prefixType"`
 }
@@ -12605,6 +12609,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput) PrefixHierarchies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) []string {
+		return v.PrefixHierarchies
+	}).(pulumi.StringArrayOutput)
+}
+
 // Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput) PrefixType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) *string {
@@ -12644,6 +12655,16 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 		}
 		return v.PrefixFormat
 	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput) PrefixHierarchies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixHierarchies
+	}).(pulumi.StringArrayOutput)
 }
 
 // Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
@@ -14420,6 +14441,8 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig struct {
 	// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat *string `pulumi:"prefixFormat"`
+	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+	PrefixHierarchies []string `pulumi:"prefixHierarchies"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType string `pulumi:"prefixType"`
 }
@@ -14438,6 +14461,8 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputForm
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs struct {
 	// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat pulumi.StringPtrInput `pulumi:"prefixFormat"`
+	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+	PrefixHierarchies pulumi.StringArrayInput `pulumi:"prefixHierarchies"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType pulumi.StringInput `pulumi:"prefixType"`
 }
@@ -14526,6 +14551,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput) PrefixHierarchies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) []string {
+		return v.PrefixHierarchies
+	}).(pulumi.StringArrayOutput)
+}
+
 // Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput) PrefixType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) string {
@@ -14565,6 +14597,16 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 		}
 		return v.PrefixFormat
 	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput) PrefixHierarchies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixHierarchies
+	}).(pulumi.StringArrayOutput)
 }
 
 // Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
@@ -14938,6 +14980,314 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 		}
 		return v.FailOnFirstDestinationError
 	}).(pulumi.BoolPtrOutput)
+}
+
+type FlowMetadataCatalogConfig struct {
+	GlueDataCatalog *FlowMetadataCatalogConfigGlueDataCatalog `pulumi:"glueDataCatalog"`
+}
+
+// FlowMetadataCatalogConfigInput is an input type that accepts FlowMetadataCatalogConfigArgs and FlowMetadataCatalogConfigOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigInput` via:
+//
+//	FlowMetadataCatalogConfigArgs{...}
+type FlowMetadataCatalogConfigInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigOutput() FlowMetadataCatalogConfigOutput
+	ToFlowMetadataCatalogConfigOutputWithContext(context.Context) FlowMetadataCatalogConfigOutput
+}
+
+type FlowMetadataCatalogConfigArgs struct {
+	GlueDataCatalog FlowMetadataCatalogConfigGlueDataCatalogPtrInput `pulumi:"glueDataCatalog"`
+}
+
+func (FlowMetadataCatalogConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigOutput() FlowMetadataCatalogConfigOutput {
+	return i.ToFlowMetadataCatalogConfigOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigOutput)
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return i.ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigOutput).ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx)
+}
+
+// FlowMetadataCatalogConfigPtrInput is an input type that accepts FlowMetadataCatalogConfigArgs, FlowMetadataCatalogConfigPtr and FlowMetadataCatalogConfigPtrOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigPtrInput` via:
+//
+//	        FlowMetadataCatalogConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMetadataCatalogConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput
+	ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Context) FlowMetadataCatalogConfigPtrOutput
+}
+
+type flowMetadataCatalogConfigPtrType FlowMetadataCatalogConfigArgs
+
+func FlowMetadataCatalogConfigPtr(v *FlowMetadataCatalogConfigArgs) FlowMetadataCatalogConfigPtrInput {
+	return (*flowMetadataCatalogConfigPtrType)(v)
+}
+
+func (*flowMetadataCatalogConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (i *flowMetadataCatalogConfigPtrType) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return i.ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMetadataCatalogConfigPtrType) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigPtrOutput)
+}
+
+type FlowMetadataCatalogConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigOutput() FlowMetadataCatalogConfigOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return o.ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMetadataCatalogConfig) *FlowMetadataCatalogConfig {
+		return &v
+	}).(FlowMetadataCatalogConfigPtrOutput)
+}
+
+func (o FlowMetadataCatalogConfigOutput) GlueDataCatalog() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o.ApplyT(func(v FlowMetadataCatalogConfig) *FlowMetadataCatalogConfigGlueDataCatalog { return v.GlueDataCatalog }).(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput)
+}
+
+type FlowMetadataCatalogConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) Elem() FlowMetadataCatalogConfigOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfig) FlowMetadataCatalogConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMetadataCatalogConfig
+		return ret
+	}).(FlowMetadataCatalogConfigOutput)
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) GlueDataCatalog() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfig) *FlowMetadataCatalogConfigGlueDataCatalog {
+		if v == nil {
+			return nil
+		}
+		return v.GlueDataCatalog
+	}).(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput)
+}
+
+type FlowMetadataCatalogConfigGlueDataCatalog struct {
+	// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+	DatabaseName string `pulumi:"databaseName"`
+	// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+	RoleArn string `pulumi:"roleArn"`
+	// A naming prefix for each Data Catalog table that Amazon AppFlow creates
+	TablePrefix string `pulumi:"tablePrefix"`
+}
+
+// FlowMetadataCatalogConfigGlueDataCatalogInput is an input type that accepts FlowMetadataCatalogConfigGlueDataCatalogArgs and FlowMetadataCatalogConfigGlueDataCatalogOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigGlueDataCatalogInput` via:
+//
+//	FlowMetadataCatalogConfigGlueDataCatalogArgs{...}
+type FlowMetadataCatalogConfigGlueDataCatalogInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigGlueDataCatalogOutput() FlowMetadataCatalogConfigGlueDataCatalogOutput
+	ToFlowMetadataCatalogConfigGlueDataCatalogOutputWithContext(context.Context) FlowMetadataCatalogConfigGlueDataCatalogOutput
+}
+
+type FlowMetadataCatalogConfigGlueDataCatalogArgs struct {
+	// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A naming prefix for each Data Catalog table that Amazon AppFlow creates
+	TablePrefix pulumi.StringInput `pulumi:"tablePrefix"`
+}
+
+func (FlowMetadataCatalogConfigGlueDataCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfigGlueDataCatalog)(nil)).Elem()
+}
+
+func (i FlowMetadataCatalogConfigGlueDataCatalogArgs) ToFlowMetadataCatalogConfigGlueDataCatalogOutput() FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return i.ToFlowMetadataCatalogConfigGlueDataCatalogOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigGlueDataCatalogArgs) ToFlowMetadataCatalogConfigGlueDataCatalogOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigGlueDataCatalogOutput)
+}
+
+func (i FlowMetadataCatalogConfigGlueDataCatalogArgs) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return i.ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigGlueDataCatalogArgs) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigGlueDataCatalogOutput).ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx)
+}
+
+// FlowMetadataCatalogConfigGlueDataCatalogPtrInput is an input type that accepts FlowMetadataCatalogConfigGlueDataCatalogArgs, FlowMetadataCatalogConfigGlueDataCatalogPtr and FlowMetadataCatalogConfigGlueDataCatalogPtrOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigGlueDataCatalogPtrInput` via:
+//
+//	        FlowMetadataCatalogConfigGlueDataCatalogArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMetadataCatalogConfigGlueDataCatalogPtrInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput
+	ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput
+}
+
+type flowMetadataCatalogConfigGlueDataCatalogPtrType FlowMetadataCatalogConfigGlueDataCatalogArgs
+
+func FlowMetadataCatalogConfigGlueDataCatalogPtr(v *FlowMetadataCatalogConfigGlueDataCatalogArgs) FlowMetadataCatalogConfigGlueDataCatalogPtrInput {
+	return (*flowMetadataCatalogConfigGlueDataCatalogPtrType)(v)
+}
+
+func (*flowMetadataCatalogConfigGlueDataCatalogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfigGlueDataCatalog)(nil)).Elem()
+}
+
+func (i *flowMetadataCatalogConfigGlueDataCatalogPtrType) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return i.ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMetadataCatalogConfigGlueDataCatalogPtrType) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput)
+}
+
+type FlowMetadataCatalogConfigGlueDataCatalogOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigGlueDataCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfigGlueDataCatalog)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) ToFlowMetadataCatalogConfigGlueDataCatalogOutput() FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) ToFlowMetadataCatalogConfigGlueDataCatalogOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o.ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMetadataCatalogConfigGlueDataCatalog) *FlowMetadataCatalogConfigGlueDataCatalog {
+		return &v
+	}).(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput)
+}
+
+// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMetadataCatalogConfigGlueDataCatalog) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMetadataCatalogConfigGlueDataCatalog) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A naming prefix for each Data Catalog table that Amazon AppFlow creates
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) TablePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMetadataCatalogConfigGlueDataCatalog) string { return v.TablePrefix }).(pulumi.StringOutput)
+}
+
+type FlowMetadataCatalogConfigGlueDataCatalogPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfigGlueDataCatalog)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) Elem() FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfigGlueDataCatalog) FlowMetadataCatalogConfigGlueDataCatalog {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMetadataCatalogConfigGlueDataCatalog
+		return ret
+	}).(FlowMetadataCatalogConfigGlueDataCatalogOutput)
+}
+
+// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfigGlueDataCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfigGlueDataCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A naming prefix for each Data Catalog table that Amazon AppFlow creates
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) TablePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfigGlueDataCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TablePrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type FlowSourceFlowConfig struct {
@@ -19263,6 +19613,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrInput)(nil)).Elem(), FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigInput)(nil)).Elem(), FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrInput)(nil)).Elem(), FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigInput)(nil)).Elem(), FlowMetadataCatalogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigPtrInput)(nil)).Elem(), FlowMetadataCatalogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigGlueDataCatalogInput)(nil)).Elem(), FlowMetadataCatalogConfigGlueDataCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigGlueDataCatalogPtrInput)(nil)).Elem(), FlowMetadataCatalogConfigGlueDataCatalogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigInput)(nil)).Elem(), FlowSourceFlowConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigPtrInput)(nil)).Elem(), FlowSourceFlowConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigIncrementalPullConfigInput)(nil)).Elem(), FlowSourceFlowConfigIncrementalPullConfigArgs{})
@@ -19484,6 +19838,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput{})
 	pulumi.RegisterOutputType(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput{})
 	pulumi.RegisterOutputType(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigGlueDataCatalogOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigIncrementalPullConfigOutput{})

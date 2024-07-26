@@ -15,14 +15,14 @@ public final class JobDefinitionEksPropertiesArgs extends com.pulumi.resources.R
     public static final JobDefinitionEksPropertiesArgs Empty = new JobDefinitionEksPropertiesArgs();
 
     /**
-     * The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+     * Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
      * 
      */
     @Import(name="podProperties", required=true)
     private Output<JobDefinitionEksPropertiesPodPropertiesArgs> podProperties;
 
     /**
-     * @return The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+     * @return Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
      * 
      */
     public Output<JobDefinitionEksPropertiesPodPropertiesArgs> podProperties() {
@@ -54,7 +54,7 @@ public final class JobDefinitionEksPropertiesArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param podProperties The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+         * @param podProperties Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class JobDefinitionEksPropertiesArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param podProperties The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+         * @param podProperties Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
          * 
          * @return builder
          * 
