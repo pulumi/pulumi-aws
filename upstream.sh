@@ -12,7 +12,7 @@ NAME
   upstream.sh - Manages applying patches to the upstream submodule.
 
 SYNOPSIS
-  ${original_exec} <init|checkout|rebase|format_patches|check_in|help> [options]
+  ${original_exec} <init|checkout|rebase|check_in|help> [options]
 
 COMMANDS
   init [-f]             Initialize the upstream submodule and applies the
@@ -20,7 +20,6 @@ COMMANDS
   checkout [-f]         Create a branch in the upstream repository with the
                         patches applied as commits.
   rebase [-o] [-i]      Rebase the checked out patches.
-  format_patches        Write checkedout commits back to patches.
   check_in              Write checkedout commits back to patches, add upstream
                         and patches changes to the git staging area and exit
                         checkout mode.
@@ -51,12 +50,18 @@ EXAMPLES
   Moving the patches to a new base commit:
     ${original_exec} checkout
     ${original_exec} rebase -o <new_base_commit>
-    ${original_exec} format_patches
+    ${original_exec} check_in
 
   Interactively edit the patches:
     ${original_exec} checkout
     ${original_exec} rebase -i
-    ${original_exec} format_patches
+    ${original_exec} check_in
+
+  Add a new patch:
+    ${original_exec} checkout
+    # Make changes to the upstream repository
+    git commit -am "Add new feature"
+    ${original_exec} check_in
 EOF
 }
 
@@ -67,41 +72,24 @@ assert_upstream_exists() {
   fi
 }
 
-# Check the upstream submodule isn't modified in the working tree
-assert_upstream_tracked() {
-  status=$(git status --porcelain upstream)
-  if [[ ${status} == *"M upstream" ]]; then
-    current_branch=$(cd upstream && git --no-pager rev-parse --abbrev-ref HEAD)
-    if [[ "${current_branch}" == "pulumi/patch-checkout" ]]; then
-      cat <<EOF
-Error: The 'upstream' submodule is modified with untracked changes.
+assert_not_checked_out() {
+  current_branch=$(cd upstream && git --no-pager rev-parse --abbrev-ref HEAD)
+  if [[ "${current_branch}" == "pulumi/patch-checkout" ]]; then
+    cat <<EOF
+Error: 'upstream' submodule checked out on the 'pulumi/patch-checkout' branch.
+This was likely caused by running a 'checkout' command but not running
+'check_in' afterwards.
 
-Currently checked out on the 'pulumi/patch-checkout' branch. This was likely caused by
-running a 'checkout' command and not running 'format_patches' afterwards.
-
-To turn the commits in the 'pulumi/patch-checkout' branch back into patches, run the
-'format_patches' command.
+To turn the commits in the 'pulumi/patch-checkout' branch back into patches, run:
+  ${original_exec} check_in
 
 To disgard changes in the 'pulumi/patch-checkout' branch, use the 'force' flag (-f):
-
   ${original_exec} ${original_cmd} -f
-
-EOF
-      exit 1
-    fi
-    echo "Error: The 'upstream' submodule is modified but not tracked."
-    echo "${current_branch}"
-    git submodule status upstream
-    cat <<EOF
-Either stage or reset the 'upstream' submodule changes before continuing:
-
-    git add upstream
-    # or #
-    (cd upstream && git checkout <current submodule commit of origin/default> && cd -)
 
 EOF
     exit 1
   fi
+
 }
 
 assert_is_checked_out() {
@@ -157,6 +145,30 @@ apply_patches() {
   done
 }
 
+clean_rebases() {
+  # Clean up any previous in-progress rebases.
+  cd upstream
+  rebase_merge_dir=$(git rev-parse --git-path rebase-merge)
+  rebase_apply_dir=$(git rev-parse --git-path rebase-apply)
+  rm -rf "${rebase_merge_dir}"
+  rm -rf "${rebase_apply_dir}"
+  cd ..
+}
+
+clean_branches() {
+  cd upstream
+  if git show-ref --verify --quiet refs/heads/pulumi/patch-checkout; then
+    git branch -D pulumi/patch-checkout
+  fi
+  if git show-ref --verify --quiet refs/heads/pulumi/checkout-base; then
+    git branch -D pulumi/checkout-base
+  fi
+  if git show-ref --verify --quiet refs/heads/pulumi/original-base; then
+    git branch -D pulumi/original-base
+  fi
+  cd ..
+}
+
 init() {
   # Parse additional flags
   while getopts "f" flag; do
@@ -169,12 +181,15 @@ init() {
   assert_upstream_exists
 
   if [[ "${force}" != "true" ]]; then
-    assert_upstream_tracked
-  else
-    echo "Warning: forcing init command to run even if the upstream submodule is modified."
+    assert_not_checked_out
+    assert_no_rebase_in_progress
   fi
 
   git submodule update --force --init
+  if [[ "${force}" == "true" ]]; then
+    clean_rebases
+    clean_branches
+  fi
   apply_patches
 }
 
@@ -190,24 +205,17 @@ checkout() {
   assert_upstream_exists
 
   if [[ "${force}" != "true" ]]; then
-    assert_upstream_tracked
-  else
-    echo "Warning: forcing checkout command to run even if the upstream submodule is modified."
+    assert_not_checked_out
+    assert_no_rebase_in_progress
   fi
 
   git submodule update --force --init
-  cd upstream
   if [[ "${force}" == "true" ]]; then
-    echo "Cleaning up any previous branches"
-    git branch -D pulumi/patch-checkout
-    git branch -D pulumi/checkout-base
-    git branch -D pulumi/original-base
+    clean_rebases
+    clean_branches
   fi
-  # Clean up any previous in-progress rebases.
-  rebase_merge_dir=$(git rev-parse --git-path rebase-merge)
-  rebase_apply_dir=$(git rev-parse --git-path rebase-apply)
-  rm -rf "${rebase_merge_dir}"
-  rm -rf "${rebase_apply_dir}"
+
+  cd upstream
   git fetch --all
 
   # Set the 'pulumi/checkout-base' branch to the current commit of the upstream repository
@@ -344,7 +352,7 @@ case ${original_cmd} in
   init)
     init "$@"
     ;;
-  checkout)
+  checkout|check_out)
     checkout "$@"
     ;;
   rebase)
@@ -353,7 +361,7 @@ case ${original_cmd} in
   format_patches)
     format_patches "$@"
     ;;
-  check_in)
+  check_in|checkin)
     check_in "$@"
     ;;
   *)

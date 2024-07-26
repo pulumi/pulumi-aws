@@ -172,7 +172,7 @@ tfgen_build_only:
 
 upstream:
 ifneq ("$(wildcard upstream)","")
-	./upstream.sh init -f
+	./upstream.sh init
 endif
 
 	# Ensure tool is installed
@@ -219,7 +219,7 @@ ci-mgmt: .ci-mgmt.yaml
 debug_tfgen:
 	dlv  --listen=:2345 --headless=true --api-version=2  exec $(WORKING_DIR)/bin/$(TFGEN) -- schema --out provider/cmd/$(PROVIDER)
 
-.PHONY: development build build_sdks install_go_sdk install_java_sdk install_python_sdk install_sdks only_build build_dotnet build_go build_java build_nodejs build_python clean cleanup help install_dotnet_sdk install_nodejs_sdk install_plugins lint_provider provider provider_no_deps test tfgen upstream upstream.finalize upstream.rebase ci-mgmt test_provider debug_tfgen tfgen_build_only
+.PHONY: development build build_sdks install_go_sdk install_java_sdk install_python_sdk install_sdks only_build build_dotnet build_go build_java build_nodejs build_python clean cleanup help install_dotnet_sdk install_nodejs_sdk install_plugins lint_provider provider provider_no_deps test tfgen upstream ci-mgmt test_provider debug_tfgen tfgen_build_only
 
 # Provider cross-platform build & packaging
 
