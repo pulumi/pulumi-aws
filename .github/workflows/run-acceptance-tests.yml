@@ -250,11 +250,16 @@ jobs:
       - name: Install junit-report-merger
         run: npm install -g junit-report-merger
 
+      - name: List
+        run: |
+          ls
+          ls junit-test-summary-0
+
       - name: Merge examples reports
-        run: jrm ./junit-test-summary.xml "junit-test-summary-0/*.xml" "junit-test-summary-1/*.xml" "junit-test-summary-2/*.xml" "junit-test-summary-3/*.xml" "junit-test-summary-4/*.xml"
+        run: jrm ./junit-test-summary.xml "junit-test-summary-0*" "junit-test-summary-1*" "junit-test-summary-2*" "junit-test-summary-3*" "junit-test-summary-4*"
 
       - name: Merge provider reports
-        run: jrm ./junit-provider-test-summary.xml "junit-provider-test-summary-0/*.xml" "junit-provider-test-summary-1/*.xml" "junit-provider-test-summary-2/*.xml" "junit-provider-test-summary-3/*.xml" "junit-provider-test-summary-4/*.xml"
+        run: jrm ./junit-provider-test-summary.xml "junit-provider-test-summary-0*" "junit-provider-test-summary-1*" "junit-provider-test-summary-2*" "junit-provider-test-summary-3*" "junit-provider-test-summary-4*"
 
       - name: Upload provider artifacts
         uses: actions/upload-artifact@v4
