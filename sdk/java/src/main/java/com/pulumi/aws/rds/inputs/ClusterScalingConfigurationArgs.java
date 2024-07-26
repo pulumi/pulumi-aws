@@ -63,6 +63,21 @@ public final class ClusterScalingConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
+     * Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+     * 
+     */
+    @Import(name="secondsBeforeTimeout")
+    private @Nullable Output<Integer> secondsBeforeTimeout;
+
+    /**
+     * @return Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+     * 
+     */
+    public Optional<Output<Integer>> secondsBeforeTimeout() {
+        return Optional.ofNullable(this.secondsBeforeTimeout);
+    }
+
+    /**
      * Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
      * 
      */
@@ -98,6 +113,7 @@ public final class ClusterScalingConfigurationArgs extends com.pulumi.resources.
         this.autoPause = $.autoPause;
         this.maxCapacity = $.maxCapacity;
         this.minCapacity = $.minCapacity;
+        this.secondsBeforeTimeout = $.secondsBeforeTimeout;
         this.secondsUntilAutoPause = $.secondsUntilAutoPause;
         this.timeoutAction = $.timeoutAction;
     }
@@ -181,6 +197,27 @@ public final class ClusterScalingConfigurationArgs extends com.pulumi.resources.
          */
         public Builder minCapacity(Integer minCapacity) {
             return minCapacity(Output.of(minCapacity));
+        }
+
+        /**
+         * @param secondsBeforeTimeout Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondsBeforeTimeout(@Nullable Output<Integer> secondsBeforeTimeout) {
+            $.secondsBeforeTimeout = secondsBeforeTimeout;
+            return this;
+        }
+
+        /**
+         * @param secondsBeforeTimeout Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondsBeforeTimeout(Integer secondsBeforeTimeout) {
+            return secondsBeforeTimeout(Output.of(secondsBeforeTimeout));
         }
 
         /**

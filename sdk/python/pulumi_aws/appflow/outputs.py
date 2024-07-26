@@ -102,6 +102,8 @@ __all__ = [
     'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig',
     'FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk',
     'FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig',
+    'FlowMetadataCatalogConfig',
+    'FlowMetadataCatalogConfigGlueDataCatalog',
     'FlowSourceFlowConfig',
     'FlowSourceFlowConfigIncrementalPullConfig',
     'FlowSourceFlowConfigSourceConnectorProperties',
@@ -4024,6 +4026,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         suggest = None
         if key == "prefixFormat":
             suggest = "prefix_format"
+        elif key == "prefixHierarchies":
+            suggest = "prefix_hierarchies"
         elif key == "prefixType":
             suggest = "prefix_type"
 
@@ -4040,13 +4044,17 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
 
     def __init__(__self__, *,
                  prefix_format: Optional[str] = None,
+                 prefix_hierarchies: Optional[Sequence[str]] = None,
                  prefix_type: Optional[str] = None):
         """
         :param str prefix_format: Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+        :param Sequence[str] prefix_hierarchies: Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
         :param str prefix_type: Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
         """
         if prefix_format is not None:
             pulumi.set(__self__, "prefix_format", prefix_format)
+        if prefix_hierarchies is not None:
+            pulumi.set(__self__, "prefix_hierarchies", prefix_hierarchies)
         if prefix_type is not None:
             pulumi.set(__self__, "prefix_type", prefix_type)
 
@@ -4057,6 +4065,14 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
         """
         return pulumi.get(self, "prefix_format")
+
+    @property
+    @pulumi.getter(name="prefixHierarchies")
+    def prefix_hierarchies(self) -> Optional[Sequence[str]]:
+        """
+        Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+        """
+        return pulumi.get(self, "prefix_hierarchies")
 
     @property
     @pulumi.getter(name="prefixType")
@@ -4653,6 +4669,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
             suggest = "prefix_type"
         elif key == "prefixFormat":
             suggest = "prefix_format"
+        elif key == "prefixHierarchies":
+            suggest = "prefix_hierarchies"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig. Access the value via the '{suggest}' property getter instead.")
@@ -4667,14 +4685,18 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
 
     def __init__(__self__, *,
                  prefix_type: str,
-                 prefix_format: Optional[str] = None):
+                 prefix_format: Optional[str] = None,
+                 prefix_hierarchies: Optional[Sequence[str]] = None):
         """
         :param str prefix_type: Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
         :param str prefix_format: Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+        :param Sequence[str] prefix_hierarchies: Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
         """
         pulumi.set(__self__, "prefix_type", prefix_type)
         if prefix_format is not None:
             pulumi.set(__self__, "prefix_format", prefix_format)
+        if prefix_hierarchies is not None:
+            pulumi.set(__self__, "prefix_hierarchies", prefix_hierarchies)
 
     @property
     @pulumi.getter(name="prefixType")
@@ -4691,6 +4713,14 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
         Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
         """
         return pulumi.get(self, "prefix_format")
+
+    @property
+    @pulumi.getter(name="prefixHierarchies")
+    def prefix_hierarchies(self) -> Optional[Sequence[str]]:
+        """
+        Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+        """
+        return pulumi.get(self, "prefix_hierarchies")
 
 
 @pulumi.output_type
@@ -4812,6 +4842,97 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlin
         If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         return pulumi.get(self, "fail_on_first_destination_error")
+
+
+@pulumi.output_type
+class FlowMetadataCatalogConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "glueDataCatalog":
+            suggest = "glue_data_catalog"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowMetadataCatalogConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowMetadataCatalogConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowMetadataCatalogConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 glue_data_catalog: Optional['outputs.FlowMetadataCatalogConfigGlueDataCatalog'] = None):
+        if glue_data_catalog is not None:
+            pulumi.set(__self__, "glue_data_catalog", glue_data_catalog)
+
+    @property
+    @pulumi.getter(name="glueDataCatalog")
+    def glue_data_catalog(self) -> Optional['outputs.FlowMetadataCatalogConfigGlueDataCatalog']:
+        return pulumi.get(self, "glue_data_catalog")
+
+
+@pulumi.output_type
+class FlowMetadataCatalogConfigGlueDataCatalog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "tablePrefix":
+            suggest = "table_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowMetadataCatalogConfigGlueDataCatalog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowMetadataCatalogConfigGlueDataCatalog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowMetadataCatalogConfigGlueDataCatalog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 role_arn: str,
+                 table_prefix: str):
+        """
+        :param str database_name: The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+        :param str role_arn: The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+        :param str table_prefix: A naming prefix for each Data Catalog table that Amazon AppFlow creates
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "table_prefix", table_prefix)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="tablePrefix")
+    def table_prefix(self) -> str:
+        """
+        A naming prefix for each Data Catalog table that Amazon AppFlow creates
+        """
+        return pulumi.get(self, "table_prefix")
 
 
 @pulumi.output_type

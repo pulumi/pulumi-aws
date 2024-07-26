@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        /// Medium to store the volume. The default value is an empty string, which uses the storage of the node.
         /// </summary>
         [Input("medium")]
         public Input<string>? Medium { get; set; }
 
         /// <summary>
-        /// The maximum size of the volume. By default, there's no maximum size defined.
+        /// Maximum size of the volume. By default, there's no maximum size defined.
         /// </summary>
         [Input("sizeLimit", required: true)]
         public Input<string> SizeLimit { get; set; } = null!;

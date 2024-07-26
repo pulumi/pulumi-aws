@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SesV2.Inputs
     public sealed class ConfigurationSetEventDestinationEventDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        /// An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
         /// </summary>
         [Input("cloudWatchDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs>? CloudWatchDestination { get; set; }
@@ -24,8 +24,11 @@ namespace Pulumi.Aws.SesV2.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("eventBridgeDestination")]
+        public Input<Inputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs>? EventBridgeDestination { get; set; }
+
         /// <summary>
-        /// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+        /// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
         /// </summary>
         [Input("kinesisFirehoseDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs>? KinesisFirehoseDestination { get; set; }
@@ -35,8 +38,6 @@ namespace Pulumi.Aws.SesV2.Inputs
 
         /// <summary>
         /// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<string> MatchingEventTypes
         {
@@ -45,13 +46,13 @@ namespace Pulumi.Aws.SesV2.Inputs
         }
 
         /// <summary>
-        /// An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+        /// An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
         /// </summary>
         [Input("pinpointDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs>? PinpointDestination { get; set; }
 
         /// <summary>
-        /// An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        /// An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
         /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs>? SnsDestination { get; set; }

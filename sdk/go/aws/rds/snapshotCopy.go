@@ -100,7 +100,9 @@ type SnapshotCopy struct {
 	Port            pulumi.IntOutput    `pulumi:"port"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrOutput `pulumi:"presignedUrl"`
-	SnapshotType pulumi.StringOutput    `pulumi:"snapshotType"`
+	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts pulumi.StringArrayOutput `pulumi:"sharedAccounts"`
+	SnapshotType   pulumi.StringOutput      `pulumi:"snapshotType"`
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier pulumi.StringOutput `pulumi:"sourceDbSnapshotIdentifier"`
 	// The region that the DB snapshot was created in or copied from.
@@ -184,7 +186,9 @@ type snapshotCopyState struct {
 	Port            *int    `pulumi:"port"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl *string `pulumi:"presignedUrl"`
-	SnapshotType *string `pulumi:"snapshotType"`
+	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts []string `pulumi:"sharedAccounts"`
+	SnapshotType   *string  `pulumi:"snapshotType"`
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier *string `pulumi:"sourceDbSnapshotIdentifier"`
 	// The region that the DB snapshot was created in or copied from.
@@ -233,7 +237,9 @@ type SnapshotCopyState struct {
 	Port            pulumi.IntPtrInput
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrInput
-	SnapshotType pulumi.StringPtrInput
+	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts pulumi.StringArrayInput
+	SnapshotType   pulumi.StringPtrInput
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier pulumi.StringPtrInput
 	// The region that the DB snapshot was created in or copied from.
@@ -269,6 +275,8 @@ type snapshotCopyArgs struct {
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl *string `pulumi:"presignedUrl"`
+	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts []string `pulumi:"sharedAccounts"`
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier string `pulumi:"sourceDbSnapshotIdentifier"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -291,6 +299,8 @@ type SnapshotCopyArgs struct {
 	OptionGroupName pulumi.StringPtrInput
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrInput
+	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	SharedAccounts pulumi.StringArrayInput
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -455,6 +465,11 @@ func (o SnapshotCopyOutput) Port() pulumi.IntOutput {
 // he URL that contains a Signature Version 4 signed request.
 func (o SnapshotCopyOutput) PresignedUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.PresignedUrl }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+func (o SnapshotCopyOutput) SharedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringArrayOutput { return v.SharedAccounts }).(pulumi.StringArrayOutput)
 }
 
 func (o SnapshotCopyOutput) SnapshotType() pulumi.StringOutput {

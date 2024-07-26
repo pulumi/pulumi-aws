@@ -27,6 +27,7 @@ class FlowArgs:
                  trigger_config: pulumi.Input['FlowTriggerConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
+                 metadata_catalog_config: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -37,6 +38,7 @@ class FlowArgs:
         :param pulumi.Input['FlowTriggerConfigArgs'] trigger_config: A Trigger that determine how and when the flow runs.
         :param pulumi.Input[str] description: Description of the flow you want to create.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input['FlowMetadataCatalogConfigArgs'] metadata_catalog_config: A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         :param pulumi.Input[str] name: Name of the flow.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -48,6 +50,8 @@ class FlowArgs:
             pulumi.set(__self__, "description", description)
         if kms_arn is not None:
             pulumi.set(__self__, "kms_arn", kms_arn)
+        if metadata_catalog_config is not None:
+            pulumi.set(__self__, "metadata_catalog_config", metadata_catalog_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -126,6 +130,18 @@ class FlowArgs:
         pulumi.set(self, "kms_arn", value)
 
     @property
+    @pulumi.getter(name="metadataCatalogConfig")
+    def metadata_catalog_config(self) -> Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']]:
+        """
+        A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+        """
+        return pulumi.get(self, "metadata_catalog_config")
+
+    @metadata_catalog_config.setter
+    def metadata_catalog_config(self, value: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']]):
+        pulumi.set(self, "metadata_catalog_config", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -158,6 +174,7 @@ class _FlowState:
                  destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]] = None,
                  flow_status: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
+                 metadata_catalog_config: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_flow_config: Optional[pulumi.Input['FlowSourceFlowConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -171,6 +188,7 @@ class _FlowState:
         :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_configs: A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         :param pulumi.Input[str] flow_status: The current status of the flow.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input['FlowMetadataCatalogConfigArgs'] metadata_catalog_config: A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         :param pulumi.Input[str] name: Name of the flow.
         :param pulumi.Input['FlowSourceFlowConfigArgs'] source_flow_config: The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -188,6 +206,8 @@ class _FlowState:
             pulumi.set(__self__, "flow_status", flow_status)
         if kms_arn is not None:
             pulumi.set(__self__, "kms_arn", kms_arn)
+        if metadata_catalog_config is not None:
+            pulumi.set(__self__, "metadata_catalog_config", metadata_catalog_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if source_flow_config is not None:
@@ -263,6 +283,18 @@ class _FlowState:
     @kms_arn.setter
     def kms_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_arn", value)
+
+    @property
+    @pulumi.getter(name="metadataCatalogConfig")
+    def metadata_catalog_config(self) -> Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']]:
+        """
+        A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+        """
+        return pulumi.get(self, "metadata_catalog_config")
+
+    @metadata_catalog_config.setter
+    def metadata_catalog_config(self, value: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']]):
+        pulumi.set(self, "metadata_catalog_config", value)
 
     @property
     @pulumi.getter
@@ -346,6 +378,7 @@ class Flow(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
+                 metadata_catalog_config: Optional[pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_flow_config: Optional[pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -459,6 +492,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the flow you want to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]] destination_flow_configs: A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']] metadata_catalog_config: A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         :param pulumi.Input[str] name: Name of the flow.
         :param pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']] source_flow_config: The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -591,6 +625,7 @@ class Flow(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
+                 metadata_catalog_config: Optional[pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_flow_config: Optional[pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -610,6 +645,7 @@ class Flow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination_flow_configs'")
             __props__.__dict__["destination_flow_configs"] = destination_flow_configs
             __props__.__dict__["kms_arn"] = kms_arn
+            __props__.__dict__["metadata_catalog_config"] = metadata_catalog_config
             __props__.__dict__["name"] = name
             if source_flow_config is None and not opts.urn:
                 raise TypeError("Missing required property 'source_flow_config'")
@@ -639,6 +675,7 @@ class Flow(pulumi.CustomResource):
             destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
             flow_status: Optional[pulumi.Input[str]] = None,
             kms_arn: Optional[pulumi.Input[str]] = None,
+            metadata_catalog_config: Optional[pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             source_flow_config: Optional[pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -657,6 +694,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]] destination_flow_configs: A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         :param pulumi.Input[str] flow_status: The current status of the flow.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']] metadata_catalog_config: A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         :param pulumi.Input[str] name: Name of the flow.
         :param pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']] source_flow_config: The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -673,6 +711,7 @@ class Flow(pulumi.CustomResource):
         __props__.__dict__["destination_flow_configs"] = destination_flow_configs
         __props__.__dict__["flow_status"] = flow_status
         __props__.__dict__["kms_arn"] = kms_arn
+        __props__.__dict__["metadata_catalog_config"] = metadata_catalog_config
         __props__.__dict__["name"] = name
         __props__.__dict__["source_flow_config"] = source_flow_config
         __props__.__dict__["tags"] = tags
@@ -720,6 +759,14 @@ class Flow(pulumi.CustomResource):
         ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
+
+    @property
+    @pulumi.getter(name="metadataCatalogConfig")
+    def metadata_catalog_config(self) -> pulumi.Output['outputs.FlowMetadataCatalogConfig']:
+        """
+        A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+        """
+        return pulumi.get(self, "metadata_catalog_config")
 
     @property
     @pulumi.getter

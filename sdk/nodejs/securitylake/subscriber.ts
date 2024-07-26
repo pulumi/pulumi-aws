@@ -72,6 +72,9 @@ export class Subscriber extends pulumi.CustomResource {
         return obj['__pulumiType'] === Subscriber.__pulumiType;
     }
 
+    /**
+     * The Amazon S3 or Lake Formation access type.
+     */
     public readonly accessType!: pulumi.Output<string>;
     /**
      * ARN of the Data Lake.
@@ -94,7 +97,7 @@ export class Subscriber extends pulumi.CustomResource {
      */
     public /*out*/ readonly s3BucketArn!: pulumi.Output<string>;
     /**
-     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */
     public readonly source!: pulumi.Output<outputs.securitylake.SubscriberSource | undefined>;
     /**
@@ -106,7 +109,7 @@ export class Subscriber extends pulumi.CustomResource {
      */
     public /*out*/ readonly subscriberEndpoint!: pulumi.Output<string>;
     /**
-     * The AWS identity used to access your data.
+     * The AWS identity used to access your data. See `subscriberIdentity` Block below.
      */
     public readonly subscriberIdentity!: pulumi.Output<outputs.securitylake.SubscriberSubscriberIdentity | undefined>;
     /**
@@ -184,6 +187,9 @@ export class Subscriber extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Subscriber resources.
  */
 export interface SubscriberState {
+    /**
+     * The Amazon S3 or Lake Formation access type.
+     */
     accessType?: pulumi.Input<string>;
     /**
      * ARN of the Data Lake.
@@ -206,7 +212,7 @@ export interface SubscriberState {
      */
     s3BucketArn?: pulumi.Input<string>;
     /**
-     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */
     source?: pulumi.Input<inputs.securitylake.SubscriberSource>;
     /**
@@ -218,7 +224,7 @@ export interface SubscriberState {
      */
     subscriberEndpoint?: pulumi.Input<string>;
     /**
-     * The AWS identity used to access your data.
+     * The AWS identity used to access your data. See `subscriberIdentity` Block below.
      */
     subscriberIdentity?: pulumi.Input<inputs.securitylake.SubscriberSubscriberIdentity>;
     /**
@@ -246,9 +252,12 @@ export interface SubscriberState {
  * The set of arguments for constructing a Subscriber resource.
  */
 export interface SubscriberArgs {
+    /**
+     * The Amazon S3 or Lake Formation access type.
+     */
     accessType?: pulumi.Input<string>;
     /**
-     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */
     source?: pulumi.Input<inputs.securitylake.SubscriberSource>;
     /**
@@ -256,7 +265,7 @@ export interface SubscriberArgs {
      */
     subscriberDescription?: pulumi.Input<string>;
     /**
-     * The AWS identity used to access your data.
+     * The AWS identity used to access your data. See `subscriberIdentity` Block below.
      */
     subscriberIdentity?: pulumi.Input<inputs.securitylake.SubscriberSubscriberIdentity>;
     /**

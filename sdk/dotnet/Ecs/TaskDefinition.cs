@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> TaskRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether should track latest task definition or the one created with the resource. Default is `false`.
+        /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         /// </summary>
         [Output("trackLatest")]
         public Output<bool?> TrackLatest { get; private set; } = null!;
@@ -674,7 +674,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? TaskRoleArn { get; set; }
 
         /// <summary>
-        /// Whether should track latest task definition or the one created with the resource. Default is `false`.
+        /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         /// </summary>
         [Input("trackLatest")]
         public Input<bool>? TrackLatest { get; set; }
@@ -859,7 +859,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? TaskRoleArn { get; set; }
 
         /// <summary>
-        /// Whether should track latest task definition or the one created with the resource. Default is `false`.
+        /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         /// </summary>
         [Input("trackLatest")]
         public Input<bool>? TrackLatest { get; set; }

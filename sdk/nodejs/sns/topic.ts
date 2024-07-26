@@ -149,7 +149,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
      */
     public readonly fifoTopic!: pulumi.Output<boolean | undefined>;
     /**
@@ -363,7 +363,7 @@ export interface TopicState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
      */
     fifoTopic?: pulumi.Input<boolean>;
     /**
@@ -487,7 +487,7 @@ export interface TopicArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
      */
     fifoTopic?: pulumi.Input<boolean>;
     /**

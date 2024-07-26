@@ -77,6 +77,18 @@ namespace Pulumi.Aws.Cur
         [Input("reportName", required: true)]
         public string ReportName { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs assigned to the resource.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetReportDefinitionArgs()
         {
         }
@@ -90,6 +102,18 @@ namespace Pulumi.Aws.Cur
         /// </summary>
         [Input("reportName", required: true)]
         public Input<string> ReportName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetReportDefinitionInvokeArgs()
         {
@@ -143,6 +167,10 @@ namespace Pulumi.Aws.Cur
         /// </summary>
         public readonly string S3Region;
         /// <summary>
+        /// Map of key-value pairs assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// Frequency on which report data are measured and displayed.
         /// </summary>
         public readonly string TimeUnit;
@@ -171,6 +199,8 @@ namespace Pulumi.Aws.Cur
 
             string s3Region,
 
+            ImmutableDictionary<string, string> tags,
+
             string timeUnit)
         {
             AdditionalArtifacts = additionalArtifacts;
@@ -184,6 +214,7 @@ namespace Pulumi.Aws.Cur
             S3Bucket = s3Bucket;
             S3Prefix = s3Prefix;
             S3Region = s3Region;
+            Tags = tags;
             TimeUnit = timeUnit;
         }
     }

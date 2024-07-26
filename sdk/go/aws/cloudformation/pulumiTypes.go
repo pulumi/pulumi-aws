@@ -520,6 +520,8 @@ func (o StackSetInstanceDeploymentTargetsPtrOutput) OrganizationalUnitIds() pulu
 }
 
 type StackSetInstanceOperationPreferences struct {
+	// Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+	ConcurrencyMode *string `pulumi:"concurrencyMode"`
 	// Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
 	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
 	// Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
@@ -546,6 +548,8 @@ type StackSetInstanceOperationPreferencesInput interface {
 }
 
 type StackSetInstanceOperationPreferencesArgs struct {
+	// Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+	ConcurrencyMode pulumi.StringPtrInput `pulumi:"concurrencyMode"`
 	// Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
 	FailureToleranceCount pulumi.IntPtrInput `pulumi:"failureToleranceCount"`
 	// Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
@@ -637,6 +641,11 @@ func (o StackSetInstanceOperationPreferencesOutput) ToStackSetInstanceOperationP
 	}).(StackSetInstanceOperationPreferencesPtrOutput)
 }
 
+// Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+func (o StackSetInstanceOperationPreferencesOutput) ConcurrencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *string { return v.ConcurrencyMode }).(pulumi.StringPtrOutput)
+}
+
 // Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
 func (o StackSetInstanceOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
@@ -689,6 +698,16 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) Elem() StackSetInstanceOp
 		var ret StackSetInstanceOperationPreferences
 		return ret
 	}).(StackSetInstanceOperationPreferencesOutput)
+}
+
+// Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+func (o StackSetInstanceOperationPreferencesPtrOutput) ConcurrencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConcurrencyMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.

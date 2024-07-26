@@ -21,11 +21,11 @@ import javax.annotation.Nullable;
 /**
  * Provides a Glue Classifier resource.
  * 
- * &gt; **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
+ * &gt; **NOTE:** It is only valid to create one type of classifier (CSV, grok, JSON, or XML). Changing classifier types will recreate the classifier.
  * 
  * ## Example Usage
  * 
- * ### Csv Classifier
+ * ### CSV Classifier
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -202,14 +202,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/classifier:Classifier")
 public class Classifier extends com.pulumi.resources.CustomResource {
     /**
-     * A classifier for Csv content. Defined below.
+     * A classifier for CSV content. Defined below.
      * 
      */
     @Export(name="csvClassifier", refs={ClassifierCsvClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierCsvClassifier> csvClassifier;
 
     /**
-     * @return A classifier for Csv content. Defined below.
+     * @return A classifier for CSV content. Defined below.
      * 
      */
     public Output<Optional<ClassifierCsvClassifier>> csvClassifier() {

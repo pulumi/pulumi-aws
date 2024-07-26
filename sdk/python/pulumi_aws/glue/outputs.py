@@ -1126,10 +1126,11 @@ class ClassifierCsvClassifier(dict):
         :param str contains_header: Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
         :param bool custom_datatype_configured: Enables the custom datatype to be configured.
         :param Sequence[str] custom_datatypes: A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
-        :param str delimiter: The delimiter used in the Csv to separate columns.
+        :param str delimiter: The delimiter used in the CSV to separate columns.
         :param bool disable_value_trimming: Specifies whether to trim column values.
         :param Sequence[str] headers: A list of strings representing column names.
         :param str quote_symbol: A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        :param str serde: The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
         """
         if allow_single_column is not None:
             pulumi.set(__self__, "allow_single_column", allow_single_column)
@@ -1186,7 +1187,7 @@ class ClassifierCsvClassifier(dict):
     @pulumi.getter
     def delimiter(self) -> Optional[str]:
         """
-        The delimiter used in the Csv to separate columns.
+        The delimiter used in the CSV to separate columns.
         """
         return pulumi.get(self, "delimiter")
 
@@ -1217,6 +1218,9 @@ class ClassifierCsvClassifier(dict):
     @property
     @pulumi.getter
     def serde(self) -> Optional[str]:
+        """
+        The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+        """
         return pulumi.get(self, "serde")
 
 

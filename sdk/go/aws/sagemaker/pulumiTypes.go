@@ -22560,7 +22560,8 @@ type SpaceSpaceSettings struct {
 	JupyterServerAppSettings *SpaceSpaceSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings *SpaceSpaceSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	SpaceStorageSettings     *SpaceSpaceSettingsSpaceStorageSettings     `pulumi:"spaceStorageSettings"`
+	// The storage settings. See `spaceStorageSettings` Block below.
+	SpaceStorageSettings *SpaceSpaceSettingsSpaceStorageSettings `pulumi:"spaceStorageSettings"`
 }
 
 // SpaceSpaceSettingsInput is an input type that accepts SpaceSpaceSettingsArgs and SpaceSpaceSettingsOutput values.
@@ -22587,7 +22588,8 @@ type SpaceSpaceSettingsArgs struct {
 	JupyterServerAppSettings SpaceSpaceSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings SpaceSpaceSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	SpaceStorageSettings     SpaceSpaceSettingsSpaceStorageSettingsPtrInput     `pulumi:"spaceStorageSettings"`
+	// The storage settings. See `spaceStorageSettings` Block below.
+	SpaceStorageSettings SpaceSpaceSettingsSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 }
 
 func (SpaceSpaceSettingsArgs) ElementType() reflect.Type {
@@ -22701,6 +22703,7 @@ func (o SpaceSpaceSettingsOutput) KernelGatewayAppSettings() SpaceSpaceSettingsK
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The storage settings. See `spaceStorageSettings` Block below.
 func (o SpaceSpaceSettingsOutput) SpaceStorageSettings() SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsSpaceStorageSettings { return v.SpaceStorageSettings }).(SpaceSpaceSettingsSpaceStorageSettingsPtrOutput)
 }
@@ -22789,6 +22792,7 @@ func (o SpaceSpaceSettingsPtrOutput) KernelGatewayAppSettings() SpaceSpaceSettin
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The storage settings. See `spaceStorageSettings` Block below.
 func (o SpaceSpaceSettingsPtrOutput) SpaceStorageSettings() SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsSpaceStorageSettings {
 		if v == nil {
@@ -24796,6 +24800,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 }
 
 type SpaceSpaceSettingsSpaceStorageSettings struct {
+	// A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
 	EbsStorageSettings SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings `pulumi:"ebsStorageSettings"`
 }
 
@@ -24811,6 +24816,7 @@ type SpaceSpaceSettingsSpaceStorageSettingsInput interface {
 }
 
 type SpaceSpaceSettingsSpaceStorageSettingsArgs struct {
+	// A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
 	EbsStorageSettings SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsInput `pulumi:"ebsStorageSettings"`
 }
 
@@ -24891,6 +24897,7 @@ func (o SpaceSpaceSettingsSpaceStorageSettingsOutput) ToSpaceSpaceSettingsSpaceS
 	}).(SpaceSpaceSettingsSpaceStorageSettingsPtrOutput)
 }
 
+// A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
 func (o SpaceSpaceSettingsSpaceStorageSettingsOutput) EbsStorageSettings() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsSpaceStorageSettings) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
 		return v.EbsStorageSettings
@@ -24921,6 +24928,7 @@ func (o SpaceSpaceSettingsSpaceStorageSettingsPtrOutput) Elem() SpaceSpaceSettin
 	}).(SpaceSpaceSettingsSpaceStorageSettingsOutput)
 }
 
+// A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
 func (o SpaceSpaceSettingsSpaceStorageSettingsPtrOutput) EbsStorageSettings() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsSpaceStorageSettings) *SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
 		if v == nil {
@@ -24931,6 +24939,7 @@ func (o SpaceSpaceSettingsSpaceStorageSettingsPtrOutput) EbsStorageSettings() Sp
 }
 
 type SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings struct {
+	// The size of an EBS storage volume for a space.
 	EbsVolumeSizeInGb int `pulumi:"ebsVolumeSizeInGb"`
 }
 
@@ -24946,6 +24955,7 @@ type SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsInput interface {
 }
 
 type SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs struct {
+	// The size of an EBS storage volume for a space.
 	EbsVolumeSizeInGb pulumi.IntInput `pulumi:"ebsVolumeSizeInGb"`
 }
 
@@ -25026,6 +25036,7 @@ func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput) ToSpaceS
 	}).(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput)
 }
 
+// The size of an EBS storage volume for a space.
 func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput) EbsVolumeSizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings) int { return v.EbsVolumeSizeInGb }).(pulumi.IntOutput)
 }
@@ -25054,6 +25065,7 @@ func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput) Elem(
 	}).(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput)
 }
 
+// The size of an EBS storage volume for a space.
 func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput) EbsVolumeSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings) *int {
 		if v == nil {

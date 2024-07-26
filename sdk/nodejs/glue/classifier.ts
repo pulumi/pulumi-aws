@@ -10,11 +10,11 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue Classifier resource.
  *
- * > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
+ * > **NOTE:** It is only valid to create one type of classifier (CSV, grok, JSON, or XML). Changing classifier types will recreate the classifier.
  *
  * ## Example Usage
  *
- * ### Csv Classifier
+ * ### CSV Classifier
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -117,7 +117,7 @@ export class Classifier extends pulumi.CustomResource {
     }
 
     /**
-     * A classifier for Csv content. Defined below.
+     * A classifier for CSV content. Defined below.
      */
     public readonly csvClassifier!: pulumi.Output<outputs.glue.ClassifierCsvClassifier | undefined>;
     /**
@@ -173,7 +173,7 @@ export class Classifier extends pulumi.CustomResource {
  */
 export interface ClassifierState {
     /**
-     * A classifier for Csv content. Defined below.
+     * A classifier for CSV content. Defined below.
      */
     csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
     /**
@@ -199,7 +199,7 @@ export interface ClassifierState {
  */
 export interface ClassifierArgs {
     /**
-     * A classifier for Csv content. Defined below.
+     * A classifier for CSV content. Defined below.
      */
     csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
     /**

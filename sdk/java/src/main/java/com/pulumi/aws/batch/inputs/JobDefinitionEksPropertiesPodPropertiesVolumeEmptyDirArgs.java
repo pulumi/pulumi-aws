@@ -17,14 +17,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs ext
     public static final JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs Empty = new JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs();
 
     /**
-     * The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+     * Medium to store the volume. The default value is an empty string, which uses the storage of the node.
      * 
      */
     @Import(name="medium")
     private @Nullable Output<String> medium;
 
     /**
-     * @return The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+     * @return Medium to store the volume. The default value is an empty string, which uses the storage of the node.
      * 
      */
     public Optional<Output<String>> medium() {
@@ -32,14 +32,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs ext
     }
 
     /**
-     * The maximum size of the volume. By default, there&#39;s no maximum size defined.
+     * Maximum size of the volume. By default, there&#39;s no maximum size defined.
      * 
      */
     @Import(name="sizeLimit", required=true)
     private Output<String> sizeLimit;
 
     /**
-     * @return The maximum size of the volume. By default, there&#39;s no maximum size defined.
+     * @return Maximum size of the volume. By default, there&#39;s no maximum size defined.
      * 
      */
     public Output<String> sizeLimit() {
@@ -72,7 +72,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs ext
         }
 
         /**
-         * @param medium The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+         * @param medium Medium to store the volume. The default value is an empty string, which uses the storage of the node.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs ext
         }
 
         /**
-         * @param medium The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+         * @param medium Medium to store the volume. The default value is an empty string, which uses the storage of the node.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs ext
         }
 
         /**
-         * @param sizeLimit The maximum size of the volume. By default, there&#39;s no maximum size defined.
+         * @param sizeLimit Maximum size of the volume. By default, there&#39;s no maximum size defined.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs ext
         }
 
         /**
-         * @param sizeLimit The maximum size of the volume. By default, there&#39;s no maximum size defined.
+         * @param sizeLimit Maximum size of the volume. By default, there&#39;s no maximum size defined.
          * 
          * @return builder
          * 

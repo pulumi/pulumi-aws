@@ -13,6 +13,12 @@ namespace Pulumi.Aws.CloudFormation.Inputs
     public sealed class StackSetInstanceOperationPreferencesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+        /// </summary>
+        [Input("concurrencyMode")]
+        public Input<string>? ConcurrencyMode { get; set; }
+
+        /// <summary>
         /// Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
         /// </summary>
         [Input("failureToleranceCount")]

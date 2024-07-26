@@ -381,7 +381,7 @@ type Cluster struct {
 	// Days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntOutput `pulumi:"backupRetentionPeriod"`
 	// The CA certificate identifier to use for the DB cluster's server certificate.
-	CaCertificateIdentifier pulumi.StringPtrOutput `pulumi:"caCertificateIdentifier"`
+	CaCertificateIdentifier pulumi.StringOutput `pulumi:"caCertificateIdentifier"`
 	// Expiration date of the DB instance’s server certificate
 	CaCertificateValidTill pulumi.StringOutput `pulumi:"caCertificateValidTill"`
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
@@ -1185,8 +1185,8 @@ func (o ClusterOutput) BackupRetentionPeriod() pulumi.IntOutput {
 }
 
 // The CA certificate identifier to use for the DB cluster's server certificate.
-func (o ClusterOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
+func (o ClusterOutput) CaCertificateIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CaCertificateIdentifier }).(pulumi.StringOutput)
 }
 
 // Expiration date of the DB instance’s server certificate

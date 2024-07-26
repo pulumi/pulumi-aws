@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
+    /**
+     * @return The size of an EBS storage volume for a space.
+     * 
+     */
     private Integer ebsVolumeSizeInGb;
 
     private SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings() {}
+    /**
+     * @return The size of an EBS storage volume for a space.
+     * 
+     */
     public Integer ebsVolumeSizeInGb() {
         return this.ebsVolumeSizeInGb;
     }

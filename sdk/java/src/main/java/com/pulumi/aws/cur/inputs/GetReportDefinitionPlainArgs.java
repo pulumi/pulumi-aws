@@ -6,7 +6,10 @@ package com.pulumi.aws.cur.inputs;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetReportDefinitionPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +31,26 @@ public final class GetReportDefinitionPlainArgs extends com.pulumi.resources.Inv
         return this.reportName;
     }
 
+    /**
+     * Map of key-value pairs assigned to the resource.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    /**
+     * @return Map of key-value pairs assigned to the resource.
+     * 
+     */
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetReportDefinitionPlainArgs() {}
 
     private GetReportDefinitionPlainArgs(GetReportDefinitionPlainArgs $) {
         this.reportName = $.reportName;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -60,6 +79,17 @@ public final class GetReportDefinitionPlainArgs extends com.pulumi.resources.Inv
          */
         public Builder reportName(String reportName) {
             $.reportName = reportName;
+            return this;
+        }
+
+        /**
+         * @param tags Map of key-value pairs assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

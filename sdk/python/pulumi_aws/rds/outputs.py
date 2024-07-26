@@ -352,6 +352,8 @@ class ClusterScalingConfiguration(dict):
             suggest = "max_capacity"
         elif key == "minCapacity":
             suggest = "min_capacity"
+        elif key == "secondsBeforeTimeout":
+            suggest = "seconds_before_timeout"
         elif key == "secondsUntilAutoPause":
             suggest = "seconds_until_auto_pause"
         elif key == "timeoutAction":
@@ -372,12 +374,14 @@ class ClusterScalingConfiguration(dict):
                  auto_pause: Optional[bool] = None,
                  max_capacity: Optional[int] = None,
                  min_capacity: Optional[int] = None,
+                 seconds_before_timeout: Optional[int] = None,
                  seconds_until_auto_pause: Optional[int] = None,
                  timeout_action: Optional[str] = None):
         """
         :param bool auto_pause: Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
         :param int max_capacity: Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
         :param int min_capacity: Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        :param int seconds_before_timeout: Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
         :param int seconds_until_auto_pause: Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
         :param str timeout_action: Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v1.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
         """
@@ -387,6 +391,8 @@ class ClusterScalingConfiguration(dict):
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
             pulumi.set(__self__, "min_capacity", min_capacity)
+        if seconds_before_timeout is not None:
+            pulumi.set(__self__, "seconds_before_timeout", seconds_before_timeout)
         if seconds_until_auto_pause is not None:
             pulumi.set(__self__, "seconds_until_auto_pause", seconds_until_auto_pause)
         if timeout_action is not None:
@@ -415,6 +421,14 @@ class ClusterScalingConfiguration(dict):
         Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
         """
         return pulumi.get(self, "min_capacity")
+
+    @property
+    @pulumi.getter(name="secondsBeforeTimeout")
+    def seconds_before_timeout(self) -> Optional[int]:
+        """
+        Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+        """
+        return pulumi.get(self, "seconds_before_timeout")
 
     @property
     @pulumi.getter(name="secondsUntilAutoPause")

@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class JobDefinitionRetryStrategyEvaluateOnExitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+        /// Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// A glob pattern to match against the decimal representation of the exit code returned for a job.
+        /// Glob pattern to match against the decimal representation of the exit code returned for a job.
         /// </summary>
         [Input("onExitCode")]
         public Input<string>? OnExitCode { get; set; }
 
         /// <summary>
-        /// A glob pattern to match against the reason returned for a job.
+        /// Glob pattern to match against the reason returned for a job.
         /// </summary>
         [Input("onReason")]
         public Input<string>? OnReason { get; set; }
 
         /// <summary>
-        /// A glob pattern to match against the status reason returned for a job.
+        /// Glob pattern to match against the status reason returned for a job.
         /// </summary>
         [Input("onStatusReason")]
         public Input<string>? OnStatusReason { get; set; }

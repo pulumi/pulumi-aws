@@ -758,14 +758,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.taskRoleArn);
     }
     /**
-     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     * Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      * 
      */
     @Export(name="trackLatest", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> trackLatest;
 
     /**
-     * @return Whether should track latest task definition or the one created with the resource. Default is `false`.
+     * @return Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      * 
      */
     public Output<Optional<Boolean>> trackLatest() {

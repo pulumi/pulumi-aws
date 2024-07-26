@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProtectionGroup{}
 	case "aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation":
 		r = &ProtectionHealthCheckAssociation{}
+	case "aws:shield/subscription:Subscription":
+		r = &Subscription{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"shield/protectionHealthCheckAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"shield/subscription",
 		&module{version},
 	)
 }

@@ -95,6 +95,10 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
     public /*out*/ readonly port!: pulumi.Output<number>;
+    /**
+     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     */
+    public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly snapshotType!: pulumi.Output<string>;
     public /*out*/ readonly sourceDbClusterSnapshotArn!: pulumi.Output<string>;
     /**
@@ -143,6 +147,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
             resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
             resourceInputs["sourceDbClusterSnapshotArn"] = state ? state.sourceDbClusterSnapshotArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -160,6 +165,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             }
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             resourceInputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
+            resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
@@ -225,6 +231,10 @@ export interface ClusterSnapshotState {
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
     port?: pulumi.Input<number>;
+    /**
+     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     */
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     snapshotType?: pulumi.Input<string>;
     sourceDbClusterSnapshotArn?: pulumi.Input<string>;
     /**
@@ -263,6 +273,10 @@ export interface ClusterSnapshotArgs {
      * The Identifier for the snapshot.
      */
     dbClusterSnapshotIdentifier: pulumi.Input<string>;
+    /**
+     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     */
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

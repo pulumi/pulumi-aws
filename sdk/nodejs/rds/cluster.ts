@@ -284,7 +284,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The CA certificate identifier to use for the DB cluster's server certificate.
      */
-    public readonly caCertificateIdentifier!: pulumi.Output<string | undefined>;
+    public readonly caCertificateIdentifier!: pulumi.Output<string>;
     /**
      * Expiration date of the DB instance’s server certificate
      */

@@ -12,11 +12,11 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Classifier resource.
     /// 
-    /// &gt; **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
+    /// &gt; **NOTE:** It is only valid to create one type of classifier (CSV, grok, JSON, or XML). Changing classifier types will recreate the classifier.
     /// 
     /// ## Example Usage
     /// 
-    /// ### Csv Classifier
+    /// ### CSV Classifier
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Glue
     public partial class Classifier : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A classifier for Csv content. Defined below.
+        /// A classifier for CSV content. Defined below.
         /// </summary>
         [Output("csvClassifier")]
         public Output<Outputs.ClassifierCsvClassifier?> CsvClassifier { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Glue
     public sealed class ClassifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A classifier for Csv content. Defined below.
+        /// A classifier for CSV content. Defined below.
         /// </summary>
         [Input("csvClassifier")]
         public Input<Inputs.ClassifierCsvClassifierArgs>? CsvClassifier { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Glue
     public sealed class ClassifierState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A classifier for Csv content. Defined below.
+        /// A classifier for CSV content. Defined below.
         /// </summary>
         [Input("csvClassifier")]
         public Input<Inputs.ClassifierCsvClassifierGetArgs>? CsvClassifier { get; set; }

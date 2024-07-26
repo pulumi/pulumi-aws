@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection("example", ConnectionArgs.builder()
+ *             .name("example")
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase"),
  *                 Map.entry("PASSWORD", "examplepassword"),
  *                 Map.entry("USERNAME", "exampleusername")
  *             ))
- *             .name("example")
  *             .build());
  * 
  *     }
@@ -94,11 +94,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *             .name("example")
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase"),
  *                 Map.entry("SECRET_ID", example.applyValue(getSecretResult -> getSecretResult.name()))
  *             ))
- *             .name("example")
  *             .build());
  * 
  *     }
@@ -136,12 +136,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection("example", ConnectionArgs.builder()
+ *             .name("example")
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("JDBC_CONNECTION_URL", String.format("jdbc:mysql://%s/exampledatabase", exampleAwsRdsCluster.endpoint())),
  *                 Map.entry("PASSWORD", "examplepassword"),
  *                 Map.entry("USERNAME", "exampleusername")
  *             ))
- *             .name("example")
  *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
  *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
  *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
@@ -188,7 +188,8 @@ import javax.annotation.Nullable;
  *             .name("example-secret")
  *             .build());
  * 
- *         var exampleConnector = new Connection("exampleConnector", ConnectionArgs.builder()
+ *         var example1 = new Connection("example1", ConnectionArgs.builder()
+ *             .name("example1")
  *             .connectionType("CUSTOM")
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver"),
@@ -196,12 +197,12 @@ import javax.annotation.Nullable;
  *                 Map.entry("CONNECTOR_URL", "s3://example/snowflake-jdbc.jar"),
  *                 Map.entry("JDBC_CONNECTION_URL", "[[\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\"],\",\"]")
  *             ))
- *             .name("example_connector")
  *             .matchCriterias("template-connection")
  *             .build());
  * 
  *         // Reference the connector using match_criteria with the connector created above.
- *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *         var example2 = new Connection("example2", ConnectionArgs.builder()
+ *             .name("example2")
  *             .connectionType("CUSTOM")
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver"),
@@ -210,10 +211,333 @@ import javax.annotation.Nullable;
  *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:snowflake://example.com/?user=${user}&password=${password}"),
  *                 Map.entry("SECRET_ID", example.applyValue(getSecretResult -> getSecretResult.name()))
  *             ))
- *             .name("example")
  *             .matchCriterias(            
  *                 "Connection",
- *                 exampleConnector.name())
+ *                 example1.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Azure Cosmos Connection
+ * 
+ * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azurecosmos).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
+ * import com.pulumi.aws.secretsmanager.SecretVersion;
+ * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.aws.glue.Connection;
+ * import com.pulumi.aws.glue.ConnectionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Secret("example", SecretArgs.builder()
+ *             .name("example-secret")
+ *             .build());
+ * 
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
+ *             .secretId(example.id())
+ *             .secretString(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("username", "exampleusername"),
+ *                     jsonProperty("password", "examplepassword")
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *             .name("example")
+ *             .connectionType("AZURECOSMOS")
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("secretId", name),
+ *                     jsonProperty("spark.cosmos.accountEndpoint", "https://exampledbaccount.documents.azure.com:443/")
+ *                 )))))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Azure SQL Connection
+ * 
+ * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azuresql).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
+ * import com.pulumi.aws.secretsmanager.SecretVersion;
+ * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.aws.glue.Connection;
+ * import com.pulumi.aws.glue.ConnectionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Secret("example", SecretArgs.builder()
+ *             .name("example-secret")
+ *             .build());
+ * 
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
+ *             .secretId(example.id())
+ *             .secretString(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("username", "exampleusername"),
+ *                     jsonProperty("password", "examplepassword")
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *             .name("example")
+ *             .connectionType("AZURECOSMOS")
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("secretId", name),
+ *                     jsonProperty("url", "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase")
+ *                 )))))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Google BigQuery Connection
+ * 
+ * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-bigquery).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
+ * import com.pulumi.aws.secretsmanager.SecretVersion;
+ * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.aws.glue.Connection;
+ * import com.pulumi.aws.glue.ConnectionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Secret("example", SecretArgs.builder()
+ *             .name("example-secret")
+ *             .build());
+ * 
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
+ *             .secretId(example.id())
+ *             .secretString(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("credentials", StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                         .input("""
+ * {
+ *   "type": "service_account",
+ *   "project_id": "example-project",
+ *   "private_key_id": "example-key",
+ *   "private_key": "-----BEGIN RSA PRIVATE KEY-----\nREDACTED\n-----END RSA PRIVATE KEY-----",
+ *   "client_email": "example-project{@literal @}appspot.gserviceaccount.com",
+ *   "client_id": example-client",
+ *   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+ *   "token_uri": "https://oauth2.googleapis.com/token",
+ *   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+ *   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
+ *   "universe_domain": "googleapis.com"
+ * }
+ *                         """)
+ *                         .build()).result())
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *             .name("example")
+ *             .connectionType("BIGQUERY")
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("secretId", name)
+ *                 )))))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### OpenSearch Service Connection
+ * 
+ * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-opensearch).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
+ * import com.pulumi.aws.secretsmanager.SecretVersion;
+ * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.aws.glue.Connection;
+ * import com.pulumi.aws.glue.ConnectionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Secret("example", SecretArgs.builder()
+ *             .name("example-secret")
+ *             .build());
+ * 
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
+ *             .secretId(example.id())
+ *             .secretString(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("opensearch.net.http.auth.user", "exampleusername"),
+ *                     jsonProperty("opensearch.net.http.auth.pass", "examplepassword")
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *             .name("example")
+ *             .connectionType("OPENSEARCH")
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("secretId", name),
+ *                     jsonProperty("opensearch.nodes", "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com"),
+ *                     jsonProperty("opensearch.port", "443"),
+ *                     jsonProperty("opensearch.aws.sigv4.region", "us-east-1"),
+ *                     jsonProperty("opensearch.nodes.wan.only", "true"),
+ *                     jsonProperty("opensearch.aws.sigv4.enabled", "true")
+ *                 )))))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Snowflake Connection
+ * 
+ * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-snowflake).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
+ * import com.pulumi.aws.secretsmanager.SecretVersion;
+ * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.aws.glue.Connection;
+ * import com.pulumi.aws.glue.ConnectionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Secret("example", SecretArgs.builder()
+ *             .name("example-secret")
+ *             .build());
+ * 
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
+ *             .secretId(example.id())
+ *             .secretString(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("sfUser", "exampleusername"),
+ *                     jsonProperty("sfPassword", "examplepassword")
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *             .name("example")
+ *             .connectionType("SNOWFLAKE")
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("secretId", name),
+ *                     jsonProperty("sfRole", "EXAMPLEETLROLE"),
+ *                     jsonProperty("sfUrl", "exampleorg-exampleconnection.snowflakecomputing.com")
+ *                 )))))
  *             .build());
  * 
  *     }
@@ -234,56 +558,60 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/connection:Connection")
 public class Connection extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Glue Connection.
+     * ARN of the Glue Connection.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Glue Connection.
+     * @return ARN of the Glue Connection.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+     * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
-     * @return The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+     * @return ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
     public Output<String> catalogId() {
         return this.catalogId;
     }
     /**
-     * A map of key-value pairs used as parameters for this connection.
+     * Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+     * 
+     * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
     @Export(name="connectionProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> connectionProperties;
 
     /**
-     * @return A map of key-value pairs used as parameters for this connection.
+     * @return Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+     * 
+     * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
     public Output<Optional<Map<String,String>>> connectionProperties() {
         return Codegen.optional(this.connectionProperties);
     }
     /**
-     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     @Export(name="connectionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionType;
 
     /**
-     * @return The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     public Output<Optional<String>> connectionType() {
@@ -304,42 +632,46 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A list of criteria that can be used in selecting this connection.
+     * List of criteria that can be used in selecting this connection.
      * 
      */
     @Export(name="matchCriterias", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> matchCriterias;
 
     /**
-     * @return A list of criteria that can be used in selecting this connection.
+     * @return List of criteria that can be used in selecting this connection.
      * 
      */
     public Output<Optional<List<String>>> matchCriterias() {
         return Codegen.optional(this.matchCriterias);
     }
     /**
-     * The name of the connection.
+     * Name of the connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the connection.
+     * @return Name of the connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+     * Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
      * 
      */
     @Export(name="physicalConnectionRequirements", refs={ConnectionPhysicalConnectionRequirements.class}, tree="[0]")
     private Output</* @Nullable */ ConnectionPhysicalConnectionRequirements> physicalConnectionRequirements;
 
     /**
-     * @return A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
      * 
      */
     public Output<Optional<ConnectionPhysicalConnectionRequirements>> physicalConnectionRequirements() {

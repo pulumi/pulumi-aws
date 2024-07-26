@@ -33,14 +33,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs extends com
     }
 
     /**
-     * Specifies the name of the job definition.
+     * Name of the job definition.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the job definition.
+     * @return Name of the job definition.
      * 
      */
     public Optional<Output<String>> name() {
@@ -100,7 +100,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs extends com
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs extends com
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 

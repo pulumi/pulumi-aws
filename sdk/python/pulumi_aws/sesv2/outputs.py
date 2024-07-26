@@ -22,6 +22,7 @@ __all__ = [
     'ConfigurationSetEventDestinationEventDestination',
     'ConfigurationSetEventDestinationEventDestinationCloudWatchDestination',
     'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration',
+    'ConfigurationSetEventDestinationEventDestinationEventBridgeDestination',
     'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination',
     'ConfigurationSetEventDestinationEventDestinationPinpointDestination',
     'ConfigurationSetEventDestinationEventDestinationSnsDestination',
@@ -177,6 +178,8 @@ class ConfigurationSetEventDestinationEventDestination(dict):
             suggest = "matching_event_types"
         elif key == "cloudWatchDestination":
             suggest = "cloud_watch_destination"
+        elif key == "eventBridgeDestination":
+            suggest = "event_bridge_destination"
         elif key == "kinesisFirehoseDestination":
             suggest = "kinesis_firehose_destination"
         elif key == "pinpointDestination":
@@ -199,24 +202,25 @@ class ConfigurationSetEventDestinationEventDestination(dict):
                  matching_event_types: Sequence[str],
                  cloud_watch_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination'] = None,
                  enabled: Optional[bool] = None,
+                 event_bridge_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination'] = None,
                  kinesis_firehose_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination'] = None,
                  pinpoint_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination'] = None,
                  sns_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination'] = None):
         """
         :param Sequence[str] matching_event_types: An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-               
-               The following arguments are optional:
-        :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs' cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs' cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
         :param bool enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-        :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
-        :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs' pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
-        :param 'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs' sns_destination: An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
+        :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs' pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+        :param 'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs' sns_destination: An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
         """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
             pulumi.set(__self__, "cloud_watch_destination", cloud_watch_destination)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if event_bridge_destination is not None:
+            pulumi.set(__self__, "event_bridge_destination", event_bridge_destination)
         if kinesis_firehose_destination is not None:
             pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
         if pinpoint_destination is not None:
@@ -229,8 +233,6 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     def matching_event_types(self) -> Sequence[str]:
         """
         An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "matching_event_types")
 
@@ -238,7 +240,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="cloudWatchDestination")
     def cloud_watch_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination']:
         """
-        An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
         """
         return pulumi.get(self, "cloud_watch_destination")
 
@@ -251,10 +253,15 @@ class ConfigurationSetEventDestinationEventDestination(dict):
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter(name="eventBridgeDestination")
+    def event_bridge_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination']:
+        return pulumi.get(self, "event_bridge_destination")
+
+    @property
     @pulumi.getter(name="kinesisFirehoseDestination")
     def kinesis_firehose_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination']:
         """
-        An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+        An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
         """
         return pulumi.get(self, "kinesis_firehose_destination")
 
@@ -262,7 +269,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="pinpointDestination")
     def pinpoint_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination']:
         """
-        An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+        An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
         """
         return pulumi.get(self, "pinpoint_destination")
 
@@ -270,7 +277,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="snsDestination")
     def sns_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination']:
         """
-        An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
         """
         return pulumi.get(self, "sns_destination")
 
@@ -297,7 +304,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination(dict
     def __init__(__self__, *,
                  dimension_configurations: Sequence['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration']):
         """
-        :param Sequence['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs'] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+        :param Sequence['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs'] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
         """
         pulumi.set(__self__, "dimension_configurations", dimension_configurations)
 
@@ -305,7 +312,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination(dict
     @pulumi.getter(name="dimensionConfigurations")
     def dimension_configurations(self) -> Sequence['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration']:
         """
-        An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+        An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
         """
         return pulumi.get(self, "dimension_configurations")
 
@@ -369,6 +376,41 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
         The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
         """
         return pulumi.get(self, "dimension_value_source")
+
+
+@pulumi.output_type
+class ConfigurationSetEventDestinationEventDestinationEventBridgeDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventBusArn":
+            suggest = "event_bus_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationEventDestinationEventBridgeDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetEventDestinationEventDestinationEventBridgeDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetEventDestinationEventDestinationEventBridgeDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_bus_arn: str):
+        """
+        :param str event_bus_arn: The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+        """
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+        """
+        return pulumi.get(self, "event_bus_arn")
 
 
 @pulumi.output_type

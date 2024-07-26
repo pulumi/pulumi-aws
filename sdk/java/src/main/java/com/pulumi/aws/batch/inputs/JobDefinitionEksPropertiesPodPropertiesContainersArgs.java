@@ -22,14 +22,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
     public static final JobDefinitionEksPropertiesPodPropertiesContainersArgs Empty = new JobDefinitionEksPropertiesPodPropertiesContainersArgs();
 
     /**
-     * An array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
+     * Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
      * 
      */
     @Import(name="args")
     private @Nullable Output<List<String>> args;
 
     /**
-     * @return An array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
+     * @return Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
      * 
      */
     public Optional<Output<List<String>>> args() {
@@ -37,14 +37,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
     }
 
     /**
-     * The entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
+     * Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
      * 
      */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
     /**
-     * @return The entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
+     * @return Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
      * 
      */
     public Optional<Output<List<String>>> commands() {
@@ -52,14 +52,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
     }
 
     /**
-     * The environment variables to pass to a container. See EKS Environment below.
+     * Environment variables to pass to a container. See EKS Environment below.
      * 
      */
     @Import(name="envs")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs>> envs;
 
     /**
-     * @return The environment variables to pass to a container. See EKS Environment below.
+     * @return Environment variables to pass to a container. See EKS Environment below.
      * 
      */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs>>> envs() {
@@ -67,14 +67,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
     }
 
     /**
-     * The Docker image used to start the container.
+     * Docker image used to start the container.
      * 
      */
     @Import(name="image", required=true)
     private Output<String> image;
 
     /**
-     * @return The Docker image used to start the container.
+     * @return Docker image used to start the container.
      * 
      */
     public Output<String> image() {
@@ -82,14 +82,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
     }
 
     /**
-     * The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+     * Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
      * 
      */
     @Import(name="imagePullPolicy")
     private @Nullable Output<String> imagePullPolicy;
 
     /**
-     * @return The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+     * @return Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
      * 
      */
     public Optional<Output<String>> imagePullPolicy() {
@@ -97,14 +97,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
     }
 
     /**
-     * The name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
+     * Name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
+     * @return Name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -112,14 +112,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
     }
 
     /**
-     * The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+     * Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs> resources;
 
     /**
-     * @return The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+     * @return Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
      * 
      */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs>> resources() {
@@ -127,14 +127,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
     }
 
     /**
-     * The security context for a job.
+     * Security context for a job.
      * 
      */
     @Import(name="securityContext")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs> securityContext;
 
     /**
-     * @return The security context for a job.
+     * @return Security context for a job.
      * 
      */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs>> securityContext() {
@@ -142,14 +142,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
     }
 
     /**
-     * The volume mounts for the container.
+     * Volume mounts for the container.
      * 
      */
     @Import(name="volumeMounts")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs>> volumeMounts;
 
     /**
-     * @return The volume mounts for the container.
+     * @return Volume mounts for the container.
      * 
      */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs>>> volumeMounts() {
@@ -189,7 +189,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param args An array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
+         * @param args Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param args An array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
+         * @param args Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param args An array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
+         * @param args Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param commands The entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
+         * @param commands Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param commands The entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
+         * @param commands Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param commands The entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
+         * @param commands Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param envs The environment variables to pass to a container. See EKS Environment below.
+         * @param envs Environment variables to pass to a container. See EKS Environment below.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param envs The environment variables to pass to a container. See EKS Environment below.
+         * @param envs Environment variables to pass to a container. See EKS Environment below.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param envs The environment variables to pass to a container. See EKS Environment below.
+         * @param envs Environment variables to pass to a container. See EKS Environment below.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param image The Docker image used to start the container.
+         * @param image Docker image used to start the container.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param image The Docker image used to start the container.
+         * @param image Docker image used to start the container.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param imagePullPolicy The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+         * @param imagePullPolicy Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param imagePullPolicy The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+         * @param imagePullPolicy Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param name The name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
+         * @param name Name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param name The name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
+         * @param name Name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param resources The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         * @param resources Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param resources The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         * @param resources Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param securityContext The security context for a job.
+         * @param securityContext Security context for a job.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param securityContext The security context for a job.
+         * @param securityContext Security context for a job.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param volumeMounts The volume mounts for the container.
+         * @param volumeMounts Volume mounts for the container.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param volumeMounts The volume mounts for the container.
+         * @param volumeMounts Volume mounts for the container.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersArgs extends
         }
 
         /**
-         * @param volumeMounts The volume mounts for the container.
+         * @param volumeMounts Volume mounts for the container.
          * 
          * @return builder
          * 

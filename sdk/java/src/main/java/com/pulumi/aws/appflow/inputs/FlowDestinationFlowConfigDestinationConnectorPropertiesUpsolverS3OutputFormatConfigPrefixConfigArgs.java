@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,6 +33,21 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
     }
 
     /**
+     * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+     * 
+     */
+    @Import(name="prefixHierarchies")
+    private @Nullable Output<List<String>> prefixHierarchies;
+
+    /**
+     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+     * 
+     */
+    public Optional<Output<List<String>>> prefixHierarchies() {
+        return Optional.ofNullable(this.prefixHierarchies);
+    }
+
+    /**
      * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
      * 
      */
@@ -50,6 +66,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs $) {
         this.prefixFormat = $.prefixFormat;
+        this.prefixHierarchies = $.prefixHierarchies;
         this.prefixType = $.prefixType;
     }
 
@@ -90,6 +107,37 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
          */
         public Builder prefixFormat(String prefixFormat) {
             return prefixFormat(Output.of(prefixFormat));
+        }
+
+        /**
+         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixHierarchies(@Nullable Output<List<String>> prefixHierarchies) {
+            $.prefixHierarchies = prefixHierarchies;
+            return this;
+        }
+
+        /**
+         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixHierarchies(List<String> prefixHierarchies) {
+            return prefixHierarchies(Output.of(prefixHierarchies));
+        }
+
+        /**
+         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixHierarchies(String... prefixHierarchies) {
+            return prefixHierarchies(List.of(prefixHierarchies));
         }
 
         /**

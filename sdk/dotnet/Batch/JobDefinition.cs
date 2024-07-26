@@ -302,19 +302,19 @@ namespace Pulumi.Aws.Batch
     public partial class JobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the job definition, includes revision (`:#`).
+        /// ARN of the job definition, includes revision (`:#`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN without the revision number.
+        /// ARN without the revision number.
         /// </summary>
         [Output("arnPrefix")]
         public Output<string> ArnPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Output("containerProperties")]
         public Output<string?> ContainerProperties { get; private set; } = null!;
@@ -326,55 +326,55 @@ namespace Pulumi.Aws.Batch
         public Output<bool?> DeregisterOnNewRevision { get; private set; } = null!;
 
         /// <summary>
-        /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Output("eksProperties")]
         public Output<Outputs.JobDefinitionEksProperties?> EksProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the job definition.
+        /// Name of the job definition.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         /// </summary>
         [Output("nodeProperties")]
         public Output<string?> NodeProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the parameter substitution placeholders to set in the job definition.
+        /// Parameter substitution placeholders to set in the job definition.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        /// Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         /// </summary>
         [Output("platformCapabilities")]
         public Output<ImmutableArray<string>> PlatformCapabilities { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         /// </summary>
         [Output("propagateTags")]
         public Output<bool?> PropagateTags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
         [Output("retryStrategy")]
         public Output<Outputs.JobDefinitionRetryStrategy?> RetryStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// The revision of the job definition.
+        /// Revision of the job definition.
         /// </summary>
         [Output("revision")]
         public Output<int> Revision { get; private set; } = null!;
 
         /// <summary>
-        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+        /// Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         /// </summary>
         [Output("schedulingPriority")]
         public Output<int?> SchedulingPriority { get; private set; } = null!;
@@ -386,19 +386,19 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+        /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         /// </summary>
         [Output("timeout")]
         public Output<Outputs.JobDefinitionTimeout?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// The type of job definition. Must be `container` or `multinode`.
+        /// Type of job definition. Must be `container` or `multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.Batch
     public sealed class JobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
@@ -464,19 +464,19 @@ namespace Pulumi.Aws.Batch
         public Input<bool>? DeregisterOnNewRevision { get; set; }
 
         /// <summary>
-        /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("eksProperties")]
         public Input<Inputs.JobDefinitionEksPropertiesArgs>? EksProperties { get; set; }
 
         /// <summary>
-        /// Specifies the name of the job definition.
+        /// Name of the job definition.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         /// </summary>
         [Input("nodeProperties")]
         public Input<string>? NodeProperties { get; set; }
@@ -485,7 +485,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Specifies the parameter substitution placeholders to set in the job definition.
+        /// Parameter substitution placeholders to set in the job definition.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -497,7 +497,7 @@ namespace Pulumi.Aws.Batch
         private InputList<string>? _platformCapabilities;
 
         /// <summary>
-        /// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        /// Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         /// </summary>
         public InputList<string> PlatformCapabilities
         {
@@ -506,19 +506,19 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         /// </summary>
         [Input("propagateTags")]
         public Input<bool>? PropagateTags { get; set; }
 
         /// <summary>
-        /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyArgs>? RetryStrategy { get; set; }
 
         /// <summary>
-        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+        /// Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         /// </summary>
         [Input("schedulingPriority")]
         public Input<int>? SchedulingPriority { get; set; }
@@ -536,13 +536,13 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+        /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         /// </summary>
         [Input("timeout")]
         public Input<Inputs.JobDefinitionTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of job definition. Must be `container` or `multinode`.
+        /// Type of job definition. Must be `container` or `multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -558,19 +558,19 @@ namespace Pulumi.Aws.Batch
     public sealed class JobDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the job definition, includes revision (`:#`).
+        /// ARN of the job definition, includes revision (`:#`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN without the revision number.
+        /// ARN without the revision number.
         /// </summary>
         [Input("arnPrefix")]
         public Input<string>? ArnPrefix { get; set; }
 
         /// <summary>
-        /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
@@ -582,19 +582,19 @@ namespace Pulumi.Aws.Batch
         public Input<bool>? DeregisterOnNewRevision { get; set; }
 
         /// <summary>
-        /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("eksProperties")]
         public Input<Inputs.JobDefinitionEksPropertiesGetArgs>? EksProperties { get; set; }
 
         /// <summary>
-        /// Specifies the name of the job definition.
+        /// Name of the job definition.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         /// </summary>
         [Input("nodeProperties")]
         public Input<string>? NodeProperties { get; set; }
@@ -603,7 +603,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Specifies the parameter substitution placeholders to set in the job definition.
+        /// Parameter substitution placeholders to set in the job definition.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -615,7 +615,7 @@ namespace Pulumi.Aws.Batch
         private InputList<string>? _platformCapabilities;
 
         /// <summary>
-        /// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        /// Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         /// </summary>
         public InputList<string> PlatformCapabilities
         {
@@ -624,25 +624,25 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         /// </summary>
         [Input("propagateTags")]
         public Input<bool>? PropagateTags { get; set; }
 
         /// <summary>
-        /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyGetArgs>? RetryStrategy { get; set; }
 
         /// <summary>
-        /// The revision of the job definition.
+        /// Revision of the job definition.
         /// </summary>
         [Input("revision")]
         public Input<int>? Revision { get; set; }
 
         /// <summary>
-        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+        /// Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         /// </summary>
         [Input("schedulingPriority")]
         public Input<int>? SchedulingPriority { get; set; }
@@ -663,7 +663,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
@@ -673,13 +673,13 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+        /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         /// </summary>
         [Input("timeout")]
         public Input<Inputs.JobDefinitionTimeoutGetArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of job definition. Must be `container` or `multinode`.
+        /// Type of job definition. Must be `container` or `multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>

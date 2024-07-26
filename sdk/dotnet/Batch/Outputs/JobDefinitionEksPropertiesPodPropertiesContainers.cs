@@ -14,39 +14,39 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobDefinitionEksPropertiesPodPropertiesContainers
     {
         /// <summary>
-        /// An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+        /// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
         /// </summary>
         public readonly ImmutableArray<string> Args;
         /// <summary>
-        /// The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+        /// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
         /// </summary>
         public readonly ImmutableArray<string> Commands;
         /// <summary>
-        /// The environment variables to pass to a container. See EKS Environment below.
+        /// Environment variables to pass to a container. See EKS Environment below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesContainersEnv> Envs;
         /// <summary>
-        /// The Docker image used to start the container.
+        /// Docker image used to start the container.
         /// </summary>
         public readonly string Image;
         /// <summary>
-        /// The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+        /// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
         /// </summary>
         public readonly string? ImagePullPolicy;
         /// <summary>
-        /// The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+        /// Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        /// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
         /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesContainersResources? Resources;
         /// <summary>
-        /// The security context for a job.
+        /// Security context for a job.
         /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext? SecurityContext;
         /// <summary>
-        /// The volume mounts for the container.
+        /// Volume mounts for the container.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount> VolumeMounts;
 

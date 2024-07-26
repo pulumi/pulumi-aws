@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Cloud Watch Destination
+ * ### CloudWatch Destination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,6 +29,28 @@ import * as utilities from "../utilities";
  *                 dimensionName: "example",
  *                 dimensionValueSource: "MESSAGE_TAG",
  *             }],
+ *         },
+ *         enabled: true,
+ *         matchingEventTypes: ["SEND"],
+ *     },
+ * });
+ * ```
+ *
+ * ### EventBridge Destination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const default = aws.cloudwatch.getEventBus({
+ *     name: "default",
+ * });
+ * const example = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: exampleAwsSesv2ConfigurationSet.configurationSetName,
+ *     eventDestinationName: "example",
+ *     eventDestination: {
+ *         eventBridgeDestination: {
+ *             eventBusArn: _default.then(_default => _default.arn),
  *         },
  *         enabled: true,
  *         matchingEventTypes: ["SEND"],
@@ -142,7 +164,7 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
      */
     public readonly eventDestination!: pulumi.Output<outputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
     /**
-     * An object that defines the event destination. See eventDestination below.
+     * An object that defines the event destination. See `eventDestination` Block for details.
      */
     public readonly eventDestinationName!: pulumi.Output<string>;
 
@@ -195,7 +217,7 @@ export interface ConfigurationSetEventDestinationState {
      */
     eventDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
     /**
-     * An object that defines the event destination. See eventDestination below.
+     * An object that defines the event destination. See `eventDestination` Block for details.
      */
     eventDestinationName?: pulumi.Input<string>;
 }
@@ -213,7 +235,7 @@ export interface ConfigurationSetEventDestinationArgs {
      */
     eventDestination: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
     /**
-     * An object that defines the event destination. See eventDestination below.
+     * An object that defines the event destination. See `eventDestination` Block for details.
      */
     eventDestinationName: pulumi.Input<string>;
 }

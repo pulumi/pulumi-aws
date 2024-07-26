@@ -197,14 +197,20 @@ export class Environment extends pulumi.CustomResource {
     public readonly kmsKey!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lastUpdateds!: pulumi.Output<outputs.mwaa.EnvironmentLastUpdated[]>;
     /**
-     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration>;
+    /**
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     */
     public readonly maxWebservers!: pulumi.Output<number>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
     public readonly maxWorkers!: pulumi.Output<number>;
+    /**
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     */
     public readonly minWebservers!: pulumi.Output<number>;
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
@@ -215,7 +221,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentNetworkConfiguration>;
     /**
@@ -435,14 +441,20 @@ export interface EnvironmentState {
     kmsKey?: pulumi.Input<string>;
     lastUpdateds?: pulumi.Input<pulumi.Input<inputs.mwaa.EnvironmentLastUpdated>[]>;
     /**
-     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      */
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
+    /**
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     */
     maxWebservers?: pulumi.Input<number>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
     maxWorkers?: pulumi.Input<number>;
+    /**
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     */
     minWebservers?: pulumi.Input<number>;
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
@@ -453,7 +465,7 @@ export interface EnvironmentState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      */
     networkConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfiguration>;
     /**
@@ -557,14 +569,20 @@ export interface EnvironmentArgs {
      */
     kmsKey?: pulumi.Input<string>;
     /**
-     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      */
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
+    /**
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     */
     maxWebservers?: pulumi.Input<number>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
     maxWorkers?: pulumi.Input<number>;
+    /**
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     */
     minWebservers?: pulumi.Input<number>;
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
@@ -575,7 +593,7 @@ export interface EnvironmentArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      */
     networkConfiguration: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfiguration>;
     /**

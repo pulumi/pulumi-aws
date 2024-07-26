@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Rds
         /// The CA certificate identifier to use for the DB cluster's server certificate.
         /// </summary>
         [Output("caCertificateIdentifier")]
-        public Output<string?> CaCertificateIdentifier { get; private set; } = null!;
+        public Output<string> CaCertificateIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Expiration date of the DB instance’s server certificate

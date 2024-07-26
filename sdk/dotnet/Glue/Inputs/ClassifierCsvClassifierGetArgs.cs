@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The delimiter used in the Csv to separate columns.
+        /// The delimiter used in the CSV to separate columns.
         /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
@@ -72,6 +72,9 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("quoteSymbol")]
         public Input<string>? QuoteSymbol { get; set; }
 
+        /// <summary>
+        /// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+        /// </summary>
         [Input("serde")]
         public Input<string>? Serde { get; set; }
 

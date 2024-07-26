@@ -324,14 +324,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.displayName);
     }
     /**
-     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can&#39;t deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren&#39;t guaranteed to preserve strict message ordering. Default is `false`.
      * 
      */
     @Export(name="fifoTopic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> fifoTopic;
 
     /**
-     * @return Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+     * @return Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can&#39;t deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren&#39;t guaranteed to preserve strict message ordering. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> fifoTopic() {

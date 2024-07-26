@@ -16,14 +16,14 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
     public static final ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs Empty = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs();
 
     /**
-     * An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+     * An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
      * 
      */
     @Import(name="dimensionConfigurations", required=true)
     private Output<List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs>> dimensionConfigurations;
 
     /**
-     * @return An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+     * @return An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
      * 
      */
     public Output<List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs>> dimensionConfigurations() {
@@ -55,7 +55,7 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         /**
-         * @param dimensionConfigurations An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+         * @param dimensionConfigurations An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         /**
-         * @param dimensionConfigurations An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+         * @param dimensionConfigurations An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         /**
-         * @param dimensionConfigurations An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+         * @param dimensionConfigurations An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
          * 
          * @return builder
          * 

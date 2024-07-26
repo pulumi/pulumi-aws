@@ -48,6 +48,10 @@ public final class SpaceSpaceSettings {
      * 
      */
     private @Nullable SpaceSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
+    /**
+     * @return The storage settings. See `space_storage_settings` Block below.
+     * 
+     */
     private @Nullable SpaceSpaceSettingsSpaceStorageSettings spaceStorageSettings;
 
     private SpaceSpaceSettings() {}
@@ -93,6 +97,10 @@ public final class SpaceSpaceSettings {
     public Optional<SpaceSpaceSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
+    /**
+     * @return The storage settings. See `space_storage_settings` Block below.
+     * 
+     */
     public Optional<SpaceSpaceSettingsSpaceStorageSettings> spaceStorageSettings() {
         return Optional.ofNullable(this.spaceStorageSettings);
     }

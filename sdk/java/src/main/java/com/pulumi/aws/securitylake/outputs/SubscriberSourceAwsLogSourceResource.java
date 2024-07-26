@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SubscriberSourceAwsLogSourceResource {
     /**
-     * @return The name for a third-party custom source. This must be a Regionally unique value.
+     * @return Provides data expiration details of Amazon Security Lake object.
      * 
      */
     private String sourceName;
     /**
-     * @return The version for a third-party custom source. This must be a Regionally unique value.
+     * @return Provides data storage transition details of Amazon Security Lake object.
      * 
      */
     private @Nullable String sourceVersion;
 
     private SubscriberSourceAwsLogSourceResource() {}
     /**
-     * @return The name for a third-party custom source. This must be a Regionally unique value.
+     * @return Provides data expiration details of Amazon Security Lake object.
      * 
      */
     public String sourceName() {
         return this.sourceName;
     }
     /**
-     * @return The version for a third-party custom source. This must be a Regionally unique value.
+     * @return Provides data storage transition details of Amazon Security Lake object.
      * 
      */
     public Optional<String> sourceVersion() {

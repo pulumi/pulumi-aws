@@ -23,14 +23,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     public static final JobDefinitionState Empty = new JobDefinitionState();
 
     /**
-     * The Amazon Resource Name of the job definition, includes revision (`:#`).
+     * ARN of the job definition, includes revision (`:#`).
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the job definition, includes revision (`:#`).
+     * @return ARN of the job definition, includes revision (`:#`).
      * 
      */
     public Optional<Output<String>> arn() {
@@ -38,14 +38,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ARN without the revision number.
+     * ARN without the revision number.
      * 
      */
     @Import(name="arnPrefix")
     private @Nullable Output<String> arnPrefix;
 
     /**
-     * @return The ARN without the revision number.
+     * @return ARN without the revision number.
      * 
      */
     public Optional<Output<String>> arnPrefix() {
@@ -53,14 +53,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     @Import(name="containerProperties")
     private @Nullable Output<String> containerProperties;
 
     /**
-     * @return A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * @return Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     public Optional<Output<String>> containerProperties() {
@@ -83,14 +83,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     @Import(name="eksProperties")
     private @Nullable Output<JobDefinitionEksPropertiesArgs> eksProperties;
 
     /**
-     * @return A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * @return Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     public Optional<Output<JobDefinitionEksPropertiesArgs>> eksProperties() {
@@ -98,14 +98,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the name of the job definition.
+     * Name of the job definition.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the job definition.
+     * @return Name of the job definition.
      * 
      */
     public Optional<Output<String>> name() {
@@ -113,14 +113,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      * 
      */
     @Import(name="nodeProperties")
     private @Nullable Output<String> nodeProperties;
 
     /**
-     * @return A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * @return Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      * 
      */
     public Optional<Output<String>> nodeProperties() {
@@ -128,14 +128,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the parameter substitution placeholders to set in the job definition.
+     * Parameter substitution placeholders to set in the job definition.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return Specifies the parameter substitution placeholders to set in the job definition.
+     * @return Parameter substitution placeholders to set in the job definition.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -143,14 +143,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+     * Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      * 
      */
     @Import(name="platformCapabilities")
     private @Nullable Output<List<String>> platformCapabilities;
 
     /**
-     * @return The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+     * @return Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      * 
      */
     public Optional<Output<List<String>>> platformCapabilities() {
@@ -158,14 +158,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+     * Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      * 
      */
     @Import(name="propagateTags")
     private @Nullable Output<Boolean> propagateTags;
 
     /**
-     * @return Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+     * @return Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> propagateTags() {
@@ -173,14 +173,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+     * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
      * 
      */
     @Import(name="retryStrategy")
     private @Nullable Output<JobDefinitionRetryStrategyArgs> retryStrategy;
 
     /**
-     * @return Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+     * @return Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
      * 
      */
     public Optional<Output<JobDefinitionRetryStrategyArgs>> retryStrategy() {
@@ -188,14 +188,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The revision of the job definition.
+     * Revision of the job definition.
      * 
      */
     @Import(name="revision")
     private @Nullable Output<Integer> revision;
 
     /**
-     * @return The revision of the job definition.
+     * @return Revision of the job definition.
      * 
      */
     public Optional<Output<Integer>> revision() {
@@ -203,14 +203,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     * Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
      * 
      */
     @Import(name="schedulingPriority")
     private @Nullable Output<Integer> schedulingPriority;
 
     /**
-     * @return The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     * @return Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
      * 
      */
     public Optional<Output<Integer>> schedulingPriority() {
@@ -233,7 +233,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -244,7 +244,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -256,14 +256,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+     * Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<JobDefinitionTimeoutArgs> timeout;
 
     /**
-     * @return Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+     * @return Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      * 
      */
     public Optional<Output<JobDefinitionTimeoutArgs>> timeout() {
@@ -271,7 +271,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The type of job definition. Must be `container` or `multinode`.
+     * Type of job definition. Must be `container` or `multinode`.
      * 
      * The following arguments are optional:
      * 
@@ -280,7 +280,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of job definition. Must be `container` or `multinode`.
+     * @return Type of job definition. Must be `container` or `multinode`.
      * 
      * The following arguments are optional:
      * 
@@ -330,7 +330,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name of the job definition, includes revision (`:#`).
+         * @param arn ARN of the job definition, includes revision (`:#`).
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name of the job definition, includes revision (`:#`).
+         * @param arn ARN of the job definition, includes revision (`:#`).
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arnPrefix The ARN without the revision number.
+         * @param arnPrefix ARN without the revision number.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arnPrefix The ARN without the revision number.
+         * @param arnPrefix ARN without the revision number.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+         * @param containerProperties Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+         * @param containerProperties Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param eksProperties A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+         * @param eksProperties Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param eksProperties A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+         * @param eksProperties Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param nodeProperties A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+         * @param nodeProperties Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param nodeProperties A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+         * @param nodeProperties Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param parameters Specifies the parameter substitution placeholders to set in the job definition.
+         * @param parameters Parameter substitution placeholders to set in the job definition.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param parameters Specifies the parameter substitution placeholders to set in the job definition.
+         * @param parameters Parameter substitution placeholders to set in the job definition.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param platformCapabilities The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+         * @param platformCapabilities Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param platformCapabilities The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+         * @param platformCapabilities Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param platformCapabilities The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+         * @param platformCapabilities Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param propagateTags Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+         * @param propagateTags Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param propagateTags Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+         * @param propagateTags Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param retryStrategy Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+         * @param retryStrategy Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param retryStrategy Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+         * @param retryStrategy Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param revision The revision of the job definition.
+         * @param revision Revision of the job definition.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param revision The revision of the job definition.
+         * @param revision Revision of the job definition.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param schedulingPriority The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+         * @param schedulingPriority Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param schedulingPriority The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+         * @param schedulingPriority Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timeout Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+         * @param timeout Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timeout Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+         * @param timeout Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
          * 
          * @return builder
          * 
@@ -684,7 +684,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type The type of job definition. Must be `container` or `multinode`.
+         * @param type Type of job definition. Must be `container` or `multinode`.
          * 
          * The following arguments are optional:
          * 
@@ -697,7 +697,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type The type of job definition. Must be `container` or `multinode`.
+         * @param type Type of job definition. Must be `container` or `multinode`.
          * 
          * The following arguments are optional:
          * 

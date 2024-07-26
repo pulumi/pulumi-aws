@@ -15,14 +15,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
     public static final JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs Empty = new JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs();
 
     /**
-     * Specifies the name of the job definition.
+     * Name of the job definition.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the job definition.
+     * @return Name of the job definition.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
     }
 
     /**
-     * The value of the environment variable.
+     * Value of the environment variable.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the environment variable.
+     * @return Value of the environment variable.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
         }
 
         /**
-         * @param value The value of the environment variable.
+         * @param value Value of the environment variable.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
         }
 
         /**
-         * @param value The value of the environment variable.
+         * @param value Value of the environment variable.
          * 
          * @return builder
          * 

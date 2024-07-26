@@ -2926,7 +2926,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caCertificateIdentifier")
-    def ca_certificate_identifier(self) -> pulumi.Output[Optional[str]]:
+    def ca_certificate_identifier(self) -> pulumi.Output[str]:
         """
         The CA certificate identifier to use for the DB cluster's server certificate.
         """

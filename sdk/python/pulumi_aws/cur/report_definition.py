@@ -29,7 +29,8 @@ class ReportDefinitionArgs:
                  additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  refresh_closed_reports: Optional[pulumi.Input[bool]] = None,
                  report_versioning: Optional[pulumi.Input[str]] = None,
-                 s3_prefix: Optional[pulumi.Input[str]] = None):
+                 s3_prefix: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReportDefinition resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
@@ -43,6 +44,7 @@ class ReportDefinitionArgs:
         :param pulumi.Input[bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         :param pulumi.Input[str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "additional_schema_elements", additional_schema_elements)
         pulumi.set(__self__, "compression", compression)
@@ -59,6 +61,8 @@ class ReportDefinitionArgs:
             pulumi.set(__self__, "report_versioning", report_versioning)
         if s3_prefix is not None:
             pulumi.set(__self__, "s3_prefix", s3_prefix)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="additionalSchemaElements")
@@ -192,6 +196,18 @@ class ReportDefinitionArgs:
     def s3_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_prefix", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _ReportDefinitionState:
@@ -207,6 +223,8 @@ class _ReportDefinitionState:
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_prefix: Optional[pulumi.Input[str]] = None,
                  s3_region: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_unit: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReportDefinition resources.
@@ -221,6 +239,8 @@ class _ReportDefinitionState:
         :param pulumi.Input[str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
         if additional_artifacts is not None:
@@ -245,6 +265,13 @@ class _ReportDefinitionState:
             pulumi.set(__self__, "s3_prefix", s3_prefix)
         if s3_region is not None:
             pulumi.set(__self__, "s3_region", s3_region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if time_unit is not None:
             pulumi.set(__self__, "time_unit", time_unit)
 
@@ -381,6 +408,31 @@ class _ReportDefinitionState:
         pulumi.set(self, "s3_region", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> Optional[pulumi.Input[str]]:
         """
@@ -408,6 +460,7 @@ class ReportDefinition(pulumi.CustomResource):
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_prefix: Optional[pulumi.Input[str]] = None,
                  s3_region: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -458,6 +511,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
         ...
@@ -527,6 +581,7 @@ class ReportDefinition(pulumi.CustomResource):
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_prefix: Optional[pulumi.Input[str]] = None,
                  s3_region: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -559,10 +614,12 @@ class ReportDefinition(pulumi.CustomResource):
             if s3_region is None and not opts.urn:
                 raise TypeError("Missing required property 's3_region'")
             __props__.__dict__["s3_region"] = s3_region
+            __props__.__dict__["tags"] = tags
             if time_unit is None and not opts.urn:
                 raise TypeError("Missing required property 'time_unit'")
             __props__.__dict__["time_unit"] = time_unit
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(ReportDefinition, __self__).__init__(
             'aws:cur/reportDefinition:ReportDefinition',
             resource_name,
@@ -584,6 +641,8 @@ class ReportDefinition(pulumi.CustomResource):
             s3_bucket: Optional[pulumi.Input[str]] = None,
             s3_prefix: Optional[pulumi.Input[str]] = None,
             s3_region: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             time_unit: Optional[pulumi.Input[str]] = None) -> 'ReportDefinition':
         """
         Get an existing ReportDefinition resource's state with the given name, id, and optional extra
@@ -603,6 +662,8 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -620,6 +681,8 @@ class ReportDefinition(pulumi.CustomResource):
         __props__.__dict__["s3_bucket"] = s3_bucket
         __props__.__dict__["s3_prefix"] = s3_prefix
         __props__.__dict__["s3_region"] = s3_region
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["time_unit"] = time_unit
         return ReportDefinition(resource_name, opts=opts, __props__=__props__)
 
@@ -710,6 +773,23 @@ class ReportDefinition(pulumi.CustomResource):
         Region of the existing S3 bucket to hold generated reports.
         """
         return pulumi.get(self, "s3_region")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="timeUnit")

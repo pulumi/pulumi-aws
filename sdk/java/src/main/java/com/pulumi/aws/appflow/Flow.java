@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.appflow.FlowArgs;
 import com.pulumi.aws.appflow.inputs.FlowState;
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfig;
+import com.pulumi.aws.appflow.outputs.FlowMetadataCatalogConfig;
 import com.pulumi.aws.appflow.outputs.FlowSourceFlowConfig;
 import com.pulumi.aws.appflow.outputs.FlowTask;
 import com.pulumi.aws.appflow.outputs.FlowTriggerConfig;
@@ -252,6 +253,20 @@ public class Flow extends com.pulumi.resources.CustomResource {
      */
     public Output<String> kmsArn() {
         return this.kmsArn;
+    }
+    /**
+     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * 
+     */
+    @Export(name="metadataCatalogConfig", refs={FlowMetadataCatalogConfig.class}, tree="[0]")
+    private Output<FlowMetadataCatalogConfig> metadataCatalogConfig;
+
+    /**
+     * @return A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * 
+     */
+    public Output<FlowMetadataCatalogConfig> metadataCatalogConfig() {
+        return this.metadataCatalogConfig;
     }
     /**
      * Name of the flow.

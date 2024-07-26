@@ -12,5 +12,6 @@ from .proactive_engagement import *
 from .protection import *
 from .protection_group import *
 from .protection_health_check_association import *
+from .subscription import *
 from ._inputs import *
 from . import outputs

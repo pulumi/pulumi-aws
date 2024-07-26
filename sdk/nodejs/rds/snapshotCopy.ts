@@ -124,6 +124,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
      * he URL that contains a Signature Version 4 signed request.
      */
     public readonly presignedUrl!: pulumi.Output<string | undefined>;
+    /**
+     * (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     */
+    public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly snapshotType!: pulumi.Output<string>;
     /**
      * Snapshot identifier of the source snapshot.
@@ -187,6 +191,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["optionGroupName"] = state ? state.optionGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["presignedUrl"] = state ? state.presignedUrl : undefined;
+            resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
             resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
             resourceInputs["sourceDbSnapshotIdentifier"] = state ? state.sourceDbSnapshotIdentifier : undefined;
             resourceInputs["sourceRegion"] = state ? state.sourceRegion : undefined;
@@ -209,6 +214,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
             resourceInputs["presignedUrl"] = args ? args.presignedUrl : undefined;
+            resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
             resourceInputs["sourceDbSnapshotIdentifier"] = args ? args.sourceDbSnapshotIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetCustomAvailabilityZone"] = args ? args.targetCustomAvailabilityZone : undefined;
@@ -290,6 +296,10 @@ export interface SnapshotCopyState {
      * he URL that contains a Signature Version 4 signed request.
      */
     presignedUrl?: pulumi.Input<string>;
+    /**
+     * (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     */
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     snapshotType?: pulumi.Input<string>;
     /**
      * Snapshot identifier of the source snapshot.
@@ -351,6 +361,10 @@ export interface SnapshotCopyArgs {
      * he URL that contains a Signature Version 4 signed request.
      */
     presignedUrl?: pulumi.Input<string>;
+    /**
+     * (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     */
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Snapshot identifier of the source snapshot.
      */

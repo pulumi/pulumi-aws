@@ -2438,9 +2438,9 @@ func (o SubscriberNotificationConfigurationSqsNotificationConfigurationPtrOutput
 }
 
 type SubscriberSource struct {
-	// Amazon Security Lake supports log and event collection for natively supported AWS services.
+	// Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
 	AwsLogSourceResource *SubscriberSourceAwsLogSourceResource `pulumi:"awsLogSourceResource"`
-	// Amazon Security Lake supports custom source types.
+	// Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
 	CustomLogSourceResource *SubscriberSourceCustomLogSourceResource `pulumi:"customLogSourceResource"`
 }
 
@@ -2456,9 +2456,9 @@ type SubscriberSourceInput interface {
 }
 
 type SubscriberSourceArgs struct {
-	// Amazon Security Lake supports log and event collection for natively supported AWS services.
+	// Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
 	AwsLogSourceResource SubscriberSourceAwsLogSourceResourcePtrInput `pulumi:"awsLogSourceResource"`
-	// Amazon Security Lake supports custom source types.
+	// Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
 	CustomLogSourceResource SubscriberSourceCustomLogSourceResourcePtrInput `pulumi:"customLogSourceResource"`
 }
 
@@ -2539,12 +2539,12 @@ func (o SubscriberSourceOutput) ToSubscriberSourcePtrOutputWithContext(ctx conte
 	}).(SubscriberSourcePtrOutput)
 }
 
-// Amazon Security Lake supports log and event collection for natively supported AWS services.
+// Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
 func (o SubscriberSourceOutput) AwsLogSourceResource() SubscriberSourceAwsLogSourceResourcePtrOutput {
 	return o.ApplyT(func(v SubscriberSource) *SubscriberSourceAwsLogSourceResource { return v.AwsLogSourceResource }).(SubscriberSourceAwsLogSourceResourcePtrOutput)
 }
 
-// Amazon Security Lake supports custom source types.
+// Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
 func (o SubscriberSourceOutput) CustomLogSourceResource() SubscriberSourceCustomLogSourceResourcePtrOutput {
 	return o.ApplyT(func(v SubscriberSource) *SubscriberSourceCustomLogSourceResource { return v.CustomLogSourceResource }).(SubscriberSourceCustomLogSourceResourcePtrOutput)
 }
@@ -2573,7 +2573,7 @@ func (o SubscriberSourcePtrOutput) Elem() SubscriberSourceOutput {
 	}).(SubscriberSourceOutput)
 }
 
-// Amazon Security Lake supports log and event collection for natively supported AWS services.
+// Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
 func (o SubscriberSourcePtrOutput) AwsLogSourceResource() SubscriberSourceAwsLogSourceResourcePtrOutput {
 	return o.ApplyT(func(v *SubscriberSource) *SubscriberSourceAwsLogSourceResource {
 		if v == nil {
@@ -2583,7 +2583,7 @@ func (o SubscriberSourcePtrOutput) AwsLogSourceResource() SubscriberSourceAwsLog
 	}).(SubscriberSourceAwsLogSourceResourcePtrOutput)
 }
 
-// Amazon Security Lake supports custom source types.
+// Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
 func (o SubscriberSourcePtrOutput) CustomLogSourceResource() SubscriberSourceCustomLogSourceResourcePtrOutput {
 	return o.ApplyT(func(v *SubscriberSource) *SubscriberSourceCustomLogSourceResource {
 		if v == nil {
@@ -2594,9 +2594,9 @@ func (o SubscriberSourcePtrOutput) CustomLogSourceResource() SubscriberSourceCus
 }
 
 type SubscriberSourceAwsLogSourceResource struct {
-	// The name for a third-party custom source. This must be a Regionally unique value.
+	// Provides data expiration details of Amazon Security Lake object.
 	SourceName string `pulumi:"sourceName"`
-	// The version for a third-party custom source. This must be a Regionally unique value.
+	// Provides data storage transition details of Amazon Security Lake object.
 	SourceVersion *string `pulumi:"sourceVersion"`
 }
 
@@ -2612,9 +2612,9 @@ type SubscriberSourceAwsLogSourceResourceInput interface {
 }
 
 type SubscriberSourceAwsLogSourceResourceArgs struct {
-	// The name for a third-party custom source. This must be a Regionally unique value.
+	// Provides data expiration details of Amazon Security Lake object.
 	SourceName pulumi.StringInput `pulumi:"sourceName"`
-	// The version for a third-party custom source. This must be a Regionally unique value.
+	// Provides data storage transition details of Amazon Security Lake object.
 	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
 }
 
@@ -2695,12 +2695,12 @@ func (o SubscriberSourceAwsLogSourceResourceOutput) ToSubscriberSourceAwsLogSour
 	}).(SubscriberSourceAwsLogSourceResourcePtrOutput)
 }
 
-// The name for a third-party custom source. This must be a Regionally unique value.
+// Provides data expiration details of Amazon Security Lake object.
 func (o SubscriberSourceAwsLogSourceResourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSourceAwsLogSourceResource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
-// The version for a third-party custom source. This must be a Regionally unique value.
+// Provides data storage transition details of Amazon Security Lake object.
 func (o SubscriberSourceAwsLogSourceResourceOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberSourceAwsLogSourceResource) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }
@@ -2729,7 +2729,7 @@ func (o SubscriberSourceAwsLogSourceResourcePtrOutput) Elem() SubscriberSourceAw
 	}).(SubscriberSourceAwsLogSourceResourceOutput)
 }
 
-// The name for a third-party custom source. This must be a Regionally unique value.
+// Provides data expiration details of Amazon Security Lake object.
 func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSourceAwsLogSourceResource) *string {
 		if v == nil {
@@ -2739,7 +2739,7 @@ func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version for a third-party custom source. This must be a Regionally unique value.
+// Provides data storage transition details of Amazon Security Lake object.
 func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSourceAwsLogSourceResource) *string {
 		if v == nil {
@@ -2750,9 +2750,10 @@ func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceVersion() pulumi.St
 }
 
 type SubscriberSourceCustomLogSourceResource struct {
-	// The attributes of a third-party custom source.
+	// The attributes of the third-party custom source. See `attributes` Block below.
 	Attributes []SubscriberSourceCustomLogSourceResourceAttribute `pulumi:"attributes"`
-	Providers  []SubscriberSourceCustomLogSourceResourceProvider  `pulumi:"providers"`
+	// The details of the log provider for the third-party custom source. See `provider` Block below.
+	Providers []SubscriberSourceCustomLogSourceResourceProvider `pulumi:"providers"`
 	// The name for a third-party custom source. This must be a Regionally unique value.
 	SourceName string `pulumi:"sourceName"`
 	// The version for a third-party custom source. This must be a Regionally unique value.
@@ -2771,9 +2772,10 @@ type SubscriberSourceCustomLogSourceResourceInput interface {
 }
 
 type SubscriberSourceCustomLogSourceResourceArgs struct {
-	// The attributes of a third-party custom source.
+	// The attributes of the third-party custom source. See `attributes` Block below.
 	Attributes SubscriberSourceCustomLogSourceResourceAttributeArrayInput `pulumi:"attributes"`
-	Providers  SubscriberSourceCustomLogSourceResourceProviderArrayInput  `pulumi:"providers"`
+	// The details of the log provider for the third-party custom source. See `provider` Block below.
+	Providers SubscriberSourceCustomLogSourceResourceProviderArrayInput `pulumi:"providers"`
 	// The name for a third-party custom source. This must be a Regionally unique value.
 	SourceName pulumi.StringInput `pulumi:"sourceName"`
 	// The version for a third-party custom source. This must be a Regionally unique value.
@@ -2857,13 +2859,14 @@ func (o SubscriberSourceCustomLogSourceResourceOutput) ToSubscriberSourceCustomL
 	}).(SubscriberSourceCustomLogSourceResourcePtrOutput)
 }
 
-// The attributes of a third-party custom source.
+// The attributes of the third-party custom source. See `attributes` Block below.
 func (o SubscriberSourceCustomLogSourceResourceOutput) Attributes() SubscriberSourceCustomLogSourceResourceAttributeArrayOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResource) []SubscriberSourceCustomLogSourceResourceAttribute {
 		return v.Attributes
 	}).(SubscriberSourceCustomLogSourceResourceAttributeArrayOutput)
 }
 
+// The details of the log provider for the third-party custom source. See `provider` Block below.
 func (o SubscriberSourceCustomLogSourceResourceOutput) Providers() SubscriberSourceCustomLogSourceResourceProviderArrayOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResource) []SubscriberSourceCustomLogSourceResourceProvider {
 		return v.Providers
@@ -2904,7 +2907,7 @@ func (o SubscriberSourceCustomLogSourceResourcePtrOutput) Elem() SubscriberSourc
 	}).(SubscriberSourceCustomLogSourceResourceOutput)
 }
 
-// The attributes of a third-party custom source.
+// The attributes of the third-party custom source. See `attributes` Block below.
 func (o SubscriberSourceCustomLogSourceResourcePtrOutput) Attributes() SubscriberSourceCustomLogSourceResourceAttributeArrayOutput {
 	return o.ApplyT(func(v *SubscriberSourceCustomLogSourceResource) []SubscriberSourceCustomLogSourceResourceAttribute {
 		if v == nil {
@@ -2914,6 +2917,7 @@ func (o SubscriberSourceCustomLogSourceResourcePtrOutput) Attributes() Subscribe
 	}).(SubscriberSourceCustomLogSourceResourceAttributeArrayOutput)
 }
 
+// The details of the log provider for the third-party custom source. See `provider` Block below.
 func (o SubscriberSourceCustomLogSourceResourcePtrOutput) Providers() SubscriberSourceCustomLogSourceResourceProviderArrayOutput {
 	return o.ApplyT(func(v *SubscriberSourceCustomLogSourceResource) []SubscriberSourceCustomLogSourceResourceProvider {
 		if v == nil {

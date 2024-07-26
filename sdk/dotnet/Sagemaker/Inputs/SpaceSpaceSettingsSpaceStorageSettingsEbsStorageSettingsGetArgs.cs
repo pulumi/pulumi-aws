@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The size of an EBS storage volume for a space.
+        /// </summary>
         [Input("ebsVolumeSizeInGb", required: true)]
         public Input<int> EbsVolumeSizeInGb { get; set; } = null!;
 

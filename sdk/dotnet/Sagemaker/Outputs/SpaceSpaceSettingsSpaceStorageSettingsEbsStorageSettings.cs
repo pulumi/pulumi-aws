@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings
     {
+        /// <summary>
+        /// The size of an EBS storage volume for a space.
+        /// </summary>
         public readonly int EbsVolumeSizeInGb;
 
         [OutputConstructor]

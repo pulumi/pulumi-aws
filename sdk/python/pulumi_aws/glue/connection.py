@@ -31,13 +31,17 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
-        :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+               
+               **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
+        :param pulumi.Input[str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         :param pulumi.Input[str] description: Description of the connection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
-        :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: List of criteria that can be used in selecting this connection.
+        :param pulumi.Input[str] name: Name of the connection.
+               
+               The following arguments are optional:
+        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if catalog_id is not None:
@@ -61,7 +65,7 @@ class ConnectionArgs:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -73,7 +77,9 @@ class ConnectionArgs:
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of key-value pairs used as parameters for this connection.
+        Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+
+        **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         """
         return pulumi.get(self, "connection_properties")
 
@@ -85,7 +91,7 @@ class ConnectionArgs:
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         """
         return pulumi.get(self, "connection_type")
 
@@ -109,7 +115,7 @@ class ConnectionArgs:
     @pulumi.getter(name="matchCriterias")
     def match_criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of criteria that can be used in selecting this connection.
+        List of criteria that can be used in selecting this connection.
         """
         return pulumi.get(self, "match_criterias")
 
@@ -121,7 +127,9 @@ class ConnectionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the connection.
+        Name of the connection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -133,7 +141,7 @@ class ConnectionArgs:
     @pulumi.getter(name="physicalConnectionRequirements")
     def physical_connection_requirements(self) -> Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]:
         """
-        A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         """
         return pulumi.get(self, "physical_connection_requirements")
 
@@ -169,14 +177,18 @@ class _ConnectionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
-        :param pulumi.Input[str] arn: The ARN of the Glue Connection.
-        :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        :param pulumi.Input[str] arn: ARN of the Glue Connection.
+        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+               
+               **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
+        :param pulumi.Input[str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         :param pulumi.Input[str] description: Description of the connection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
-        :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: List of criteria that can be used in selecting this connection.
+        :param pulumi.Input[str] name: Name of the connection.
+               
+               The following arguments are optional:
+        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -208,7 +220,7 @@ class _ConnectionState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Glue Connection.
+        ARN of the Glue Connection.
         """
         return pulumi.get(self, "arn")
 
@@ -220,7 +232,7 @@ class _ConnectionState:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -232,7 +244,9 @@ class _ConnectionState:
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of key-value pairs used as parameters for this connection.
+        Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+
+        **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         """
         return pulumi.get(self, "connection_properties")
 
@@ -244,7 +258,7 @@ class _ConnectionState:
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         """
         return pulumi.get(self, "connection_type")
 
@@ -268,7 +282,7 @@ class _ConnectionState:
     @pulumi.getter(name="matchCriterias")
     def match_criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of criteria that can be used in selecting this connection.
+        List of criteria that can be used in selecting this connection.
         """
         return pulumi.get(self, "match_criterias")
 
@@ -280,7 +294,9 @@ class _ConnectionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the connection.
+        Name of the connection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -292,7 +308,7 @@ class _ConnectionState:
     @pulumi.getter(name="physicalConnectionRequirements")
     def physical_connection_requirements(self) -> Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]:
         """
-        A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         """
         return pulumi.get(self, "physical_connection_requirements")
 
@@ -352,12 +368,12 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
+            name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
-            },
-            name="example")
+            })
         ```
 
         ### Non-VPC Connection with secret manager reference
@@ -368,11 +384,11 @@ class Connection(pulumi.CustomResource):
 
         example = aws.secretsmanager.get_secret(name="example-secret")
         example_connection = aws.glue.Connection("example",
+            name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
                 "SECRET_ID": example.name,
-            },
-            name="example")
+            })
         ```
 
         ### VPC Connection
@@ -384,12 +400,12 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
+            name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
             },
-            name="example",
             physical_connection_requirements={
                 "availability_zone": example_aws_subnet["availabilityZone"],
                 "security_group_id_lists": [example_aws_security_group["id"]],
@@ -406,7 +422,8 @@ class Connection(pulumi.CustomResource):
         # Define the custom connector using the connection_type of `CUSTOM` with the match_criteria of `template_connection`
         # Example here being a snowflake jdbc connector with a secret having user and password as keys
         example = aws.secretsmanager.get_secret(name="example-secret")
-        example_connector = aws.glue.Connection("example_connector",
+        example1 = aws.glue.Connection("example1",
+            name="example1",
             connection_type="CUSTOM",
             connection_properties={
                 "CONNECTOR_CLASS_NAME": "net.snowflake.client.jdbc.SnowflakeDriver",
@@ -414,10 +431,10 @@ class Connection(pulumi.CustomResource):
                 "CONNECTOR_URL": "s3://example/snowflake-jdbc.jar",
                 "JDBC_CONNECTION_URL": "[[\\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\\"],\\",\\"]",
             },
-            name="example_connector",
             match_criterias=["template-connection"])
         # Reference the connector using match_criteria with the connector created above.
-        example_connection = aws.glue.Connection("example_connection",
+        example2 = aws.glue.Connection("example2",
+            name="example2",
             connection_type="CUSTOM",
             connection_properties={
                 "CONNECTOR_CLASS_NAME": "net.snowflake.client.jdbc.SnowflakeDriver",
@@ -426,11 +443,162 @@ class Connection(pulumi.CustomResource):
                 "JDBC_CONNECTION_URL": "jdbc:snowflake://example.com/?user=${user}&password=${password}",
                 "SECRET_ID": example.name,
             },
-            name="example",
             match_criterias=[
                 "Connection",
-                example_connector.name,
+                example1.name,
             ])
+        ```
+
+        ### Azure Cosmos Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azurecosmos).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "username": "exampleusername",
+                "password": "examplepassword",
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="AZURECOSMOS",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                    "spark.cosmos.accountEndpoint": "https://exampledbaccount.documents.azure.com:443/",
+                }),
+            })
+        ```
+
+        ### Azure SQL Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azuresql).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "username": "exampleusername",
+                "password": "examplepassword",
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="AZURECOSMOS",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                    "url": "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase",
+                }),
+            })
+        ```
+
+        ### Google BigQuery Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-bigquery).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "credentials": std.base64encode(input=\"\"\"{
+          "type": "service_account",
+          "project_id": "example-project",
+          "private_key_id": "example-key",
+          "private_key": "-----BEGIN RSA PRIVATE KEY-----\\nREDACTED\\n-----END RSA PRIVATE KEY-----",
+          "client_email": "example-project@appspot.gserviceaccount.com",
+          "client_id": example-client",
+          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+          "token_uri": "https://oauth2.googleapis.com/token",
+          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
+          "universe_domain": "googleapis.com"
+        }
+        \"\"\").result,
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="BIGQUERY",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                }),
+            })
+        ```
+
+        ### OpenSearch Service Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-opensearch).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "opensearch.net.http.auth.user": "exampleusername",
+                "opensearch.net.http.auth.pass": "examplepassword",
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="OPENSEARCH",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                    "opensearch.nodes": "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com",
+                    "opensearch.port": "443",
+                    "opensearch.aws.sigv4.region": "us-east-1",
+                    "opensearch.nodes.wan.only": "true",
+                    "opensearch.aws.sigv4.enabled": "true",
+                }),
+            })
+        ```
+
+        ### Snowflake Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-snowflake).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "sfUser": "exampleusername",
+                "sfPassword": "examplepassword",
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="SNOWFLAKE",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                    "sfRole": "EXAMPLEETLROLE",
+                    "sfUrl": "exampleorg-exampleconnection.snowflakecomputing.com",
+                }),
+            })
         ```
 
         ## Import
@@ -443,13 +611,17 @@ class Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+               
+               **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
+        :param pulumi.Input[str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         :param pulumi.Input[str] description: Description of the connection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
-        :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: List of criteria that can be used in selecting this connection.
+        :param pulumi.Input[str] name: Name of the connection.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']] physical_connection_requirements: Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -470,12 +642,12 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
+            name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
-            },
-            name="example")
+            })
         ```
 
         ### Non-VPC Connection with secret manager reference
@@ -486,11 +658,11 @@ class Connection(pulumi.CustomResource):
 
         example = aws.secretsmanager.get_secret(name="example-secret")
         example_connection = aws.glue.Connection("example",
+            name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
                 "SECRET_ID": example.name,
-            },
-            name="example")
+            })
         ```
 
         ### VPC Connection
@@ -502,12 +674,12 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
+            name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
             },
-            name="example",
             physical_connection_requirements={
                 "availability_zone": example_aws_subnet["availabilityZone"],
                 "security_group_id_lists": [example_aws_security_group["id"]],
@@ -524,7 +696,8 @@ class Connection(pulumi.CustomResource):
         # Define the custom connector using the connection_type of `CUSTOM` with the match_criteria of `template_connection`
         # Example here being a snowflake jdbc connector with a secret having user and password as keys
         example = aws.secretsmanager.get_secret(name="example-secret")
-        example_connector = aws.glue.Connection("example_connector",
+        example1 = aws.glue.Connection("example1",
+            name="example1",
             connection_type="CUSTOM",
             connection_properties={
                 "CONNECTOR_CLASS_NAME": "net.snowflake.client.jdbc.SnowflakeDriver",
@@ -532,10 +705,10 @@ class Connection(pulumi.CustomResource):
                 "CONNECTOR_URL": "s3://example/snowflake-jdbc.jar",
                 "JDBC_CONNECTION_URL": "[[\\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\\"],\\",\\"]",
             },
-            name="example_connector",
             match_criterias=["template-connection"])
         # Reference the connector using match_criteria with the connector created above.
-        example_connection = aws.glue.Connection("example_connection",
+        example2 = aws.glue.Connection("example2",
+            name="example2",
             connection_type="CUSTOM",
             connection_properties={
                 "CONNECTOR_CLASS_NAME": "net.snowflake.client.jdbc.SnowflakeDriver",
@@ -544,11 +717,162 @@ class Connection(pulumi.CustomResource):
                 "JDBC_CONNECTION_URL": "jdbc:snowflake://example.com/?user=${user}&password=${password}",
                 "SECRET_ID": example.name,
             },
-            name="example",
             match_criterias=[
                 "Connection",
-                example_connector.name,
+                example1.name,
             ])
+        ```
+
+        ### Azure Cosmos Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azurecosmos).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "username": "exampleusername",
+                "password": "examplepassword",
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="AZURECOSMOS",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                    "spark.cosmos.accountEndpoint": "https://exampledbaccount.documents.azure.com:443/",
+                }),
+            })
+        ```
+
+        ### Azure SQL Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azuresql).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "username": "exampleusername",
+                "password": "examplepassword",
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="AZURECOSMOS",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                    "url": "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase",
+                }),
+            })
+        ```
+
+        ### Google BigQuery Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-bigquery).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "credentials": std.base64encode(input=\"\"\"{
+          "type": "service_account",
+          "project_id": "example-project",
+          "private_key_id": "example-key",
+          "private_key": "-----BEGIN RSA PRIVATE KEY-----\\nREDACTED\\n-----END RSA PRIVATE KEY-----",
+          "client_email": "example-project@appspot.gserviceaccount.com",
+          "client_id": example-client",
+          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+          "token_uri": "https://oauth2.googleapis.com/token",
+          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
+          "universe_domain": "googleapis.com"
+        }
+        \"\"\").result,
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="BIGQUERY",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                }),
+            })
+        ```
+
+        ### OpenSearch Service Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-opensearch).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "opensearch.net.http.auth.user": "exampleusername",
+                "opensearch.net.http.auth.pass": "examplepassword",
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="OPENSEARCH",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                    "opensearch.nodes": "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com",
+                    "opensearch.port": "443",
+                    "opensearch.aws.sigv4.region": "us-east-1",
+                    "opensearch.nodes.wan.only": "true",
+                    "opensearch.aws.sigv4.enabled": "true",
+                }),
+            })
+        ```
+
+        ### Snowflake Connection
+
+        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-snowflake).
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example", name="example-secret")
+        example_secret_version = aws.secretsmanager.SecretVersion("example",
+            secret_id=example.id,
+            secret_string=json.dumps({
+                "sfUser": "exampleusername",
+                "sfPassword": "examplepassword",
+            }))
+        example_connection = aws.glue.Connection("example",
+            name="example",
+            connection_type="SNOWFLAKE",
+            connection_properties={
+                "SparkProperties": pulumi.Output.json_dumps({
+                    "secretId": example.name,
+                    "sfRole": "EXAMPLEETLROLE",
+                    "sfUrl": "exampleorg-exampleconnection.snowflakecomputing.com",
+                }),
+            })
         ```
 
         ## Import
@@ -630,14 +954,18 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the Glue Connection.
-        :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        :param pulumi.Input[str] arn: ARN of the Glue Connection.
+        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+               
+               **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
+        :param pulumi.Input[str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         :param pulumi.Input[str] description: Description of the connection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
-        :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: List of criteria that can be used in selecting this connection.
+        :param pulumi.Input[str] name: Name of the connection.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']] physical_connection_requirements: Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -661,7 +989,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the Glue Connection.
+        ARN of the Glue Connection.
         """
         return pulumi.get(self, "arn")
 
@@ -669,7 +997,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -677,7 +1005,9 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of key-value pairs used as parameters for this connection.
+        Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+
+        **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         """
         return pulumi.get(self, "connection_properties")
 
@@ -685,7 +1015,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         """
         return pulumi.get(self, "connection_type")
 
@@ -701,7 +1031,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="matchCriterias")
     def match_criterias(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of criteria that can be used in selecting this connection.
+        List of criteria that can be used in selecting this connection.
         """
         return pulumi.get(self, "match_criterias")
 
@@ -709,7 +1039,9 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the connection.
+        Name of the connection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -717,7 +1049,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="physicalConnectionRequirements")
     def physical_connection_requirements(self) -> pulumi.Output[Optional['outputs.ConnectionPhysicalConnectionRequirements']]:
         """
-        A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         """
         return pulumi.get(self, "physical_connection_requirements")
 

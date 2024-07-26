@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobDefinitionEksPropertiesPodPropertiesVolumeHostPath
     {
         /// <summary>
-        /// The path of the file or directory on the host to mount into containers on the pod.
+        /// Path of the file or directory on the host to mount into containers on the pod.
         /// </summary>
         public readonly string Path;
 

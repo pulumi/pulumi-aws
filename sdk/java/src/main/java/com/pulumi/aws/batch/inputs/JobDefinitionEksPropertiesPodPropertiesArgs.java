@@ -4,6 +4,7 @@
 package com.pulumi.aws.batch.inputs;
 
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs;
+import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesVolumeArgs;
 import com.pulumi.core.Output;
@@ -22,14 +23,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     public static final JobDefinitionEksPropertiesPodPropertiesArgs Empty = new JobDefinitionEksPropertiesPodPropertiesArgs();
 
     /**
-     * The properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
     @Import(name="containers", required=true)
     private Output<JobDefinitionEksPropertiesPodPropertiesContainersArgs> containers;
 
     /**
-     * @return The properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
     public Output<JobDefinitionEksPropertiesPodPropertiesContainersArgs> containers() {
@@ -37,14 +38,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
+     * DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
      * 
      */
     @Import(name="dnsPolicy")
     private @Nullable Output<String> dnsPolicy;
 
     /**
-     * @return The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
+     * @return DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
      * 
      */
     public Optional<Output<String>> dnsPolicy() {
@@ -52,18 +53,33 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * Indicates if the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
+     * Whether the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
      * 
      */
     @Import(name="hostNetwork")
     private @Nullable Output<Boolean> hostNetwork;
 
     /**
-     * @return Indicates if the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
+     * @return Whether the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
      * 
      */
     public Optional<Output<Boolean>> hostNetwork() {
         return Optional.ofNullable(this.hostNetwork);
+    }
+
+    /**
+     * List of Kubernetes secret resources. See `image_pull_secret` below.
+     * 
+     */
+    @Import(name="imagePullSecrets")
+    private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs>> imagePullSecrets;
+
+    /**
+     * @return List of Kubernetes secret resources. See `image_pull_secret` below.
+     * 
+     */
+    public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs>>> imagePullSecrets() {
+        return Optional.ofNullable(this.imagePullSecrets);
     }
 
     /**
@@ -82,14 +98,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * The name of the service account that&#39;s used to run the pod.
+     * Name of the service account that&#39;s used to run the pod.
      * 
      */
     @Import(name="serviceAccountName")
     private @Nullable Output<String> serviceAccountName;
 
     /**
-     * @return The name of the service account that&#39;s used to run the pod.
+     * @return Name of the service account that&#39;s used to run the pod.
      * 
      */
     public Optional<Output<String>> serviceAccountName() {
@@ -97,14 +113,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+     * Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
      * 
      */
     @Import(name="volumes")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesVolumeArgs>> volumes;
 
     /**
-     * @return Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+     * @return Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
      * 
      */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesVolumeArgs>>> volumes() {
@@ -117,6 +133,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         this.containers = $.containers;
         this.dnsPolicy = $.dnsPolicy;
         this.hostNetwork = $.hostNetwork;
+        this.imagePullSecrets = $.imagePullSecrets;
         this.metadata = $.metadata;
         this.serviceAccountName = $.serviceAccountName;
         this.volumes = $.volumes;
@@ -141,7 +158,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param containers The properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+         * @param containers Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
          * 
          * @return builder
          * 
@@ -152,7 +169,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param containers The properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+         * @param containers Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
          * 
          * @return builder
          * 
@@ -162,7 +179,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param dnsPolicy The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
+         * @param dnsPolicy DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
          * 
          * @return builder
          * 
@@ -173,7 +190,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param dnsPolicy The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
+         * @param dnsPolicy DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
          * 
          * @return builder
          * 
@@ -183,7 +200,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param hostNetwork Indicates if the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
+         * @param hostNetwork Whether the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
          * 
          * @return builder
          * 
@@ -194,13 +211,44 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param hostNetwork Indicates if the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
+         * @param hostNetwork Whether the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
          * 
          * @return builder
          * 
          */
         public Builder hostNetwork(Boolean hostNetwork) {
             return hostNetwork(Output.of(hostNetwork));
+        }
+
+        /**
+         * @param imagePullSecrets List of Kubernetes secret resources. See `image_pull_secret` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imagePullSecrets(@Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs>> imagePullSecrets) {
+            $.imagePullSecrets = imagePullSecrets;
+            return this;
+        }
+
+        /**
+         * @param imagePullSecrets List of Kubernetes secret resources. See `image_pull_secret` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imagePullSecrets(List<JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs> imagePullSecrets) {
+            return imagePullSecrets(Output.of(imagePullSecrets));
+        }
+
+        /**
+         * @param imagePullSecrets List of Kubernetes secret resources. See `image_pull_secret` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imagePullSecrets(JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs... imagePullSecrets) {
+            return imagePullSecrets(List.of(imagePullSecrets));
         }
 
         /**
@@ -225,7 +273,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param serviceAccountName The name of the service account that&#39;s used to run the pod.
+         * @param serviceAccountName Name of the service account that&#39;s used to run the pod.
          * 
          * @return builder
          * 
@@ -236,7 +284,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param serviceAccountName The name of the service account that&#39;s used to run the pod.
+         * @param serviceAccountName Name of the service account that&#39;s used to run the pod.
          * 
          * @return builder
          * 
@@ -246,7 +294,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param volumes Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         * @param volumes Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
          * 
          * @return builder
          * 
@@ -257,7 +305,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param volumes Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         * @param volumes Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
          * 
          * @return builder
          * 
@@ -267,7 +315,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param volumes Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         * @param volumes Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
          * 
          * @return builder
          * 

@@ -2636,7 +2636,7 @@ type ClassifierCsvClassifier struct {
 	CustomDatatypeConfigured *bool `pulumi:"customDatatypeConfigured"`
 	// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
 	CustomDatatypes []string `pulumi:"customDatatypes"`
-	// The delimiter used in the Csv to separate columns.
+	// The delimiter used in the CSV to separate columns.
 	Delimiter *string `pulumi:"delimiter"`
 	// Specifies whether to trim column values.
 	DisableValueTrimming *bool `pulumi:"disableValueTrimming"`
@@ -2644,7 +2644,8 @@ type ClassifierCsvClassifier struct {
 	Headers []string `pulumi:"headers"`
 	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 	QuoteSymbol *string `pulumi:"quoteSymbol"`
-	Serde       *string `pulumi:"serde"`
+	// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+	Serde *string `pulumi:"serde"`
 }
 
 // ClassifierCsvClassifierInput is an input type that accepts ClassifierCsvClassifierArgs and ClassifierCsvClassifierOutput values.
@@ -2667,7 +2668,7 @@ type ClassifierCsvClassifierArgs struct {
 	CustomDatatypeConfigured pulumi.BoolPtrInput `pulumi:"customDatatypeConfigured"`
 	// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
 	CustomDatatypes pulumi.StringArrayInput `pulumi:"customDatatypes"`
-	// The delimiter used in the Csv to separate columns.
+	// The delimiter used in the CSV to separate columns.
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
 	// Specifies whether to trim column values.
 	DisableValueTrimming pulumi.BoolPtrInput `pulumi:"disableValueTrimming"`
@@ -2675,7 +2676,8 @@ type ClassifierCsvClassifierArgs struct {
 	Headers pulumi.StringArrayInput `pulumi:"headers"`
 	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 	QuoteSymbol pulumi.StringPtrInput `pulumi:"quoteSymbol"`
-	Serde       pulumi.StringPtrInput `pulumi:"serde"`
+	// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+	Serde pulumi.StringPtrInput `pulumi:"serde"`
 }
 
 func (ClassifierCsvClassifierArgs) ElementType() reflect.Type {
@@ -2775,7 +2777,7 @@ func (o ClassifierCsvClassifierOutput) CustomDatatypes() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v ClassifierCsvClassifier) []string { return v.CustomDatatypes }).(pulumi.StringArrayOutput)
 }
 
-// The delimiter used in the Csv to separate columns.
+// The delimiter used in the CSV to separate columns.
 func (o ClassifierCsvClassifierOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
@@ -2795,6 +2797,7 @@ func (o ClassifierCsvClassifierOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
 }
 
+// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
 func (o ClassifierCsvClassifierOutput) Serde() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Serde }).(pulumi.StringPtrOutput)
 }
@@ -2863,7 +2866,7 @@ func (o ClassifierCsvClassifierPtrOutput) CustomDatatypes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The delimiter used in the Csv to separate columns.
+// The delimiter used in the CSV to separate columns.
 func (o ClassifierCsvClassifierPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
 		if v == nil {
@@ -2903,6 +2906,7 @@ func (o ClassifierCsvClassifierPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
 func (o ClassifierCsvClassifierPtrOutput) Serde() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
 		if v == nil {

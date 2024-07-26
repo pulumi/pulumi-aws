@@ -86,9 +86,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:securitylake/subscriber:Subscriber")
 public class Subscriber extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon S3 or Lake Formation access type.
+     * 
+     */
     @Export(name="accessType", refs={String.class}, tree="[0]")
     private Output<String> accessType;
 
+    /**
+     * @return The Amazon S3 or Lake Formation access type.
+     * 
+     */
     public Output<String> accessType() {
         return this.accessType;
     }
@@ -163,14 +171,14 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
         return this.s3BucketArn;
     }
     /**
-     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
     @Export(name="source", refs={SubscriberSource.class}, tree="[0]")
     private Output</* @Nullable */ SubscriberSource> source;
 
     /**
-     * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+     * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
     public Output<Optional<SubscriberSource>> source() {
@@ -205,14 +213,14 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
         return this.subscriberEndpoint;
     }
     /**
-     * The AWS identity used to access your data.
+     * The AWS identity used to access your data. See `subscriber_identity` Block below.
      * 
      */
     @Export(name="subscriberIdentity", refs={SubscriberSubscriberIdentity.class}, tree="[0]")
     private Output</* @Nullable */ SubscriberSubscriberIdentity> subscriberIdentity;
 
     /**
-     * @return The AWS identity used to access your data.
+     * @return The AWS identity used to access your data. See `subscriber_identity` Block below.
      * 
      */
     public Output<Optional<SubscriberSubscriberIdentity>> subscriberIdentity() {
