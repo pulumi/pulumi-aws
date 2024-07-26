@@ -5,7 +5,6 @@ package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -16,14 +15,14 @@ public final class GetJobDefinitionEksPropertyPodPropertyMetadata {
      * @return Key-value pairs used to identify, sort, and organize cube resources.
      * 
      */
-    private Map<String,Object> labels;
+    private Map<String,String> labels;
 
     private GetJobDefinitionEksPropertyPodPropertyMetadata() {}
     /**
      * @return Key-value pairs used to identify, sort, and organize cube resources.
      * 
      */
-    public Map<String,Object> labels() {
+    public Map<String,String> labels() {
         return this.labels;
     }
 
@@ -36,7 +35,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyMetadata {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,Object> labels;
+        private Map<String,String> labels;
         public Builder() {}
         public Builder(GetJobDefinitionEksPropertyPodPropertyMetadata defaults) {
     	      Objects.requireNonNull(defaults);
@@ -44,7 +43,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyMetadata {
         }
 
         @CustomType.Setter
-        public Builder labels(Map<String,Object> labels) {
+        public Builder labels(Map<String,String> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionEksPropertyPodPropertyMetadata", "labels");
             }

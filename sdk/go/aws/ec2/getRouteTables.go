@@ -46,11 +46,11 @@ import (
 //				return err
 //			}
 //			var r []*ec2.Route
-//			for index := 0; index < len(rts.Ids); index++ {
+//			for index := 0; index < int(len(rts.Ids)); index++ {
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewRoute(ctx, fmt.Sprintf("r-%v", key0), &ec2.RouteArgs{
-//					RouteTableId:           rts.Ids[val0],
+//					RouteTableId:           pulumi.String(rts.Ids[val0]),
 //					DestinationCidrBlock:   pulumi.String("10.0.0.0/22"),
 //					VpcPeeringConnectionId: pulumi.String("pcx-0e9a7a9ecd137dc54"),
 //				})

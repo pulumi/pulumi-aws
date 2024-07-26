@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketObjectLockConfiguration
     {
         /// <summary>
-        /// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+        /// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         /// </summary>
         public readonly string ObjectLockEnabled;
         /// <summary>
-        /// The Object Lock rule in place for this bucket.
+        /// Object Lock rule in place for this bucket (documented below).
         /// </summary>
         public readonly Outputs.BucketObjectLockConfigurationRule? Rule;
 

@@ -268,7 +268,7 @@ class ConfigurationSet(pulumi.CustomResource):
         test = aws.ses.ConfigurationSet("test",
             name="some-configuration-set-test",
             delivery_options={
-                "tlsPolicy": "Require",
+                "tls_policy": "Require",
             })
         ```
 
@@ -281,7 +281,7 @@ class ConfigurationSet(pulumi.CustomResource):
         test = aws.ses.ConfigurationSet("test",
             name="some-configuration-set-test",
             tracking_options={
-                "customRedirectDomain": "sub.example.com",
+                "custom_redirect_domain": "sub.example.com",
             })
         ```
 
@@ -332,7 +332,7 @@ class ConfigurationSet(pulumi.CustomResource):
         test = aws.ses.ConfigurationSet("test",
             name="some-configuration-set-test",
             delivery_options={
-                "tlsPolicy": "Require",
+                "tls_policy": "Require",
             })
         ```
 
@@ -345,7 +345,7 @@ class ConfigurationSet(pulumi.CustomResource):
         test = aws.ses.ConfigurationSet("test",
             name="some-configuration-set-test",
             tracking_options={
-                "customRedirectDomain": "sub.example.com",
+                "custom_redirect_domain": "sub.example.com",
             })
         ```
 

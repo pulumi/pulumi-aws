@@ -229,7 +229,7 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
             aws_region="us-east-1",
             name="example-sip-media-application",
             endpoints={
-                "lambdaArn": test["arn"],
+                "lambda_arn": test["arn"],
             })
         ```
 
@@ -271,7 +271,7 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
             aws_region="us-east-1",
             name="example-sip-media-application",
             endpoints={
-                "lambdaArn": test["arn"],
+                "lambda_arn": test["arn"],
             })
         ```
 

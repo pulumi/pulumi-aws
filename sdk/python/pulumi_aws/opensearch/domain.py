@@ -819,7 +819,7 @@ class Domain(pulumi.CustomResource):
             domain_name="example",
             engine_version="Elasticsearch_7.10",
             cluster_config={
-                "instanceType": "r4.large.search",
+                "instance_type": "r4.large.search",
             },
             tags={
                 "Domain": "TestDomain",
@@ -883,8 +883,8 @@ class Domain(pulumi.CustomResource):
             policy_name="example",
             policy_document=example.json)
         example_domain = aws.opensearch.Domain("example", log_publishing_options=[{
-            "cloudwatchLogGroupArn": example_log_group.arn,
-            "logType": "INDEX_SLOW_LOGS",
+            "cloudwatch_log_group_arn": example_log_group.arn,
+            "log_type": "INDEX_SLOW_LOGS",
         }])
         ```
 
@@ -916,10 +916,10 @@ class Domain(pulumi.CustomResource):
             description="Managed by Pulumi",
             vpc_id=example.id,
             ingress=[{
-                "fromPort": 443,
-                "toPort": 443,
+                "from_port": 443,
+                "to_port": 443,
                 "protocol": "tcp",
-                "cidrBlocks": [example.cidr_block],
+                "cidr_blocks": [example.cidr_block],
             }])
         example_service_linked_role = aws.iam.ServiceLinkedRole("example", aws_service_name="opensearchservice.amazonaws.com")
         example_get_policy_document = aws.iam.get_policy_document(statements=[{
@@ -935,15 +935,15 @@ class Domain(pulumi.CustomResource):
             domain_name=domain,
             engine_version="OpenSearch_1.0",
             cluster_config={
-                "instanceType": "m4.large.search",
-                "zoneAwarenessEnabled": True,
+                "instance_type": "m4.large.search",
+                "zone_awareness_enabled": True,
             },
             vpc_options={
-                "subnetIds": [
+                "subnet_ids": [
                     example_get_subnets.ids[0],
                     example_get_subnets.ids[1],
                 ],
-                "securityGroupIds": [example_security_group.id],
+                "security_group_ids": [example_security_group.id],
             },
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
@@ -969,30 +969,30 @@ class Domain(pulumi.CustomResource):
             domain_name="ggkitty",
             engine_version="Elasticsearch_7.1",
             cluster_config={
-                "instanceType": "r5.large.search",
+                "instance_type": "r5.large.search",
             },
             advanced_security_options={
                 "enabled": False,
-                "anonymousAuthEnabled": True,
-                "internalUserDatabaseEnabled": True,
-                "masterUserOptions": {
-                    "masterUserName": "example",
-                    "masterUserPassword": "Barbarbarbar1!",
+                "anonymous_auth_enabled": True,
+                "internal_user_database_enabled": True,
+                "master_user_options": {
+                    "master_user_name": "example",
+                    "master_user_password": "Barbarbarbar1!",
                 },
             },
             encrypt_at_rest={
                 "enabled": True,
             },
             domain_endpoint_options={
-                "enforceHttps": True,
-                "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+                "enforce_https": True,
+                "tls_security_policy": "Policy-Min-TLS-1-2-2019-07",
             },
             node_to_node_encryption={
                 "enabled": True,
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             })
         ```
 
@@ -1008,30 +1008,30 @@ class Domain(pulumi.CustomResource):
             domain_name="ggkitty",
             engine_version="Elasticsearch_7.1",
             cluster_config={
-                "instanceType": "r5.large.search",
+                "instance_type": "r5.large.search",
             },
             advanced_security_options={
                 "enabled": True,
-                "anonymousAuthEnabled": True,
-                "internalUserDatabaseEnabled": True,
-                "masterUserOptions": {
-                    "masterUserName": "example",
-                    "masterUserPassword": "Barbarbarbar1!",
+                "anonymous_auth_enabled": True,
+                "internal_user_database_enabled": True,
+                "master_user_options": {
+                    "master_user_name": "example",
+                    "master_user_password": "Barbarbarbar1!",
                 },
             },
             encrypt_at_rest={
                 "enabled": True,
             },
             domain_endpoint_options={
-                "enforceHttps": True,
-                "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+                "enforce_https": True,
+                "tls_security_policy": "Policy-Min-TLS-1-2-2019-07",
             },
             node_to_node_encryption={
                 "enabled": True,
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             })
         ```
 
@@ -1107,7 +1107,7 @@ class Domain(pulumi.CustomResource):
             domain_name="example",
             engine_version="Elasticsearch_7.10",
             cluster_config={
-                "instanceType": "r4.large.search",
+                "instance_type": "r4.large.search",
             },
             tags={
                 "Domain": "TestDomain",
@@ -1171,8 +1171,8 @@ class Domain(pulumi.CustomResource):
             policy_name="example",
             policy_document=example.json)
         example_domain = aws.opensearch.Domain("example", log_publishing_options=[{
-            "cloudwatchLogGroupArn": example_log_group.arn,
-            "logType": "INDEX_SLOW_LOGS",
+            "cloudwatch_log_group_arn": example_log_group.arn,
+            "log_type": "INDEX_SLOW_LOGS",
         }])
         ```
 
@@ -1204,10 +1204,10 @@ class Domain(pulumi.CustomResource):
             description="Managed by Pulumi",
             vpc_id=example.id,
             ingress=[{
-                "fromPort": 443,
-                "toPort": 443,
+                "from_port": 443,
+                "to_port": 443,
                 "protocol": "tcp",
-                "cidrBlocks": [example.cidr_block],
+                "cidr_blocks": [example.cidr_block],
             }])
         example_service_linked_role = aws.iam.ServiceLinkedRole("example", aws_service_name="opensearchservice.amazonaws.com")
         example_get_policy_document = aws.iam.get_policy_document(statements=[{
@@ -1223,15 +1223,15 @@ class Domain(pulumi.CustomResource):
             domain_name=domain,
             engine_version="OpenSearch_1.0",
             cluster_config={
-                "instanceType": "m4.large.search",
-                "zoneAwarenessEnabled": True,
+                "instance_type": "m4.large.search",
+                "zone_awareness_enabled": True,
             },
             vpc_options={
-                "subnetIds": [
+                "subnet_ids": [
                     example_get_subnets.ids[0],
                     example_get_subnets.ids[1],
                 ],
-                "securityGroupIds": [example_security_group.id],
+                "security_group_ids": [example_security_group.id],
             },
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
@@ -1257,30 +1257,30 @@ class Domain(pulumi.CustomResource):
             domain_name="ggkitty",
             engine_version="Elasticsearch_7.1",
             cluster_config={
-                "instanceType": "r5.large.search",
+                "instance_type": "r5.large.search",
             },
             advanced_security_options={
                 "enabled": False,
-                "anonymousAuthEnabled": True,
-                "internalUserDatabaseEnabled": True,
-                "masterUserOptions": {
-                    "masterUserName": "example",
-                    "masterUserPassword": "Barbarbarbar1!",
+                "anonymous_auth_enabled": True,
+                "internal_user_database_enabled": True,
+                "master_user_options": {
+                    "master_user_name": "example",
+                    "master_user_password": "Barbarbarbar1!",
                 },
             },
             encrypt_at_rest={
                 "enabled": True,
             },
             domain_endpoint_options={
-                "enforceHttps": True,
-                "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+                "enforce_https": True,
+                "tls_security_policy": "Policy-Min-TLS-1-2-2019-07",
             },
             node_to_node_encryption={
                 "enabled": True,
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             })
         ```
 
@@ -1296,30 +1296,30 @@ class Domain(pulumi.CustomResource):
             domain_name="ggkitty",
             engine_version="Elasticsearch_7.1",
             cluster_config={
-                "instanceType": "r5.large.search",
+                "instance_type": "r5.large.search",
             },
             advanced_security_options={
                 "enabled": True,
-                "anonymousAuthEnabled": True,
-                "internalUserDatabaseEnabled": True,
-                "masterUserOptions": {
-                    "masterUserName": "example",
-                    "masterUserPassword": "Barbarbarbar1!",
+                "anonymous_auth_enabled": True,
+                "internal_user_database_enabled": True,
+                "master_user_options": {
+                    "master_user_name": "example",
+                    "master_user_password": "Barbarbarbar1!",
                 },
             },
             encrypt_at_rest={
                 "enabled": True,
             },
             domain_endpoint_options={
-                "enforceHttps": True,
-                "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+                "enforce_https": True,
+                "tls_security_policy": "Policy-Min-TLS-1-2-2019-07",
             },
             node_to_node_encryption={
                 "enabled": True,
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             })
         ```
 

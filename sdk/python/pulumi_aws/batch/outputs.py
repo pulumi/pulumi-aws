@@ -1772,18 +1772,18 @@ class GetJobDefinitionEksPropertyPodPropertyContainerEnvResult(dict):
 @pulumi.output_type
 class GetJobDefinitionEksPropertyPodPropertyContainerResourceResult(dict):
     def __init__(__self__, *,
-                 limits: Mapping[str, Any],
-                 requests: Mapping[str, Any]):
+                 limits: Mapping[str, str],
+                 requests: Mapping[str, str]):
         """
-        :param Mapping[str, Any] limits: The type and quantity of the resources to reserve for the container.
-        :param Mapping[str, Any] requests: The type and quantity of the resources to request for the container.
+        :param Mapping[str, str] limits: The type and quantity of the resources to reserve for the container.
+        :param Mapping[str, str] requests: The type and quantity of the resources to request for the container.
         """
         pulumi.set(__self__, "limits", limits)
         pulumi.set(__self__, "requests", requests)
 
     @property
     @pulumi.getter
-    def limits(self) -> Mapping[str, Any]:
+    def limits(self) -> Mapping[str, str]:
         """
         The type and quantity of the resources to reserve for the container.
         """
@@ -1791,7 +1791,7 @@ class GetJobDefinitionEksPropertyPodPropertyContainerResourceResult(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Mapping[str, Any]:
+    def requests(self) -> Mapping[str, str]:
         """
         The type and quantity of the resources to request for the container.
         """
@@ -1899,15 +1899,15 @@ class GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountResult(dict):
 @pulumi.output_type
 class GetJobDefinitionEksPropertyPodPropertyMetadataResult(dict):
     def __init__(__self__, *,
-                 labels: Mapping[str, Any]):
+                 labels: Mapping[str, str]):
         """
-        :param Mapping[str, Any] labels: Key-value pairs used to identify, sort, and organize cube resources.
+        :param Mapping[str, str] labels: Key-value pairs used to identify, sort, and organize cube resources.
         """
         pulumi.set(__self__, "labels", labels)
 
     @property
     @pulumi.getter
-    def labels(self) -> Mapping[str, Any]:
+    def labels(self) -> Mapping[str, str]:
         """
         Key-value pairs used to identify, sort, and organize cube resources.
         """
@@ -2553,11 +2553,11 @@ class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfRe
 class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationResult(dict):
     def __init__(__self__, *,
                  log_driver: str,
-                 options: Mapping[str, Any],
+                 options: Mapping[str, str],
                  secret_options: Sequence['outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionResult']):
         """
         :param str log_driver: The log driver to use for the container.
-        :param Mapping[str, Any] options: The configuration options to send to the log driver.
+        :param Mapping[str, str] options: The configuration options to send to the log driver.
         :param Sequence['GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs'] secret_options: The secrets to pass to the log configuration.
         """
         pulumi.set(__self__, "log_driver", log_driver)
@@ -2574,7 +2574,7 @@ class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationResu
 
     @property
     @pulumi.getter
-    def options(self) -> Mapping[str, Any]:
+    def options(self) -> Mapping[str, str]:
         """
         The configuration options to send to the log driver.
         """

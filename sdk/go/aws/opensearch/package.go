@@ -48,7 +48,7 @@ import (
 //				Bucket: myOpensearchPackages.Bucket,
 //				Key:    pulumi.String("example.txt"),
 //				Source: pulumi.NewFileAsset("./example.txt"),
-//				Etag:   invokeFilemd5.Result,
+//				Etag:   pulumi.String(invokeFilemd5.Result),
 //			})
 //			if err != nil {
 //				return err

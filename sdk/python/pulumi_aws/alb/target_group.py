@@ -992,7 +992,7 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"],
             target_health_states=[{
-                "enableUnhealthyConnectionTermination": False,
+                "enable_unhealthy_connection_termination": False,
             }])
         ```
 
@@ -1008,13 +1008,13 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"],
             target_group_health={
-                "dnsFailover": {
-                    "minimumHealthyTargetsCount": "1",
-                    "minimumHealthyTargetsPercentage": "off",
+                "dns_failover": {
+                    "minimum_healthy_targets_count": "1",
+                    "minimum_healthy_targets_percentage": "off",
                 },
-                "unhealthyStateRouting": {
-                    "minimumHealthyTargetsCount": 1,
-                    "minimumHealthyTargetsPercentage": "off",
+                "unhealthy_state_routing": {
+                    "minimum_healthy_targets_count": 1,
+                    "minimum_healthy_targets_percentage": "off",
                 },
             })
         ```
@@ -1145,7 +1145,7 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"],
             target_health_states=[{
-                "enableUnhealthyConnectionTermination": False,
+                "enable_unhealthy_connection_termination": False,
             }])
         ```
 
@@ -1161,13 +1161,13 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"],
             target_group_health={
-                "dnsFailover": {
-                    "minimumHealthyTargetsCount": "1",
-                    "minimumHealthyTargetsPercentage": "off",
+                "dns_failover": {
+                    "minimum_healthy_targets_count": "1",
+                    "minimum_healthy_targets_percentage": "off",
                 },
-                "unhealthyStateRouting": {
-                    "minimumHealthyTargetsCount": 1,
-                    "minimumHealthyTargetsPercentage": "off",
+                "unhealthy_state_routing": {
+                    "minimum_healthy_targets_count": 1,
+                    "minimum_healthy_targets_percentage": "off",
                 },
             })
         ```

@@ -466,12 +466,12 @@ class StreamProcessor(pulumi.CustomResource):
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [
+                    "version": "2012-10-17",
+                    "statement": [
                         {
-                            "Action": ["s3:PutObject"],
-                            "Effect": "Allow",
-                            "Resource": [example.arn.apply(lambda arn: f"{arn}/*")],
+                            "action": ["s3:PutObject"],
+                            "effect": "Allow",
+                            "resource": [example.arn.apply(lambda arn: f"{arn}/*")],
                         },
                         {
                             "Action": ["sns:Publish"],
@@ -503,15 +503,15 @@ class StreamProcessor(pulumi.CustomResource):
             role_arn=example_role.arn,
             name="example-processor",
             data_sharing_preference={
-                "optIn": False,
+                "opt_in": False,
             },
             output={
-                "s3Destination": {
+                "s3_destination": {
                     "bucket": example.bucket,
                 },
             },
             settings={
-                "connectedHome": {
+                "connected_home": {
                     "labels": [
                         "PERSON",
                         "PET",
@@ -519,12 +519,12 @@ class StreamProcessor(pulumi.CustomResource):
                 },
             },
             input={
-                "kinesisVideoStream": {
+                "kinesis_video_stream": {
                     "arn": example_video_stream.arn,
                 },
             },
             notification_channel={
-                "snsTopicArn": example_topic.arn,
+                "sns_topic_arn": example_topic.arn,
             })
         ```
 
@@ -548,15 +548,15 @@ class StreamProcessor(pulumi.CustomResource):
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [
+                    "version": "2012-10-17",
+                    "statement": [
                         {
-                            "Action": [
+                            "action": [
                                 "kinesis:Get*",
                                 "kinesis:DescribeStreamSummary",
                             ],
-                            "Effect": "Allow",
-                            "Resource": [example.arn],
+                            "effect": "Allow",
+                            "resource": [example.arn],
                         },
                         {
                             "Action": ["kinesis:PutRecord"],
@@ -581,7 +581,7 @@ class StreamProcessor(pulumi.CustomResource):
             role_arn=example_role.arn,
             name="example-processor",
             data_sharing_preference={
-                "optIn": False,
+                "opt_in": False,
             },
             regions_of_interests=[{
                 "polygons": [
@@ -600,18 +600,18 @@ class StreamProcessor(pulumi.CustomResource):
                 ],
             }],
             input={
-                "kinesisVideoStream": {
+                "kinesis_video_stream": {
                     "arn": example.arn,
                 },
             },
             output={
-                "kinesisDataStream": {
+                "kinesis_data_stream": {
                     "arn": example_stream.arn,
                 },
             },
             settings={
-                "faceSearch": {
-                    "collectionId": example_collection.id,
+                "face_search": {
+                    "collection_id": example_collection.id,
                 },
             })
         ```
@@ -673,12 +673,12 @@ class StreamProcessor(pulumi.CustomResource):
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [
+                    "version": "2012-10-17",
+                    "statement": [
                         {
-                            "Action": ["s3:PutObject"],
-                            "Effect": "Allow",
-                            "Resource": [example.arn.apply(lambda arn: f"{arn}/*")],
+                            "action": ["s3:PutObject"],
+                            "effect": "Allow",
+                            "resource": [example.arn.apply(lambda arn: f"{arn}/*")],
                         },
                         {
                             "Action": ["sns:Publish"],
@@ -710,15 +710,15 @@ class StreamProcessor(pulumi.CustomResource):
             role_arn=example_role.arn,
             name="example-processor",
             data_sharing_preference={
-                "optIn": False,
+                "opt_in": False,
             },
             output={
-                "s3Destination": {
+                "s3_destination": {
                     "bucket": example.bucket,
                 },
             },
             settings={
-                "connectedHome": {
+                "connected_home": {
                     "labels": [
                         "PERSON",
                         "PET",
@@ -726,12 +726,12 @@ class StreamProcessor(pulumi.CustomResource):
                 },
             },
             input={
-                "kinesisVideoStream": {
+                "kinesis_video_stream": {
                     "arn": example_video_stream.arn,
                 },
             },
             notification_channel={
-                "snsTopicArn": example_topic.arn,
+                "sns_topic_arn": example_topic.arn,
             })
         ```
 
@@ -755,15 +755,15 @@ class StreamProcessor(pulumi.CustomResource):
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [
+                    "version": "2012-10-17",
+                    "statement": [
                         {
-                            "Action": [
+                            "action": [
                                 "kinesis:Get*",
                                 "kinesis:DescribeStreamSummary",
                             ],
-                            "Effect": "Allow",
-                            "Resource": [example.arn],
+                            "effect": "Allow",
+                            "resource": [example.arn],
                         },
                         {
                             "Action": ["kinesis:PutRecord"],
@@ -788,7 +788,7 @@ class StreamProcessor(pulumi.CustomResource):
             role_arn=example_role.arn,
             name="example-processor",
             data_sharing_preference={
-                "optIn": False,
+                "opt_in": False,
             },
             regions_of_interests=[{
                 "polygons": [
@@ -807,18 +807,18 @@ class StreamProcessor(pulumi.CustomResource):
                 ],
             }],
             input={
-                "kinesisVideoStream": {
+                "kinesis_video_stream": {
                     "arn": example.arn,
                 },
             },
             output={
-                "kinesisDataStream": {
+                "kinesis_data_stream": {
                     "arn": example_stream.arn,
                 },
             },
             settings={
-                "faceSearch": {
-                    "collectionId": example_collection.id,
+                "face_search": {
+                    "collection_id": example_collection.id,
                 },
             })
         ```

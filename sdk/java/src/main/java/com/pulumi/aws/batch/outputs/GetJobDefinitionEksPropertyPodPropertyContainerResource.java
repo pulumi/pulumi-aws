@@ -5,7 +5,6 @@ package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -16,26 +15,26 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerResource {
      * @return The type and quantity of the resources to reserve for the container.
      * 
      */
-    private Map<String,Object> limits;
+    private Map<String,String> limits;
     /**
      * @return The type and quantity of the resources to request for the container.
      * 
      */
-    private Map<String,Object> requests;
+    private Map<String,String> requests;
 
     private GetJobDefinitionEksPropertyPodPropertyContainerResource() {}
     /**
      * @return The type and quantity of the resources to reserve for the container.
      * 
      */
-    public Map<String,Object> limits() {
+    public Map<String,String> limits() {
         return this.limits;
     }
     /**
      * @return The type and quantity of the resources to request for the container.
      * 
      */
-    public Map<String,Object> requests() {
+    public Map<String,String> requests() {
         return this.requests;
     }
 
@@ -48,8 +47,8 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerResource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,Object> limits;
-        private Map<String,Object> requests;
+        private Map<String,String> limits;
+        private Map<String,String> requests;
         public Builder() {}
         public Builder(GetJobDefinitionEksPropertyPodPropertyContainerResource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,7 +57,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerResource {
         }
 
         @CustomType.Setter
-        public Builder limits(Map<String,Object> limits) {
+        public Builder limits(Map<String,String> limits) {
             if (limits == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionEksPropertyPodPropertyContainerResource", "limits");
             }
@@ -66,7 +65,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerResource {
             return this;
         }
         @CustomType.Setter
-        public Builder requests(Map<String,Object> requests) {
+        public Builder requests(Map<String,String> requests) {
             if (requests == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionEksPropertyPodPropertyContainerResource", "requests");
             }
