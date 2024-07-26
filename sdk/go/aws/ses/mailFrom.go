@@ -71,7 +71,7 @@ import (
 //				Type:   pulumi.String(route53.RecordTypeTXT),
 //				Ttl:    pulumi.Int(600),
 //				Records: pulumi.StringArray{
-//					pulumi.String("v=spf1 include:amazonses.com -all"),
+//					pulumi.String("v=spf1 include:amazonses.com ~all"),
 //				},
 //			})
 //			if err != nil {

@@ -25,6 +25,7 @@ class GlobalClusterArgs:
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class GlobalClusterArgs:
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[str] engine_version: Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         :param pulumi.Input[bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
@@ -47,6 +49,8 @@ class GlobalClusterArgs:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
+        if engine_lifecycle_support is not None:
+            pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if force_destroy is not None:
@@ -105,6 +109,18 @@ class GlobalClusterArgs:
         pulumi.set(self, "engine", value)
 
     @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @engine_lifecycle_support.setter
+    def engine_lifecycle_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_lifecycle_support", value)
+
+    @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -160,6 +176,7 @@ class _GlobalClusterState:
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -174,6 +191,7 @@ class _GlobalClusterState:
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[str] engine_version: Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         :param pulumi.Input[bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         :param pulumi.Input[str] global_cluster_identifier: Global cluster identifier.
@@ -190,6 +208,8 @@ class _GlobalClusterState:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
+        if engine_lifecycle_support is not None:
+            pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if engine_version_actual is not None:
@@ -254,6 +274,18 @@ class _GlobalClusterState:
     @engine.setter
     def engine(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @engine_lifecycle_support.setter
+    def engine_lifecycle_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_lifecycle_support", value)
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -357,6 +389,7 @@ class GlobalCluster(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -518,6 +551,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[str] engine_version: Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         :param pulumi.Input[bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         :param pulumi.Input[str] global_cluster_identifier: Global cluster identifier.
@@ -698,6 +732,7 @@ class GlobalCluster(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -715,6 +750,7 @@ class GlobalCluster(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["engine"] = engine
+            __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["force_destroy"] = force_destroy
             if global_cluster_identifier is None and not opts.urn:
@@ -740,6 +776,7 @@ class GlobalCluster(pulumi.CustomResource):
             database_name: Optional[pulumi.Input[str]] = None,
             deletion_protection: Optional[pulumi.Input[bool]] = None,
             engine: Optional[pulumi.Input[str]] = None,
+            engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -759,6 +796,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[str] engine_version: Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         :param pulumi.Input[bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         :param pulumi.Input[str] global_cluster_identifier: Global cluster identifier.
@@ -775,6 +813,7 @@ class GlobalCluster(pulumi.CustomResource):
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["engine"] = engine
+        __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["force_destroy"] = force_destroy
@@ -816,6 +855,14 @@ class GlobalCluster(pulumi.CustomResource):
         Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
         """
         return pulumi.get(self, "engine")
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> pulumi.Output[str]:
+        """
+        The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
 
     @property
     @pulumi.getter(name="engineVersion")

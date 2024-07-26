@@ -38,9 +38,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? HecEndpointType;
         /// <summary>
-        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        public readonly string HecToken;
+        public readonly string? HecToken;
         /// <summary>
         /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
@@ -51,12 +51,14 @@ namespace Pulumi.Aws.Kinesis.Outputs
         public readonly int? RetryDuration;
         /// <summary>
         /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
         /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration S3Configuration;
+        public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
 
         [OutputConstructor]
         private FirehoseDeliveryStreamSplunkConfiguration(
@@ -72,7 +74,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string? hecEndpointType,
 
-            string hecToken,
+            string? hecToken,
 
             Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? processingConfiguration,
 
@@ -80,7 +82,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string? s3BackupMode,
 
-            Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration)
+            Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration,
+
+            Outputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration? secretsManagerConfiguration)
         {
             BufferingInterval = bufferingInterval;
             BufferingSize = bufferingSize;
@@ -93,6 +97,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             RetryDuration = retryDuration;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
+            SecretsManagerConfiguration = secretsManagerConfiguration;
         }
     }
 }

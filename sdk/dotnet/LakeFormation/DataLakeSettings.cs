@@ -135,6 +135,7 @@ namespace Pulumi.Aws.LakeFormation
     ///         {
     ///             "Amazon EMR",
     ///         },
+    ///         AllowFullTableExternalDataAccess = true,
     ///     });
     /// 
     /// });
@@ -156,9 +157,15 @@ namespace Pulumi.Aws.LakeFormation
         public Output<bool?> AllowExternalDataFiltering { get; private set; } = null!;
 
         /// <summary>
-        /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
         /// 
         /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        /// </summary>
+        [Output("allowFullTableExternalDataAccess")]
+        public Output<bool?> AllowFullTableExternalDataAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         /// </summary>
         [Output("authorizedSessionTagValueLists")]
         public Output<ImmutableArray<string>> AuthorizedSessionTagValueLists { get; private set; } = null!;
@@ -263,13 +270,19 @@ namespace Pulumi.Aws.LakeFormation
         [Input("allowExternalDataFiltering")]
         public Input<bool>? AllowExternalDataFiltering { get; set; }
 
+        /// <summary>
+        /// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+        /// 
+        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        /// </summary>
+        [Input("allowFullTableExternalDataAccess")]
+        public Input<bool>? AllowFullTableExternalDataAccess { get; set; }
+
         [Input("authorizedSessionTagValueLists")]
         private InputList<string>? _authorizedSessionTagValueLists;
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        /// 
-        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
         public InputList<string> AuthorizedSessionTagValueLists
         {
@@ -369,13 +382,19 @@ namespace Pulumi.Aws.LakeFormation
         [Input("allowExternalDataFiltering")]
         public Input<bool>? AllowExternalDataFiltering { get; set; }
 
+        /// <summary>
+        /// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+        /// 
+        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+        /// </summary>
+        [Input("allowFullTableExternalDataAccess")]
+        public Input<bool>? AllowFullTableExternalDataAccess { get; set; }
+
         [Input("authorizedSessionTagValueLists")]
         private InputList<string>? _authorizedSessionTagValueLists;
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        /// 
-        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
         public InputList<string> AuthorizedSessionTagValueLists
         {

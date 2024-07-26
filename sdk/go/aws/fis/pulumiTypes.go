@@ -423,6 +423,162 @@ func (o ExperimentTemplateActionTargetPtrOutput) Value() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type ExperimentTemplateExperimentOptions struct {
+	// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+	AccountTargeting *string `pulumi:"accountTargeting"`
+	// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+	EmptyTargetResolutionMode *string `pulumi:"emptyTargetResolutionMode"`
+}
+
+// ExperimentTemplateExperimentOptionsInput is an input type that accepts ExperimentTemplateExperimentOptionsArgs and ExperimentTemplateExperimentOptionsOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentOptionsInput` via:
+//
+//	ExperimentTemplateExperimentOptionsArgs{...}
+type ExperimentTemplateExperimentOptionsInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentOptionsOutput() ExperimentTemplateExperimentOptionsOutput
+	ToExperimentTemplateExperimentOptionsOutputWithContext(context.Context) ExperimentTemplateExperimentOptionsOutput
+}
+
+type ExperimentTemplateExperimentOptionsArgs struct {
+	// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+	AccountTargeting pulumi.StringPtrInput `pulumi:"accountTargeting"`
+	// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+	EmptyTargetResolutionMode pulumi.StringPtrInput `pulumi:"emptyTargetResolutionMode"`
+}
+
+func (ExperimentTemplateExperimentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentOptions)(nil)).Elem()
+}
+
+func (i ExperimentTemplateExperimentOptionsArgs) ToExperimentTemplateExperimentOptionsOutput() ExperimentTemplateExperimentOptionsOutput {
+	return i.ToExperimentTemplateExperimentOptionsOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentOptionsArgs) ToExperimentTemplateExperimentOptionsOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentOptionsOutput)
+}
+
+func (i ExperimentTemplateExperimentOptionsArgs) ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput {
+	return i.ToExperimentTemplateExperimentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentOptionsArgs) ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentOptionsOutput).ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx)
+}
+
+// ExperimentTemplateExperimentOptionsPtrInput is an input type that accepts ExperimentTemplateExperimentOptionsArgs, ExperimentTemplateExperimentOptionsPtr and ExperimentTemplateExperimentOptionsPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentOptionsPtrInput` via:
+//
+//	        ExperimentTemplateExperimentOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentTemplateExperimentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput
+	ToExperimentTemplateExperimentOptionsPtrOutputWithContext(context.Context) ExperimentTemplateExperimentOptionsPtrOutput
+}
+
+type experimentTemplateExperimentOptionsPtrType ExperimentTemplateExperimentOptionsArgs
+
+func ExperimentTemplateExperimentOptionsPtr(v *ExperimentTemplateExperimentOptionsArgs) ExperimentTemplateExperimentOptionsPtrInput {
+	return (*experimentTemplateExperimentOptionsPtrType)(v)
+}
+
+func (*experimentTemplateExperimentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentOptions)(nil)).Elem()
+}
+
+func (i *experimentTemplateExperimentOptionsPtrType) ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput {
+	return i.ToExperimentTemplateExperimentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentTemplateExperimentOptionsPtrType) ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentOptionsPtrOutput)
+}
+
+type ExperimentTemplateExperimentOptionsOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentOptions)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentOptionsOutput) ToExperimentTemplateExperimentOptionsOutput() ExperimentTemplateExperimentOptionsOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentOptionsOutput) ToExperimentTemplateExperimentOptionsOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentOptionsOutput) ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput {
+	return o.ToExperimentTemplateExperimentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTemplateExperimentOptionsOutput) ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateExperimentOptions) *ExperimentTemplateExperimentOptions {
+		return &v
+	}).(ExperimentTemplateExperimentOptionsPtrOutput)
+}
+
+// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+func (o ExperimentTemplateExperimentOptionsOutput) AccountTargeting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentOptions) *string { return v.AccountTargeting }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+func (o ExperimentTemplateExperimentOptionsOutput) EmptyTargetResolutionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentOptions) *string { return v.EmptyTargetResolutionMode }).(pulumi.StringPtrOutput)
+}
+
+type ExperimentTemplateExperimentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentOptions)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentOptionsPtrOutput) ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentOptionsPtrOutput) ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentOptionsPtrOutput) Elem() ExperimentTemplateExperimentOptionsOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentOptions) ExperimentTemplateExperimentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateExperimentOptions
+		return ret
+	}).(ExperimentTemplateExperimentOptionsOutput)
+}
+
+// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+func (o ExperimentTemplateExperimentOptionsPtrOutput) AccountTargeting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountTargeting
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+func (o ExperimentTemplateExperimentOptionsPtrOutput) EmptyTargetResolutionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmptyTargetResolutionMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type ExperimentTemplateLogConfiguration struct {
 	// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
 	CloudwatchLogsConfiguration *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration `pulumi:"cloudwatchLogsConfiguration"`
@@ -1383,6 +1539,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionParameterArrayInput)(nil)).Elem(), ExperimentTemplateActionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionTargetInput)(nil)).Elem(), ExperimentTemplateActionTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionTargetPtrInput)(nil)).Elem(), ExperimentTemplateActionTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentOptionsInput)(nil)).Elem(), ExperimentTemplateExperimentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentOptionsPtrInput)(nil)).Elem(), ExperimentTemplateExperimentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationInput)(nil)).Elem(), ExperimentTemplateLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationPtrInput)(nil)).Elem(), ExperimentTemplateLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationInput)(nil)).Elem(), ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs{})
@@ -1403,6 +1561,8 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentTemplateActionParameterArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionTargetOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionTargetPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentOptionsOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput{})

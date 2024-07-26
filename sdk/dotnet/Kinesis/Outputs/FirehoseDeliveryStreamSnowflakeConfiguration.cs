@@ -42,9 +42,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? MetadataColumnName;
         /// <summary>
-        /// The private key for authentication.
+        /// The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        public readonly string PrivateKey;
+        public readonly string? PrivateKey;
         /// <summary>
         /// The processing configuration. See `processing_configuration` block below for details.
         /// </summary>
@@ -70,6 +70,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string Schema;
         /// <summary>
+        /// The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+        /// </summary>
+        public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
+        /// <summary>
         /// The configuration for Snowflake role.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration? SnowflakeRoleConfiguration;
@@ -82,9 +86,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string Table;
         /// <summary>
-        /// The user for authentication.
+        /// The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        public readonly string User;
+        public readonly string? User;
 
         [OutputConstructor]
         private FirehoseDeliveryStreamSnowflakeConfiguration(
@@ -102,7 +106,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string? metadataColumnName,
 
-            string privateKey,
+            string? privateKey,
 
             Outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration? processingConfiguration,
 
@@ -116,13 +120,15 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string schema,
 
+            Outputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration? secretsManagerConfiguration,
+
             Outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration? snowflakeRoleConfiguration,
 
             Outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration? snowflakeVpcConfiguration,
 
             string table,
 
-            string user)
+            string? user)
         {
             AccountUrl = accountUrl;
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
@@ -138,6 +144,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
             Schema = schema;
+            SecretsManagerConfiguration = secretsManagerConfiguration;
             SnowflakeRoleConfiguration = snowflakeRoleConfiguration;
             SnowflakeVpcConfiguration = snowflakeVpcConfiguration;
             Table = table;

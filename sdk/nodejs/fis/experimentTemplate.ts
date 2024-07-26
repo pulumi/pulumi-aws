@@ -91,6 +91,10 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
+     * The experiment options for the experiment template. See experimentOptions below for more details!
+     */
+    public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions>;
+    /**
      * The configuration for experiment logging. See below.
      */
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
@@ -132,6 +136,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             const state = argsOrState as ExperimentTemplateState | undefined;
             resourceInputs["actions"] = state ? state.actions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["experimentOptions"] = state ? state.experimentOptions : undefined;
             resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stopConditions"] = state ? state.stopConditions : undefined;
@@ -154,6 +159,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["experimentOptions"] = args ? args.experimentOptions : undefined;
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
@@ -178,6 +184,10 @@ export interface ExperimentTemplateState {
      * Description for the experiment template.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The experiment options for the experiment template. See experimentOptions below for more details!
+     */
+    experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions>;
     /**
      * The configuration for experiment logging. See below.
      */
@@ -218,6 +228,10 @@ export interface ExperimentTemplateArgs {
      * Description for the experiment template.
      */
     description: pulumi.Input<string>;
+    /**
+     * The experiment options for the experiment template. See experimentOptions below for more details!
+     */
+    experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions>;
     /**
      * The configuration for experiment logging. See below.
      */

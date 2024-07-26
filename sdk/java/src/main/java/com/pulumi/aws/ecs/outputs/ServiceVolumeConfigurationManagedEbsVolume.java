@@ -53,7 +53,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
      * @return Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
      * 
      */
-    private @Nullable String throughput;
+    private @Nullable Integer throughput;
     /**
      * @return Volume type.
      * 
@@ -114,7 +114,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
      * @return Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
      * 
      */
-    public Optional<String> throughput() {
+    public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
     /**
@@ -141,7 +141,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
         private String roleArn;
         private @Nullable Integer sizeInGb;
         private @Nullable String snapshotId;
-        private @Nullable String throughput;
+        private @Nullable Integer throughput;
         private @Nullable String volumeType;
         public Builder() {}
         public Builder(ServiceVolumeConfigurationManagedEbsVolume defaults) {
@@ -202,7 +202,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
             return this;
         }
         @CustomType.Setter
-        public Builder throughput(@Nullable String throughput) {
+        public Builder throughput(@Nullable Integer throughput) {
 
             this.throughput = throughput;
             return this;

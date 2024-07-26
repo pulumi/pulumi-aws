@@ -197,10 +197,16 @@ namespace Pulumi.Aws.Bedrock
         public Output<bool> PrepareAgent { get; private set; } = null!;
 
         /// <summary>
-        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         /// </summary>
         [Output("promptOverrideConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentPromptOverrideConfiguration>> PromptOverrideConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the in-use check is skipped when deleting the agent.
+        /// </summary>
+        [Output("skipResourceInUseCheck")]
+        public Output<bool> SkipResourceInUseCheck { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -317,13 +323,19 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationArgs>? _promptOverrideConfigurations;
 
         /// <summary>
-        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentPromptOverrideConfigurationArgs> PromptOverrideConfigurations
         {
             get => _promptOverrideConfigurations ?? (_promptOverrideConfigurations = new InputList<Inputs.AgentAgentPromptOverrideConfigurationArgs>());
             set => _promptOverrideConfigurations = value;
         }
+
+        /// <summary>
+        /// Whether the in-use check is skipped when deleting the agent.
+        /// </summary>
+        [Input("skipResourceInUseCheck")]
+        public Input<bool>? SkipResourceInUseCheck { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -420,13 +432,19 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs>? _promptOverrideConfigurations;
 
         /// <summary>
-        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs> PromptOverrideConfigurations
         {
             get => _promptOverrideConfigurations ?? (_promptOverrideConfigurations = new InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs>());
             set => _promptOverrideConfigurations = value;
         }
+
+        /// <summary>
+        /// Whether the in-use check is skipped when deleting the agent.
+        /// </summary>
+        [Input("skipResourceInUseCheck")]
+        public Input<bool>? SkipResourceInUseCheck { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

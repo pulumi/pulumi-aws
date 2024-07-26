@@ -242,6 +242,21 @@ func TestRegress4128(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestGameLift(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
+		return
+	}
+
+	ptest := pulumiTest(t, filepath.Join("test-programs", "gamelift-typescript"))
+	ptest.SetConfig("customData", "A")
+	result1 := ptest.Up()
+	require.Equal(t, "A", result1.Outputs["CustomEventData"].Value)
+	ptest.SetConfig("customData", "B")
+	result2 := ptest.Up()
+	require.Equal(t, "B", result2.Outputs["CustomEventData"].Value)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	baseJS := integration.ProgramTestOptions{

@@ -57,6 +57,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// The order in which actions are run.
         /// </summary>
         public readonly int? RunOrder;
+        public readonly int? TimeoutInMinutes;
         /// <summary>
         /// A string that identifies the action type.
         /// </summary>
@@ -86,6 +87,8 @@ namespace Pulumi.Aws.CodePipeline.Outputs
 
             int? runOrder,
 
+            int? timeoutInMinutes,
+
             string version)
         {
             Category = category;
@@ -99,6 +102,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
             Region = region;
             RoleArn = roleArn;
             RunOrder = runOrder;
+            TimeoutInMinutes = timeoutInMinutes;
             Version = version;
         }
     }

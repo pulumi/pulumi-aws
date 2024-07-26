@@ -6612,19 +6612,61 @@ class EndpointConfigurationProductionVariantServerlessConfigArgs:
 if not MYPY:
     class EndpointConfigurationShadowProductionVariantArgsDict(TypedDict):
         model_name: pulumi.Input[str]
+        """
+        The name of the model to use.
+        """
         accelerator_type: NotRequired[pulumi.Input[str]]
+        """
+        The size of the Elastic Inference (EI) instance to use for the production variant.
+        """
         container_startup_health_check_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        """
         core_dump_config: NotRequired[pulumi.Input['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgsDict']]
+        """
+        Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        """
         enable_ssm_access: NotRequired[pulumi.Input[bool]]
+        """
+        You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        """
         inference_ami_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        """
         initial_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Initial number of instances used for auto-scaling.
+        """
         initial_variant_weight: NotRequired[pulumi.Input[float]]
+        """
+        Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+        """
         instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of instance to start.
+        """
         model_data_download_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        """
         routing_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgsDict']]]]
+        """
+        Sets how the endpoint routes incoming traffic. See routing_config below.
+        """
         serverless_config: NotRequired[pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgsDict']]
+        """
+        Specifies configuration for how an endpoint performs asynchronous inference.
+        """
         variant_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the variant. If omitted, this provider will assign a random, unique name.
+        """
         volume_size_in_gb: NotRequired[pulumi.Input[int]]
+        """
+        The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+        """
 elif False:
     EndpointConfigurationShadowProductionVariantArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6645,6 +6687,22 @@ class EndpointConfigurationShadowProductionVariantArgs:
                  serverless_config: Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgs']] = None,
                  variant_name: Optional[pulumi.Input[str]] = None,
                  volume_size_in_gb: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] model_name: The name of the model to use.
+        :param pulumi.Input[str] accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
+        :param pulumi.Input[int] container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        :param pulumi.Input['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs'] core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        :param pulumi.Input[bool] enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        :param pulumi.Input[str] inference_ami_version: Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        :param pulumi.Input[int] initial_instance_count: Initial number of instances used for auto-scaling.
+        :param pulumi.Input[float] initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+        :param pulumi.Input[str] instance_type: The type of instance to start.
+        :param pulumi.Input[int] model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgs']]] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
+        :param pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgs'] serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
+        :param pulumi.Input[str] variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[int] volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+        """
         pulumi.set(__self__, "model_name", model_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
@@ -6676,6 +6734,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="modelName")
     def model_name(self) -> pulumi.Input[str]:
+        """
+        The name of the model to use.
+        """
         return pulumi.get(self, "model_name")
 
     @model_name.setter
@@ -6685,6 +6746,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="acceleratorType")
     def accelerator_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The size of the Elastic Inference (EI) instance to use for the production variant.
+        """
         return pulumi.get(self, "accelerator_type")
 
     @accelerator_type.setter
@@ -6694,6 +6758,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
     def container_startup_health_check_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        """
         return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
 
     @container_startup_health_check_timeout_in_seconds.setter
@@ -6703,6 +6770,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="coreDumpConfig")
     def core_dump_config(self) -> Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs']]:
+        """
+        Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        """
         return pulumi.get(self, "core_dump_config")
 
     @core_dump_config.setter
@@ -6712,6 +6782,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="enableSsmAccess")
     def enable_ssm_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        """
         return pulumi.get(self, "enable_ssm_access")
 
     @enable_ssm_access.setter
@@ -6721,6 +6794,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="inferenceAmiVersion")
     def inference_ami_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        """
         return pulumi.get(self, "inference_ami_version")
 
     @inference_ami_version.setter
@@ -6730,6 +6806,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="initialInstanceCount")
     def initial_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Initial number of instances used for auto-scaling.
+        """
         return pulumi.get(self, "initial_instance_count")
 
     @initial_instance_count.setter
@@ -6739,6 +6818,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="initialVariantWeight")
     def initial_variant_weight(self) -> Optional[pulumi.Input[float]]:
+        """
+        Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+        """
         return pulumi.get(self, "initial_variant_weight")
 
     @initial_variant_weight.setter
@@ -6748,6 +6830,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of instance to start.
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -6757,6 +6842,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
     def model_data_download_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        """
         return pulumi.get(self, "model_data_download_timeout_in_seconds")
 
     @model_data_download_timeout_in_seconds.setter
@@ -6766,6 +6854,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="routingConfigs")
     def routing_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgs']]]]:
+        """
+        Sets how the endpoint routes incoming traffic. See routing_config below.
+        """
         return pulumi.get(self, "routing_configs")
 
     @routing_configs.setter
@@ -6775,6 +6866,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgs']]:
+        """
+        Specifies configuration for how an endpoint performs asynchronous inference.
+        """
         return pulumi.get(self, "serverless_config")
 
     @serverless_config.setter
@@ -6784,6 +6878,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="variantName")
     def variant_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the variant. If omitted, this provider will assign a random, unique name.
+        """
         return pulumi.get(self, "variant_name")
 
     @variant_name.setter
@@ -6793,6 +6890,9 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @property
     @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+        """
         return pulumi.get(self, "volume_size_in_gb")
 
     @volume_size_in_gb.setter
@@ -7089,8 +7189,14 @@ class EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs:
 if not MYPY:
     class EndpointDeploymentConfigBlueGreenUpdatePolicyArgsDict(TypedDict):
         traffic_routing_configuration: pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgsDict']
+        """
+        Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+        """
         maximum_execution_timeout_in_seconds: NotRequired[pulumi.Input[int]]
         termination_wait_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+        """
 elif False:
     EndpointDeploymentConfigBlueGreenUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7100,6 +7206,10 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyArgs:
                  traffic_routing_configuration: pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs'],
                  maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  termination_wait_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs'] traffic_routing_configuration: Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+        :param pulumi.Input[int] termination_wait_in_seconds: Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+        """
         pulumi.set(__self__, "traffic_routing_configuration", traffic_routing_configuration)
         if maximum_execution_timeout_in_seconds is not None:
             pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
@@ -7109,6 +7219,9 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyArgs:
     @property
     @pulumi.getter(name="trafficRoutingConfiguration")
     def traffic_routing_configuration(self) -> pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs']:
+        """
+        Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+        """
         return pulumi.get(self, "traffic_routing_configuration")
 
     @traffic_routing_configuration.setter
@@ -7127,6 +7240,9 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyArgs:
     @property
     @pulumi.getter(name="terminationWaitInSeconds")
     def termination_wait_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+        """
         return pulumi.get(self, "termination_wait_in_seconds")
 
     @termination_wait_in_seconds.setter
@@ -7577,6 +7693,9 @@ if not MYPY:
         The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
         """
         disable_glue_table_creation: NotRequired[pulumi.Input[bool]]
+        """
+        Set to `true` to turn Online Store On.
+        """
         table_format: NotRequired[pulumi.Input[str]]
         """
         Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
@@ -7594,6 +7713,7 @@ class FeatureGroupOfflineStoreConfigArgs:
         """
         :param pulumi.Input['FeatureGroupOfflineStoreConfigS3StorageConfigArgs'] s3_storage_config: The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
         :param pulumi.Input['FeatureGroupOfflineStoreConfigDataCatalogConfigArgs'] data_catalog_config: The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+        :param pulumi.Input[bool] disable_glue_table_creation: Set to `true` to turn Online Store On.
         :param pulumi.Input[str] table_format: Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
         """
         pulumi.set(__self__, "s3_storage_config", s3_storage_config)
@@ -7631,6 +7751,9 @@ class FeatureGroupOfflineStoreConfigArgs:
     @property
     @pulumi.getter(name="disableGlueTableCreation")
     def disable_glue_table_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to turn Online Store On.
+        """
         return pulumi.get(self, "disable_glue_table_creation")
 
     @disable_glue_table_creation.setter
@@ -7796,6 +7919,9 @@ class FeatureGroupOfflineStoreConfigS3StorageConfigArgs:
 if not MYPY:
     class FeatureGroupOnlineStoreConfigArgsDict(TypedDict):
         enable_online_store: NotRequired[pulumi.Input[bool]]
+        """
+        Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+        """
         security_config: NotRequired[pulumi.Input['FeatureGroupOnlineStoreConfigSecurityConfigArgsDict']]
         """
         Security config for at-rest encryption of your OnlineStore. See Security Config Below.
@@ -7819,6 +7945,7 @@ class FeatureGroupOnlineStoreConfigArgs:
                  storage_type: Optional[pulumi.Input[str]] = None,
                  ttl_duration: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigTtlDurationArgs']] = None):
         """
+        :param pulumi.Input[bool] enable_online_store: Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
         :param pulumi.Input['FeatureGroupOnlineStoreConfigSecurityConfigArgs'] security_config: Security config for at-rest encryption of your OnlineStore. See Security Config Below.
         :param pulumi.Input[str] storage_type: Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
         :param pulumi.Input['FeatureGroupOnlineStoreConfigTtlDurationArgs'] ttl_duration: Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
@@ -7835,6 +7962,9 @@ class FeatureGroupOnlineStoreConfigArgs:
     @property
     @pulumi.getter(name="enableOnlineStore")
     def enable_online_store(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+        """
         return pulumi.get(self, "enable_online_store")
 
     @enable_online_store.setter
@@ -8830,6 +8960,9 @@ class ModelContainerModelDataSourceS3DataSourceArgs:
 if not MYPY:
     class ModelInferenceExecutionConfigArgsDict(TypedDict):
         mode: pulumi.Input[str]
+        """
+        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
 elif False:
     ModelInferenceExecutionConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8837,11 +8970,17 @@ elif False:
 class ModelInferenceExecutionConfigArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
         pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
     def mode(self) -> pulumi.Input[str]:
+        """
+        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -8852,13 +8991,38 @@ class ModelInferenceExecutionConfigArgs:
 if not MYPY:
     class ModelPrimaryContainerArgsDict(TypedDict):
         container_hostname: NotRequired[pulumi.Input[str]]
+        """
+        The DNS host name for the container.
+        """
         environment: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables for the Docker container.
+        A list of key value pairs.
+        """
         image: NotRequired[pulumi.Input[str]]
+        """
+        The registry path where the inference code image is stored in Amazon ECR.
+        """
         image_config: NotRequired[pulumi.Input['ModelPrimaryContainerImageConfigArgsDict']]
+        """
+        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        """
         mode: NotRequired[pulumi.Input[str]]
+        """
+        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
         model_data_source: NotRequired[pulumi.Input['ModelPrimaryContainerModelDataSourceArgsDict']]
+        """
+        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        """
         model_data_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL for the S3 location where model artifacts are stored.
+        """
         model_package_name: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the model package to use to create the model.
+        """
 elif False:
     ModelPrimaryContainerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8873,6 +9037,17 @@ class ModelPrimaryContainerArgs:
                  model_data_source: Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceArgs']] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None,
                  model_package_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] container_hostname: The DNS host name for the container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
+               A list of key value pairs.
+        :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
+        :param pulumi.Input['ModelPrimaryContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        :param pulumi.Input['ModelPrimaryContainerModelDataSourceArgs'] model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
+        :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
+        """
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
@@ -8893,6 +9068,9 @@ class ModelPrimaryContainerArgs:
     @property
     @pulumi.getter(name="containerHostname")
     def container_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS host name for the container.
+        """
         return pulumi.get(self, "container_hostname")
 
     @container_hostname.setter
@@ -8902,6 +9080,10 @@ class ModelPrimaryContainerArgs:
     @property
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Environment variables for the Docker container.
+        A list of key value pairs.
+        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -8911,6 +9093,9 @@ class ModelPrimaryContainerArgs:
     @property
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry path where the inference code image is stored in Amazon ECR.
+        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -8920,6 +9105,9 @@ class ModelPrimaryContainerArgs:
     @property
     @pulumi.getter(name="imageConfig")
     def image_config(self) -> Optional[pulumi.Input['ModelPrimaryContainerImageConfigArgs']]:
+        """
+        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        """
         return pulumi.get(self, "image_config")
 
     @image_config.setter
@@ -8929,6 +9117,9 @@ class ModelPrimaryContainerArgs:
     @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -8938,6 +9129,9 @@ class ModelPrimaryContainerArgs:
     @property
     @pulumi.getter(name="modelDataSource")
     def model_data_source(self) -> Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceArgs']]:
+        """
+        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        """
         return pulumi.get(self, "model_data_source")
 
     @model_data_source.setter
@@ -8947,6 +9141,9 @@ class ModelPrimaryContainerArgs:
     @property
     @pulumi.getter(name="modelDataUrl")
     def model_data_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL for the S3 location where model artifacts are stored.
+        """
         return pulumi.get(self, "model_data_url")
 
     @model_data_url.setter
@@ -8956,6 +9153,9 @@ class ModelPrimaryContainerArgs:
     @property
     @pulumi.getter(name="modelPackageName")
     def model_package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the model package to use to create the model.
+        """
         return pulumi.get(self, "model_package_name")
 
     @model_package_name.setter
@@ -9594,23 +9794,23 @@ if not MYPY:
         """
         code_editor_app_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgsDict']]
         """
-        The Code Editor application settings. See Code Editor App Settings below.
+        The Code Editor application settings. See `code_editor_app_settings` Block below.
         """
         custom_file_systems: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgsDict']]]]
         """
-        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
         """
         jupyter_lab_app_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgsDict']]
         """
-        The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         """
         jupyter_server_app_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgsDict']]
         """
-        The Jupyter server's app settings. See Jupyter Server App Settings below.
+        The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         """
         kernel_gateway_app_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgsDict']]
         """
-        The kernel gateway app settings. See Kernel Gateway App Settings below.
+        The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         """
         space_storage_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgsDict']]
 elif False:
@@ -9628,11 +9828,11 @@ class SpaceSpaceSettingsArgs:
                  space_storage_settings: Optional[pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgs']] = None):
         """
         :param pulumi.Input[str] app_type: The type of app created within the space.
-        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
-        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See Jupyter Lab App Settings below.
-        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
-        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
+        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See `code_editor_app_settings` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         """
         if app_type is not None:
             pulumi.set(__self__, "app_type", app_type)
@@ -9665,7 +9865,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="codeEditorAppSettings")
     def code_editor_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs']]:
         """
-        The Code Editor application settings. See Code Editor App Settings below.
+        The Code Editor application settings. See `code_editor_app_settings` Block below.
         """
         return pulumi.get(self, "code_editor_app_settings")
 
@@ -9677,7 +9877,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="customFileSystems")
     def custom_file_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]]]:
         """
-        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
         """
         return pulumi.get(self, "custom_file_systems")
 
@@ -9689,7 +9889,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="jupyterLabAppSettings")
     def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs']]:
         """
-        The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         """
         return pulumi.get(self, "jupyter_lab_app_settings")
 
@@ -9701,7 +9901,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="jupyterServerAppSettings")
     def jupyter_server_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs']]:
         """
-        The Jupyter server's app settings. See Jupyter Server App Settings below.
+        The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         """
         return pulumi.get(self, "jupyter_server_app_settings")
 
@@ -9713,7 +9913,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="kernelGatewayAppSettings")
     def kernel_gateway_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs']]:
         """
-        The kernel gateway app settings. See Kernel Gateway App Settings below.
+        The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
 
@@ -9735,7 +9935,7 @@ if not MYPY:
     class SpaceSpaceSettingsCodeEditorAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
 elif False:
     SpaceSpaceSettingsCodeEditorAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -9745,7 +9945,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsArgs:
     def __init__(__self__, *,
                  default_resource_spec: pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']):
         """
-        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
 
@@ -9753,7 +9953,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -9878,7 +10078,7 @@ if not MYPY:
     class SpaceSpaceSettingsCustomFileSystemArgsDict(TypedDict):
         efs_file_system: pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgsDict']
         """
-        A custom file system in Amazon EFS. see EFS File System below.
+        A custom file system in Amazon EFS. See `efs_file_system` Block below.
         """
 elif False:
     SpaceSpaceSettingsCustomFileSystemArgsDict: TypeAlias = Mapping[str, Any]
@@ -9888,7 +10088,7 @@ class SpaceSpaceSettingsCustomFileSystemArgs:
     def __init__(__self__, *,
                  efs_file_system: pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs']):
         """
-        :param pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs'] efs_file_system: A custom file system in Amazon EFS. see EFS File System below.
+        :param pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs'] efs_file_system: A custom file system in Amazon EFS. See `efs_file_system` Block below.
         """
         pulumi.set(__self__, "efs_file_system", efs_file_system)
 
@@ -9896,7 +10096,7 @@ class SpaceSpaceSettingsCustomFileSystemArgs:
     @pulumi.getter(name="efsFileSystem")
     def efs_file_system(self) -> pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs']:
         """
-        A custom file system in Amazon EFS. see EFS File System below.
+        A custom file system in Amazon EFS. See `efs_file_system` Block below.
         """
         return pulumi.get(self, "efs_file_system")
 
@@ -9940,11 +10140,11 @@ if not MYPY:
     class SpaceSpaceSettingsJupyterLabAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
 elif False:
     SpaceSpaceSettingsJupyterLabAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -9955,8 +10155,8 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
                  default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'],
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if code_repositories is not None:
@@ -9966,7 +10166,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -9978,7 +10178,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -10134,11 +10334,11 @@ if not MYPY:
     class SpaceSpaceSettingsJupyterServerAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -10154,8 +10354,8 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -10168,7 +10368,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -10180,7 +10380,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -10348,11 +10548,11 @@ if not MYPY:
     class SpaceSpaceSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -10368,8 +10568,8 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -10382,7 +10582,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -10394,7 +10594,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 

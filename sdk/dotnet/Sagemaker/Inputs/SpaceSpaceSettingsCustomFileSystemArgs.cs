@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class SpaceSpaceSettingsCustomFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A custom file system in Amazon EFS. see EFS File System below.
+        /// A custom file system in Amazon EFS. See `efs_file_system` Block below.
         /// </summary>
         [Input("efsFileSystem", required: true)]
         public Input<Inputs.SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs> EfsFileSystem { get; set; } = null!;

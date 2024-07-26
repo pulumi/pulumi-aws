@@ -52,17 +52,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = Ec2Functions.getCapacityBlockOffering(GetCapacityBlockOfferingArgs.builder()
- *             .capacityDuration(24)
- *             .endDate("2024-05-30T15:04:05Z")
+ *         final var test = Ec2Functions.getCapacityBlockOffering(GetCapacityBlockOfferingArgs.builder()
+ *             .capacityDurationHours(24)
+ *             .endDateRange("2024-05-30T15:04:05Z")
  *             .instanceCount(1)
- *             .instancePlatform("Linux/UNIX")
  *             .instanceType("p4d.24xlarge")
- *             .startDate("2024-04-28T15:04:05Z")
+ *             .startDateRange("2024-04-28T15:04:05Z")
  *             .build());
  * 
- *         var exampleCapacityBlockReservation = new CapacityBlockReservation("exampleCapacityBlockReservation", CapacityBlockReservationArgs.builder()
- *             .capacityBlockOfferingId(test.id())
+ *         var example = new CapacityBlockReservation("example", CapacityBlockReservationArgs.builder()
+ *             .capacityBlockOfferingId(test.applyValue(getCapacityBlockOfferingResult -> getCapacityBlockOfferingResult.capacityBlockOfferingId()))
  *             .instancePlatform("Linux/UNIX")
  *             .tags(Map.of("Environment", "dev"))
  *             .build());

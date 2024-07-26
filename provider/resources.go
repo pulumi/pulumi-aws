@@ -2308,14 +2308,24 @@ compatibility shim in favor of the new "name" field.`)
 
 			// GameLift
 
-			"aws_gamelift_alias":                     {Tok: awsResource(gameliftMod, "Alias")},
-			"aws_gamelift_build":                     {Tok: awsResource(gameliftMod, "Build")},
-			"aws_gamelift_fleet":                     {Tok: awsResource(gameliftMod, "Fleet")},
-			"aws_gamelift_game_session_queue":        {Tok: awsResource(gameliftMod, "GameSessionQueue")},
-			"aws_gamelift_game_server_group":         {Tok: awsResource(gameliftMod, "GameServerGroup")},
-			"aws_gamelift_script":                    {Tok: awsResource(gameliftMod, "Script")},
-			"aws_gamelift_matchmaking_configuration": {Tok: awsResource(gameliftMod, "MatchmakingConfiguration")},
-			"aws_gamelift_matchmaking_rule_set":      {Tok: awsResource(gameliftMod, "MatchmakingRuleSet")},
+			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
+			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
+			"aws_gamelift_fleet":              {Tok: awsResource(gameliftMod, "Fleet")},
+			"aws_gamelift_game_session_queue": {Tok: awsResource(gameliftMod, "GameSessionQueue")},
+			"aws_gamelift_game_server_group":  {Tok: awsResource(gameliftMod, "GameServerGroup")},
+			"aws_gamelift_script":             {Tok: awsResource(gameliftMod, "Script")},
+
+			"aws_gamelift_matchmaking_configuration": {
+				Tok: awsResource(gameliftMod, "MatchmakingConfiguration"),
+				DeprecationMessage: "This resource will be removed in the next major version. " +
+					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead",
+			},
+
+			"aws_gamelift_matchmaking_rule_set": {
+				Tok: awsResource(gameliftMod, "MatchmakingRuleSet"),
+				DeprecationMessage: "This resource will be removed in the next major version." +
+					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead",
+			},
 
 			// Glacier
 			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
@@ -5945,6 +5955,22 @@ compatibility shim in favor of the new "name" field.`)
 			prov.Resources[key].PreCheckCallback = applyTags
 		}
 
+		// also override read so that it works during import
+		// as a side effect this will also run during create and update, but since
+		// `tags` and `defaultTags` should always be equal then it doesn't really matter.
+		// One extra place that we make sure `tags=defaultTags` is fine.
+		if transform := prov.Resources[key].TransformOutputs; transform != nil {
+			prov.Resources[key].TransformOutputs = func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+				config, err := transform(ctx, pm)
+				if err != nil {
+					return nil, err
+				}
+				return applyTagsOutputs(ctx, config)
+			}
+		} else {
+			prov.Resources[key].TransformOutputs = applyTagsOutputs
+		}
+
 		if prov.Resources[key].GetFields() == nil {
 			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
 		}
@@ -6135,5 +6161,8 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	}
 	prov.Resources["aws_vpc_endpoint_private_dns"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "vpcEndpointId"), nil
+	}
+	prov.Resources["aws_rekognition_stream_processor"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "name"), nil
 	}
 }

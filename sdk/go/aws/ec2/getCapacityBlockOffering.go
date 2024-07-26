@@ -12,6 +12,36 @@ import (
 )
 
 // Information about a single EC2 Capacity Block Offering.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.GetCapacityBlockOffering(ctx, &ec2.GetCapacityBlockOfferingArgs{
+//				CapacityDurationHours: 24,
+//				EndDateRange:          pulumi.StringRef("2024-05-30T15:04:05Z"),
+//				InstanceCount:         1,
+//				InstanceType:          "p4d.24xlarge",
+//				StartDateRange:        pulumi.StringRef("2024-04-28T15:04:05Z"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCapacityBlockOffering(ctx *pulumi.Context, args *GetCapacityBlockOfferingArgs, opts ...pulumi.InvokeOption) (*GetCapacityBlockOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCapacityBlockOfferingResult

@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         /// </summary>
         [Output("routingConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentAliasRoutingConfiguration>> RoutingConfigurations { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationArgs>? _routingConfigurations;
 
         /// <summary>
-        /// Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentAliasRoutingConfigurationArgs> RoutingConfigurations
         {
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationGetArgs>? _routingConfigurations;
 
         /// <summary>
-        /// Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentAliasRoutingConfigurationGetArgs> RoutingConfigurations
         {

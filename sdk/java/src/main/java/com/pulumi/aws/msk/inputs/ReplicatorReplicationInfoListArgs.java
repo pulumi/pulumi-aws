@@ -20,14 +20,14 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
     public static final ReplicatorReplicationInfoListArgs Empty = new ReplicatorReplicationInfoListArgs();
 
     /**
-     * Confguration relating to consumer group replication.
+     * Configuration relating to consumer group replication.
      * 
      */
     @Import(name="consumerGroupReplications", required=true)
     private Output<List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs>> consumerGroupReplications;
 
     /**
-     * @return Confguration relating to consumer group replication.
+     * @return Configuration relating to consumer group replication.
      * 
      */
     public Output<List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs>> consumerGroupReplications() {
@@ -139,7 +139,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param consumerGroupReplications Confguration relating to consumer group replication.
+         * @param consumerGroupReplications Configuration relating to consumer group replication.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param consumerGroupReplications Confguration relating to consumer group replication.
+         * @param consumerGroupReplications Configuration relating to consumer group replication.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param consumerGroupReplications Confguration relating to consumer group replication.
+         * @param consumerGroupReplications Configuration relating to consumer group replication.
          * 
          * @return builder
          * 

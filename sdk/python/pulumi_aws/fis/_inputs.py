@@ -21,6 +21,8 @@ __all__ = [
     'ExperimentTemplateActionParameterArgsDict',
     'ExperimentTemplateActionTargetArgs',
     'ExperimentTemplateActionTargetArgsDict',
+    'ExperimentTemplateExperimentOptionsArgs',
+    'ExperimentTemplateExperimentOptionsArgsDict',
     'ExperimentTemplateLogConfigurationArgs',
     'ExperimentTemplateLogConfigurationArgsDict',
     'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs',
@@ -273,6 +275,58 @@ class ExperimentTemplateActionTargetArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentOptionsArgsDict(TypedDict):
+        account_targeting: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+        """
+        empty_target_resolution_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+        """
+elif False:
+    ExperimentTemplateExperimentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentOptionsArgs:
+    def __init__(__self__, *,
+                 account_targeting: Optional[pulumi.Input[str]] = None,
+                 empty_target_resolution_mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] account_targeting: Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+        :param pulumi.Input[str] empty_target_resolution_mode: Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+        """
+        if account_targeting is not None:
+            pulumi.set(__self__, "account_targeting", account_targeting)
+        if empty_target_resolution_mode is not None:
+            pulumi.set(__self__, "empty_target_resolution_mode", empty_target_resolution_mode)
+
+    @property
+    @pulumi.getter(name="accountTargeting")
+    def account_targeting(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+        """
+        return pulumi.get(self, "account_targeting")
+
+    @account_targeting.setter
+    def account_targeting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_targeting", value)
+
+    @property
+    @pulumi.getter(name="emptyTargetResolutionMode")
+    def empty_target_resolution_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+        """
+        return pulumi.get(self, "empty_target_resolution_mode")
+
+    @empty_target_resolution_mode.setter
+    def empty_target_resolution_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "empty_target_resolution_mode", value)
 
 
 if not MYPY:

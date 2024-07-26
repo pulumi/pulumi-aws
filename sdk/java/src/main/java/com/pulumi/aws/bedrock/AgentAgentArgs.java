@@ -147,18 +147,33 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
      * 
      */
     @Import(name="promptOverrideConfigurations")
     private @Nullable Output<List<AgentAgentPromptOverrideConfigurationArgs>> promptOverrideConfigurations;
 
     /**
-     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
      * 
      */
     public Optional<Output<List<AgentAgentPromptOverrideConfigurationArgs>>> promptOverrideConfigurations() {
         return Optional.ofNullable(this.promptOverrideConfigurations);
+    }
+
+    /**
+     * Whether the in-use check is skipped when deleting the agent.
+     * 
+     */
+    @Import(name="skipResourceInUseCheck")
+    private @Nullable Output<Boolean> skipResourceInUseCheck;
+
+    /**
+     * @return Whether the in-use check is skipped when deleting the agent.
+     * 
+     */
+    public Optional<Output<Boolean>> skipResourceInUseCheck() {
+        return Optional.ofNullable(this.skipResourceInUseCheck);
     }
 
     /**
@@ -195,6 +210,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         this.instruction = $.instruction;
         this.prepareAgent = $.prepareAgent;
         this.promptOverrideConfigurations = $.promptOverrideConfigurations;
+        this.skipResourceInUseCheck = $.skipResourceInUseCheck;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
     }
@@ -390,7 +406,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -401,7 +417,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -411,13 +427,34 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
          * 
          * @return builder
          * 
          */
         public Builder promptOverrideConfigurations(AgentAgentPromptOverrideConfigurationArgs... promptOverrideConfigurations) {
             return promptOverrideConfigurations(List.of(promptOverrideConfigurations));
+        }
+
+        /**
+         * @param skipResourceInUseCheck Whether the in-use check is skipped when deleting the agent.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipResourceInUseCheck(@Nullable Output<Boolean> skipResourceInUseCheck) {
+            $.skipResourceInUseCheck = skipResourceInUseCheck;
+            return this;
+        }
+
+        /**
+         * @param skipResourceInUseCheck Whether the in-use check is skipped when deleting the agent.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipResourceInUseCheck(Boolean skipResourceInUseCheck) {
+            return skipResourceInUseCheck(Output.of(skipResourceInUseCheck));
         }
 
         /**

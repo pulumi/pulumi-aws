@@ -83,7 +83,7 @@ index b47de6df56..21f1ef923b 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index 28dbb026be..15decf8ed9 100644
+index c4ae847827..182682ea9f 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
 @@ -49,7 +49,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -229,7 +229,7 @@ index 0000000000..f587fcbcce
 +	return diags
 +}
 diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
-index b00bb973e4..daa2df4791 100644
+index 44f753bb0c..9820b8a602 100644
 --- a/internal/service/elasticache/subnet_group.go
 +++ b/internal/service/elasticache/subnet_group.go
 @@ -48,7 +48,7 @@ func resourceSubnetGroup() *schema.Resource {

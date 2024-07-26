@@ -116,14 +116,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+     * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+     * @return Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -367,7 +367,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+         * @param protocol Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+         * @param protocol Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
          * 
          * @return builder
          * 

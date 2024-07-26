@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value to assign to the setting. Valid values are `enabled` and `disabled`.
+        /// Value to assign to the setting. Valid values: `enabled`, `disabled`.
         /// </summary>
         public readonly string Value;
 

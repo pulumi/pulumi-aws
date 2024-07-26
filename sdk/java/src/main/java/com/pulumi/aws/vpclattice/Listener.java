@@ -318,14 +318,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.port;
     }
     /**
-     * Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+     * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
-     * @return Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+     * @return Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      * 
      */
     public Output<String> protocol() {

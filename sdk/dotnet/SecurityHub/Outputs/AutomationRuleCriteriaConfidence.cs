@@ -13,10 +13,19 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleCriteriaConfidence
     {
+        /// <summary>
+        /// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        /// </summary>
         public readonly double? Eq;
         public readonly double? Gt;
+        /// <summary>
+        /// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        /// </summary>
         public readonly double? Gte;
         public readonly double? Lt;
+        /// <summary>
+        /// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        /// </summary>
         public readonly double? Lte;
 
         [OutputConstructor]

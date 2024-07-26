@@ -309,10 +309,27 @@ class ClusterRestoreToPointInTimeArgs:
 if not MYPY:
     class ClusterS3ImportArgsDict(TypedDict):
         bucket_name: pulumi.Input[str]
+        """
+        Bucket name where your backup is stored
+        """
         ingestion_role: pulumi.Input[str]
+        """
+        Role applied to load the data.
+        """
         source_engine: pulumi.Input[str]
+        """
+        Source engine for the backup
+        """
         source_engine_version: pulumi.Input[str]
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+        """
         bucket_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Can be blank, but is the path to your backup
+        """
 elif False:
     ClusterS3ImportArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -324,6 +341,15 @@ class ClusterS3ImportArgs:
                  source_engine: pulumi.Input[str],
                  source_engine_version: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: Bucket name where your backup is stored
+        :param pulumi.Input[str] ingestion_role: Role applied to load the data.
+        :param pulumi.Input[str] source_engine: Source engine for the backup
+        :param pulumi.Input[str] source_engine_version: Version of the source engine used to make the backup
+               
+               This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+        :param pulumi.Input[str] bucket_prefix: Can be blank, but is the path to your backup
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "ingestion_role", ingestion_role)
         pulumi.set(__self__, "source_engine", source_engine)
@@ -334,6 +360,9 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        Bucket name where your backup is stored
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -343,6 +372,9 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="ingestionRole")
     def ingestion_role(self) -> pulumi.Input[str]:
+        """
+        Role applied to load the data.
+        """
         return pulumi.get(self, "ingestion_role")
 
     @ingestion_role.setter
@@ -352,6 +384,9 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="sourceEngine")
     def source_engine(self) -> pulumi.Input[str]:
+        """
+        Source engine for the backup
+        """
         return pulumi.get(self, "source_engine")
 
     @source_engine.setter
@@ -361,6 +396,11 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="sourceEngineVersion")
     def source_engine_version(self) -> pulumi.Input[str]:
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+        """
         return pulumi.get(self, "source_engine_version")
 
     @source_engine_version.setter
@@ -370,6 +410,9 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be blank, but is the path to your backup
+        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -961,10 +1004,27 @@ class InstanceRestoreToPointInTimeArgs:
 if not MYPY:
     class InstanceS3ImportArgsDict(TypedDict):
         bucket_name: pulumi.Input[str]
+        """
+        The bucket name where your backup is stored
+        """
         ingestion_role: pulumi.Input[str]
+        """
+        Role applied to load the data.
+        """
         source_engine: pulumi.Input[str]
+        """
+        Source engine for the backup
+        """
         source_engine_version: pulumi.Input[str]
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        """
         bucket_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Can be blank, but is the path to your backup
+        """
 elif False:
     InstanceS3ImportArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -976,6 +1036,15 @@ class InstanceS3ImportArgs:
                  source_engine: pulumi.Input[str],
                  source_engine_version: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: The bucket name where your backup is stored
+        :param pulumi.Input[str] ingestion_role: Role applied to load the data.
+        :param pulumi.Input[str] source_engine: Source engine for the backup
+        :param pulumi.Input[str] source_engine_version: Version of the source engine used to make the backup
+               
+               This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        :param pulumi.Input[str] bucket_prefix: Can be blank, but is the path to your backup
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "ingestion_role", ingestion_role)
         pulumi.set(__self__, "source_engine", source_engine)
@@ -986,6 +1055,9 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        The bucket name where your backup is stored
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -995,6 +1067,9 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="ingestionRole")
     def ingestion_role(self) -> pulumi.Input[str]:
+        """
+        Role applied to load the data.
+        """
         return pulumi.get(self, "ingestion_role")
 
     @ingestion_role.setter
@@ -1004,6 +1079,9 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="sourceEngine")
     def source_engine(self) -> pulumi.Input[str]:
+        """
+        Source engine for the backup
+        """
         return pulumi.get(self, "source_engine")
 
     @source_engine.setter
@@ -1013,6 +1091,11 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="sourceEngineVersion")
     def source_engine_version(self) -> pulumi.Input[str]:
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        """
         return pulumi.get(self, "source_engine_version")
 
     @source_engine_version.setter
@@ -1022,6 +1105,9 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be blank, but is the path to your backup
+        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter

@@ -99,6 +99,10 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly projectName!: pulumi.Output<string>;
     /**
+     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     */
+    public readonly scopeConfiguration!: pulumi.Output<outputs.codebuild.WebhookScopeConfiguration | undefined>;
+    /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
     public /*out*/ readonly secret!: pulumi.Output<string>;
@@ -125,6 +129,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["filterGroups"] = state ? state.filterGroups : undefined;
             resourceInputs["payloadUrl"] = state ? state.payloadUrl : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["scopeConfiguration"] = state ? state.scopeConfiguration : undefined;
             resourceInputs["secret"] = state ? state.secret : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
         } else {
@@ -136,6 +141,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["buildType"] = args ? args.buildType : undefined;
             resourceInputs["filterGroups"] = args ? args.filterGroups : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["scopeConfiguration"] = args ? args.scopeConfiguration : undefined;
             resourceInputs["payloadUrl"] = undefined /*out*/;
             resourceInputs["secret"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
@@ -172,6 +178,10 @@ export interface WebhookState {
      */
     projectName?: pulumi.Input<string>;
     /**
+     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     */
+    scopeConfiguration?: pulumi.Input<inputs.codebuild.WebhookScopeConfiguration>;
+    /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
     secret?: pulumi.Input<string>;
@@ -201,4 +211,8 @@ export interface WebhookArgs {
      * The name of the build project.
      */
     projectName: pulumi.Input<string>;
+    /**
+     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     */
+    scopeConfiguration?: pulumi.Input<inputs.codebuild.WebhookScopeConfiguration>;
 }

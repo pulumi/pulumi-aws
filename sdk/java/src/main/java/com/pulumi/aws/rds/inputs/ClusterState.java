@@ -490,6 +490,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    @Import(name="engineLifecycleSupport")
+    private @Nullable Output<String> engineLifecycleSupport;
+
+    /**
+     * @return The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    public Optional<Output<String>> engineLifecycleSupport() {
+        return Optional.ofNullable(this.engineLifecycleSupport);
+    }
+
+    /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
@@ -1019,6 +1034,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.enabledCloudwatchLogsExports = $.enabledCloudwatchLogsExports;
         this.endpoint = $.endpoint;
         this.engine = $.engine;
+        this.engineLifecycleSupport = $.engineLifecycleSupport;
         this.engineMode = $.engineMode;
         this.engineVersion = $.engineVersion;
         this.engineVersionActual = $.engineVersionActual;
@@ -1765,6 +1781,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder engine(EngineType engine) {
             return engine(Either.ofRight(engine));
+        }
+
+        /**
+         * @param engineLifecycleSupport The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engineLifecycleSupport(@Nullable Output<String> engineLifecycleSupport) {
+            $.engineLifecycleSupport = engineLifecycleSupport;
+            return this;
+        }
+
+        /**
+         * @param engineLifecycleSupport The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engineLifecycleSupport(String engineLifecycleSupport) {
+            return engineLifecycleSupport(Output.of(engineLifecycleSupport));
         }
 
         /**

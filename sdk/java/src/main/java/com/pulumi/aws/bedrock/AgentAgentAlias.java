@@ -114,14 +114,14 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Details about the routing configuration of the alias. See `routing_configuration` block for details.
+     * Details about the routing configuration of the alias. See `routing_configuration` Block for details.
      * 
      */
     @Export(name="routingConfigurations", refs={List.class,AgentAgentAliasRoutingConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations;
 
     /**
-     * @return Details about the routing configuration of the alias. See `routing_configuration` block for details.
+     * @return Details about the routing configuration of the alias. See `routing_configuration` Block for details.
      * 
      */
     public Output<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations() {

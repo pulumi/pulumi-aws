@@ -27,7 +27,7 @@ class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, description=None, id=None, log_delivery_configurations=None, member_clusters=None, multi_az_enabled=None, node_type=None, num_cache_clusters=None, num_node_groups=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replicas_per_node_group=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
+    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, cluster_mode=None, configuration_endpoint_address=None, description=None, id=None, log_delivery_configurations=None, member_clusters=None, multi_az_enabled=None, node_type=None, num_cache_clusters=None, num_node_groups=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replicas_per_node_group=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetReplicationGroupResult:
         if automatic_failover_enabled and not isinstance(automatic_failover_enabled, bool):
             raise TypeError("Expected argument 'automatic_failover_enabled' to be a bool")
         pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
+        if cluster_mode and not isinstance(cluster_mode, str):
+            raise TypeError("Expected argument 'cluster_mode' to be a str")
+        pulumi.set(__self__, "cluster_mode", cluster_mode)
         if configuration_endpoint_address and not isinstance(configuration_endpoint_address, str):
             raise TypeError("Expected argument 'configuration_endpoint_address' to be a str")
         pulumi.set(__self__, "configuration_endpoint_address", configuration_endpoint_address)
@@ -109,6 +112,14 @@ class GetReplicationGroupResult:
         A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
         """
         return pulumi.get(self, "automatic_failover_enabled")
+
+    @property
+    @pulumi.getter(name="clusterMode")
+    def cluster_mode(self) -> str:
+        """
+        Whether cluster mode is enabled or disabled.
+        """
+        return pulumi.get(self, "cluster_mode")
 
     @property
     @pulumi.getter(name="configurationEndpointAddress")
@@ -245,6 +256,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             arn=self.arn,
             auth_token_enabled=self.auth_token_enabled,
             automatic_failover_enabled=self.automatic_failover_enabled,
+            cluster_mode=self.cluster_mode,
             configuration_endpoint_address=self.configuration_endpoint_address,
             description=self.description,
             id=self.id,
@@ -289,6 +301,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         auth_token_enabled=pulumi.get(__ret__, 'auth_token_enabled'),
         automatic_failover_enabled=pulumi.get(__ret__, 'automatic_failover_enabled'),
+        cluster_mode=pulumi.get(__ret__, 'cluster_mode'),
         configuration_endpoint_address=pulumi.get(__ret__, 'configuration_endpoint_address'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.msk.inputs;
 
+import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -64,6 +65,21 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
     }
 
     /**
+     * Configuration for specifying the position in the topics to start replicating from.
+     * 
+     */
+    @Import(name="startingPosition")
+    private @Nullable Output<ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs> startingPosition;
+
+    /**
+     * @return Configuration for specifying the position in the topics to start replicating from.
+     * 
+     */
+    public Optional<Output<ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs>> startingPosition() {
+        return Optional.ofNullable(this.startingPosition);
+    }
+
+    /**
      * List of regular expression patterns indicating the topics that should not be replica.
      * 
      */
@@ -99,6 +115,7 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
         this.copyAccessControlListsForTopics = $.copyAccessControlListsForTopics;
         this.copyTopicConfigurations = $.copyTopicConfigurations;
         this.detectAndCopyNewTopics = $.detectAndCopyNewTopics;
+        this.startingPosition = $.startingPosition;
         this.topicsToExcludes = $.topicsToExcludes;
         this.topicsToReplicates = $.topicsToReplicates;
     }
@@ -182,6 +199,27 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
          */
         public Builder detectAndCopyNewTopics(Boolean detectAndCopyNewTopics) {
             return detectAndCopyNewTopics(Output.of(detectAndCopyNewTopics));
+        }
+
+        /**
+         * @param startingPosition Configuration for specifying the position in the topics to start replicating from.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startingPosition(@Nullable Output<ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs> startingPosition) {
+            $.startingPosition = startingPosition;
+            return this;
+        }
+
+        /**
+         * @param startingPosition Configuration for specifying the position in the topics to start replicating from.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs startingPosition) {
+            return startingPosition(Output.of(startingPosition));
         }
 
         /**

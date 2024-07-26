@@ -180,14 +180,6 @@ endif
 	# Apply all automated changes
 	cd upstream-tools && yarn --silent run apply
 
-upstream.finalize:
-	echo "Deprecated: Use `./upstream.sh format_patches` instead"
-	scripts/upstream_old.sh "$@" end_rebase
-
-upstream.rebase:
-	echo "Deprecated: Use `./upstream.sh checkout` and `./upstream.sh rebase` instead"
-	scripts/upstream_old.sh "$@" start_rebase
-
 bin/pulumi-java-gen: .pulumi-java-gen.version
 	pulumictl download-binary -n pulumi-language-java -v v$(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
@@ -204,8 +196,19 @@ ci-mgmt: .ci-mgmt.yaml
 		--template bridged-provider \
 		--config $<
 
+# Because some codegen depends on the version of the CLI used, we install a local CLI
+# version pinned to the same version as `provider/go.mod`.
+#
+# This logic compares the version of .pulumi/bin/pulumi already installed. If it matches
+# the desired version, we just print. Otherwise we (re)install pulumi at the desired
+# version.
 .pulumi/bin/pulumi: .pulumi/version
-	curl -fsSL https://get.pulumi.com | HOME=$(WORKING_DIR) sh -s -- --version $(shell cat .pulumi/version)
+	@if [ -x .pulumi/bin/pulumi ] && [ "v$$(cat .pulumi/version)" = "$$(.pulumi/bin/pulumi version)" ]; then \
+		echo "pulumi/bin/pulumi version: v$$(cat .pulumi/version)"; \
+	else \
+		curl -fsSL https://get.pulumi.com | \
+			HOME=$(WORKING_DIR) sh -s -- --version "$$(cat .pulumi/version)"; \
+	fi
 
 # Compute the version of Pulumi to use by inspecting the Go dependencies of the provider.
 .pulumi/version: provider/go.mod
@@ -216,7 +219,7 @@ ci-mgmt: .ci-mgmt.yaml
 debug_tfgen:
 	dlv  --listen=:2345 --headless=true --api-version=2  exec $(WORKING_DIR)/bin/$(TFGEN) -- schema --out provider/cmd/$(PROVIDER)
 
-.PHONY: development build build_sdks install_go_sdk install_java_sdk install_python_sdk install_sdks only_build build_dotnet build_go build_java build_nodejs build_python clean cleanup help install_dotnet_sdk install_nodejs_sdk install_plugins lint_provider provider provider_no_deps test tfgen upstream upstream.finalize upstream.rebase ci-mgmt test_provider debug_tfgen tfgen_build_only
+.PHONY: development build build_sdks install_go_sdk install_java_sdk install_python_sdk install_sdks only_build build_dotnet build_go build_java build_nodejs build_python clean cleanup help install_dotnet_sdk install_nodejs_sdk install_plugins lint_provider provider provider_no_deps test tfgen upstream ci-mgmt test_provider debug_tfgen tfgen_build_only
 
 # Provider cross-platform build & packaging
 

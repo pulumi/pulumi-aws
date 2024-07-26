@@ -89,6 +89,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;
 
         /// <summary>
+        /// The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+        /// </summary>
+        [Input("secretsManagerConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationGetArgs>? SecretsManagerConfiguration { get; set; }
+
+        /// <summary>
         /// The HTTP endpoint URL to which Kinesis Firehose sends your data.
         /// </summary>
         [Input("url", required: true)]

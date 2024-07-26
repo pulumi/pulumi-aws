@@ -18,7 +18,7 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfiguration {
      */
     private String basePromptTemplate;
     /**
-     * @return Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` block for details.
+     * @return Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
      * 
      */
     private List<AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration> inferenceConfigurations;
@@ -52,7 +52,7 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfiguration {
         return this.basePromptTemplate;
     }
     /**
-     * @return Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` block for details.
+     * @return Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
      * 
      */
     public List<AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration> inferenceConfigurations() {

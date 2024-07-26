@@ -6,10 +6,12 @@ package com.pulumi.aws.imagebuilder.inputs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineImageScanningConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineImageTestsConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineScheduleArgs;
+import com.pulumi.aws.imagebuilder.inputs.ImagePipelineWorkflowArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -153,6 +155,21 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<Boolean>> enhancedImageMetadataEnabled() {
         return Optional.ofNullable(this.enhancedImageMetadataEnabled);
+    }
+
+    /**
+     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    @Import(name="executionRole")
+    private @Nullable Output<String> executionRole;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    public Optional<Output<String>> executionRole() {
+        return Optional.ofNullable(this.executionRole);
     }
 
     /**
@@ -317,6 +334,21 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    @Import(name="workflows")
+    private @Nullable Output<List<ImagePipelineWorkflowArgs>> workflows;
+
+    /**
+     * @return Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    public Optional<Output<List<ImagePipelineWorkflowArgs>>> workflows() {
+        return Optional.ofNullable(this.workflows);
+    }
+
     private ImagePipelineState() {}
 
     private ImagePipelineState(ImagePipelineState $) {
@@ -329,6 +361,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         this.description = $.description;
         this.distributionConfigurationArn = $.distributionConfigurationArn;
         this.enhancedImageMetadataEnabled = $.enhancedImageMetadataEnabled;
+        this.executionRole = $.executionRole;
         this.imageRecipeArn = $.imageRecipeArn;
         this.imageScanningConfiguration = $.imageScanningConfiguration;
         this.imageTestsConfiguration = $.imageTestsConfiguration;
@@ -339,6 +372,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.workflows = $.workflows;
     }
 
     public static Builder builder() {
@@ -546,6 +580,27 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder enhancedImageMetadataEnabled(Boolean enhancedImageMetadataEnabled) {
             return enhancedImageMetadataEnabled(Output.of(enhancedImageMetadataEnabled));
+        }
+
+        /**
+         * @param executionRole Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionRole(@Nullable Output<String> executionRole) {
+            $.executionRole = executionRole;
+            return this;
+        }
+
+        /**
+         * @param executionRole Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionRole(String executionRole) {
+            return executionRole(Output.of(executionRole));
         }
 
         /**
@@ -768,6 +823,37 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param workflows Configuration block with the workflow configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workflows(@Nullable Output<List<ImagePipelineWorkflowArgs>> workflows) {
+            $.workflows = workflows;
+            return this;
+        }
+
+        /**
+         * @param workflows Configuration block with the workflow configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workflows(List<ImagePipelineWorkflowArgs> workflows) {
+            return workflows(Output.of(workflows));
+        }
+
+        /**
+         * @param workflows Configuration block with the workflow configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workflows(ImagePipelineWorkflowArgs... workflows) {
+            return workflows(List.of(workflows));
         }
 
         public ImagePipelineState build() {

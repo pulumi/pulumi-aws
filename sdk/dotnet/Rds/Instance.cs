@@ -570,6 +570,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
+        /// The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// </summary>
+        [Output("engineLifecycleSupport")]
+        public Output<string> EngineLifecycleSupport { get; private set; } = null!;
+
+        /// <summary>
         /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Output("engineVersion")]
@@ -1164,6 +1170,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
+        /// The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// </summary>
+        [Input("engineLifecycleSupport")]
+        public Input<string>? EngineLifecycleSupport { get; set; }
+
+        /// <summary>
         /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Input("engineVersion")]
@@ -1703,6 +1715,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
+
+        /// <summary>
+        /// The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// </summary>
+        [Input("engineLifecycleSupport")]
+        public Input<string>? EngineLifecycleSupport { get; set; }
 
         /// <summary>
         /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.

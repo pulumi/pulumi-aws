@@ -53,6 +53,10 @@ export interface GetDataLakeSettingsResult {
      */
     readonly allowExternalDataFiltering: boolean;
     /**
+     * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+     */
+    readonly allowFullTableExternalDataAccess: boolean;
+    /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
      */
     readonly authorizedSessionTagValueLists: string[];

@@ -60,6 +60,8 @@ type LookupDataLakeSettingsResult struct {
 	Admins []string `pulumi:"admins"`
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering bool `pulumi:"allowExternalDataFiltering"`
+	// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+	AllowFullTableExternalDataAccess bool `pulumi:"allowFullTableExternalDataAccess"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
 	AuthorizedSessionTagValueLists []string `pulumi:"authorizedSessionTagValueLists"`
 	CatalogId                      *string  `pulumi:"catalogId"`
@@ -123,6 +125,11 @@ func (o LookupDataLakeSettingsResultOutput) Admins() pulumi.StringArrayOutput {
 // Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 func (o LookupDataLakeSettingsResultOutput) AllowExternalDataFiltering() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) bool { return v.AllowExternalDataFiltering }).(pulumi.BoolOutput)
+}
+
+// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+func (o LookupDataLakeSettingsResultOutput) AllowFullTableExternalDataAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) bool { return v.AllowFullTableExternalDataAccess }).(pulumi.BoolOutput)
 }
 
 // Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.

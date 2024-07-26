@@ -26,7 +26,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example &lt;ruleset-id&gt;
  * ```
  * 
+ * @deprecated
+ * This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead
+ * 
  */
+@Deprecated /* This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead */
 @ResourceType(type="aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet")
 public class MatchmakingRuleSet extends com.pulumi.resources.CustomResource {
     /**

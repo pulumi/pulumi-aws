@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProactiveEngagementEmergencyContact {
+    /**
+     * @return Additional notes regarding the contact.
+     * 
+     */
     private @Nullable String contactNotes;
+    /**
+     * @return A valid email address that will be used for this contact.
+     * 
+     */
     private String emailAddress;
+    /**
+     * @return A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+     * 
+     */
     private @Nullable String phoneNumber;
 
     private ProactiveEngagementEmergencyContact() {}
+    /**
+     * @return Additional notes regarding the contact.
+     * 
+     */
     public Optional<String> contactNotes() {
         return Optional.ofNullable(this.contactNotes);
     }
+    /**
+     * @return A valid email address that will be used for this contact.
+     * 
+     */
     public String emailAddress() {
         return this.emailAddress;
     }
+    /**
+     * @return A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+     * 
+     */
     public Optional<String> phoneNumber() {
         return Optional.ofNullable(this.phoneNumber);
     }

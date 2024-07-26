@@ -6,6 +6,7 @@ package com.pulumi.aws.lb;
 import com.pulumi.aws.lb.inputs.TargetGroupHealthCheckArgs;
 import com.pulumi.aws.lb.inputs.TargetGroupStickinessArgs;
 import com.pulumi.aws.lb.inputs.TargetGroupTargetFailoverArgs;
+import com.pulumi.aws.lb.inputs.TargetGroupTargetGroupHealthArgs;
 import com.pulumi.aws.lb.inputs.TargetGroupTargetHealthStateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -315,6 +316,21 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Target health requirements block. See target_group_health for more information.
+     * 
+     */
+    @Import(name="targetGroupHealth")
+    private @Nullable Output<TargetGroupTargetGroupHealthArgs> targetGroupHealth;
+
+    /**
+     * @return Target health requirements block. See target_group_health for more information.
+     * 
+     */
+    public Optional<Output<TargetGroupTargetGroupHealthArgs>> targetGroupHealth() {
+        return Optional.ofNullable(this.targetGroupHealth);
+    }
+
+    /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
      * 
      */
@@ -401,6 +417,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.stickiness = $.stickiness;
         this.tags = $.tags;
         this.targetFailovers = $.targetFailovers;
+        this.targetGroupHealth = $.targetGroupHealth;
         this.targetHealthStates = $.targetHealthStates;
         this.targetType = $.targetType;
         this.vpcId = $.vpcId;
@@ -837,6 +854,27 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder targetFailovers(TargetGroupTargetFailoverArgs... targetFailovers) {
             return targetFailovers(List.of(targetFailovers));
+        }
+
+        /**
+         * @param targetGroupHealth Target health requirements block. See target_group_health for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetGroupHealth(@Nullable Output<TargetGroupTargetGroupHealthArgs> targetGroupHealth) {
+            $.targetGroupHealth = targetGroupHealth;
+            return this;
+        }
+
+        /**
+         * @param targetGroupHealth Target health requirements block. See target_group_health for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetGroupHealth(TargetGroupTargetGroupHealthArgs targetGroupHealth) {
+            return targetGroupHealth(Output.of(targetGroupHealth));
         }
 
         /**

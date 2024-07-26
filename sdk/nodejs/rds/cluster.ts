@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     ],
  *     databaseName: "mydb",
  *     masterUsername: "foo",
- *     masterPassword: "bar",
+ *     masterPassword: "must_be_eight_characters",
  *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *     ],
  *     databaseName: "mydb",
  *     masterUsername: "foo",
- *     masterPassword: "bar",
+ *     masterPassword: "must_be_eight_characters",
  *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *     ],
  *     databaseName: "mydb",
  *     masterUsername: "foo",
- *     masterPassword: "bar",
+ *     masterPassword: "must_be_eight_characters",
  *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
@@ -377,6 +377,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string>;
     /**
+     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     */
+    public readonly engineLifecycleSupport!: pulumi.Output<string>;
+    /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode!: pulumi.Output<string | undefined>;
@@ -552,6 +556,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = state ? state.engineLifecycleSupport : undefined;
             resourceInputs["engineMode"] = state ? state.engineMode : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
@@ -616,6 +621,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["enableLocalWriteForwarding"] = args ? args.enableLocalWriteForwarding : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
             resourceInputs["engineMode"] = args ? args.engineMode : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
@@ -791,6 +797,10 @@ export interface ClusterState {
      * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine?: pulumi.Input<string | enums.rds.EngineType>;
+    /**
+     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     */
+    engineLifecycleSupport?: pulumi.Input<string>;
     /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
@@ -1039,6 +1049,10 @@ export interface ClusterArgs {
      * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine: pulumi.Input<string | enums.rds.EngineType>;
+    /**
+     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     */
+    engineLifecycleSupport?: pulumi.Input<string>;
     /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */

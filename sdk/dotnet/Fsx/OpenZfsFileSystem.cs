@@ -86,13 +86,19 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
+        /// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+        /// </summary>
+        [Output("deleteOptions")]
+        public Output<ImmutableArray<string>> DeleteOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
         /// </summary>
         [Output("diskIopsConfiguration")]
         public Output<Outputs.OpenZfsFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("endpointIpAddressRange")]
         public Output<string> EndpointIpAddressRange { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to apply to the file system's final backup.
+        /// </summary>
+        [Output("finalBackupTags")]
+        public Output<ImmutableDictionary<string, string>?> FinalBackupTags { get; private set; } = null!;
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -140,7 +152,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> PreferredSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         /// </summary>
         [Output("rootVolumeConfiguration")]
         public Output<Outputs.OpenZfsFileSystemRootVolumeConfiguration> RootVolumeConfiguration { get; private set; } = null!;
@@ -201,6 +213,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("throughputCapacity")]
         public Output<int> ThroughputCapacity { get; private set; } = null!;
@@ -293,6 +307,18 @@ namespace Pulumi.Aws.Fsx
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
+        [Input("deleteOptions")]
+        private InputList<string>? _deleteOptions;
+
+        /// <summary>
+        /// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+        /// </summary>
+        public InputList<string> DeleteOptions
+        {
+            get => _deleteOptions ?? (_deleteOptions = new InputList<string>());
+            set => _deleteOptions = value;
+        }
+
         /// <summary>
         /// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
         /// </summary>
@@ -300,7 +326,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string> DeploymentType { get; set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
@@ -310,6 +336,18 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("endpointIpAddressRange")]
         public Input<string>? EndpointIpAddressRange { get; set; }
+
+        [Input("finalBackupTags")]
+        private InputMap<string>? _finalBackupTags;
+
+        /// <summary>
+        /// A map of tags to apply to the file system's final backup.
+        /// </summary>
+        public InputMap<string> FinalBackupTags
+        {
+            get => _finalBackupTags ?? (_finalBackupTags = new InputMap<string>());
+            set => _finalBackupTags = value;
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -324,7 +362,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? PreferredSubnetId { get; set; }
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         /// </summary>
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs>? RootVolumeConfiguration { get; set; }
@@ -397,6 +435,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("throughputCapacity", required: true)]
         public Input<int> ThroughputCapacity { get; set; } = null!;
@@ -451,6 +491,18 @@ namespace Pulumi.Aws.Fsx
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
+        [Input("deleteOptions")]
+        private InputList<string>? _deleteOptions;
+
+        /// <summary>
+        /// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+        /// </summary>
+        public InputList<string> DeleteOptions
+        {
+            get => _deleteOptions ?? (_deleteOptions = new InputList<string>());
+            set => _deleteOptions = value;
+        }
+
         /// <summary>
         /// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
         /// </summary>
@@ -458,7 +510,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OpenZfsFileSystemDiskIopsConfigurationGetArgs>? DiskIopsConfiguration { get; set; }
@@ -480,6 +532,18 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("endpointIpAddressRange")]
         public Input<string>? EndpointIpAddressRange { get; set; }
+
+        [Input("finalBackupTags")]
+        private InputMap<string>? _finalBackupTags;
+
+        /// <summary>
+        /// A map of tags to apply to the file system's final backup.
+        /// </summary>
+        public InputMap<string> FinalBackupTags
+        {
+            get => _finalBackupTags ?? (_finalBackupTags = new InputMap<string>());
+            set => _finalBackupTags = value;
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -512,7 +576,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? PreferredSubnetId { get; set; }
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         /// </summary>
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.OpenZfsFileSystemRootVolumeConfigurationGetArgs>? RootVolumeConfiguration { get; set; }
@@ -604,6 +668,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }

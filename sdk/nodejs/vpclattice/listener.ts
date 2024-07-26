@@ -169,7 +169,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+     * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
@@ -271,7 +271,7 @@ export interface ListenerState {
      */
     port?: pulumi.Input<number>;
     /**
-     * Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+     * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -310,7 +310,7 @@ export interface ListenerArgs {
      */
     port?: pulumi.Input<number>;
     /**
-     * Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+     * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      */
     protocol: pulumi.Input<string>;
     /**

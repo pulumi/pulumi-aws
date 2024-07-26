@@ -14,9 +14,17 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationGroupCon
 
     public static final IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs Empty = new IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs();
 
+    /**
+     * The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+     * 
+     */
     @Import(name="groupClaim", required=true)
     private Output<String> groupClaim;
 
+    /**
+     * @return The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+     * 
+     */
     public Output<String> groupClaim() {
         return this.groupClaim;
     }
@@ -61,11 +69,23 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationGroupCon
             $ = new IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groupClaim The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupClaim(Output<String> groupClaim) {
             $.groupClaim = groupClaim;
             return this;
         }
 
+        /**
+         * @param groupClaim The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupClaim(String groupClaim) {
             return groupClaim(Output.of(groupClaim));
         }

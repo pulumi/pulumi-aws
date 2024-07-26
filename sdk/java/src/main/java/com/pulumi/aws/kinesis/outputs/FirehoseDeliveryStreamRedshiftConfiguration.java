@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfiguratio
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -43,10 +44,10 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      */
     private String dataTableName;
     /**
-     * @return The password for the username above.
+     * @return The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private String password;
+    private @Nullable String password;
     /**
      * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
@@ -64,6 +65,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
     private String roleArn;
     /**
      * @return The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
      * 
      */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration;
@@ -77,11 +79,12 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      * 
      */
     private FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration;
+    private @Nullable FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
     /**
-     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private String username;
+    private @Nullable String username;
 
     private FirehoseDeliveryStreamRedshiftConfiguration() {}
     /**
@@ -120,11 +123,11 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return this.dataTableName;
     }
     /**
-     * @return The password for the username above.
+     * @return The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public String password() {
-        return this.password;
+    public Optional<String> password() {
+        return Optional.ofNullable(this.password);
     }
     /**
      * @return The data processing configuration.  See `processing_configuration` block below for details.
@@ -149,6 +152,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
     }
     /**
      * @return The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
      * 
      */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration> s3BackupConfiguration() {
@@ -168,12 +172,15 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
     public FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
+    public Optional<FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {
+        return Optional.ofNullable(this.secretsManagerConfiguration);
+    }
     /**
-     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public String username() {
-        return this.username;
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
     }
 
     public static Builder builder() {
@@ -190,14 +197,15 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         private @Nullable String copyOptions;
         private @Nullable String dataTableColumns;
         private String dataTableName;
-        private String password;
+        private @Nullable String password;
         private @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration;
         private @Nullable Integer retryDuration;
         private String roleArn;
         private @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration;
         private @Nullable String s3BackupMode;
         private FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration;
-        private String username;
+        private @Nullable FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
+        private @Nullable String username;
         public Builder() {}
         public Builder(FirehoseDeliveryStreamRedshiftConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -213,6 +221,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
     	      this.s3BackupConfiguration = defaults.s3BackupConfiguration;
     	      this.s3BackupMode = defaults.s3BackupMode;
     	      this.s3Configuration = defaults.s3Configuration;
+    	      this.secretsManagerConfiguration = defaults.secretsManagerConfiguration;
     	      this.username = defaults.username;
         }
 
@@ -251,10 +260,8 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder password(String password) {
-            if (password == null) {
-              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "password");
-            }
+        public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
@@ -299,10 +306,14 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder username(String username) {
-            if (username == null) {
-              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "username");
-            }
+        public Builder secretsManagerConfiguration(@Nullable FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration secretsManagerConfiguration) {
+
+            this.secretsManagerConfiguration = secretsManagerConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }
@@ -320,6 +331,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
             _resultValue.s3BackupConfiguration = s3BackupConfiguration;
             _resultValue.s3BackupMode = s3BackupMode;
             _resultValue.s3Configuration = s3Configuration;
+            _resultValue.secretsManagerConfiguration = secretsManagerConfiguration;
             _resultValue.username = username;
             return _resultValue;
         }

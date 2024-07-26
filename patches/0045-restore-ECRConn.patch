@@ -5,18 +5,18 @@ Subject: [PATCH] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go
-index 4692319a34..1c3a36a170 100644
+index 1fc533168a..460d122df8 100644
 --- a/internal/conns/awsclient_gen.go
 +++ b/internal/conns/awsclient_gen.go
-@@ -210,6 +210,7 @@ import (
- 	detective_sdkv1 "github.com/aws/aws-sdk-go/service/detective"
+@@ -214,6 +214,7 @@ import (
+ 	connect_sdkv1 "github.com/aws/aws-sdk-go/service/connect"
  	directconnect_sdkv1 "github.com/aws/aws-sdk-go/service/directconnect"
  	ec2_sdkv1 "github.com/aws/aws-sdk-go/service/ec2"
 +	ecr_sdkv1 "github.com/aws/aws-sdk-go/service/ecr"
- 	ecs_sdkv1 "github.com/aws/aws-sdk-go/service/ecs"
- 	elasticache_sdkv1 "github.com/aws/aws-sdk-go/service/elasticache"
  	elasticsearchservice_sdkv1 "github.com/aws/aws-sdk-go/service/elasticsearchservice"
-@@ -597,6 +598,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
+ 	emr_sdkv1 "github.com/aws/aws-sdk-go/service/emr"
+ 	fsx_sdkv1 "github.com/aws/aws-sdk-go/service/fsx"
+@@ -594,6 +595,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
  	return errs.Must(client[*ec2_sdkv2.Client](ctx, c, names.EC2, make(map[string]any)))
  }
  

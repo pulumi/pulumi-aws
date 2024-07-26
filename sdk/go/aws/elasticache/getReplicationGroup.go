@@ -62,6 +62,8 @@ type LookupReplicationGroupResult struct {
 	AuthTokenEnabled bool `pulumi:"authTokenEnabled"`
 	// A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
 	AutomaticFailoverEnabled bool `pulumi:"automaticFailoverEnabled"`
+	// Whether cluster mode is enabled or disabled.
+	ClusterMode string `pulumi:"clusterMode"`
 	// The configuration endpoint address to allow host discovery.
 	ConfigurationEndpointAddress string `pulumi:"configurationEndpointAddress"`
 	// Description of the replication group.
@@ -146,6 +148,11 @@ func (o LookupReplicationGroupResultOutput) AuthTokenEnabled() pulumi.BoolOutput
 // A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
 func (o LookupReplicationGroupResultOutput) AutomaticFailoverEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) bool { return v.AutomaticFailoverEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether cluster mode is enabled or disabled.
+func (o LookupReplicationGroupResultOutput) ClusterMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.ClusterMode }).(pulumi.StringOutput)
 }
 
 // The configuration endpoint address to allow host discovery.

@@ -124,6 +124,9 @@ namespace Pulumi.Aws.Fsx
         [Output("subtype")]
         public Output<string> Subtype { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        /// </summary>
         [Output("svmAdminPassword")]
         public Output<string?> SvmAdminPassword { get; private set; } = null!;
 
@@ -221,6 +224,10 @@ namespace Pulumi.Aws.Fsx
 
         [Input("svmAdminPassword")]
         private Input<string>? _svmAdminPassword;
+
+        /// <summary>
+        /// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        /// </summary>
         public Input<string>? SvmAdminPassword
         {
             get => _svmAdminPassword;
@@ -301,6 +308,10 @@ namespace Pulumi.Aws.Fsx
 
         [Input("svmAdminPassword")]
         private Input<string>? _svmAdminPassword;
+
+        /// <summary>
+        /// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        /// </summary>
         public Input<string>? SvmAdminPassword
         {
             get => _svmAdminPassword;

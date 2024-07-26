@@ -449,6 +449,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude
     def __init__(__self__, *,
                  api_key: str,
                  secret_key: str):
+        """
+        :param str secret_key: The Secret Access Key portion of the credentials.
+        """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "secret_key", secret_key)
 
@@ -460,6 +463,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude
     @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> str:
+        """
+        The Secret Access Key portion of the credentials.
+        """
         return pulumi.get(self, "secret_key")
 
 
@@ -490,6 +496,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
                  basic: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic'] = None,
                  custom: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom'] = None,
                  oauth2: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2'] = None):
+        """
+        :param str authentication_type: The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs' basic: Basic credentials that are required for the authentication of the user.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs' custom: If the connector uses the custom authentication mechanism, this holds the required credentials.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args' oauth2: OAuth 2.0 credentials required for the authentication of the user.
+        """
         pulumi.set(__self__, "authentication_type", authentication_type)
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -503,6 +515,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> str:
+        """
+        The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+        """
         return pulumi.get(self, "authentication_type")
 
     @property
@@ -513,16 +528,25 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     @property
     @pulumi.getter
     def basic(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic']:
+        """
+        Basic credentials that are required for the authentication of the user.
+        """
         return pulumi.get(self, "basic")
 
     @property
     @pulumi.getter
     def custom(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom']:
+        """
+        If the connector uses the custom authentication mechanism, this holds the required credentials.
+        """
         return pulumi.get(self, "custom")
 
     @property
     @pulumi.getter
     def oauth2(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2']:
+        """
+        OAuth 2.0 credentials required for the authentication of the user.
+        """
         return pulumi.get(self, "oauth2")
 
 
@@ -608,6 +632,10 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     def __init__(__self__, *,
                  custom_authentication_type: str,
                  credentials_map: Optional[Mapping[str, str]] = None):
+        """
+        :param str custom_authentication_type: The custom authentication type that the connector uses.
+        :param Mapping[str, str] credentials_map: A map that holds custom authentication credentials.
+        """
         pulumi.set(__self__, "custom_authentication_type", custom_authentication_type)
         if credentials_map is not None:
             pulumi.set(__self__, "credentials_map", credentials_map)
@@ -615,11 +643,17 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     @property
     @pulumi.getter(name="customAuthenticationType")
     def custom_authentication_type(self) -> str:
+        """
+        The custom authentication type that the connector uses.
+        """
         return pulumi.get(self, "custom_authentication_type")
 
     @property
     @pulumi.getter(name="credentialsMap")
     def credentials_map(self) -> Optional[Mapping[str, str]]:
+        """
+        A map that holds custom authentication credentials.
+        """
         return pulumi.get(self, "credentials_map")
 
 
@@ -767,6 +801,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog(d
     def __init__(__self__, *,
                  api_key: str,
                  application_key: str):
+        """
+        :param str application_key: Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+        """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "application_key", application_key)
 
@@ -778,6 +815,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog(d
     @property
     @pulumi.getter(name="applicationKey")
     def application_key(self) -> str:
+        """
+        Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+        """
         return pulumi.get(self, "application_key")
 
 
@@ -802,11 +842,17 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace
 
     def __init__(__self__, *,
                  api_token: str):
+        """
+        :param str api_token: The API tokens used by Dynatrace API to authenticate various API calls.
+        """
         pulumi.set(__self__, "api_token", api_token)
 
     @property
     @pulumi.getter(name="apiToken")
     def api_token(self) -> str:
+        """
+        The API tokens used by Dynatrace API to authenticate various API calls.
+        """
         return pulumi.get(self, "api_token")
 
 
@@ -1056,6 +1102,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexu
                  datakey: str,
                  secret_access_key: str,
                  user_id: str):
+        """
+        :param str access_key_id: The Access Key portion of the credentials.
+        :param str datakey: Encryption keys used to encrypt data.
+        :param str secret_access_key: The secret key used to sign requests.
+        :param str user_id: Identifier for the user.
+        """
         pulumi.set(__self__, "access_key_id", access_key_id)
         pulumi.set(__self__, "datakey", datakey)
         pulumi.set(__self__, "secret_access_key", secret_access_key)
@@ -1064,21 +1116,33 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexu
     @property
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> str:
+        """
+        The Access Key portion of the credentials.
+        """
         return pulumi.get(self, "access_key_id")
 
     @property
     @pulumi.getter
     def datakey(self) -> str:
+        """
+        Encryption keys used to encrypt data.
+        """
         return pulumi.get(self, "datakey")
 
     @property
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> str:
+        """
+        The secret key used to sign requests.
+        """
         return pulumi.get(self, "secret_access_key")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> str:
+        """
+        Identifier for the user.
+        """
         return pulumi.get(self, "user_id")
 
 
@@ -1245,6 +1309,10 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
                  oauth2_grant_type: Optional[str] = None,
                  oauth_request: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest'] = None,
                  refresh_token: Optional[str] = None):
+        """
+        :param str client_credentials_arn: The secret manager ARN, which contains the client ID and client secret of the connected app.
+        :param str jwt_token: A JSON web token (JWT) that authorizes access to Salesforce records.
+        """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
         if client_credentials_arn is not None:
@@ -1266,11 +1334,17 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
     @property
     @pulumi.getter(name="clientCredentialsArn")
     def client_credentials_arn(self) -> Optional[str]:
+        """
+        The secret manager ARN, which contains the client ID and client secret of the connected app.
+        """
         return pulumi.get(self, "client_credentials_arn")
 
     @property
     @pulumi.getter(name="jwtToken")
     def jwt_token(self) -> Optional[str]:
+        """
+        A JSON web token (JWT) that authorizes access to Salesforce records.
+        """
         return pulumi.get(self, "jwt_token")
 
     @property
@@ -1363,6 +1437,10 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData(
     def __init__(__self__, *,
                  basic_auth_credentials: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials'] = None,
                  oauth_credentials: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials'] = None):
+        """
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs' basic_auth_credentials: The SAPOData basic authentication credentials.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs' oauth_credentials: The SAPOData OAuth type authentication credentials.
+        """
         if basic_auth_credentials is not None:
             pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
         if oauth_credentials is not None:
@@ -1371,11 +1449,17 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData(
     @property
     @pulumi.getter(name="basicAuthCredentials")
     def basic_auth_credentials(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials']:
+        """
+        The SAPOData basic authentication credentials.
+        """
         return pulumi.get(self, "basic_auth_credentials")
 
     @property
     @pulumi.getter(name="oauthCredentials")
     def oauth_credentials(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials']:
+        """
+        The SAPOData OAuth type authentication credentials.
+        """
         return pulumi.get(self, "oauth_credentials")
 
 
@@ -1894,17 +1978,22 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
                  veeva: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva'] = None,
                  zendesk: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk'] = None):
         """
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs' amplitude: The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs' custom_connector: The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs' datadog: Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs' dynatrace: The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs' google_analytics: The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs' honeycode: The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs' infor_nexus: The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs' marketo: Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs' redshift: Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs' salesforce: The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs' sapo_data: The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs' service_now: The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs' singular: Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs' slack: Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs' snowflake: The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs' trendmicro: The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs' veeva: Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs' zendesk: Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
         """
@@ -1948,6 +2037,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
     @property
     @pulumi.getter
     def amplitude(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude']:
+        """
+        The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+        """
         return pulumi.get(self, "amplitude")
 
     @property
@@ -1977,11 +2069,17 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
     @property
     @pulumi.getter(name="googleAnalytics")
     def google_analytics(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics']:
+        """
+        The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+        """
         return pulumi.get(self, "google_analytics")
 
     @property
     @pulumi.getter
     def honeycode(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode']:
+        """
+        The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+        """
         return pulumi.get(self, "honeycode")
 
     @property
@@ -2035,6 +2133,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
     @property
     @pulumi.getter
     def singular(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular']:
+        """
+        Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+        """
         return pulumi.get(self, "singular")
 
     @property
@@ -2056,6 +2157,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
     @property
     @pulumi.getter
     def trendmicro(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro']:
+        """
+        The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+        """
         return pulumi.get(self, "trendmicro")
 
     @property
@@ -2105,6 +2209,10 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
     def __init__(__self__, *,
                  oauth2_properties: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties'] = None,
                  profile_properties: Optional[Mapping[str, str]] = None):
+        """
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs' oauth2_properties: The OAuth 2.0 properties required for OAuth 2.0 authentication.
+        :param Mapping[str, str] profile_properties: A map of properties that are required to create a profile for the custom connector.
+        """
         if oauth2_properties is not None:
             pulumi.set(__self__, "oauth2_properties", oauth2_properties)
         if profile_properties is not None:
@@ -2113,11 +2221,17 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
     @property
     @pulumi.getter(name="oauth2Properties")
     def oauth2_properties(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties']:
+        """
+        The OAuth 2.0 properties required for OAuth 2.0 authentication.
+        """
         return pulumi.get(self, "oauth2_properties")
 
     @property
     @pulumi.getter(name="profileProperties")
     def profile_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of properties that are required to create a profile for the custom connector.
+        """
         return pulumi.get(self, "profile_properties")
 
 
@@ -2148,6 +2262,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
                  oauth2_grant_type: str,
                  token_url: str,
                  token_url_custom_properties: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] token_url_custom_properties: Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+        """
         pulumi.set(__self__, "oauth2_grant_type", oauth2_grant_type)
         pulumi.set(__self__, "token_url", token_url)
         if token_url_custom_properties is not None:
@@ -2166,6 +2283,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
     @property
     @pulumi.getter(name="tokenUrlCustomProperties")
     def token_url_custom_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+        """
         return pulumi.get(self, "token_url_custom_properties")
 
 
@@ -2336,6 +2456,13 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(d
                  data_api_role_arn: Optional[str] = None,
                  database_name: Optional[str] = None,
                  database_url: Optional[str] = None):
+        """
+        :param str role_arn: ARN of the IAM role.
+        :param str cluster_identifier: The unique ID that's assigned to an Amazon Redshift cluster.
+        :param str data_api_role_arn: ARN of the IAM role that permits AppFlow to access the database through Data API.
+        :param str database_name: The name of an Amazon Redshift database.
+        :param str database_url: The JDBC URL of the Amazon Redshift cluster.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if bucket_prefix is not None:
@@ -2357,6 +2484,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(d
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        ARN of the IAM role.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
@@ -2367,21 +2497,33 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(d
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[str]:
+        """
+        The unique ID that's assigned to an Amazon Redshift cluster.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @property
     @pulumi.getter(name="dataApiRoleArn")
     def data_api_role_arn(self) -> Optional[str]:
+        """
+        ARN of the IAM role that permits AppFlow to access the database through Data API.
+        """
         return pulumi.get(self, "data_api_role_arn")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[str]:
+        """
+        The name of an Amazon Redshift database.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="databaseUrl")
     def database_url(self) -> Optional[str]:
+        """
+        The JDBC URL of the Amazon Redshift cluster.
+        """
         return pulumi.get(self, "database_url")
 
 
@@ -2409,6 +2551,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
     def __init__(__self__, *,
                  instance_url: Optional[str] = None,
                  is_sandbox_environment: Optional[bool] = None):
+        """
+        :param bool is_sandbox_environment: Indicates whether the connector profile applies to a sandbox or production environment.
+        """
         if instance_url is not None:
             pulumi.set(__self__, "instance_url", instance_url)
         if is_sandbox_environment is not None:
@@ -2422,6 +2567,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
     @property
     @pulumi.getter(name="isSandboxEnvironment")
     def is_sandbox_environment(self) -> Optional[bool]:
+        """
+        Indicates whether the connector profile applies to a sandbox or production environment.
+        """
         return pulumi.get(self, "is_sandbox_environment")
 
 
@@ -2464,6 +2612,14 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData(d
                  logon_language: Optional[str] = None,
                  oauth_properties: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties'] = None,
                  private_link_service_name: Optional[str] = None):
+        """
+        :param str application_host_url: The location of the SAPOData resource.
+        :param str application_service_path: The application path to catalog service.
+        :param str client_number: The client number for the client creating the connection.
+        :param int port_number: The port number of the SAPOData instance.
+        :param str logon_language: The logon language of SAPOData instance.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs' oauth_properties: The SAPOData OAuth properties required for OAuth type authentication.
+        """
         pulumi.set(__self__, "application_host_url", application_host_url)
         pulumi.set(__self__, "application_service_path", application_service_path)
         pulumi.set(__self__, "client_number", client_number)
@@ -2478,31 +2634,49 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData(d
     @property
     @pulumi.getter(name="applicationHostUrl")
     def application_host_url(self) -> str:
+        """
+        The location of the SAPOData resource.
+        """
         return pulumi.get(self, "application_host_url")
 
     @property
     @pulumi.getter(name="applicationServicePath")
     def application_service_path(self) -> str:
+        """
+        The application path to catalog service.
+        """
         return pulumi.get(self, "application_service_path")
 
     @property
     @pulumi.getter(name="clientNumber")
     def client_number(self) -> str:
+        """
+        The client number for the client creating the connection.
+        """
         return pulumi.get(self, "client_number")
 
     @property
     @pulumi.getter(name="portNumber")
     def port_number(self) -> int:
+        """
+        The port number of the SAPOData instance.
+        """
         return pulumi.get(self, "port_number")
 
     @property
     @pulumi.getter(name="logonLanguage")
     def logon_language(self) -> Optional[str]:
+        """
+        The logon language of SAPOData instance.
+        """
         return pulumi.get(self, "logon_language")
 
     @property
     @pulumi.getter(name="oauthProperties")
     def oauth_properties(self) -> Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties']:
+        """
+        The SAPOData OAuth properties required for OAuth type authentication.
+        """
         return pulumi.get(self, "oauth_properties")
 
     @property
@@ -2538,6 +2712,10 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOa
                  auth_code_url: str,
                  oauth_scopes: Sequence[str],
                  token_url: str):
+        """
+        :param str auth_code_url: The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+        :param Sequence[str] oauth_scopes: The OAuth scopes required for OAuth type authentication.
+        """
         pulumi.set(__self__, "auth_code_url", auth_code_url)
         pulumi.set(__self__, "oauth_scopes", oauth_scopes)
         pulumi.set(__self__, "token_url", token_url)
@@ -2545,11 +2723,17 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOa
     @property
     @pulumi.getter(name="authCodeUrl")
     def auth_code_url(self) -> str:
+        """
+        The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+        """
         return pulumi.get(self, "auth_code_url")
 
     @property
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Sequence[str]:
+        """
+        The OAuth scopes required for OAuth type authentication.
+        """
         return pulumi.get(self, "oauth_scopes")
 
     @property
@@ -2655,6 +2839,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
                  bucket_prefix: Optional[str] = None,
                  private_link_service_name: Optional[str] = None,
                  region: Optional[str] = None):
+        """
+        :param str stage: Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+        :param str warehouse: The name of the Snowflake warehouse.
+        :param str account_name: The name of the account.
+        :param str region: AWS Region of the Snowflake account.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "stage", stage)
         pulumi.set(__self__, "warehouse", warehouse)
@@ -2675,16 +2865,25 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
     @property
     @pulumi.getter
     def stage(self) -> str:
+        """
+        Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+        """
         return pulumi.get(self, "stage")
 
     @property
     @pulumi.getter
     def warehouse(self) -> str:
+        """
+        The name of the Snowflake warehouse.
+        """
         return pulumi.get(self, "warehouse")
 
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> Optional[str]:
+        """
+        The name of the account.
+        """
         return pulumi.get(self, "account_name")
 
     @property
@@ -2700,6 +2899,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
+        """
+        AWS Region of the Snowflake account.
+        """
         return pulumi.get(self, "region")
 
 
@@ -3184,6 +3386,10 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles(di
     def __init__(__self__, *,
                  domain_name: str,
                  object_type_name: Optional[str] = None):
+        """
+        :param str domain_name: Unique name of the Amazon Connect Customer Profiles domain.
+        :param str object_type_name: Object specified in the Amazon Connect Customer Profiles flow destination.
+        """
         pulumi.set(__self__, "domain_name", domain_name)
         if object_type_name is not None:
             pulumi.set(__self__, "object_type_name", object_type_name)
@@ -3191,11 +3397,17 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles(di
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
+        """
+        Unique name of the Amazon Connect Customer Profiles domain.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="objectTypeName")
     def object_type_name(self) -> Optional[str]:
+        """
+        Object specified in the Amazon Connect Customer Profiles flow destination.
+        """
         return pulumi.get(self, "object_type_name")
 
 
@@ -4009,6 +4221,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData(dict):
                  id_field_names: Optional[Sequence[str]] = None,
                  success_response_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig'] = None,
                  write_operation_type: Optional[str] = None):
+        """
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs' success_response_handling_config: Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+        """
         pulumi.set(__self__, "object_path", object_path)
         if error_handling_config is not None:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
@@ -4037,6 +4252,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData(dict):
     @property
     @pulumi.getter(name="successResponseHandlingConfig")
     def success_response_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig']:
+        """
+        Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+        """
         return pulumi.get(self, "success_response_handling_config")
 
     @property
@@ -4770,6 +4988,8 @@ class FlowSourceFlowConfigSourceConnectorProperties(dict):
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs' amplitude: Information that is required for querying Amplitude. See Generic Source Properties for more details.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs' custom_connector: Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs' datadog: Information that is required for querying Datadog. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs' dynatrace: Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs' google_analytics: Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs' infor_nexus: Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs' marketo: Information that is required for querying Marketo. See Generic Source Properties for more details.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesS3Args' s3: Information that is required for querying Amazon S3. See S3 Source Properties for more details.
@@ -4778,6 +4998,7 @@ class FlowSourceFlowConfigSourceConnectorProperties(dict):
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs' service_now: Information that is required for querying ServiceNow. See Generic Source Properties for more details.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs' singular: Information that is required for querying Singular. See Generic Source Properties for more details.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs' slack: Information that is required for querying Slack. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs' trendmicro: Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs' veeva: Information that is required for querying Veeva. See Veeva Source Properties for more details.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs' zendesk: Information that is required for querying Zendesk. See Generic Source Properties for more details.
         """
@@ -4841,11 +5062,17 @@ class FlowSourceFlowConfigSourceConnectorProperties(dict):
     @property
     @pulumi.getter
     def dynatrace(self) -> Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesDynatrace']:
+        """
+        Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        """
         return pulumi.get(self, "dynatrace")
 
     @property
     @pulumi.getter(name="googleAnalytics")
     def google_analytics(self) -> Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics']:
+        """
+        Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+        """
         return pulumi.get(self, "google_analytics")
 
     @property
@@ -4915,6 +5142,9 @@ class FlowSourceFlowConfigSourceConnectorProperties(dict):
     @property
     @pulumi.getter
     def trendmicro(self) -> Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro']:
+        """
+        Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        """
         return pulumi.get(self, "trendmicro")
 
     @property
@@ -5072,6 +5302,9 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
                  bucket_name: str,
                  bucket_prefix: str,
                  s3_input_format_config: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig'] = None):
+        """
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs' s3_input_format_config: When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if s3_input_format_config is not None:
@@ -5090,6 +5323,9 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
     @property
     @pulumi.getter(name="s3InputFormatConfig")
     def s3_input_format_config(self) -> Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig']:
+        """
+        When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+        """
         return pulumi.get(self, "s3_input_format_config")
 
 
@@ -5154,6 +5390,10 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
                  object: str,
                  enable_dynamic_field_update: Optional[bool] = None,
                  include_deleted_records: Optional[bool] = None):
+        """
+        :param bool enable_dynamic_field_update: Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+        :param bool include_deleted_records: Whether Amazon AppFlow includes deleted files in the flow run.
+        """
         pulumi.set(__self__, "object", object)
         if enable_dynamic_field_update is not None:
             pulumi.set(__self__, "enable_dynamic_field_update", enable_dynamic_field_update)
@@ -5168,11 +5408,17 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
     @property
     @pulumi.getter(name="enableDynamicFieldUpdate")
     def enable_dynamic_field_update(self) -> Optional[bool]:
+        """
+        Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+        """
         return pulumi.get(self, "enable_dynamic_field_update")
 
     @property
     @pulumi.getter(name="includeDeletedRecords")
     def include_deleted_records(self) -> Optional[bool]:
+        """
+        Whether Amazon AppFlow includes deleted files in the flow run.
+        """
         return pulumi.get(self, "include_deleted_records")
 
 
@@ -5284,6 +5530,12 @@ class FlowSourceFlowConfigSourceConnectorPropertiesVeeva(dict):
                  include_all_versions: Optional[bool] = None,
                  include_renditions: Optional[bool] = None,
                  include_source_files: Optional[bool] = None):
+        """
+        :param str document_type: Document type specified in the Veeva document extract flow.
+        :param bool include_all_versions: Boolean value to include All Versions of files in Veeva document extract flow.
+        :param bool include_renditions: Boolean value to include file renditions in Veeva document extract flow.
+        :param bool include_source_files: Boolean value to include source files in Veeva document extract flow.
+        """
         pulumi.set(__self__, "object", object)
         if document_type is not None:
             pulumi.set(__self__, "document_type", document_type)
@@ -5302,21 +5554,33 @@ class FlowSourceFlowConfigSourceConnectorPropertiesVeeva(dict):
     @property
     @pulumi.getter(name="documentType")
     def document_type(self) -> Optional[str]:
+        """
+        Document type specified in the Veeva document extract flow.
+        """
         return pulumi.get(self, "document_type")
 
     @property
     @pulumi.getter(name="includeAllVersions")
     def include_all_versions(self) -> Optional[bool]:
+        """
+        Boolean value to include All Versions of files in Veeva document extract flow.
+        """
         return pulumi.get(self, "include_all_versions")
 
     @property
     @pulumi.getter(name="includeRenditions")
     def include_renditions(self) -> Optional[bool]:
+        """
+        Boolean value to include file renditions in Veeva document extract flow.
+        """
         return pulumi.get(self, "include_renditions")
 
     @property
     @pulumi.getter(name="includeSourceFiles")
     def include_source_files(self) -> Optional[bool]:
+        """
+        Boolean value to include source files in Veeva document extract flow.
+        """
         return pulumi.get(self, "include_source_files")
 
 

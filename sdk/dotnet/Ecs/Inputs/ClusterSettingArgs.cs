@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value to assign to the setting. Valid values are `enabled` and `disabled`.
+        /// Value to assign to the setting. Valid values: `enabled`, `disabled`.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

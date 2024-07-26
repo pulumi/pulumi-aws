@@ -306,13 +306,2117 @@ func (o ProjectTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type StreamProcessorDataSharingPreference struct {
+	// Whether you are sharing data with Rekognition to improve model performance.
+	OptIn bool `pulumi:"optIn"`
+}
+
+// StreamProcessorDataSharingPreferenceInput is an input type that accepts StreamProcessorDataSharingPreferenceArgs and StreamProcessorDataSharingPreferenceOutput values.
+// You can construct a concrete instance of `StreamProcessorDataSharingPreferenceInput` via:
+//
+//	StreamProcessorDataSharingPreferenceArgs{...}
+type StreamProcessorDataSharingPreferenceInput interface {
+	pulumi.Input
+
+	ToStreamProcessorDataSharingPreferenceOutput() StreamProcessorDataSharingPreferenceOutput
+	ToStreamProcessorDataSharingPreferenceOutputWithContext(context.Context) StreamProcessorDataSharingPreferenceOutput
+}
+
+type StreamProcessorDataSharingPreferenceArgs struct {
+	// Whether you are sharing data with Rekognition to improve model performance.
+	OptIn pulumi.BoolInput `pulumi:"optIn"`
+}
+
+func (StreamProcessorDataSharingPreferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorDataSharingPreference)(nil)).Elem()
+}
+
+func (i StreamProcessorDataSharingPreferenceArgs) ToStreamProcessorDataSharingPreferenceOutput() StreamProcessorDataSharingPreferenceOutput {
+	return i.ToStreamProcessorDataSharingPreferenceOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorDataSharingPreferenceArgs) ToStreamProcessorDataSharingPreferenceOutputWithContext(ctx context.Context) StreamProcessorDataSharingPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorDataSharingPreferenceOutput)
+}
+
+func (i StreamProcessorDataSharingPreferenceArgs) ToStreamProcessorDataSharingPreferencePtrOutput() StreamProcessorDataSharingPreferencePtrOutput {
+	return i.ToStreamProcessorDataSharingPreferencePtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorDataSharingPreferenceArgs) ToStreamProcessorDataSharingPreferencePtrOutputWithContext(ctx context.Context) StreamProcessorDataSharingPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorDataSharingPreferenceOutput).ToStreamProcessorDataSharingPreferencePtrOutputWithContext(ctx)
+}
+
+// StreamProcessorDataSharingPreferencePtrInput is an input type that accepts StreamProcessorDataSharingPreferenceArgs, StreamProcessorDataSharingPreferencePtr and StreamProcessorDataSharingPreferencePtrOutput values.
+// You can construct a concrete instance of `StreamProcessorDataSharingPreferencePtrInput` via:
+//
+//	        StreamProcessorDataSharingPreferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorDataSharingPreferencePtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorDataSharingPreferencePtrOutput() StreamProcessorDataSharingPreferencePtrOutput
+	ToStreamProcessorDataSharingPreferencePtrOutputWithContext(context.Context) StreamProcessorDataSharingPreferencePtrOutput
+}
+
+type streamProcessorDataSharingPreferencePtrType StreamProcessorDataSharingPreferenceArgs
+
+func StreamProcessorDataSharingPreferencePtr(v *StreamProcessorDataSharingPreferenceArgs) StreamProcessorDataSharingPreferencePtrInput {
+	return (*streamProcessorDataSharingPreferencePtrType)(v)
+}
+
+func (*streamProcessorDataSharingPreferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorDataSharingPreference)(nil)).Elem()
+}
+
+func (i *streamProcessorDataSharingPreferencePtrType) ToStreamProcessorDataSharingPreferencePtrOutput() StreamProcessorDataSharingPreferencePtrOutput {
+	return i.ToStreamProcessorDataSharingPreferencePtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorDataSharingPreferencePtrType) ToStreamProcessorDataSharingPreferencePtrOutputWithContext(ctx context.Context) StreamProcessorDataSharingPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorDataSharingPreferencePtrOutput)
+}
+
+type StreamProcessorDataSharingPreferenceOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorDataSharingPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorDataSharingPreference)(nil)).Elem()
+}
+
+func (o StreamProcessorDataSharingPreferenceOutput) ToStreamProcessorDataSharingPreferenceOutput() StreamProcessorDataSharingPreferenceOutput {
+	return o
+}
+
+func (o StreamProcessorDataSharingPreferenceOutput) ToStreamProcessorDataSharingPreferenceOutputWithContext(ctx context.Context) StreamProcessorDataSharingPreferenceOutput {
+	return o
+}
+
+func (o StreamProcessorDataSharingPreferenceOutput) ToStreamProcessorDataSharingPreferencePtrOutput() StreamProcessorDataSharingPreferencePtrOutput {
+	return o.ToStreamProcessorDataSharingPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorDataSharingPreferenceOutput) ToStreamProcessorDataSharingPreferencePtrOutputWithContext(ctx context.Context) StreamProcessorDataSharingPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorDataSharingPreference) *StreamProcessorDataSharingPreference {
+		return &v
+	}).(StreamProcessorDataSharingPreferencePtrOutput)
+}
+
+// Whether you are sharing data with Rekognition to improve model performance.
+func (o StreamProcessorDataSharingPreferenceOutput) OptIn() pulumi.BoolOutput {
+	return o.ApplyT(func(v StreamProcessorDataSharingPreference) bool { return v.OptIn }).(pulumi.BoolOutput)
+}
+
+type StreamProcessorDataSharingPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorDataSharingPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorDataSharingPreference)(nil)).Elem()
+}
+
+func (o StreamProcessorDataSharingPreferencePtrOutput) ToStreamProcessorDataSharingPreferencePtrOutput() StreamProcessorDataSharingPreferencePtrOutput {
+	return o
+}
+
+func (o StreamProcessorDataSharingPreferencePtrOutput) ToStreamProcessorDataSharingPreferencePtrOutputWithContext(ctx context.Context) StreamProcessorDataSharingPreferencePtrOutput {
+	return o
+}
+
+func (o StreamProcessorDataSharingPreferencePtrOutput) Elem() StreamProcessorDataSharingPreferenceOutput {
+	return o.ApplyT(func(v *StreamProcessorDataSharingPreference) StreamProcessorDataSharingPreference {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorDataSharingPreference
+		return ret
+	}).(StreamProcessorDataSharingPreferenceOutput)
+}
+
+// Whether you are sharing data with Rekognition to improve model performance.
+func (o StreamProcessorDataSharingPreferencePtrOutput) OptIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorDataSharingPreference) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OptIn
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StreamProcessorInputType struct {
+	// Kinesis input stream. See `kinesisVideoStream`.
+	KinesisVideoStream *StreamProcessorInputKinesisVideoStream `pulumi:"kinesisVideoStream"`
+}
+
+// StreamProcessorInputTypeInput is an input type that accepts StreamProcessorInputTypeArgs and StreamProcessorInputTypeOutput values.
+// You can construct a concrete instance of `StreamProcessorInputTypeInput` via:
+//
+//	StreamProcessorInputTypeArgs{...}
+type StreamProcessorInputTypeInput interface {
+	pulumi.Input
+
+	ToStreamProcessorInputTypeOutput() StreamProcessorInputTypeOutput
+	ToStreamProcessorInputTypeOutputWithContext(context.Context) StreamProcessorInputTypeOutput
+}
+
+type StreamProcessorInputTypeArgs struct {
+	// Kinesis input stream. See `kinesisVideoStream`.
+	KinesisVideoStream StreamProcessorInputKinesisVideoStreamPtrInput `pulumi:"kinesisVideoStream"`
+}
+
+func (StreamProcessorInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorInputType)(nil)).Elem()
+}
+
+func (i StreamProcessorInputTypeArgs) ToStreamProcessorInputTypeOutput() StreamProcessorInputTypeOutput {
+	return i.ToStreamProcessorInputTypeOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorInputTypeArgs) ToStreamProcessorInputTypeOutputWithContext(ctx context.Context) StreamProcessorInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorInputTypeOutput)
+}
+
+func (i StreamProcessorInputTypeArgs) ToStreamProcessorInputTypePtrOutput() StreamProcessorInputTypePtrOutput {
+	return i.ToStreamProcessorInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorInputTypeArgs) ToStreamProcessorInputTypePtrOutputWithContext(ctx context.Context) StreamProcessorInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorInputTypeOutput).ToStreamProcessorInputTypePtrOutputWithContext(ctx)
+}
+
+// StreamProcessorInputTypePtrInput is an input type that accepts StreamProcessorInputTypeArgs, StreamProcessorInputTypePtr and StreamProcessorInputTypePtrOutput values.
+// You can construct a concrete instance of `StreamProcessorInputTypePtrInput` via:
+//
+//	        StreamProcessorInputTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorInputTypePtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorInputTypePtrOutput() StreamProcessorInputTypePtrOutput
+	ToStreamProcessorInputTypePtrOutputWithContext(context.Context) StreamProcessorInputTypePtrOutput
+}
+
+type streamProcessorInputTypePtrType StreamProcessorInputTypeArgs
+
+func StreamProcessorInputTypePtr(v *StreamProcessorInputTypeArgs) StreamProcessorInputTypePtrInput {
+	return (*streamProcessorInputTypePtrType)(v)
+}
+
+func (*streamProcessorInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorInputType)(nil)).Elem()
+}
+
+func (i *streamProcessorInputTypePtrType) ToStreamProcessorInputTypePtrOutput() StreamProcessorInputTypePtrOutput {
+	return i.ToStreamProcessorInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorInputTypePtrType) ToStreamProcessorInputTypePtrOutputWithContext(ctx context.Context) StreamProcessorInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorInputTypePtrOutput)
+}
+
+type StreamProcessorInputTypeOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorInputType)(nil)).Elem()
+}
+
+func (o StreamProcessorInputTypeOutput) ToStreamProcessorInputTypeOutput() StreamProcessorInputTypeOutput {
+	return o
+}
+
+func (o StreamProcessorInputTypeOutput) ToStreamProcessorInputTypeOutputWithContext(ctx context.Context) StreamProcessorInputTypeOutput {
+	return o
+}
+
+func (o StreamProcessorInputTypeOutput) ToStreamProcessorInputTypePtrOutput() StreamProcessorInputTypePtrOutput {
+	return o.ToStreamProcessorInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorInputTypeOutput) ToStreamProcessorInputTypePtrOutputWithContext(ctx context.Context) StreamProcessorInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorInputType) *StreamProcessorInputType {
+		return &v
+	}).(StreamProcessorInputTypePtrOutput)
+}
+
+// Kinesis input stream. See `kinesisVideoStream`.
+func (o StreamProcessorInputTypeOutput) KinesisVideoStream() StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return o.ApplyT(func(v StreamProcessorInputType) *StreamProcessorInputKinesisVideoStream { return v.KinesisVideoStream }).(StreamProcessorInputKinesisVideoStreamPtrOutput)
+}
+
+type StreamProcessorInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorInputType)(nil)).Elem()
+}
+
+func (o StreamProcessorInputTypePtrOutput) ToStreamProcessorInputTypePtrOutput() StreamProcessorInputTypePtrOutput {
+	return o
+}
+
+func (o StreamProcessorInputTypePtrOutput) ToStreamProcessorInputTypePtrOutputWithContext(ctx context.Context) StreamProcessorInputTypePtrOutput {
+	return o
+}
+
+func (o StreamProcessorInputTypePtrOutput) Elem() StreamProcessorInputTypeOutput {
+	return o.ApplyT(func(v *StreamProcessorInputType) StreamProcessorInputType {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorInputType
+		return ret
+	}).(StreamProcessorInputTypeOutput)
+}
+
+// Kinesis input stream. See `kinesisVideoStream`.
+func (o StreamProcessorInputTypePtrOutput) KinesisVideoStream() StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorInputType) *StreamProcessorInputKinesisVideoStream {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisVideoStream
+	}).(StreamProcessorInputKinesisVideoStreamPtrOutput)
+}
+
+type StreamProcessorInputKinesisVideoStream struct {
+	// ARN of the Kinesis video stream stream that streams the source video.
+	Arn string `pulumi:"arn"`
+}
+
+// StreamProcessorInputKinesisVideoStreamInput is an input type that accepts StreamProcessorInputKinesisVideoStreamArgs and StreamProcessorInputKinesisVideoStreamOutput values.
+// You can construct a concrete instance of `StreamProcessorInputKinesisVideoStreamInput` via:
+//
+//	StreamProcessorInputKinesisVideoStreamArgs{...}
+type StreamProcessorInputKinesisVideoStreamInput interface {
+	pulumi.Input
+
+	ToStreamProcessorInputKinesisVideoStreamOutput() StreamProcessorInputKinesisVideoStreamOutput
+	ToStreamProcessorInputKinesisVideoStreamOutputWithContext(context.Context) StreamProcessorInputKinesisVideoStreamOutput
+}
+
+type StreamProcessorInputKinesisVideoStreamArgs struct {
+	// ARN of the Kinesis video stream stream that streams the source video.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (StreamProcessorInputKinesisVideoStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorInputKinesisVideoStream)(nil)).Elem()
+}
+
+func (i StreamProcessorInputKinesisVideoStreamArgs) ToStreamProcessorInputKinesisVideoStreamOutput() StreamProcessorInputKinesisVideoStreamOutput {
+	return i.ToStreamProcessorInputKinesisVideoStreamOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorInputKinesisVideoStreamArgs) ToStreamProcessorInputKinesisVideoStreamOutputWithContext(ctx context.Context) StreamProcessorInputKinesisVideoStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorInputKinesisVideoStreamOutput)
+}
+
+func (i StreamProcessorInputKinesisVideoStreamArgs) ToStreamProcessorInputKinesisVideoStreamPtrOutput() StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return i.ToStreamProcessorInputKinesisVideoStreamPtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorInputKinesisVideoStreamArgs) ToStreamProcessorInputKinesisVideoStreamPtrOutputWithContext(ctx context.Context) StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorInputKinesisVideoStreamOutput).ToStreamProcessorInputKinesisVideoStreamPtrOutputWithContext(ctx)
+}
+
+// StreamProcessorInputKinesisVideoStreamPtrInput is an input type that accepts StreamProcessorInputKinesisVideoStreamArgs, StreamProcessorInputKinesisVideoStreamPtr and StreamProcessorInputKinesisVideoStreamPtrOutput values.
+// You can construct a concrete instance of `StreamProcessorInputKinesisVideoStreamPtrInput` via:
+//
+//	        StreamProcessorInputKinesisVideoStreamArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorInputKinesisVideoStreamPtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorInputKinesisVideoStreamPtrOutput() StreamProcessorInputKinesisVideoStreamPtrOutput
+	ToStreamProcessorInputKinesisVideoStreamPtrOutputWithContext(context.Context) StreamProcessorInputKinesisVideoStreamPtrOutput
+}
+
+type streamProcessorInputKinesisVideoStreamPtrType StreamProcessorInputKinesisVideoStreamArgs
+
+func StreamProcessorInputKinesisVideoStreamPtr(v *StreamProcessorInputKinesisVideoStreamArgs) StreamProcessorInputKinesisVideoStreamPtrInput {
+	return (*streamProcessorInputKinesisVideoStreamPtrType)(v)
+}
+
+func (*streamProcessorInputKinesisVideoStreamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorInputKinesisVideoStream)(nil)).Elem()
+}
+
+func (i *streamProcessorInputKinesisVideoStreamPtrType) ToStreamProcessorInputKinesisVideoStreamPtrOutput() StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return i.ToStreamProcessorInputKinesisVideoStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorInputKinesisVideoStreamPtrType) ToStreamProcessorInputKinesisVideoStreamPtrOutputWithContext(ctx context.Context) StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorInputKinesisVideoStreamPtrOutput)
+}
+
+type StreamProcessorInputKinesisVideoStreamOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorInputKinesisVideoStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorInputKinesisVideoStream)(nil)).Elem()
+}
+
+func (o StreamProcessorInputKinesisVideoStreamOutput) ToStreamProcessorInputKinesisVideoStreamOutput() StreamProcessorInputKinesisVideoStreamOutput {
+	return o
+}
+
+func (o StreamProcessorInputKinesisVideoStreamOutput) ToStreamProcessorInputKinesisVideoStreamOutputWithContext(ctx context.Context) StreamProcessorInputKinesisVideoStreamOutput {
+	return o
+}
+
+func (o StreamProcessorInputKinesisVideoStreamOutput) ToStreamProcessorInputKinesisVideoStreamPtrOutput() StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return o.ToStreamProcessorInputKinesisVideoStreamPtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorInputKinesisVideoStreamOutput) ToStreamProcessorInputKinesisVideoStreamPtrOutputWithContext(ctx context.Context) StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorInputKinesisVideoStream) *StreamProcessorInputKinesisVideoStream {
+		return &v
+	}).(StreamProcessorInputKinesisVideoStreamPtrOutput)
+}
+
+// ARN of the Kinesis video stream stream that streams the source video.
+func (o StreamProcessorInputKinesisVideoStreamOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamProcessorInputKinesisVideoStream) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type StreamProcessorInputKinesisVideoStreamPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorInputKinesisVideoStreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorInputKinesisVideoStream)(nil)).Elem()
+}
+
+func (o StreamProcessorInputKinesisVideoStreamPtrOutput) ToStreamProcessorInputKinesisVideoStreamPtrOutput() StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return o
+}
+
+func (o StreamProcessorInputKinesisVideoStreamPtrOutput) ToStreamProcessorInputKinesisVideoStreamPtrOutputWithContext(ctx context.Context) StreamProcessorInputKinesisVideoStreamPtrOutput {
+	return o
+}
+
+func (o StreamProcessorInputKinesisVideoStreamPtrOutput) Elem() StreamProcessorInputKinesisVideoStreamOutput {
+	return o.ApplyT(func(v *StreamProcessorInputKinesisVideoStream) StreamProcessorInputKinesisVideoStream {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorInputKinesisVideoStream
+		return ret
+	}).(StreamProcessorInputKinesisVideoStreamOutput)
+}
+
+// ARN of the Kinesis video stream stream that streams the source video.
+func (o StreamProcessorInputKinesisVideoStreamPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorInputKinesisVideoStream) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamProcessorNotificationChannel struct {
+	// The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+	SnsTopicArn *string `pulumi:"snsTopicArn"`
+}
+
+// StreamProcessorNotificationChannelInput is an input type that accepts StreamProcessorNotificationChannelArgs and StreamProcessorNotificationChannelOutput values.
+// You can construct a concrete instance of `StreamProcessorNotificationChannelInput` via:
+//
+//	StreamProcessorNotificationChannelArgs{...}
+type StreamProcessorNotificationChannelInput interface {
+	pulumi.Input
+
+	ToStreamProcessorNotificationChannelOutput() StreamProcessorNotificationChannelOutput
+	ToStreamProcessorNotificationChannelOutputWithContext(context.Context) StreamProcessorNotificationChannelOutput
+}
+
+type StreamProcessorNotificationChannelArgs struct {
+	// The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+	SnsTopicArn pulumi.StringPtrInput `pulumi:"snsTopicArn"`
+}
+
+func (StreamProcessorNotificationChannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorNotificationChannel)(nil)).Elem()
+}
+
+func (i StreamProcessorNotificationChannelArgs) ToStreamProcessorNotificationChannelOutput() StreamProcessorNotificationChannelOutput {
+	return i.ToStreamProcessorNotificationChannelOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorNotificationChannelArgs) ToStreamProcessorNotificationChannelOutputWithContext(ctx context.Context) StreamProcessorNotificationChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorNotificationChannelOutput)
+}
+
+func (i StreamProcessorNotificationChannelArgs) ToStreamProcessorNotificationChannelPtrOutput() StreamProcessorNotificationChannelPtrOutput {
+	return i.ToStreamProcessorNotificationChannelPtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorNotificationChannelArgs) ToStreamProcessorNotificationChannelPtrOutputWithContext(ctx context.Context) StreamProcessorNotificationChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorNotificationChannelOutput).ToStreamProcessorNotificationChannelPtrOutputWithContext(ctx)
+}
+
+// StreamProcessorNotificationChannelPtrInput is an input type that accepts StreamProcessorNotificationChannelArgs, StreamProcessorNotificationChannelPtr and StreamProcessorNotificationChannelPtrOutput values.
+// You can construct a concrete instance of `StreamProcessorNotificationChannelPtrInput` via:
+//
+//	        StreamProcessorNotificationChannelArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorNotificationChannelPtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorNotificationChannelPtrOutput() StreamProcessorNotificationChannelPtrOutput
+	ToStreamProcessorNotificationChannelPtrOutputWithContext(context.Context) StreamProcessorNotificationChannelPtrOutput
+}
+
+type streamProcessorNotificationChannelPtrType StreamProcessorNotificationChannelArgs
+
+func StreamProcessorNotificationChannelPtr(v *StreamProcessorNotificationChannelArgs) StreamProcessorNotificationChannelPtrInput {
+	return (*streamProcessorNotificationChannelPtrType)(v)
+}
+
+func (*streamProcessorNotificationChannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorNotificationChannel)(nil)).Elem()
+}
+
+func (i *streamProcessorNotificationChannelPtrType) ToStreamProcessorNotificationChannelPtrOutput() StreamProcessorNotificationChannelPtrOutput {
+	return i.ToStreamProcessorNotificationChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorNotificationChannelPtrType) ToStreamProcessorNotificationChannelPtrOutputWithContext(ctx context.Context) StreamProcessorNotificationChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorNotificationChannelPtrOutput)
+}
+
+type StreamProcessorNotificationChannelOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorNotificationChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorNotificationChannel)(nil)).Elem()
+}
+
+func (o StreamProcessorNotificationChannelOutput) ToStreamProcessorNotificationChannelOutput() StreamProcessorNotificationChannelOutput {
+	return o
+}
+
+func (o StreamProcessorNotificationChannelOutput) ToStreamProcessorNotificationChannelOutputWithContext(ctx context.Context) StreamProcessorNotificationChannelOutput {
+	return o
+}
+
+func (o StreamProcessorNotificationChannelOutput) ToStreamProcessorNotificationChannelPtrOutput() StreamProcessorNotificationChannelPtrOutput {
+	return o.ToStreamProcessorNotificationChannelPtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorNotificationChannelOutput) ToStreamProcessorNotificationChannelPtrOutputWithContext(ctx context.Context) StreamProcessorNotificationChannelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorNotificationChannel) *StreamProcessorNotificationChannel {
+		return &v
+	}).(StreamProcessorNotificationChannelPtrOutput)
+}
+
+// The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+func (o StreamProcessorNotificationChannelOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamProcessorNotificationChannel) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
+}
+
+type StreamProcessorNotificationChannelPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorNotificationChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorNotificationChannel)(nil)).Elem()
+}
+
+func (o StreamProcessorNotificationChannelPtrOutput) ToStreamProcessorNotificationChannelPtrOutput() StreamProcessorNotificationChannelPtrOutput {
+	return o
+}
+
+func (o StreamProcessorNotificationChannelPtrOutput) ToStreamProcessorNotificationChannelPtrOutputWithContext(ctx context.Context) StreamProcessorNotificationChannelPtrOutput {
+	return o
+}
+
+func (o StreamProcessorNotificationChannelPtrOutput) Elem() StreamProcessorNotificationChannelOutput {
+	return o.ApplyT(func(v *StreamProcessorNotificationChannel) StreamProcessorNotificationChannel {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorNotificationChannel
+		return ret
+	}).(StreamProcessorNotificationChannelOutput)
+}
+
+// The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+func (o StreamProcessorNotificationChannelPtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorNotificationChannel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnsTopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamProcessorOutputType struct {
+	// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+	KinesisDataStream *StreamProcessorOutputKinesisDataStream `pulumi:"kinesisDataStream"`
+	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+	S3Destination *StreamProcessorOutputS3Destination `pulumi:"s3Destination"`
+}
+
+// StreamProcessorOutputTypeInput is an input type that accepts StreamProcessorOutputTypeArgs and StreamProcessorOutputTypeOutput values.
+// You can construct a concrete instance of `StreamProcessorOutputTypeInput` via:
+//
+//	StreamProcessorOutputTypeArgs{...}
+type StreamProcessorOutputTypeInput interface {
+	pulumi.Input
+
+	ToStreamProcessorOutputTypeOutput() StreamProcessorOutputTypeOutput
+	ToStreamProcessorOutputTypeOutputWithContext(context.Context) StreamProcessorOutputTypeOutput
+}
+
+type StreamProcessorOutputTypeArgs struct {
+	// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+	KinesisDataStream StreamProcessorOutputKinesisDataStreamPtrInput `pulumi:"kinesisDataStream"`
+	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+	S3Destination StreamProcessorOutputS3DestinationPtrInput `pulumi:"s3Destination"`
+}
+
+func (StreamProcessorOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorOutputType)(nil)).Elem()
+}
+
+func (i StreamProcessorOutputTypeArgs) ToStreamProcessorOutputTypeOutput() StreamProcessorOutputTypeOutput {
+	return i.ToStreamProcessorOutputTypeOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorOutputTypeArgs) ToStreamProcessorOutputTypeOutputWithContext(ctx context.Context) StreamProcessorOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutputTypeOutput)
+}
+
+func (i StreamProcessorOutputTypeArgs) ToStreamProcessorOutputTypePtrOutput() StreamProcessorOutputTypePtrOutput {
+	return i.ToStreamProcessorOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorOutputTypeArgs) ToStreamProcessorOutputTypePtrOutputWithContext(ctx context.Context) StreamProcessorOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutputTypeOutput).ToStreamProcessorOutputTypePtrOutputWithContext(ctx)
+}
+
+// StreamProcessorOutputTypePtrInput is an input type that accepts StreamProcessorOutputTypeArgs, StreamProcessorOutputTypePtr and StreamProcessorOutputTypePtrOutput values.
+// You can construct a concrete instance of `StreamProcessorOutputTypePtrInput` via:
+//
+//	        StreamProcessorOutputTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorOutputTypePtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorOutputTypePtrOutput() StreamProcessorOutputTypePtrOutput
+	ToStreamProcessorOutputTypePtrOutputWithContext(context.Context) StreamProcessorOutputTypePtrOutput
+}
+
+type streamProcessorOutputTypePtrType StreamProcessorOutputTypeArgs
+
+func StreamProcessorOutputTypePtr(v *StreamProcessorOutputTypeArgs) StreamProcessorOutputTypePtrInput {
+	return (*streamProcessorOutputTypePtrType)(v)
+}
+
+func (*streamProcessorOutputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorOutputType)(nil)).Elem()
+}
+
+func (i *streamProcessorOutputTypePtrType) ToStreamProcessorOutputTypePtrOutput() StreamProcessorOutputTypePtrOutput {
+	return i.ToStreamProcessorOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorOutputTypePtrType) ToStreamProcessorOutputTypePtrOutputWithContext(ctx context.Context) StreamProcessorOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutputTypePtrOutput)
+}
+
+type StreamProcessorOutputTypeOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorOutputType)(nil)).Elem()
+}
+
+func (o StreamProcessorOutputTypeOutput) ToStreamProcessorOutputTypeOutput() StreamProcessorOutputTypeOutput {
+	return o
+}
+
+func (o StreamProcessorOutputTypeOutput) ToStreamProcessorOutputTypeOutputWithContext(ctx context.Context) StreamProcessorOutputTypeOutput {
+	return o
+}
+
+func (o StreamProcessorOutputTypeOutput) ToStreamProcessorOutputTypePtrOutput() StreamProcessorOutputTypePtrOutput {
+	return o.ToStreamProcessorOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorOutputTypeOutput) ToStreamProcessorOutputTypePtrOutputWithContext(ctx context.Context) StreamProcessorOutputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorOutputType) *StreamProcessorOutputType {
+		return &v
+	}).(StreamProcessorOutputTypePtrOutput)
+}
+
+// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+func (o StreamProcessorOutputTypeOutput) KinesisDataStream() StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return o.ApplyT(func(v StreamProcessorOutputType) *StreamProcessorOutputKinesisDataStream { return v.KinesisDataStream }).(StreamProcessorOutputKinesisDataStreamPtrOutput)
+}
+
+// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+func (o StreamProcessorOutputTypeOutput) S3Destination() StreamProcessorOutputS3DestinationPtrOutput {
+	return o.ApplyT(func(v StreamProcessorOutputType) *StreamProcessorOutputS3Destination { return v.S3Destination }).(StreamProcessorOutputS3DestinationPtrOutput)
+}
+
+type StreamProcessorOutputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorOutputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorOutputType)(nil)).Elem()
+}
+
+func (o StreamProcessorOutputTypePtrOutput) ToStreamProcessorOutputTypePtrOutput() StreamProcessorOutputTypePtrOutput {
+	return o
+}
+
+func (o StreamProcessorOutputTypePtrOutput) ToStreamProcessorOutputTypePtrOutputWithContext(ctx context.Context) StreamProcessorOutputTypePtrOutput {
+	return o
+}
+
+func (o StreamProcessorOutputTypePtrOutput) Elem() StreamProcessorOutputTypeOutput {
+	return o.ApplyT(func(v *StreamProcessorOutputType) StreamProcessorOutputType {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorOutputType
+		return ret
+	}).(StreamProcessorOutputTypeOutput)
+}
+
+// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+func (o StreamProcessorOutputTypePtrOutput) KinesisDataStream() StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorOutputType) *StreamProcessorOutputKinesisDataStream {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisDataStream
+	}).(StreamProcessorOutputKinesisDataStreamPtrOutput)
+}
+
+// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+func (o StreamProcessorOutputTypePtrOutput) S3Destination() StreamProcessorOutputS3DestinationPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorOutputType) *StreamProcessorOutputS3Destination {
+		if v == nil {
+			return nil
+		}
+		return v.S3Destination
+	}).(StreamProcessorOutputS3DestinationPtrOutput)
+}
+
+type StreamProcessorOutputKinesisDataStream struct {
+	// ARN of the output Amazon Kinesis Data Streams stream.
+	Arn *string `pulumi:"arn"`
+}
+
+// StreamProcessorOutputKinesisDataStreamInput is an input type that accepts StreamProcessorOutputKinesisDataStreamArgs and StreamProcessorOutputKinesisDataStreamOutput values.
+// You can construct a concrete instance of `StreamProcessorOutputKinesisDataStreamInput` via:
+//
+//	StreamProcessorOutputKinesisDataStreamArgs{...}
+type StreamProcessorOutputKinesisDataStreamInput interface {
+	pulumi.Input
+
+	ToStreamProcessorOutputKinesisDataStreamOutput() StreamProcessorOutputKinesisDataStreamOutput
+	ToStreamProcessorOutputKinesisDataStreamOutputWithContext(context.Context) StreamProcessorOutputKinesisDataStreamOutput
+}
+
+type StreamProcessorOutputKinesisDataStreamArgs struct {
+	// ARN of the output Amazon Kinesis Data Streams stream.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+}
+
+func (StreamProcessorOutputKinesisDataStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorOutputKinesisDataStream)(nil)).Elem()
+}
+
+func (i StreamProcessorOutputKinesisDataStreamArgs) ToStreamProcessorOutputKinesisDataStreamOutput() StreamProcessorOutputKinesisDataStreamOutput {
+	return i.ToStreamProcessorOutputKinesisDataStreamOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorOutputKinesisDataStreamArgs) ToStreamProcessorOutputKinesisDataStreamOutputWithContext(ctx context.Context) StreamProcessorOutputKinesisDataStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutputKinesisDataStreamOutput)
+}
+
+func (i StreamProcessorOutputKinesisDataStreamArgs) ToStreamProcessorOutputKinesisDataStreamPtrOutput() StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return i.ToStreamProcessorOutputKinesisDataStreamPtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorOutputKinesisDataStreamArgs) ToStreamProcessorOutputKinesisDataStreamPtrOutputWithContext(ctx context.Context) StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutputKinesisDataStreamOutput).ToStreamProcessorOutputKinesisDataStreamPtrOutputWithContext(ctx)
+}
+
+// StreamProcessorOutputKinesisDataStreamPtrInput is an input type that accepts StreamProcessorOutputKinesisDataStreamArgs, StreamProcessorOutputKinesisDataStreamPtr and StreamProcessorOutputKinesisDataStreamPtrOutput values.
+// You can construct a concrete instance of `StreamProcessorOutputKinesisDataStreamPtrInput` via:
+//
+//	        StreamProcessorOutputKinesisDataStreamArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorOutputKinesisDataStreamPtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorOutputKinesisDataStreamPtrOutput() StreamProcessorOutputKinesisDataStreamPtrOutput
+	ToStreamProcessorOutputKinesisDataStreamPtrOutputWithContext(context.Context) StreamProcessorOutputKinesisDataStreamPtrOutput
+}
+
+type streamProcessorOutputKinesisDataStreamPtrType StreamProcessorOutputKinesisDataStreamArgs
+
+func StreamProcessorOutputKinesisDataStreamPtr(v *StreamProcessorOutputKinesisDataStreamArgs) StreamProcessorOutputKinesisDataStreamPtrInput {
+	return (*streamProcessorOutputKinesisDataStreamPtrType)(v)
+}
+
+func (*streamProcessorOutputKinesisDataStreamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorOutputKinesisDataStream)(nil)).Elem()
+}
+
+func (i *streamProcessorOutputKinesisDataStreamPtrType) ToStreamProcessorOutputKinesisDataStreamPtrOutput() StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return i.ToStreamProcessorOutputKinesisDataStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorOutputKinesisDataStreamPtrType) ToStreamProcessorOutputKinesisDataStreamPtrOutputWithContext(ctx context.Context) StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutputKinesisDataStreamPtrOutput)
+}
+
+type StreamProcessorOutputKinesisDataStreamOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorOutputKinesisDataStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorOutputKinesisDataStream)(nil)).Elem()
+}
+
+func (o StreamProcessorOutputKinesisDataStreamOutput) ToStreamProcessorOutputKinesisDataStreamOutput() StreamProcessorOutputKinesisDataStreamOutput {
+	return o
+}
+
+func (o StreamProcessorOutputKinesisDataStreamOutput) ToStreamProcessorOutputKinesisDataStreamOutputWithContext(ctx context.Context) StreamProcessorOutputKinesisDataStreamOutput {
+	return o
+}
+
+func (o StreamProcessorOutputKinesisDataStreamOutput) ToStreamProcessorOutputKinesisDataStreamPtrOutput() StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return o.ToStreamProcessorOutputKinesisDataStreamPtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorOutputKinesisDataStreamOutput) ToStreamProcessorOutputKinesisDataStreamPtrOutputWithContext(ctx context.Context) StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorOutputKinesisDataStream) *StreamProcessorOutputKinesisDataStream {
+		return &v
+	}).(StreamProcessorOutputKinesisDataStreamPtrOutput)
+}
+
+// ARN of the output Amazon Kinesis Data Streams stream.
+func (o StreamProcessorOutputKinesisDataStreamOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamProcessorOutputKinesisDataStream) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type StreamProcessorOutputKinesisDataStreamPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorOutputKinesisDataStreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorOutputKinesisDataStream)(nil)).Elem()
+}
+
+func (o StreamProcessorOutputKinesisDataStreamPtrOutput) ToStreamProcessorOutputKinesisDataStreamPtrOutput() StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return o
+}
+
+func (o StreamProcessorOutputKinesisDataStreamPtrOutput) ToStreamProcessorOutputKinesisDataStreamPtrOutputWithContext(ctx context.Context) StreamProcessorOutputKinesisDataStreamPtrOutput {
+	return o
+}
+
+func (o StreamProcessorOutputKinesisDataStreamPtrOutput) Elem() StreamProcessorOutputKinesisDataStreamOutput {
+	return o.ApplyT(func(v *StreamProcessorOutputKinesisDataStream) StreamProcessorOutputKinesisDataStream {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorOutputKinesisDataStream
+		return ret
+	}).(StreamProcessorOutputKinesisDataStreamOutput)
+}
+
+// ARN of the output Amazon Kinesis Data Streams stream.
+func (o StreamProcessorOutputKinesisDataStreamPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorOutputKinesisDataStream) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamProcessorOutputS3Destination struct {
+	// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+	Bucket *string `pulumi:"bucket"`
+	// The prefix value of the location within the bucket that you want the information to be published to.
+	KeyPrefix *string `pulumi:"keyPrefix"`
+}
+
+// StreamProcessorOutputS3DestinationInput is an input type that accepts StreamProcessorOutputS3DestinationArgs and StreamProcessorOutputS3DestinationOutput values.
+// You can construct a concrete instance of `StreamProcessorOutputS3DestinationInput` via:
+//
+//	StreamProcessorOutputS3DestinationArgs{...}
+type StreamProcessorOutputS3DestinationInput interface {
+	pulumi.Input
+
+	ToStreamProcessorOutputS3DestinationOutput() StreamProcessorOutputS3DestinationOutput
+	ToStreamProcessorOutputS3DestinationOutputWithContext(context.Context) StreamProcessorOutputS3DestinationOutput
+}
+
+type StreamProcessorOutputS3DestinationArgs struct {
+	// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The prefix value of the location within the bucket that you want the information to be published to.
+	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
+}
+
+func (StreamProcessorOutputS3DestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorOutputS3Destination)(nil)).Elem()
+}
+
+func (i StreamProcessorOutputS3DestinationArgs) ToStreamProcessorOutputS3DestinationOutput() StreamProcessorOutputS3DestinationOutput {
+	return i.ToStreamProcessorOutputS3DestinationOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorOutputS3DestinationArgs) ToStreamProcessorOutputS3DestinationOutputWithContext(ctx context.Context) StreamProcessorOutputS3DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutputS3DestinationOutput)
+}
+
+func (i StreamProcessorOutputS3DestinationArgs) ToStreamProcessorOutputS3DestinationPtrOutput() StreamProcessorOutputS3DestinationPtrOutput {
+	return i.ToStreamProcessorOutputS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorOutputS3DestinationArgs) ToStreamProcessorOutputS3DestinationPtrOutputWithContext(ctx context.Context) StreamProcessorOutputS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutputS3DestinationOutput).ToStreamProcessorOutputS3DestinationPtrOutputWithContext(ctx)
+}
+
+// StreamProcessorOutputS3DestinationPtrInput is an input type that accepts StreamProcessorOutputS3DestinationArgs, StreamProcessorOutputS3DestinationPtr and StreamProcessorOutputS3DestinationPtrOutput values.
+// You can construct a concrete instance of `StreamProcessorOutputS3DestinationPtrInput` via:
+//
+//	        StreamProcessorOutputS3DestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorOutputS3DestinationPtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorOutputS3DestinationPtrOutput() StreamProcessorOutputS3DestinationPtrOutput
+	ToStreamProcessorOutputS3DestinationPtrOutputWithContext(context.Context) StreamProcessorOutputS3DestinationPtrOutput
+}
+
+type streamProcessorOutputS3DestinationPtrType StreamProcessorOutputS3DestinationArgs
+
+func StreamProcessorOutputS3DestinationPtr(v *StreamProcessorOutputS3DestinationArgs) StreamProcessorOutputS3DestinationPtrInput {
+	return (*streamProcessorOutputS3DestinationPtrType)(v)
+}
+
+func (*streamProcessorOutputS3DestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorOutputS3Destination)(nil)).Elem()
+}
+
+func (i *streamProcessorOutputS3DestinationPtrType) ToStreamProcessorOutputS3DestinationPtrOutput() StreamProcessorOutputS3DestinationPtrOutput {
+	return i.ToStreamProcessorOutputS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorOutputS3DestinationPtrType) ToStreamProcessorOutputS3DestinationPtrOutputWithContext(ctx context.Context) StreamProcessorOutputS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutputS3DestinationPtrOutput)
+}
+
+type StreamProcessorOutputS3DestinationOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorOutputS3DestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorOutputS3Destination)(nil)).Elem()
+}
+
+func (o StreamProcessorOutputS3DestinationOutput) ToStreamProcessorOutputS3DestinationOutput() StreamProcessorOutputS3DestinationOutput {
+	return o
+}
+
+func (o StreamProcessorOutputS3DestinationOutput) ToStreamProcessorOutputS3DestinationOutputWithContext(ctx context.Context) StreamProcessorOutputS3DestinationOutput {
+	return o
+}
+
+func (o StreamProcessorOutputS3DestinationOutput) ToStreamProcessorOutputS3DestinationPtrOutput() StreamProcessorOutputS3DestinationPtrOutput {
+	return o.ToStreamProcessorOutputS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorOutputS3DestinationOutput) ToStreamProcessorOutputS3DestinationPtrOutputWithContext(ctx context.Context) StreamProcessorOutputS3DestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorOutputS3Destination) *StreamProcessorOutputS3Destination {
+		return &v
+	}).(StreamProcessorOutputS3DestinationPtrOutput)
+}
+
+// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+func (o StreamProcessorOutputS3DestinationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamProcessorOutputS3Destination) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The prefix value of the location within the bucket that you want the information to be published to.
+func (o StreamProcessorOutputS3DestinationOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamProcessorOutputS3Destination) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+type StreamProcessorOutputS3DestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorOutputS3DestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorOutputS3Destination)(nil)).Elem()
+}
+
+func (o StreamProcessorOutputS3DestinationPtrOutput) ToStreamProcessorOutputS3DestinationPtrOutput() StreamProcessorOutputS3DestinationPtrOutput {
+	return o
+}
+
+func (o StreamProcessorOutputS3DestinationPtrOutput) ToStreamProcessorOutputS3DestinationPtrOutputWithContext(ctx context.Context) StreamProcessorOutputS3DestinationPtrOutput {
+	return o
+}
+
+func (o StreamProcessorOutputS3DestinationPtrOutput) Elem() StreamProcessorOutputS3DestinationOutput {
+	return o.ApplyT(func(v *StreamProcessorOutputS3Destination) StreamProcessorOutputS3Destination {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorOutputS3Destination
+		return ret
+	}).(StreamProcessorOutputS3DestinationOutput)
+}
+
+// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+func (o StreamProcessorOutputS3DestinationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorOutputS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix value of the location within the bucket that you want the information to be published to.
+func (o StreamProcessorOutputS3DestinationPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorOutputS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamProcessorRegionsOfInterest struct {
+	// Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+	BoundingBox *StreamProcessorRegionsOfInterestBoundingBox `pulumi:"boundingBox"`
+	// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+	Polygons []StreamProcessorRegionsOfInterestPolygon `pulumi:"polygons"`
+}
+
+// StreamProcessorRegionsOfInterestInput is an input type that accepts StreamProcessorRegionsOfInterestArgs and StreamProcessorRegionsOfInterestOutput values.
+// You can construct a concrete instance of `StreamProcessorRegionsOfInterestInput` via:
+//
+//	StreamProcessorRegionsOfInterestArgs{...}
+type StreamProcessorRegionsOfInterestInput interface {
+	pulumi.Input
+
+	ToStreamProcessorRegionsOfInterestOutput() StreamProcessorRegionsOfInterestOutput
+	ToStreamProcessorRegionsOfInterestOutputWithContext(context.Context) StreamProcessorRegionsOfInterestOutput
+}
+
+type StreamProcessorRegionsOfInterestArgs struct {
+	// Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+	BoundingBox StreamProcessorRegionsOfInterestBoundingBoxPtrInput `pulumi:"boundingBox"`
+	// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+	Polygons StreamProcessorRegionsOfInterestPolygonArrayInput `pulumi:"polygons"`
+}
+
+func (StreamProcessorRegionsOfInterestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorRegionsOfInterest)(nil)).Elem()
+}
+
+func (i StreamProcessorRegionsOfInterestArgs) ToStreamProcessorRegionsOfInterestOutput() StreamProcessorRegionsOfInterestOutput {
+	return i.ToStreamProcessorRegionsOfInterestOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorRegionsOfInterestArgs) ToStreamProcessorRegionsOfInterestOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestOutput)
+}
+
+// StreamProcessorRegionsOfInterestArrayInput is an input type that accepts StreamProcessorRegionsOfInterestArray and StreamProcessorRegionsOfInterestArrayOutput values.
+// You can construct a concrete instance of `StreamProcessorRegionsOfInterestArrayInput` via:
+//
+//	StreamProcessorRegionsOfInterestArray{ StreamProcessorRegionsOfInterestArgs{...} }
+type StreamProcessorRegionsOfInterestArrayInput interface {
+	pulumi.Input
+
+	ToStreamProcessorRegionsOfInterestArrayOutput() StreamProcessorRegionsOfInterestArrayOutput
+	ToStreamProcessorRegionsOfInterestArrayOutputWithContext(context.Context) StreamProcessorRegionsOfInterestArrayOutput
+}
+
+type StreamProcessorRegionsOfInterestArray []StreamProcessorRegionsOfInterestInput
+
+func (StreamProcessorRegionsOfInterestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamProcessorRegionsOfInterest)(nil)).Elem()
+}
+
+func (i StreamProcessorRegionsOfInterestArray) ToStreamProcessorRegionsOfInterestArrayOutput() StreamProcessorRegionsOfInterestArrayOutput {
+	return i.ToStreamProcessorRegionsOfInterestArrayOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorRegionsOfInterestArray) ToStreamProcessorRegionsOfInterestArrayOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestArrayOutput)
+}
+
+type StreamProcessorRegionsOfInterestOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorRegionsOfInterestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorRegionsOfInterest)(nil)).Elem()
+}
+
+func (o StreamProcessorRegionsOfInterestOutput) ToStreamProcessorRegionsOfInterestOutput() StreamProcessorRegionsOfInterestOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestOutput) ToStreamProcessorRegionsOfInterestOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestOutput {
+	return o
+}
+
+// Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+func (o StreamProcessorRegionsOfInterestOutput) BoundingBox() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
+	return o.ApplyT(func(v StreamProcessorRegionsOfInterest) *StreamProcessorRegionsOfInterestBoundingBox {
+		return v.BoundingBox
+	}).(StreamProcessorRegionsOfInterestBoundingBoxPtrOutput)
+}
+
+// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+func (o StreamProcessorRegionsOfInterestOutput) Polygons() StreamProcessorRegionsOfInterestPolygonArrayOutput {
+	return o.ApplyT(func(v StreamProcessorRegionsOfInterest) []StreamProcessorRegionsOfInterestPolygon { return v.Polygons }).(StreamProcessorRegionsOfInterestPolygonArrayOutput)
+}
+
+type StreamProcessorRegionsOfInterestArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorRegionsOfInterestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamProcessorRegionsOfInterest)(nil)).Elem()
+}
+
+func (o StreamProcessorRegionsOfInterestArrayOutput) ToStreamProcessorRegionsOfInterestArrayOutput() StreamProcessorRegionsOfInterestArrayOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestArrayOutput) ToStreamProcessorRegionsOfInterestArrayOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestArrayOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestArrayOutput) Index(i pulumi.IntInput) StreamProcessorRegionsOfInterestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamProcessorRegionsOfInterest {
+		return vs[0].([]StreamProcessorRegionsOfInterest)[vs[1].(int)]
+	}).(StreamProcessorRegionsOfInterestOutput)
+}
+
+type StreamProcessorRegionsOfInterestBoundingBox struct {
+	// Height of the bounding box as a ratio of the overall image height.
+	Height *float64 `pulumi:"height"`
+	// Left coordinate of the bounding box as a ratio of overall image width.
+	Left *float64 `pulumi:"left"`
+	// Top coordinate of the bounding box as a ratio of overall image height.
+	Top *float64 `pulumi:"top"`
+	// Width of the bounding box as a ratio of the overall image width.
+	Width *float64 `pulumi:"width"`
+}
+
+// StreamProcessorRegionsOfInterestBoundingBoxInput is an input type that accepts StreamProcessorRegionsOfInterestBoundingBoxArgs and StreamProcessorRegionsOfInterestBoundingBoxOutput values.
+// You can construct a concrete instance of `StreamProcessorRegionsOfInterestBoundingBoxInput` via:
+//
+//	StreamProcessorRegionsOfInterestBoundingBoxArgs{...}
+type StreamProcessorRegionsOfInterestBoundingBoxInput interface {
+	pulumi.Input
+
+	ToStreamProcessorRegionsOfInterestBoundingBoxOutput() StreamProcessorRegionsOfInterestBoundingBoxOutput
+	ToStreamProcessorRegionsOfInterestBoundingBoxOutputWithContext(context.Context) StreamProcessorRegionsOfInterestBoundingBoxOutput
+}
+
+type StreamProcessorRegionsOfInterestBoundingBoxArgs struct {
+	// Height of the bounding box as a ratio of the overall image height.
+	Height pulumi.Float64PtrInput `pulumi:"height"`
+	// Left coordinate of the bounding box as a ratio of overall image width.
+	Left pulumi.Float64PtrInput `pulumi:"left"`
+	// Top coordinate of the bounding box as a ratio of overall image height.
+	Top pulumi.Float64PtrInput `pulumi:"top"`
+	// Width of the bounding box as a ratio of the overall image width.
+	Width pulumi.Float64PtrInput `pulumi:"width"`
+}
+
+func (StreamProcessorRegionsOfInterestBoundingBoxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorRegionsOfInterestBoundingBox)(nil)).Elem()
+}
+
+func (i StreamProcessorRegionsOfInterestBoundingBoxArgs) ToStreamProcessorRegionsOfInterestBoundingBoxOutput() StreamProcessorRegionsOfInterestBoundingBoxOutput {
+	return i.ToStreamProcessorRegionsOfInterestBoundingBoxOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorRegionsOfInterestBoundingBoxArgs) ToStreamProcessorRegionsOfInterestBoundingBoxOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestBoundingBoxOutput)
+}
+
+func (i StreamProcessorRegionsOfInterestBoundingBoxArgs) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
+	return i.ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorRegionsOfInterestBoundingBoxArgs) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestBoundingBoxOutput).ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx)
+}
+
+// StreamProcessorRegionsOfInterestBoundingBoxPtrInput is an input type that accepts StreamProcessorRegionsOfInterestBoundingBoxArgs, StreamProcessorRegionsOfInterestBoundingBoxPtr and StreamProcessorRegionsOfInterestBoundingBoxPtrOutput values.
+// You can construct a concrete instance of `StreamProcessorRegionsOfInterestBoundingBoxPtrInput` via:
+//
+//	        StreamProcessorRegionsOfInterestBoundingBoxArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorRegionsOfInterestBoundingBoxPtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput
+	ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput
+}
+
+type streamProcessorRegionsOfInterestBoundingBoxPtrType StreamProcessorRegionsOfInterestBoundingBoxArgs
+
+func StreamProcessorRegionsOfInterestBoundingBoxPtr(v *StreamProcessorRegionsOfInterestBoundingBoxArgs) StreamProcessorRegionsOfInterestBoundingBoxPtrInput {
+	return (*streamProcessorRegionsOfInterestBoundingBoxPtrType)(v)
+}
+
+func (*streamProcessorRegionsOfInterestBoundingBoxPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorRegionsOfInterestBoundingBox)(nil)).Elem()
+}
+
+func (i *streamProcessorRegionsOfInterestBoundingBoxPtrType) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
+	return i.ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorRegionsOfInterestBoundingBoxPtrType) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestBoundingBoxPtrOutput)
+}
+
+type StreamProcessorRegionsOfInterestBoundingBoxOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorRegionsOfInterestBoundingBoxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorRegionsOfInterestBoundingBox)(nil)).Elem()
+}
+
+func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) ToStreamProcessorRegionsOfInterestBoundingBoxOutput() StreamProcessorRegionsOfInterestBoundingBoxOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) ToStreamProcessorRegionsOfInterestBoundingBoxOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
+	return o.ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorRegionsOfInterestBoundingBox) *StreamProcessorRegionsOfInterestBoundingBox {
+		return &v
+	}).(StreamProcessorRegionsOfInterestBoundingBoxPtrOutput)
+}
+
+// Height of the bounding box as a ratio of the overall image height.
+func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) Height() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StreamProcessorRegionsOfInterestBoundingBox) *float64 { return v.Height }).(pulumi.Float64PtrOutput)
+}
+
+// Left coordinate of the bounding box as a ratio of overall image width.
+func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) Left() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StreamProcessorRegionsOfInterestBoundingBox) *float64 { return v.Left }).(pulumi.Float64PtrOutput)
+}
+
+// Top coordinate of the bounding box as a ratio of overall image height.
+func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) Top() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StreamProcessorRegionsOfInterestBoundingBox) *float64 { return v.Top }).(pulumi.Float64PtrOutput)
+}
+
+// Width of the bounding box as a ratio of the overall image width.
+func (o StreamProcessorRegionsOfInterestBoundingBoxOutput) Width() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StreamProcessorRegionsOfInterestBoundingBox) *float64 { return v.Width }).(pulumi.Float64PtrOutput)
+}
+
+type StreamProcessorRegionsOfInterestBoundingBoxPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorRegionsOfInterestBoundingBox)(nil)).Elem()
+}
+
+func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutput() StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) ToStreamProcessorRegionsOfInterestBoundingBoxPtrOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestBoundingBoxPtrOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Elem() StreamProcessorRegionsOfInterestBoundingBoxOutput {
+	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) StreamProcessorRegionsOfInterestBoundingBox {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorRegionsOfInterestBoundingBox
+		return ret
+	}).(StreamProcessorRegionsOfInterestBoundingBoxOutput)
+}
+
+// Height of the bounding box as a ratio of the overall image height.
+func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Height() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Left coordinate of the bounding box as a ratio of overall image width.
+func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Left() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Left
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Top coordinate of the bounding box as a ratio of overall image height.
+func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Top() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Top
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Width of the bounding box as a ratio of the overall image width.
+func (o StreamProcessorRegionsOfInterestBoundingBoxPtrOutput) Width() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StreamProcessorRegionsOfInterestBoundingBox) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Width
+	}).(pulumi.Float64PtrOutput)
+}
+
+type StreamProcessorRegionsOfInterestPolygon struct {
+	// The value of the X coordinate for a point on a Polygon.
+	X *float64 `pulumi:"x"`
+	// The value of the Y coordinate for a point on a Polygon.
+	Y *float64 `pulumi:"y"`
+}
+
+// StreamProcessorRegionsOfInterestPolygonInput is an input type that accepts StreamProcessorRegionsOfInterestPolygonArgs and StreamProcessorRegionsOfInterestPolygonOutput values.
+// You can construct a concrete instance of `StreamProcessorRegionsOfInterestPolygonInput` via:
+//
+//	StreamProcessorRegionsOfInterestPolygonArgs{...}
+type StreamProcessorRegionsOfInterestPolygonInput interface {
+	pulumi.Input
+
+	ToStreamProcessorRegionsOfInterestPolygonOutput() StreamProcessorRegionsOfInterestPolygonOutput
+	ToStreamProcessorRegionsOfInterestPolygonOutputWithContext(context.Context) StreamProcessorRegionsOfInterestPolygonOutput
+}
+
+type StreamProcessorRegionsOfInterestPolygonArgs struct {
+	// The value of the X coordinate for a point on a Polygon.
+	X pulumi.Float64PtrInput `pulumi:"x"`
+	// The value of the Y coordinate for a point on a Polygon.
+	Y pulumi.Float64PtrInput `pulumi:"y"`
+}
+
+func (StreamProcessorRegionsOfInterestPolygonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorRegionsOfInterestPolygon)(nil)).Elem()
+}
+
+func (i StreamProcessorRegionsOfInterestPolygonArgs) ToStreamProcessorRegionsOfInterestPolygonOutput() StreamProcessorRegionsOfInterestPolygonOutput {
+	return i.ToStreamProcessorRegionsOfInterestPolygonOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorRegionsOfInterestPolygonArgs) ToStreamProcessorRegionsOfInterestPolygonOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestPolygonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestPolygonOutput)
+}
+
+// StreamProcessorRegionsOfInterestPolygonArrayInput is an input type that accepts StreamProcessorRegionsOfInterestPolygonArray and StreamProcessorRegionsOfInterestPolygonArrayOutput values.
+// You can construct a concrete instance of `StreamProcessorRegionsOfInterestPolygonArrayInput` via:
+//
+//	StreamProcessorRegionsOfInterestPolygonArray{ StreamProcessorRegionsOfInterestPolygonArgs{...} }
+type StreamProcessorRegionsOfInterestPolygonArrayInput interface {
+	pulumi.Input
+
+	ToStreamProcessorRegionsOfInterestPolygonArrayOutput() StreamProcessorRegionsOfInterestPolygonArrayOutput
+	ToStreamProcessorRegionsOfInterestPolygonArrayOutputWithContext(context.Context) StreamProcessorRegionsOfInterestPolygonArrayOutput
+}
+
+type StreamProcessorRegionsOfInterestPolygonArray []StreamProcessorRegionsOfInterestPolygonInput
+
+func (StreamProcessorRegionsOfInterestPolygonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamProcessorRegionsOfInterestPolygon)(nil)).Elem()
+}
+
+func (i StreamProcessorRegionsOfInterestPolygonArray) ToStreamProcessorRegionsOfInterestPolygonArrayOutput() StreamProcessorRegionsOfInterestPolygonArrayOutput {
+	return i.ToStreamProcessorRegionsOfInterestPolygonArrayOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorRegionsOfInterestPolygonArray) ToStreamProcessorRegionsOfInterestPolygonArrayOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestPolygonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorRegionsOfInterestPolygonArrayOutput)
+}
+
+type StreamProcessorRegionsOfInterestPolygonOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorRegionsOfInterestPolygonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorRegionsOfInterestPolygon)(nil)).Elem()
+}
+
+func (o StreamProcessorRegionsOfInterestPolygonOutput) ToStreamProcessorRegionsOfInterestPolygonOutput() StreamProcessorRegionsOfInterestPolygonOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestPolygonOutput) ToStreamProcessorRegionsOfInterestPolygonOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestPolygonOutput {
+	return o
+}
+
+// The value of the X coordinate for a point on a Polygon.
+func (o StreamProcessorRegionsOfInterestPolygonOutput) X() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StreamProcessorRegionsOfInterestPolygon) *float64 { return v.X }).(pulumi.Float64PtrOutput)
+}
+
+// The value of the Y coordinate for a point on a Polygon.
+func (o StreamProcessorRegionsOfInterestPolygonOutput) Y() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StreamProcessorRegionsOfInterestPolygon) *float64 { return v.Y }).(pulumi.Float64PtrOutput)
+}
+
+type StreamProcessorRegionsOfInterestPolygonArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorRegionsOfInterestPolygonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamProcessorRegionsOfInterestPolygon)(nil)).Elem()
+}
+
+func (o StreamProcessorRegionsOfInterestPolygonArrayOutput) ToStreamProcessorRegionsOfInterestPolygonArrayOutput() StreamProcessorRegionsOfInterestPolygonArrayOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestPolygonArrayOutput) ToStreamProcessorRegionsOfInterestPolygonArrayOutputWithContext(ctx context.Context) StreamProcessorRegionsOfInterestPolygonArrayOutput {
+	return o
+}
+
+func (o StreamProcessorRegionsOfInterestPolygonArrayOutput) Index(i pulumi.IntInput) StreamProcessorRegionsOfInterestPolygonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamProcessorRegionsOfInterestPolygon {
+		return vs[0].([]StreamProcessorRegionsOfInterestPolygon)[vs[1].(int)]
+	}).(StreamProcessorRegionsOfInterestPolygonOutput)
+}
+
+type StreamProcessorSettings struct {
+	// Label detection settings to use on a streaming video. See `connectedHome`.
+	ConnectedHome *StreamProcessorSettingsConnectedHome `pulumi:"connectedHome"`
+	// Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+	FaceSearch *StreamProcessorSettingsFaceSearch `pulumi:"faceSearch"`
+}
+
+// StreamProcessorSettingsInput is an input type that accepts StreamProcessorSettingsArgs and StreamProcessorSettingsOutput values.
+// You can construct a concrete instance of `StreamProcessorSettingsInput` via:
+//
+//	StreamProcessorSettingsArgs{...}
+type StreamProcessorSettingsInput interface {
+	pulumi.Input
+
+	ToStreamProcessorSettingsOutput() StreamProcessorSettingsOutput
+	ToStreamProcessorSettingsOutputWithContext(context.Context) StreamProcessorSettingsOutput
+}
+
+type StreamProcessorSettingsArgs struct {
+	// Label detection settings to use on a streaming video. See `connectedHome`.
+	ConnectedHome StreamProcessorSettingsConnectedHomePtrInput `pulumi:"connectedHome"`
+	// Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+	FaceSearch StreamProcessorSettingsFaceSearchPtrInput `pulumi:"faceSearch"`
+}
+
+func (StreamProcessorSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorSettings)(nil)).Elem()
+}
+
+func (i StreamProcessorSettingsArgs) ToStreamProcessorSettingsOutput() StreamProcessorSettingsOutput {
+	return i.ToStreamProcessorSettingsOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorSettingsArgs) ToStreamProcessorSettingsOutputWithContext(ctx context.Context) StreamProcessorSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorSettingsOutput)
+}
+
+func (i StreamProcessorSettingsArgs) ToStreamProcessorSettingsPtrOutput() StreamProcessorSettingsPtrOutput {
+	return i.ToStreamProcessorSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorSettingsArgs) ToStreamProcessorSettingsPtrOutputWithContext(ctx context.Context) StreamProcessorSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorSettingsOutput).ToStreamProcessorSettingsPtrOutputWithContext(ctx)
+}
+
+// StreamProcessorSettingsPtrInput is an input type that accepts StreamProcessorSettingsArgs, StreamProcessorSettingsPtr and StreamProcessorSettingsPtrOutput values.
+// You can construct a concrete instance of `StreamProcessorSettingsPtrInput` via:
+//
+//	        StreamProcessorSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorSettingsPtrOutput() StreamProcessorSettingsPtrOutput
+	ToStreamProcessorSettingsPtrOutputWithContext(context.Context) StreamProcessorSettingsPtrOutput
+}
+
+type streamProcessorSettingsPtrType StreamProcessorSettingsArgs
+
+func StreamProcessorSettingsPtr(v *StreamProcessorSettingsArgs) StreamProcessorSettingsPtrInput {
+	return (*streamProcessorSettingsPtrType)(v)
+}
+
+func (*streamProcessorSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorSettings)(nil)).Elem()
+}
+
+func (i *streamProcessorSettingsPtrType) ToStreamProcessorSettingsPtrOutput() StreamProcessorSettingsPtrOutput {
+	return i.ToStreamProcessorSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorSettingsPtrType) ToStreamProcessorSettingsPtrOutputWithContext(ctx context.Context) StreamProcessorSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorSettingsPtrOutput)
+}
+
+type StreamProcessorSettingsOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorSettings)(nil)).Elem()
+}
+
+func (o StreamProcessorSettingsOutput) ToStreamProcessorSettingsOutput() StreamProcessorSettingsOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsOutput) ToStreamProcessorSettingsOutputWithContext(ctx context.Context) StreamProcessorSettingsOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsOutput) ToStreamProcessorSettingsPtrOutput() StreamProcessorSettingsPtrOutput {
+	return o.ToStreamProcessorSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorSettingsOutput) ToStreamProcessorSettingsPtrOutputWithContext(ctx context.Context) StreamProcessorSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorSettings) *StreamProcessorSettings {
+		return &v
+	}).(StreamProcessorSettingsPtrOutput)
+}
+
+// Label detection settings to use on a streaming video. See `connectedHome`.
+func (o StreamProcessorSettingsOutput) ConnectedHome() StreamProcessorSettingsConnectedHomePtrOutput {
+	return o.ApplyT(func(v StreamProcessorSettings) *StreamProcessorSettingsConnectedHome { return v.ConnectedHome }).(StreamProcessorSettingsConnectedHomePtrOutput)
+}
+
+// Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+func (o StreamProcessorSettingsOutput) FaceSearch() StreamProcessorSettingsFaceSearchPtrOutput {
+	return o.ApplyT(func(v StreamProcessorSettings) *StreamProcessorSettingsFaceSearch { return v.FaceSearch }).(StreamProcessorSettingsFaceSearchPtrOutput)
+}
+
+type StreamProcessorSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorSettings)(nil)).Elem()
+}
+
+func (o StreamProcessorSettingsPtrOutput) ToStreamProcessorSettingsPtrOutput() StreamProcessorSettingsPtrOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsPtrOutput) ToStreamProcessorSettingsPtrOutputWithContext(ctx context.Context) StreamProcessorSettingsPtrOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsPtrOutput) Elem() StreamProcessorSettingsOutput {
+	return o.ApplyT(func(v *StreamProcessorSettings) StreamProcessorSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorSettings
+		return ret
+	}).(StreamProcessorSettingsOutput)
+}
+
+// Label detection settings to use on a streaming video. See `connectedHome`.
+func (o StreamProcessorSettingsPtrOutput) ConnectedHome() StreamProcessorSettingsConnectedHomePtrOutput {
+	return o.ApplyT(func(v *StreamProcessorSettings) *StreamProcessorSettingsConnectedHome {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectedHome
+	}).(StreamProcessorSettingsConnectedHomePtrOutput)
+}
+
+// Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+func (o StreamProcessorSettingsPtrOutput) FaceSearch() StreamProcessorSettingsFaceSearchPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorSettings) *StreamProcessorSettingsFaceSearch {
+		if v == nil {
+			return nil
+		}
+		return v.FaceSearch
+	}).(StreamProcessorSettingsFaceSearchPtrOutput)
+}
+
+type StreamProcessorSettingsConnectedHome struct {
+	// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+	Labels []string `pulumi:"labels"`
+	// Minimum confidence required to label an object in the video.
+	MinConfidence *float64 `pulumi:"minConfidence"`
+}
+
+// StreamProcessorSettingsConnectedHomeInput is an input type that accepts StreamProcessorSettingsConnectedHomeArgs and StreamProcessorSettingsConnectedHomeOutput values.
+// You can construct a concrete instance of `StreamProcessorSettingsConnectedHomeInput` via:
+//
+//	StreamProcessorSettingsConnectedHomeArgs{...}
+type StreamProcessorSettingsConnectedHomeInput interface {
+	pulumi.Input
+
+	ToStreamProcessorSettingsConnectedHomeOutput() StreamProcessorSettingsConnectedHomeOutput
+	ToStreamProcessorSettingsConnectedHomeOutputWithContext(context.Context) StreamProcessorSettingsConnectedHomeOutput
+}
+
+type StreamProcessorSettingsConnectedHomeArgs struct {
+	// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// Minimum confidence required to label an object in the video.
+	MinConfidence pulumi.Float64PtrInput `pulumi:"minConfidence"`
+}
+
+func (StreamProcessorSettingsConnectedHomeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorSettingsConnectedHome)(nil)).Elem()
+}
+
+func (i StreamProcessorSettingsConnectedHomeArgs) ToStreamProcessorSettingsConnectedHomeOutput() StreamProcessorSettingsConnectedHomeOutput {
+	return i.ToStreamProcessorSettingsConnectedHomeOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorSettingsConnectedHomeArgs) ToStreamProcessorSettingsConnectedHomeOutputWithContext(ctx context.Context) StreamProcessorSettingsConnectedHomeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorSettingsConnectedHomeOutput)
+}
+
+func (i StreamProcessorSettingsConnectedHomeArgs) ToStreamProcessorSettingsConnectedHomePtrOutput() StreamProcessorSettingsConnectedHomePtrOutput {
+	return i.ToStreamProcessorSettingsConnectedHomePtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorSettingsConnectedHomeArgs) ToStreamProcessorSettingsConnectedHomePtrOutputWithContext(ctx context.Context) StreamProcessorSettingsConnectedHomePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorSettingsConnectedHomeOutput).ToStreamProcessorSettingsConnectedHomePtrOutputWithContext(ctx)
+}
+
+// StreamProcessorSettingsConnectedHomePtrInput is an input type that accepts StreamProcessorSettingsConnectedHomeArgs, StreamProcessorSettingsConnectedHomePtr and StreamProcessorSettingsConnectedHomePtrOutput values.
+// You can construct a concrete instance of `StreamProcessorSettingsConnectedHomePtrInput` via:
+//
+//	        StreamProcessorSettingsConnectedHomeArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorSettingsConnectedHomePtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorSettingsConnectedHomePtrOutput() StreamProcessorSettingsConnectedHomePtrOutput
+	ToStreamProcessorSettingsConnectedHomePtrOutputWithContext(context.Context) StreamProcessorSettingsConnectedHomePtrOutput
+}
+
+type streamProcessorSettingsConnectedHomePtrType StreamProcessorSettingsConnectedHomeArgs
+
+func StreamProcessorSettingsConnectedHomePtr(v *StreamProcessorSettingsConnectedHomeArgs) StreamProcessorSettingsConnectedHomePtrInput {
+	return (*streamProcessorSettingsConnectedHomePtrType)(v)
+}
+
+func (*streamProcessorSettingsConnectedHomePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorSettingsConnectedHome)(nil)).Elem()
+}
+
+func (i *streamProcessorSettingsConnectedHomePtrType) ToStreamProcessorSettingsConnectedHomePtrOutput() StreamProcessorSettingsConnectedHomePtrOutput {
+	return i.ToStreamProcessorSettingsConnectedHomePtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorSettingsConnectedHomePtrType) ToStreamProcessorSettingsConnectedHomePtrOutputWithContext(ctx context.Context) StreamProcessorSettingsConnectedHomePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorSettingsConnectedHomePtrOutput)
+}
+
+type StreamProcessorSettingsConnectedHomeOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorSettingsConnectedHomeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorSettingsConnectedHome)(nil)).Elem()
+}
+
+func (o StreamProcessorSettingsConnectedHomeOutput) ToStreamProcessorSettingsConnectedHomeOutput() StreamProcessorSettingsConnectedHomeOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsConnectedHomeOutput) ToStreamProcessorSettingsConnectedHomeOutputWithContext(ctx context.Context) StreamProcessorSettingsConnectedHomeOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsConnectedHomeOutput) ToStreamProcessorSettingsConnectedHomePtrOutput() StreamProcessorSettingsConnectedHomePtrOutput {
+	return o.ToStreamProcessorSettingsConnectedHomePtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorSettingsConnectedHomeOutput) ToStreamProcessorSettingsConnectedHomePtrOutputWithContext(ctx context.Context) StreamProcessorSettingsConnectedHomePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorSettingsConnectedHome) *StreamProcessorSettingsConnectedHome {
+		return &v
+	}).(StreamProcessorSettingsConnectedHomePtrOutput)
+}
+
+// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+func (o StreamProcessorSettingsConnectedHomeOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamProcessorSettingsConnectedHome) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// Minimum confidence required to label an object in the video.
+func (o StreamProcessorSettingsConnectedHomeOutput) MinConfidence() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StreamProcessorSettingsConnectedHome) *float64 { return v.MinConfidence }).(pulumi.Float64PtrOutput)
+}
+
+type StreamProcessorSettingsConnectedHomePtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorSettingsConnectedHomePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorSettingsConnectedHome)(nil)).Elem()
+}
+
+func (o StreamProcessorSettingsConnectedHomePtrOutput) ToStreamProcessorSettingsConnectedHomePtrOutput() StreamProcessorSettingsConnectedHomePtrOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsConnectedHomePtrOutput) ToStreamProcessorSettingsConnectedHomePtrOutputWithContext(ctx context.Context) StreamProcessorSettingsConnectedHomePtrOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsConnectedHomePtrOutput) Elem() StreamProcessorSettingsConnectedHomeOutput {
+	return o.ApplyT(func(v *StreamProcessorSettingsConnectedHome) StreamProcessorSettingsConnectedHome {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorSettingsConnectedHome
+		return ret
+	}).(StreamProcessorSettingsConnectedHomeOutput)
+}
+
+// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+func (o StreamProcessorSettingsConnectedHomePtrOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamProcessorSettingsConnectedHome) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringArrayOutput)
+}
+
+// Minimum confidence required to label an object in the video.
+func (o StreamProcessorSettingsConnectedHomePtrOutput) MinConfidence() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StreamProcessorSettingsConnectedHome) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinConfidence
+	}).(pulumi.Float64PtrOutput)
+}
+
+type StreamProcessorSettingsFaceSearch struct {
+	// ID of a collection that contains faces that you want to search for.
+	CollectionId string `pulumi:"collectionId"`
+	// Minimum face match confidence score that must be met to return a result for a recognized face.
+	FaceMatchThreshold *float64 `pulumi:"faceMatchThreshold"`
+}
+
+// StreamProcessorSettingsFaceSearchInput is an input type that accepts StreamProcessorSettingsFaceSearchArgs and StreamProcessorSettingsFaceSearchOutput values.
+// You can construct a concrete instance of `StreamProcessorSettingsFaceSearchInput` via:
+//
+//	StreamProcessorSettingsFaceSearchArgs{...}
+type StreamProcessorSettingsFaceSearchInput interface {
+	pulumi.Input
+
+	ToStreamProcessorSettingsFaceSearchOutput() StreamProcessorSettingsFaceSearchOutput
+	ToStreamProcessorSettingsFaceSearchOutputWithContext(context.Context) StreamProcessorSettingsFaceSearchOutput
+}
+
+type StreamProcessorSettingsFaceSearchArgs struct {
+	// ID of a collection that contains faces that you want to search for.
+	CollectionId pulumi.StringInput `pulumi:"collectionId"`
+	// Minimum face match confidence score that must be met to return a result for a recognized face.
+	FaceMatchThreshold pulumi.Float64PtrInput `pulumi:"faceMatchThreshold"`
+}
+
+func (StreamProcessorSettingsFaceSearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorSettingsFaceSearch)(nil)).Elem()
+}
+
+func (i StreamProcessorSettingsFaceSearchArgs) ToStreamProcessorSettingsFaceSearchOutput() StreamProcessorSettingsFaceSearchOutput {
+	return i.ToStreamProcessorSettingsFaceSearchOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorSettingsFaceSearchArgs) ToStreamProcessorSettingsFaceSearchOutputWithContext(ctx context.Context) StreamProcessorSettingsFaceSearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorSettingsFaceSearchOutput)
+}
+
+func (i StreamProcessorSettingsFaceSearchArgs) ToStreamProcessorSettingsFaceSearchPtrOutput() StreamProcessorSettingsFaceSearchPtrOutput {
+	return i.ToStreamProcessorSettingsFaceSearchPtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorSettingsFaceSearchArgs) ToStreamProcessorSettingsFaceSearchPtrOutputWithContext(ctx context.Context) StreamProcessorSettingsFaceSearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorSettingsFaceSearchOutput).ToStreamProcessorSettingsFaceSearchPtrOutputWithContext(ctx)
+}
+
+// StreamProcessorSettingsFaceSearchPtrInput is an input type that accepts StreamProcessorSettingsFaceSearchArgs, StreamProcessorSettingsFaceSearchPtr and StreamProcessorSettingsFaceSearchPtrOutput values.
+// You can construct a concrete instance of `StreamProcessorSettingsFaceSearchPtrInput` via:
+//
+//	        StreamProcessorSettingsFaceSearchArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorSettingsFaceSearchPtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorSettingsFaceSearchPtrOutput() StreamProcessorSettingsFaceSearchPtrOutput
+	ToStreamProcessorSettingsFaceSearchPtrOutputWithContext(context.Context) StreamProcessorSettingsFaceSearchPtrOutput
+}
+
+type streamProcessorSettingsFaceSearchPtrType StreamProcessorSettingsFaceSearchArgs
+
+func StreamProcessorSettingsFaceSearchPtr(v *StreamProcessorSettingsFaceSearchArgs) StreamProcessorSettingsFaceSearchPtrInput {
+	return (*streamProcessorSettingsFaceSearchPtrType)(v)
+}
+
+func (*streamProcessorSettingsFaceSearchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorSettingsFaceSearch)(nil)).Elem()
+}
+
+func (i *streamProcessorSettingsFaceSearchPtrType) ToStreamProcessorSettingsFaceSearchPtrOutput() StreamProcessorSettingsFaceSearchPtrOutput {
+	return i.ToStreamProcessorSettingsFaceSearchPtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorSettingsFaceSearchPtrType) ToStreamProcessorSettingsFaceSearchPtrOutputWithContext(ctx context.Context) StreamProcessorSettingsFaceSearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorSettingsFaceSearchPtrOutput)
+}
+
+type StreamProcessorSettingsFaceSearchOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorSettingsFaceSearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorSettingsFaceSearch)(nil)).Elem()
+}
+
+func (o StreamProcessorSettingsFaceSearchOutput) ToStreamProcessorSettingsFaceSearchOutput() StreamProcessorSettingsFaceSearchOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsFaceSearchOutput) ToStreamProcessorSettingsFaceSearchOutputWithContext(ctx context.Context) StreamProcessorSettingsFaceSearchOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsFaceSearchOutput) ToStreamProcessorSettingsFaceSearchPtrOutput() StreamProcessorSettingsFaceSearchPtrOutput {
+	return o.ToStreamProcessorSettingsFaceSearchPtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorSettingsFaceSearchOutput) ToStreamProcessorSettingsFaceSearchPtrOutputWithContext(ctx context.Context) StreamProcessorSettingsFaceSearchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorSettingsFaceSearch) *StreamProcessorSettingsFaceSearch {
+		return &v
+	}).(StreamProcessorSettingsFaceSearchPtrOutput)
+}
+
+// ID of a collection that contains faces that you want to search for.
+func (o StreamProcessorSettingsFaceSearchOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamProcessorSettingsFaceSearch) string { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+// Minimum face match confidence score that must be met to return a result for a recognized face.
+func (o StreamProcessorSettingsFaceSearchOutput) FaceMatchThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StreamProcessorSettingsFaceSearch) *float64 { return v.FaceMatchThreshold }).(pulumi.Float64PtrOutput)
+}
+
+type StreamProcessorSettingsFaceSearchPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorSettingsFaceSearchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorSettingsFaceSearch)(nil)).Elem()
+}
+
+func (o StreamProcessorSettingsFaceSearchPtrOutput) ToStreamProcessorSettingsFaceSearchPtrOutput() StreamProcessorSettingsFaceSearchPtrOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsFaceSearchPtrOutput) ToStreamProcessorSettingsFaceSearchPtrOutputWithContext(ctx context.Context) StreamProcessorSettingsFaceSearchPtrOutput {
+	return o
+}
+
+func (o StreamProcessorSettingsFaceSearchPtrOutput) Elem() StreamProcessorSettingsFaceSearchOutput {
+	return o.ApplyT(func(v *StreamProcessorSettingsFaceSearch) StreamProcessorSettingsFaceSearch {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorSettingsFaceSearch
+		return ret
+	}).(StreamProcessorSettingsFaceSearchOutput)
+}
+
+// ID of a collection that contains faces that you want to search for.
+func (o StreamProcessorSettingsFaceSearchPtrOutput) CollectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorSettingsFaceSearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Minimum face match confidence score that must be met to return a result for a recognized face.
+func (o StreamProcessorSettingsFaceSearchPtrOutput) FaceMatchThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StreamProcessorSettingsFaceSearch) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.FaceMatchThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+type StreamProcessorTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// StreamProcessorTimeoutsInput is an input type that accepts StreamProcessorTimeoutsArgs and StreamProcessorTimeoutsOutput values.
+// You can construct a concrete instance of `StreamProcessorTimeoutsInput` via:
+//
+//	StreamProcessorTimeoutsArgs{...}
+type StreamProcessorTimeoutsInput interface {
+	pulumi.Input
+
+	ToStreamProcessorTimeoutsOutput() StreamProcessorTimeoutsOutput
+	ToStreamProcessorTimeoutsOutputWithContext(context.Context) StreamProcessorTimeoutsOutput
+}
+
+type StreamProcessorTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (StreamProcessorTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorTimeouts)(nil)).Elem()
+}
+
+func (i StreamProcessorTimeoutsArgs) ToStreamProcessorTimeoutsOutput() StreamProcessorTimeoutsOutput {
+	return i.ToStreamProcessorTimeoutsOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorTimeoutsArgs) ToStreamProcessorTimeoutsOutputWithContext(ctx context.Context) StreamProcessorTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorTimeoutsOutput)
+}
+
+func (i StreamProcessorTimeoutsArgs) ToStreamProcessorTimeoutsPtrOutput() StreamProcessorTimeoutsPtrOutput {
+	return i.ToStreamProcessorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i StreamProcessorTimeoutsArgs) ToStreamProcessorTimeoutsPtrOutputWithContext(ctx context.Context) StreamProcessorTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorTimeoutsOutput).ToStreamProcessorTimeoutsPtrOutputWithContext(ctx)
+}
+
+// StreamProcessorTimeoutsPtrInput is an input type that accepts StreamProcessorTimeoutsArgs, StreamProcessorTimeoutsPtr and StreamProcessorTimeoutsPtrOutput values.
+// You can construct a concrete instance of `StreamProcessorTimeoutsPtrInput` via:
+//
+//	        StreamProcessorTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamProcessorTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToStreamProcessorTimeoutsPtrOutput() StreamProcessorTimeoutsPtrOutput
+	ToStreamProcessorTimeoutsPtrOutputWithContext(context.Context) StreamProcessorTimeoutsPtrOutput
+}
+
+type streamProcessorTimeoutsPtrType StreamProcessorTimeoutsArgs
+
+func StreamProcessorTimeoutsPtr(v *StreamProcessorTimeoutsArgs) StreamProcessorTimeoutsPtrInput {
+	return (*streamProcessorTimeoutsPtrType)(v)
+}
+
+func (*streamProcessorTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorTimeouts)(nil)).Elem()
+}
+
+func (i *streamProcessorTimeoutsPtrType) ToStreamProcessorTimeoutsPtrOutput() StreamProcessorTimeoutsPtrOutput {
+	return i.ToStreamProcessorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *streamProcessorTimeoutsPtrType) ToStreamProcessorTimeoutsPtrOutputWithContext(ctx context.Context) StreamProcessorTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorTimeoutsPtrOutput)
+}
+
+type StreamProcessorTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamProcessorTimeouts)(nil)).Elem()
+}
+
+func (o StreamProcessorTimeoutsOutput) ToStreamProcessorTimeoutsOutput() StreamProcessorTimeoutsOutput {
+	return o
+}
+
+func (o StreamProcessorTimeoutsOutput) ToStreamProcessorTimeoutsOutputWithContext(ctx context.Context) StreamProcessorTimeoutsOutput {
+	return o
+}
+
+func (o StreamProcessorTimeoutsOutput) ToStreamProcessorTimeoutsPtrOutput() StreamProcessorTimeoutsPtrOutput {
+	return o.ToStreamProcessorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o StreamProcessorTimeoutsOutput) ToStreamProcessorTimeoutsPtrOutputWithContext(ctx context.Context) StreamProcessorTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamProcessorTimeouts) *StreamProcessorTimeouts {
+		return &v
+	}).(StreamProcessorTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o StreamProcessorTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamProcessorTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o StreamProcessorTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamProcessorTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o StreamProcessorTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamProcessorTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type StreamProcessorTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamProcessorTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamProcessorTimeouts)(nil)).Elem()
+}
+
+func (o StreamProcessorTimeoutsPtrOutput) ToStreamProcessorTimeoutsPtrOutput() StreamProcessorTimeoutsPtrOutput {
+	return o
+}
+
+func (o StreamProcessorTimeoutsPtrOutput) ToStreamProcessorTimeoutsPtrOutputWithContext(ctx context.Context) StreamProcessorTimeoutsPtrOutput {
+	return o
+}
+
+func (o StreamProcessorTimeoutsPtrOutput) Elem() StreamProcessorTimeoutsOutput {
+	return o.ApplyT(func(v *StreamProcessorTimeouts) StreamProcessorTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret StreamProcessorTimeouts
+		return ret
+	}).(StreamProcessorTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o StreamProcessorTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o StreamProcessorTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o StreamProcessorTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamProcessorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTimeoutsInput)(nil)).Elem(), CollectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTimeoutsPtrInput)(nil)).Elem(), CollectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsInput)(nil)).Elem(), ProjectTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsPtrInput)(nil)).Elem(), ProjectTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorDataSharingPreferenceInput)(nil)).Elem(), StreamProcessorDataSharingPreferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorDataSharingPreferencePtrInput)(nil)).Elem(), StreamProcessorDataSharingPreferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorInputTypeInput)(nil)).Elem(), StreamProcessorInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorInputTypePtrInput)(nil)).Elem(), StreamProcessorInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorInputKinesisVideoStreamInput)(nil)).Elem(), StreamProcessorInputKinesisVideoStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorInputKinesisVideoStreamPtrInput)(nil)).Elem(), StreamProcessorInputKinesisVideoStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorNotificationChannelInput)(nil)).Elem(), StreamProcessorNotificationChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorNotificationChannelPtrInput)(nil)).Elem(), StreamProcessorNotificationChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorOutputTypeInput)(nil)).Elem(), StreamProcessorOutputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorOutputTypePtrInput)(nil)).Elem(), StreamProcessorOutputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorOutputKinesisDataStreamInput)(nil)).Elem(), StreamProcessorOutputKinesisDataStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorOutputKinesisDataStreamPtrInput)(nil)).Elem(), StreamProcessorOutputKinesisDataStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorOutputS3DestinationInput)(nil)).Elem(), StreamProcessorOutputS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorOutputS3DestinationPtrInput)(nil)).Elem(), StreamProcessorOutputS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestInput)(nil)).Elem(), StreamProcessorRegionsOfInterestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestArrayInput)(nil)).Elem(), StreamProcessorRegionsOfInterestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestBoundingBoxInput)(nil)).Elem(), StreamProcessorRegionsOfInterestBoundingBoxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestBoundingBoxPtrInput)(nil)).Elem(), StreamProcessorRegionsOfInterestBoundingBoxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestPolygonInput)(nil)).Elem(), StreamProcessorRegionsOfInterestPolygonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorRegionsOfInterestPolygonArrayInput)(nil)).Elem(), StreamProcessorRegionsOfInterestPolygonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorSettingsInput)(nil)).Elem(), StreamProcessorSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorSettingsPtrInput)(nil)).Elem(), StreamProcessorSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorSettingsConnectedHomeInput)(nil)).Elem(), StreamProcessorSettingsConnectedHomeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorSettingsConnectedHomePtrInput)(nil)).Elem(), StreamProcessorSettingsConnectedHomeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorSettingsFaceSearchInput)(nil)).Elem(), StreamProcessorSettingsFaceSearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorSettingsFaceSearchPtrInput)(nil)).Elem(), StreamProcessorSettingsFaceSearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorTimeoutsInput)(nil)).Elem(), StreamProcessorTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorTimeoutsPtrInput)(nil)).Elem(), StreamProcessorTimeoutsArgs{})
 	pulumi.RegisterOutputType(CollectionTimeoutsOutput{})
 	pulumi.RegisterOutputType(CollectionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectTimeoutsOutput{})
 	pulumi.RegisterOutputType(ProjectTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorDataSharingPreferenceOutput{})
+	pulumi.RegisterOutputType(StreamProcessorDataSharingPreferencePtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorInputTypeOutput{})
+	pulumi.RegisterOutputType(StreamProcessorInputTypePtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorInputKinesisVideoStreamOutput{})
+	pulumi.RegisterOutputType(StreamProcessorInputKinesisVideoStreamPtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorNotificationChannelOutput{})
+	pulumi.RegisterOutputType(StreamProcessorNotificationChannelPtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorOutputTypeOutput{})
+	pulumi.RegisterOutputType(StreamProcessorOutputTypePtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorOutputKinesisDataStreamOutput{})
+	pulumi.RegisterOutputType(StreamProcessorOutputKinesisDataStreamPtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorOutputS3DestinationOutput{})
+	pulumi.RegisterOutputType(StreamProcessorOutputS3DestinationPtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestOutput{})
+	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestArrayOutput{})
+	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestBoundingBoxOutput{})
+	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestBoundingBoxPtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestPolygonOutput{})
+	pulumi.RegisterOutputType(StreamProcessorRegionsOfInterestPolygonArrayOutput{})
+	pulumi.RegisterOutputType(StreamProcessorSettingsOutput{})
+	pulumi.RegisterOutputType(StreamProcessorSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorSettingsConnectedHomeOutput{})
+	pulumi.RegisterOutputType(StreamProcessorSettingsConnectedHomePtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorSettingsFaceSearchOutput{})
+	pulumi.RegisterOutputType(StreamProcessorSettingsFaceSearchPtrOutput{})
+	pulumi.RegisterOutputType(StreamProcessorTimeoutsOutput{})
+	pulumi.RegisterOutputType(StreamProcessorTimeoutsPtrOutput{})
 }

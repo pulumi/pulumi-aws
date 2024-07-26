@@ -102,6 +102,10 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         public readonly bool AllowExternalDataFiltering;
         /// <summary>
+        /// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+        /// </summary>
+        public readonly bool AllowFullTableExternalDataAccess;
+        /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         /// </summary>
         public readonly ImmutableArray<string> AuthorizedSessionTagValueLists;
@@ -137,6 +141,8 @@ namespace Pulumi.Aws.LakeFormation
 
             bool allowExternalDataFiltering,
 
+            bool allowFullTableExternalDataAccess,
+
             ImmutableArray<string> authorizedSessionTagValueLists,
 
             string? catalogId,
@@ -155,6 +161,7 @@ namespace Pulumi.Aws.LakeFormation
         {
             Admins = admins;
             AllowExternalDataFiltering = allowExternalDataFiltering;
+            AllowFullTableExternalDataAccess = allowFullTableExternalDataAccess;
             AuthorizedSessionTagValueLists = authorizedSessionTagValueLists;
             CatalogId = catalogId;
             CreateDatabaseDefaultPermissions = createDatabaseDefaultPermissions;

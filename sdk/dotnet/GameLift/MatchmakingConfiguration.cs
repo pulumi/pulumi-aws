@@ -20,6 +20,7 @@ namespace Pulumi.Aws.GameLift
     /// $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example &lt;matchmakingconfiguration-id&gt;
     /// ```
     /// </summary>
+    [Obsolete(@"This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead")]
     [AwsResourceType("aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration")]
     public partial class MatchmakingConfiguration : global::Pulumi.CustomResource
     {

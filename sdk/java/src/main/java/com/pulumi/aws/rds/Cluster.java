@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 "us-west-2c")
  *             .databaseName("mydb")
  *             .masterUsername("foo")
- *             .masterPassword("bar")
+ *             .masterPassword("must_be_eight_characters")
  *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow("07:00-09:00")
  *             .build());
@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *                 "us-west-2c")
  *             .databaseName("mydb")
  *             .masterUsername("foo")
- *             .masterPassword("bar")
+ *             .masterPassword("must_be_eight_characters")
  *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow("07:00-09:00")
  *             .build());
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  *                 "us-west-2c")
  *             .databaseName("mydb")
  *             .masterUsername("foo")
- *             .masterPassword("bar")
+ *             .masterPassword("must_be_eight_characters")
  *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow("07:00-09:00")
  *             .build());
@@ -875,6 +875,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> engine() {
         return this.engine;
+    }
+    /**
+     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    @Export(name="engineLifecycleSupport", refs={String.class}, tree="[0]")
+    private Output<String> engineLifecycleSupport;
+
+    /**
+     * @return The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    public Output<String> engineLifecycleSupport() {
+        return this.engineLifecycleSupport;
     }
     /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ReplicatorReplicationInfoList
     {
         /// <summary>
-        /// Confguration relating to consumer group replication.
+        /// Configuration relating to consumer group replication.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicatorReplicationInfoListConsumerGroupReplication> ConsumerGroupReplications;
         public readonly string? SourceKafkaClusterAlias;

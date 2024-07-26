@@ -79,6 +79,21 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    @Import(name="engineLifecycleSupport")
+    private @Nullable Output<String> engineLifecycleSupport;
+
+    /**
+     * @return The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    public Optional<Output<String>> engineLifecycleSupport() {
+        return Optional.ofNullable(this.engineLifecycleSupport);
+    }
+
+    /**
      * Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      * 
      */
@@ -197,6 +212,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         this.databaseName = $.databaseName;
         this.deletionProtection = $.deletionProtection;
         this.engine = $.engine;
+        this.engineLifecycleSupport = $.engineLifecycleSupport;
         this.engineVersion = $.engineVersion;
         this.engineVersionActual = $.engineVersionActual;
         this.forceDestroy = $.forceDestroy;
@@ -307,6 +323,27 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
+        }
+
+        /**
+         * @param engineLifecycleSupport The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engineLifecycleSupport(@Nullable Output<String> engineLifecycleSupport) {
+            $.engineLifecycleSupport = engineLifecycleSupport;
+            return this;
+        }
+
+        /**
+         * @param engineLifecycleSupport The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engineLifecycleSupport(String engineLifecycleSupport) {
+            return engineLifecycleSupport(Output.of(engineLifecycleSupport));
         }
 
         /**

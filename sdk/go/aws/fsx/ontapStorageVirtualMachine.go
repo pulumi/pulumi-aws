@@ -109,7 +109,8 @@ type OntapStorageVirtualMachine struct {
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrOutput `pulumi:"rootVolumeSecurityStyle"`
 	// Describes the SVM's subtype, e.g. `DEFAULT`
-	Subtype          pulumi.StringOutput    `pulumi:"subtype"`
+	Subtype pulumi.StringOutput `pulumi:"subtype"`
+	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
 	SvmAdminPassword pulumi.StringPtrOutput `pulumi:"svmAdminPassword"`
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -174,7 +175,8 @@ type ontapStorageVirtualMachineState struct {
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle *string `pulumi:"rootVolumeSecurityStyle"`
 	// Describes the SVM's subtype, e.g. `DEFAULT`
-	Subtype          *string `pulumi:"subtype"`
+	Subtype *string `pulumi:"subtype"`
+	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
 	SvmAdminPassword *string `pulumi:"svmAdminPassword"`
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -200,7 +202,8 @@ type OntapStorageVirtualMachineState struct {
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrInput
 	// Describes the SVM's subtype, e.g. `DEFAULT`
-	Subtype          pulumi.StringPtrInput
+	Subtype pulumi.StringPtrInput
+	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
 	SvmAdminPassword pulumi.StringPtrInput
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -225,7 +228,8 @@ type ontapStorageVirtualMachineArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle *string `pulumi:"rootVolumeSecurityStyle"`
-	SvmAdminPassword        *string `pulumi:"svmAdminPassword"`
+	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+	SvmAdminPassword *string `pulumi:"svmAdminPassword"`
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -240,7 +244,8 @@ type OntapStorageVirtualMachineArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrInput
-	SvmAdminPassword        pulumi.StringPtrInput
+	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+	SvmAdminPassword pulumi.StringPtrInput
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -369,6 +374,7 @@ func (o OntapStorageVirtualMachineOutput) Subtype() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Subtype }).(pulumi.StringOutput)
 }
 
+// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
 func (o OntapStorageVirtualMachineOutput) SvmAdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringPtrOutput { return v.SvmAdminPassword }).(pulumi.StringPtrOutput)
 }

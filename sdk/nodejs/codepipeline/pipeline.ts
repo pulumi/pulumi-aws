@@ -225,7 +225,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      */
-    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTrigger[] | undefined>;
+    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTrigger[]>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      */

@@ -147,9 +147,13 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     public readonly prepareAgent!: pulumi.Output<boolean>;
     /**
-     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` block for details.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
     public readonly promptOverrideConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentPromptOverrideConfiguration[]>;
+    /**
+     * Whether the in-use check is skipped when deleting the agent.
+     */
+    public readonly skipResourceInUseCheck!: pulumi.Output<boolean>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -187,6 +191,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["instruction"] = state ? state.instruction : undefined;
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
             resourceInputs["promptOverrideConfigurations"] = state ? state.promptOverrideConfigurations : undefined;
+            resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -210,6 +215,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["instruction"] = args ? args.instruction : undefined;
             resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
             resourceInputs["promptOverrideConfigurations"] = args ? args.promptOverrideConfigurations : undefined;
+            resourceInputs["skipResourceInUseCheck"] = args ? args.skipResourceInUseCheck : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["agentArn"] = undefined /*out*/;
@@ -273,9 +279,13 @@ export interface AgentAgentState {
      */
     prepareAgent?: pulumi.Input<boolean>;
     /**
-     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` block for details.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
+    /**
+     * Whether the in-use check is skipped when deleting the agent.
+     */
+    skipResourceInUseCheck?: pulumi.Input<boolean>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -328,9 +338,13 @@ export interface AgentAgentArgs {
      */
     prepareAgent?: pulumi.Input<boolean>;
     /**
-     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` block for details.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
+    /**
+     * Whether the in-use check is skipped when deleting the agent.
+     */
+    skipResourceInUseCheck?: pulumi.Input<boolean>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

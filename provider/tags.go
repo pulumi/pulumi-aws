@@ -57,6 +57,40 @@ func applyTags(
 	}
 	if allTags.IsNull() {
 		delete(ret, "tags")
+		delete(ret, "tagsAll")
+		return ret, nil
+	}
+	ret["tags"] = allTags
+	ret["tagsAll"] = allTags
+
+	return ret, nil
+}
+
+// similar to applyTags, but applied to the `TransformOutputs` method that is run
+// during Read
+func applyTagsOutputs(
+	ctx context.Context, config resource.PropertyMap,
+) (resource.PropertyMap, error) {
+	ret := config.Copy()
+	configTags := resource.NewObjectProperty(resource.PropertyMap{})
+	if t, ok := config["tags"]; ok {
+		configTags = t
+	}
+
+	meta := resource.PropertyMap{}
+	if at, ok := config["tagsAll"]; ok {
+		meta["defaultTags"] = resource.NewObjectProperty(resource.PropertyMap{
+			"tags": at,
+		})
+	}
+
+	allTags, err := mergeTags(ctx, configTags, meta)
+	if err != nil {
+		return nil, err
+	}
+	if allTags.IsNull() {
+		delete(ret, "tags")
+		delete(ret, "tagsAll")
 		return ret, nil
 	}
 	ret["tags"] = allTags

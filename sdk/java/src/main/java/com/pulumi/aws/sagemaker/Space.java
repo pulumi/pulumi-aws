@@ -113,14 +113,14 @@ public class Space extends com.pulumi.resources.CustomResource {
         return this.homeEfsFileSystemUid;
     }
     /**
-     * A collection of ownership settings. See Ownership Settings below.
+     * A collection of ownership settings. See `ownership_settings` Block below.
      * 
      */
     @Export(name="ownershipSettings", refs={SpaceOwnershipSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceOwnershipSettings> ownershipSettings;
 
     /**
-     * @return A collection of ownership settings. See Ownership Settings below.
+     * @return A collection of ownership settings. See `ownership_settings` Block below.
      * 
      */
     public Output<Optional<SpaceOwnershipSettings>> ownershipSettings() {
@@ -155,28 +155,28 @@ public class Space extends com.pulumi.resources.CustomResource {
         return this.spaceName;
     }
     /**
-     * A collection of space settings. See Space Settings below.
+     * A collection of space settings. See `space_settings` Block below.
      * 
      */
     @Export(name="spaceSettings", refs={SpaceSpaceSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceSpaceSettings> spaceSettings;
 
     /**
-     * @return A collection of space settings. See Space Settings below.
+     * @return A collection of space settings. See `space_settings` Block below.
      * 
      */
     public Output<Optional<SpaceSpaceSettings>> spaceSettings() {
         return Codegen.optional(this.spaceSettings);
     }
     /**
-     * A collection of space sharing settings. See Space Sharing Settings below.
+     * A collection of space sharing settings. See `space_sharing_settings` Block below.
      * 
      */
     @Export(name="spaceSharingSettings", refs={SpaceSpaceSharingSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceSpaceSharingSettings> spaceSharingSettings;
 
     /**
-     * @return A collection of space sharing settings. See Space Sharing Settings below.
+     * @return A collection of space sharing settings. See `space_sharing_settings` Block below.
      * 
      */
     public Output<Optional<SpaceSpaceSharingSettings>> spaceSharingSettings() {

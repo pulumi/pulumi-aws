@@ -31,7 +31,7 @@ class ListenerArgs:
         """
         The set of arguments for constructing a Listener resource.
         :param pulumi.Input['ListenerDefaultActionArgs'] default_action: Default action block for the default listener rule. Default action blocks are defined below.
-        :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         :param pulumi.Input[str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
@@ -68,7 +68,7 @@ class ListenerArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         """
         return pulumi.get(self, "protocol")
 
@@ -161,7 +161,7 @@ class _ListenerState:
         :param pulumi.Input[str] listener_id: Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
         :param pulumi.Input[str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
-        :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         :param pulumi.Input[str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
@@ -280,7 +280,7 @@ class _ListenerState:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         """
         return pulumi.get(self, "protocol")
 
@@ -456,7 +456,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
         :param pulumi.Input[str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
-        :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         :param pulumi.Input[str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
@@ -652,7 +652,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] listener_id: Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
         :param pulumi.Input[str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
-        :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         :param pulumi.Input[str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
@@ -733,7 +733,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[str]:
         """
-        Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+        Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         """
         return pulumi.get(self, "protocol")
 

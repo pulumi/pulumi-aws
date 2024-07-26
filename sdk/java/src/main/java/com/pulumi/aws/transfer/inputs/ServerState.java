@@ -98,14 +98,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
      * 
      */
     @Import(name="endpointDetails")
     private @Nullable Output<ServerEndpointDetailsArgs> endpointDetails;
 
     /**
-     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
      * 
      */
     public Optional<Output<ServerEndpointDetailsArgs>> endpointDetails() {
@@ -263,14 +263,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The protocol settings that are configured for your server. See `protocol_details` block below for details.
+     * The protocol settings that are configured for your server. See `protocol_details` Block below for details.
      * 
      */
     @Import(name="protocolDetails")
     private @Nullable Output<ServerProtocolDetailsArgs> protocolDetails;
 
     /**
-     * @return The protocol settings that are configured for your server. See `protocol_details` block below for details.
+     * @return The protocol settings that are configured for your server. See `protocol_details` Block below for details.
      * 
      */
     public Optional<Output<ServerProtocolDetailsArgs>> protocolDetails() {
@@ -301,14 +301,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
+     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
      * 
      */
     @Import(name="s3StorageOptions")
     private @Nullable Output<ServerS3StorageOptionsArgs> s3StorageOptions;
 
     /**
-     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
+     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
      * 
      */
     public Optional<Output<ServerS3StorageOptionsArgs>> s3StorageOptions() {
@@ -317,16 +317,21 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2020-06`
      * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2024-01`
      * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2024-05`
      * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+     * * `TransferSecurityPolicy-Restricted-2018-11`
+     * * `TransferSecurityPolicy-Restricted-2020-06`
+     * 
+     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
     @Import(name="securityPolicyName")
@@ -334,16 +339,21 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2020-06`
      * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2024-01`
      * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2024-05`
      * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+     * * `TransferSecurityPolicy-Restricted-2018-11`
+     * * `TransferSecurityPolicy-Restricted-2020-06`
+     * 
+     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
     public Optional<Output<String>> securityPolicyName() {
@@ -434,14 +444,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the workflow details. See `workflow_details` block below for details.
+     * Specifies the workflow details. See `workflow_details` Block below for details.
      * 
      */
     @Import(name="workflowDetails")
     private @Nullable Output<ServerWorkflowDetailsArgs> workflowDetails;
 
     /**
-     * @return Specifies the workflow details. See `workflow_details` block below for details.
+     * @return Specifies the workflow details. See `workflow_details` Block below for details.
      * 
      */
     public Optional<Output<ServerWorkflowDetailsArgs>> workflowDetails() {
@@ -603,7 +613,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
          * 
          * @return builder
          * 
@@ -614,7 +624,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
          * 
          * @return builder
          * 
@@ -834,7 +844,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolDetails The protocol settings that are configured for your server. See `protocol_details` block below for details.
+         * @param protocolDetails The protocol settings that are configured for your server. See `protocol_details` Block below for details.
          * 
          * @return builder
          * 
@@ -845,7 +855,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolDetails The protocol settings that are configured for your server. See `protocol_details` block below for details.
+         * @param protocolDetails The protocol settings that are configured for your server. See `protocol_details` Block below for details.
          * 
          * @return builder
          * 
@@ -898,7 +908,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
+         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
          * 
          * @return builder
          * 
@@ -909,7 +919,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
+         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
          * 
          * @return builder
          * 
@@ -920,16 +930,21 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param securityPolicyName Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-         * * `TransferSecurityPolicy-2024-01`
-         * * `TransferSecurityPolicy-2023-05`
-         * * `TransferSecurityPolicy-2022-03`
-         * * `TransferSecurityPolicy-2020-06`
          * * `TransferSecurityPolicy-2018-11`
-         * * `TransferSecurityPolicy-FIPS-2024-01`
-         * * `TransferSecurityPolicy-FIPS-2023-05`
+         * * `TransferSecurityPolicy-2020-06`
+         * * `TransferSecurityPolicy-2022-03`
+         * * `TransferSecurityPolicy-2023-05`
+         * * `TransferSecurityPolicy-2024-01`
          * * `TransferSecurityPolicy-FIPS-2020-06`
+         * * `TransferSecurityPolicy-FIPS-2023-05`
+         * * `TransferSecurityPolicy-FIPS-2024-01`
+         * * `TransferSecurityPolicy-FIPS-2024-05`
          * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
          * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+         * * `TransferSecurityPolicy-Restricted-2018-11`
+         * * `TransferSecurityPolicy-Restricted-2020-06`
+         * 
+         * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 
          * @return builder
          * 
@@ -941,16 +956,21 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param securityPolicyName Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-         * * `TransferSecurityPolicy-2024-01`
-         * * `TransferSecurityPolicy-2023-05`
-         * * `TransferSecurityPolicy-2022-03`
-         * * `TransferSecurityPolicy-2020-06`
          * * `TransferSecurityPolicy-2018-11`
-         * * `TransferSecurityPolicy-FIPS-2024-01`
-         * * `TransferSecurityPolicy-FIPS-2023-05`
+         * * `TransferSecurityPolicy-2020-06`
+         * * `TransferSecurityPolicy-2022-03`
+         * * `TransferSecurityPolicy-2023-05`
+         * * `TransferSecurityPolicy-2024-01`
          * * `TransferSecurityPolicy-FIPS-2020-06`
+         * * `TransferSecurityPolicy-FIPS-2023-05`
+         * * `TransferSecurityPolicy-FIPS-2024-01`
+         * * `TransferSecurityPolicy-FIPS-2024-05`
          * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
          * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+         * * `TransferSecurityPolicy-Restricted-2018-11`
+         * * `TransferSecurityPolicy-Restricted-2020-06`
+         * 
+         * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 
          * @return builder
          * 
@@ -1083,7 +1103,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowDetails Specifies the workflow details. See `workflow_details` block below for details.
+         * @param workflowDetails Specifies the workflow details. See `workflow_details` Block below for details.
          * 
          * @return builder
          * 
@@ -1094,7 +1114,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowDetails Specifies the workflow details. See `workflow_details` block below for details.
+         * @param workflowDetails Specifies the workflow details. See `workflow_details` Block below for details.
          * 
          * @return builder
          * 

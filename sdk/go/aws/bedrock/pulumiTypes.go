@@ -14,7 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AgentAgentActionGroupActionGroupExecutor struct {
+	// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+	// To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+	// Only one of `customControl` or `lambda` can be specified.
+	CustomControl *string `pulumi:"customControl"`
 	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+	// Only one of `lambda` or `customControl` can be specified.
 	Lambda *string `pulumi:"lambda"`
 }
 
@@ -30,7 +35,12 @@ type AgentAgentActionGroupActionGroupExecutorInput interface {
 }
 
 type AgentAgentActionGroupActionGroupExecutorArgs struct {
+	// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+	// To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+	// Only one of `customControl` or `lambda` can be specified.
+	CustomControl pulumi.StringPtrInput `pulumi:"customControl"`
 	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+	// Only one of `lambda` or `customControl` can be specified.
 	Lambda pulumi.StringPtrInput `pulumi:"lambda"`
 }
 
@@ -111,7 +121,15 @@ func (o AgentAgentActionGroupActionGroupExecutorOutput) ToAgentAgentActionGroupA
 	}).(AgentAgentActionGroupActionGroupExecutorPtrOutput)
 }
 
+// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+// To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+// Only one of `customControl` or `lambda` can be specified.
+func (o AgentAgentActionGroupActionGroupExecutorOutput) CustomControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupActionGroupExecutor) *string { return v.CustomControl }).(pulumi.StringPtrOutput)
+}
+
 // ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+// Only one of `lambda` or `customControl` can be specified.
 func (o AgentAgentActionGroupActionGroupExecutorOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupActionGroupExecutor) *string { return v.Lambda }).(pulumi.StringPtrOutput)
 }
@@ -140,7 +158,20 @@ func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Elem() AgentAgentActi
 	}).(AgentAgentActionGroupActionGroupExecutorOutput)
 }
 
+// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+// To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+// Only one of `customControl` or `lambda` can be specified.
+func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) CustomControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupActionGroupExecutor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomControl
+	}).(pulumi.StringPtrOutput)
+}
+
 // ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+// Only one of `lambda` or `customControl` can be specified.
 func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupActionGroupExecutor) *string {
 		if v == nil {
@@ -152,8 +183,10 @@ func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Lambda() pulumi.Strin
 
 type AgentAgentActionGroupApiSchema struct {
 	// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+	// Only one of `payload` or `s3` can be specified.
 	Payload *string `pulumi:"payload"`
-	// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+	// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+	// Only one of `s3` or `payload` can be specified.
 	S3 *AgentAgentActionGroupApiSchemaS3 `pulumi:"s3"`
 }
 
@@ -170,8 +203,10 @@ type AgentAgentActionGroupApiSchemaInput interface {
 
 type AgentAgentActionGroupApiSchemaArgs struct {
 	// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+	// Only one of `payload` or `s3` can be specified.
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
-	// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+	// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+	// Only one of `s3` or `payload` can be specified.
 	S3 AgentAgentActionGroupApiSchemaS3PtrInput `pulumi:"s3"`
 }
 
@@ -253,11 +288,13 @@ func (o AgentAgentActionGroupApiSchemaOutput) ToAgentAgentActionGroupApiSchemaPt
 }
 
 // JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+// Only one of `payload` or `s3` can be specified.
 func (o AgentAgentActionGroupApiSchemaOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupApiSchema) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
 
-// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+// Only one of `s3` or `payload` can be specified.
 func (o AgentAgentActionGroupApiSchemaOutput) S3() AgentAgentActionGroupApiSchemaS3PtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupApiSchema) *AgentAgentActionGroupApiSchemaS3 { return v.S3 }).(AgentAgentActionGroupApiSchemaS3PtrOutput)
 }
@@ -287,6 +324,7 @@ func (o AgentAgentActionGroupApiSchemaPtrOutput) Elem() AgentAgentActionGroupApi
 }
 
 // JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+// Only one of `payload` or `s3` can be specified.
 func (o AgentAgentActionGroupApiSchemaPtrOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupApiSchema) *string {
 		if v == nil {
@@ -296,7 +334,8 @@ func (o AgentAgentActionGroupApiSchemaPtrOutput) Payload() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+// Only one of `s3` or `payload` can be specified.
 func (o AgentAgentActionGroupApiSchemaPtrOutput) S3() AgentAgentActionGroupApiSchemaS3PtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupApiSchema) *AgentAgentActionGroupApiSchemaS3 {
 		if v == nil {
@@ -462,9 +501,548 @@ func (o AgentAgentActionGroupApiSchemaS3PtrOutput) S3ObjectKey() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type AgentAgentActionGroupFunctionSchema struct {
+	// Contains a list of functions.
+	// Each function describes and action in the action group.
+	// See `memberFunctions` Block for details.
+	MemberFunctions *AgentAgentActionGroupFunctionSchemaMemberFunctions `pulumi:"memberFunctions"`
+}
+
+// AgentAgentActionGroupFunctionSchemaInput is an input type that accepts AgentAgentActionGroupFunctionSchemaArgs and AgentAgentActionGroupFunctionSchemaOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupFunctionSchemaInput` via:
+//
+//	AgentAgentActionGroupFunctionSchemaArgs{...}
+type AgentAgentActionGroupFunctionSchemaInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupFunctionSchemaOutput() AgentAgentActionGroupFunctionSchemaOutput
+	ToAgentAgentActionGroupFunctionSchemaOutputWithContext(context.Context) AgentAgentActionGroupFunctionSchemaOutput
+}
+
+type AgentAgentActionGroupFunctionSchemaArgs struct {
+	// Contains a list of functions.
+	// Each function describes and action in the action group.
+	// See `memberFunctions` Block for details.
+	MemberFunctions AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrInput `pulumi:"memberFunctions"`
+}
+
+func (AgentAgentActionGroupFunctionSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupFunctionSchema)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupFunctionSchemaArgs) ToAgentAgentActionGroupFunctionSchemaOutput() AgentAgentActionGroupFunctionSchemaOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupFunctionSchemaArgs) ToAgentAgentActionGroupFunctionSchemaOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaOutput)
+}
+
+func (i AgentAgentActionGroupFunctionSchemaArgs) ToAgentAgentActionGroupFunctionSchemaPtrOutput() AgentAgentActionGroupFunctionSchemaPtrOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupFunctionSchemaArgs) ToAgentAgentActionGroupFunctionSchemaPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaOutput).ToAgentAgentActionGroupFunctionSchemaPtrOutputWithContext(ctx)
+}
+
+// AgentAgentActionGroupFunctionSchemaPtrInput is an input type that accepts AgentAgentActionGroupFunctionSchemaArgs, AgentAgentActionGroupFunctionSchemaPtr and AgentAgentActionGroupFunctionSchemaPtrOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupFunctionSchemaPtrInput` via:
+//
+//	        AgentAgentActionGroupFunctionSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentActionGroupFunctionSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupFunctionSchemaPtrOutput() AgentAgentActionGroupFunctionSchemaPtrOutput
+	ToAgentAgentActionGroupFunctionSchemaPtrOutputWithContext(context.Context) AgentAgentActionGroupFunctionSchemaPtrOutput
+}
+
+type agentAgentActionGroupFunctionSchemaPtrType AgentAgentActionGroupFunctionSchemaArgs
+
+func AgentAgentActionGroupFunctionSchemaPtr(v *AgentAgentActionGroupFunctionSchemaArgs) AgentAgentActionGroupFunctionSchemaPtrInput {
+	return (*agentAgentActionGroupFunctionSchemaPtrType)(v)
+}
+
+func (*agentAgentActionGroupFunctionSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupFunctionSchema)(nil)).Elem()
+}
+
+func (i *agentAgentActionGroupFunctionSchemaPtrType) ToAgentAgentActionGroupFunctionSchemaPtrOutput() AgentAgentActionGroupFunctionSchemaPtrOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentActionGroupFunctionSchemaPtrType) ToAgentAgentActionGroupFunctionSchemaPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaPtrOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupFunctionSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupFunctionSchema)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupFunctionSchemaOutput) ToAgentAgentActionGroupFunctionSchemaOutput() AgentAgentActionGroupFunctionSchemaOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaOutput) ToAgentAgentActionGroupFunctionSchemaOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaOutput) ToAgentAgentActionGroupFunctionSchemaPtrOutput() AgentAgentActionGroupFunctionSchemaPtrOutput {
+	return o.ToAgentAgentActionGroupFunctionSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentActionGroupFunctionSchemaOutput) ToAgentAgentActionGroupFunctionSchemaPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentActionGroupFunctionSchema) *AgentAgentActionGroupFunctionSchema {
+		return &v
+	}).(AgentAgentActionGroupFunctionSchemaPtrOutput)
+}
+
+// Contains a list of functions.
+// Each function describes and action in the action group.
+// See `memberFunctions` Block for details.
+func (o AgentAgentActionGroupFunctionSchemaOutput) MemberFunctions() AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchema) *AgentAgentActionGroupFunctionSchemaMemberFunctions {
+		return v.MemberFunctions
+	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupFunctionSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupFunctionSchema)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupFunctionSchemaPtrOutput) ToAgentAgentActionGroupFunctionSchemaPtrOutput() AgentAgentActionGroupFunctionSchemaPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaPtrOutput) ToAgentAgentActionGroupFunctionSchemaPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaPtrOutput) Elem() AgentAgentActionGroupFunctionSchemaOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupFunctionSchema) AgentAgentActionGroupFunctionSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentActionGroupFunctionSchema
+		return ret
+	}).(AgentAgentActionGroupFunctionSchemaOutput)
+}
+
+// Contains a list of functions.
+// Each function describes and action in the action group.
+// See `memberFunctions` Block for details.
+func (o AgentAgentActionGroupFunctionSchemaPtrOutput) MemberFunctions() AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupFunctionSchema) *AgentAgentActionGroupFunctionSchemaMemberFunctions {
+		if v == nil {
+			return nil
+		}
+		return v.MemberFunctions
+	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctions struct {
+	// Functions that each define an action in the action group. See `functions` Block for details.
+	Functions []AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction `pulumi:"functions"`
+}
+
+// AgentAgentActionGroupFunctionSchemaMemberFunctionsInput is an input type that accepts AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs and AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupFunctionSchemaMemberFunctionsInput` via:
+//
+//	AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs{...}
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsOutputWithContext(context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs struct {
+	// Functions that each define an action in the action group. See `functions` Block for details.
+	Functions AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayInput `pulumi:"functions"`
+}
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctions)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaMemberFunctionsOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput)
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput).ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutputWithContext(ctx)
+}
+
+// AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrInput is an input type that accepts AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs, AgentAgentActionGroupFunctionSchemaMemberFunctionsPtr and AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrInput` via:
+//
+//	        AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutputWithContext(context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput
+}
+
+type agentAgentActionGroupFunctionSchemaMemberFunctionsPtrType AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs
+
+func AgentAgentActionGroupFunctionSchemaMemberFunctionsPtr(v *AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs) AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrInput {
+	return (*agentAgentActionGroupFunctionSchemaMemberFunctionsPtrType)(v)
+}
+
+func (*agentAgentActionGroupFunctionSchemaMemberFunctionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupFunctionSchemaMemberFunctions)(nil)).Elem()
+}
+
+func (i *agentAgentActionGroupFunctionSchemaMemberFunctionsPtrType) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentActionGroupFunctionSchemaMemberFunctionsPtrType) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctions)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return o.ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentActionGroupFunctionSchemaMemberFunctions) *AgentAgentActionGroupFunctionSchemaMemberFunctions {
+		return &v
+	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput)
+}
+
+// Functions that each define an action in the action group. See `functions` Block for details.
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput) Functions() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchemaMemberFunctions) []AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction {
+		return v.Functions
+	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupFunctionSchemaMemberFunctions)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput) Elem() AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupFunctionSchemaMemberFunctions) AgentAgentActionGroupFunctionSchemaMemberFunctions {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentActionGroupFunctionSchemaMemberFunctions
+		return ret
+	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput)
+}
+
+// Functions that each define an action in the action group. See `functions` Block for details.
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput) Functions() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupFunctionSchemaMemberFunctions) []AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction {
+		if v == nil {
+			return nil
+		}
+		return v.Functions
+	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction struct {
+	// Description of the function and its purpose.
+	Description *string `pulumi:"description"`
+	// Name for the function.
+	Name string `pulumi:"name"`
+	// Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+	Parameters []AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter `pulumi:"parameters"`
+}
+
+// AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionInput is an input type that accepts AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs and AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionInput` via:
+//
+//	AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs{...}
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutputWithContext(context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs struct {
+	// Description of the function and its purpose.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Name for the function.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+	Parameters AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayInput `pulumi:"parameters"`
+}
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput)
+}
+
+// AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayInput is an input type that accepts AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArray and AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayInput` via:
+//
+//	AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArray{ AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs{...} }
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutputWithContext(context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArray []AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionInput
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArray) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArray) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput {
+	return o
+}
+
+// Description of the function and its purpose.
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name for the function.
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput) Parameters() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction) []AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter {
+		return v.Parameters
+	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput) Index(i pulumi.IntInput) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction {
+		return vs[0].([]AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction)[vs[1].(int)]
+	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter struct {
+	// Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+	Description *string `pulumi:"description"`
+	// Name of the parameter.
+	//
+	// **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+	MapBlockKey string `pulumi:"mapBlockKey"`
+	// Whether the parameter is required for the agent to complete the function for action group invocation.
+	Required *bool `pulumi:"required"`
+	// Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+	Type string `pulumi:"type"`
+}
+
+// AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterInput is an input type that accepts AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs and AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterInput` via:
+//
+//	AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs{...}
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutputWithContext(context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs struct {
+	// Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Name of the parameter.
+	//
+	// **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+	MapBlockKey pulumi.StringInput `pulumi:"mapBlockKey"`
+	// Whether the parameter is required for the agent to complete the function for action group invocation.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput)
+}
+
+// AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayInput is an input type that accepts AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray and AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayInput` via:
+//
+//	AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray{ AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs{...} }
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput
+	ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutputWithContext(context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray []AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterInput
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput {
+	return i.ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput {
+	return o
+}
+
+// Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the parameter.
+//
+// **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput) MapBlockKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter) string {
+		return v.MapBlockKey
+	}).(pulumi.StringOutput)
+}
+
+// Whether the parameter is required for the agent to complete the function for action group invocation.
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+// Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput() AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput) ToAgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutputWithContext(ctx context.Context) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput) Index(i pulumi.IntInput) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter {
+		return vs[0].([]AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter)[vs[1].(int)]
+	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput)
+}
+
 type AgentAgentAliasRoutingConfiguration struct {
 	// Version of the agent with which the alias is associated.
 	AgentVersion string `pulumi:"agentVersion"`
+	// ARN of the Provisioned Throughput assigned to the agent alias.
+	ProvisionedThroughput string `pulumi:"provisionedThroughput"`
 }
 
 // AgentAgentAliasRoutingConfigurationInput is an input type that accepts AgentAgentAliasRoutingConfigurationArgs and AgentAgentAliasRoutingConfigurationOutput values.
@@ -481,6 +1059,8 @@ type AgentAgentAliasRoutingConfigurationInput interface {
 type AgentAgentAliasRoutingConfigurationArgs struct {
 	// Version of the agent with which the alias is associated.
 	AgentVersion pulumi.StringInput `pulumi:"agentVersion"`
+	// ARN of the Provisioned Throughput assigned to the agent alias.
+	ProvisionedThroughput pulumi.StringInput `pulumi:"provisionedThroughput"`
 }
 
 func (AgentAgentAliasRoutingConfigurationArgs) ElementType() reflect.Type {
@@ -537,6 +1117,11 @@ func (o AgentAgentAliasRoutingConfigurationOutput) ToAgentAgentAliasRoutingConfi
 // Version of the agent with which the alias is associated.
 func (o AgentAgentAliasRoutingConfigurationOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentAgentAliasRoutingConfiguration) string { return v.AgentVersion }).(pulumi.StringOutput)
+}
+
+// ARN of the Provisioned Throughput assigned to the agent alias.
+func (o AgentAgentAliasRoutingConfigurationOutput) ProvisionedThroughput() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentAliasRoutingConfiguration) string { return v.ProvisionedThroughput }).(pulumi.StringOutput)
 }
 
 type AgentAgentAliasRoutingConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -737,7 +1322,7 @@ func (o AgentAgentAliasTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 type AgentAgentPromptOverrideConfiguration struct {
 	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
 	OverrideLambda string `pulumi:"overrideLambda"`
-	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
+	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
 	PromptConfigurations []AgentAgentPromptOverrideConfigurationPromptConfiguration `pulumi:"promptConfigurations"`
 }
 
@@ -755,7 +1340,7 @@ type AgentAgentPromptOverrideConfigurationInput interface {
 type AgentAgentPromptOverrideConfigurationArgs struct {
 	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
 	OverrideLambda pulumi.StringInput `pulumi:"overrideLambda"`
-	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
+	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
 	PromptConfigurations AgentAgentPromptOverrideConfigurationPromptConfigurationArrayInput `pulumi:"promptConfigurations"`
 }
 
@@ -815,7 +1400,7 @@ func (o AgentAgentPromptOverrideConfigurationOutput) OverrideLambda() pulumi.Str
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfiguration) string { return v.OverrideLambda }).(pulumi.StringOutput)
 }
 
-// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
+// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
 func (o AgentAgentPromptOverrideConfigurationOutput) PromptConfigurations() AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfiguration) []AgentAgentPromptOverrideConfigurationPromptConfiguration {
 		return v.PromptConfigurations
@@ -845,7 +1430,7 @@ func (o AgentAgentPromptOverrideConfigurationArrayOutput) Index(i pulumi.IntInpu
 type AgentAgentPromptOverrideConfigurationPromptConfiguration struct {
 	// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
 	BasePromptTemplate string `pulumi:"basePromptTemplate"`
-	// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` block for details.
+	// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` Block for details.
 	InferenceConfigurations []AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration `pulumi:"inferenceConfigurations"`
 	// Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
 	ParserMode string `pulumi:"parserMode"`
@@ -871,7 +1456,7 @@ type AgentAgentPromptOverrideConfigurationPromptConfigurationInput interface {
 type AgentAgentPromptOverrideConfigurationPromptConfigurationArgs struct {
 	// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
 	BasePromptTemplate pulumi.StringInput `pulumi:"basePromptTemplate"`
-	// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` block for details.
+	// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` Block for details.
 	InferenceConfigurations AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayInput `pulumi:"inferenceConfigurations"`
 	// Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
 	ParserMode pulumi.StringInput `pulumi:"parserMode"`
@@ -939,7 +1524,7 @@ func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) BaseProm
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) string { return v.BasePromptTemplate }).(pulumi.StringOutput)
 }
 
-// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` block for details.
+// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` Block for details.
 func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) InferenceConfigurations() AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) []AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration {
 		return v.InferenceConfigurations
@@ -1463,9 +2048,12 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) Type() pulumi.StringPtr
 }
 
 type AgentDataSourceDataSourceConfigurationS3Configuration struct {
-	BucketArn            string   `pulumi:"bucketArn"`
-	BucketOwnerAccountId *string  `pulumi:"bucketOwnerAccountId"`
-	InclusionPrefixes    []string `pulumi:"inclusionPrefixes"`
+	// ARN of the bucket that contains the data source.
+	BucketArn string `pulumi:"bucketArn"`
+	// Bucket account owner ID for the S3 bucket.
+	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
+	// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+	InclusionPrefixes []string `pulumi:"inclusionPrefixes"`
 }
 
 // AgentDataSourceDataSourceConfigurationS3ConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationS3ConfigurationArgs and AgentDataSourceDataSourceConfigurationS3ConfigurationOutput values.
@@ -1480,9 +2068,12 @@ type AgentDataSourceDataSourceConfigurationS3ConfigurationInput interface {
 }
 
 type AgentDataSourceDataSourceConfigurationS3ConfigurationArgs struct {
-	BucketArn            pulumi.StringInput      `pulumi:"bucketArn"`
-	BucketOwnerAccountId pulumi.StringPtrInput   `pulumi:"bucketOwnerAccountId"`
-	InclusionPrefixes    pulumi.StringArrayInput `pulumi:"inclusionPrefixes"`
+	// ARN of the bucket that contains the data source.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Bucket account owner ID for the S3 bucket.
+	BucketOwnerAccountId pulumi.StringPtrInput `pulumi:"bucketOwnerAccountId"`
+	// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+	InclusionPrefixes pulumi.StringArrayInput `pulumi:"inclusionPrefixes"`
 }
 
 func (AgentDataSourceDataSourceConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
@@ -1562,14 +2153,17 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationOutput) ToAgentData
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
+// ARN of the bucket that contains the data source.
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
+// Bucket account owner ID for the S3 bucket.
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationS3Configuration) *string { return v.BucketOwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
+// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationOutput) InclusionPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationS3Configuration) []string { return v.InclusionPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -1598,6 +2192,7 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) Elem() A
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationOutput)
 }
 
+// ARN of the bucket that contains the data source.
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationS3Configuration) *string {
 		if v == nil {
@@ -1607,6 +2202,7 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) BucketAr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Bucket account owner ID for the S3 bucket.
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationS3Configuration) *string {
 		if v == nil {
@@ -1616,6 +2212,7 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) BucketOw
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
 func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) InclusionPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationS3Configuration) []string {
 		if v == nil {
@@ -6447,6 +7044,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupApiSchemaPtrInput)(nil)).Elem(), AgentAgentActionGroupApiSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupApiSchemaS3Input)(nil)).Elem(), AgentAgentActionGroupApiSchemaS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupApiSchemaS3PtrInput)(nil)).Elem(), AgentAgentActionGroupApiSchemaS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaPtrInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasRoutingConfigurationInput)(nil)).Elem(), AgentAgentAliasRoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasRoutingConfigurationArrayInput)(nil)).Elem(), AgentAgentAliasRoutingConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasTimeoutsInput)(nil)).Elem(), AgentAgentAliasTimeoutsArgs{})
@@ -6535,6 +7140,14 @@ func init() {
 	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaS3Output{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaS3PtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaMemberFunctionsOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasRoutingConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasRoutingConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasTimeoutsOutput{})

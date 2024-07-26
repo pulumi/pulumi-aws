@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WorkspaceApiKey{}
 	case "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration":
 		r = &WorkspaceSamlConfiguration{}
+	case "aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount":
+		r = &WorkspaceServiceAccount{}
+	case "aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken":
+		r = &WorkspaceServiceAccountToken{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +71,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"grafana/workspaceSamlConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"grafana/workspaceServiceAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"grafana/workspaceServiceAccountToken",
 		&module{version},
 	)
 }

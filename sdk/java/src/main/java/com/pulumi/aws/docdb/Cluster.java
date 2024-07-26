@@ -244,14 +244,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.dbSubnetGroupName;
     }
     /**
-     * A value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     * A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. Defaults to `false`.
      * 
      */
     @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deletionProtection;
 
     /**
-     * @return A value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     * @return A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> deletionProtection() {

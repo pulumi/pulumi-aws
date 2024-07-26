@@ -769,7 +769,6 @@ public final class Ec2Functions {
      *             .capacityDurationHours(24)
      *             .endDateRange("2024-05-30T15:04:05Z")
      *             .instanceCount(1)
-     *             .instancePlatform("Linux/UNIX")
      *             .instanceType("p4d.24xlarge")
      *             .startDateRange("2024-04-28T15:04:05Z")
      *             .build());
@@ -816,7 +815,6 @@ public final class Ec2Functions {
      *             .capacityDurationHours(24)
      *             .endDateRange("2024-05-30T15:04:05Z")
      *             .instanceCount(1)
-     *             .instancePlatform("Linux/UNIX")
      *             .instanceType("p4d.24xlarge")
      *             .startDateRange("2024-04-28T15:04:05Z")
      *             .build());
@@ -863,7 +861,6 @@ public final class Ec2Functions {
      *             .capacityDurationHours(24)
      *             .endDateRange("2024-05-30T15:04:05Z")
      *             .instanceCount(1)
-     *             .instancePlatform("Linux/UNIX")
      *             .instanceType("p4d.24xlarge")
      *             .startDateRange("2024-04-28T15:04:05Z")
      *             .build());
@@ -910,7 +907,6 @@ public final class Ec2Functions {
      *             .capacityDurationHours(24)
      *             .endDateRange("2024-05-30T15:04:05Z")
      *             .instanceCount(1)
-     *             .instancePlatform("Linux/UNIX")
      *             .instanceType("p4d.24xlarge")
      *             .startDateRange("2024-04-28T15:04:05Z")
      *             .build());
