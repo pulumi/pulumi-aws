@@ -119,7 +119,7 @@ import (
 //				Description: pulumi.String("Test Contact Flow Description"),
 //				Type:        pulumi.String("CONTACT_FLOW"),
 //				Filename:    pulumi.String("contact_flow.json"),
-//				ContentHash: invokeFilebase64sha256.Result,
+//				ContentHash: pulumi.String(invokeFilebase64sha256.Result),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("Test Contact Flow"),
 //					"Application": pulumi.String("Example"),

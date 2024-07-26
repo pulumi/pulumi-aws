@@ -341,16 +341,16 @@ class ListenerRule(pulumi.CustomResource):
             service_identifier=example_aws_vpclattice_service["id"],
             priority=20,
             match={
-                "httpMatch": {
-                    "headerMatches": [{
+                "http_match": {
+                    "header_matches": [{
                         "name": "example-header",
-                        "caseSensitive": False,
+                        "case_sensitive": False,
                         "match": {
                             "exact": "example-contains",
                         },
                     }],
-                    "pathMatch": {
-                        "caseSensitive": True,
+                    "path_match": {
+                        "case_sensitive": True,
                         "match": {
                             "prefix": "/example-path",
                         },
@@ -359,13 +359,13 @@ class ListenerRule(pulumi.CustomResource):
             },
             action={
                 "forward": {
-                    "targetGroups": [
+                    "target_groups": [
                         {
-                            "targetGroupIdentifier": example["id"],
+                            "target_group_identifier": example["id"],
                             "weight": 1,
                         },
                         {
-                            "targetGroupIdentifier": example2["id"],
+                            "target_group_identifier": example2["id"],
                             "weight": 2,
                         },
                     ],
@@ -385,9 +385,9 @@ class ListenerRule(pulumi.CustomResource):
             service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
             match={
-                "httpMatch": {
-                    "pathMatch": {
-                        "caseSensitive": False,
+                "http_match": {
+                    "path_match": {
+                        "case_sensitive": False,
                         "match": {
                             "exact": "/example-path",
                         },
@@ -395,8 +395,8 @@ class ListenerRule(pulumi.CustomResource):
                 },
             },
             action={
-                "fixedResponse": {
-                    "statusCode": 404,
+                "fixed_response": {
+                    "status_code": 404,
                 },
             })
         ```
@@ -442,16 +442,16 @@ class ListenerRule(pulumi.CustomResource):
             service_identifier=example_aws_vpclattice_service["id"],
             priority=20,
             match={
-                "httpMatch": {
-                    "headerMatches": [{
+                "http_match": {
+                    "header_matches": [{
                         "name": "example-header",
-                        "caseSensitive": False,
+                        "case_sensitive": False,
                         "match": {
                             "exact": "example-contains",
                         },
                     }],
-                    "pathMatch": {
-                        "caseSensitive": True,
+                    "path_match": {
+                        "case_sensitive": True,
                         "match": {
                             "prefix": "/example-path",
                         },
@@ -460,13 +460,13 @@ class ListenerRule(pulumi.CustomResource):
             },
             action={
                 "forward": {
-                    "targetGroups": [
+                    "target_groups": [
                         {
-                            "targetGroupIdentifier": example["id"],
+                            "target_group_identifier": example["id"],
                             "weight": 1,
                         },
                         {
-                            "targetGroupIdentifier": example2["id"],
+                            "target_group_identifier": example2["id"],
                             "weight": 2,
                         },
                     ],
@@ -486,9 +486,9 @@ class ListenerRule(pulumi.CustomResource):
             service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
             match={
-                "httpMatch": {
-                    "pathMatch": {
-                        "caseSensitive": False,
+                "http_match": {
+                    "path_match": {
+                        "case_sensitive": False,
                         "match": {
                             "exact": "/example-path",
                         },
@@ -496,8 +496,8 @@ class ListenerRule(pulumi.CustomResource):
                 },
             },
             action={
-                "fixedResponse": {
-                    "statusCode": 404,
+                "fixed_response": {
+                    "status_code": 404,
                 },
             })
         ```

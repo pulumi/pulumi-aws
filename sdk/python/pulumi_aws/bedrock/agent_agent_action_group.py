@@ -417,7 +417,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
             action_group_executor={
-                "lambda": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
+                "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             api_schema={
                 "payload": std.file(input="path/to/schema.yaml").result,
@@ -436,12 +436,12 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
             action_group_executor={
-                "lambda": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
+                "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             api_schema={
                 "s3": {
-                    "s3BucketName": "example-bucket",
-                    "s3ObjectKey": "path/to/schema.json",
+                    "s3_bucket_name": "example-bucket",
+                    "s3_object_key": "path/to/schema.json",
                 },
             })
         ```
@@ -458,22 +458,22 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
             action_group_executor={
-                "lambda": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
+                "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             function_schema={
-                "memberFunctions": {
+                "member_functions": {
                     "functions": [{
                         "name": "example-function",
                         "description": "Example function",
                         "parameters": [
                             {
-                                "mapBlockKey": "param1",
+                                "map_block_key": "param1",
                                 "type": "string",
                                 "description": "The first parameter",
                                 "required": True,
                             },
                             {
-                                "mapBlockKey": "param2",
+                                "map_block_key": "param2",
                                 "type": "integer",
                                 "description": "The second parameter",
                                 "required": False,
@@ -497,7 +497,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
             action_group_executor={
-                "customControl": "RETURN_CONTROL",
+                "custom_control": "RETURN_CONTROL",
             },
             api_schema={
                 "payload": std.file(input="path/to/schema.yaml").result,
@@ -553,7 +553,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
             action_group_executor={
-                "lambda": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
+                "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             api_schema={
                 "payload": std.file(input="path/to/schema.yaml").result,
@@ -572,12 +572,12 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
             action_group_executor={
-                "lambda": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
+                "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             api_schema={
                 "s3": {
-                    "s3BucketName": "example-bucket",
-                    "s3ObjectKey": "path/to/schema.json",
+                    "s3_bucket_name": "example-bucket",
+                    "s3_object_key": "path/to/schema.json",
                 },
             })
         ```
@@ -594,22 +594,22 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
             action_group_executor={
-                "lambda": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
+                "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             function_schema={
-                "memberFunctions": {
+                "member_functions": {
                     "functions": [{
                         "name": "example-function",
                         "description": "Example function",
                         "parameters": [
                             {
-                                "mapBlockKey": "param1",
+                                "map_block_key": "param1",
                                 "type": "string",
                                 "description": "The first parameter",
                                 "required": True,
                             },
                             {
-                                "mapBlockKey": "param2",
+                                "map_block_key": "param2",
                                 "type": "integer",
                                 "description": "The second parameter",
                                 "required": False,
@@ -633,7 +633,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
             action_group_executor={
-                "customControl": "RETURN_CONTROL",
+                "custom_control": "RETURN_CONTROL",
             },
             api_schema={
                 "payload": std.file(input="path/to/schema.yaml").result,

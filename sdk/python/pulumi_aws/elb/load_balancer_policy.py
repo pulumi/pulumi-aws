@@ -183,11 +183,11 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[{
-                "instancePort": 443,
-                "instanceProtocol": "http",
-                "lbPort": 443,
-                "lbProtocol": "https",
-                "sslCertificateId": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+                "instance_port": 443,
+                "instance_protocol": "http",
+                "lb_port": 443,
+                "lb_protocol": "https",
+                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
             }],
             tags={
                 "Name": "wu-tang",
@@ -267,11 +267,11 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             name="wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[{
-                "instancePort": 443,
-                "instanceProtocol": "http",
-                "lbPort": 443,
-                "lbProtocol": "https",
-                "sslCertificateId": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+                "instance_port": 443,
+                "instance_protocol": "http",
+                "lb_port": 443,
+                "lb_protocol": "https",
+                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
             }],
             tags={
                 "Name": "wu-tang",

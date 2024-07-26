@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLogging {
     /**
-     * @return The name of the bucket that will receive the log objects.
+     * @return Name of the bucket that will receive the log objects.
      * 
      */
     private String targetBucket;
@@ -25,7 +25,7 @@ public final class BucketLogging {
 
     private BucketLogging() {}
     /**
-     * @return The name of the bucket that will receive the log objects.
+     * @return Name of the bucket that will receive the log objects.
      * 
      */
     public String targetBucket() {

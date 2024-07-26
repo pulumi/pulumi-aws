@@ -119,9 +119,9 @@ import (
 //			}, nil)
 //			replicationPolicy, err := iam.NewPolicy(ctx, "replication", &iam.PolicyArgs{
 //				Name: pulumi.String("tf-iam-role-policy-replication-12345"),
-//				Policy: replication.ApplyT(func(replication iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(replication.ApplyT(func(replication iam.GetPolicyDocumentResult) (*string, error) {
 //					return &replication.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

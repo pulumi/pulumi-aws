@@ -4595,9 +4595,9 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput) Index(i p
 
 type GetJobDefinitionEksPropertyPodPropertyContainerResource struct {
 	// The type and quantity of the resources to reserve for the container.
-	Limits map[string]interface{} `pulumi:"limits"`
+	Limits map[string]string `pulumi:"limits"`
 	// The type and quantity of the resources to request for the container.
-	Requests map[string]interface{} `pulumi:"requests"`
+	Requests map[string]string `pulumi:"requests"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyContainerResourceInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs and GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput values.
@@ -4613,9 +4613,9 @@ type GetJobDefinitionEksPropertyPodPropertyContainerResourceInput interface {
 
 type GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs struct {
 	// The type and quantity of the resources to reserve for the container.
-	Limits pulumi.MapInput `pulumi:"limits"`
+	Limits pulumi.StringMapInput `pulumi:"limits"`
 	// The type and quantity of the resources to request for the container.
-	Requests pulumi.MapInput `pulumi:"requests"`
+	Requests pulumi.StringMapInput `pulumi:"requests"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs) ElementType() reflect.Type {
@@ -4670,17 +4670,13 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) ToGetJobD
 }
 
 // The type and quantity of the resources to reserve for the container.
-func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) Limits() pulumi.MapOutput {
-	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerResource) map[string]interface{} {
-		return v.Limits
-	}).(pulumi.MapOutput)
+func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerResource) map[string]string { return v.Limits }).(pulumi.StringMapOutput)
 }
 
 // The type and quantity of the resources to request for the container.
-func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) Requests() pulumi.MapOutput {
-	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerResource) map[string]interface{} {
-		return v.Requests
-	}).(pulumi.MapOutput)
+func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerResource) map[string]string { return v.Requests }).(pulumi.StringMapOutput)
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput struct{ *pulumi.OutputState }
@@ -4952,7 +4948,7 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput) I
 
 type GetJobDefinitionEksPropertyPodPropertyMetadata struct {
 	// Key-value pairs used to identify, sort, and organize cube resources.
-	Labels map[string]interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyMetadataInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyMetadataArgs and GetJobDefinitionEksPropertyPodPropertyMetadataOutput values.
@@ -4968,7 +4964,7 @@ type GetJobDefinitionEksPropertyPodPropertyMetadataInput interface {
 
 type GetJobDefinitionEksPropertyPodPropertyMetadataArgs struct {
 	// Key-value pairs used to identify, sort, and organize cube resources.
-	Labels pulumi.MapInput `pulumi:"labels"`
+	Labels pulumi.StringMapInput `pulumi:"labels"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyMetadataArgs) ElementType() reflect.Type {
@@ -5023,8 +5019,8 @@ func (o GetJobDefinitionEksPropertyPodPropertyMetadataOutput) ToGetJobDefinition
 }
 
 // Key-value pairs used to identify, sort, and organize cube resources.
-func (o GetJobDefinitionEksPropertyPodPropertyMetadataOutput) Labels() pulumi.MapOutput {
-	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyMetadata) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+func (o GetJobDefinitionEksPropertyPodPropertyMetadataOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyMetadata) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 type GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput struct{ *pulumi.OutputState }
@@ -6696,7 +6692,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration stru
 	// The log driver to use for the container.
 	LogDriver string `pulumi:"logDriver"`
 	// The configuration options to send to the log driver.
-	Options map[string]interface{} `pulumi:"options"`
+	Options map[string]string `pulumi:"options"`
 	// The secrets to pass to the log configuration.
 	SecretOptions []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption `pulumi:"secretOptions"`
 }
@@ -6716,7 +6712,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs 
 	// The log driver to use for the container.
 	LogDriver pulumi.StringInput `pulumi:"logDriver"`
 	// The configuration options to send to the log driver.
-	Options pulumi.MapInput `pulumi:"options"`
+	Options pulumi.StringMapInput `pulumi:"options"`
 	// The secrets to pass to the log configuration.
 	SecretOptions GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayInput `pulumi:"secretOptions"`
 }
@@ -6780,10 +6776,10 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOu
 }
 
 // The configuration options to send to the log driver.
-func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration) map[string]interface{} {
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration) map[string]string {
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The secrets to pass to the log configuration.

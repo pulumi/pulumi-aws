@@ -350,10 +350,10 @@ class ResolverEndpoint(pulumi.CustomResource):
             ],
             ip_addresses=[
                 {
-                    "subnetId": sn1["id"],
+                    "subnet_id": sn1["id"],
                 },
                 {
-                    "subnetId": sn2["id"],
+                    "subnet_id": sn2["id"],
                     "ip": "10.0.64.4",
                 },
             ],
@@ -411,10 +411,10 @@ class ResolverEndpoint(pulumi.CustomResource):
             ],
             ip_addresses=[
                 {
-                    "subnetId": sn1["id"],
+                    "subnet_id": sn1["id"],
                 },
                 {
-                    "subnetId": sn2["id"],
+                    "subnet_id": sn2["id"],
                     "ip": "10.0.64.4",
                 },
             ],

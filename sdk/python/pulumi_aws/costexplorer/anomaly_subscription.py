@@ -330,7 +330,7 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                    "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                    "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
             })
@@ -355,7 +355,7 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-                    "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                    "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
             })
@@ -380,14 +380,14 @@ class AnomalySubscription(pulumi.CustomResource):
                     {
                         "dimension": {
                             "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                            "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                            "match_options": ["GREATER_THAN_OR_EQUAL"],
                             "values": ["100"],
                         },
                     },
                     {
                         "dimension": {
                             "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-                            "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                            "match_options": ["GREATER_THAN_OR_EQUAL"],
                             "values": ["50"],
                         },
                     },
@@ -508,7 +508,7 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                    "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                    "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
             })
@@ -533,7 +533,7 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-                    "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                    "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
             })
@@ -558,14 +558,14 @@ class AnomalySubscription(pulumi.CustomResource):
                     {
                         "dimension": {
                             "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                            "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                            "match_options": ["GREATER_THAN_OR_EQUAL"],
                             "values": ["100"],
                         },
                     },
                     {
                         "dimension": {
                             "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-                            "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                            "match_options": ["GREATER_THAN_OR_EQUAL"],
                             "values": ["50"],
                         },
                     },

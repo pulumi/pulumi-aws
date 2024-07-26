@@ -232,9 +232,9 @@ class DeploymentConfig(pulumi.CustomResource):
                 "value": "filtervalue",
             }],
             trigger_configurations=[{
-                "triggerEvents": ["DeploymentFailure"],
-                "triggerName": "foo-trigger",
-                "triggerTargetArn": "foo-topic-arn",
+                "trigger_events": ["DeploymentFailure"],
+                "trigger_name": "foo-trigger",
+                "trigger_target_arn": "foo-topic-arn",
             }],
             auto_rollback_configuration={
                 "enabled": True,
@@ -257,7 +257,7 @@ class DeploymentConfig(pulumi.CustomResource):
             compute_platform="Lambda",
             traffic_routing_config={
                 "type": "TimeBasedLinear",
-                "timeBasedLinear": {
+                "time_based_linear": {
                     "interval": 10,
                     "percentage": 10,
                 },
@@ -326,9 +326,9 @@ class DeploymentConfig(pulumi.CustomResource):
                 "value": "filtervalue",
             }],
             trigger_configurations=[{
-                "triggerEvents": ["DeploymentFailure"],
-                "triggerName": "foo-trigger",
-                "triggerTargetArn": "foo-topic-arn",
+                "trigger_events": ["DeploymentFailure"],
+                "trigger_name": "foo-trigger",
+                "trigger_target_arn": "foo-topic-arn",
             }],
             auto_rollback_configuration={
                 "enabled": True,
@@ -351,7 +351,7 @@ class DeploymentConfig(pulumi.CustomResource):
             compute_platform="Lambda",
             traffic_routing_config={
                 "type": "TimeBasedLinear",
-                "timeBasedLinear": {
+                "time_based_linear": {
                     "interval": 10,
                     "percentage": 10,
                 },

@@ -135,10 +135,10 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         configuration = aws.ecr.RegistryScanningConfiguration("configuration",
             scan_type="ENHANCED",
             rules=[{
-                "scanFrequency": "CONTINUOUS_SCAN",
-                "repositoryFilters": [{
+                "scan_frequency": "CONTINUOUS_SCAN",
+                "repository_filters": [{
                     "filter": "example",
-                    "filterType": "WILDCARD",
+                    "filter_type": "WILDCARD",
                 }],
             }])
         ```
@@ -153,17 +153,17 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
             scan_type="ENHANCED",
             rules=[
                 {
-                    "scanFrequency": "SCAN_ON_PUSH",
-                    "repositoryFilters": [{
+                    "scan_frequency": "SCAN_ON_PUSH",
+                    "repository_filters": [{
                         "filter": "*",
-                        "filterType": "WILDCARD",
+                        "filter_type": "WILDCARD",
                     }],
                 },
                 {
-                    "scanFrequency": "CONTINUOUS_SCAN",
-                    "repositoryFilters": [{
+                    "scan_frequency": "CONTINUOUS_SCAN",
+                    "repository_filters": [{
                         "filter": "example",
-                        "filterType": "WILDCARD",
+                        "filter_type": "WILDCARD",
                     }],
                 },
             ])
@@ -202,10 +202,10 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         configuration = aws.ecr.RegistryScanningConfiguration("configuration",
             scan_type="ENHANCED",
             rules=[{
-                "scanFrequency": "CONTINUOUS_SCAN",
-                "repositoryFilters": [{
+                "scan_frequency": "CONTINUOUS_SCAN",
+                "repository_filters": [{
                     "filter": "example",
-                    "filterType": "WILDCARD",
+                    "filter_type": "WILDCARD",
                 }],
             }])
         ```
@@ -220,17 +220,17 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
             scan_type="ENHANCED",
             rules=[
                 {
-                    "scanFrequency": "SCAN_ON_PUSH",
-                    "repositoryFilters": [{
+                    "scan_frequency": "SCAN_ON_PUSH",
+                    "repository_filters": [{
                         "filter": "*",
-                        "filterType": "WILDCARD",
+                        "filter_type": "WILDCARD",
                     }],
                 },
                 {
-                    "scanFrequency": "CONTINUOUS_SCAN",
-                    "repositoryFilters": [{
+                    "scan_frequency": "CONTINUOUS_SCAN",
+                    "repository_filters": [{
                         "filter": "example",
-                        "filterType": "WILDCARD",
+                        "filter_type": "WILDCARD",
                     }],
                 },
             ])

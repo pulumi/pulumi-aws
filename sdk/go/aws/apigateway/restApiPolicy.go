@@ -71,9 +71,9 @@ import (
 //			}, nil)
 //			_, err = apigateway.NewRestApiPolicy(ctx, "test", &apigateway.RestApiPolicyArgs{
 //				RestApiId: testRestApi.ID(),
-//				Policy: test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
 //					return &test.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

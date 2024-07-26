@@ -215,8 +215,8 @@ class ResourceServer(pulumi.CustomResource):
             identifier="https://example.com",
             name="example",
             scopes=[{
-                "scopeName": "sample-scope",
-                "scopeDescription": "a Sample Scope Description",
+                "scope_name": "sample-scope",
+                "scope_description": "a Sample Scope Description",
             }],
             user_pool_id=pool.id)
         ```
@@ -271,8 +271,8 @@ class ResourceServer(pulumi.CustomResource):
             identifier="https://example.com",
             name="example",
             scopes=[{
-                "scopeName": "sample-scope",
-                "scopeDescription": "a Sample Scope Description",
+                "scope_name": "sample-scope",
+                "scope_description": "a Sample Scope Description",
             }],
             user_pool_id=pool.id)
         ```

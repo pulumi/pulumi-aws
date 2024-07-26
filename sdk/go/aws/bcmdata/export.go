@@ -35,12 +35,12 @@ import (
 //					DataQueries: bcmdata.ExportExportDataQueryArray{
 //						&bcmdata.ExportExportDataQueryArgs{
 //							QueryStatement: pulumi.String("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT"),
-//							TableConfigurations: pulumi.MapMap{
-//								"COST_AND_USAGE_REPORT": pulumi.Map{
-//									"TIME_GRANULARITY":                      pulumi.Any("HOURLY"),
-//									"INCLUDE_RESOURCES":                     pulumi.Any("FALSE"),
-//									"INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY": pulumi.Any("FALSE"),
-//									"INCLUDE_SPLIT_COST_ALLOCATION_DATA":    pulumi.Any("FALSE"),
+//							TableConfigurations: pulumi.StringMapMap{
+//								"COST_AND_USAGE_REPORT": pulumi.StringMap{
+//									"TIME_GRANULARITY":                      pulumi.String("HOURLY"),
+//									"INCLUDE_RESOURCES":                     pulumi.String("FALSE"),
+//									"INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY": pulumi.String("FALSE"),
+//									"INCLUDE_SPLIT_COST_ALLOCATION_DATA":    pulumi.String("FALSE"),
 //								},
 //							},
 //						},

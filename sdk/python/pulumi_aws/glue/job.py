@@ -746,7 +746,7 @@ class Job(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             command={
-                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             })
         ```
 
@@ -763,9 +763,9 @@ class Job(pulumi.CustomResource):
             worker_type="Z.2X",
             command={
                 "name": "glueray",
-                "pythonVersion": "3.9",
+                "python_version": "3.9",
                 "runtime": "Ray2.4",
-                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             })
         ```
 
@@ -779,7 +779,7 @@ class Job(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             command={
-                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
+                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
             },
             default_arguments={
                 "--job-language": "scala",
@@ -797,7 +797,7 @@ class Job(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             command={
                 "name": "gluestreaming",
-                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.script",
+                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.script",
             })
         ```
 
@@ -878,7 +878,7 @@ class Job(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             command={
-                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             })
         ```
 
@@ -895,9 +895,9 @@ class Job(pulumi.CustomResource):
             worker_type="Z.2X",
             command={
                 "name": "glueray",
-                "pythonVersion": "3.9",
+                "python_version": "3.9",
                 "runtime": "Ray2.4",
-                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             })
         ```
 
@@ -911,7 +911,7 @@ class Job(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             command={
-                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
+                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
             },
             default_arguments={
                 "--job-language": "scala",
@@ -929,7 +929,7 @@ class Job(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             command={
                 "name": "gluestreaming",
-                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.script",
+                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.script",
             })
         ```
 

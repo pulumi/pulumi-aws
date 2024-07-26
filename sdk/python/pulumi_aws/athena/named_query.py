@@ -217,10 +217,10 @@ class NamedQuery(pulumi.CustomResource):
         test_workgroup = aws.athena.Workgroup("test",
             name="example",
             configuration={
-                "resultConfiguration": {
-                    "encryptionConfiguration": {
-                        "encryptionOption": "SSE_KMS",
-                        "kmsKeyArn": test.arn,
+                "result_configuration": {
+                    "encryption_configuration": {
+                        "encryption_option": "SSE_KMS",
+                        "kms_key_arn": test.arn,
                     },
                 },
             })
@@ -272,10 +272,10 @@ class NamedQuery(pulumi.CustomResource):
         test_workgroup = aws.athena.Workgroup("test",
             name="example",
             configuration={
-                "resultConfiguration": {
-                    "encryptionConfiguration": {
-                        "encryptionOption": "SSE_KMS",
-                        "kmsKeyArn": test.arn,
+                "result_configuration": {
+                    "encryption_configuration": {
+                        "encryption_option": "SSE_KMS",
+                        "kms_key_arn": test.arn,
                     },
                 },
             })

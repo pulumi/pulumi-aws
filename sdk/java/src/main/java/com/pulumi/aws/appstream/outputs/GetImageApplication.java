@@ -7,7 +7,6 @@ import com.pulumi.aws.appstream.outputs.GetImageApplicationIconS3Location;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -75,7 +74,7 @@ public final class GetImageApplication {
      * * `Name` - Name of the application.
      * 
      */
-    private Map<String,Object> metadata;
+    private Map<String,String> metadata;
     /**
      * @return Name of the image being searched for. Cannot be used with name_regex or arn.
      * 
@@ -176,7 +175,7 @@ public final class GetImageApplication {
      * * `Name` - Name of the application.
      * 
      */
-    public Map<String,Object> metadata() {
+    public Map<String,String> metadata() {
         return this.metadata;
     }
     /**
@@ -222,7 +221,7 @@ public final class GetImageApplication {
         private List<String> instanceFamilies;
         private String launchParameters;
         private String launchPath;
-        private Map<String,Object> metadata;
+        private Map<String,String> metadata;
         private String name;
         private List<String> platforms;
         private String workingDirectory;
@@ -341,7 +340,7 @@ public final class GetImageApplication {
             return this;
         }
         @CustomType.Setter
-        public Builder metadata(Map<String,Object> metadata) {
+        public Builder metadata(Map<String,String> metadata) {
             if (metadata == null) {
               throw new MissingRequiredPropertyException("GetImageApplication", "metadata");
             }

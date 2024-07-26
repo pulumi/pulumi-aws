@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = iam.NewSamlProvider(ctx, "default", &iam.SamlProviderArgs{
 //				Name:                 pulumi.String("myprovider"),
-//				SamlMetadataDocument: invokeFile.Result,
+//				SamlMetadataDocument: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

@@ -251,8 +251,8 @@ class VpcIngressConnection(pulumi.CustomResource):
             name="example",
             service_arn=example_aws_apprunner_service["arn"],
             ingress_vpc_configuration={
-                "vpcId": default["id"],
-                "vpcEndpointId": apprunner["id"],
+                "vpc_id": default["id"],
+                "vpc_endpoint_id": apprunner["id"],
             },
             tags={
                 "foo": "bar",
@@ -293,8 +293,8 @@ class VpcIngressConnection(pulumi.CustomResource):
             name="example",
             service_arn=example_aws_apprunner_service["arn"],
             ingress_vpc_configuration={
-                "vpcId": default["id"],
-                "vpcEndpointId": apprunner["id"],
+                "vpc_id": default["id"],
+                "vpc_endpoint_id": apprunner["id"],
             },
             tags={
                 "foo": "bar",

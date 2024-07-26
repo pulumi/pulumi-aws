@@ -303,8 +303,8 @@ class VirtualService(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "provider": {
-                    "virtualNode": {
-                        "virtualNodeName": serviceb1["name"],
+                    "virtual_node": {
+                        "virtual_node_name": serviceb1["name"],
                     },
                 },
             })
@@ -321,8 +321,8 @@ class VirtualService(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "provider": {
-                    "virtualRouter": {
-                        "virtualRouterName": serviceb["name"],
+                    "virtual_router": {
+                        "virtual_router_name": serviceb["name"],
                     },
                 },
             })
@@ -366,8 +366,8 @@ class VirtualService(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "provider": {
-                    "virtualNode": {
-                        "virtualNodeName": serviceb1["name"],
+                    "virtual_node": {
+                        "virtual_node_name": serviceb1["name"],
                     },
                 },
             })
@@ -384,8 +384,8 @@ class VirtualService(pulumi.CustomResource):
             mesh_name=simple["id"],
             spec={
                 "provider": {
-                    "virtualRouter": {
-                        "virtualRouterName": serviceb["name"],
+                    "virtual_router": {
+                        "virtual_router_name": serviceb["name"],
                     },
                 },
             })

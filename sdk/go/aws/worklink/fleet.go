@@ -57,7 +57,7 @@ import (
 // Network: &worklink.FleetNetworkArgs{
 // VpcId: pulumi.Any(testAwsVpc.Id),
 // SubnetIds: pulumi.StringArray{
-// %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,25-44),
+// pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,25-44)),
 // },
 // SecurityGroupIds: pulumi.StringArray{
 // test.Id,
@@ -97,7 +97,7 @@ import (
 //				Name: pulumi.String("tf-worklink-fleet"),
 //				IdentityProvider: &worklink.FleetIdentityProviderArgs{
 //					Type:         pulumi.String("SAML"),
-//					SamlMetadata: invokeFile.Result,
+//					SamlMetadata: pulumi.String(invokeFile.Result),
 //				},
 //			})
 //			if err != nil {

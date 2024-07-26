@@ -484,9 +484,9 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "firehose-elasticsearch", &iam.RolePolicyArgs{
 //				Name: pulumi.String("elasticsearch"),
 //				Role: pulumi.Any(firehose.Id),
-//				Policy: firehose_elasticsearch.ApplyT(func(firehose_elasticsearch iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(firehose_elasticsearch.ApplyT(func(firehose_elasticsearch iam.GetPolicyDocumentResult) (*string, error) {
 //					return &firehose_elasticsearch.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

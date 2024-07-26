@@ -402,13 +402,13 @@ class Subscriber(pulumi.CustomResource):
             subscriber_name="example-name",
             access_type="S3",
             source={
-                "awsLogSourceResource": {
-                    "sourceName": "ROUTE53",
-                    "sourceVersion": "1.0",
+                "aws_log_source_resource": {
+                    "source_name": "ROUTE53",
+                    "source_version": "1.0",
                 },
             },
             subscriber_identity={
-                "externalId": "example",
+                "external_id": "example",
                 "principal": "1234567890",
             },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
@@ -451,13 +451,13 @@ class Subscriber(pulumi.CustomResource):
             subscriber_name="example-name",
             access_type="S3",
             source={
-                "awsLogSourceResource": {
-                    "sourceName": "ROUTE53",
-                    "sourceVersion": "1.0",
+                "aws_log_source_resource": {
+                    "source_name": "ROUTE53",
+                    "source_version": "1.0",
                 },
             },
             subscriber_identity={
-                "externalId": "example",
+                "external_id": "example",
                 "principal": "1234567890",
             },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))

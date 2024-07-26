@@ -195,8 +195,8 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-//					AvailabilityZone: available.Names[val0],
-//					CidrBlock:        invokeCidrsubnet.Result,
+//					AvailabilityZone: pulumi.String(available.Names[val0]),
+//					CidrBlock:        pulumi.String(invokeCidrsubnet.Result),
 //					VpcId:            pulumi.Any(exampleAwsVpc.Id),
 //				})
 //				if err != nil {

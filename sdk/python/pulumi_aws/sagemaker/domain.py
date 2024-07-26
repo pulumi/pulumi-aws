@@ -583,7 +583,7 @@ class Domain(pulumi.CustomResource):
             vpc_id=example_aws_vpc["id"],
             subnet_ids=[example_aws_subnet["id"]],
             default_user_settings={
-                "executionRole": example_role.arn,
+                "execution_role": example_role.arn,
             })
         ```
 
@@ -646,7 +646,7 @@ class Domain(pulumi.CustomResource):
             vpc_id=example_aws_vpc["id"],
             subnet_ids=[example_aws_subnet["id"]],
             default_user_settings={
-                "executionRole": example_role.arn,
+                "execution_role": example_role.arn,
             })
         ```
 
