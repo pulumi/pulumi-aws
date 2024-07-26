@@ -61,7 +61,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// String to string map that contains additional attributes used to describe the application.
         /// * `Name` - Name of the application.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Metadata;
+        public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
         /// Name of the image being searched for. Cannot be used with name_regex or arn.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.AppStream.Outputs
 
             string launchPath,
 
-            ImmutableDictionary<string, object> metadata,
+            ImmutableDictionary<string, string> metadata,
 
             string name,
 

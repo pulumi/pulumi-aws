@@ -218,9 +218,9 @@ class Application(pulumi.CustomResource):
             name="tf-test-name",
             description="tf-test-desc",
             appversion_lifecycle={
-                "serviceRole": beanstalk_service["arn"],
-                "maxCount": 128,
-                "deleteSourceFromS3": True,
+                "service_role": beanstalk_service["arn"],
+                "max_count": 128,
+                "delete_source_from_s3": True,
             })
         ```
 
@@ -262,9 +262,9 @@ class Application(pulumi.CustomResource):
             name="tf-test-name",
             description="tf-test-desc",
             appversion_lifecycle={
-                "serviceRole": beanstalk_service["arn"],
-                "maxCount": 128,
-                "deleteSourceFromS3": True,
+                "service_role": beanstalk_service["arn"],
+                "max_count": 128,
+                "delete_source_from_s3": True,
             })
         ```
 

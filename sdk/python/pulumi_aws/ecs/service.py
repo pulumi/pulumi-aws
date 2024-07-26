@@ -1049,9 +1049,9 @@ class Service(pulumi.CustomResource):
                 "field": "cpu",
             }],
             load_balancers=[{
-                "targetGroupArn": foo_aws_lb_target_group["arn"],
-                "containerName": "mongo",
-                "containerPort": 8080,
+                "target_group_arn": foo_aws_lb_target_group["arn"],
+                "container_name": "mongo",
+                "container_port": 8080,
             }],
             placement_constraints=[{
                 "type": "memberOf",
@@ -1096,7 +1096,7 @@ class Service(pulumi.CustomResource):
             alarms={
                 "enable": True,
                 "rollback": True,
-                "alarmNames": [example_aws_cloudwatch_metric_alarm["alarmName"]],
+                "alarm_names": [example_aws_cloudwatch_metric_alarm["alarmName"]],
             })
         ```
 
@@ -1201,9 +1201,9 @@ class Service(pulumi.CustomResource):
                 "field": "cpu",
             }],
             load_balancers=[{
-                "targetGroupArn": foo_aws_lb_target_group["arn"],
-                "containerName": "mongo",
-                "containerPort": 8080,
+                "target_group_arn": foo_aws_lb_target_group["arn"],
+                "container_name": "mongo",
+                "container_port": 8080,
             }],
             placement_constraints=[{
                 "type": "memberOf",
@@ -1248,7 +1248,7 @@ class Service(pulumi.CustomResource):
             alarms={
                 "enable": True,
                 "rollback": True,
-                "alarmNames": [example_aws_cloudwatch_metric_alarm["alarmName"]],
+                "alarm_names": [example_aws_cloudwatch_metric_alarm["alarmName"]],
             })
         ```
 

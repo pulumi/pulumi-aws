@@ -148,7 +148,7 @@ class ResourceDataSync(pulumi.CustomResource):
         foo = aws.ssm.ResourceDataSync("foo",
             name="foo",
             s3_destination={
-                "bucketName": hoge_bucket_v2.bucket,
+                "bucket_name": hoge_bucket_v2.bucket,
                 "region": hoge_bucket_v2.region,
             })
         ```
@@ -215,7 +215,7 @@ class ResourceDataSync(pulumi.CustomResource):
         foo = aws.ssm.ResourceDataSync("foo",
             name="foo",
             s3_destination={
-                "bucketName": hoge_bucket_v2.bucket,
+                "bucket_name": hoge_bucket_v2.bucket,
                 "region": hoge_bucket_v2.region,
             })
         ```

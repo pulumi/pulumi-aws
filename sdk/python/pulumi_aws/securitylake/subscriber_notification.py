@@ -155,7 +155,7 @@ class SubscriberNotification(pulumi.CustomResource):
         example = aws.securitylake.SubscriberNotification("example",
             subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
-                "sqsNotificationConfiguration": {},
+                "sqs_notification_configuration": {},
             })
         ```
 
@@ -168,9 +168,9 @@ class SubscriberNotification(pulumi.CustomResource):
         example = aws.securitylake.SubscriberNotification("example",
             subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
-                "httpsNotificationConfiguration": {
+                "https_notification_configuration": {
                     "endpoint": test["apiEndpoint"],
-                    "targetRoleArn": event_bridge["arn"],
+                    "target_role_arn": event_bridge["arn"],
                 },
             })
         ```
@@ -200,7 +200,7 @@ class SubscriberNotification(pulumi.CustomResource):
         example = aws.securitylake.SubscriberNotification("example",
             subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
-                "sqsNotificationConfiguration": {},
+                "sqs_notification_configuration": {},
             })
         ```
 
@@ -213,9 +213,9 @@ class SubscriberNotification(pulumi.CustomResource):
         example = aws.securitylake.SubscriberNotification("example",
             subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
-                "httpsNotificationConfiguration": {
+                "https_notification_configuration": {
                     "endpoint": test["apiEndpoint"],
-                    "targetRoleArn": event_bridge["arn"],
+                    "target_role_arn": event_bridge["arn"],
                 },
             })
         ```

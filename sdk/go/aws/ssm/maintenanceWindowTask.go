@@ -106,7 +106,7 @@ import (
 //				},
 //				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
 //					LambdaParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs{
-//						ClientContext: invokeBase64encode.Result,
+//						ClientContext: pulumi.String(invokeBase64encode.Result),
 //						Payload:       pulumi.String("{\"key1\":\"value1\"}"),
 //					},
 //				},

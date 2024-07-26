@@ -301,17 +301,17 @@ class ConnectorProfile(pulumi.CustomResource):
             connector_type="Redshift",
             connection_mode="Public",
             connector_profile_config={
-                "connectorProfileCredentials": {
+                "connector_profile_credentials": {
                     "redshift": {
                         "password": example_cluster.master_password,
                         "username": example_cluster.master_username,
                     },
                 },
-                "connectorProfileProperties": {
+                "connector_profile_properties": {
                     "redshift": {
-                        "bucketName": example_bucket_v2.name,
-                        "databaseUrl": pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
-                        "roleArn": example_role.arn,
+                        "bucket_name": example_bucket_v2.name,
+                        "database_url": pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                        "role_arn": example_role.arn,
                     },
                 },
             })
@@ -381,17 +381,17 @@ class ConnectorProfile(pulumi.CustomResource):
             connector_type="Redshift",
             connection_mode="Public",
             connector_profile_config={
-                "connectorProfileCredentials": {
+                "connector_profile_credentials": {
                     "redshift": {
                         "password": example_cluster.master_password,
                         "username": example_cluster.master_username,
                     },
                 },
-                "connectorProfileProperties": {
+                "connector_profile_properties": {
                     "redshift": {
-                        "bucketName": example_bucket_v2.name,
-                        "databaseUrl": pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
-                        "roleArn": example_role.arn,
+                        "bucket_name": example_bucket_v2.name,
+                        "database_url": pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                        "role_arn": example_role.arn,
                     },
                 },
             })

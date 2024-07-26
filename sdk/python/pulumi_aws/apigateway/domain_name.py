@@ -646,9 +646,9 @@ class DomainName(pulumi.CustomResource):
             type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["id"],
             aliases=[{
-                "evaluateTargetHealth": True,
+                "evaluate_target_health": True,
                 "name": example.cloudfront_domain_name,
-                "zoneId": example.cloudfront_zone_id,
+                "zone_id": example.cloudfront_zone_id,
             }])
         ```
 
@@ -671,9 +671,9 @@ class DomainName(pulumi.CustomResource):
             type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["id"],
             aliases=[{
-                "evaluateTargetHealth": True,
+                "evaluate_target_health": True,
                 "name": example.regional_domain_name,
-                "zoneId": example.regional_zone_id,
+                "zone_id": example.regional_zone_id,
             }])
         ```
 
@@ -757,9 +757,9 @@ class DomainName(pulumi.CustomResource):
             type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["id"],
             aliases=[{
-                "evaluateTargetHealth": True,
+                "evaluate_target_health": True,
                 "name": example.cloudfront_domain_name,
-                "zoneId": example.cloudfront_zone_id,
+                "zone_id": example.cloudfront_zone_id,
             }])
         ```
 
@@ -782,9 +782,9 @@ class DomainName(pulumi.CustomResource):
             type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["id"],
             aliases=[{
-                "evaluateTargetHealth": True,
+                "evaluate_target_health": True,
                 "name": example.regional_domain_name,
-                "zoneId": example.regional_zone_id,
+                "zone_id": example.regional_zone_id,
             }])
         ```
 

@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = ivs.NewPlaybackKeyPair(ctx, "example", &ivs.PlaybackKeyPairArgs{
-//				PublicKey: invokeFile.Result,
+//				PublicKey: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

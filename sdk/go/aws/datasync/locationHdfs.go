@@ -91,8 +91,8 @@ import (
 //					},
 //				},
 //				KerberosPrincipal:    pulumi.String("user@example.com"),
-//				KerberosKeytabBase64: invokeFilebase64.Result,
-//				KerberosKrb5Conf:     invokeFile1.Result,
+//				KerberosKeytabBase64: pulumi.String(invokeFilebase64.Result),
+//				KerberosKrb5Conf:     pulumi.String(invokeFile1.Result),
 //			})
 //			if err != nil {
 //				return err

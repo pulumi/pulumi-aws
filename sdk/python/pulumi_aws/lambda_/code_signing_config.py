@@ -199,13 +199,13 @@ class CodeSigningConfig(pulumi.CustomResource):
 
         new_csc = aws.lambda_.CodeSigningConfig("new_csc",
             allowed_publishers={
-                "signingProfileVersionArns": [
+                "signing_profile_version_arns": [
                     example1["arn"],
                     example2["arn"],
                 ],
             },
             policies={
-                "untrustedArtifactOnDeployment": "Warn",
+                "untrusted_artifact_on_deployment": "Warn",
             },
             description="My awesome code signing config.")
         ```
@@ -243,13 +243,13 @@ class CodeSigningConfig(pulumi.CustomResource):
 
         new_csc = aws.lambda_.CodeSigningConfig("new_csc",
             allowed_publishers={
-                "signingProfileVersionArns": [
+                "signing_profile_version_arns": [
                     example1["arn"],
                     example2["arn"],
                 ],
             },
             policies={
-                "untrustedArtifactOnDeployment": "Warn",
+                "untrusted_artifact_on_deployment": "Warn",
             },
             description="My awesome code signing config.")
         ```

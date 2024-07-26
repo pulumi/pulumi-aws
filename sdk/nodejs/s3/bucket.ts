@@ -13,21 +13,20 @@ import {RoutingRule} from "./index";
 /**
  * Provides a S3 bucket resource.
  *
- * > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws.s3control.Bucket` resource.
+ * > This resource provides functionality for managing S3 general purpose buckets in an AWS Partition. To manage Amazon S3 Express directory buckets, use the `awsDirectoryBucket` resource. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), use the `aws.s3control.Bucket` resource.
  *
- * > **NOTE:** This resource might not work well if using an alternative s3-compatible provider. Please use `aws.s3.BucketV2` instead.
+ * > Object Lock can be enabled by using the `objectLockEnable` attribute or by using the `aws.s3.BucketObjectLockConfigurationV2` resource. Please note, that by using the resource, Object Lock can be enabled/disabled without destroying and recreating the bucket.
  *
  * ## Example Usage
  *
- * ### Private Bucket w/ Tags
+ * ### Private Bucket With Tags
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const b = new aws.s3.Bucket("b", {
+ * const example = new aws.s3.BucketV2("example", {
  *     bucket: "my-tf-test-bucket",
- *     acl: aws.s3.CannedAcl.Private,
  *     tags: {
  *         Name: "My bucket",
  *         Environment: "Dev",
@@ -35,323 +34,13 @@ import {RoutingRule} from "./index";
  * });
  * ```
  *
- * ### Static Website Hosting
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const b = new aws.s3.Bucket("b", {
- *     bucket: "s3-website-test.mydomain.com",
- *     acl: aws.s3.CannedAcl.PublicRead,
- *     policy: std.file({
- *         input: "policy.json",
- *     }).then(invoke => invoke.result),
- *     website: {
- *         indexDocument: "index.html",
- *         errorDocument: "error.html",
- *         routingRules: `[{
- *     "Condition": {
- *         "KeyPrefixEquals": "docs/"
- *     },
- *     "Redirect": {
- *         "ReplaceKeyPrefixWith": "documents/"
- *     }
- * }]
- * `,
- *     },
- * });
- * ```
- *
- * ### Using CORS
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const b = new aws.s3.Bucket("b", {
- *     bucket: "s3-website-test.mydomain.com",
- *     acl: aws.s3.CannedAcl.PublicRead,
- *     corsRules: [{
- *         allowedHeaders: ["*"],
- *         allowedMethods: [
- *             "PUT",
- *             "POST",
- *         ],
- *         allowedOrigins: ["https://s3-website-test.mydomain.com"],
- *         exposeHeaders: ["ETag"],
- *         maxAgeSeconds: 3000,
- *     }],
- * });
- * ```
- *
- * ### Using versioning
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const b = new aws.s3.Bucket("b", {
- *     bucket: "my-tf-test-bucket",
- *     acl: aws.s3.CannedAcl.Private,
- *     versioning: {
- *         enabled: true,
- *     },
- * });
- * ```
- *
- * ### Enable Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const logBucket = new aws.s3.Bucket("log_bucket", {
- *     bucket: "my-tf-log-bucket",
- *     acl: aws.s3.CannedAcl.LogDeliveryWrite,
- * });
- * const b = new aws.s3.Bucket("b", {
- *     bucket: "my-tf-test-bucket",
- *     acl: aws.s3.CannedAcl.Private,
- *     loggings: [{
- *         targetBucket: logBucket.id,
- *         targetPrefix: "log/",
- *     }],
- * });
- * ```
- *
- * ### Using object lifecycle
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bucket = new aws.s3.Bucket("bucket", {
- *     bucket: "my-bucket",
- *     acl: aws.s3.CannedAcl.Private,
- *     lifecycleRules: [
- *         {
- *             id: "log",
- *             enabled: true,
- *             prefix: "log/",
- *             tags: {
- *                 rule: "log",
- *                 autoclean: "true",
- *             },
- *             transitions: [
- *                 {
- *                     days: 30,
- *                     storageClass: "STANDARD_IA",
- *                 },
- *                 {
- *                     days: 60,
- *                     storageClass: "GLACIER",
- *                 },
- *             ],
- *             expiration: {
- *                 days: 90,
- *             },
- *         },
- *         {
- *             id: "tmp",
- *             prefix: "tmp/",
- *             enabled: true,
- *             expiration: {
- *                 date: "2016-01-12",
- *             },
- *         },
- *     ],
- * });
- * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {
- *     bucket: "my-versioning-bucket",
- *     acl: aws.s3.CannedAcl.Private,
- *     versioning: {
- *         enabled: true,
- *     },
- *     lifecycleRules: [{
- *         prefix: "config/",
- *         enabled: true,
- *         noncurrentVersionTransitions: [
- *             {
- *                 days: 30,
- *                 storageClass: "STANDARD_IA",
- *             },
- *             {
- *                 days: 60,
- *                 storageClass: "GLACIER",
- *             },
- *         ],
- *         noncurrentVersionExpiration: {
- *             days: 90,
- *         },
- *     }],
- * });
- * ```
- *
- * ### Using replication configuration
- *
- * > **NOTE:** See the `aws.s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const replication = new aws.iam.Role("replication", {
- *     name: "tf-iam-role-replication-12345",
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "s3.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const destination = new aws.s3.Bucket("destination", {
- *     bucket: "tf-test-bucket-destination-12345",
- *     versioning: {
- *         enabled: true,
- *     },
- * });
- * const source = new aws.s3.Bucket("source", {
- *     bucket: "tf-test-bucket-source-12345",
- *     acl: aws.s3.CannedAcl.Private,
- *     versioning: {
- *         enabled: true,
- *     },
- *     replicationConfiguration: {
- *         role: replication.arn,
- *         rules: [{
- *             id: "foobar",
- *             status: "Enabled",
- *             filter: {
- *                 tags: {},
- *             },
- *             destination: {
- *                 bucket: destination.arn,
- *                 storageClass: "STANDARD",
- *                 replicationTime: {
- *                     status: "Enabled",
- *                     minutes: 15,
- *                 },
- *                 metrics: {
- *                     status: "Enabled",
- *                     minutes: 15,
- *                 },
- *             },
- *         }],
- *     },
- * });
- * const replicationPolicy = new aws.iam.Policy("replication", {
- *     name: "tf-iam-role-policy-replication-12345",
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "s3:GetReplicationConfiguration",
- *         "s3:ListBucket"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": [
- *         "${source.arn}"
- *       ]
- *     },
- *     {
- *       "Action": [
- *         "s3:GetObjectVersionForReplication",
- *         "s3:GetObjectVersionAcl",
- *          "s3:GetObjectVersionTagging"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": [
- *         "${source.arn}/*"
- *       ]
- *     },
- *     {
- *       "Action": [
- *         "s3:ReplicateObject",
- *         "s3:ReplicateDelete",
- *         "s3:ReplicateTags"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "${destination.arn}/*"
- *     }
- *   ]
- * }
- * `,
- * });
- * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replication", {
- *     role: replication.name,
- *     policyArn: replicationPolicy.arn,
- * });
- * ```
- *
- * ### Enable Default Server Side Encryption
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mykey = new aws.kms.Key("mykey", {
- *     description: "This key is used to encrypt bucket objects",
- *     deletionWindowInDays: 10,
- * });
- * const mybucket = new aws.s3.Bucket("mybucket", {
- *     bucket: "mybucket",
- *     serverSideEncryptionConfiguration: {
- *         rule: {
- *             applyServerSideEncryptionByDefault: {
- *                 kmsMasterKeyId: mykey.arn,
- *                 sseAlgorithm: "aws:kms",
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ### Using ACL policy grants
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentUser = aws.s3.getCanonicalUserId({});
- * const bucket = new aws.s3.Bucket("bucket", {
- *     bucket: "mybucket",
- *     grants: [
- *         {
- *             id: currentUser.then(currentUser => currentUser.id),
- *             type: "CanonicalUser",
- *             permissions: ["FULL_CONTROL"],
- *         },
- *         {
- *             type: "Group",
- *             permissions: [
- *                 "READ_ACP",
- *                 "WRITE",
- *             ],
- *             uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
- * S3 bucket can be imported using the `bucket`, e.g.,
+ * Using `pulumi import`, import S3 bucket using the `bucket`. For example:
  *
  * ```sh
  * $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
  * ```
- * The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
  */
 export class Bucket extends pulumi.CustomResource {
     /**
@@ -382,23 +71,24 @@ export class Bucket extends pulumi.CustomResource {
     }
 
     /**
-     * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
+     * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
      */
     public readonly accelerationStatus!: pulumi.Output<string>;
     /**
-     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      */
     public readonly acl!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+     * ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
     public readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+     * Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */
     public /*out*/ readonly bucketDomainName!: pulumi.Output<string>;
     /**
@@ -406,86 +96,97 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly bucketPrefix!: pulumi.Output<string | undefined>;
     /**
-     * The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+     * The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      */
     public /*out*/ readonly bucketRegionalDomainName!: pulumi.Output<string>;
     /**
-     * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
+     * Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
      */
     public readonly corsRules!: pulumi.Output<outputs.s3.BucketCorsRule[] | undefined>;
     /**
-     * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+     * Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
-     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      */
     public readonly grants!: pulumi.Output<outputs.s3.BucketGrant[] | undefined>;
     /**
-     * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
+     * [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
     public readonly hostedZoneId!: pulumi.Output<string>;
     /**
-     * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
+     * Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
      */
     public readonly lifecycleRules!: pulumi.Output<outputs.s3.BucketLifecycleRule[] | undefined>;
     /**
-     * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
+     * Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketLoggingV2` instead.
      */
     public readonly loggings!: pulumi.Output<outputs.s3.BucketLogging[] | undefined>;
     /**
-     * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-     *
-     * > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
+     * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
+     * The provider wil only perform drift detection if a configuration value is provided.
+     * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      */
     public readonly objectLockConfiguration!: pulumi.Output<outputs.s3.BucketObjectLockConfiguration | undefined>;
     /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
+     * Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+     * The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketPolicy` instead.
      */
     public readonly policy!: pulumi.Output<string | undefined>;
     /**
-     * The AWS region this bucket resides in.
+     * AWS region this bucket resides in.
      */
     public /*out*/ readonly region!: pulumi.Output<string>;
     /**
-     * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
+     * Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketReplicationConfig` instead.
      */
     public readonly replicationConfiguration!: pulumi.Output<outputs.s3.BucketReplicationConfiguration | undefined>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
-     * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
-     * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
-     * developer guide for more information.
+     * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
+     * See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
+     * The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
      */
     public readonly requestPayer!: pulumi.Output<string>;
     /**
-     * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
+     * Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
+     * The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
-     * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following arguments are deprecated, and will be removed in a future major version:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
+     * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      */
     public readonly versioning!: pulumi.Output<outputs.s3.BucketVersioning>;
     /**
-     * A website object (documented below).
+     * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      */
     public readonly website!: pulumi.Output<outputs.s3.BucketWebsite | undefined>;
     /**
-     * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      */
     public readonly websiteDomain!: pulumi.Output<string>;
     /**
-     * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      */
     public readonly websiteEndpoint!: pulumi.Output<string>;
 
@@ -565,23 +266,24 @@ export class Bucket extends pulumi.CustomResource {
  */
 export interface BucketState {
     /**
-     * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
+     * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
      */
     accelerationStatus?: pulumi.Input<string>;
     /**
-     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      */
     acl?: pulumi.Input<string | enums.s3.CannedAcl>;
     /**
-     * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+     * ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+     * Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */
     bucketDomainName?: pulumi.Input<string>;
     /**
@@ -589,86 +291,97 @@ export interface BucketState {
      */
     bucketPrefix?: pulumi.Input<string>;
     /**
-     * The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+     * The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      */
     bucketRegionalDomainName?: pulumi.Input<string>;
     /**
-     * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
+     * Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
      */
     corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
     /**
-     * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+     * Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      */
     grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
     /**
-     * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
+     * [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
     hostedZoneId?: pulumi.Input<string>;
     /**
-     * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
+     * Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
      */
     lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRule>[]>;
     /**
-     * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
+     * Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketLoggingV2` instead.
      */
     loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
     /**
-     * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-     *
-     * > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
+     * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
+     * The provider wil only perform drift detection if a configuration value is provided.
+     * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      */
     objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
+     * Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+     * The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketPolicy` instead.
      */
     policy?: pulumi.Input<string | PolicyDocument>;
     /**
-     * The AWS region this bucket resides in.
+     * AWS region this bucket resides in.
      */
     region?: pulumi.Input<string>;
     /**
-     * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
+     * Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketReplicationConfig` instead.
      */
     replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
-     * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
-     * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
-     * developer guide for more information.
+     * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
+     * See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
+     * The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
      */
     requestPayer?: pulumi.Input<string>;
     /**
-     * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
+     * Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
+     * The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
-     * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following arguments are deprecated, and will be removed in a future major version:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
+     * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      */
     versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
     /**
-     * A website object (documented below).
+     * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      */
     website?: pulumi.Input<inputs.s3.BucketWebsite>;
     /**
-     * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      */
     websiteDomain?: pulumi.Input<string>;
     /**
-     * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      */
     websiteEndpoint?: pulumi.Input<string>;
 }
@@ -678,19 +391,20 @@ export interface BucketState {
  */
 export interface BucketArgs {
     /**
-     * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
+     * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
      */
     accelerationStatus?: pulumi.Input<string>;
     /**
-     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      */
     acl?: pulumi.Input<string | enums.s3.CannedAcl>;
     /**
-     * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+     * ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -698,72 +412,83 @@ export interface BucketArgs {
      */
     bucketPrefix?: pulumi.Input<string>;
     /**
-     * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
+     * Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
      */
     corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
     /**
-     * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+     * Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      */
     grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
     /**
-     * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
+     * [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
     hostedZoneId?: pulumi.Input<string>;
     /**
-     * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
+     * Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
      */
     lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRule>[]>;
     /**
-     * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
+     * Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketLoggingV2` instead.
      */
     loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
     /**
-     * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-     *
-     * > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
+     * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
+     * The provider wil only perform drift detection if a configuration value is provided.
+     * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      */
     objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
+     * Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+     * The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketPolicy` instead.
      */
     policy?: pulumi.Input<string | PolicyDocument>;
     /**
-     * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
+     * Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketReplicationConfig` instead.
      */
     replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
-     * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
-     * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
-     * developer guide for more information.
+     * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
+     * See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
+     * The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
      */
     requestPayer?: pulumi.Input<string>;
     /**
-     * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
+     * Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
+     * The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
-     * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following arguments are deprecated, and will be removed in a future major version:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
+     * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      */
     versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
     /**
-     * A website object (documented below).
+     * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      */
     website?: pulumi.Input<inputs.s3.BucketWebsite>;
     /**
-     * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      */
     websiteDomain?: pulumi.Input<string>;
     /**
-     * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      */
     websiteEndpoint?: pulumi.Input<string>;
 }

@@ -279,12 +279,12 @@ class Cluster(pulumi.CustomResource):
         test = aws.ecs.Cluster("test",
             name="example",
             configuration={
-                "executeCommandConfiguration": {
-                    "kmsKeyId": example.arn,
+                "execute_command_configuration": {
+                    "kms_key_id": example.arn,
                     "logging": "OVERRIDE",
-                    "logConfiguration": {
-                        "cloudWatchEncryptionEnabled": True,
-                        "cloudWatchLogGroupName": example_log_group.name,
+                    "log_configuration": {
+                        "cloud_watch_encryption_enabled": True,
+                        "cloud_watch_log_group_name": example_log_group.name,
                     },
                 },
             })
@@ -354,8 +354,8 @@ class Cluster(pulumi.CustomResource):
         test = aws.ecs.Cluster("test",
             name="example",
             configuration={
-                "managedStorageConfiguration": {
-                    "fargateEphemeralStorageKmsKeyId": example.id,
+                "managed_storage_configuration": {
+                    "fargate_ephemeral_storage_kms_key_id": example.id,
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_key_policy]))
@@ -415,12 +415,12 @@ class Cluster(pulumi.CustomResource):
         test = aws.ecs.Cluster("test",
             name="example",
             configuration={
-                "executeCommandConfiguration": {
-                    "kmsKeyId": example.arn,
+                "execute_command_configuration": {
+                    "kms_key_id": example.arn,
                     "logging": "OVERRIDE",
-                    "logConfiguration": {
-                        "cloudWatchEncryptionEnabled": True,
-                        "cloudWatchLogGroupName": example_log_group.name,
+                    "log_configuration": {
+                        "cloud_watch_encryption_enabled": True,
+                        "cloud_watch_log_group_name": example_log_group.name,
                     },
                 },
             })
@@ -490,8 +490,8 @@ class Cluster(pulumi.CustomResource):
         test = aws.ecs.Cluster("test",
             name="example",
             configuration={
-                "managedStorageConfiguration": {
-                    "fargateEphemeralStorageKmsKeyId": example.id,
+                "managed_storage_configuration": {
+                    "fargate_ephemeral_storage_kms_key_id": example.id,
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_key_policy]))

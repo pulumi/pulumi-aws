@@ -40,7 +40,7 @@ type PolicyStepScalingPolicyConfiguration struct {
 	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 	// 						MetricIntervalLowerBound: pulumi.String("1"),
 	// 						MetricIntervalUpperBound: pulumi.String("2"),
-	// 						ScalingAdjustment:        -1,
+	// 						ScalingAdjustment:        int(-1),
 	// 					},
 	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 	// 						MetricIntervalLowerBound: pulumi.String("2"),
@@ -98,7 +98,7 @@ type PolicyStepScalingPolicyConfigurationArgs struct {
 	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 	// 						MetricIntervalLowerBound: pulumi.String("1"),
 	// 						MetricIntervalUpperBound: pulumi.String("2"),
-	// 						ScalingAdjustment:        -1,
+	// 						ScalingAdjustment:        int(-1),
 	// 					},
 	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 	// 						MetricIntervalLowerBound: pulumi.String("2"),
@@ -235,7 +235,7 @@ func (o PolicyStepScalingPolicyConfigurationOutput) MinAdjustmentMagnitude() pul
 //						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 //							MetricIntervalLowerBound: pulumi.String("1"),
 //							MetricIntervalUpperBound: pulumi.String("2"),
-//							ScalingAdjustment:        -1,
+//							ScalingAdjustment:        int(-1),
 //						},
 //						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 //							MetricIntervalLowerBound: pulumi.String("2"),
@@ -343,7 +343,7 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() 
 //						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 //							MetricIntervalLowerBound: pulumi.String("1"),
 //							MetricIntervalUpperBound: pulumi.String("2"),
-//							ScalingAdjustment:        -1,
+//							ScalingAdjustment:        int(-1),
 //						},
 //						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 //							MetricIntervalLowerBound: pulumi.String("2"),

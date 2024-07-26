@@ -196,7 +196,7 @@ class PipelineDefinition(pulumi.CustomResource):
                     "name": "Default",
                     "fields": [{
                         "key": "workerGroup",
-                        "stringValue": "workerGroup",
+                        "string_value": "workerGroup",
                     }],
                 },
                 {
@@ -205,19 +205,19 @@ class PipelineDefinition(pulumi.CustomResource):
                     "fields": [
                         {
                             "key": "startDateTime",
-                            "stringValue": "2012-12-12T00:00:00",
+                            "string_value": "2012-12-12T00:00:00",
                         },
                         {
                             "key": "type",
-                            "stringValue": "Schedule",
+                            "string_value": "Schedule",
                         },
                         {
                             "key": "period",
-                            "stringValue": "1 hour",
+                            "string_value": "1 hour",
                         },
                         {
                             "key": "endDateTime",
-                            "stringValue": "2012-12-21T18:00:00",
+                            "string_value": "2012-12-21T18:00:00",
                         },
                     ],
                 },
@@ -227,19 +227,19 @@ class PipelineDefinition(pulumi.CustomResource):
                     "fields": [
                         {
                             "key": "type",
-                            "stringValue": "ShellCommandActivity",
+                            "string_value": "ShellCommandActivity",
                         },
                         {
                             "key": "command",
-                            "stringValue": "echo hello",
+                            "string_value": "echo hello",
                         },
                         {
                             "key": "parent",
-                            "stringValue": "Default",
+                            "string_value": "Default",
                         },
                         {
                             "key": "schedule",
-                            "stringValue": "Schedule",
+                            "string_value": "Schedule",
                         },
                     ],
                 },
@@ -287,7 +287,7 @@ class PipelineDefinition(pulumi.CustomResource):
                     "name": "Default",
                     "fields": [{
                         "key": "workerGroup",
-                        "stringValue": "workerGroup",
+                        "string_value": "workerGroup",
                     }],
                 },
                 {
@@ -296,19 +296,19 @@ class PipelineDefinition(pulumi.CustomResource):
                     "fields": [
                         {
                             "key": "startDateTime",
-                            "stringValue": "2012-12-12T00:00:00",
+                            "string_value": "2012-12-12T00:00:00",
                         },
                         {
                             "key": "type",
-                            "stringValue": "Schedule",
+                            "string_value": "Schedule",
                         },
                         {
                             "key": "period",
-                            "stringValue": "1 hour",
+                            "string_value": "1 hour",
                         },
                         {
                             "key": "endDateTime",
-                            "stringValue": "2012-12-21T18:00:00",
+                            "string_value": "2012-12-21T18:00:00",
                         },
                     ],
                 },
@@ -318,19 +318,19 @@ class PipelineDefinition(pulumi.CustomResource):
                     "fields": [
                         {
                             "key": "type",
-                            "stringValue": "ShellCommandActivity",
+                            "string_value": "ShellCommandActivity",
                         },
                         {
                             "key": "command",
-                            "stringValue": "echo hello",
+                            "string_value": "echo hello",
                         },
                         {
                             "key": "parent",
-                            "stringValue": "Default",
+                            "string_value": "Default",
                         },
                         {
                             "key": "schedule",
-                            "stringValue": "Schedule",
+                            "string_value": "Schedule",
                         },
                     ],
                 },

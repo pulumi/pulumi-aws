@@ -57,9 +57,9 @@ import (
 //				Egress:       pulumi.Bool(false),
 //				Protocol:     pulumi.String("tcp"),
 //				RuleAction:   pulumi.String("allow"),
-//				CidrBlock: privateS3.ApplyT(func(privateS3 ec2.GetPrefixListResult) (*string, error) {
+//				CidrBlock: pulumi.String(privateS3.ApplyT(func(privateS3 ec2.GetPrefixListResult) (*string, error) {
 //					return &privateS3.CidrBlocks[0], nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				FromPort: pulumi.Int(443),
 //				ToPort:   pulumi.Int(443),
 //			})

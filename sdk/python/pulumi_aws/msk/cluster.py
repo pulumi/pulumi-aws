@@ -742,8 +742,8 @@ class Cluster(pulumi.CustomResource):
             name="kinesis-firehose-msk-broker-logs-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_role.arn,
-                "bucketArn": bucket.arn,
+                "role_arn": firehose_role.arn,
+                "bucket_arn": bucket.arn,
             },
             tags={
                 "LogDeliveryEnabled": "placeholder",
@@ -753,41 +753,41 @@ class Cluster(pulumi.CustomResource):
             kafka_version="3.2.0",
             number_of_broker_nodes=3,
             broker_node_group_info={
-                "instanceType": "kafka.m5.large",
-                "clientSubnets": [
+                "instance_type": "kafka.m5.large",
+                "client_subnets": [
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
-                "storageInfo": {
-                    "ebsStorageInfo": {
-                        "volumeSize": 1000,
+                "storage_info": {
+                    "ebs_storage_info": {
+                        "volume_size": 1000,
                     },
                 },
-                "securityGroups": [sg.id],
+                "security_groups": [sg.id],
             },
             encryption_info={
-                "encryptionAtRestKmsKeyArn": kms.arn,
+                "encryption_at_rest_kms_key_arn": kms.arn,
             },
             open_monitoring={
                 "prometheus": {
-                    "jmxExporter": {
-                        "enabledInBroker": True,
+                    "jmx_exporter": {
+                        "enabled_in_broker": True,
                     },
-                    "nodeExporter": {
-                        "enabledInBroker": True,
+                    "node_exporter": {
+                        "enabled_in_broker": True,
                     },
                 },
             },
             logging_info={
-                "brokerLogs": {
-                    "cloudwatchLogs": {
+                "broker_logs": {
+                    "cloudwatch_logs": {
                         "enabled": True,
-                        "logGroup": test.name,
+                        "log_group": test.name,
                     },
                     "firehose": {
                         "enabled": True,
-                        "deliveryStream": test_stream.name,
+                        "delivery_stream": test_stream.name,
                     },
                     "s3": {
                         "enabled": True,
@@ -814,22 +814,22 @@ class Cluster(pulumi.CustomResource):
             kafka_version="2.7.1",
             number_of_broker_nodes=3,
             broker_node_group_info={
-                "instanceType": "kafka.m5.4xlarge",
-                "clientSubnets": [
+                "instance_type": "kafka.m5.4xlarge",
+                "client_subnets": [
                     subnet_az1["id"],
                     subnet_az2["id"],
                     subnet_az3["id"],
                 ],
-                "storageInfo": {
-                    "ebsStorageInfo": {
-                        "provisionedThroughput": {
+                "storage_info": {
+                    "ebs_storage_info": {
+                        "provisioned_throughput": {
                             "enabled": True,
-                            "volumeThroughput": 250,
+                            "volume_throughput": 250,
                         },
-                        "volumeSize": 1000,
+                        "volume_size": 1000,
                     },
                 },
-                "securityGroups": [sg["id"]],
+                "security_groups": [sg["id"]],
             })
         ```
 
@@ -911,8 +911,8 @@ class Cluster(pulumi.CustomResource):
             name="kinesis-firehose-msk-broker-logs-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_role.arn,
-                "bucketArn": bucket.arn,
+                "role_arn": firehose_role.arn,
+                "bucket_arn": bucket.arn,
             },
             tags={
                 "LogDeliveryEnabled": "placeholder",
@@ -922,41 +922,41 @@ class Cluster(pulumi.CustomResource):
             kafka_version="3.2.0",
             number_of_broker_nodes=3,
             broker_node_group_info={
-                "instanceType": "kafka.m5.large",
-                "clientSubnets": [
+                "instance_type": "kafka.m5.large",
+                "client_subnets": [
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
-                "storageInfo": {
-                    "ebsStorageInfo": {
-                        "volumeSize": 1000,
+                "storage_info": {
+                    "ebs_storage_info": {
+                        "volume_size": 1000,
                     },
                 },
-                "securityGroups": [sg.id],
+                "security_groups": [sg.id],
             },
             encryption_info={
-                "encryptionAtRestKmsKeyArn": kms.arn,
+                "encryption_at_rest_kms_key_arn": kms.arn,
             },
             open_monitoring={
                 "prometheus": {
-                    "jmxExporter": {
-                        "enabledInBroker": True,
+                    "jmx_exporter": {
+                        "enabled_in_broker": True,
                     },
-                    "nodeExporter": {
-                        "enabledInBroker": True,
+                    "node_exporter": {
+                        "enabled_in_broker": True,
                     },
                 },
             },
             logging_info={
-                "brokerLogs": {
-                    "cloudwatchLogs": {
+                "broker_logs": {
+                    "cloudwatch_logs": {
                         "enabled": True,
-                        "logGroup": test.name,
+                        "log_group": test.name,
                     },
                     "firehose": {
                         "enabled": True,
-                        "deliveryStream": test_stream.name,
+                        "delivery_stream": test_stream.name,
                     },
                     "s3": {
                         "enabled": True,
@@ -983,22 +983,22 @@ class Cluster(pulumi.CustomResource):
             kafka_version="2.7.1",
             number_of_broker_nodes=3,
             broker_node_group_info={
-                "instanceType": "kafka.m5.4xlarge",
-                "clientSubnets": [
+                "instance_type": "kafka.m5.4xlarge",
+                "client_subnets": [
                     subnet_az1["id"],
                     subnet_az2["id"],
                     subnet_az3["id"],
                 ],
-                "storageInfo": {
-                    "ebsStorageInfo": {
-                        "provisionedThroughput": {
+                "storage_info": {
+                    "ebs_storage_info": {
+                        "provisioned_throughput": {
                             "enabled": True,
-                            "volumeThroughput": 250,
+                            "volume_throughput": 250,
                         },
-                        "volumeSize": 1000,
+                        "volume_size": 1000,
                     },
                 },
-                "securityGroups": [sg["id"]],
+                "security_groups": [sg["id"]],
             })
         ```
 

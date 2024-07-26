@@ -168,10 +168,10 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="CONTACT_TRACE_RECORDS",
             storage_config={
-                "kinesisFirehoseConfig": {
-                    "firehoseArn": example_aws_kinesis_firehose_delivery_stream["arn"],
+                "kinesis_firehose_config": {
+                    "firehose_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                 },
-                "storageType": "KINESIS_FIREHOSE",
+                "storage_type": "KINESIS_FIREHOSE",
             })
         ```
 
@@ -185,10 +185,10 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="CONTACT_TRACE_RECORDS",
             storage_config={
-                "kinesisStreamConfig": {
-                    "streamArn": example_aws_kinesis_stream["arn"],
+                "kinesis_stream_config": {
+                    "stream_arn": example_aws_kinesis_stream["arn"],
                 },
-                "storageType": "KINESIS_STREAM",
+                "storage_type": "KINESIS_STREAM",
             })
         ```
 
@@ -202,15 +202,15 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="MEDIA_STREAMS",
             storage_config={
-                "kinesisVideoStreamConfig": {
+                "kinesis_video_stream_config": {
                     "prefix": "example",
-                    "retentionPeriodHours": 3,
-                    "encryptionConfig": {
-                        "encryptionType": "KMS",
-                        "keyId": example_aws_kms_key["arn"],
+                    "retention_period_hours": 3,
+                    "encryption_config": {
+                        "encryption_type": "KMS",
+                        "key_id": example_aws_kms_key["arn"],
                     },
                 },
-                "storageType": "KINESIS_VIDEO_STREAM",
+                "storage_type": "KINESIS_VIDEO_STREAM",
             })
         ```
 
@@ -224,11 +224,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="CHAT_TRANSCRIPTS",
             storage_config={
-                "s3Config": {
-                    "bucketName": example_aws_s3_bucket["id"],
-                    "bucketPrefix": "example",
+                "s3_config": {
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "bucket_prefix": "example",
                 },
-                "storageType": "S3",
+                "storage_type": "S3",
             })
         ```
 
@@ -242,15 +242,15 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="CHAT_TRANSCRIPTS",
             storage_config={
-                "s3Config": {
-                    "bucketName": example_aws_s3_bucket["id"],
-                    "bucketPrefix": "example",
-                    "encryptionConfig": {
-                        "encryptionType": "KMS",
-                        "keyId": example_aws_kms_key["arn"],
+                "s3_config": {
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "bucket_prefix": "example",
+                    "encryption_config": {
+                        "encryption_type": "KMS",
+                        "key_id": example_aws_kms_key["arn"],
                     },
                 },
-                "storageType": "S3",
+                "storage_type": "S3",
             })
         ```
 
@@ -290,10 +290,10 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="CONTACT_TRACE_RECORDS",
             storage_config={
-                "kinesisFirehoseConfig": {
-                    "firehoseArn": example_aws_kinesis_firehose_delivery_stream["arn"],
+                "kinesis_firehose_config": {
+                    "firehose_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                 },
-                "storageType": "KINESIS_FIREHOSE",
+                "storage_type": "KINESIS_FIREHOSE",
             })
         ```
 
@@ -307,10 +307,10 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="CONTACT_TRACE_RECORDS",
             storage_config={
-                "kinesisStreamConfig": {
-                    "streamArn": example_aws_kinesis_stream["arn"],
+                "kinesis_stream_config": {
+                    "stream_arn": example_aws_kinesis_stream["arn"],
                 },
-                "storageType": "KINESIS_STREAM",
+                "storage_type": "KINESIS_STREAM",
             })
         ```
 
@@ -324,15 +324,15 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="MEDIA_STREAMS",
             storage_config={
-                "kinesisVideoStreamConfig": {
+                "kinesis_video_stream_config": {
                     "prefix": "example",
-                    "retentionPeriodHours": 3,
-                    "encryptionConfig": {
-                        "encryptionType": "KMS",
-                        "keyId": example_aws_kms_key["arn"],
+                    "retention_period_hours": 3,
+                    "encryption_config": {
+                        "encryption_type": "KMS",
+                        "key_id": example_aws_kms_key["arn"],
                     },
                 },
-                "storageType": "KINESIS_VIDEO_STREAM",
+                "storage_type": "KINESIS_VIDEO_STREAM",
             })
         ```
 
@@ -346,11 +346,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="CHAT_TRANSCRIPTS",
             storage_config={
-                "s3Config": {
-                    "bucketName": example_aws_s3_bucket["id"],
-                    "bucketPrefix": "example",
+                "s3_config": {
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "bucket_prefix": "example",
                 },
-                "storageType": "S3",
+                "storage_type": "S3",
             })
         ```
 
@@ -364,15 +364,15 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id=example_aws_connect_instance["id"],
             resource_type="CHAT_TRANSCRIPTS",
             storage_config={
-                "s3Config": {
-                    "bucketName": example_aws_s3_bucket["id"],
-                    "bucketPrefix": "example",
-                    "encryptionConfig": {
-                        "encryptionType": "KMS",
-                        "keyId": example_aws_kms_key["arn"],
+                "s3_config": {
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "bucket_prefix": "example",
+                    "encryption_config": {
+                        "encryption_type": "KMS",
+                        "key_id": example_aws_kms_key["arn"],
                     },
                 },
-                "storageType": "S3",
+                "storage_type": "S3",
             })
         ```
 

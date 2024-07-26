@@ -292,12 +292,12 @@ class Experience(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "contentSourceConfiguration": {
-                    "directPutContent": True,
-                    "faqIds": [example_aws_kendra_faq["faqId"]],
+                "content_source_configuration": {
+                    "direct_put_content": True,
+                    "faq_ids": [example_aws_kendra_faq["faqId"]],
                 },
-                "userIdentityConfiguration": {
-                    "identityAttributeName": "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
+                "user_identity_configuration": {
+                    "identity_attribute_name": "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
                 },
             })
         ```
@@ -343,12 +343,12 @@ class Experience(pulumi.CustomResource):
             name="example",
             role_arn=example_aws_iam_role["arn"],
             configuration={
-                "contentSourceConfiguration": {
-                    "directPutContent": True,
-                    "faqIds": [example_aws_kendra_faq["faqId"]],
+                "content_source_configuration": {
+                    "direct_put_content": True,
+                    "faq_ids": [example_aws_kendra_faq["faqId"]],
                 },
-                "userIdentityConfiguration": {
-                    "identityAttributeName": "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
+                "user_identity_configuration": {
+                    "identity_attribute_name": "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
                 },
             })
         ```

@@ -323,7 +323,7 @@ type Policy struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
-	// 					ScalingAdjustment:        -1,
+	// 					ScalingAdjustment:        int(-1),
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
 	// 				},
@@ -455,7 +455,7 @@ type policyState struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
-	// 					ScalingAdjustment:        -1,
+	// 					ScalingAdjustment:        int(-1),
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
 	// 				},
@@ -555,7 +555,7 @@ type PolicyState struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
-	// 					ScalingAdjustment:        -1,
+	// 					ScalingAdjustment:        int(-1),
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
 	// 				},
@@ -657,7 +657,7 @@ type policyArgs struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
-	// 					ScalingAdjustment:        -1,
+	// 					ScalingAdjustment:        int(-1),
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
 	// 				},
@@ -756,7 +756,7 @@ type PolicyArgs struct {
 	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 	// 				&autoscaling.PolicyStepAdjustmentArgs{
-	// 					ScalingAdjustment:        -1,
+	// 					ScalingAdjustment:        int(-1),
 	// 					MetricIntervalLowerBound: pulumi.String("1"),
 	// 					MetricIntervalUpperBound: pulumi.String("2"),
 	// 				},
@@ -980,7 +980,7 @@ func (o PolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
 //			_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
 //				StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
 //					&autoscaling.PolicyStepAdjustmentArgs{
-//						ScalingAdjustment:        -1,
+//						ScalingAdjustment:        int(-1),
 //						MetricIntervalLowerBound: pulumi.String("1"),
 //						MetricIntervalUpperBound: pulumi.String("2"),
 //					},

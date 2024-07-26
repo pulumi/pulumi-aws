@@ -249,7 +249,7 @@ type ExportExportDataQuery struct {
 	// Query statement.
 	QueryStatement string `pulumi:"queryStatement"`
 	// Table configuration.
-	TableConfigurations map[string]map[string]interface{} `pulumi:"tableConfigurations"`
+	TableConfigurations map[string]map[string]string `pulumi:"tableConfigurations"`
 }
 
 // ExportExportDataQueryInput is an input type that accepts ExportExportDataQueryArgs and ExportExportDataQueryOutput values.
@@ -267,7 +267,7 @@ type ExportExportDataQueryArgs struct {
 	// Query statement.
 	QueryStatement pulumi.StringInput `pulumi:"queryStatement"`
 	// Table configuration.
-	TableConfigurations pulumi.MapMapInput `pulumi:"tableConfigurations"`
+	TableConfigurations pulumi.StringMapMapInput `pulumi:"tableConfigurations"`
 }
 
 func (ExportExportDataQueryArgs) ElementType() reflect.Type {
@@ -327,8 +327,8 @@ func (o ExportExportDataQueryOutput) QueryStatement() pulumi.StringOutput {
 }
 
 // Table configuration.
-func (o ExportExportDataQueryOutput) TableConfigurations() pulumi.MapMapOutput {
-	return o.ApplyT(func(v ExportExportDataQuery) map[string]map[string]interface{} { return v.TableConfigurations }).(pulumi.MapMapOutput)
+func (o ExportExportDataQueryOutput) TableConfigurations() pulumi.StringMapMapOutput {
+	return o.ApplyT(func(v ExportExportDataQuery) map[string]map[string]string { return v.TableConfigurations }).(pulumi.StringMapMapOutput)
 }
 
 type ExportExportDataQueryArrayOutput struct{ *pulumi.OutputState }

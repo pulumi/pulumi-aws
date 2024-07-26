@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<string>? _allowedHeaders;
 
         /// <summary>
-        /// Specifies which headers are allowed.
+        /// List of headers allowed.
         /// </summary>
         public InputList<string> AllowedHeaders
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<string>? _allowedMethods;
 
         /// <summary>
-        /// Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+        /// One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
         /// </summary>
         public InputList<string> AllowedMethods
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<string>? _allowedOrigins;
 
         /// <summary>
-        /// Specifies which origins are allowed.
+        /// One or more origins you want customers to be able to access the bucket from.
         /// </summary>
         public InputList<string> AllowedOrigins
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<string>? _exposeHeaders;
 
         /// <summary>
-        /// Specifies expose header in the response.
+        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
         /// </summary>
         public InputList<string> ExposeHeaders
         {

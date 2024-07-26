@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketServerSideEncryptionConfigurationRule {
     /**
-     * @return A single object for setting server-side encryption by default. (documented below)
+     * @return Single object for setting server-side encryption by default. (documented below)
      * 
      */
     private BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault applyServerSideEncryptionByDefault;
@@ -26,7 +26,7 @@ public final class BucketServerSideEncryptionConfigurationRule {
 
     private BucketServerSideEncryptionConfigurationRule() {}
     /**
-     * @return A single object for setting server-side encryption by default. (documented below)
+     * @return Single object for setting server-side encryption by default. (documented below)
      * 
      */
     public BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault applyServerSideEncryptionByDefault() {

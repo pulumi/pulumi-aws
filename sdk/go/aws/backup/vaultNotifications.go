@@ -36,7 +36,7 @@ import (
 // return err
 // }
 // test := testTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // PolicyId: "__default_policy_ID",
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -58,13 +58,13 @@ import (
 // Sid: "__default_statement_ID",
 // },
 // },
-// }, nil), nil
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = sns.NewTopicPolicy(ctx, "test", &sns.TopicPolicyArgs{
 // Arn: testTopic.Arn,
-// Policy: test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
+// Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
 // return &test.Json, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
-//				Csr:    invokeFile.Result,
+//				Csr:    pulumi.String(invokeFile.Result),
 //				Active: pulumi.Bool(true),
 //			})
 //			if err != nil {

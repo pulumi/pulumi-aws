@@ -658,15 +658,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-extended-s3-test-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_role.arn,
-                "bucketArn": bucket.arn,
-                "processingConfiguration": {
+                "role_arn": firehose_role.arn,
+                "bucket_arn": bucket.arn,
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "Lambda",
                         "parameters": [{
-                            "parameterName": "LambdaArn",
-                            "parameterValue": lambda_processor.arn.apply(lambda arn: f"{arn}:$LATEST"),
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": lambda_processor.arn.apply(lambda arn: f"{arn}:$LATEST"),
                         }],
                     }],
                 },
@@ -688,22 +688,22 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-extended-s3-test-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_role["arn"],
-                "bucketArn": bucket["arn"],
-                "bufferingSize": 64,
-                "dynamicPartitioningConfiguration": {
+                "role_arn": firehose_role["arn"],
+                "bucket_arn": bucket["arn"],
+                "buffering_size": 64,
+                "dynamic_partitioning_configuration": {
                     "enabled": True,
                 },
                 "prefix": "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                "errorOutputPrefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                "processingConfiguration": {
+                "error_output_prefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [
                         {
                             "type": "RecordDeAggregation",
                             "parameters": [{
-                                "parameterName": "SubRecordType",
-                                "parameterValue": "JSON",
+                                "parameter_name": "SubRecordType",
+                                "parameter_value": "JSON",
                             }],
                         },
                         {
@@ -713,12 +713,12 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                             "type": "MetadataExtraction",
                             "parameters": [
                                 {
-                                    "parameterName": "JsonParsingEngine",
-                                    "parameterValue": "JQ-1.6",
+                                    "parameter_name": "JsonParsingEngine",
+                                    "parameter_value": "JQ-1.6",
                                 },
                                 {
-                                    "parameterName": "MetadataExtractionQuery",
-                                    "parameterValue": "{customer_id:.customer_id}",
+                                    "parameter_name": "MetadataExtractionQuery",
+                                    "parameter_value": "{customer_id:.customer_id}",
                                 },
                             ],
                         },
@@ -739,26 +739,26 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-extended-s3-test-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_role["arn"],
-                "bucketArn": bucket["arn"],
-                "bufferingSize": 64,
-                "dynamicPartitioningConfiguration": {
+                "role_arn": firehose_role["arn"],
+                "bucket_arn": bucket["arn"],
+                "buffering_size": 64,
+                "dynamic_partitioning_configuration": {
                     "enabled": True,
                 },
                 "prefix": "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                "errorOutputPrefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                "processingConfiguration": {
+                "error_output_prefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "MetadataExtraction",
                         "parameters": [
                             {
-                                "parameterName": "JsonParsingEngine",
-                                "parameterValue": "JQ-1.6",
+                                "parameter_name": "JsonParsingEngine",
+                                "parameter_value": "JQ-1.6",
                             },
                             {
-                                "parameterName": "MetadataExtractionQuery",
-                                "parameterValue": "{store_id:.store_id,customer_id:.customer_id}",
+                                "parameter_name": "MetadataExtractionQuery",
+                                "parameter_value": "{store_id:.store_id,customer_id:.customer_id}",
                             },
                         ],
                     }],
@@ -783,27 +783,27 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="redshift",
             redshift_configuration={
-                "roleArn": firehose_role["arn"],
-                "clusterJdbcurl": pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                "role_arn": firehose_role["arn"],
+                "cluster_jdbcurl": pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
                 "username": "testuser",
                 "password": "T3stPass",
-                "dataTableName": "test-table",
-                "copyOptions": "delimiter '|'",
-                "dataTableColumns": "test-col",
-                "s3BackupMode": "Enabled",
-                "s3Configuration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "data_table_name": "test-table",
+                "copy_options": "delimiter '|'",
+                "data_table_columns": "test-col",
+                "s3_backup_mode": "Enabled",
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "s3BackupConfiguration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 15,
-                    "bufferingInterval": 300,
-                    "compressionFormat": "GZIP",
+                "s3_backup_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 15,
+                    "buffering_interval": 300,
+                    "compression_format": "GZIP",
                 },
             })
         ```
@@ -819,24 +819,24 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="elasticsearch",
             elasticsearch_configuration={
-                "domainArn": test_cluster.arn,
-                "roleArn": firehose_role["arn"],
-                "indexName": "test",
-                "typeName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "domain_arn": test_cluster.arn,
+                "role_arn": firehose_role["arn"],
+                "index_name": "test",
+                "type_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "processingConfiguration": {
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "Lambda",
                         "parameters": [{
-                            "parameterName": "LambdaArn",
-                            "parameterValue": f"{lambda_processor['arn']}:$LATEST",
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
                         }],
                     }],
                 },
@@ -852,17 +852,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_cluster = aws.elasticsearch.Domain("test_cluster",
             domain_name="es-test",
             cluster_config={
-                "instanceCount": 2,
-                "zoneAwarenessEnabled": True,
-                "instanceType": "t2.small.elasticsearch",
+                "instance_count": 2,
+                "zone_awareness_enabled": True,
+                "instance_type": "t2.small.elasticsearch",
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             },
             vpc_options={
-                "securityGroupIds": [first["id"]],
-                "subnetIds": [
+                "security_group_ids": [first["id"]],
+                "subnet_ids": [
                     first_aws_subnet["id"],
                     second["id"],
                 ],
@@ -899,21 +899,21 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-es",
             destination="elasticsearch",
             elasticsearch_configuration={
-                "domainArn": test_cluster.arn,
-                "roleArn": firehose["arn"],
-                "indexName": "test",
-                "typeName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
+                "domain_arn": test_cluster.arn,
+                "role_arn": firehose["arn"],
+                "index_name": "test",
+                "type_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
                 },
-                "vpcConfig": {
-                    "subnetIds": [
+                "vpc_config": {
+                    "subnet_ids": [
                         first_aws_subnet["id"],
                         second["id"],
                     ],
-                    "securityGroupIds": [first["id"]],
-                    "roleArn": firehose["arn"],
+                    "security_group_ids": [first["id"]],
+                    "role_arn": firehose["arn"],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
@@ -930,23 +930,23 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="opensearch",
             opensearch_configuration={
-                "domainArn": test_cluster.arn,
-                "roleArn": firehose_role["arn"],
-                "indexName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "domain_arn": test_cluster.arn,
+                "role_arn": firehose_role["arn"],
+                "index_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "processingConfiguration": {
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "Lambda",
                         "parameters": [{
-                            "parameterName": "LambdaArn",
-                            "parameterValue": f"{lambda_processor['arn']}:$LATEST",
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
                         }],
                     }],
                 },
@@ -962,17 +962,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_cluster = aws.opensearch.Domain("test_cluster",
             domain_name="es-test",
             cluster_config={
-                "instanceCount": 2,
-                "zoneAwarenessEnabled": True,
-                "instanceType": "m4.large.search",
+                "instance_count": 2,
+                "zone_awareness_enabled": True,
+                "instance_type": "m4.large.search",
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             },
             vpc_options={
-                "securityGroupIds": [first["id"]],
-                "subnetIds": [
+                "security_group_ids": [first["id"]],
+                "subnet_ids": [
                     first_aws_subnet["id"],
                     second["id"],
                 ],
@@ -1016,20 +1016,20 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="pulumi-kinesis-firehose-os",
             destination="opensearch",
             opensearch_configuration={
-                "domainArn": test_cluster.arn,
-                "roleArn": firehose["arn"],
-                "indexName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
+                "domain_arn": test_cluster.arn,
+                "role_arn": firehose["arn"],
+                "index_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
                 },
-                "vpcConfig": {
-                    "subnetIds": [
+                "vpc_config": {
+                    "subnet_ids": [
                         first_aws_subnet["id"],
                         second["id"],
                     ],
-                    "securityGroupIds": [first["id"]],
-                    "roleArn": firehose["arn"],
+                    "security_group_ids": [first["id"]],
+                    "role_arn": firehose["arn"],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
@@ -1046,23 +1046,23 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="opensearchserverless",
             opensearchserverless_configuration={
-                "collectionEndpoint": test_collection.collection_endpoint,
-                "roleArn": firehose_role["arn"],
-                "indexName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "collection_endpoint": test_collection.collection_endpoint,
+                "role_arn": firehose_role["arn"],
+                "index_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "processingConfiguration": {
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "Lambda",
                         "parameters": [{
-                            "parameterName": "LambdaArn",
-                            "parameterValue": f"{lambda_processor['arn']}:$LATEST",
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
                         }],
                     }],
                 },
@@ -1079,17 +1079,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="splunk",
             splunk_configuration={
-                "hecEndpoint": "https://http-inputs-mydomain.splunkcloud.com:443",
-                "hecToken": "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
-                "hecAcknowledgmentTimeout": 600,
-                "hecEndpointType": "Event",
-                "s3BackupMode": "FailedEventsOnly",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "hec_endpoint": "https://http-inputs-mydomain.splunkcloud.com:443",
+                "hec_token": "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
+                "hec_acknowledgment_timeout": 600,
+                "hec_endpoint_type": "Event",
+                "s3_backup_mode": "FailedEventsOnly",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
             })
         ```
@@ -1106,21 +1106,21 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             http_endpoint_configuration={
                 "url": "https://aws-api.newrelic.com/firehose/v1",
                 "name": "New Relic",
-                "accessKey": "my-key",
-                "bufferingSize": 15,
-                "bufferingInterval": 600,
-                "roleArn": firehose["arn"],
-                "s3BackupMode": "FailedDataOnly",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "access_key": "my-key",
+                "buffering_size": 15,
+                "buffering_interval": 600,
+                "role_arn": firehose["arn"],
+                "s3_backup_mode": "FailedDataOnly",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "requestConfiguration": {
-                    "contentEncoding": "GZIP",
-                    "commonAttributes": [
+                "request_configuration": {
+                    "content_encoding": "GZIP",
+                    "common_attributes": [
                         {
                             "name": "testname",
                             "value": "testvalue",
@@ -1144,19 +1144,19 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="example-snowflake-destination",
             destination="snowflake",
             snowflake_configuration={
-                "accountUrl": "https://example.snowflakecomputing.com",
+                "account_url": "https://example.snowflakecomputing.com",
                 "database": "example-db",
-                "privateKey": "...",
-                "roleArn": firehose["arn"],
+                "private_key": "...",
+                "role_arn": firehose["arn"],
                 "schema": "example-schema",
                 "table": "example-table",
                 "user": "example-usr",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
             })
         ```
@@ -1242,15 +1242,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-extended-s3-test-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_role.arn,
-                "bucketArn": bucket.arn,
-                "processingConfiguration": {
+                "role_arn": firehose_role.arn,
+                "bucket_arn": bucket.arn,
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "Lambda",
                         "parameters": [{
-                            "parameterName": "LambdaArn",
-                            "parameterValue": lambda_processor.arn.apply(lambda arn: f"{arn}:$LATEST"),
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": lambda_processor.arn.apply(lambda arn: f"{arn}:$LATEST"),
                         }],
                     }],
                 },
@@ -1272,22 +1272,22 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-extended-s3-test-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_role["arn"],
-                "bucketArn": bucket["arn"],
-                "bufferingSize": 64,
-                "dynamicPartitioningConfiguration": {
+                "role_arn": firehose_role["arn"],
+                "bucket_arn": bucket["arn"],
+                "buffering_size": 64,
+                "dynamic_partitioning_configuration": {
                     "enabled": True,
                 },
                 "prefix": "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                "errorOutputPrefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                "processingConfiguration": {
+                "error_output_prefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [
                         {
                             "type": "RecordDeAggregation",
                             "parameters": [{
-                                "parameterName": "SubRecordType",
-                                "parameterValue": "JSON",
+                                "parameter_name": "SubRecordType",
+                                "parameter_value": "JSON",
                             }],
                         },
                         {
@@ -1297,12 +1297,12 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                             "type": "MetadataExtraction",
                             "parameters": [
                                 {
-                                    "parameterName": "JsonParsingEngine",
-                                    "parameterValue": "JQ-1.6",
+                                    "parameter_name": "JsonParsingEngine",
+                                    "parameter_value": "JQ-1.6",
                                 },
                                 {
-                                    "parameterName": "MetadataExtractionQuery",
-                                    "parameterValue": "{customer_id:.customer_id}",
+                                    "parameter_name": "MetadataExtractionQuery",
+                                    "parameter_value": "{customer_id:.customer_id}",
                                 },
                             ],
                         },
@@ -1323,26 +1323,26 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-extended-s3-test-stream",
             destination="extended_s3",
             extended_s3_configuration={
-                "roleArn": firehose_role["arn"],
-                "bucketArn": bucket["arn"],
-                "bufferingSize": 64,
-                "dynamicPartitioningConfiguration": {
+                "role_arn": firehose_role["arn"],
+                "bucket_arn": bucket["arn"],
+                "buffering_size": 64,
+                "dynamic_partitioning_configuration": {
                     "enabled": True,
                 },
                 "prefix": "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                "errorOutputPrefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                "processingConfiguration": {
+                "error_output_prefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "MetadataExtraction",
                         "parameters": [
                             {
-                                "parameterName": "JsonParsingEngine",
-                                "parameterValue": "JQ-1.6",
+                                "parameter_name": "JsonParsingEngine",
+                                "parameter_value": "JQ-1.6",
                             },
                             {
-                                "parameterName": "MetadataExtractionQuery",
-                                "parameterValue": "{store_id:.store_id,customer_id:.customer_id}",
+                                "parameter_name": "MetadataExtractionQuery",
+                                "parameter_value": "{store_id:.store_id,customer_id:.customer_id}",
                             },
                         ],
                     }],
@@ -1367,27 +1367,27 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="redshift",
             redshift_configuration={
-                "roleArn": firehose_role["arn"],
-                "clusterJdbcurl": pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                "role_arn": firehose_role["arn"],
+                "cluster_jdbcurl": pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
                 "username": "testuser",
                 "password": "T3stPass",
-                "dataTableName": "test-table",
-                "copyOptions": "delimiter '|'",
-                "dataTableColumns": "test-col",
-                "s3BackupMode": "Enabled",
-                "s3Configuration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "data_table_name": "test-table",
+                "copy_options": "delimiter '|'",
+                "data_table_columns": "test-col",
+                "s3_backup_mode": "Enabled",
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "s3BackupConfiguration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 15,
-                    "bufferingInterval": 300,
-                    "compressionFormat": "GZIP",
+                "s3_backup_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 15,
+                    "buffering_interval": 300,
+                    "compression_format": "GZIP",
                 },
             })
         ```
@@ -1403,24 +1403,24 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="elasticsearch",
             elasticsearch_configuration={
-                "domainArn": test_cluster.arn,
-                "roleArn": firehose_role["arn"],
-                "indexName": "test",
-                "typeName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "domain_arn": test_cluster.arn,
+                "role_arn": firehose_role["arn"],
+                "index_name": "test",
+                "type_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "processingConfiguration": {
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "Lambda",
                         "parameters": [{
-                            "parameterName": "LambdaArn",
-                            "parameterValue": f"{lambda_processor['arn']}:$LATEST",
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
                         }],
                     }],
                 },
@@ -1436,17 +1436,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_cluster = aws.elasticsearch.Domain("test_cluster",
             domain_name="es-test",
             cluster_config={
-                "instanceCount": 2,
-                "zoneAwarenessEnabled": True,
-                "instanceType": "t2.small.elasticsearch",
+                "instance_count": 2,
+                "zone_awareness_enabled": True,
+                "instance_type": "t2.small.elasticsearch",
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             },
             vpc_options={
-                "securityGroupIds": [first["id"]],
-                "subnetIds": [
+                "security_group_ids": [first["id"]],
+                "subnet_ids": [
                     first_aws_subnet["id"],
                     second["id"],
                 ],
@@ -1483,21 +1483,21 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-es",
             destination="elasticsearch",
             elasticsearch_configuration={
-                "domainArn": test_cluster.arn,
-                "roleArn": firehose["arn"],
-                "indexName": "test",
-                "typeName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
+                "domain_arn": test_cluster.arn,
+                "role_arn": firehose["arn"],
+                "index_name": "test",
+                "type_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
                 },
-                "vpcConfig": {
-                    "subnetIds": [
+                "vpc_config": {
+                    "subnet_ids": [
                         first_aws_subnet["id"],
                         second["id"],
                     ],
-                    "securityGroupIds": [first["id"]],
-                    "roleArn": firehose["arn"],
+                    "security_group_ids": [first["id"]],
+                    "role_arn": firehose["arn"],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
@@ -1514,23 +1514,23 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="opensearch",
             opensearch_configuration={
-                "domainArn": test_cluster.arn,
-                "roleArn": firehose_role["arn"],
-                "indexName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "domain_arn": test_cluster.arn,
+                "role_arn": firehose_role["arn"],
+                "index_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "processingConfiguration": {
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "Lambda",
                         "parameters": [{
-                            "parameterName": "LambdaArn",
-                            "parameterValue": f"{lambda_processor['arn']}:$LATEST",
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
                         }],
                     }],
                 },
@@ -1546,17 +1546,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_cluster = aws.opensearch.Domain("test_cluster",
             domain_name="es-test",
             cluster_config={
-                "instanceCount": 2,
-                "zoneAwarenessEnabled": True,
-                "instanceType": "m4.large.search",
+                "instance_count": 2,
+                "zone_awareness_enabled": True,
+                "instance_type": "m4.large.search",
             },
             ebs_options={
-                "ebsEnabled": True,
-                "volumeSize": 10,
+                "ebs_enabled": True,
+                "volume_size": 10,
             },
             vpc_options={
-                "securityGroupIds": [first["id"]],
-                "subnetIds": [
+                "security_group_ids": [first["id"]],
+                "subnet_ids": [
                     first_aws_subnet["id"],
                     second["id"],
                 ],
@@ -1600,20 +1600,20 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="pulumi-kinesis-firehose-os",
             destination="opensearch",
             opensearch_configuration={
-                "domainArn": test_cluster.arn,
-                "roleArn": firehose["arn"],
-                "indexName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
+                "domain_arn": test_cluster.arn,
+                "role_arn": firehose["arn"],
+                "index_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
                 },
-                "vpcConfig": {
-                    "subnetIds": [
+                "vpc_config": {
+                    "subnet_ids": [
                         first_aws_subnet["id"],
                         second["id"],
                     ],
-                    "securityGroupIds": [first["id"]],
-                    "roleArn": firehose["arn"],
+                    "security_group_ids": [first["id"]],
+                    "role_arn": firehose["arn"],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
@@ -1630,23 +1630,23 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="opensearchserverless",
             opensearchserverless_configuration={
-                "collectionEndpoint": test_collection.collection_endpoint,
-                "roleArn": firehose_role["arn"],
-                "indexName": "test",
-                "s3Configuration": {
-                    "roleArn": firehose_role["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "collection_endpoint": test_collection.collection_endpoint,
+                "role_arn": firehose_role["arn"],
+                "index_name": "test",
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "processingConfiguration": {
+                "processing_configuration": {
                     "enabled": True,
                     "processors": [{
                         "type": "Lambda",
                         "parameters": [{
-                            "parameterName": "LambdaArn",
-                            "parameterValue": f"{lambda_processor['arn']}:$LATEST",
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
                         }],
                     }],
                 },
@@ -1663,17 +1663,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="kinesis-firehose-test-stream",
             destination="splunk",
             splunk_configuration={
-                "hecEndpoint": "https://http-inputs-mydomain.splunkcloud.com:443",
-                "hecToken": "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
-                "hecAcknowledgmentTimeout": 600,
-                "hecEndpointType": "Event",
-                "s3BackupMode": "FailedEventsOnly",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "hec_endpoint": "https://http-inputs-mydomain.splunkcloud.com:443",
+                "hec_token": "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
+                "hec_acknowledgment_timeout": 600,
+                "hec_endpoint_type": "Event",
+                "s3_backup_mode": "FailedEventsOnly",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
             })
         ```
@@ -1690,21 +1690,21 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             http_endpoint_configuration={
                 "url": "https://aws-api.newrelic.com/firehose/v1",
                 "name": "New Relic",
-                "accessKey": "my-key",
-                "bufferingSize": 15,
-                "bufferingInterval": 600,
-                "roleArn": firehose["arn"],
-                "s3BackupMode": "FailedDataOnly",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "access_key": "my-key",
+                "buffering_size": 15,
+                "buffering_interval": 600,
+                "role_arn": firehose["arn"],
+                "s3_backup_mode": "FailedDataOnly",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
-                "requestConfiguration": {
-                    "contentEncoding": "GZIP",
-                    "commonAttributes": [
+                "request_configuration": {
+                    "content_encoding": "GZIP",
+                    "common_attributes": [
                         {
                             "name": "testname",
                             "value": "testvalue",
@@ -1728,19 +1728,19 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="example-snowflake-destination",
             destination="snowflake",
             snowflake_configuration={
-                "accountUrl": "https://example.snowflakecomputing.com",
+                "account_url": "https://example.snowflakecomputing.com",
                 "database": "example-db",
-                "privateKey": "...",
-                "roleArn": firehose["arn"],
+                "private_key": "...",
+                "role_arn": firehose["arn"],
                 "schema": "example-schema",
                 "table": "example-table",
                 "user": "example-usr",
-                "s3Configuration": {
-                    "roleArn": firehose["arn"],
-                    "bucketArn": bucket["arn"],
-                    "bufferingSize": 10,
-                    "bufferingInterval": 400,
-                    "compressionFormat": "GZIP",
+                "s3_configuration": {
+                    "role_arn": firehose["arn"],
+                    "bucket_arn": bucket["arn"],
+                    "buffering_size": 10,
+                    "buffering_interval": 400,
+                    "compression_format": "GZIP",
                 },
             })
         ```

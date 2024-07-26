@@ -293,7 +293,7 @@ class WebAcl(pulumi.CustomResource):
             name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[{
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }])
@@ -308,7 +308,7 @@ class WebAcl(pulumi.CustomResource):
                     "type": "BLOCK",
                 },
                 "priority": 1,
-                "ruleId": wafrule.id,
+                "rule_id": wafrule.id,
                 "type": "REGULAR",
             }])
         ```
@@ -327,9 +327,9 @@ class WebAcl(pulumi.CustomResource):
             },
             rules=[{
                 "priority": 1,
-                "ruleId": example_aws_wafregional_rule_group["id"],
+                "rule_id": example_aws_wafregional_rule_group["id"],
                 "type": "GROUP",
-                "overrideAction": {
+                "override_action": {
                     "type": "NONE",
                 },
             }])
@@ -344,9 +344,9 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafregional.WebAcl("example", logging_configuration={
-            "logDestination": example_aws_kinesis_firehose_delivery_stream["arn"],
-            "redactedFields": {
-                "fieldToMatches": [
+            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
+            "redacted_fields": {
+                "field_to_matches": [
                     {
                         "type": "URI",
                     },
@@ -403,7 +403,7 @@ class WebAcl(pulumi.CustomResource):
             name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[{
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }])
@@ -418,7 +418,7 @@ class WebAcl(pulumi.CustomResource):
                     "type": "BLOCK",
                 },
                 "priority": 1,
-                "ruleId": wafrule.id,
+                "rule_id": wafrule.id,
                 "type": "REGULAR",
             }])
         ```
@@ -437,9 +437,9 @@ class WebAcl(pulumi.CustomResource):
             },
             rules=[{
                 "priority": 1,
-                "ruleId": example_aws_wafregional_rule_group["id"],
+                "rule_id": example_aws_wafregional_rule_group["id"],
                 "type": "GROUP",
-                "overrideAction": {
+                "override_action": {
                     "type": "NONE",
                 },
             }])
@@ -454,9 +454,9 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafregional.WebAcl("example", logging_configuration={
-            "logDestination": example_aws_kinesis_firehose_delivery_stream["arn"],
-            "redactedFields": {
-                "fieldToMatches": [
+            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
+            "redacted_fields": {
+                "field_to_matches": [
                     {
                         "type": "URI",
                     },

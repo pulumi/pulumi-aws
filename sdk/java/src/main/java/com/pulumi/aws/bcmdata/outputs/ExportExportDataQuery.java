@@ -5,7 +5,6 @@ package com.pulumi.aws.bcmdata.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -22,7 +21,7 @@ public final class ExportExportDataQuery {
      * @return Table configuration.
      * 
      */
-    private @Nullable Map<String,Map<String,Object>> tableConfigurations;
+    private @Nullable Map<String,Map<String,String>> tableConfigurations;
 
     private ExportExportDataQuery() {}
     /**
@@ -36,7 +35,7 @@ public final class ExportExportDataQuery {
      * @return Table configuration.
      * 
      */
-    public Map<String,Map<String,Object>> tableConfigurations() {
+    public Map<String,Map<String,String>> tableConfigurations() {
         return this.tableConfigurations == null ? Map.of() : this.tableConfigurations;
     }
 
@@ -50,7 +49,7 @@ public final class ExportExportDataQuery {
     @CustomType.Builder
     public static final class Builder {
         private String queryStatement;
-        private @Nullable Map<String,Map<String,Object>> tableConfigurations;
+        private @Nullable Map<String,Map<String,String>> tableConfigurations;
         public Builder() {}
         public Builder(ExportExportDataQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,7 +66,7 @@ public final class ExportExportDataQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder tableConfigurations(@Nullable Map<String,Map<String,Object>> tableConfigurations) {
+        public Builder tableConfigurations(@Nullable Map<String,Map<String,String>> tableConfigurations) {
 
             this.tableConfigurations = tableConfigurations;
             return this;

@@ -527,8 +527,8 @@ class KxDataview(pulumi.CustomResource):
             az_mode="SINGLE",
             auto_update=True,
             segment_configurations=[{
-                "volumeName": example_aws_finspace_kx_volume["name"],
-                "dbPaths": ["/*"],
+                "volume_name": example_aws_finspace_kx_volume["name"],
+                "db_paths": ["/*"],
             }])
         ```
 
@@ -587,8 +587,8 @@ class KxDataview(pulumi.CustomResource):
             az_mode="SINGLE",
             auto_update=True,
             segment_configurations=[{
-                "volumeName": example_aws_finspace_kx_volume["name"],
-                "dbPaths": ["/*"],
+                "volume_name": example_aws_finspace_kx_volume["name"],
+                "db_paths": ["/*"],
             }])
         ```
 

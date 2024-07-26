@@ -781,7 +781,7 @@ class TaskDefinition(pulumi.CustomResource):
             ]),
             volumes=[{
                 "name": "service-storage",
-                "hostPath": "/ecs/service-storage",
+                "host_path": "/ecs/service-storage",
             }],
             placement_constraints=[{
                 "type": "memberOf",
@@ -801,13 +801,13 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             proxy_configuration={
                 "type": "APPMESH",
-                "containerName": "applicationContainerName",
+                "container_name": "applicationContainerName",
                 "properties": {
-                    "AppPorts": "8080",
-                    "EgressIgnoredIPs": "169.254.170.2,169.254.169.254",
-                    "IgnoredUID": "1337",
-                    "ProxyEgressPort": "15001",
-                    "ProxyIngressPort": "15000",
+                    "app_ports": "8080",
+                    "egress_ignored_ips": "169.254.170.2,169.254.169.254",
+                    "ignored_uid": "1337",
+                    "proxy_egress_port": "15001",
+                    "proxy_ingress_port": "15000",
                 },
             })
         ```
@@ -824,11 +824,11 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "dockerVolumeConfiguration": {
+                "docker_volume_configuration": {
                     "scope": "shared",
                     "autoprovision": True,
                     "driver": "local",
-                    "driverOpts": {
+                    "driver_opts": {
                         "type": "nfs",
                         "device": f"{fs['dnsName']}:/",
                         "o": f"addr={fs['dnsName']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
@@ -849,13 +849,13 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "efsVolumeConfiguration": {
-                    "fileSystemId": fs["id"],
-                    "rootDirectory": "/opt/data",
-                    "transitEncryption": "ENABLED",
-                    "transitEncryptionPort": 2999,
-                    "authorizationConfig": {
-                        "accessPointId": test["id"],
+                "efs_volume_configuration": {
+                    "file_system_id": fs["id"],
+                    "root_directory": "/opt/data",
+                    "transit_encryption": "ENABLED",
+                    "transit_encryption_port": 2999,
+                    "authorization_config": {
+                        "access_point_id": test["id"],
                         "iam": "ENABLED",
                     },
                 },
@@ -881,11 +881,11 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "fsxWindowsFileServerVolumeConfiguration": {
-                    "fileSystemId": test_aws_fsx_windows_file_system["id"],
-                    "rootDirectory": "\\\\data",
-                    "authorizationConfig": {
-                        "credentialsParameter": test.arn,
+                "fsx_windows_file_server_volume_configuration": {
+                    "file_system_id": test_aws_fsx_windows_file_system["id"],
+                    "root_directory": "\\\\data",
+                    "authorization_config": {
+                        "credentials_parameter": test.arn,
                         "domain": test_aws_directory_service_directory["name"],
                     },
                 },
@@ -928,8 +928,8 @@ class TaskDefinition(pulumi.CustomResource):
         ]
         \"\"\",
             inference_accelerators=[{
-                "deviceName": "device_1",
-                "deviceType": "eia1.medium",
+                "device_name": "device_1",
+                "device_type": "eia1.medium",
             }])
         ```
 
@@ -956,8 +956,8 @@ class TaskDefinition(pulumi.CustomResource):
         ]
         \"\"\",
             runtime_platform={
-                "operatingSystemFamily": "WINDOWS_SERVER_2019_CORE",
-                "cpuArchitecture": "X86_64",
+                "operating_system_family": "WINDOWS_SERVER_2019_CORE",
+                "cpu_architecture": "X86_64",
             })
         ```
 
@@ -1039,7 +1039,7 @@ class TaskDefinition(pulumi.CustomResource):
             ]),
             volumes=[{
                 "name": "service-storage",
-                "hostPath": "/ecs/service-storage",
+                "host_path": "/ecs/service-storage",
             }],
             placement_constraints=[{
                 "type": "memberOf",
@@ -1059,13 +1059,13 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             proxy_configuration={
                 "type": "APPMESH",
-                "containerName": "applicationContainerName",
+                "container_name": "applicationContainerName",
                 "properties": {
-                    "AppPorts": "8080",
-                    "EgressIgnoredIPs": "169.254.170.2,169.254.169.254",
-                    "IgnoredUID": "1337",
-                    "ProxyEgressPort": "15001",
-                    "ProxyIngressPort": "15000",
+                    "app_ports": "8080",
+                    "egress_ignored_ips": "169.254.170.2,169.254.169.254",
+                    "ignored_uid": "1337",
+                    "proxy_egress_port": "15001",
+                    "proxy_ingress_port": "15000",
                 },
             })
         ```
@@ -1082,11 +1082,11 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "dockerVolumeConfiguration": {
+                "docker_volume_configuration": {
                     "scope": "shared",
                     "autoprovision": True,
                     "driver": "local",
-                    "driverOpts": {
+                    "driver_opts": {
                         "type": "nfs",
                         "device": f"{fs['dnsName']}:/",
                         "o": f"addr={fs['dnsName']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
@@ -1107,13 +1107,13 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "efsVolumeConfiguration": {
-                    "fileSystemId": fs["id"],
-                    "rootDirectory": "/opt/data",
-                    "transitEncryption": "ENABLED",
-                    "transitEncryptionPort": 2999,
-                    "authorizationConfig": {
-                        "accessPointId": test["id"],
+                "efs_volume_configuration": {
+                    "file_system_id": fs["id"],
+                    "root_directory": "/opt/data",
+                    "transit_encryption": "ENABLED",
+                    "transit_encryption_port": 2999,
+                    "authorization_config": {
+                        "access_point_id": test["id"],
                         "iam": "ENABLED",
                     },
                 },
@@ -1139,11 +1139,11 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "fsxWindowsFileServerVolumeConfiguration": {
-                    "fileSystemId": test_aws_fsx_windows_file_system["id"],
-                    "rootDirectory": "\\\\data",
-                    "authorizationConfig": {
-                        "credentialsParameter": test.arn,
+                "fsx_windows_file_server_volume_configuration": {
+                    "file_system_id": test_aws_fsx_windows_file_system["id"],
+                    "root_directory": "\\\\data",
+                    "authorization_config": {
+                        "credentials_parameter": test.arn,
                         "domain": test_aws_directory_service_directory["name"],
                     },
                 },
@@ -1186,8 +1186,8 @@ class TaskDefinition(pulumi.CustomResource):
         ]
         \"\"\",
             inference_accelerators=[{
-                "deviceName": "device_1",
-                "deviceType": "eia1.medium",
+                "device_name": "device_1",
+                "device_type": "eia1.medium",
             }])
         ```
 
@@ -1214,8 +1214,8 @@ class TaskDefinition(pulumi.CustomResource):
         ]
         \"\"\",
             runtime_platform={
-                "operatingSystemFamily": "WINDOWS_SERVER_2019_CORE",
-                "cpuArchitecture": "X86_64",
+                "operating_system_family": "WINDOWS_SERVER_2019_CORE",
+                "cpu_architecture": "X86_64",
             })
         ```
 

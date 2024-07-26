@@ -48,8 +48,8 @@ import (
 //			}
 //			_, err = pinpoint.NewApnsSandboxChannel(ctx, "apns_sandbox", &pinpoint.ApnsSandboxChannelArgs{
 //				ApplicationId: app.ApplicationId,
-//				Certificate:   invokeFile.Result,
-//				PrivateKey:    invokeFile1.Result,
+//				Certificate:   pulumi.String(invokeFile.Result),
+//				PrivateKey:    pulumi.String(invokeFile1.Result),
 //			})
 //			if err != nil {
 //				return err
