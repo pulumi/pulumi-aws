@@ -18,7 +18,7 @@ index 221abb4dd5..75ac5b4c94 100644
  		Blocks: map[string]schema.Block{
  			"definition": schema.ListNestedBlock{
 diff --git a/internal/service/m2/environment.go b/internal/service/m2/environment.go
-index e0ab54314a..c30d3b0386 100644
+index 5b65412474..b97fab9739 100644
 --- a/internal/service/m2/environment.go
 +++ b/internal/service/m2/environment.go
 @@ -174,7 +174,7 @@ func (r *environmentResource) Schema(ctx context.Context, request resource.Schem

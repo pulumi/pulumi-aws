@@ -6,7 +6,7 @@ Subject: [PATCH] Normalize ecs.TaskDefinition containerDefinitions
 
 
 diff --git a/internal/service/ecs/task_definition_equivalency.go b/internal/service/ecs/task_definition_equivalency.go
-index 7aaa1e0679..daf70eec25 100644
+index 6947d99a88..e4b67eb1ba 100644
 --- a/internal/service/ecs/task_definition_equivalency.go
 +++ b/internal/service/ecs/task_definition_equivalency.go
 @@ -50,6 +50,10 @@ func (cd containerDefinitions) reduce(isAWSVPC bool) {
