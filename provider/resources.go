@@ -4752,6 +4752,7 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_partition":               {Tok: awsDataSource(awsMod, "getPartition")},
 			"aws_region":                  {Tok: awsDataSource(awsMod, "getRegion")},
 			"aws_regions":                 {Tok: awsDataSource(awsMod, "getRegions")},
+			"aws_service_principal":       {Tok: awsDataSource(awsMod, "getServicePrincipal")},
 			"aws_default_tags":            {Tok: awsDataSource(awsMod, "getDefaultTags")},
 			"aws_service":                 {Tok: awsDataSource(awsMod, "getService")},
 			// AWS Certificate Manager
