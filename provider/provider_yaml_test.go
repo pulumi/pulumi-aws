@@ -9,6 +9,7 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"io"
 	"math/rand"
 	"os"
 	"os/exec"
@@ -456,12 +457,40 @@ func TestIMDSAuth(t *testing.T) {
 	t.Run("IDMSv2", func(t *testing.T) {
 		t.Parallel()
 		ptest := pulumiTest(t, filepath.Join("test-programs", "imds-auth", "imds-v2"), opttest.SkipInstall())
-		ptest.SetConfig("localProviderBuild", localProviderBuild)
+		dir := ptest.Source()
+		localLocation := filepath.Join(dir, "pulumi-resource-aws")
+		// need to copy the provider to the local directory for BucketObjectV2 to pick it up
+		// otherwise you get an error `Argument must be a constant or contained in the project dir`
+		err := copyFile(localProviderBuild, localLocation)
+		assert.NoError(t, err)
+		ptest.SetConfig("localProviderBuild", localLocation)
 		result := ptest.Up()
 		t.Logf("stdout: %s", result.StdOut)
 		t.Logf("stderr: %s", result.StdErr)
 		t.Logf("commandOut: %v", result.Outputs["commandOut"].Value)
 	})
+}
+
+func copyFile(src, dst string) error {
+	srcFile, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer srcFile.Close()
+
+	dstFile, err := os.Create(dst)
+	if err != nil {
+		return err
+	}
+	defer dstFile.Close()
+
+	_, err = io.Copy(dstFile, srcFile)
+	if err != nil {
+		return err
+	}
+
+	err = dstFile.Sync()
+	return err
 }
 
 // Assert that the provider does not regress on emitting an unexpected deprecation.
