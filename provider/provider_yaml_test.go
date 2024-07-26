@@ -308,7 +308,7 @@ func randSeq(n int) string {
 
 func TestNonIdempotentSnsTopic(t *testing.T) {
 	t.Parallel()
-	ptest := pulumiTest(t, filepath.Join("test-programs", "non-idempotent-sns-topic"))
+	ptest := pulumiTest(t, filepath.Join("test-programs", "non-idempotent-sns-topic"), opttest.SkipInstall())
 
 	ptest.InstallStack("test")
 	// generate random name
@@ -772,7 +772,7 @@ func testTagsPulumiLifecycle(t *testing.T, step tagsTestStep) {
 	fpath := filepath.Join(stepDir, "Pulumi.yaml")
 
 	generateTagsTest(t, step, fpath, "")
-	ptest := pulumiTest(t, stepDir, opttest.TestInPlace())
+	ptest := pulumiTest(t, stepDir, opttest.TestInPlace(), opttest.SkipInstall())
 	stack := ptest.CurrentStack()
 
 	t.Log("Initial deployment...")
