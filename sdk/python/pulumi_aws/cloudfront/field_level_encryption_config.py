@@ -181,20 +181,20 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         test = aws.cloudfront.FieldLevelEncryptionConfig("test",
             comment="test comment",
             content_type_profile_config={
-                "forwardWhenContentTypeIsUnknown": True,
-                "contentTypeProfiles": {
+                "forward_when_content_type_is_unknown": True,
+                "content_type_profiles": {
                     "items": [{
-                        "contentType": "application/x-www-form-urlencoded",
+                        "content_type": "application/x-www-form-urlencoded",
                         "format": "URLEncoded",
                     }],
                 },
             },
             query_arg_profile_config={
-                "forwardWhenQueryArgProfileIsUnknown": True,
-                "queryArgProfiles": {
+                "forward_when_query_arg_profile_is_unknown": True,
+                "query_arg_profiles": {
                     "items": [{
-                        "profileId": test_aws_cloudfront_field_level_encryption_profile["id"],
-                        "queryArg": "Arg1",
+                        "profile_id": test_aws_cloudfront_field_level_encryption_profile["id"],
+                        "query_arg": "Arg1",
                     }],
                 },
             })
@@ -232,20 +232,20 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         test = aws.cloudfront.FieldLevelEncryptionConfig("test",
             comment="test comment",
             content_type_profile_config={
-                "forwardWhenContentTypeIsUnknown": True,
-                "contentTypeProfiles": {
+                "forward_when_content_type_is_unknown": True,
+                "content_type_profiles": {
                     "items": [{
-                        "contentType": "application/x-www-form-urlencoded",
+                        "content_type": "application/x-www-form-urlencoded",
                         "format": "URLEncoded",
                     }],
                 },
             },
             query_arg_profile_config={
-                "forwardWhenQueryArgProfileIsUnknown": True,
-                "queryArgProfiles": {
+                "forward_when_query_arg_profile_is_unknown": True,
+                "query_arg_profiles": {
                     "items": [{
-                        "profileId": test_aws_cloudfront_field_level_encryption_profile["id"],
-                        "queryArg": "Arg1",
+                        "profile_id": test_aws_cloudfront_field_level_encryption_profile["id"],
+                        "query_arg": "Arg1",
                     }],
                 },
             })

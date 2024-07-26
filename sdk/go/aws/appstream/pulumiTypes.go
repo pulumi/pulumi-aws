@@ -1781,7 +1781,7 @@ type GetImageApplication struct {
 	LaunchPath string `pulumi:"launchPath"`
 	// String to string map that contains additional attributes used to describe the application.
 	// * `Name` - Name of the application.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]string `pulumi:"metadata"`
 	// Name of the image being searched for. Cannot be used with nameRegex or arn.
 	Name string `pulumi:"name"`
 	// Array of strings describing the platforms on which the application can run.
@@ -1827,7 +1827,7 @@ type GetImageApplicationArgs struct {
 	LaunchPath pulumi.StringInput `pulumi:"launchPath"`
 	// String to string map that contains additional attributes used to describe the application.
 	// * `Name` - Name of the application.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
 	// Name of the image being searched for. Cannot be used with nameRegex or arn.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Array of strings describing the platforms on which the application can run.
@@ -1945,8 +1945,8 @@ func (o GetImageApplicationOutput) LaunchPath() pulumi.StringOutput {
 
 // String to string map that contains additional attributes used to describe the application.
 // * `Name` - Name of the application.
-func (o GetImageApplicationOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v GetImageApplication) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o GetImageApplicationOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetImageApplication) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
 // Name of the image being searched for. Cannot be used with nameRegex or arn.

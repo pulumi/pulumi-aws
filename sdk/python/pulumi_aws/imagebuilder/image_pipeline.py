@@ -639,7 +639,7 @@ class ImagePipeline(pulumi.CustomResource):
             infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
             name="example",
             schedule={
-                "scheduleExpression": "cron(0 0 * * ? *)",
+                "schedule_expression": "cron(0 0 * * ? *)",
             })
         ```
 
@@ -690,7 +690,7 @@ class ImagePipeline(pulumi.CustomResource):
             infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
             name="example",
             schedule={
-                "scheduleExpression": "cron(0 0 * * ? *)",
+                "schedule_expression": "cron(0 0 * * ? *)",
             })
         ```
 

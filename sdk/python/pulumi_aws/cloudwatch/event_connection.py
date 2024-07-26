@@ -218,7 +218,7 @@ class EventConnection(pulumi.CustomResource):
             description="A connection description",
             authorization_type="API_KEY",
             auth_parameters={
-                "apiKey": {
+                "api_key": {
                     "key": "x-signature",
                     "value": "1234",
                 },
@@ -255,27 +255,27 @@ class EventConnection(pulumi.CustomResource):
             authorization_type="OAUTH_CLIENT_CREDENTIALS",
             auth_parameters={
                 "oauth": {
-                    "authorizationEndpoint": "https://auth.url.com/endpoint",
-                    "httpMethod": "GET",
-                    "clientParameters": {
-                        "clientId": "1234567890",
-                        "clientSecret": "Pass1234!",
+                    "authorization_endpoint": "https://auth.url.com/endpoint",
+                    "http_method": "GET",
+                    "client_parameters": {
+                        "client_id": "1234567890",
+                        "client_secret": "Pass1234!",
                     },
-                    "oauthHttpParameters": {
+                    "oauth_http_parameters": {
                         "bodies": [{
                             "key": "body-parameter-key",
                             "value": "body-parameter-value",
-                            "isValueSecret": False,
+                            "is_value_secret": False,
                         }],
                         "headers": [{
                             "key": "header-parameter-key",
                             "value": "header-parameter-value",
-                            "isValueSecret": False,
+                            "is_value_secret": False,
                         }],
-                        "queryStrings": [{
+                        "query_strings": [{
                             "key": "query-string-parameter-key",
                             "value": "query-string-parameter-value",
-                            "isValueSecret": False,
+                            "is_value_secret": False,
                         }],
                     },
                 },
@@ -297,28 +297,28 @@ class EventConnection(pulumi.CustomResource):
                     "username": "user",
                     "password": "Pass1234!",
                 },
-                "invocationHttpParameters": {
+                "invocation_http_parameters": {
                     "bodies": [
                         {
                             "key": "body-parameter-key",
                             "value": "body-parameter-value",
-                            "isValueSecret": False,
+                            "is_value_secret": False,
                         },
                         {
                             "key": "body-parameter-key2",
                             "value": "body-parameter-value2",
-                            "isValueSecret": True,
+                            "is_value_secret": True,
                         },
                     ],
                     "headers": [{
                         "key": "header-parameter-key",
                         "value": "header-parameter-value",
-                        "isValueSecret": False,
+                        "is_value_secret": False,
                     }],
-                    "queryStrings": [{
+                    "query_strings": [{
                         "key": "query-string-parameter-key",
                         "value": "query-string-parameter-value",
-                        "isValueSecret": False,
+                        "is_value_secret": False,
                     }],
                 },
             })
@@ -361,7 +361,7 @@ class EventConnection(pulumi.CustomResource):
             description="A connection description",
             authorization_type="API_KEY",
             auth_parameters={
-                "apiKey": {
+                "api_key": {
                     "key": "x-signature",
                     "value": "1234",
                 },
@@ -398,27 +398,27 @@ class EventConnection(pulumi.CustomResource):
             authorization_type="OAUTH_CLIENT_CREDENTIALS",
             auth_parameters={
                 "oauth": {
-                    "authorizationEndpoint": "https://auth.url.com/endpoint",
-                    "httpMethod": "GET",
-                    "clientParameters": {
-                        "clientId": "1234567890",
-                        "clientSecret": "Pass1234!",
+                    "authorization_endpoint": "https://auth.url.com/endpoint",
+                    "http_method": "GET",
+                    "client_parameters": {
+                        "client_id": "1234567890",
+                        "client_secret": "Pass1234!",
                     },
-                    "oauthHttpParameters": {
+                    "oauth_http_parameters": {
                         "bodies": [{
                             "key": "body-parameter-key",
                             "value": "body-parameter-value",
-                            "isValueSecret": False,
+                            "is_value_secret": False,
                         }],
                         "headers": [{
                             "key": "header-parameter-key",
                             "value": "header-parameter-value",
-                            "isValueSecret": False,
+                            "is_value_secret": False,
                         }],
-                        "queryStrings": [{
+                        "query_strings": [{
                             "key": "query-string-parameter-key",
                             "value": "query-string-parameter-value",
-                            "isValueSecret": False,
+                            "is_value_secret": False,
                         }],
                     },
                 },
@@ -440,28 +440,28 @@ class EventConnection(pulumi.CustomResource):
                     "username": "user",
                     "password": "Pass1234!",
                 },
-                "invocationHttpParameters": {
+                "invocation_http_parameters": {
                     "bodies": [
                         {
                             "key": "body-parameter-key",
                             "value": "body-parameter-value",
-                            "isValueSecret": False,
+                            "is_value_secret": False,
                         },
                         {
                             "key": "body-parameter-key2",
                             "value": "body-parameter-value2",
-                            "isValueSecret": True,
+                            "is_value_secret": True,
                         },
                     ],
                     "headers": [{
                         "key": "header-parameter-key",
                         "value": "header-parameter-value",
-                        "isValueSecret": False,
+                        "is_value_secret": False,
                     }],
-                    "queryStrings": [{
+                    "query_strings": [{
                         "key": "query-string-parameter-key",
                         "value": "query-string-parameter-value",
-                        "isValueSecret": False,
+                        "is_value_secret": False,
                     }],
                 },
             })

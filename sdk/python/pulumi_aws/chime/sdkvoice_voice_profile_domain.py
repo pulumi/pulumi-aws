@@ -212,7 +212,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
             name="ExampleVoiceProfileDomain",
             server_side_encryption_configuration={
-                "kmsKeyArn": example.arn,
+                "kms_key_arn": example.arn,
             },
             description="My Voice Profile Domain",
             tags={
@@ -257,7 +257,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
             name="ExampleVoiceProfileDomain",
             server_side_encryption_configuration={
-                "kmsKeyArn": example.arn,
+                "kms_key_arn": example.arn,
             },
             description="My Voice Profile Domain",
             tags={

@@ -34,7 +34,7 @@ import (
 // Edition: pulumi.String("Standard"),
 // VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
 // VpcId: pulumi.Any(exampleAwsVpc.Id),
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:7,17-39),
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:7,17-39)),
 // },
 // })
 // if err != nil {

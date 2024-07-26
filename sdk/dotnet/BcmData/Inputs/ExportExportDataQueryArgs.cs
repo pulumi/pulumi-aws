@@ -19,14 +19,14 @@ namespace Pulumi.Aws.BcmData.Inputs
         public Input<string> QueryStatement { get; set; } = null!;
 
         [Input("tableConfigurations")]
-        private InputMap<ImmutableDictionary<string, object>>? _tableConfigurations;
+        private InputMap<ImmutableDictionary<string, string>>? _tableConfigurations;
 
         /// <summary>
         /// Table configuration.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> TableConfigurations
+        public InputMap<ImmutableDictionary<string, string>> TableConfigurations
         {
-            get => _tableConfigurations ?? (_tableConfigurations = new InputMap<ImmutableDictionary<string, object>>());
+            get => _tableConfigurations ?? (_tableConfigurations = new InputMap<ImmutableDictionary<string, string>>());
             set => _tableConfigurations = value;
         }
 

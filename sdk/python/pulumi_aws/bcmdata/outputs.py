@@ -149,10 +149,10 @@ class ExportExportDataQuery(dict):
 
     def __init__(__self__, *,
                  query_statement: str,
-                 table_configurations: Optional[Mapping[str, Mapping[str, Any]]] = None):
+                 table_configurations: Optional[Mapping[str, Mapping[str, str]]] = None):
         """
         :param str query_statement: Query statement.
-        :param Mapping[str, Mapping[str, Any]] table_configurations: Table configuration.
+        :param Mapping[str, Mapping[str, str]] table_configurations: Table configuration.
         """
         pulumi.set(__self__, "query_statement", query_statement)
         if table_configurations is not None:
@@ -168,7 +168,7 @@ class ExportExportDataQuery(dict):
 
     @property
     @pulumi.getter(name="tableConfigurations")
-    def table_configurations(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def table_configurations(self) -> Optional[Mapping[str, Mapping[str, str]]]:
         """
         Table configuration.
         """

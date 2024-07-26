@@ -292,7 +292,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[{
                 "event": "ASSESSMENT_RUN_COMPLETED",
-                "topicArn": example_aws_sns_topic["arn"],
+                "topic_arn": example_aws_sns_topic["arn"],
             }])
         ```
 
@@ -340,7 +340,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[{
                 "event": "ASSESSMENT_RUN_COMPLETED",
-                "topicArn": example_aws_sns_topic["arn"],
+                "topic_arn": example_aws_sns_topic["arn"],
             }])
         ```
 

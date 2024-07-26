@@ -468,11 +468,11 @@ class Trigger(pulumi.CustomResource):
             name="example",
             type="CONDITIONAL",
             actions=[{
-                "jobName": example1["name"],
+                "job_name": example1["name"],
             }],
             predicate={
                 "conditions": [{
-                    "jobName": example2["name"],
+                    "job_name": example2["name"],
                     "state": "SUCCEEDED",
                 }],
             })
@@ -488,7 +488,7 @@ class Trigger(pulumi.CustomResource):
             name="example",
             type="ON_DEMAND",
             actions=[{
-                "jobName": example_aws_glue_job["name"],
+                "job_name": example_aws_glue_job["name"],
             }])
         ```
 
@@ -503,7 +503,7 @@ class Trigger(pulumi.CustomResource):
             schedule="cron(15 12 * * ? *)",
             type="SCHEDULED",
             actions=[{
-                "jobName": example_aws_glue_job["name"],
+                "job_name": example_aws_glue_job["name"],
             }])
         ```
 
@@ -519,11 +519,11 @@ class Trigger(pulumi.CustomResource):
             name="example",
             type="CONDITIONAL",
             actions=[{
-                "crawlerName": example1["name"],
+                "crawler_name": example1["name"],
             }],
             predicate={
                 "conditions": [{
-                    "jobName": example2["name"],
+                    "job_name": example2["name"],
                     "state": "SUCCEEDED",
                 }],
             })
@@ -541,12 +541,12 @@ class Trigger(pulumi.CustomResource):
             name="example",
             type="CONDITIONAL",
             actions=[{
-                "jobName": example1["name"],
+                "job_name": example1["name"],
             }],
             predicate={
                 "conditions": [{
-                    "crawlerName": example2["name"],
-                    "crawlState": "SUCCEEDED",
+                    "crawler_name": example2["name"],
+                    "crawl_state": "SUCCEEDED",
                 }],
             })
         ```
@@ -594,11 +594,11 @@ class Trigger(pulumi.CustomResource):
             name="example",
             type="CONDITIONAL",
             actions=[{
-                "jobName": example1["name"],
+                "job_name": example1["name"],
             }],
             predicate={
                 "conditions": [{
-                    "jobName": example2["name"],
+                    "job_name": example2["name"],
                     "state": "SUCCEEDED",
                 }],
             })
@@ -614,7 +614,7 @@ class Trigger(pulumi.CustomResource):
             name="example",
             type="ON_DEMAND",
             actions=[{
-                "jobName": example_aws_glue_job["name"],
+                "job_name": example_aws_glue_job["name"],
             }])
         ```
 
@@ -629,7 +629,7 @@ class Trigger(pulumi.CustomResource):
             schedule="cron(15 12 * * ? *)",
             type="SCHEDULED",
             actions=[{
-                "jobName": example_aws_glue_job["name"],
+                "job_name": example_aws_glue_job["name"],
             }])
         ```
 
@@ -645,11 +645,11 @@ class Trigger(pulumi.CustomResource):
             name="example",
             type="CONDITIONAL",
             actions=[{
-                "crawlerName": example1["name"],
+                "crawler_name": example1["name"],
             }],
             predicate={
                 "conditions": [{
-                    "jobName": example2["name"],
+                    "job_name": example2["name"],
                     "state": "SUCCEEDED",
                 }],
             })
@@ -667,12 +667,12 @@ class Trigger(pulumi.CustomResource):
             name="example",
             type="CONDITIONAL",
             actions=[{
-                "jobName": example1["name"],
+                "job_name": example1["name"],
             }],
             predicate={
                 "conditions": [{
-                    "crawlerName": example2["name"],
-                    "crawlState": "SUCCEEDED",
+                    "crawler_name": example2["name"],
+                    "crawl_state": "SUCCEEDED",
                 }],
             })
         ```

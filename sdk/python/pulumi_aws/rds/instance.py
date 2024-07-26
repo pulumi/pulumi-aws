@@ -2968,12 +2968,12 @@ class Instance(pulumi.CustomResource):
             family=default.parameter_group_family,
             parameters=[
                 {
-                    "applyMethod": "immediate",
+                    "apply_method": "immediate",
                     "name": "rds.ibm_customer_id",
                     "value": "0",
                 },
                 {
-                    "applyMethod": "immediate",
+                    "apply_method": "immediate",
                     "name": "rds.ibm_site_id",
                     "value": "0",
                 },
@@ -3379,12 +3379,12 @@ class Instance(pulumi.CustomResource):
             family=default.parameter_group_family,
             parameters=[
                 {
-                    "applyMethod": "immediate",
+                    "apply_method": "immediate",
                     "name": "rds.ibm_customer_id",
                     "value": "0",
                 },
                 {
-                    "applyMethod": "immediate",
+                    "apply_method": "immediate",
                     "name": "rds.ibm_site_id",
                     "value": "0",
                 },

@@ -15,22 +15,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketCorsRule {
     /**
-     * @return Specifies which headers are allowed.
+     * @return List of headers allowed.
      * 
      */
     private @Nullable List<String> allowedHeaders;
     /**
-     * @return Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+     * @return One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
      * 
      */
     private List<String> allowedMethods;
     /**
-     * @return Specifies which origins are allowed.
+     * @return One or more origins you want customers to be able to access the bucket from.
      * 
      */
     private List<String> allowedOrigins;
     /**
-     * @return Specifies expose header in the response.
+     * @return One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
      * 
      */
     private @Nullable List<String> exposeHeaders;
@@ -42,28 +42,28 @@ public final class BucketCorsRule {
 
     private BucketCorsRule() {}
     /**
-     * @return Specifies which headers are allowed.
+     * @return List of headers allowed.
      * 
      */
     public List<String> allowedHeaders() {
         return this.allowedHeaders == null ? List.of() : this.allowedHeaders;
     }
     /**
-     * @return Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+     * @return One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
      * 
      */
     public List<String> allowedMethods() {
         return this.allowedMethods;
     }
     /**
-     * @return Specifies which origins are allowed.
+     * @return One or more origins you want customers to be able to access the bucket from.
      * 
      */
     public List<String> allowedOrigins() {
         return this.allowedOrigins;
     }
     /**
-     * @return Specifies expose header in the response.
+     * @return One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
      * 
      */
     public List<String> exposeHeaders() {

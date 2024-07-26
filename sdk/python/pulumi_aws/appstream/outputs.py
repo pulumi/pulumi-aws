@@ -669,7 +669,7 @@ class GetImageApplicationResult(dict):
                  instance_families: Sequence[str],
                  launch_parameters: str,
                  launch_path: str,
-                 metadata: Mapping[str, Any],
+                 metadata: Mapping[str, str],
                  name: str,
                  platforms: Sequence[str],
                  working_directory: str):
@@ -685,7 +685,7 @@ class GetImageApplicationResult(dict):
         :param Sequence[str] instance_families: List of the instance families of the application.
         :param str launch_parameters: Arguments that are passed to the application at it's launch.
         :param str launch_path: Path to the application's excecutable in the instance.
-        :param Mapping[str, Any] metadata: String to string map that contains additional attributes used to describe the application.
+        :param Mapping[str, str] metadata: String to string map that contains additional attributes used to describe the application.
                * `Name` - Name of the application.
         :param str name: Name of the image being searched for. Cannot be used with name_regex or arn.
         :param Sequence[str] platforms: Array of strings describing the platforms on which the application can run.
@@ -798,7 +798,7 @@ class GetImageApplicationResult(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Mapping[str, Any]:
+    def metadata(self) -> Mapping[str, str]:
         """
         String to string map that contains additional attributes used to describe the application.
         * `Name` - Name of the application.

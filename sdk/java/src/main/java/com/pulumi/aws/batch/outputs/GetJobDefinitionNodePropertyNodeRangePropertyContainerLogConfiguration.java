@@ -6,7 +6,6 @@ package com.pulumi.aws.batch.outputs;
 import com.pulumi.aws.batch.outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +22,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConf
      * @return The configuration options to send to the log driver.
      * 
      */
-    private Map<String,Object> options;
+    private Map<String,String> options;
     /**
      * @return The secrets to pass to the log configuration.
      * 
@@ -42,7 +41,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConf
      * @return The configuration options to send to the log driver.
      * 
      */
-    public Map<String,Object> options() {
+    public Map<String,String> options() {
         return this.options;
     }
     /**
@@ -63,7 +62,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConf
     @CustomType.Builder
     public static final class Builder {
         private String logDriver;
-        private Map<String,Object> options;
+        private Map<String,String> options;
         private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption> secretOptions;
         public Builder() {}
         public Builder(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration defaults) {
@@ -82,7 +81,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConf
             return this;
         }
         @CustomType.Setter
-        public Builder options(Map<String,Object> options) {
+        public Builder options(Map<String,String> options) {
             if (options == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration", "options");
             }

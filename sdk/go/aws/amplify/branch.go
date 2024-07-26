@@ -83,7 +83,7 @@ import (
 //				AppId:                example.ID(),
 //				BranchName:           pulumi.String("master"),
 //				EnableBasicAuth:      pulumi.Bool(true),
-//				BasicAuthCredentials: invokeBase64encode.Result,
+//				BasicAuthCredentials: pulumi.String(invokeBase64encode.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -202,7 +202,7 @@ import (
 // amplifyAppMaster := pulumi.All(master.Arn,amplifyAppMasterTopic.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // masterArn := _args[0].(string)
 // amplifyAppMasterTopicArn := _args[1].(string)
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Sid: fmt.Sprintf("Allow_Publish_Events %v", masterArn),
@@ -223,13 +223,13 @@ import (
 // },
 // },
 // },
-// }, nil), nil
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = sns.NewTopicPolicy(ctx, "amplify_app_master", &sns.TopicPolicyArgs{
 // Arn: amplifyAppMasterTopic.Arn,
-// Policy: amplifyAppMaster.ApplyT(func(amplifyAppMaster iam.GetPolicyDocumentResult) (*string, error) {
+// Policy: pulumi.String(amplifyAppMaster.ApplyT(func(amplifyAppMaster iam.GetPolicyDocumentResult) (*string, error) {
 // return &amplifyAppMaster.Json, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

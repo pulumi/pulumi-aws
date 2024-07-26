@@ -115,7 +115,7 @@ import (
 // return err
 // }
 // _default := defaultContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Effect: "Allow",
@@ -133,13 +133,13 @@ import (
 // },
 // },
 // },
-// }, nil), nil
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = ecr.NewRepositoryPolicy(ctx, "default", &ecr.RepositoryPolicyArgs{
 // Repository: pulumi.Any(defaultAwsEcrRepository.Name),
-// Policy: _default.ApplyT(func(_default iam.GetPolicyDocumentResult) (*string, error) {
+// Policy: pulumi.String(_default.ApplyT(func(_default iam.GetPolicyDocumentResult) (*string, error) {
 // return &default.Json, nil
-// }).(pulumi.StringPtrOutput),
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

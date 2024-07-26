@@ -143,7 +143,7 @@ import (
 //				Capacity: pulumi.Int(100),
 //				Name:     pulumi.String("example"),
 //				Type:     pulumi.String("STATEFUL"),
-//				Rules:    invokeFile.Result,
+//				Rules:    pulumi.String(invokeFile.Result),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -218,7 +218,7 @@ import (
 //						},
 //					},
 //					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
-//						RulesString: invokeFile.Result,
+//						RulesString: pulumi.String(invokeFile.Result),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

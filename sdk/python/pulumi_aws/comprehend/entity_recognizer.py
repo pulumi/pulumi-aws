@@ -485,7 +485,7 @@ class EntityRecognizer(pulumi.CustomResource):
             data_access_role_arn=example_aws_iam_role["arn"],
             language_code="en",
             input_data_config={
-                "entityTypes": [
+                "entity_types": [
                     {
                         "type": "ENTITY_1",
                     },
@@ -494,10 +494,10 @@ class EntityRecognizer(pulumi.CustomResource):
                     },
                 ],
                 "documents": {
-                    "s3Uri": documents.id.apply(lambda id: f"s3://{documents_aws_s3_bucket['bucket']}/{id}"),
+                    "s3_uri": documents.id.apply(lambda id: f"s3://{documents_aws_s3_bucket['bucket']}/{id}"),
                 },
-                "entityList": {
-                    "s3Uri": entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
+                "entity_list": {
+                    "s3_uri": entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
@@ -564,7 +564,7 @@ class EntityRecognizer(pulumi.CustomResource):
             data_access_role_arn=example_aws_iam_role["arn"],
             language_code="en",
             input_data_config={
-                "entityTypes": [
+                "entity_types": [
                     {
                         "type": "ENTITY_1",
                     },
@@ -573,10 +573,10 @@ class EntityRecognizer(pulumi.CustomResource):
                     },
                 ],
                 "documents": {
-                    "s3Uri": documents.id.apply(lambda id: f"s3://{documents_aws_s3_bucket['bucket']}/{id}"),
+                    "s3_uri": documents.id.apply(lambda id: f"s3://{documents_aws_s3_bucket['bucket']}/{id}"),
                 },
-                "entityList": {
-                    "s3Uri": entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
+                "entity_list": {
+                    "s3_uri": entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))

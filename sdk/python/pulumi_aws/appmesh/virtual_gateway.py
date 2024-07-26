@@ -303,7 +303,7 @@ class VirtualGateway(pulumi.CustomResource):
             mesh_name="example-service-mesh",
             spec={
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
@@ -325,21 +325,21 @@ class VirtualGateway(pulumi.CustomResource):
             mesh_name="example-service-mesh",
             spec={
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
                     "tls": {
                         "certificate": {
                             "acm": {
-                                "certificateArn": example_aws_acm_certificate["arn"],
+                                "certificate_arn": example_aws_acm_certificate["arn"],
                             },
                         },
                         "mode": "STRICT",
                     },
                 }],
                 "logging": {
-                    "accessLog": {
+                    "access_log": {
                         "file": {
                             "path": "/var/log/access.log",
                         },
@@ -386,7 +386,7 @@ class VirtualGateway(pulumi.CustomResource):
             mesh_name="example-service-mesh",
             spec={
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
@@ -408,21 +408,21 @@ class VirtualGateway(pulumi.CustomResource):
             mesh_name="example-service-mesh",
             spec={
                 "listeners": [{
-                    "portMapping": {
+                    "port_mapping": {
                         "port": 8080,
                         "protocol": "http",
                     },
                     "tls": {
                         "certificate": {
                             "acm": {
-                                "certificateArn": example_aws_acm_certificate["arn"],
+                                "certificate_arn": example_aws_acm_certificate["arn"],
                             },
                         },
                         "mode": "STRICT",
                     },
                 }],
                 "logging": {
-                    "accessLog": {
+                    "access_log": {
                         "file": {
                             "path": "/var/log/access.log",
                         },
