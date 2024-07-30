@@ -751,11 +751,18 @@ public class Service extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Service(String name, @Nullable ServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/service:Service", name, args == null ? ServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ecs/service:Service", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Service(String name, Output<String> id, @Nullable ServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ecs/service:Service", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceArgs makeArgs(@Nullable ServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

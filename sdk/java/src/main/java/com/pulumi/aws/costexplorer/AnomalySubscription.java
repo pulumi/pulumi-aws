@@ -466,11 +466,18 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AnomalySubscription(String name, AnomalySubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:costexplorer/anomalySubscription:AnomalySubscription", name, args == null ? AnomalySubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:costexplorer/anomalySubscription:AnomalySubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AnomalySubscription(String name, Output<String> id, @Nullable AnomalySubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:costexplorer/anomalySubscription:AnomalySubscription", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AnomalySubscriptionArgs makeArgs(AnomalySubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnomalySubscriptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

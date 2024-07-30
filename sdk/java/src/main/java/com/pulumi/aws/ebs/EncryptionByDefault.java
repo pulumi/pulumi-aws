@@ -102,11 +102,18 @@ public class EncryptionByDefault extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EncryptionByDefault(String name, @Nullable EncryptionByDefaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ebs/encryptionByDefault:EncryptionByDefault", name, args == null ? EncryptionByDefaultArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ebs/encryptionByDefault:EncryptionByDefault", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EncryptionByDefault(String name, Output<String> id, @Nullable EncryptionByDefaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ebs/encryptionByDefault:EncryptionByDefault", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EncryptionByDefaultArgs makeArgs(@Nullable EncryptionByDefaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EncryptionByDefaultArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -406,11 +406,18 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ContainerRecipe(String name, ContainerRecipeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:imagebuilder/containerRecipe:ContainerRecipe", name, args == null ? ContainerRecipeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:imagebuilder/containerRecipe:ContainerRecipe", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ContainerRecipe(String name, Output<String> id, @Nullable ContainerRecipeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:imagebuilder/containerRecipe:ContainerRecipe", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ContainerRecipeArgs makeArgs(ContainerRecipeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContainerRecipeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

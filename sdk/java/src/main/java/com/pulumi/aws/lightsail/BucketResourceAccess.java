@@ -78,11 +78,18 @@ public class BucketResourceAccess extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BucketResourceAccess(String name, BucketResourceAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, args == null ? BucketResourceAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BucketResourceAccess(String name, Output<String> id, @Nullable BucketResourceAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BucketResourceAccessArgs makeArgs(BucketResourceAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketResourceAccessArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

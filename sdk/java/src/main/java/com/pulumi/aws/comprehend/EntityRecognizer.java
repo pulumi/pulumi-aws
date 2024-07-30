@@ -323,11 +323,18 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EntityRecognizer(String name, EntityRecognizerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:comprehend/entityRecognizer:EntityRecognizer", name, args == null ? EntityRecognizerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:comprehend/entityRecognizer:EntityRecognizer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EntityRecognizer(String name, Output<String> id, @Nullable EntityRecognizerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:comprehend/entityRecognizer:EntityRecognizer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EntityRecognizerArgs makeArgs(EntityRecognizerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EntityRecognizerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

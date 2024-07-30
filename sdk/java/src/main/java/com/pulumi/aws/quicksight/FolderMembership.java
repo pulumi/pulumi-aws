@@ -149,11 +149,18 @@ public class FolderMembership extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FolderMembership(String name, FolderMembershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:quicksight/folderMembership:FolderMembership", name, args == null ? FolderMembershipArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:quicksight/folderMembership:FolderMembership", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FolderMembership(String name, Output<String> id, @Nullable FolderMembershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:quicksight/folderMembership:FolderMembership", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FolderMembershipArgs makeArgs(FolderMembershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FolderMembershipArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

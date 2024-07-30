@@ -399,11 +399,18 @@ public class PhpAppLayer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PhpAppLayer(String name, PhpAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/phpAppLayer:PhpAppLayer", name, args == null ? PhpAppLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opsworks/phpAppLayer:PhpAppLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PhpAppLayer(String name, Output<String> id, @Nullable PhpAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opsworks/phpAppLayer:PhpAppLayer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PhpAppLayerArgs makeArgs(PhpAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PhpAppLayerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

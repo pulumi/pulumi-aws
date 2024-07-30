@@ -363,11 +363,18 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ListenerRule(String name, ListenerRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:alb/listenerRule:ListenerRule", name, args == null ? ListenerRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:alb/listenerRule:ListenerRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ListenerRule(String name, Output<String> id, @Nullable ListenerRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:alb/listenerRule:ListenerRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ListenerRuleArgs makeArgs(ListenerRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ListenerRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -231,11 +231,18 @@ public class ServiceLinkedRole extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceLinkedRole(String name, ServiceLinkedRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, args == null ? ServiceLinkedRoleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceLinkedRole(String name, Output<String> id, @Nullable ServiceLinkedRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceLinkedRoleArgs makeArgs(ServiceLinkedRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceLinkedRoleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

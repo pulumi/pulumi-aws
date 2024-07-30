@@ -222,11 +222,18 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public LayerVersionPermission(String name, LayerVersionPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/layerVersionPermission:LayerVersionPermission", name, args == null ? LayerVersionPermissionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lambda/layerVersionPermission:LayerVersionPermission", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LayerVersionPermission(String name, Output<String> id, @Nullable LayerVersionPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lambda/layerVersionPermission:LayerVersionPermission", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LayerVersionPermissionArgs makeArgs(LayerVersionPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LayerVersionPermissionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

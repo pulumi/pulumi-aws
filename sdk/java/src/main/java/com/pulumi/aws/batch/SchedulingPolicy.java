@@ -169,11 +169,18 @@ public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SchedulingPolicy(String name, @Nullable SchedulingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:batch/schedulingPolicy:SchedulingPolicy", name, args == null ? SchedulingPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:batch/schedulingPolicy:SchedulingPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SchedulingPolicy(String name, Output<String> id, @Nullable SchedulingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:batch/schedulingPolicy:SchedulingPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SchedulingPolicyArgs makeArgs(@Nullable SchedulingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SchedulingPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

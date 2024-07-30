@@ -151,11 +151,18 @@ public class QueryDefinition extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public QueryDefinition(String name, QueryDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/queryDefinition:QueryDefinition", name, args == null ? QueryDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudwatch/queryDefinition:QueryDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private QueryDefinition(String name, Output<String> id, @Nullable QueryDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/queryDefinition:QueryDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static QueryDefinitionArgs makeArgs(QueryDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? QueryDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

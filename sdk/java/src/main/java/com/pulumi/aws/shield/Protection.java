@@ -182,11 +182,18 @@ public class Protection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Protection(String name, ProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/protection:Protection", name, args == null ? ProtectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:shield/protection:Protection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Protection(String name, Output<String> id, @Nullable ProtectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:shield/protection:Protection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProtectionArgs makeArgs(ProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProtectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

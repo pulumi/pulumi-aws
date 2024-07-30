@@ -466,11 +466,18 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CertificateAuthority(String name, CertificateAuthorityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:acmpca/certificateAuthority:CertificateAuthority", name, args == null ? CertificateAuthorityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:acmpca/certificateAuthority:CertificateAuthority", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CertificateAuthority(String name, Output<String> id, @Nullable CertificateAuthorityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:acmpca/certificateAuthority:CertificateAuthority", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CertificateAuthorityArgs makeArgs(CertificateAuthorityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CertificateAuthorityArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

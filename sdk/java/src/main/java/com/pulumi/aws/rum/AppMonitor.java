@@ -235,11 +235,18 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AppMonitor(String name, AppMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rum/appMonitor:AppMonitor", name, args == null ? AppMonitorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:rum/appMonitor:AppMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AppMonitor(String name, Output<String> id, @Nullable AppMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rum/appMonitor:AppMonitor", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AppMonitorArgs makeArgs(AppMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppMonitorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

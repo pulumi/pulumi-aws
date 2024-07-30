@@ -207,11 +207,18 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ExtensionAssociation(String name, ExtensionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/extensionAssociation:ExtensionAssociation", name, args == null ? ExtensionAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appconfig/extensionAssociation:ExtensionAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ExtensionAssociation(String name, Output<String> id, @Nullable ExtensionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appconfig/extensionAssociation:ExtensionAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ExtensionAssociationArgs makeArgs(ExtensionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExtensionAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

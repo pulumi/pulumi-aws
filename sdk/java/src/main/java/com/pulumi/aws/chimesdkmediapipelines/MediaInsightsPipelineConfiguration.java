@@ -591,11 +591,18 @@ public class MediaInsightsPipelineConfiguration extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public MediaInsightsPipelineConfiguration(String name, MediaInsightsPipelineConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration", name, args == null ? MediaInsightsPipelineConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MediaInsightsPipelineConfiguration(String name, Output<String> id, @Nullable MediaInsightsPipelineConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MediaInsightsPipelineConfigurationArgs makeArgs(MediaInsightsPipelineConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MediaInsightsPipelineConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

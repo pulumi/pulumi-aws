@@ -206,11 +206,18 @@ public class Constraint extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Constraint(String name, ConstraintArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/constraint:Constraint", name, args == null ? ConstraintArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicecatalog/constraint:Constraint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Constraint(String name, Output<String> id, @Nullable ConstraintState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicecatalog/constraint:Constraint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConstraintArgs makeArgs(ConstraintArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConstraintArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

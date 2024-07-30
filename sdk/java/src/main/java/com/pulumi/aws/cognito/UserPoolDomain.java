@@ -284,11 +284,18 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserPoolDomain(String name, UserPoolDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/userPoolDomain:UserPoolDomain", name, args == null ? UserPoolDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cognito/userPoolDomain:UserPoolDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserPoolDomain(String name, Output<String> id, @Nullable UserPoolDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cognito/userPoolDomain:UserPoolDomain", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserPoolDomainArgs makeArgs(UserPoolDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserPoolDomainArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

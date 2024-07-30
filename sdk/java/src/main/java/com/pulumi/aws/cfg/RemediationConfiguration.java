@@ -293,11 +293,18 @@ public class RemediationConfiguration extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public RemediationConfiguration(String name, RemediationConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/remediationConfiguration:RemediationConfiguration", name, args == null ? RemediationConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cfg/remediationConfiguration:RemediationConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemediationConfiguration(String name, Output<String> id, @Nullable RemediationConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cfg/remediationConfiguration:RemediationConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemediationConfigurationArgs makeArgs(RemediationConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemediationConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

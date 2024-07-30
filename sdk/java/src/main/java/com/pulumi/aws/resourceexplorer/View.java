@@ -210,11 +210,18 @@ public class View extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public View(String name, @Nullable ViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:resourceexplorer/view:View", name, args == null ? ViewArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:resourceexplorer/view:View", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private View(String name, Output<String> id, @Nullable ViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:resourceexplorer/view:View", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ViewArgs makeArgs(@Nullable ViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ViewArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

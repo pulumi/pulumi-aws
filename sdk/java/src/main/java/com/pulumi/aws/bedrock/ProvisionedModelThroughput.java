@@ -200,11 +200,18 @@ public class ProvisionedModelThroughput extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public ProvisionedModelThroughput(String name, ProvisionedModelThroughputArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput", name, args == null ? ProvisionedModelThroughputArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProvisionedModelThroughput(String name, Output<String> id, @Nullable ProvisionedModelThroughputState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProvisionedModelThroughputArgs makeArgs(ProvisionedModelThroughputArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProvisionedModelThroughputArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

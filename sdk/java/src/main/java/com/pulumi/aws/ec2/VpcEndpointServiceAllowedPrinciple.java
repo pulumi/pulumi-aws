@@ -118,11 +118,18 @@ public class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcEndpointServiceAllowedPrinciple(String name, VpcEndpointServiceAllowedPrincipleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple", name, args == null ? VpcEndpointServiceAllowedPrincipleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcEndpointServiceAllowedPrinciple(String name, Output<String> id, @Nullable VpcEndpointServiceAllowedPrincipleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcEndpointServiceAllowedPrincipleArgs makeArgs(VpcEndpointServiceAllowedPrincipleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcEndpointServiceAllowedPrincipleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

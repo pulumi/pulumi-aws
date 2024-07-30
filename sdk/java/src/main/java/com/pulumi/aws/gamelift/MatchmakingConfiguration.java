@@ -322,11 +322,18 @@ public class MatchmakingConfiguration extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public MatchmakingConfiguration(String name, MatchmakingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration", name, args == null ? MatchmakingConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MatchmakingConfiguration(String name, Output<String> id, @Nullable MatchmakingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MatchmakingConfigurationArgs makeArgs(MatchmakingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MatchmakingConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

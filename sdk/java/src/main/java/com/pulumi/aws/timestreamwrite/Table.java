@@ -296,11 +296,18 @@ public class Table extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Table(String name, TableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:timestreamwrite/table:Table", name, args == null ? TableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:timestreamwrite/table:Table", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Table(String name, Output<String> id, @Nullable TableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:timestreamwrite/table:Table", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TableArgs makeArgs(TableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

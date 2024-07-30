@@ -143,11 +143,18 @@ public class DomainServiceAccessPolicy extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public DomainServiceAccessPolicy(String name, DomainServiceAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy", name, args == null ? DomainServiceAccessPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DomainServiceAccessPolicy(String name, Output<String> id, @Nullable DomainServiceAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DomainServiceAccessPolicyArgs makeArgs(DomainServiceAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainServiceAccessPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

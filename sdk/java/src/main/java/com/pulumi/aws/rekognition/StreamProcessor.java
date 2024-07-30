@@ -531,11 +531,18 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StreamProcessor(String name, StreamProcessorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rekognition/streamProcessor:StreamProcessor", name, args == null ? StreamProcessorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:rekognition/streamProcessor:StreamProcessor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StreamProcessor(String name, Output<String> id, @Nullable StreamProcessorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rekognition/streamProcessor:StreamProcessor", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StreamProcessorArgs makeArgs(StreamProcessorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StreamProcessorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

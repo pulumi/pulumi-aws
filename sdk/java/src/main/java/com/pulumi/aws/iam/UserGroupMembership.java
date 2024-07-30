@@ -147,11 +147,18 @@ public class UserGroupMembership extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserGroupMembership(String name, UserGroupMembershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/userGroupMembership:UserGroupMembership", name, args == null ? UserGroupMembershipArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/userGroupMembership:UserGroupMembership", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserGroupMembership(String name, Output<String> id, @Nullable UserGroupMembershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/userGroupMembership:UserGroupMembership", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserGroupMembershipArgs makeArgs(UserGroupMembershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserGroupMembershipArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -175,11 +175,18 @@ public class SmsChannel extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SmsChannel(String name, SmsChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/smsChannel:SmsChannel", name, args == null ? SmsChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:pinpoint/smsChannel:SmsChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SmsChannel(String name, Output<String> id, @Nullable SmsChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:pinpoint/smsChannel:SmsChannel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SmsChannelArgs makeArgs(SmsChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SmsChannelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

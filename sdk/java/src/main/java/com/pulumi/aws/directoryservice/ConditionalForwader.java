@@ -132,11 +132,18 @@ public class ConditionalForwader extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ConditionalForwader(String name, ConditionalForwaderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directoryservice/conditionalForwader:ConditionalForwader", name, args == null ? ConditionalForwaderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directoryservice/conditionalForwader:ConditionalForwader", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConditionalForwader(String name, Output<String> id, @Nullable ConditionalForwaderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directoryservice/conditionalForwader:ConditionalForwader", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConditionalForwaderArgs makeArgs(ConditionalForwaderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConditionalForwaderArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

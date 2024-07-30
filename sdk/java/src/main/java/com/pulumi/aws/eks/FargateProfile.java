@@ -284,11 +284,18 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FargateProfile(String name, FargateProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/fargateProfile:FargateProfile", name, args == null ? FargateProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:eks/fargateProfile:FargateProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FargateProfile(String name, Output<String> id, @Nullable FargateProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:eks/fargateProfile:FargateProfile", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FargateProfileArgs makeArgs(FargateProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FargateProfileArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

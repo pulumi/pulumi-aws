@@ -82,11 +82,18 @@ public class WebAclAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WebAclAssociation(String name, WebAclAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafv2/webAclAssociation:WebAclAssociation", name, args == null ? WebAclAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:wafv2/webAclAssociation:WebAclAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WebAclAssociation(String name, Output<String> id, @Nullable WebAclAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:wafv2/webAclAssociation:WebAclAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WebAclAssociationArgs makeArgs(WebAclAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WebAclAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

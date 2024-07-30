@@ -175,11 +175,18 @@ public class Host extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Host(String name, HostArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codestarconnections/host:Host", name, args == null ? HostArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:codestarconnections/host:Host", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Host(String name, Output<String> id, @Nullable HostState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:codestarconnections/host:Host", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HostArgs makeArgs(HostArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

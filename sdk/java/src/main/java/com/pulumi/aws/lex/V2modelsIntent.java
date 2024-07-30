@@ -329,11 +329,18 @@ public class V2modelsIntent extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public V2modelsIntent(String name, V2modelsIntentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/v2modelsIntent:V2modelsIntent", name, args == null ? V2modelsIntentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lex/v2modelsIntent:V2modelsIntent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private V2modelsIntent(String name, Output<String> id, @Nullable V2modelsIntentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lex/v2modelsIntent:V2modelsIntent", name, state, makeResourceOptions(options, id));
+    }
+
+    private static V2modelsIntentArgs makeArgs(V2modelsIntentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? V2modelsIntentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

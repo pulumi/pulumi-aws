@@ -251,11 +251,18 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ReportGroup(String name, ReportGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codebuild/reportGroup:ReportGroup", name, args == null ? ReportGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:codebuild/reportGroup:ReportGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReportGroup(String name, Output<String> id, @Nullable ReportGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:codebuild/reportGroup:ReportGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReportGroupArgs makeArgs(ReportGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReportGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
