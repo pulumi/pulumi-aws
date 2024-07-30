@@ -366,11 +366,18 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Faq(String name, FaqArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kendra/faq:Faq", name, args == null ? FaqArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:kendra/faq:Faq", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Faq(String name, Output<String> id, @Nullable FaqState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:kendra/faq:Faq", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FaqArgs makeArgs(FaqArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FaqArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

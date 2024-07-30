@@ -142,11 +142,18 @@ public class PolicyTableAssociation extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public PolicyTableAssociation(String name, PolicyTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation", name, args == null ? PolicyTableAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PolicyTableAssociation(String name, Output<String> id, @Nullable PolicyTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PolicyTableAssociationArgs makeArgs(PolicyTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicyTableAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

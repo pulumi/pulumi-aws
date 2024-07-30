@@ -221,11 +221,18 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TableReplica(String name, TableReplicaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dynamodb/tableReplica:TableReplica", name, args == null ? TableReplicaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:dynamodb/tableReplica:TableReplica", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TableReplica(String name, Output<String> id, @Nullable TableReplicaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:dynamodb/tableReplica:TableReplica", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TableReplicaArgs makeArgs(TableReplicaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TableReplicaArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

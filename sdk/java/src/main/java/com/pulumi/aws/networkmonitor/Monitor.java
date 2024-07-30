@@ -169,11 +169,18 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Monitor(String name, MonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmonitor/monitor:Monitor", name, args == null ? MonitorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:networkmonitor/monitor:Monitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Monitor(String name, Output<String> id, @Nullable MonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkmonitor/monitor:Monitor", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MonitorArgs makeArgs(MonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MonitorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

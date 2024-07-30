@@ -543,11 +543,18 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Pipe(String name, PipeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pipes/pipe:Pipe", name, args == null ? PipeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:pipes/pipe:Pipe", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Pipe(String name, Output<String> id, @Nullable PipeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:pipes/pipe:Pipe", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PipeArgs makeArgs(PipeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PipeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

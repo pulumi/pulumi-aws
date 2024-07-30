@@ -147,11 +147,18 @@ public class ClusterPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ClusterPolicy(String name, ClusterPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:msk/clusterPolicy:ClusterPolicy", name, args == null ? ClusterPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:msk/clusterPolicy:ClusterPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClusterPolicy(String name, Output<String> id, @Nullable ClusterPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:msk/clusterPolicy:ClusterPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterPolicyArgs makeArgs(ClusterPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

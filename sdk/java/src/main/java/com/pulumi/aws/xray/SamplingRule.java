@@ -314,11 +314,18 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SamplingRule(String name, SamplingRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:xray/samplingRule:SamplingRule", name, args == null ? SamplingRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:xray/samplingRule:SamplingRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SamplingRule(String name, Output<String> id, @Nullable SamplingRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:xray/samplingRule:SamplingRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SamplingRuleArgs makeArgs(SamplingRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SamplingRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

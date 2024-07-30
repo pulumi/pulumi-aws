@@ -486,11 +486,18 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StateMachine(String name, StateMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sfn/stateMachine:StateMachine", name, args == null ? StateMachineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sfn/stateMachine:StateMachine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StateMachine(String name, Output<String> id, @Nullable StateMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sfn/stateMachine:StateMachine", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StateMachineArgs makeArgs(StateMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StateMachineArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

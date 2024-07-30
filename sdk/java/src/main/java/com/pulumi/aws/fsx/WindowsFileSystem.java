@@ -567,11 +567,18 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WindowsFileSystem(String name, WindowsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/windowsFileSystem:WindowsFileSystem", name, args == null ? WindowsFileSystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:fsx/windowsFileSystem:WindowsFileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WindowsFileSystem(String name, Output<String> id, @Nullable WindowsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:fsx/windowsFileSystem:WindowsFileSystem", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WindowsFileSystemArgs makeArgs(WindowsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WindowsFileSystemArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

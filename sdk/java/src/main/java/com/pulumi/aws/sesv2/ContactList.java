@@ -240,11 +240,18 @@ public class ContactList extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ContactList(String name, ContactListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/contactList:ContactList", name, args == null ? ContactListArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sesv2/contactList:ContactList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ContactList(String name, Output<String> id, @Nullable ContactListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sesv2/contactList:ContactList", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ContactListArgs makeArgs(ContactListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContactListArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

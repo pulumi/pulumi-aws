@@ -604,11 +604,18 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Broker(String name, BrokerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:mq/broker:Broker", name, args == null ? BrokerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:mq/broker:Broker", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Broker(String name, Output<String> id, @Nullable BrokerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:mq/broker:Broker", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BrokerArgs makeArgs(BrokerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BrokerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

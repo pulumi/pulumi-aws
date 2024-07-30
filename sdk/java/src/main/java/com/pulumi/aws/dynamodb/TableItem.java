@@ -165,11 +165,18 @@ public class TableItem extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TableItem(String name, TableItemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dynamodb/tableItem:TableItem", name, args == null ? TableItemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:dynamodb/tableItem:TableItem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TableItem(String name, Output<String> id, @Nullable TableItemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:dynamodb/tableItem:TableItem", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TableItemArgs makeArgs(TableItemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TableItemArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

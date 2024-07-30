@@ -114,11 +114,18 @@ public class ResolverQueryLogConfigAssociation extends com.pulumi.resources.Cust
      * @param options A bag of options that control this resource's behavior.
      */
     public ResolverQueryLogConfigAssociation(String name, ResolverQueryLogConfigAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation", name, args == null ? ResolverQueryLogConfigAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResolverQueryLogConfigAssociation(String name, Output<String> id, @Nullable ResolverQueryLogConfigAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResolverQueryLogConfigAssociationArgs makeArgs(ResolverQueryLogConfigAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverQueryLogConfigAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

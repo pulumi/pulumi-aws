@@ -167,11 +167,18 @@ public class UserPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserPolicy(String name, UserPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/userPolicy:UserPolicy", name, args == null ? UserPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/userPolicy:UserPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserPolicy(String name, Output<String> id, @Nullable UserPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/userPolicy:UserPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserPolicyArgs makeArgs(UserPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

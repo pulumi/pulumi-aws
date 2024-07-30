@@ -205,11 +205,18 @@ public class Logging extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Logging(String name, LoggingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/logging:Logging", name, args == null ? LoggingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:redshift/logging:Logging", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Logging(String name, Output<String> id, @Nullable LoggingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:redshift/logging:Logging", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LoggingArgs makeArgs(LoggingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LoggingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

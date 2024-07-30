@@ -144,11 +144,18 @@ public class Region extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Region(String name, RegionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:account/region:Region", name, args == null ? RegionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:account/region:Region", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Region(String name, Output<String> id, @Nullable RegionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:account/region:Region", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegionArgs makeArgs(RegionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -243,11 +243,18 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LanguageModel(String name, LanguageModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:transcribe/languageModel:LanguageModel", name, args == null ? LanguageModelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:transcribe/languageModel:LanguageModel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LanguageModel(String name, Output<String> id, @Nullable LanguageModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:transcribe/languageModel:LanguageModel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LanguageModelArgs makeArgs(LanguageModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LanguageModelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

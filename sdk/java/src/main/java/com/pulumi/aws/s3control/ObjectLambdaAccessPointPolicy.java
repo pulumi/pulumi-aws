@@ -186,11 +186,18 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public ObjectLambdaAccessPointPolicy(String name, ObjectLambdaAccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy", name, args == null ? ObjectLambdaAccessPointPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ObjectLambdaAccessPointPolicy(String name, Output<String> id, @Nullable ObjectLambdaAccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ObjectLambdaAccessPointPolicyArgs makeArgs(ObjectLambdaAccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ObjectLambdaAccessPointPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

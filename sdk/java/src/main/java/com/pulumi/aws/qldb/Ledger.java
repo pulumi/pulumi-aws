@@ -193,11 +193,18 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Ledger(String name, LedgerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:qldb/ledger:Ledger", name, args == null ? LedgerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:qldb/ledger:Ledger", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Ledger(String name, Output<String> id, @Nullable LedgerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:qldb/ledger:Ledger", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LedgerArgs makeArgs(LedgerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LedgerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

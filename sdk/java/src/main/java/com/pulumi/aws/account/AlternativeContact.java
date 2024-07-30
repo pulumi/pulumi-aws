@@ -183,11 +183,18 @@ public class AlternativeContact extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AlternativeContact(String name, AlternativeContactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:account/alternativeContact:AlternativeContact", name, args == null ? AlternativeContactArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:account/alternativeContact:AlternativeContact", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AlternativeContact(String name, Output<String> id, @Nullable AlternativeContactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:account/alternativeContact:AlternativeContact", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AlternativeContactArgs makeArgs(AlternativeContactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AlternativeContactArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

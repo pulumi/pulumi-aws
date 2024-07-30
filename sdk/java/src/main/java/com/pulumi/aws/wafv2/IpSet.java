@@ -220,11 +220,18 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IpSet(String name, IpSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafv2/ipSet:IpSet", name, args == null ? IpSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:wafv2/ipSet:IpSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IpSet(String name, Output<String> id, @Nullable IpSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:wafv2/ipSet:IpSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IpSetArgs makeArgs(IpSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IpSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

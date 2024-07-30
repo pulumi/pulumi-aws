@@ -285,11 +285,18 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KxScalingGroup(String name, KxScalingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxScalingGroup:KxScalingGroup", name, args == null ? KxScalingGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:finspace/kxScalingGroup:KxScalingGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KxScalingGroup(String name, Output<String> id, @Nullable KxScalingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:finspace/kxScalingGroup:KxScalingGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KxScalingGroupArgs makeArgs(KxScalingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KxScalingGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -173,11 +173,18 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SecretRotation(String name, SecretRotationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:secretsmanager/secretRotation:SecretRotation", name, args == null ? SecretRotationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:secretsmanager/secretRotation:SecretRotation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SecretRotation(String name, Output<String> id, @Nullable SecretRotationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:secretsmanager/secretRotation:SecretRotation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SecretRotationArgs makeArgs(SecretRotationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecretRotationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -173,11 +173,18 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Thing(String name, @Nullable ThingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/thing:Thing", name, args == null ? ThingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iot/thing:Thing", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Thing(String name, Output<String> id, @Nullable ThingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iot/thing:Thing", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ThingArgs makeArgs(@Nullable ThingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ThingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

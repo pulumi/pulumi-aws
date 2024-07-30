@@ -240,11 +240,18 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IPSet(String name, IPSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/iPSet:IPSet", name, args == null ? IPSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:guardduty/iPSet:IPSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IPSet(String name, Output<String> id, @Nullable IPSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:guardduty/iPSet:IPSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IPSetArgs makeArgs(IPSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IPSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

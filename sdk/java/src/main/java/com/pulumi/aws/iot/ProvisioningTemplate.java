@@ -318,11 +318,18 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProvisioningTemplate(String name, ProvisioningTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/provisioningTemplate:ProvisioningTemplate", name, args == null ? ProvisioningTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iot/provisioningTemplate:ProvisioningTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProvisioningTemplate(String name, Output<String> id, @Nullable ProvisioningTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iot/provisioningTemplate:ProvisioningTemplate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProvisioningTemplateArgs makeArgs(ProvisioningTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProvisioningTemplateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

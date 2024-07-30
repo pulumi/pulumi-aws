@@ -375,11 +375,18 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AgentAgent(String name, AgentAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentAgent:AgentAgent", name, args == null ? AgentAgentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:bedrock/agentAgent:AgentAgent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AgentAgent(String name, Output<String> id, @Nullable AgentAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:bedrock/agentAgent:AgentAgent", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AgentAgentArgs makeArgs(AgentAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AgentAgentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

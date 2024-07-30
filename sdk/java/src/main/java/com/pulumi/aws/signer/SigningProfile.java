@@ -275,11 +275,18 @@ public class SigningProfile extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SigningProfile(String name, SigningProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:signer/signingProfile:SigningProfile", name, args == null ? SigningProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:signer/signingProfile:SigningProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SigningProfile(String name, Output<String> id, @Nullable SigningProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:signer/signingProfile:SigningProfile", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SigningProfileArgs makeArgs(SigningProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SigningProfileArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

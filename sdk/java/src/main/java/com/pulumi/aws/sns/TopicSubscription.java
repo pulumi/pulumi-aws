@@ -500,11 +500,18 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TopicSubscription(String name, TopicSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sns/topicSubscription:TopicSubscription", name, args == null ? TopicSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sns/topicSubscription:TopicSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TopicSubscription(String name, Output<String> id, @Nullable TopicSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sns/topicSubscription:TopicSubscription", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TopicSubscriptionArgs makeArgs(TopicSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TopicSubscriptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

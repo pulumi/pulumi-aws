@@ -177,11 +177,18 @@ public class DataSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DataSet(String name, DataSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dataexchange/dataSet:DataSet", name, args == null ? DataSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:dataexchange/dataSet:DataSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataSet(String name, Output<String> id, @Nullable DataSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:dataexchange/dataSet:DataSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataSetArgs makeArgs(DataSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

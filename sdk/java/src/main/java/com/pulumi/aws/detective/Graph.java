@@ -141,11 +141,18 @@ public class Graph extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Graph(String name, @Nullable GraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:detective/graph:Graph", name, args == null ? GraphArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:detective/graph:Graph", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Graph(String name, Output<String> id, @Nullable GraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:detective/graph:Graph", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GraphArgs makeArgs(@Nullable GraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GraphArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

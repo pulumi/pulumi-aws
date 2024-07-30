@@ -149,11 +149,18 @@ public class WebsiteCertificateAuthorityAssociation extends com.pulumi.resources
      * @param options A bag of options that control this resource's behavior.
      */
     public WebsiteCertificateAuthorityAssociation(String name, WebsiteCertificateAuthorityAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, args == null ? WebsiteCertificateAuthorityAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WebsiteCertificateAuthorityAssociation(String name, Output<String> id, @Nullable WebsiteCertificateAuthorityAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WebsiteCertificateAuthorityAssociationArgs makeArgs(WebsiteCertificateAuthorityAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WebsiteCertificateAuthorityAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

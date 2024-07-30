@@ -401,11 +401,18 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ImagePipeline(String name, ImagePipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:imagebuilder/imagePipeline:ImagePipeline", name, args == null ? ImagePipelineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:imagebuilder/imagePipeline:ImagePipeline", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ImagePipeline(String name, Output<String> id, @Nullable ImagePipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:imagebuilder/imagePipeline:ImagePipeline", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ImagePipelineArgs makeArgs(ImagePipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ImagePipelineArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

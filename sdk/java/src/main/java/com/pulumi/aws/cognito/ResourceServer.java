@@ -216,11 +216,18 @@ public class ResourceServer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceServer(String name, ResourceServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/resourceServer:ResourceServer", name, args == null ? ResourceServerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cognito/resourceServer:ResourceServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceServer(String name, Output<String> id, @Nullable ResourceServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cognito/resourceServer:ResourceServer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceServerArgs makeArgs(ResourceServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceServerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

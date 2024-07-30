@@ -148,11 +148,18 @@ public class ApplicationAccessScope extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ApplicationAccessScope(String name, ApplicationAccessScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope", name, args == null ? ApplicationAccessScopeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApplicationAccessScope(String name, Output<String> id, @Nullable ApplicationAccessScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApplicationAccessScopeArgs makeArgs(ApplicationAccessScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApplicationAccessScopeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
