@@ -141,11 +141,18 @@ public class Association extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Association(String name, AssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:licensemanager/association:Association", name, args == null ? AssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:licensemanager/association:Association", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Association(String name, Output<String> id, @Nullable AssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:licensemanager/association:Association", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AssociationArgs makeArgs(AssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

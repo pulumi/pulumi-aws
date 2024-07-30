@@ -162,11 +162,18 @@ public class Sink extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Sink(String name, @Nullable SinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:oam/sink:Sink", name, args == null ? SinkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:oam/sink:Sink", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Sink(String name, Output<String> id, @Nullable SinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:oam/sink:Sink", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SinkArgs makeArgs(@Nullable SinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SinkArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

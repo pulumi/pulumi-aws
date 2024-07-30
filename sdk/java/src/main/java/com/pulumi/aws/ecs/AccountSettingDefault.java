@@ -124,11 +124,18 @@ public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountSettingDefault(String name, AccountSettingDefaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/accountSettingDefault:AccountSettingDefault", name, args == null ? AccountSettingDefaultArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ecs/accountSettingDefault:AccountSettingDefault", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountSettingDefault(String name, Output<String> id, @Nullable AccountSettingDefaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ecs/accountSettingDefault:AccountSettingDefault", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountSettingDefaultArgs makeArgs(AccountSettingDefaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountSettingDefaultArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

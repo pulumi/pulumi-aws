@@ -157,11 +157,18 @@ public class SecretPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SecretPolicy(String name, SecretPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:secretsmanager/secretPolicy:SecretPolicy", name, args == null ? SecretPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:secretsmanager/secretPolicy:SecretPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SecretPolicy(String name, Output<String> id, @Nullable SecretPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:secretsmanager/secretPolicy:SecretPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SecretPolicyArgs makeArgs(SecretPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecretPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

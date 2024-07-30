@@ -196,11 +196,18 @@ public class NamedQuery extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NamedQuery(String name, NamedQueryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:athena/namedQuery:NamedQuery", name, args == null ? NamedQueryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:athena/namedQuery:NamedQuery", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NamedQuery(String name, Output<String> id, @Nullable NamedQueryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:athena/namedQuery:NamedQuery", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NamedQueryArgs makeArgs(NamedQueryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NamedQueryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

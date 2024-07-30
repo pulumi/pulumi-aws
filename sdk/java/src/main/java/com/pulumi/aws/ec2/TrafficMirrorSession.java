@@ -266,11 +266,18 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TrafficMirrorSession(String name, TrafficMirrorSessionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, args == null ? TrafficMirrorSessionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrafficMirrorSession(String name, Output<String> id, @Nullable TrafficMirrorSessionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrafficMirrorSessionArgs makeArgs(TrafficMirrorSessionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrafficMirrorSessionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

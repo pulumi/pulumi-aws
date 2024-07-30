@@ -141,11 +141,18 @@ public class BucketLifecycleConfiguration extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public BucketLifecycleConfiguration(String name, BucketLifecycleConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration", name, args == null ? BucketLifecycleConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BucketLifecycleConfiguration(String name, Output<String> id, @Nullable BucketLifecycleConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BucketLifecycleConfigurationArgs makeArgs(BucketLifecycleConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketLifecycleConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

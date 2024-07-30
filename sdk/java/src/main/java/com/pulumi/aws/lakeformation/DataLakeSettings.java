@@ -338,11 +338,18 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DataLakeSettings(String name, @Nullable DataLakeSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lakeformation/dataLakeSettings:DataLakeSettings", name, args == null ? DataLakeSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lakeformation/dataLakeSettings:DataLakeSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataLakeSettings(String name, Output<String> id, @Nullable DataLakeSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lakeformation/dataLakeSettings:DataLakeSettings", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataLakeSettingsArgs makeArgs(@Nullable DataLakeSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataLakeSettingsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -217,11 +217,18 @@ public class PartitionIndex extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PartitionIndex(String name, PartitionIndexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/partitionIndex:PartitionIndex", name, args == null ? PartitionIndexArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:glue/partitionIndex:PartitionIndex", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PartitionIndex(String name, Output<String> id, @Nullable PartitionIndexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:glue/partitionIndex:PartitionIndex", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PartitionIndexArgs makeArgs(PartitionIndexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PartitionIndexArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -334,11 +334,18 @@ public class Input extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Input(String name, InputArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/input:Input", name, args == null ? InputArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:medialive/input:Input", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Input(String name, Output<String> id, @Nullable InputState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:medialive/input:Input", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InputArgs makeArgs(InputArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InputArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

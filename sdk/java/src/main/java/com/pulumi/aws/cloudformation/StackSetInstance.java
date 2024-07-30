@@ -378,11 +378,18 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StackSetInstance(String name, StackSetInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudformation/stackSetInstance:StackSetInstance", name, args == null ? StackSetInstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudformation/stackSetInstance:StackSetInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StackSetInstance(String name, Output<String> id, @Nullable StackSetInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudformation/stackSetInstance:StackSetInstance", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StackSetInstanceArgs makeArgs(StackSetInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StackSetInstanceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

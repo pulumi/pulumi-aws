@@ -217,11 +217,18 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CachePolicy(String name, CachePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/cachePolicy:CachePolicy", name, args == null ? CachePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudfront/cachePolicy:CachePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CachePolicy(String name, Output<String> id, @Nullable CachePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudfront/cachePolicy:CachePolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CachePolicyArgs makeArgs(CachePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CachePolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -508,11 +508,18 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedUserPoolClient(String name, ManagedUserPoolClientArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/managedUserPoolClient:ManagedUserPoolClient", name, args == null ? ManagedUserPoolClientArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cognito/managedUserPoolClient:ManagedUserPoolClient", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedUserPoolClient(String name, Output<String> id, @Nullable ManagedUserPoolClientState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cognito/managedUserPoolClient:ManagedUserPoolClient", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedUserPoolClientArgs makeArgs(ManagedUserPoolClientArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedUserPoolClientArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

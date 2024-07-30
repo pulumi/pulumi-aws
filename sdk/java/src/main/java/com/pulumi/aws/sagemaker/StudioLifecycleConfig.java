@@ -181,11 +181,18 @@ public class StudioLifecycleConfig extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StudioLifecycleConfig(String name, StudioLifecycleConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig", name, args == null ? StudioLifecycleConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StudioLifecycleConfig(String name, Output<String> id, @Nullable StudioLifecycleConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StudioLifecycleConfigArgs makeArgs(StudioLifecycleConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StudioLifecycleConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

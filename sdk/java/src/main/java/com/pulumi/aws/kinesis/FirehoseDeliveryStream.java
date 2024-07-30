@@ -1263,11 +1263,18 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public FirehoseDeliveryStream(String name, FirehoseDeliveryStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, args == null ? FirehoseDeliveryStreamArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FirehoseDeliveryStream(String name, Output<String> id, @Nullable FirehoseDeliveryStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FirehoseDeliveryStreamArgs makeArgs(FirehoseDeliveryStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FirehoseDeliveryStreamArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

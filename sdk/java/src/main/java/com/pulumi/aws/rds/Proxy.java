@@ -295,11 +295,18 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Proxy(String name, ProxyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/proxy:Proxy", name, args == null ? ProxyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:rds/proxy:Proxy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Proxy(String name, Output<String> id, @Nullable ProxyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rds/proxy:Proxy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProxyArgs makeArgs(ProxyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProxyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

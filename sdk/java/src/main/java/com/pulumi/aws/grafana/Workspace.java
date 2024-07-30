@@ -394,11 +394,18 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Workspace(String name, WorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/workspace:Workspace", name, args == null ? WorkspaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:grafana/workspace:Workspace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Workspace(String name, Output<String> id, @Nullable WorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:grafana/workspace:Workspace", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WorkspaceArgs makeArgs(WorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

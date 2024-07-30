@@ -72,11 +72,18 @@ public class ModelPackageGroupPolicy extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public ModelPackageGroupPolicy(String name, ModelPackageGroupPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy", name, args == null ? ModelPackageGroupPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ModelPackageGroupPolicy(String name, Output<String> id, @Nullable ModelPackageGroupPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ModelPackageGroupPolicyArgs makeArgs(ModelPackageGroupPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ModelPackageGroupPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

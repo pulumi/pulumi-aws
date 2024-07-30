@@ -234,11 +234,18 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EmailChannel(String name, EmailChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/emailChannel:EmailChannel", name, args == null ? EmailChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:pinpoint/emailChannel:EmailChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EmailChannel(String name, Output<String> id, @Nullable EmailChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:pinpoint/emailChannel:EmailChannel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EmailChannelArgs makeArgs(EmailChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmailChannelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

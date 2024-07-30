@@ -179,11 +179,18 @@ public class ServerlessLifecyclePolicy extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerlessLifecyclePolicy(String name, ServerlessLifecyclePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy", name, args == null ? ServerlessLifecyclePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerlessLifecyclePolicy(String name, Output<String> id, @Nullable ServerlessLifecyclePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerlessLifecyclePolicyArgs makeArgs(ServerlessLifecyclePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerlessLifecyclePolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

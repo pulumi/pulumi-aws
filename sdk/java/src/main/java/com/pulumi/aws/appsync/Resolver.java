@@ -420,11 +420,18 @@ public class Resolver extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Resolver(String name, ResolverArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/resolver:Resolver", name, args == null ? ResolverArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appsync/resolver:Resolver", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Resolver(String name, Output<String> id, @Nullable ResolverState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appsync/resolver:Resolver", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResolverArgs makeArgs(ResolverArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

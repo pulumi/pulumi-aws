@@ -231,11 +231,18 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EfsLocation(String name, EfsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/efsLocation:EfsLocation", name, args == null ? EfsLocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:datasync/efsLocation:EfsLocation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EfsLocation(String name, Output<String> id, @Nullable EfsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:datasync/efsLocation:EfsLocation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EfsLocationArgs makeArgs(EfsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EfsLocationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

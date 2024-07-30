@@ -122,11 +122,18 @@ public class MulticastGroupMember extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MulticastGroupMember(String name, MulticastGroupMemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember", name, args == null ? MulticastGroupMemberArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MulticastGroupMember(String name, Output<String> id, @Nullable MulticastGroupMemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MulticastGroupMemberArgs makeArgs(MulticastGroupMemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MulticastGroupMemberArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

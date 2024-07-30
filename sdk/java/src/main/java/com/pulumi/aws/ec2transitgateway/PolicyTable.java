@@ -162,11 +162,18 @@ public class PolicyTable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PolicyTable(String name, PolicyTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/policyTable:PolicyTable", name, args == null ? PolicyTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2transitgateway/policyTable:PolicyTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PolicyTable(String name, Output<String> id, @Nullable PolicyTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2transitgateway/policyTable:PolicyTable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PolicyTableArgs makeArgs(PolicyTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicyTableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

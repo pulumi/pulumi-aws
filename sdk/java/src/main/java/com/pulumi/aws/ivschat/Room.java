@@ -218,11 +218,18 @@ public class Room extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Room(String name, @Nullable RoomArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ivschat/room:Room", name, args == null ? RoomArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ivschat/room:Room", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Room(String name, Output<String> id, @Nullable RoomState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ivschat/room:Room", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RoomArgs makeArgs(@Nullable RoomArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoomArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

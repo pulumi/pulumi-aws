@@ -129,11 +129,18 @@ public class LocalGatewayRoute extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalGatewayRoute(String name, LocalGatewayRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/localGatewayRoute:LocalGatewayRoute", name, args == null ? LocalGatewayRouteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/localGatewayRoute:LocalGatewayRoute", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalGatewayRoute(String name, Output<String> id, @Nullable LocalGatewayRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/localGatewayRoute:LocalGatewayRoute", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalGatewayRouteArgs makeArgs(LocalGatewayRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalGatewayRouteArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

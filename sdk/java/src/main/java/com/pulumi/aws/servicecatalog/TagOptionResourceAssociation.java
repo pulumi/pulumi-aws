@@ -174,11 +174,18 @@ public class TagOptionResourceAssociation extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public TagOptionResourceAssociation(String name, TagOptionResourceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation", name, args == null ? TagOptionResourceAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TagOptionResourceAssociation(String name, Output<String> id, @Nullable TagOptionResourceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TagOptionResourceAssociationArgs makeArgs(TagOptionResourceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TagOptionResourceAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

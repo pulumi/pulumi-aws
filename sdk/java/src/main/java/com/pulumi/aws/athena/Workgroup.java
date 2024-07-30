@@ -219,11 +219,18 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Workgroup(String name, @Nullable WorkgroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:athena/workgroup:Workgroup", name, args == null ? WorkgroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:athena/workgroup:Workgroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Workgroup(String name, Output<String> id, @Nullable WorkgroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:athena/workgroup:Workgroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WorkgroupArgs makeArgs(@Nullable WorkgroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkgroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

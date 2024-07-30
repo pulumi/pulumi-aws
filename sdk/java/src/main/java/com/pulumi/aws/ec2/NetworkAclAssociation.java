@@ -118,11 +118,18 @@ public class NetworkAclAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkAclAssociation(String name, NetworkAclAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkAclAssociation:NetworkAclAssociation", name, args == null ? NetworkAclAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/networkAclAssociation:NetworkAclAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkAclAssociation(String name, Output<String> id, @Nullable NetworkAclAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/networkAclAssociation:NetworkAclAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkAclAssociationArgs makeArgs(NetworkAclAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkAclAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

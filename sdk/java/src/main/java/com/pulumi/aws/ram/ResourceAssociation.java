@@ -116,11 +116,18 @@ public class ResourceAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceAssociation(String name, ResourceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ram/resourceAssociation:ResourceAssociation", name, args == null ? ResourceAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ram/resourceAssociation:ResourceAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceAssociation(String name, Output<String> id, @Nullable ResourceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ram/resourceAssociation:ResourceAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceAssociationArgs makeArgs(ResourceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

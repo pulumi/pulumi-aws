@@ -221,11 +221,18 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcIpamScope(String name, VpcIpamScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamScope:VpcIpamScope", name, args == null ? VpcIpamScopeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcIpamScope:VpcIpamScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcIpamScope(String name, Output<String> id, @Nullable VpcIpamScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcIpamScope:VpcIpamScope", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcIpamScopeArgs makeArgs(VpcIpamScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpamScopeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -334,11 +334,18 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ImageRecipe(String name, ImageRecipeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:imagebuilder/imageRecipe:ImageRecipe", name, args == null ? ImageRecipeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:imagebuilder/imageRecipe:ImageRecipe", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ImageRecipe(String name, Output<String> id, @Nullable ImageRecipeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:imagebuilder/imageRecipe:ImageRecipe", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ImageRecipeArgs makeArgs(ImageRecipeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ImageRecipeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

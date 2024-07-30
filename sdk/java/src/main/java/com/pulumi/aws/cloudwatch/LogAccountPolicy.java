@@ -232,11 +232,18 @@ public class LogAccountPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LogAccountPolicy(String name, LogAccountPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logAccountPolicy:LogAccountPolicy", name, args == null ? LogAccountPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudwatch/logAccountPolicy:LogAccountPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LogAccountPolicy(String name, Output<String> id, @Nullable LogAccountPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/logAccountPolicy:LogAccountPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LogAccountPolicyArgs makeArgs(LogAccountPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogAccountPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

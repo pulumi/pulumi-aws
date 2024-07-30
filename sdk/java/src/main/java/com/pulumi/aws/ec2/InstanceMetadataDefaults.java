@@ -140,11 +140,18 @@ public class InstanceMetadataDefaults extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public InstanceMetadataDefaults(String name, @Nullable InstanceMetadataDefaultsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults", name, args == null ? InstanceMetadataDefaultsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private InstanceMetadataDefaults(String name, Output<String> id, @Nullable InstanceMetadataDefaultsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InstanceMetadataDefaultsArgs makeArgs(@Nullable InstanceMetadataDefaultsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceMetadataDefaultsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

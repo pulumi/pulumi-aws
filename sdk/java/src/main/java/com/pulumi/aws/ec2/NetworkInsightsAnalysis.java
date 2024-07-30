@@ -319,11 +319,18 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkInsightsAnalysis(String name, NetworkInsightsAnalysisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis", name, args == null ? NetworkInsightsAnalysisArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkInsightsAnalysis(String name, Output<String> id, @Nullable NetworkInsightsAnalysisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkInsightsAnalysisArgs makeArgs(NetworkInsightsAnalysisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInsightsAnalysisArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

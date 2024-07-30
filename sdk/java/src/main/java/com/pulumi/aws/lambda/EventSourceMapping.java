@@ -825,11 +825,18 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventSourceMapping(String name, EventSourceMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/eventSourceMapping:EventSourceMapping", name, args == null ? EventSourceMappingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lambda/eventSourceMapping:EventSourceMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventSourceMapping(String name, Output<String> id, @Nullable EventSourceMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lambda/eventSourceMapping:EventSourceMapping", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventSourceMappingArgs makeArgs(EventSourceMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventSourceMappingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

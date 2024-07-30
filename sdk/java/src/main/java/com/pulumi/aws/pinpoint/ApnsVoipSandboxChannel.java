@@ -242,11 +242,18 @@ public class ApnsVoipSandboxChannel extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ApnsVoipSandboxChannel(String name, ApnsVoipSandboxChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel", name, args == null ? ApnsVoipSandboxChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApnsVoipSandboxChannel(String name, Output<String> id, @Nullable ApnsVoipSandboxChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApnsVoipSandboxChannelArgs makeArgs(ApnsVoipSandboxChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApnsVoipSandboxChannelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
