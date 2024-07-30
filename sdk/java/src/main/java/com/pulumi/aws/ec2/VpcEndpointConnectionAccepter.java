@@ -147,11 +147,18 @@ public class VpcEndpointConnectionAccepter extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcEndpointConnectionAccepter(String name, VpcEndpointConnectionAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter", name, args == null ? VpcEndpointConnectionAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcEndpointConnectionAccepter(String name, Output<String> id, @Nullable VpcEndpointConnectionAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcEndpointConnectionAccepterArgs makeArgs(VpcEndpointConnectionAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcEndpointConnectionAccepterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

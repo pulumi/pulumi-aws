@@ -221,11 +221,18 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TrafficMirrorTarget(String name, @Nullable TrafficMirrorTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget", name, args == null ? TrafficMirrorTargetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrafficMirrorTarget(String name, Output<String> id, @Nullable TrafficMirrorTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrafficMirrorTargetArgs makeArgs(@Nullable TrafficMirrorTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrafficMirrorTargetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

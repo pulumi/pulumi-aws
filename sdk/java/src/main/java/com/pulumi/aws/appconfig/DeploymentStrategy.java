@@ -240,11 +240,18 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DeploymentStrategy(String name, DeploymentStrategyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/deploymentStrategy:DeploymentStrategy", name, args == null ? DeploymentStrategyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appconfig/deploymentStrategy:DeploymentStrategy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DeploymentStrategy(String name, Output<String> id, @Nullable DeploymentStrategyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appconfig/deploymentStrategy:DeploymentStrategy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DeploymentStrategyArgs makeArgs(DeploymentStrategyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeploymentStrategyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

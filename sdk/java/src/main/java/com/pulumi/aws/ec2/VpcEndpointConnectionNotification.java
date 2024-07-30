@@ -208,11 +208,18 @@ public class VpcEndpointConnectionNotification extends com.pulumi.resources.Cust
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcEndpointConnectionNotification(String name, VpcEndpointConnectionNotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, args == null ? VpcEndpointConnectionNotificationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcEndpointConnectionNotification(String name, Output<String> id, @Nullable VpcEndpointConnectionNotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcEndpointConnectionNotificationArgs makeArgs(VpcEndpointConnectionNotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcEndpointConnectionNotificationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

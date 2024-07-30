@@ -132,11 +132,18 @@ public class ClusterRoleAssociation extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ClusterRoleAssociation(String name, ClusterRoleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/clusterRoleAssociation:ClusterRoleAssociation", name, args == null ? ClusterRoleAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:rds/clusterRoleAssociation:ClusterRoleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClusterRoleAssociation(String name, Output<String> id, @Nullable ClusterRoleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rds/clusterRoleAssociation:ClusterRoleAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterRoleAssociationArgs makeArgs(ClusterRoleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterRoleAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

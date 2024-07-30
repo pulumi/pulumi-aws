@@ -150,11 +150,18 @@ public class IdentityPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentityPolicy(String name, IdentityPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/identityPolicy:IdentityPolicy", name, args == null ? IdentityPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ses/identityPolicy:IdentityPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentityPolicy(String name, Output<String> id, @Nullable IdentityPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ses/identityPolicy:IdentityPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentityPolicyArgs makeArgs(IdentityPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -130,11 +130,18 @@ public class SnapshotScheduleAssociation extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public SnapshotScheduleAssociation(String name, SnapshotScheduleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation", name, args == null ? SnapshotScheduleAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SnapshotScheduleAssociation(String name, Output<String> id, @Nullable SnapshotScheduleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SnapshotScheduleAssociationArgs makeArgs(SnapshotScheduleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnapshotScheduleAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

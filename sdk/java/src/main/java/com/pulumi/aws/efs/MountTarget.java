@@ -259,11 +259,18 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MountTarget(String name, MountTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:efs/mountTarget:MountTarget", name, args == null ? MountTargetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:efs/mountTarget:MountTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MountTarget(String name, Output<String> id, @Nullable MountTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:efs/mountTarget:MountTarget", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MountTargetArgs makeArgs(MountTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MountTargetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

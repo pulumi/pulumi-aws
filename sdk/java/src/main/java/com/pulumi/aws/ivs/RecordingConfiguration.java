@@ -215,11 +215,18 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public RecordingConfiguration(String name, RecordingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ivs/recordingConfiguration:RecordingConfiguration", name, args == null ? RecordingConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ivs/recordingConfiguration:RecordingConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RecordingConfiguration(String name, Output<String> id, @Nullable RecordingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ivs/recordingConfiguration:RecordingConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RecordingConfigurationArgs makeArgs(RecordingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RecordingConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -193,11 +193,18 @@ public class AccessGrantsLocation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccessGrantsLocation(String name, AccessGrantsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessGrantsLocation:AccessGrantsLocation", name, args == null ? AccessGrantsLocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3control/accessGrantsLocation:AccessGrantsLocation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccessGrantsLocation(String name, Output<String> id, @Nullable AccessGrantsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3control/accessGrantsLocation:AccessGrantsLocation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccessGrantsLocationArgs makeArgs(AccessGrantsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessGrantsLocationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

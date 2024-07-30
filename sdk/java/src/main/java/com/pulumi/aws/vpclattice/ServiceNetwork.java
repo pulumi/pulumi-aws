@@ -168,11 +168,18 @@ public class ServiceNetwork extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceNetwork(String name, @Nullable ServiceNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/serviceNetwork:ServiceNetwork", name, args == null ? ServiceNetworkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:vpclattice/serviceNetwork:ServiceNetwork", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceNetwork(String name, Output<String> id, @Nullable ServiceNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:vpclattice/serviceNetwork:ServiceNetwork", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceNetworkArgs makeArgs(@Nullable ServiceNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceNetworkArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

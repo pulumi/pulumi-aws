@@ -250,11 +250,18 @@ public class ApplicationVersion extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApplicationVersion(String name, ApplicationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", name, args == null ? ApplicationVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApplicationVersion(String name, Output<String> id, @Nullable ApplicationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApplicationVersionArgs makeArgs(ApplicationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApplicationVersionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -295,11 +295,18 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Agent(String name, @Nullable AgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/agent:Agent", name, args == null ? AgentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:datasync/agent:Agent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Agent(String name, Output<String> id, @Nullable AgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:datasync/agent:Agent", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AgentArgs makeArgs(@Nullable AgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AgentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

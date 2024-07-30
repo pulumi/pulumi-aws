@@ -301,11 +301,18 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcConnection(String name, VpcConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:quicksight/vpcConnection:VpcConnection", name, args == null ? VpcConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:quicksight/vpcConnection:VpcConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcConnection(String name, Output<String> id, @Nullable VpcConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:quicksight/vpcConnection:VpcConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcConnectionArgs makeArgs(VpcConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

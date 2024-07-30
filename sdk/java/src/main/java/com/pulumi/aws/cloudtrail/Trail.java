@@ -803,11 +803,18 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Trail(String name, TrailArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudtrail/trail:Trail", name, args == null ? TrailArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudtrail/trail:Trail", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Trail(String name, Output<String> id, @Nullable TrailState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudtrail/trail:Trail", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrailArgs makeArgs(TrailArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrailArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

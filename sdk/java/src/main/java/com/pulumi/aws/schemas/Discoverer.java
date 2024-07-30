@@ -170,11 +170,18 @@ public class Discoverer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Discoverer(String name, DiscovererArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:schemas/discoverer:Discoverer", name, args == null ? DiscovererArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:schemas/discoverer:Discoverer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Discoverer(String name, Output<String> id, @Nullable DiscovererState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:schemas/discoverer:Discoverer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DiscovererArgs makeArgs(DiscovererArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DiscovererArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

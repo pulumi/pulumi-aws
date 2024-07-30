@@ -475,11 +475,18 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ContainerService(String name, ContainerServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/containerService:ContainerService", name, args == null ? ContainerServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lightsail/containerService:ContainerService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ContainerService(String name, Output<String> id, @Nullable ContainerServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lightsail/containerService:ContainerService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ContainerServiceArgs makeArgs(ContainerServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContainerServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

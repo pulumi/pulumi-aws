@@ -183,11 +183,18 @@ public class LogResourcePolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LogResourcePolicy(String name, LogResourcePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, args == null ? LogResourcePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LogResourcePolicy(String name, Output<String> id, @Nullable LogResourcePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LogResourcePolicyArgs makeArgs(LogResourcePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogResourcePolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -154,11 +154,18 @@ public class RolePolicyAttachment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RolePolicyAttachment(String name, RolePolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/rolePolicyAttachment:RolePolicyAttachment", name, args == null ? RolePolicyAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/rolePolicyAttachment:RolePolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RolePolicyAttachment(String name, Output<String> id, @Nullable RolePolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/rolePolicyAttachment:RolePolicyAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RolePolicyAttachmentArgs makeArgs(RolePolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RolePolicyAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

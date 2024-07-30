@@ -600,11 +600,18 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NodeGroup(String name, NodeGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/nodeGroup:NodeGroup", name, args == null ? NodeGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:eks/nodeGroup:NodeGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NodeGroup(String name, Output<String> id, @Nullable NodeGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:eks/nodeGroup:NodeGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NodeGroupArgs makeArgs(NodeGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NodeGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

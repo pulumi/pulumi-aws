@@ -348,11 +348,18 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ImageBuilder(String name, ImageBuilderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appstream/imageBuilder:ImageBuilder", name, args == null ? ImageBuilderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appstream/imageBuilder:ImageBuilder", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ImageBuilder(String name, Output<String> id, @Nullable ImageBuilderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appstream/imageBuilder:ImageBuilder", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ImageBuilderArgs makeArgs(ImageBuilderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ImageBuilderArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

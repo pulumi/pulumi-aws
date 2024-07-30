@@ -177,11 +177,18 @@ public class SdkvoiceVoiceProfileDomain extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public SdkvoiceVoiceProfileDomain(String name, SdkvoiceVoiceProfileDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain", name, args == null ? SdkvoiceVoiceProfileDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SdkvoiceVoiceProfileDomain(String name, Output<String> id, @Nullable SdkvoiceVoiceProfileDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SdkvoiceVoiceProfileDomainArgs makeArgs(SdkvoiceVoiceProfileDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SdkvoiceVoiceProfileDomainArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -748,11 +748,18 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CoreNetwork(String name, CoreNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/coreNetwork:CoreNetwork", name, args == null ? CoreNetworkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:networkmanager/coreNetwork:CoreNetwork", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CoreNetwork(String name, Output<String> id, @Nullable CoreNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkmanager/coreNetwork:CoreNetwork", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CoreNetworkArgs makeArgs(CoreNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CoreNetworkArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

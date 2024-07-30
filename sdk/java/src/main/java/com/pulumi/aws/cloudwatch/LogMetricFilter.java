@@ -158,11 +158,18 @@ public class LogMetricFilter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LogMetricFilter(String name, LogMetricFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, args == null ? LogMetricFilterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LogMetricFilter(String name, Output<String> id, @Nullable LogMetricFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LogMetricFilterArgs makeArgs(LogMetricFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogMetricFilterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

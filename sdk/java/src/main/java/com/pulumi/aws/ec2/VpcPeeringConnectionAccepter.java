@@ -289,11 +289,18 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcPeeringConnectionAccepter(String name, VpcPeeringConnectionAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, args == null ? VpcPeeringConnectionAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcPeeringConnectionAccepter(String name, Output<String> id, @Nullable VpcPeeringConnectionAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcPeeringConnectionAccepterArgs makeArgs(VpcPeeringConnectionAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcPeeringConnectionAccepterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

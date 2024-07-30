@@ -212,11 +212,18 @@ public class LicenseGrantAccepter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LicenseGrantAccepter(String name, LicenseGrantAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", name, args == null ? LicenseGrantAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LicenseGrantAccepter(String name, Output<String> id, @Nullable LicenseGrantAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LicenseGrantAccepterArgs makeArgs(LicenseGrantAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LicenseGrantAccepterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

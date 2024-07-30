@@ -164,11 +164,18 @@ public class SmsPreferences extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SmsPreferences(String name, @Nullable SmsPreferencesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sns/smsPreferences:SmsPreferences", name, args == null ? SmsPreferencesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sns/smsPreferences:SmsPreferences", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SmsPreferences(String name, Output<String> id, @Nullable SmsPreferencesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sns/smsPreferences:SmsPreferences", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SmsPreferencesArgs makeArgs(@Nullable SmsPreferencesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SmsPreferencesArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

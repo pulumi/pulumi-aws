@@ -116,11 +116,18 @@ public class AvailabilityZoneGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AvailabilityZoneGroup(String name, AvailabilityZoneGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, args == null ? AvailabilityZoneGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AvailabilityZoneGroup(String name, Output<String> id, @Nullable AvailabilityZoneGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AvailabilityZoneGroupArgs makeArgs(AvailabilityZoneGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AvailabilityZoneGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

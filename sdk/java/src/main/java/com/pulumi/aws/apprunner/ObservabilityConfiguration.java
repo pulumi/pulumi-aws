@@ -211,11 +211,18 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public ObservabilityConfiguration(String name, ObservabilityConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, args == null ? ObservabilityConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ObservabilityConfiguration(String name, Output<String> id, @Nullable ObservabilityConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ObservabilityConfigurationArgs makeArgs(ObservabilityConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ObservabilityConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

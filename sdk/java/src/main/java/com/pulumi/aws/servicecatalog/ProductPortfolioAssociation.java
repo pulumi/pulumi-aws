@@ -149,11 +149,18 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public ProductPortfolioAssociation(String name, ProductPortfolioAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", name, args == null ? ProductPortfolioAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProductPortfolioAssociation(String name, Output<String> id, @Nullable ProductPortfolioAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProductPortfolioAssociationArgs makeArgs(ProductPortfolioAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProductPortfolioAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

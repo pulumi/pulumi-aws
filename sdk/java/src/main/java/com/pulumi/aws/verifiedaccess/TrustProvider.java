@@ -219,11 +219,18 @@ public class TrustProvider extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TrustProvider(String name, TrustProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedaccess/trustProvider:TrustProvider", name, args == null ? TrustProviderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:verifiedaccess/trustProvider:TrustProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrustProvider(String name, Output<String> id, @Nullable TrustProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:verifiedaccess/trustProvider:TrustProvider", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrustProviderArgs makeArgs(TrustProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrustProviderArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

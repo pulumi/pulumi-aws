@@ -176,11 +176,18 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IntegrationResponse(String name, IntegrationResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigatewayv2/integrationResponse:IntegrationResponse", name, args == null ? IntegrationResponseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apigatewayv2/integrationResponse:IntegrationResponse", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IntegrationResponse(String name, Output<String> id, @Nullable IntegrationResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apigatewayv2/integrationResponse:IntegrationResponse", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IntegrationResponseArgs makeArgs(IntegrationResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationResponseArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

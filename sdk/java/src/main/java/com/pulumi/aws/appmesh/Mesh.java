@@ -262,11 +262,18 @@ public class Mesh extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Mesh(String name, @Nullable MeshArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appmesh/mesh:Mesh", name, args == null ? MeshArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appmesh/mesh:Mesh", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Mesh(String name, Output<String> id, @Nullable MeshState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appmesh/mesh:Mesh", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MeshArgs makeArgs(@Nullable MeshArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MeshArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

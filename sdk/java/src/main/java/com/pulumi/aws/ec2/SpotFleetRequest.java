@@ -767,11 +767,18 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SpotFleetRequest(String name, SpotFleetRequestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/spotFleetRequest:SpotFleetRequest", name, args == null ? SpotFleetRequestArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/spotFleetRequest:SpotFleetRequest", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpotFleetRequest(String name, Output<String> id, @Nullable SpotFleetRequestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/spotFleetRequest:SpotFleetRequest", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpotFleetRequestArgs makeArgs(SpotFleetRequestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpotFleetRequestArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -730,11 +730,18 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TargetGroup(String name, @Nullable TargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lb/targetGroup:TargetGroup", name, args == null ? TargetGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lb/targetGroup:TargetGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TargetGroup(String name, Output<String> id, @Nullable TargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lb/targetGroup:TargetGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TargetGroupArgs makeArgs(@Nullable TargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TargetGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
