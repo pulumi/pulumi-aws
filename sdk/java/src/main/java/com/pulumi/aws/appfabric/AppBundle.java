@@ -150,11 +150,18 @@ public class AppBundle extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AppBundle(String name, @Nullable AppBundleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appfabric/appBundle:AppBundle", name, args == null ? AppBundleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appfabric/appBundle:AppBundle", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AppBundle(String name, Output<String> id, @Nullable AppBundleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appfabric/appBundle:AppBundle", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AppBundleArgs makeArgs(@Nullable AppBundleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppBundleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

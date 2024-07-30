@@ -228,11 +228,18 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Contact(String name, ContactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssmcontacts/contact:Contact", name, args == null ? ContactArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssmcontacts/contact:Contact", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Contact(String name, Output<String> id, @Nullable ContactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssmcontacts/contact:Contact", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ContactArgs makeArgs(ContactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContactArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

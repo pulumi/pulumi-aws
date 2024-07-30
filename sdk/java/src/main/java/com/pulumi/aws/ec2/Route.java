@@ -424,11 +424,18 @@ public class Route extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Route(String name, RouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/route:Route", name, args == null ? RouteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/route:Route", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Route(String name, Output<String> id, @Nullable RouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/route:Route", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RouteArgs makeArgs(RouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RouteArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

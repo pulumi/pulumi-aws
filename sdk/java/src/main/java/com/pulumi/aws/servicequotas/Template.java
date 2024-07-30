@@ -206,11 +206,18 @@ public class Template extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Template(String name, TemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicequotas/template:Template", name, args == null ? TemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicequotas/template:Template", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Template(String name, Output<String> id, @Nullable TemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicequotas/template:Template", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TemplateArgs makeArgs(TemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TemplateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

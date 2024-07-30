@@ -168,11 +168,18 @@ public class PrincipalAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PrincipalAssociation(String name, PrincipalAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ram/principalAssociation:PrincipalAssociation", name, args == null ? PrincipalAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ram/principalAssociation:PrincipalAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PrincipalAssociation(String name, Output<String> id, @Nullable PrincipalAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ram/principalAssociation:PrincipalAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PrincipalAssociationArgs makeArgs(PrincipalAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrincipalAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

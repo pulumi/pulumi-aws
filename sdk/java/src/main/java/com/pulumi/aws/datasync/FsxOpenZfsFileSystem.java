@@ -230,11 +230,18 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FsxOpenZfsFileSystem(String name, FsxOpenZfsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", name, args == null ? FsxOpenZfsFileSystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FsxOpenZfsFileSystem(String name, Output<String> id, @Nullable FsxOpenZfsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FsxOpenZfsFileSystemArgs makeArgs(FsxOpenZfsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FsxOpenZfsFileSystemArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

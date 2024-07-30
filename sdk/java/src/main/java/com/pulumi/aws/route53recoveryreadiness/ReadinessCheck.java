@@ -166,11 +166,18 @@ public class ReadinessCheck extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ReadinessCheck(String name, ReadinessCheckArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck", name, args == null ? ReadinessCheckArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReadinessCheck(String name, Output<String> id, @Nullable ReadinessCheckState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReadinessCheckArgs makeArgs(ReadinessCheckArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReadinessCheckArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

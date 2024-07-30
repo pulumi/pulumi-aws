@@ -172,11 +172,18 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LicenseAssociation(String name, LicenseAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/licenseAssociation:LicenseAssociation", name, args == null ? LicenseAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:grafana/licenseAssociation:LicenseAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LicenseAssociation(String name, Output<String> id, @Nullable LicenseAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:grafana/licenseAssociation:LicenseAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LicenseAssociationArgs makeArgs(LicenseAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LicenseAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -168,11 +168,18 @@ public class HumanTaskUI extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public HumanTaskUI(String name, HumanTaskUIArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/humanTaskUI:HumanTaskUI", name, args == null ? HumanTaskUIArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/humanTaskUI:HumanTaskUI", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HumanTaskUI(String name, Output<String> id, @Nullable HumanTaskUIState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/humanTaskUI:HumanTaskUI", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HumanTaskUIArgs makeArgs(HumanTaskUIArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HumanTaskUIArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

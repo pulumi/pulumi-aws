@@ -164,11 +164,18 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccessLogSubscription(String name, AccessLogSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, args == null ? AccessLogSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccessLogSubscription(String name, Output<String> id, @Nullable AccessLogSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccessLogSubscriptionArgs makeArgs(AccessLogSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessLogSubscriptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -145,11 +145,18 @@ public class TransitGatewayConnectPeerAssociation extends com.pulumi.resources.C
      * @param options A bag of options that control this resource's behavior.
      */
     public TransitGatewayConnectPeerAssociation(String name, TransitGatewayConnectPeerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation", name, args == null ? TransitGatewayConnectPeerAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TransitGatewayConnectPeerAssociation(String name, Output<String> id, @Nullable TransitGatewayConnectPeerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TransitGatewayConnectPeerAssociationArgs makeArgs(TransitGatewayConnectPeerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TransitGatewayConnectPeerAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

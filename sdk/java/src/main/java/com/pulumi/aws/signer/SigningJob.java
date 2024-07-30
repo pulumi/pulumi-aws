@@ -368,11 +368,18 @@ public class SigningJob extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SigningJob(String name, SigningJobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:signer/signingJob:SigningJob", name, args == null ? SigningJobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:signer/signingJob:SigningJob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SigningJob(String name, Output<String> id, @Nullable SigningJobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:signer/signingJob:SigningJob", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SigningJobArgs makeArgs(SigningJobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SigningJobArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

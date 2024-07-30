@@ -160,11 +160,18 @@ public class VaultLockConfiguration extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public VaultLockConfiguration(String name, VaultLockConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/vaultLockConfiguration:VaultLockConfiguration", name, args == null ? VaultLockConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:backup/vaultLockConfiguration:VaultLockConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VaultLockConfiguration(String name, Output<String> id, @Nullable VaultLockConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:backup/vaultLockConfiguration:VaultLockConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VaultLockConfigurationArgs makeArgs(VaultLockConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VaultLockConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -238,11 +238,18 @@ public class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.Cu
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcIpamResourceDiscoveryAssociation(String name, VpcIpamResourceDiscoveryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation", name, args == null ? VpcIpamResourceDiscoveryAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcIpamResourceDiscoveryAssociation(String name, Output<String> id, @Nullable VpcIpamResourceDiscoveryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcIpamResourceDiscoveryAssociationArgs makeArgs(VpcIpamResourceDiscoveryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpamResourceDiscoveryAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

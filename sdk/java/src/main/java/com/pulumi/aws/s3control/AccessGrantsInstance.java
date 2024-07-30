@@ -216,11 +216,18 @@ public class AccessGrantsInstance extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccessGrantsInstance(String name, @Nullable AccessGrantsInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessGrantsInstance:AccessGrantsInstance", name, args == null ? AccessGrantsInstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3control/accessGrantsInstance:AccessGrantsInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccessGrantsInstance(String name, Output<String> id, @Nullable AccessGrantsInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3control/accessGrantsInstance:AccessGrantsInstance", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccessGrantsInstanceArgs makeArgs(@Nullable AccessGrantsInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessGrantsInstanceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

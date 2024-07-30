@@ -132,11 +132,18 @@ public class InvitationAccepter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public InvitationAccepter(String name, InvitationAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:macie2/invitationAccepter:InvitationAccepter", name, args == null ? InvitationAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:macie2/invitationAccepter:InvitationAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private InvitationAccepter(String name, Output<String> id, @Nullable InvitationAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:macie2/invitationAccepter:InvitationAccepter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InvitationAccepterArgs makeArgs(InvitationAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InvitationAccepterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

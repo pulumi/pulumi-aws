@@ -117,11 +117,18 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ScalingPlan(String name, ScalingPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:autoscalingplans/scalingPlan:ScalingPlan", name, args == null ? ScalingPlanArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:autoscalingplans/scalingPlan:ScalingPlan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ScalingPlan(String name, Output<String> id, @Nullable ScalingPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:autoscalingplans/scalingPlan:ScalingPlan", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ScalingPlanArgs makeArgs(ScalingPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScalingPlanArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -474,11 +474,18 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AmiFromInstance(String name, AmiFromInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/amiFromInstance:AmiFromInstance", name, args == null ? AmiFromInstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/amiFromInstance:AmiFromInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AmiFromInstance(String name, Output<String> id, @Nullable AmiFromInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/amiFromInstance:AmiFromInstance", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AmiFromInstanceArgs makeArgs(AmiFromInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AmiFromInstanceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

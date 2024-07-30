@@ -325,11 +325,18 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Stage(String name, StageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigatewayv2/stage:Stage", name, args == null ? StageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apigatewayv2/stage:Stage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Stage(String name, Output<String> id, @Nullable StageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apigatewayv2/stage:Stage", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StageArgs makeArgs(StageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StageArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

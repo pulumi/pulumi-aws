@@ -482,11 +482,18 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProvisionedProduct(String name, @Nullable ProvisionedProductArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/provisionedProduct:ProvisionedProduct", name, args == null ? ProvisionedProductArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicecatalog/provisionedProduct:ProvisionedProduct", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProvisionedProduct(String name, Output<String> id, @Nullable ProvisionedProductState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicecatalog/provisionedProduct:ProvisionedProduct", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProvisionedProductArgs makeArgs(@Nullable ProvisionedProductArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProvisionedProductArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

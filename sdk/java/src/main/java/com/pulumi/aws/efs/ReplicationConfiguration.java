@@ -271,11 +271,18 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public ReplicationConfiguration(String name, ReplicationConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:efs/replicationConfiguration:ReplicationConfiguration", name, args == null ? ReplicationConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:efs/replicationConfiguration:ReplicationConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReplicationConfiguration(String name, Output<String> id, @Nullable ReplicationConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:efs/replicationConfiguration:ReplicationConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReplicationConfigurationArgs makeArgs(ReplicationConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

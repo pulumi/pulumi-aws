@@ -228,11 +228,18 @@ public class IdentitySource extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentitySource(String name, IdentitySourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedpermissions/identitySource:IdentitySource", name, args == null ? IdentitySourceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:verifiedpermissions/identitySource:IdentitySource", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentitySource(String name, Output<String> id, @Nullable IdentitySourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:verifiedpermissions/identitySource:IdentitySource", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentitySourceArgs makeArgs(IdentitySourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentitySourceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

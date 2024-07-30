@@ -106,11 +106,18 @@ public class EventSourcesConfig extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventSourcesConfig(String name, @Nullable EventSourcesConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:devopsguru/eventSourcesConfig:EventSourcesConfig", name, args == null ? EventSourcesConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:devopsguru/eventSourcesConfig:EventSourcesConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventSourcesConfig(String name, Output<String> id, @Nullable EventSourcesConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:devopsguru/eventSourcesConfig:EventSourcesConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventSourcesConfigArgs makeArgs(@Nullable EventSourcesConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventSourcesConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

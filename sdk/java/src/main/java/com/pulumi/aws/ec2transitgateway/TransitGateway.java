@@ -307,11 +307,18 @@ public class TransitGateway extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TransitGateway(String name, @Nullable TransitGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/transitGateway:TransitGateway", name, args == null ? TransitGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2transitgateway/transitGateway:TransitGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TransitGateway(String name, Output<String> id, @Nullable TransitGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2transitgateway/transitGateway:TransitGateway", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TransitGatewayArgs makeArgs(@Nullable TransitGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TransitGatewayArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

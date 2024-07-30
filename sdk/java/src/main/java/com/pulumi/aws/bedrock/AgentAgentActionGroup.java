@@ -430,11 +430,18 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AgentAgentActionGroup(String name, AgentAgentActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup", name, args == null ? AgentAgentActionGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AgentAgentActionGroup(String name, Output<String> id, @Nullable AgentAgentActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AgentAgentActionGroupArgs makeArgs(AgentAgentActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AgentAgentActionGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -398,11 +398,18 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FileSystem(String name, @Nullable FileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:efs/fileSystem:FileSystem", name, args == null ? FileSystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:efs/fileSystem:FileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FileSystem(String name, Output<String> id, @Nullable FileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:efs/fileSystem:FileSystem", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FileSystemArgs makeArgs(@Nullable FileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FileSystemArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
