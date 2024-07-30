@@ -165,11 +165,18 @@ public class Member extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Member(String name, MemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/member:Member", name, args == null ? MemberArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:securityhub/member:Member", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Member(String name, Output<String> id, @Nullable MemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:securityhub/member:Member", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MemberArgs makeArgs(MemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MemberArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -128,11 +128,18 @@ public class ResolverRuleAssociation extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public ResolverRuleAssociation(String name, ResolverRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, args == null ? ResolverRuleAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResolverRuleAssociation(String name, Output<String> id, @Nullable ResolverRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResolverRuleAssociationArgs makeArgs(ResolverRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverRuleAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

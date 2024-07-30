@@ -249,11 +249,18 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SlotType(String name, SlotTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/slotType:SlotType", name, args == null ? SlotTypeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lex/slotType:SlotType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SlotType(String name, Output<String> id, @Nullable SlotTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lex/slotType:SlotType", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SlotTypeArgs makeArgs(SlotTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SlotTypeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

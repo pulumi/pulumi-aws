@@ -206,11 +206,18 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PolicyAttachment(String name, PolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:organizations/policyAttachment:PolicyAttachment", name, args == null ? PolicyAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:organizations/policyAttachment:PolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PolicyAttachment(String name, Output<String> id, @Nullable PolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:organizations/policyAttachment:PolicyAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PolicyAttachmentArgs makeArgs(PolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicyAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

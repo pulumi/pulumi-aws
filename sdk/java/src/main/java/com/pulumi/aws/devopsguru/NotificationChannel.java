@@ -167,11 +167,18 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NotificationChannel(String name, @Nullable NotificationChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:devopsguru/notificationChannel:NotificationChannel", name, args == null ? NotificationChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:devopsguru/notificationChannel:NotificationChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NotificationChannel(String name, Output<String> id, @Nullable NotificationChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:devopsguru/notificationChannel:NotificationChannel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NotificationChannelArgs makeArgs(@Nullable NotificationChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotificationChannelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

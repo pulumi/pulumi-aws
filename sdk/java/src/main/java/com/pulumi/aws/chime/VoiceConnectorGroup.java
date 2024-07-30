@@ -142,11 +142,18 @@ public class VoiceConnectorGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VoiceConnectorGroup(String name, @Nullable VoiceConnectorGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/voiceConnectorGroup:VoiceConnectorGroup", name, args == null ? VoiceConnectorGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:chime/voiceConnectorGroup:VoiceConnectorGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VoiceConnectorGroup(String name, Output<String> id, @Nullable VoiceConnectorGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:chime/voiceConnectorGroup:VoiceConnectorGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VoiceConnectorGroupArgs makeArgs(@Nullable VoiceConnectorGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VoiceConnectorGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

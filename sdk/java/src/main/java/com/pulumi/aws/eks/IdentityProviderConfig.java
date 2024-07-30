@@ -182,11 +182,18 @@ public class IdentityProviderConfig extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentityProviderConfig(String name, IdentityProviderConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/identityProviderConfig:IdentityProviderConfig", name, args == null ? IdentityProviderConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:eks/identityProviderConfig:IdentityProviderConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentityProviderConfig(String name, Output<String> id, @Nullable IdentityProviderConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:eks/identityProviderConfig:IdentityProviderConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentityProviderConfigArgs makeArgs(IdentityProviderConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityProviderConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

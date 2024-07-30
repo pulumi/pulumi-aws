@@ -230,11 +230,18 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TrustAnchor(String name, TrustAnchorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rolesanywhere/trustAnchor:TrustAnchor", name, args == null ? TrustAnchorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:rolesanywhere/trustAnchor:TrustAnchor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrustAnchor(String name, Output<String> id, @Nullable TrustAnchorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rolesanywhere/trustAnchor:TrustAnchor", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrustAnchorArgs makeArgs(TrustAnchorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrustAnchorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -146,11 +146,18 @@ public class ArchiveRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ArchiveRule(String name, ArchiveRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:accessanalyzer/archiveRule:ArchiveRule", name, args == null ? ArchiveRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:accessanalyzer/archiveRule:ArchiveRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ArchiveRule(String name, Output<String> id, @Nullable ArchiveRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:accessanalyzer/archiveRule:ArchiveRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ArchiveRuleArgs makeArgs(ArchiveRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ArchiveRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

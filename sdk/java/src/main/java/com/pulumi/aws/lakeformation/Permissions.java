@@ -519,11 +519,18 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Permissions(String name, PermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lakeformation/permissions:Permissions", name, args == null ? PermissionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lakeformation/permissions:Permissions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Permissions(String name, Output<String> id, @Nullable PermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lakeformation/permissions:Permissions", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PermissionsArgs makeArgs(PermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PermissionsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

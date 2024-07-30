@@ -136,11 +136,18 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserProfile(String name, UserProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/userProfile:UserProfile", name, args == null ? UserProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opsworks/userProfile:UserProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserProfile(String name, Output<String> id, @Nullable UserProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opsworks/userProfile:UserProfile", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserProfileArgs makeArgs(UserProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserProfileArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

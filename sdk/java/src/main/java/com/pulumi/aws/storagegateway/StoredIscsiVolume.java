@@ -421,11 +421,18 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StoredIscsiVolume(String name, StoredIscsiVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume", name, args == null ? StoredIscsiVolumeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StoredIscsiVolume(String name, Output<String> id, @Nullable StoredIscsiVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StoredIscsiVolumeArgs makeArgs(StoredIscsiVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StoredIscsiVolumeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -245,11 +245,18 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ConfiguredTable(String name, ConfiguredTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cleanrooms/configuredTable:ConfiguredTable", name, args == null ? ConfiguredTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cleanrooms/configuredTable:ConfiguredTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConfiguredTable(String name, Output<String> id, @Nullable ConfiguredTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cleanrooms/configuredTable:ConfiguredTable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConfiguredTableArgs makeArgs(ConfiguredTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfiguredTableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

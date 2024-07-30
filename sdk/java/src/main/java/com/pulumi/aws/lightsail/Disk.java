@@ -216,11 +216,18 @@ public class Disk extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Disk(String name, DiskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/disk:Disk", name, args == null ? DiskArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lightsail/disk:Disk", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Disk(String name, Output<String> id, @Nullable DiskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lightsail/disk:Disk", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DiskArgs makeArgs(DiskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DiskArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

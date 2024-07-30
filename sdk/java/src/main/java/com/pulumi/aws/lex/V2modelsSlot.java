@@ -261,11 +261,18 @@ public class V2modelsSlot extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public V2modelsSlot(String name, V2modelsSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/v2modelsSlot:V2modelsSlot", name, args == null ? V2modelsSlotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lex/v2modelsSlot:V2modelsSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private V2modelsSlot(String name, Output<String> id, @Nullable V2modelsSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lex/v2modelsSlot:V2modelsSlot", name, state, makeResourceOptions(options, id));
+    }
+
+    private static V2modelsSlotArgs makeArgs(V2modelsSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? V2modelsSlotArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

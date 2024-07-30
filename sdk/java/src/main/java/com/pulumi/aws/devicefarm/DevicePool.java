@@ -219,11 +219,18 @@ public class DevicePool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DevicePool(String name, DevicePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:devicefarm/devicePool:DevicePool", name, args == null ? DevicePoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:devicefarm/devicePool:DevicePool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DevicePool(String name, Output<String> id, @Nullable DevicePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:devicefarm/devicePool:DevicePool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DevicePoolArgs makeArgs(DevicePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DevicePoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

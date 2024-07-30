@@ -251,11 +251,18 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Secret(String name, @Nullable SecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:secretsmanager/secret:Secret", name, args == null ? SecretArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:secretsmanager/secret:Secret", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Secret(String name, Output<String> id, @Nullable SecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:secretsmanager/secret:Secret", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SecretArgs makeArgs(@Nullable SecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecretArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

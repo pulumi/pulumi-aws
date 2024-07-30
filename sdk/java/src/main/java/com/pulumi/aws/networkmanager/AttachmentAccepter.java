@@ -257,11 +257,18 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AttachmentAccepter(String name, AttachmentAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/attachmentAccepter:AttachmentAccepter", name, args == null ? AttachmentAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:networkmanager/attachmentAccepter:AttachmentAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AttachmentAccepter(String name, Output<String> id, @Nullable AttachmentAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkmanager/attachmentAccepter:AttachmentAccepter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AttachmentAccepterArgs makeArgs(AttachmentAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AttachmentAccepterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

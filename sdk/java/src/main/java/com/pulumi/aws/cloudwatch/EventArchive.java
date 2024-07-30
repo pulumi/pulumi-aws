@@ -229,11 +229,18 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventArchive(String name, EventArchiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventArchive:EventArchive", name, args == null ? EventArchiveArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudwatch/eventArchive:EventArchive", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventArchive(String name, Output<String> id, @Nullable EventArchiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/eventArchive:EventArchive", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventArchiveArgs makeArgs(EventArchiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventArchiveArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

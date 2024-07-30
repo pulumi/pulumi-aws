@@ -115,11 +115,18 @@ public class OrganizationAdminAccountRegistration extends com.pulumi.resources.C
      * @param options A bag of options that control this resource's behavior.
      */
     public OrganizationAdminAccountRegistration(String name, OrganizationAdminAccountRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration", name, args == null ? OrganizationAdminAccountRegistrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OrganizationAdminAccountRegistration(String name, Output<String> id, @Nullable OrganizationAdminAccountRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OrganizationAdminAccountRegistrationArgs makeArgs(OrganizationAdminAccountRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationAdminAccountRegistrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

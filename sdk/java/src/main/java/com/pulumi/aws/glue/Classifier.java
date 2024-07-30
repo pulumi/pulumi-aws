@@ -294,11 +294,18 @@ public class Classifier extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Classifier(String name, @Nullable ClassifierArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/classifier:Classifier", name, args == null ? ClassifierArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:glue/classifier:Classifier", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Classifier(String name, Output<String> id, @Nullable ClassifierState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:glue/classifier:Classifier", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClassifierArgs makeArgs(@Nullable ClassifierArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClassifierArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

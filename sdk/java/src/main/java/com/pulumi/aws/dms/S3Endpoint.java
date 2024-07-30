@@ -939,11 +939,18 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public S3Endpoint(String name, S3EndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dms/s3Endpoint:S3Endpoint", name, args == null ? S3EndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:dms/s3Endpoint:S3Endpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private S3Endpoint(String name, Output<String> id, @Nullable S3EndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:dms/s3Endpoint:S3Endpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static S3EndpointArgs makeArgs(S3EndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? S3EndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

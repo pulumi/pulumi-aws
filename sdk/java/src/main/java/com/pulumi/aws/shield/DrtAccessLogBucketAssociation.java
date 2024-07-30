@@ -131,11 +131,18 @@ public class DrtAccessLogBucketAssociation extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public DrtAccessLogBucketAssociation(String name, DrtAccessLogBucketAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation", name, args == null ? DrtAccessLogBucketAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DrtAccessLogBucketAssociation(String name, Output<String> id, @Nullable DrtAccessLogBucketAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DrtAccessLogBucketAssociationArgs makeArgs(DrtAccessLogBucketAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DrtAccessLogBucketAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

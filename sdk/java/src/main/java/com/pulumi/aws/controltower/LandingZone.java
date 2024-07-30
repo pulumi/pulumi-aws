@@ -157,11 +157,18 @@ public class LandingZone extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LandingZone(String name, LandingZoneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:controltower/landingZone:LandingZone", name, args == null ? LandingZoneArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:controltower/landingZone:LandingZone", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LandingZone(String name, Output<String> id, @Nullable LandingZoneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:controltower/landingZone:LandingZone", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LandingZoneArgs makeArgs(LandingZoneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LandingZoneArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

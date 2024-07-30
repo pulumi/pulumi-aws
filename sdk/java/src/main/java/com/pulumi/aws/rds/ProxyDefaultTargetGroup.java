@@ -176,11 +176,18 @@ public class ProxyDefaultTargetGroup extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public ProxyDefaultTargetGroup(String name, ProxyDefaultTargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup", name, args == null ? ProxyDefaultTargetGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProxyDefaultTargetGroup(String name, Output<String> id, @Nullable ProxyDefaultTargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProxyDefaultTargetGroupArgs makeArgs(ProxyDefaultTargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProxyDefaultTargetGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -251,11 +251,18 @@ public class Organization extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Organization(String name, @Nullable OrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:organizations/organization:Organization", name, args == null ? OrganizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:organizations/organization:Organization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Organization(String name, Output<String> id, @Nullable OrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:organizations/organization:Organization", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OrganizationArgs makeArgs(@Nullable OrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

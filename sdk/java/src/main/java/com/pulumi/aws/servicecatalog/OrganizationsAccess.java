@@ -95,11 +95,18 @@ public class OrganizationsAccess extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public OrganizationsAccess(String name, OrganizationsAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/organizationsAccess:OrganizationsAccess", name, args == null ? OrganizationsAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicecatalog/organizationsAccess:OrganizationsAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OrganizationsAccess(String name, Output<String> id, @Nullable OrganizationsAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicecatalog/organizationsAccess:OrganizationsAccess", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OrganizationsAccessArgs makeArgs(OrganizationsAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationsAccessArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

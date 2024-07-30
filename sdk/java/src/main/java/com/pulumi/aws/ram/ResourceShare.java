@@ -179,11 +179,18 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceShare(String name, @Nullable ResourceShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ram/resourceShare:ResourceShare", name, args == null ? ResourceShareArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ram/resourceShare:ResourceShare", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceShare(String name, Output<String> id, @Nullable ResourceShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ram/resourceShare:ResourceShare", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceShareArgs makeArgs(@Nullable ResourceShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceShareArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

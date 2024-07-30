@@ -213,11 +213,18 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LoggingConfiguration(String name, LoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkfirewall/loggingConfiguration:LoggingConfiguration", name, args == null ? LoggingConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:networkfirewall/loggingConfiguration:LoggingConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LoggingConfiguration(String name, Output<String> id, @Nullable LoggingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkfirewall/loggingConfiguration:LoggingConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LoggingConfigurationArgs makeArgs(LoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LoggingConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

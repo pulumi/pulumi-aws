@@ -315,11 +315,18 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PhoneNumber(String name, PhoneNumberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/phoneNumber:PhoneNumber", name, args == null ? PhoneNumberArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:connect/phoneNumber:PhoneNumber", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PhoneNumber(String name, Output<String> id, @Nullable PhoneNumberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:connect/phoneNumber:PhoneNumber", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PhoneNumberArgs makeArgs(PhoneNumberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PhoneNumberArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

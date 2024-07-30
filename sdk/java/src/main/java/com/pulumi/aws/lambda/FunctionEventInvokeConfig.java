@@ -345,11 +345,18 @@ public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public FunctionEventInvokeConfig(String name, FunctionEventInvokeConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig", name, args == null ? FunctionEventInvokeConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FunctionEventInvokeConfig(String name, Output<String> id, @Nullable FunctionEventInvokeConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FunctionEventInvokeConfigArgs makeArgs(FunctionEventInvokeConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionEventInvokeConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

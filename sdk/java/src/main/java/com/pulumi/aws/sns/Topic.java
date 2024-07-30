@@ -658,11 +658,18 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Topic(String name, @Nullable TopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sns/topic:Topic", name, args == null ? TopicArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sns/topic:Topic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Topic(String name, Output<String> id, @Nullable TopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sns/topic:Topic", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TopicArgs makeArgs(@Nullable TopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TopicArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

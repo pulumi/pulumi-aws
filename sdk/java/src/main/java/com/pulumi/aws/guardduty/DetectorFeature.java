@@ -151,11 +151,18 @@ public class DetectorFeature extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DetectorFeature(String name, DetectorFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/detectorFeature:DetectorFeature", name, args == null ? DetectorFeatureArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:guardduty/detectorFeature:DetectorFeature", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DetectorFeature(String name, Output<String> id, @Nullable DetectorFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:guardduty/detectorFeature:DetectorFeature", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DetectorFeatureArgs makeArgs(DetectorFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DetectorFeatureArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

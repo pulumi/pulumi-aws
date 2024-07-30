@@ -402,11 +402,18 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CatalogTable(String name, CatalogTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/catalogTable:CatalogTable", name, args == null ? CatalogTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:glue/catalogTable:CatalogTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CatalogTable(String name, Output<String> id, @Nullable CatalogTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:glue/catalogTable:CatalogTable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CatalogTableArgs makeArgs(CatalogTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CatalogTableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

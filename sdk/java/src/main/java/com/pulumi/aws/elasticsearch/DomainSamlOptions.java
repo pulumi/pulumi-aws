@@ -148,11 +148,18 @@ public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DomainSamlOptions(String name, DomainSamlOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticsearch/domainSamlOptions:DomainSamlOptions", name, args == null ? DomainSamlOptionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:elasticsearch/domainSamlOptions:DomainSamlOptions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DomainSamlOptions(String name, Output<String> id, @Nullable DomainSamlOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:elasticsearch/domainSamlOptions:DomainSamlOptions", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DomainSamlOptionsArgs makeArgs(DomainSamlOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainSamlOptionsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

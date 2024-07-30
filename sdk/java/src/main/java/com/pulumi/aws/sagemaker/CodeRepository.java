@@ -229,11 +229,18 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CodeRepository(String name, CodeRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/codeRepository:CodeRepository", name, args == null ? CodeRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/codeRepository:CodeRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CodeRepository(String name, Output<String> id, @Nullable CodeRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/codeRepository:CodeRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CodeRepositoryArgs makeArgs(CodeRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CodeRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

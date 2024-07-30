@@ -132,11 +132,18 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RegexPatternSet(String name, @Nullable RegexPatternSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:waf/regexPatternSet:RegexPatternSet", name, args == null ? RegexPatternSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:waf/regexPatternSet:RegexPatternSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RegexPatternSet(String name, Output<String> id, @Nullable RegexPatternSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:waf/regexPatternSet:RegexPatternSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegexPatternSetArgs makeArgs(@Nullable RegexPatternSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegexPatternSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

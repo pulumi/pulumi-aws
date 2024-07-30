@@ -225,11 +225,18 @@ public class TrustedTokenIssuer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TrustedTokenIssuer(String name, TrustedTokenIssuerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer", name, args == null ? TrustedTokenIssuerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrustedTokenIssuer(String name, Output<String> id, @Nullable TrustedTokenIssuerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrustedTokenIssuerArgs makeArgs(TrustedTokenIssuerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrustedTokenIssuerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

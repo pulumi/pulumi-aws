@@ -221,11 +221,18 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FunctionUrl(String name, FunctionUrlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/functionUrl:FunctionUrl", name, args == null ? FunctionUrlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lambda/functionUrl:FunctionUrl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FunctionUrl(String name, Output<String> id, @Nullable FunctionUrlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lambda/functionUrl:FunctionUrl", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FunctionUrlArgs makeArgs(FunctionUrlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionUrlArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -324,11 +324,18 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventDataStore(String name, @Nullable EventDataStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudtrail/eventDataStore:EventDataStore", name, args == null ? EventDataStoreArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudtrail/eventDataStore:EventDataStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventDataStore(String name, Output<String> id, @Nullable EventDataStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudtrail/eventDataStore:EventDataStore", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventDataStoreArgs makeArgs(@Nullable EventDataStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventDataStoreArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
