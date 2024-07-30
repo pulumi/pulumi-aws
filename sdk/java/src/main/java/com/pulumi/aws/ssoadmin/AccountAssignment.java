@@ -271,11 +271,18 @@ public class AccountAssignment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountAssignment(String name, AccountAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/accountAssignment:AccountAssignment", name, args == null ? AccountAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssoadmin/accountAssignment:AccountAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountAssignment(String name, Output<String> id, @Nullable AccountAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssoadmin/accountAssignment:AccountAssignment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountAssignmentArgs makeArgs(AccountAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountAssignmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

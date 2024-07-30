@@ -181,11 +181,18 @@ public class ResourceLfTag extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceLfTag(String name, @Nullable ResourceLfTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lakeformation/resourceLfTag:ResourceLfTag", name, args == null ? ResourceLfTagArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lakeformation/resourceLfTag:ResourceLfTag", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceLfTag(String name, Output<String> id, @Nullable ResourceLfTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lakeformation/resourceLfTag:ResourceLfTag", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceLfTagArgs makeArgs(@Nullable ResourceLfTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceLfTagArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

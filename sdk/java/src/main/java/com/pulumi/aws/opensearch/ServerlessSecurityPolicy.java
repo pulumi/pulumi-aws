@@ -441,11 +441,18 @@ public class ServerlessSecurityPolicy extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerlessSecurityPolicy(String name, ServerlessSecurityPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy", name, args == null ? ServerlessSecurityPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerlessSecurityPolicy(String name, Output<String> id, @Nullable ServerlessSecurityPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerlessSecurityPolicyArgs makeArgs(ServerlessSecurityPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerlessSecurityPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -264,11 +264,18 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ConnectorProfile(String name, ConnectorProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appflow/connectorProfile:ConnectorProfile", name, args == null ? ConnectorProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appflow/connectorProfile:ConnectorProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConnectorProfile(String name, Output<String> id, @Nullable ConnectorProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appflow/connectorProfile:ConnectorProfile", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConnectorProfileArgs makeArgs(ConnectorProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectorProfileArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

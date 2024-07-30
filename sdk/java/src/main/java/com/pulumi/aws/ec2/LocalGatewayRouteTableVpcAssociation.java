@@ -170,11 +170,18 @@ public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.C
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalGatewayRouteTableVpcAssociation(String name, LocalGatewayRouteTableVpcAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation", name, args == null ? LocalGatewayRouteTableVpcAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalGatewayRouteTableVpcAssociation(String name, Output<String> id, @Nullable LocalGatewayRouteTableVpcAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalGatewayRouteTableVpcAssociationArgs makeArgs(LocalGatewayRouteTableVpcAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalGatewayRouteTableVpcAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

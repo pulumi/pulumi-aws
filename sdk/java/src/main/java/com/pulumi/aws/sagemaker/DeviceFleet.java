@@ -218,11 +218,18 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DeviceFleet(String name, DeviceFleetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/deviceFleet:DeviceFleet", name, args == null ? DeviceFleetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/deviceFleet:DeviceFleet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DeviceFleet(String name, Output<String> id, @Nullable DeviceFleetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/deviceFleet:DeviceFleet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DeviceFleetArgs makeArgs(DeviceFleetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeviceFleetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -138,11 +138,18 @@ public class StaticIpAttachment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StaticIpAttachment(String name, StaticIpAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/staticIpAttachment:StaticIpAttachment", name, args == null ? StaticIpAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lightsail/staticIpAttachment:StaticIpAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StaticIpAttachment(String name, Output<String> id, @Nullable StaticIpAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lightsail/staticIpAttachment:StaticIpAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StaticIpAttachmentArgs makeArgs(StaticIpAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StaticIpAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

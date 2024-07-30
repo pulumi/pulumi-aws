@@ -196,11 +196,18 @@ public class EnvironmentBlueprintConfiguration extends com.pulumi.resources.Cust
      * @param options A bag of options that control this resource's behavior.
      */
     public EnvironmentBlueprintConfiguration(String name, EnvironmentBlueprintConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration", name, args == null ? EnvironmentBlueprintConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EnvironmentBlueprintConfiguration(String name, Output<String> id, @Nullable EnvironmentBlueprintConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EnvironmentBlueprintConfigurationArgs makeArgs(EnvironmentBlueprintConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnvironmentBlueprintConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

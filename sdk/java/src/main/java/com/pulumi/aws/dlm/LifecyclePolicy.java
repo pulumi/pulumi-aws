@@ -431,11 +431,18 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LifecyclePolicy(String name, LifecyclePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args == null ? LifecyclePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LifecyclePolicy(String name, Output<String> id, @Nullable LifecyclePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LifecyclePolicyArgs makeArgs(LifecyclePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LifecyclePolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

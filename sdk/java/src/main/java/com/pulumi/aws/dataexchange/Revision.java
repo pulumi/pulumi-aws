@@ -175,11 +175,18 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Revision(String name, RevisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dataexchange/revision:Revision", name, args == null ? RevisionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:dataexchange/revision:Revision", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Revision(String name, Output<String> id, @Nullable RevisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:dataexchange/revision:Revision", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RevisionArgs makeArgs(RevisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RevisionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

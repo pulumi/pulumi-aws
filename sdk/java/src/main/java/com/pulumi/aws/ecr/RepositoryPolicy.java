@@ -164,11 +164,18 @@ public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RepositoryPolicy(String name, RepositoryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecr/repositoryPolicy:RepositoryPolicy", name, args == null ? RepositoryPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ecr/repositoryPolicy:RepositoryPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RepositoryPolicy(String name, Output<String> id, @Nullable RepositoryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ecr/repositoryPolicy:RepositoryPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RepositoryPolicyArgs makeArgs(RepositoryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -143,11 +143,18 @@ public class RestApiPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RestApiPolicy(String name, RestApiPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/restApiPolicy:RestApiPolicy", name, args == null ? RestApiPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apigateway/restApiPolicy:RestApiPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RestApiPolicy(String name, Output<String> id, @Nullable RestApiPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apigateway/restApiPolicy:RestApiPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RestApiPolicyArgs makeArgs(RestApiPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RestApiPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

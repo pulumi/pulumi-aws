@@ -368,11 +368,18 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ReservedInstance(String name, ReservedInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/reservedInstance:ReservedInstance", name, args == null ? ReservedInstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:rds/reservedInstance:ReservedInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReservedInstance(String name, Output<String> id, @Nullable ReservedInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rds/reservedInstance:ReservedInstance", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReservedInstanceArgs makeArgs(ReservedInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReservedInstanceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

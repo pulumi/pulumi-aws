@@ -138,11 +138,18 @@ public class EmailIdentityMailFromAttributes extends com.pulumi.resources.Custom
      * @param options A bag of options that control this resource's behavior.
      */
     public EmailIdentityMailFromAttributes(String name, EmailIdentityMailFromAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes", name, args == null ? EmailIdentityMailFromAttributesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EmailIdentityMailFromAttributes(String name, Output<String> id, @Nullable EmailIdentityMailFromAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EmailIdentityMailFromAttributesArgs makeArgs(EmailIdentityMailFromAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmailIdentityMailFromAttributesArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

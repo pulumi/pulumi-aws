@@ -190,11 +190,18 @@ public class IdentityProvider extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentityProvider(String name, IdentityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/identityProvider:IdentityProvider", name, args == null ? IdentityProviderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cognito/identityProvider:IdentityProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentityProvider(String name, Output<String> id, @Nullable IdentityProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cognito/identityProvider:IdentityProvider", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentityProviderArgs makeArgs(IdentityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityProviderArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -322,11 +322,18 @@ public class RestApi extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RestApi(String name, @Nullable RestApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/restApi:RestApi", name, args == null ? RestApiArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apigateway/restApi:RestApi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RestApi(String name, Output<String> id, @Nullable RestApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apigateway/restApi:RestApi", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RestApiArgs makeArgs(@Nullable RestApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RestApiArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

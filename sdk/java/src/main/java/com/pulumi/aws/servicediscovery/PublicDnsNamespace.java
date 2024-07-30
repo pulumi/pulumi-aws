@@ -176,11 +176,18 @@ public class PublicDnsNamespace extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PublicDnsNamespace(String name, @Nullable PublicDnsNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, args == null ? PublicDnsNamespaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PublicDnsNamespace(String name, Output<String> id, @Nullable PublicDnsNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PublicDnsNamespaceArgs makeArgs(@Nullable PublicDnsNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PublicDnsNamespaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -210,11 +210,18 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ThingGroup(String name, @Nullable ThingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/thingGroup:ThingGroup", name, args == null ? ThingGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iot/thingGroup:ThingGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ThingGroup(String name, Output<String> id, @Nullable ThingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iot/thingGroup:ThingGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ThingGroupArgs makeArgs(@Nullable ThingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ThingGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

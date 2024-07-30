@@ -177,11 +177,18 @@ public class LogDestination extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LogDestination(String name, LogDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logDestination:LogDestination", name, args == null ? LogDestinationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudwatch/logDestination:LogDestination", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LogDestination(String name, Output<String> id, @Nullable LogDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/logDestination:LogDestination", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LogDestinationArgs makeArgs(LogDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogDestinationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

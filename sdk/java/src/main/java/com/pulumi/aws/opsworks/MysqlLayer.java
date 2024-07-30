@@ -419,11 +419,18 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MysqlLayer(String name, MysqlLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/mysqlLayer:MysqlLayer", name, args == null ? MysqlLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opsworks/mysqlLayer:MysqlLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MysqlLayer(String name, Output<String> id, @Nullable MysqlLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opsworks/mysqlLayer:MysqlLayer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MysqlLayerArgs makeArgs(MysqlLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MysqlLayerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

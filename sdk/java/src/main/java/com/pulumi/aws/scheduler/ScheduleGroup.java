@@ -207,11 +207,18 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ScheduleGroup(String name, @Nullable ScheduleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:scheduler/scheduleGroup:ScheduleGroup", name, args == null ? ScheduleGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:scheduler/scheduleGroup:ScheduleGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ScheduleGroup(String name, Output<String> id, @Nullable ScheduleGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:scheduler/scheduleGroup:ScheduleGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ScheduleGroupArgs makeArgs(@Nullable ScheduleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScheduleGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

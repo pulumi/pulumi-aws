@@ -141,11 +141,18 @@ public class BucketPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BucketPolicy(String name, BucketPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketPolicy:BucketPolicy", name, args == null ? BucketPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3/bucketPolicy:BucketPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BucketPolicy(String name, Output<String> id, @Nullable BucketPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3/bucketPolicy:BucketPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BucketPolicyArgs makeArgs(BucketPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -291,11 +291,18 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ExternalKey(String name, @Nullable ExternalKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kms/externalKey:ExternalKey", name, args == null ? ExternalKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:kms/externalKey:ExternalKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ExternalKey(String name, Output<String> id, @Nullable ExternalKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:kms/externalKey:ExternalKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ExternalKeyArgs makeArgs(@Nullable ExternalKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExternalKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

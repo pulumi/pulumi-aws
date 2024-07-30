@@ -218,11 +218,18 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AssessmentTemplate(String name, AssessmentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector/assessmentTemplate:AssessmentTemplate", name, args == null ? AssessmentTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:inspector/assessmentTemplate:AssessmentTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AssessmentTemplate(String name, Output<String> id, @Nullable AssessmentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:inspector/assessmentTemplate:AssessmentTemplate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AssessmentTemplateArgs makeArgs(AssessmentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssessmentTemplateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

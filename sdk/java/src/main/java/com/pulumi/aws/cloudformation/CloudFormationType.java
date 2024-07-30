@@ -291,11 +291,18 @@ public class CloudFormationType extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CloudFormationType(String name, CloudFormationTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudformation/cloudFormationType:CloudFormationType", name, args == null ? CloudFormationTypeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudformation/cloudFormationType:CloudFormationType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CloudFormationType(String name, Output<String> id, @Nullable CloudFormationTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudformation/cloudFormationType:CloudFormationType", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CloudFormationTypeArgs makeArgs(CloudFormationTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CloudFormationTypeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

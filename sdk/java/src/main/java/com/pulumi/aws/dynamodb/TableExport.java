@@ -363,11 +363,18 @@ public class TableExport extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TableExport(String name, TableExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dynamodb/tableExport:TableExport", name, args == null ? TableExportArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:dynamodb/tableExport:TableExport", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TableExport(String name, Output<String> id, @Nullable TableExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:dynamodb/tableExport:TableExport", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TableExportArgs makeArgs(TableExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TableExportArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

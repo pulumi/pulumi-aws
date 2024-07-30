@@ -113,11 +113,18 @@ public class ReceiptRuleSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ReceiptRuleSet(String name, ReceiptRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/receiptRuleSet:ReceiptRuleSet", name, args == null ? ReceiptRuleSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ses/receiptRuleSet:ReceiptRuleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReceiptRuleSet(String name, Output<String> id, @Nullable ReceiptRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ses/receiptRuleSet:ReceiptRuleSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReceiptRuleSetArgs makeArgs(ReceiptRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReceiptRuleSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

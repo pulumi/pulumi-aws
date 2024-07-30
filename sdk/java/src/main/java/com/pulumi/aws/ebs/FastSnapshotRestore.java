@@ -138,11 +138,18 @@ public class FastSnapshotRestore extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FastSnapshotRestore(String name, FastSnapshotRestoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ebs/fastSnapshotRestore:FastSnapshotRestore", name, args == null ? FastSnapshotRestoreArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ebs/fastSnapshotRestore:FastSnapshotRestore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FastSnapshotRestore(String name, Output<String> id, @Nullable FastSnapshotRestoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ebs/fastSnapshotRestore:FastSnapshotRestore", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FastSnapshotRestoreArgs makeArgs(FastSnapshotRestoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FastSnapshotRestoreArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

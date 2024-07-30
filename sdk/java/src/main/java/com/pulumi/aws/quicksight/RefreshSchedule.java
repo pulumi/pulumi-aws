@@ -272,11 +272,18 @@ public class RefreshSchedule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RefreshSchedule(String name, RefreshScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:quicksight/refreshSchedule:RefreshSchedule", name, args == null ? RefreshScheduleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:quicksight/refreshSchedule:RefreshSchedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RefreshSchedule(String name, Output<String> id, @Nullable RefreshScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:quicksight/refreshSchedule:RefreshSchedule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RefreshScheduleArgs makeArgs(RefreshScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RefreshScheduleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

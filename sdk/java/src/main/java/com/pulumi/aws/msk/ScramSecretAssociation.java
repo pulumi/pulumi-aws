@@ -188,11 +188,18 @@ public class ScramSecretAssociation extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ScramSecretAssociation(String name, ScramSecretAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:msk/scramSecretAssociation:ScramSecretAssociation", name, args == null ? ScramSecretAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:msk/scramSecretAssociation:ScramSecretAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ScramSecretAssociation(String name, Output<String> id, @Nullable ScramSecretAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:msk/scramSecretAssociation:ScramSecretAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ScramSecretAssociationArgs makeArgs(ScramSecretAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScramSecretAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

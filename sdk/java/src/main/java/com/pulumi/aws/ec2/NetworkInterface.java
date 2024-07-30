@@ -471,11 +471,18 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkInterface(String name, NetworkInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkInterface:NetworkInterface", name, args == null ? NetworkInterfaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/networkInterface:NetworkInterface", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkInterface(String name, Output<String> id, @Nullable NetworkInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/networkInterface:NetworkInterface", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkInterfaceArgs makeArgs(NetworkInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInterfaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
