@@ -156,11 +156,18 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EnvironmentMembership(String name, EnvironmentMembershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloud9/environmentMembership:EnvironmentMembership", name, args == null ? EnvironmentMembershipArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloud9/environmentMembership:EnvironmentMembership", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EnvironmentMembership(String name, Output<String> id, @Nullable EnvironmentMembershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloud9/environmentMembership:EnvironmentMembership", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EnvironmentMembershipArgs makeArgs(EnvironmentMembershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnvironmentMembershipArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

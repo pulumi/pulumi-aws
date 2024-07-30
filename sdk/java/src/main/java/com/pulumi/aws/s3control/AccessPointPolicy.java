@@ -163,11 +163,18 @@ public class AccessPointPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccessPointPolicy(String name, AccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessPointPolicy:AccessPointPolicy", name, args == null ? AccessPointPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3control/accessPointPolicy:AccessPointPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccessPointPolicy(String name, Output<String> id, @Nullable AccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3control/accessPointPolicy:AccessPointPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccessPointPolicyArgs makeArgs(AccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessPointPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

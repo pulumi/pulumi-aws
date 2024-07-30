@@ -164,11 +164,18 @@ public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resour
      * @param options A bag of options that control this resource's behavior.
      */
     public BucketServerSideEncryptionConfigurationV2(String name, BucketServerSideEncryptionConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2", name, args == null ? BucketServerSideEncryptionConfigurationV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BucketServerSideEncryptionConfigurationV2(String name, Output<String> id, @Nullable BucketServerSideEncryptionConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BucketServerSideEncryptionConfigurationV2Args makeArgs(BucketServerSideEncryptionConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketServerSideEncryptionConfigurationV2Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

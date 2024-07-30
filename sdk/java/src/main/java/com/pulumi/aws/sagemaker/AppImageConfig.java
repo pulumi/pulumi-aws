@@ -239,11 +239,18 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AppImageConfig(String name, AppImageConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/appImageConfig:AppImageConfig", name, args == null ? AppImageConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/appImageConfig:AppImageConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AppImageConfig(String name, Output<String> id, @Nullable AppImageConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/appImageConfig:AppImageConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AppImageConfigArgs makeArgs(AppImageConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppImageConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -245,11 +245,18 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AnomalyMonitor(String name, AnomalyMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:costexplorer/anomalyMonitor:AnomalyMonitor", name, args == null ? AnomalyMonitorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:costexplorer/anomalyMonitor:AnomalyMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AnomalyMonitor(String name, Output<String> id, @Nullable AnomalyMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:costexplorer/anomalyMonitor:AnomalyMonitor", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AnomalyMonitorArgs makeArgs(AnomalyMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnomalyMonitorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

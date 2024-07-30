@@ -126,11 +126,18 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public InstancePublicPorts(String name, InstancePublicPortsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/instancePublicPorts:InstancePublicPorts", name, args == null ? InstancePublicPortsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lightsail/instancePublicPorts:InstancePublicPorts", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private InstancePublicPorts(String name, Output<String> id, @Nullable InstancePublicPortsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lightsail/instancePublicPorts:InstancePublicPorts", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InstancePublicPortsArgs makeArgs(InstancePublicPortsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstancePublicPortsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

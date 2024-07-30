@@ -324,11 +324,18 @@ public class Link extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Link(String name, LinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:oam/link:Link", name, args == null ? LinkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:oam/link:Link", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Link(String name, Output<String> id, @Nullable LinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:oam/link:Link", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkArgs makeArgs(LinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

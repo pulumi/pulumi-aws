@@ -167,11 +167,18 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public AppCookieStickinessPolicy(String name, AppCookieStickinessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy", name, args == null ? AppCookieStickinessPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AppCookieStickinessPolicy(String name, Output<String> id, @Nullable AppCookieStickinessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AppCookieStickinessPolicyArgs makeArgs(AppCookieStickinessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppCookieStickinessPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

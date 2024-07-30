@@ -201,11 +201,18 @@ public class HostedPrivateVirtualInterfaceAccepter extends com.pulumi.resources.
      * @param options A bag of options that control this resource's behavior.
      */
     public HostedPrivateVirtualInterfaceAccepter(String name, HostedPrivateVirtualInterfaceAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter", name, args == null ? HostedPrivateVirtualInterfaceAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HostedPrivateVirtualInterfaceAccepter(String name, Output<String> id, @Nullable HostedPrivateVirtualInterfaceAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HostedPrivateVirtualInterfaceAccepterArgs makeArgs(HostedPrivateVirtualInterfaceAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostedPrivateVirtualInterfaceAccepterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

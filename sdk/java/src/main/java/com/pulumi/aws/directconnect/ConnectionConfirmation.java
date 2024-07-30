@@ -91,11 +91,18 @@ public class ConnectionConfirmation extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ConnectionConfirmation(String name, ConnectionConfirmationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/connectionConfirmation:ConnectionConfirmation", name, args == null ? ConnectionConfirmationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directconnect/connectionConfirmation:ConnectionConfirmation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConnectionConfirmation(String name, Output<String> id, @Nullable ConnectionConfirmationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directconnect/connectionConfirmation:ConnectionConfirmation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConnectionConfirmationArgs makeArgs(ConnectionConfirmationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectionConfirmationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

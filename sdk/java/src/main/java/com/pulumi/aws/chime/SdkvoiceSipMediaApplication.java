@@ -187,11 +187,18 @@ public class SdkvoiceSipMediaApplication extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public SdkvoiceSipMediaApplication(String name, SdkvoiceSipMediaApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication", name, args == null ? SdkvoiceSipMediaApplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SdkvoiceSipMediaApplication(String name, Output<String> id, @Nullable SdkvoiceSipMediaApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SdkvoiceSipMediaApplicationArgs makeArgs(SdkvoiceSipMediaApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SdkvoiceSipMediaApplicationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

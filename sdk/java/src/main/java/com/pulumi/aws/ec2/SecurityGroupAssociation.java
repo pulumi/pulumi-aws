@@ -130,11 +130,18 @@ public class SecurityGroupAssociation extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public SecurityGroupAssociation(String name, SecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/securityGroupAssociation:SecurityGroupAssociation", name, args == null ? SecurityGroupAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/securityGroupAssociation:SecurityGroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SecurityGroupAssociation(String name, Output<String> id, @Nullable SecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/securityGroupAssociation:SecurityGroupAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SecurityGroupAssociationArgs makeArgs(SecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityGroupAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

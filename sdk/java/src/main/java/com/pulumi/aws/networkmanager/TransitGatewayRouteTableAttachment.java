@@ -289,11 +289,18 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public TransitGatewayRouteTableAttachment(String name, TransitGatewayRouteTableAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, args == null ? TransitGatewayRouteTableAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TransitGatewayRouteTableAttachment(String name, Output<String> id, @Nullable TransitGatewayRouteTableAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TransitGatewayRouteTableAttachmentArgs makeArgs(TransitGatewayRouteTableAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TransitGatewayRouteTableAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

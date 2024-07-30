@@ -150,11 +150,18 @@ public class Notification extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Notification(String name, NotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:autoscaling/notification:Notification", name, args == null ? NotificationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:autoscaling/notification:Notification", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Notification(String name, Output<String> id, @Nullable NotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:autoscaling/notification:Notification", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NotificationArgs makeArgs(NotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotificationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

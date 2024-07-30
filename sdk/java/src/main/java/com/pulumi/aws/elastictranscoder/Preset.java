@@ -296,11 +296,18 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Preset(String name, PresetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elastictranscoder/preset:Preset", name, args == null ? PresetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:elastictranscoder/preset:Preset", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Preset(String name, Output<String> id, @Nullable PresetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:elastictranscoder/preset:Preset", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PresetArgs makeArgs(PresetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PresetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

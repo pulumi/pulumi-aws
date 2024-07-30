@@ -273,11 +273,18 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ConfigurationSet(String name, @Nullable ConfigurationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/configurationSet:ConfigurationSet", name, args == null ? ConfigurationSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ses/configurationSet:ConfigurationSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConfigurationSet(String name, Output<String> id, @Nullable ConfigurationSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ses/configurationSet:ConfigurationSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConfigurationSetArgs makeArgs(@Nullable ConfigurationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfigurationSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

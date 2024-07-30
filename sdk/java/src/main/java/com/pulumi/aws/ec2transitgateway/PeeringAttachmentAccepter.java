@@ -184,11 +184,18 @@ public class PeeringAttachmentAccepter extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public PeeringAttachmentAccepter(String name, PeeringAttachmentAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter", name, args == null ? PeeringAttachmentAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PeeringAttachmentAccepter(String name, Output<String> id, @Nullable PeeringAttachmentAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PeeringAttachmentAccepterArgs makeArgs(PeeringAttachmentAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PeeringAttachmentAccepterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

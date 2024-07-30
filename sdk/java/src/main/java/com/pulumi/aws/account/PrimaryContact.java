@@ -277,11 +277,18 @@ public class PrimaryContact extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PrimaryContact(String name, PrimaryContactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:account/primaryContact:PrimaryContact", name, args == null ? PrimaryContactArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:account/primaryContact:PrimaryContact", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PrimaryContact(String name, Output<String> id, @Nullable PrimaryContactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:account/primaryContact:PrimaryContact", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PrimaryContactArgs makeArgs(PrimaryContactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrimaryContactArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

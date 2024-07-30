@@ -271,11 +271,18 @@ public class VoiceConnectorStreaming extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public VoiceConnectorStreaming(String name, VoiceConnectorStreamingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming", name, args == null ? VoiceConnectorStreamingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VoiceConnectorStreaming(String name, Output<String> id, @Nullable VoiceConnectorStreamingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VoiceConnectorStreamingArgs makeArgs(VoiceConnectorStreamingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VoiceConnectorStreamingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

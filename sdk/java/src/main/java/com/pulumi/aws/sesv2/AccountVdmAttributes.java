@@ -143,11 +143,18 @@ public class AccountVdmAttributes extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountVdmAttributes(String name, AccountVdmAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/accountVdmAttributes:AccountVdmAttributes", name, args == null ? AccountVdmAttributesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sesv2/accountVdmAttributes:AccountVdmAttributes", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountVdmAttributes(String name, Output<String> id, @Nullable AccountVdmAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sesv2/accountVdmAttributes:AccountVdmAttributes", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountVdmAttributesArgs makeArgs(AccountVdmAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountVdmAttributesArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -291,11 +291,18 @@ public class BucketVersioningV2 extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BucketVersioningV2(String name, BucketVersioningV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketVersioningV2:BucketVersioningV2", name, args == null ? BucketVersioningV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3/bucketVersioningV2:BucketVersioningV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BucketVersioningV2(String name, Output<String> id, @Nullable BucketVersioningV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3/bucketVersioningV2:BucketVersioningV2", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BucketVersioningV2Args makeArgs(BucketVersioningV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketVersioningV2Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

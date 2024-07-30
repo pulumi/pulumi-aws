@@ -209,11 +209,18 @@ public class DevEnvironment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DevEnvironment(String name, DevEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecatalyst/devEnvironment:DevEnvironment", name, args == null ? DevEnvironmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:codecatalyst/devEnvironment:DevEnvironment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DevEnvironment(String name, Output<String> id, @Nullable DevEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:codecatalyst/devEnvironment:DevEnvironment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DevEnvironmentArgs makeArgs(DevEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DevEnvironmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

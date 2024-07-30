@@ -254,11 +254,18 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Probe(String name, ProbeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmonitor/probe:Probe", name, args == null ? ProbeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:networkmonitor/probe:Probe", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Probe(String name, Output<String> id, @Nullable ProbeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkmonitor/probe:Probe", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProbeArgs makeArgs(ProbeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProbeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

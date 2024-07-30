@@ -138,11 +138,18 @@ public class RegistryPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RegistryPolicy(String name, RegistryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecr/registryPolicy:RegistryPolicy", name, args == null ? RegistryPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ecr/registryPolicy:RegistryPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RegistryPolicy(String name, Output<String> id, @Nullable RegistryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ecr/registryPolicy:RegistryPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegistryPolicyArgs makeArgs(RegistryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegistryPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

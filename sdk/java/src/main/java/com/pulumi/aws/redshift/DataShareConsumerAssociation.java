@@ -228,11 +228,18 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public DataShareConsumerAssociation(String name, DataShareConsumerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation", name, args == null ? DataShareConsumerAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataShareConsumerAssociation(String name, Output<String> id, @Nullable DataShareConsumerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataShareConsumerAssociationArgs makeArgs(DataShareConsumerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataShareConsumerAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -202,11 +202,18 @@ public class WorkspaceServiceAccountToken extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public WorkspaceServiceAccountToken(String name, WorkspaceServiceAccountTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken", name, args == null ? WorkspaceServiceAccountTokenArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WorkspaceServiceAccountToken(String name, Output<String> id, @Nullable WorkspaceServiceAccountTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WorkspaceServiceAccountTokenArgs makeArgs(WorkspaceServiceAccountTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceServiceAccountTokenArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -226,11 +226,18 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PermissionSet(String name, PermissionSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/permissionSet:PermissionSet", name, args == null ? PermissionSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssoadmin/permissionSet:PermissionSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PermissionSet(String name, Output<String> id, @Nullable PermissionSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssoadmin/permissionSet:PermissionSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PermissionSetArgs makeArgs(PermissionSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PermissionSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

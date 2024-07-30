@@ -313,11 +313,18 @@ public class ReplicationConfigurationTemplate extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public ReplicationConfigurationTemplate(String name, ReplicationConfigurationTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate", name, args == null ? ReplicationConfigurationTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReplicationConfigurationTemplate(String name, Output<String> id, @Nullable ReplicationConfigurationTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReplicationConfigurationTemplateArgs makeArgs(ReplicationConfigurationTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationConfigurationTemplateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -136,11 +136,18 @@ public class DrtAccessRoleArnAssociation extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public DrtAccessRoleArnAssociation(String name, DrtAccessRoleArnAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation", name, args == null ? DrtAccessRoleArnAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DrtAccessRoleArnAssociation(String name, Output<String> id, @Nullable DrtAccessRoleArnAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DrtAccessRoleArnAssociationArgs makeArgs(DrtAccessRoleArnAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DrtAccessRoleArnAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

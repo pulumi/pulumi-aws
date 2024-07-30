@@ -331,11 +331,18 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ClusterSnapshot(String name, ClusterSnapshotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/clusterSnapshot:ClusterSnapshot", name, args == null ? ClusterSnapshotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:rds/clusterSnapshot:ClusterSnapshot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClusterSnapshot(String name, Output<String> id, @Nullable ClusterSnapshotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rds/clusterSnapshot:ClusterSnapshot", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterSnapshotArgs makeArgs(ClusterSnapshotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterSnapshotArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

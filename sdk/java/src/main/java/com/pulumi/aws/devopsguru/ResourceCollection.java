@@ -263,11 +263,18 @@ public class ResourceCollection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceCollection(String name, ResourceCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:devopsguru/resourceCollection:ResourceCollection", name, args == null ? ResourceCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:devopsguru/resourceCollection:ResourceCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceCollection(String name, Output<String> id, @Nullable ResourceCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:devopsguru/resourceCollection:ResourceCollection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceCollectionArgs makeArgs(ResourceCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceCollectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

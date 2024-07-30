@@ -249,11 +249,18 @@ public class PodIdentityAssociation extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public PodIdentityAssociation(String name, PodIdentityAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/podIdentityAssociation:PodIdentityAssociation", name, args == null ? PodIdentityAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:eks/podIdentityAssociation:PodIdentityAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PodIdentityAssociation(String name, Output<String> id, @Nullable PodIdentityAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:eks/podIdentityAssociation:PodIdentityAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PodIdentityAssociationArgs makeArgs(PodIdentityAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PodIdentityAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

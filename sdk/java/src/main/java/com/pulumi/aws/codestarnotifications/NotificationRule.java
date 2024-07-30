@@ -260,11 +260,18 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NotificationRule(String name, NotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codestarnotifications/notificationRule:NotificationRule", name, args == null ? NotificationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:codestarnotifications/notificationRule:NotificationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NotificationRule(String name, Output<String> id, @Nullable NotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:codestarnotifications/notificationRule:NotificationRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NotificationRuleArgs makeArgs(NotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotificationRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

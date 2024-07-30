@@ -126,11 +126,18 @@ public class GeoMatchSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GeoMatchSet(String name, @Nullable GeoMatchSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafregional/geoMatchSet:GeoMatchSet", name, args == null ? GeoMatchSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:wafregional/geoMatchSet:GeoMatchSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GeoMatchSet(String name, Output<String> id, @Nullable GeoMatchSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:wafregional/geoMatchSet:GeoMatchSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GeoMatchSetArgs makeArgs(@Nullable GeoMatchSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GeoMatchSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -201,11 +201,18 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GeofenceCollection(String name, GeofenceCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:location/geofenceCollection:GeofenceCollection", name, args == null ? GeofenceCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:location/geofenceCollection:GeofenceCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GeofenceCollection(String name, Output<String> id, @Nullable GeofenceCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:location/geofenceCollection:GeofenceCollection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GeofenceCollectionArgs makeArgs(GeofenceCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GeofenceCollectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -149,11 +149,18 @@ public class RegexMatchSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RegexMatchSet(String name, @Nullable RegexMatchSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:waf/regexMatchSet:RegexMatchSet", name, args == null ? RegexMatchSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:waf/regexMatchSet:RegexMatchSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RegexMatchSet(String name, Output<String> id, @Nullable RegexMatchSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:waf/regexMatchSet:RegexMatchSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegexMatchSetArgs makeArgs(@Nullable RegexMatchSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegexMatchSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -283,11 +283,18 @@ public class MethodSettings extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MethodSettings(String name, MethodSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/methodSettings:MethodSettings", name, args == null ? MethodSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apigateway/methodSettings:MethodSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MethodSettings(String name, Output<String> id, @Nullable MethodSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apigateway/methodSettings:MethodSettings", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MethodSettingsArgs makeArgs(MethodSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MethodSettingsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

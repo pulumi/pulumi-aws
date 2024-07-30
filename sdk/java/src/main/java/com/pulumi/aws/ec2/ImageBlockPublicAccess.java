@@ -99,11 +99,18 @@ public class ImageBlockPublicAccess extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ImageBlockPublicAccess(String name, ImageBlockPublicAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess", name, args == null ? ImageBlockPublicAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ImageBlockPublicAccess(String name, Output<String> id, @Nullable ImageBlockPublicAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ImageBlockPublicAccessArgs makeArgs(ImageBlockPublicAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ImageBlockPublicAccessArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

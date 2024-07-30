@@ -172,11 +172,18 @@ public class AccountPublicAccessBlock extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountPublicAccessBlock(String name, @Nullable AccountPublicAccessBlockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock", name, args == null ? AccountPublicAccessBlockArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountPublicAccessBlock(String name, Output<String> id, @Nullable AccountPublicAccessBlockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountPublicAccessBlockArgs makeArgs(@Nullable AccountPublicAccessBlockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountPublicAccessBlockArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

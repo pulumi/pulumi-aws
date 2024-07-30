@@ -183,11 +183,18 @@ public class GatewayAssociationProposal extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public GatewayAssociationProposal(String name, GatewayAssociationProposalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, args == null ? GatewayAssociationProposalArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GatewayAssociationProposal(String name, Output<String> id, @Nullable GatewayAssociationProposalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GatewayAssociationProposalArgs makeArgs(GatewayAssociationProposalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GatewayAssociationProposalArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
