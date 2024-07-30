@@ -297,11 +297,18 @@ public class ConfigurationPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ConfigurationPolicy(String name, ConfigurationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/configurationPolicy:ConfigurationPolicy", name, args == null ? ConfigurationPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:securityhub/configurationPolicy:ConfigurationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConfigurationPolicy(String name, Output<String> id, @Nullable ConfigurationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:securityhub/configurationPolicy:ConfigurationPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConfigurationPolicyArgs makeArgs(ConfigurationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfigurationPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

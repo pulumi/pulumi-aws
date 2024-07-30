@@ -126,11 +126,18 @@ public class BucketOwnershipControls extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public BucketOwnershipControls(String name, BucketOwnershipControlsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketOwnershipControls:BucketOwnershipControls", name, args == null ? BucketOwnershipControlsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3/bucketOwnershipControls:BucketOwnershipControls", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BucketOwnershipControls(String name, Output<String> id, @Nullable BucketOwnershipControlsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3/bucketOwnershipControls:BucketOwnershipControls", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BucketOwnershipControlsArgs makeArgs(BucketOwnershipControlsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketOwnershipControlsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

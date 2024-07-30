@@ -220,11 +220,18 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ClusterEndpoint(String name, ClusterEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:neptune/clusterEndpoint:ClusterEndpoint", name, args == null ? ClusterEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:neptune/clusterEndpoint:ClusterEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClusterEndpoint(String name, Output<String> id, @Nullable ClusterEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:neptune/clusterEndpoint:ClusterEndpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterEndpointArgs makeArgs(ClusterEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterEndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

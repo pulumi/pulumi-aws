@@ -223,11 +223,18 @@ public class App extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public App(String name, AppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/app:App", name, args == null ? AppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/app:App", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private App(String name, Output<String> id, @Nullable AppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/app:App", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AppArgs makeArgs(AppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

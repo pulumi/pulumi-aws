@@ -330,11 +330,18 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FirewallPolicy(String name, FirewallPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkfirewall/firewallPolicy:FirewallPolicy", name, args == null ? FirewallPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:networkfirewall/firewallPolicy:FirewallPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FirewallPolicy(String name, Output<String> id, @Nullable FirewallPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkfirewall/firewallPolicy:FirewallPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FirewallPolicyArgs makeArgs(FirewallPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FirewallPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

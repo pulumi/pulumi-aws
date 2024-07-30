@@ -131,11 +131,18 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ClusterIamRoles(String name, ClusterIamRolesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/clusterIamRoles:ClusterIamRoles", name, args == null ? ClusterIamRolesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:redshift/clusterIamRoles:ClusterIamRoles", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClusterIamRoles(String name, Output<String> id, @Nullable ClusterIamRolesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:redshift/clusterIamRoles:ClusterIamRoles", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterIamRolesArgs makeArgs(ClusterIamRolesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterIamRolesArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

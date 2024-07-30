@@ -114,11 +114,18 @@ public class VpcEndpointRouteTableAssociation extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcEndpointRouteTableAssociation(String name, VpcEndpointRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, args == null ? VpcEndpointRouteTableAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcEndpointRouteTableAssociation(String name, Output<String> id, @Nullable VpcEndpointRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcEndpointRouteTableAssociationArgs makeArgs(VpcEndpointRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcEndpointRouteTableAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

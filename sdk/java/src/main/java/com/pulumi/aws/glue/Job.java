@@ -588,11 +588,18 @@ public class Job extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Job(String name, JobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/job:Job", name, args == null ? JobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:glue/job:Job", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Job(String name, Output<String> id, @Nullable JobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:glue/job:Job", name, state, makeResourceOptions(options, id));
+    }
+
+    private static JobArgs makeArgs(JobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JobArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

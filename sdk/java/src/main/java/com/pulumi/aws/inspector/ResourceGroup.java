@@ -109,11 +109,18 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceGroup(String name, ResourceGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector/resourceGroup:ResourceGroup", name, args == null ? ResourceGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:inspector/resourceGroup:ResourceGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceGroup(String name, Output<String> id, @Nullable ResourceGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:inspector/resourceGroup:ResourceGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceGroupArgs makeArgs(ResourceGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

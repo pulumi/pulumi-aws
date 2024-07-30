@@ -400,11 +400,18 @@ public class EcsClusterLayer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EcsClusterLayer(String name, EcsClusterLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, args == null ? EcsClusterLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EcsClusterLayer(String name, Output<String> id, @Nullable EcsClusterLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EcsClusterLayerArgs makeArgs(EcsClusterLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EcsClusterLayerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

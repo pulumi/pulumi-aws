@@ -128,11 +128,18 @@ public class CidrCollection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CidrCollection(String name, @Nullable CidrCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/cidrCollection:CidrCollection", name, args == null ? CidrCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53/cidrCollection:CidrCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CidrCollection(String name, Output<String> id, @Nullable CidrCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/cidrCollection:CidrCollection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CidrCollectionArgs makeArgs(@Nullable CidrCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CidrCollectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

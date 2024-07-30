@@ -135,11 +135,18 @@ public class GcmChannel extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GcmChannel(String name, GcmChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/gcmChannel:GcmChannel", name, args == null ? GcmChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:pinpoint/gcmChannel:GcmChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GcmChannel(String name, Output<String> id, @Nullable GcmChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:pinpoint/gcmChannel:GcmChannel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GcmChannelArgs makeArgs(GcmChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GcmChannelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

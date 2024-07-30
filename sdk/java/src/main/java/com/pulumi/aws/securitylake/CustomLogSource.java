@@ -199,11 +199,18 @@ public class CustomLogSource extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CustomLogSource(String name, CustomLogSourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securitylake/customLogSource:CustomLogSource", name, args == null ? CustomLogSourceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:securitylake/customLogSource:CustomLogSource", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CustomLogSource(String name, Output<String> id, @Nullable CustomLogSourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:securitylake/customLogSource:CustomLogSource", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CustomLogSourceArgs makeArgs(CustomLogSourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomLogSourceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

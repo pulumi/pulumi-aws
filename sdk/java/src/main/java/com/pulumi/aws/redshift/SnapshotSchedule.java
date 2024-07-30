@@ -206,11 +206,18 @@ public class SnapshotSchedule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SnapshotSchedule(String name, SnapshotScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/snapshotSchedule:SnapshotSchedule", name, args == null ? SnapshotScheduleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:redshift/snapshotSchedule:SnapshotSchedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SnapshotSchedule(String name, Output<String> id, @Nullable SnapshotScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:redshift/snapshotSchedule:SnapshotSchedule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SnapshotScheduleArgs makeArgs(SnapshotScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnapshotScheduleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

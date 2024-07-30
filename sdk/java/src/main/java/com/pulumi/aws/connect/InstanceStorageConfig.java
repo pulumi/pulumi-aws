@@ -343,11 +343,18 @@ public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public InstanceStorageConfig(String name, InstanceStorageConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/instanceStorageConfig:InstanceStorageConfig", name, args == null ? InstanceStorageConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:connect/instanceStorageConfig:InstanceStorageConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private InstanceStorageConfig(String name, Output<String> id, @Nullable InstanceStorageConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:connect/instanceStorageConfig:InstanceStorageConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InstanceStorageConfigArgs makeArgs(InstanceStorageConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceStorageConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -234,11 +234,18 @@ public class AmiLaunchPermission extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AmiLaunchPermission(String name, AmiLaunchPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, args == null ? AmiLaunchPermissionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AmiLaunchPermission(String name, Output<String> id, @Nullable AmiLaunchPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AmiLaunchPermissionArgs makeArgs(AmiLaunchPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AmiLaunchPermissionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

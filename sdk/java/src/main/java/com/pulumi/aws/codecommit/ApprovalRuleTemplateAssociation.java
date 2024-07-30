@@ -114,11 +114,18 @@ public class ApprovalRuleTemplateAssociation extends com.pulumi.resources.Custom
      * @param options A bag of options that control this resource's behavior.
      */
     public ApprovalRuleTemplateAssociation(String name, ApprovalRuleTemplateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", name, args == null ? ApprovalRuleTemplateAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApprovalRuleTemplateAssociation(String name, Output<String> id, @Nullable ApprovalRuleTemplateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApprovalRuleTemplateAssociationArgs makeArgs(ApprovalRuleTemplateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApprovalRuleTemplateAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

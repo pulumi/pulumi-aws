@@ -149,11 +149,18 @@ public class PrincipalPortfolioAssociation extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public PrincipalPortfolioAssociation(String name, PrincipalPortfolioAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation", name, args == null ? PrincipalPortfolioAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PrincipalPortfolioAssociation(String name, Output<String> id, @Nullable PrincipalPortfolioAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PrincipalPortfolioAssociationArgs makeArgs(PrincipalPortfolioAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrincipalPortfolioAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

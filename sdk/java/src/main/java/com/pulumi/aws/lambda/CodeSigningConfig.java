@@ -184,11 +184,18 @@ public class CodeSigningConfig extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CodeSigningConfig(String name, CodeSigningConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/codeSigningConfig:CodeSigningConfig", name, args == null ? CodeSigningConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lambda/codeSigningConfig:CodeSigningConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CodeSigningConfig(String name, Output<String> id, @Nullable CodeSigningConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lambda/codeSigningConfig:CodeSigningConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CodeSigningConfigArgs makeArgs(CodeSigningConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CodeSigningConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

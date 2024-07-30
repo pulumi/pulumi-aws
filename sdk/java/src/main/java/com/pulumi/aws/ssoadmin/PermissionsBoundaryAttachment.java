@@ -208,11 +208,18 @@ public class PermissionsBoundaryAttachment extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public PermissionsBoundaryAttachment(String name, PermissionsBoundaryAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment", name, args == null ? PermissionsBoundaryAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PermissionsBoundaryAttachment(String name, Output<String> id, @Nullable PermissionsBoundaryAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PermissionsBoundaryAttachmentArgs makeArgs(PermissionsBoundaryAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PermissionsBoundaryAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -337,11 +337,18 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerCertificate(String name, ServerCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/serverCertificate:ServerCertificate", name, args == null ? ServerCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/serverCertificate:ServerCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerCertificate(String name, Output<String> id, @Nullable ServerCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/serverCertificate:ServerCertificate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerCertificateArgs makeArgs(ServerCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerCertificateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

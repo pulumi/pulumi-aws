@@ -322,11 +322,18 @@ public class Studio extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Studio(String name, StudioArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emr/studio:Studio", name, args == null ? StudioArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:emr/studio:Studio", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Studio(String name, Output<String> id, @Nullable StudioState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:emr/studio:Studio", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StudioArgs makeArgs(StudioArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StudioArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

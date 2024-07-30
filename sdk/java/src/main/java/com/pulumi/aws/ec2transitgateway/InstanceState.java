@@ -160,11 +160,18 @@ public class InstanceState extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public InstanceState(String name, InstanceStateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/instanceState:InstanceState", name, args == null ? InstanceStateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2transitgateway/instanceState:InstanceState", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private InstanceState(String name, Output<String> id, @Nullable InstanceStateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2transitgateway/instanceState:InstanceState", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InstanceStateArgs makeArgs(InstanceStateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceStateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

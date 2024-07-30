@@ -245,11 +245,18 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public InstanceFleet(String name, InstanceFleetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emr/instanceFleet:InstanceFleet", name, args == null ? InstanceFleetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:emr/instanceFleet:InstanceFleet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private InstanceFleet(String name, Output<String> id, @Nullable InstanceFleetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:emr/instanceFleet:InstanceFleet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InstanceFleetArgs makeArgs(InstanceFleetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceFleetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

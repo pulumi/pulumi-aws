@@ -252,11 +252,18 @@ public class AutomationRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AutomationRule(String name, AutomationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/automationRule:AutomationRule", name, args == null ? AutomationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:securityhub/automationRule:AutomationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AutomationRule(String name, Output<String> id, @Nullable AutomationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:securityhub/automationRule:AutomationRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AutomationRuleArgs makeArgs(AutomationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AutomationRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

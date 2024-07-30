@@ -236,11 +236,18 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkAcl(String name, NetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkAcl:NetworkAcl", name, args == null ? NetworkAclArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/networkAcl:NetworkAcl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkAcl(String name, Output<String> id, @Nullable NetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/networkAcl:NetworkAcl", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkAclArgs makeArgs(NetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkAclArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

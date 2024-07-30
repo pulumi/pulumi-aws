@@ -174,11 +174,18 @@ public class ProactiveEngagement extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProactiveEngagement(String name, ProactiveEngagementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/proactiveEngagement:ProactiveEngagement", name, args == null ? ProactiveEngagementArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:shield/proactiveEngagement:ProactiveEngagement", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProactiveEngagement(String name, Output<String> id, @Nullable ProactiveEngagementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:shield/proactiveEngagement:ProactiveEngagement", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProactiveEngagementArgs makeArgs(ProactiveEngagementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProactiveEngagementArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

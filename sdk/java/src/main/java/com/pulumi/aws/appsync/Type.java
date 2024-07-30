@@ -185,11 +185,18 @@ public class Type extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Type(String name, TypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/type:Type", name, args == null ? TypeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appsync/type:Type", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Type(String name, Output<String> id, @Nullable TypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appsync/type:Type", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TypeArgs makeArgs(TypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TypeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

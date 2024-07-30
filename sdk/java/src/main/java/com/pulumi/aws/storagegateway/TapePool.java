@@ -191,11 +191,18 @@ public class TapePool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TapePool(String name, TapePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/tapePool:TapePool", name, args == null ? TapePoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:storagegateway/tapePool:TapePool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TapePool(String name, Output<String> id, @Nullable TapePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:storagegateway/tapePool:TapePool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TapePoolArgs makeArgs(TapePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TapePoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

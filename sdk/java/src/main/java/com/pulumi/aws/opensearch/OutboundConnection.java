@@ -210,11 +210,18 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public OutboundConnection(String name, OutboundConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/outboundConnection:OutboundConnection", name, args == null ? OutboundConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opensearch/outboundConnection:OutboundConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OutboundConnection(String name, Output<String> id, @Nullable OutboundConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opensearch/outboundConnection:OutboundConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OutboundConnectionArgs makeArgs(OutboundConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OutboundConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

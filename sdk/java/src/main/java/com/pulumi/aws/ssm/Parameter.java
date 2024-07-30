@@ -362,11 +362,18 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Parameter(String name, ParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/parameter:Parameter", name, args == null ? ParameterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssm/parameter:Parameter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Parameter(String name, Output<String> id, @Nullable ParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssm/parameter:Parameter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ParameterArgs makeArgs(ParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ParameterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

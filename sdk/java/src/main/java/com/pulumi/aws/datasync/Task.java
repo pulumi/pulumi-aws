@@ -322,11 +322,18 @@ public class Task extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Task(String name, TaskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/task:Task", name, args == null ? TaskArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:datasync/task:Task", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Task(String name, Output<String> id, @Nullable TaskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:datasync/task:Task", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TaskArgs makeArgs(TaskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TaskArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

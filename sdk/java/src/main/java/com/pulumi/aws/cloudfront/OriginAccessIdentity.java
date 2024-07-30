@@ -295,11 +295,18 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public OriginAccessIdentity(String name, @Nullable OriginAccessIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, args == null ? OriginAccessIdentityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OriginAccessIdentity(String name, Output<String> id, @Nullable OriginAccessIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OriginAccessIdentityArgs makeArgs(@Nullable OriginAccessIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OriginAccessIdentityArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

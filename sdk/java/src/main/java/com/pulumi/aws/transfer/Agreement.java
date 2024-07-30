@@ -238,11 +238,18 @@ public class Agreement extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Agreement(String name, AgreementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:transfer/agreement:Agreement", name, args == null ? AgreementArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:transfer/agreement:Agreement", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Agreement(String name, Output<String> id, @Nullable AgreementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:transfer/agreement:Agreement", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AgreementArgs makeArgs(AgreementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AgreementArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

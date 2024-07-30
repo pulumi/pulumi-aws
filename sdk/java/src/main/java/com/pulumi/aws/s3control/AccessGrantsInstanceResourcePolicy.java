@@ -127,11 +127,18 @@ public class AccessGrantsInstanceResourcePolicy extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public AccessGrantsInstanceResourcePolicy(String name, AccessGrantsInstanceResourcePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy", name, args == null ? AccessGrantsInstanceResourcePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccessGrantsInstanceResourcePolicy(String name, Output<String> id, @Nullable AccessGrantsInstanceResourcePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccessGrantsInstanceResourcePolicyArgs makeArgs(AccessGrantsInstanceResourcePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessGrantsInstanceResourcePolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

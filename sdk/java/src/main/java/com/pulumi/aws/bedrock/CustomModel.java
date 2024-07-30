@@ -378,11 +378,18 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CustomModel(String name, CustomModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/customModel:CustomModel", name, args == null ? CustomModelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:bedrock/customModel:CustomModel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CustomModel(String name, Output<String> id, @Nullable CustomModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:bedrock/customModel:CustomModel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CustomModelArgs makeArgs(CustomModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomModelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

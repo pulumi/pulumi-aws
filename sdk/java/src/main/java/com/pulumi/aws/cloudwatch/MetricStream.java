@@ -485,11 +485,18 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MetricStream(String name, MetricStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/metricStream:MetricStream", name, args == null ? MetricStreamArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudwatch/metricStream:MetricStream", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MetricStream(String name, Output<String> id, @Nullable MetricStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/metricStream:MetricStream", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MetricStreamArgs makeArgs(MetricStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MetricStreamArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

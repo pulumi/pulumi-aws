@@ -285,11 +285,18 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public DataRepositoryAssociation(String name, DataRepositoryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, args == null ? DataRepositoryAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataRepositoryAssociation(String name, Output<String> id, @Nullable DataRepositoryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataRepositoryAssociationArgs makeArgs(DataRepositoryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataRepositoryAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

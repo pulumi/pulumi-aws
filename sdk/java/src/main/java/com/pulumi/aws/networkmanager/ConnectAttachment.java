@@ -379,11 +379,18 @@ public class ConnectAttachment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ConnectAttachment(String name, ConnectAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/connectAttachment:ConnectAttachment", name, args == null ? ConnectAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:networkmanager/connectAttachment:ConnectAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConnectAttachment(String name, Output<String> id, @Nullable ConnectAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkmanager/connectAttachment:ConnectAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConnectAttachmentArgs makeArgs(ConnectAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
