@@ -162,11 +162,18 @@ public class UserStackAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserStackAssociation(String name, UserStackAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appstream/userStackAssociation:UserStackAssociation", name, args == null ? UserStackAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appstream/userStackAssociation:UserStackAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserStackAssociation(String name, Output<String> id, @Nullable UserStackAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appstream/userStackAssociation:UserStackAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserStackAssociationArgs makeArgs(UserStackAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserStackAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

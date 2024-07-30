@@ -267,11 +267,18 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Activation(String name, ActivationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/activation:Activation", name, args == null ? ActivationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssm/activation:Activation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Activation(String name, Output<String> id, @Nullable ActivationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssm/activation:Activation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ActivationArgs makeArgs(ActivationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActivationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

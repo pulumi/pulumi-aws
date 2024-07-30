@@ -119,11 +119,18 @@ public class SnapshotCreateVolumePermission extends com.pulumi.resources.CustomR
      * @param options A bag of options that control this resource's behavior.
      */
     public SnapshotCreateVolumePermission(String name, SnapshotCreateVolumePermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, args == null ? SnapshotCreateVolumePermissionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SnapshotCreateVolumePermission(String name, Output<String> id, @Nullable SnapshotCreateVolumePermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SnapshotCreateVolumePermissionArgs makeArgs(SnapshotCreateVolumePermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnapshotCreateVolumePermissionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

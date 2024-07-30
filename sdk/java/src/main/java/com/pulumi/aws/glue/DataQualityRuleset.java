@@ -350,11 +350,18 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DataQualityRuleset(String name, DataQualityRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/dataQualityRuleset:DataQualityRuleset", name, args == null ? DataQualityRulesetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:glue/dataQualityRuleset:DataQualityRuleset", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataQualityRuleset(String name, Output<String> id, @Nullable DataQualityRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:glue/dataQualityRuleset:DataQualityRuleset", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataQualityRulesetArgs makeArgs(DataQualityRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataQualityRulesetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

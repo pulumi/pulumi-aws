@@ -432,11 +432,18 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TaskSet(String name, TaskSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/taskSet:TaskSet", name, args == null ? TaskSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ecs/taskSet:TaskSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TaskSet(String name, Output<String> id, @Nullable TaskSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ecs/taskSet:TaskSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TaskSetArgs makeArgs(TaskSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TaskSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

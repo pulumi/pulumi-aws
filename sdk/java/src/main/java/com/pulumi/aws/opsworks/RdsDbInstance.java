@@ -137,11 +137,18 @@ public class RdsDbInstance extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RdsDbInstance(String name, RdsDbInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/rdsDbInstance:RdsDbInstance", name, args == null ? RdsDbInstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opsworks/rdsDbInstance:RdsDbInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RdsDbInstance(String name, Output<String> id, @Nullable RdsDbInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opsworks/rdsDbInstance:RdsDbInstance", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RdsDbInstanceArgs makeArgs(RdsDbInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RdsDbInstanceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

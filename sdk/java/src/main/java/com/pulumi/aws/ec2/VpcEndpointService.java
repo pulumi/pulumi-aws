@@ -364,11 +364,18 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcEndpointService(String name, VpcEndpointServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointService:VpcEndpointService", name, args == null ? VpcEndpointServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcEndpointService:VpcEndpointService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcEndpointService(String name, Output<String> id, @Nullable VpcEndpointServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcEndpointService:VpcEndpointService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcEndpointServiceArgs makeArgs(VpcEndpointServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcEndpointServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

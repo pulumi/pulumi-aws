@@ -190,11 +190,18 @@ public class JobTemplate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public JobTemplate(String name, JobTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emrcontainers/jobTemplate:JobTemplate", name, args == null ? JobTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:emrcontainers/jobTemplate:JobTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private JobTemplate(String name, Output<String> id, @Nullable JobTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:emrcontainers/jobTemplate:JobTemplate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static JobTemplateArgs makeArgs(JobTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JobTemplateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

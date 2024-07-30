@@ -149,11 +149,18 @@ public class PermissionSetInlinePolicy extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public PermissionSetInlinePolicy(String name, PermissionSetInlinePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy", name, args == null ? PermissionSetInlinePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PermissionSetInlinePolicy(String name, Output<String> id, @Nullable PermissionSetInlinePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PermissionSetInlinePolicyArgs makeArgs(PermissionSetInlinePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PermissionSetInlinePolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

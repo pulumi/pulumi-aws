@@ -101,11 +101,18 @@ public class AccountAlias extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountAlias(String name, AccountAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/accountAlias:AccountAlias", name, args == null ? AccountAliasArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/accountAlias:AccountAlias", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountAlias(String name, Output<String> id, @Nullable AccountAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/accountAlias:AccountAlias", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountAliasArgs makeArgs(AccountAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountAliasArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

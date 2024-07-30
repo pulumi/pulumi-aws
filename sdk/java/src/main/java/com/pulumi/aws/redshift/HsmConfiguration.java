@@ -223,11 +223,18 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public HsmConfiguration(String name, HsmConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/hsmConfiguration:HsmConfiguration", name, args == null ? HsmConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:redshift/hsmConfiguration:HsmConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HsmConfiguration(String name, Output<String> id, @Nullable HsmConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:redshift/hsmConfiguration:HsmConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HsmConfigurationArgs makeArgs(HsmConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HsmConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

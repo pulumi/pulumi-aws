@@ -146,11 +146,18 @@ public class IdentityNotificationTopic extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentityNotificationTopic(String name, IdentityNotificationTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, args == null ? IdentityNotificationTopicArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentityNotificationTopic(String name, Output<String> id, @Nullable IdentityNotificationTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentityNotificationTopicArgs makeArgs(IdentityNotificationTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityNotificationTopicArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

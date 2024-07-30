@@ -212,11 +212,18 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VocabularyFilter(String name, VocabularyFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:transcribe/vocabularyFilter:VocabularyFilter", name, args == null ? VocabularyFilterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:transcribe/vocabularyFilter:VocabularyFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VocabularyFilter(String name, Output<String> id, @Nullable VocabularyFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:transcribe/vocabularyFilter:VocabularyFilter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VocabularyFilterArgs makeArgs(VocabularyFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VocabularyFilterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

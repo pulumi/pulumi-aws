@@ -360,11 +360,18 @@ public class Insight extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Insight(String name, InsightArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/insight:Insight", name, args == null ? InsightArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:securityhub/insight:Insight", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Insight(String name, Output<String> id, @Nullable InsightState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:securityhub/insight:Insight", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InsightArgs makeArgs(InsightArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InsightArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

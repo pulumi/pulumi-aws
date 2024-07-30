@@ -214,11 +214,18 @@ public class DataIntegration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DataIntegration(String name, DataIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appintegrations/dataIntegration:DataIntegration", name, args == null ? DataIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appintegrations/dataIntegration:DataIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataIntegration(String name, Output<String> id, @Nullable DataIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appintegrations/dataIntegration:DataIntegration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataIntegrationArgs makeArgs(DataIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataIntegrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

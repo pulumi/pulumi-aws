@@ -167,11 +167,18 @@ public class Response extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Response(String name, ResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/response:Response", name, args == null ? ResponseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apigateway/response:Response", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Response(String name, Output<String> id, @Nullable ResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apigateway/response:Response", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResponseArgs makeArgs(ResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResponseArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

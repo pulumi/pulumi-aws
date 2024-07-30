@@ -176,11 +176,18 @@ public class SinkPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SinkPolicy(String name, SinkPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:oam/sinkPolicy:SinkPolicy", name, args == null ? SinkPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:oam/sinkPolicy:SinkPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SinkPolicy(String name, Output<String> id, @Nullable SinkPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:oam/sinkPolicy:SinkPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SinkPolicyArgs makeArgs(SinkPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SinkPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

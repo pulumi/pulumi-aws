@@ -150,11 +150,18 @@ public class DocumentationVersion extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DocumentationVersion(String name, DocumentationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/documentationVersion:DocumentationVersion", name, args == null ? DocumentationVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apigateway/documentationVersion:DocumentationVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DocumentationVersion(String name, Output<String> id, @Nullable DocumentationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apigateway/documentationVersion:DocumentationVersion", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DocumentationVersionArgs makeArgs(DocumentationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DocumentationVersionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

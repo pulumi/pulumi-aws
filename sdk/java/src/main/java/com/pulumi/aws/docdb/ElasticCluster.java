@@ -301,11 +301,18 @@ public class ElasticCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ElasticCluster(String name, ElasticClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:docdb/elasticCluster:ElasticCluster", name, args == null ? ElasticClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:docdb/elasticCluster:ElasticCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ElasticCluster(String name, Output<String> id, @Nullable ElasticClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:docdb/elasticCluster:ElasticCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ElasticClusterArgs makeArgs(ElasticClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ElasticClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

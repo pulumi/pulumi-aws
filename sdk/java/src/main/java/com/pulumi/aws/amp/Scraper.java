@@ -166,11 +166,18 @@ public class Scraper extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Scraper(String name, ScraperArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amp/scraper:Scraper", name, args == null ? ScraperArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:amp/scraper:Scraper", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Scraper(String name, Output<String> id, @Nullable ScraperState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:amp/scraper:Scraper", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ScraperArgs makeArgs(ScraperArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScraperArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

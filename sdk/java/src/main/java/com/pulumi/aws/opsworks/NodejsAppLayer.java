@@ -405,11 +405,18 @@ public class NodejsAppLayer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NodejsAppLayer(String name, NodejsAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/nodejsAppLayer:NodejsAppLayer", name, args == null ? NodejsAppLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opsworks/nodejsAppLayer:NodejsAppLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NodejsAppLayer(String name, Output<String> id, @Nullable NodejsAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opsworks/nodejsAppLayer:NodejsAppLayer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NodejsAppLayerArgs makeArgs(NodejsAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NodejsAppLayerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

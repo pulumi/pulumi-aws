@@ -346,11 +346,18 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Backup(String name, @Nullable BackupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/backup:Backup", name, args == null ? BackupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:fsx/backup:Backup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Backup(String name, Output<String> id, @Nullable BackupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:fsx/backup:Backup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BackupArgs makeArgs(@Nullable BackupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -434,11 +434,18 @@ public class GangliaLayer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GangliaLayer(String name, GangliaLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/gangliaLayer:GangliaLayer", name, args == null ? GangliaLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opsworks/gangliaLayer:GangliaLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GangliaLayer(String name, Output<String> id, @Nullable GangliaLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opsworks/gangliaLayer:GangliaLayer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GangliaLayerArgs makeArgs(GangliaLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GangliaLayerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

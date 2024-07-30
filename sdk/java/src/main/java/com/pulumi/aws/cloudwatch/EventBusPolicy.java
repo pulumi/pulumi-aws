@@ -273,11 +273,18 @@ public class EventBusPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventBusPolicy(String name, EventBusPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventBusPolicy:EventBusPolicy", name, args == null ? EventBusPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudwatch/eventBusPolicy:EventBusPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventBusPolicy(String name, Output<String> id, @Nullable EventBusPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/eventBusPolicy:EventBusPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventBusPolicyArgs makeArgs(EventBusPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventBusPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

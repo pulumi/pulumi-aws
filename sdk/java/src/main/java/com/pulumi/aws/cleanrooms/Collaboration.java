@@ -297,11 +297,18 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Collaboration(String name, CollaborationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cleanrooms/collaboration:Collaboration", name, args == null ? CollaborationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cleanrooms/collaboration:Collaboration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Collaboration(String name, Output<String> id, @Nullable CollaborationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cleanrooms/collaboration:Collaboration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CollaborationArgs makeArgs(CollaborationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CollaborationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

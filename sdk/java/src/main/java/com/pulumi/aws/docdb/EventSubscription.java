@@ -265,11 +265,18 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventSubscription(String name, EventSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:docdb/eventSubscription:EventSubscription", name, args == null ? EventSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:docdb/eventSubscription:EventSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventSubscription(String name, Output<String> id, @Nullable EventSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:docdb/eventSubscription:EventSubscription", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventSubscriptionArgs makeArgs(EventSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventSubscriptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

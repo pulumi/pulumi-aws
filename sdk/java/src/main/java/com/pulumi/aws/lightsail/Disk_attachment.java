@@ -156,11 +156,18 @@ public class Disk_attachment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Disk_attachment(String name, Disk_attachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/disk_attachment:Disk_attachment", name, args == null ? Disk_attachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lightsail/disk_attachment:Disk_attachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Disk_attachment(String name, Output<String> id, @Nullable Disk_attachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lightsail/disk_attachment:Disk_attachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static Disk_attachmentArgs makeArgs(Disk_attachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? Disk_attachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -163,11 +163,18 @@ public class ModelPackageGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ModelPackageGroup(String name, ModelPackageGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/modelPackageGroup:ModelPackageGroup", name, args == null ? ModelPackageGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/modelPackageGroup:ModelPackageGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ModelPackageGroup(String name, Output<String> id, @Nullable ModelPackageGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/modelPackageGroup:ModelPackageGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ModelPackageGroupArgs makeArgs(ModelPackageGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ModelPackageGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

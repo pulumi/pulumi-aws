@@ -534,11 +534,18 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PatchBaseline(String name, @Nullable PatchBaselineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/patchBaseline:PatchBaseline", name, args == null ? PatchBaselineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssm/patchBaseline:PatchBaseline", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PatchBaseline(String name, Output<String> id, @Nullable PatchBaselineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssm/patchBaseline:PatchBaseline", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PatchBaselineArgs makeArgs(@Nullable PatchBaselineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PatchBaselineArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

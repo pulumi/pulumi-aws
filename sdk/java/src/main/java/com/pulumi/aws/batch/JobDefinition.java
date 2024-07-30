@@ -597,11 +597,18 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public JobDefinition(String name, JobDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:batch/jobDefinition:JobDefinition", name, args == null ? JobDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:batch/jobDefinition:JobDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private JobDefinition(String name, Output<String> id, @Nullable JobDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:batch/jobDefinition:JobDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static JobDefinitionArgs makeArgs(JobDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JobDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

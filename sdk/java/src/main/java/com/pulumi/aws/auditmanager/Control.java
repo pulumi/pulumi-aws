@@ -241,11 +241,18 @@ public class Control extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Control(String name, @Nullable ControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/control:Control", name, args == null ? ControlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:auditmanager/control:Control", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Control(String name, Output<String> id, @Nullable ControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:auditmanager/control:Control", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ControlArgs makeArgs(@Nullable ControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ControlArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

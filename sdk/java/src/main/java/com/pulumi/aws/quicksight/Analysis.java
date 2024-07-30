@@ -321,11 +321,18 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Analysis(String name, AnalysisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:quicksight/analysis:Analysis", name, args == null ? AnalysisArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:quicksight/analysis:Analysis", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Analysis(String name, Output<String> id, @Nullable AnalysisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:quicksight/analysis:Analysis", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AnalysisArgs makeArgs(AnalysisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnalysisArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
