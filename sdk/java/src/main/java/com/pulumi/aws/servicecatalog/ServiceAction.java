@@ -154,11 +154,18 @@ public class ServiceAction extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceAction(String name, ServiceActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/serviceAction:ServiceAction", name, args == null ? ServiceActionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicecatalog/serviceAction:ServiceAction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceAction(String name, Output<String> id, @Nullable ServiceActionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicecatalog/serviceAction:ServiceAction", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceActionArgs makeArgs(ServiceActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceActionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

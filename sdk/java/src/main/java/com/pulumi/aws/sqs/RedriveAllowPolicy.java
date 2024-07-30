@@ -134,11 +134,18 @@ public class RedriveAllowPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RedriveAllowPolicy(String name, RedriveAllowPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy", name, args == null ? RedriveAllowPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RedriveAllowPolicy(String name, Output<String> id, @Nullable RedriveAllowPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RedriveAllowPolicyArgs makeArgs(RedriveAllowPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RedriveAllowPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

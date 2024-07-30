@@ -122,11 +122,18 @@ public class ApplicationAssignmentConfiguration extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public ApplicationAssignmentConfiguration(String name, ApplicationAssignmentConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration", name, args == null ? ApplicationAssignmentConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApplicationAssignmentConfiguration(String name, Output<String> id, @Nullable ApplicationAssignmentConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApplicationAssignmentConfigurationArgs makeArgs(ApplicationAssignmentConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApplicationAssignmentConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

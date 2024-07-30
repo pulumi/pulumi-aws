@@ -220,11 +220,18 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ClusterParameterGroup(String name, ClusterParameterGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, args == null ? ClusterParameterGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClusterParameterGroup(String name, Output<String> id, @Nullable ClusterParameterGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterParameterGroupArgs makeArgs(ClusterParameterGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterParameterGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

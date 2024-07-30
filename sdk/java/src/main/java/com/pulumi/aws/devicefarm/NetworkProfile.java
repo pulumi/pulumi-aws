@@ -311,11 +311,18 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkProfile(String name, NetworkProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:devicefarm/networkProfile:NetworkProfile", name, args == null ? NetworkProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:devicefarm/networkProfile:NetworkProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkProfile(String name, Output<String> id, @Nullable NetworkProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:devicefarm/networkProfile:NetworkProfile", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkProfileArgs makeArgs(NetworkProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkProfileArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

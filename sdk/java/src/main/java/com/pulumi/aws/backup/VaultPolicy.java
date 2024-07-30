@@ -156,11 +156,18 @@ public class VaultPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VaultPolicy(String name, VaultPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/vaultPolicy:VaultPolicy", name, args == null ? VaultPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:backup/vaultPolicy:VaultPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VaultPolicy(String name, Output<String> id, @Nullable VaultPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:backup/vaultPolicy:VaultPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VaultPolicyArgs makeArgs(VaultPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VaultPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -292,11 +292,18 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CatalogDatabase(String name, @Nullable CatalogDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/catalogDatabase:CatalogDatabase", name, args == null ? CatalogDatabaseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:glue/catalogDatabase:CatalogDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CatalogDatabase(String name, Output<String> id, @Nullable CatalogDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:glue/catalogDatabase:CatalogDatabase", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CatalogDatabaseArgs makeArgs(@Nullable CatalogDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CatalogDatabaseArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

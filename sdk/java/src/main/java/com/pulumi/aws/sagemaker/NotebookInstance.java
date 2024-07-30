@@ -430,11 +430,18 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NotebookInstance(String name, NotebookInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/notebookInstance:NotebookInstance", name, args == null ? NotebookInstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/notebookInstance:NotebookInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NotebookInstance(String name, Output<String> id, @Nullable NotebookInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/notebookInstance:NotebookInstance", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NotebookInstanceArgs makeArgs(NotebookInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotebookInstanceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

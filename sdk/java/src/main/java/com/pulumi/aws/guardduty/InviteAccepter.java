@@ -131,11 +131,18 @@ public class InviteAccepter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public InviteAccepter(String name, InviteAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/inviteAccepter:InviteAccepter", name, args == null ? InviteAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:guardduty/inviteAccepter:InviteAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private InviteAccepter(String name, Output<String> id, @Nullable InviteAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:guardduty/inviteAccepter:InviteAccepter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InviteAccepterArgs makeArgs(InviteAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InviteAccepterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

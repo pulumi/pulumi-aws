@@ -189,11 +189,18 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ClientCertificate(String name, @Nullable ClientCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/clientCertificate:ClientCertificate", name, args == null ? ClientCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apigateway/clientCertificate:ClientCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClientCertificate(String name, Output<String> id, @Nullable ClientCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apigateway/clientCertificate:ClientCertificate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClientCertificateArgs makeArgs(@Nullable ClientCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClientCertificateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

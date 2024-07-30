@@ -109,11 +109,18 @@ public class IdentityPoolProviderPrincipalTag extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentityPoolProviderPrincipalTag(String name, IdentityPoolProviderPrincipalTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag", name, args == null ? IdentityPoolProviderPrincipalTagArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentityPoolProviderPrincipalTag(String name, Output<String> id, @Nullable IdentityPoolProviderPrincipalTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentityPoolProviderPrincipalTagArgs makeArgs(IdentityPoolProviderPrincipalTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityPoolProviderPrincipalTagArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

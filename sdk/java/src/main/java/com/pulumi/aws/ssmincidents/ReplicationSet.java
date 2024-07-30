@@ -327,11 +327,18 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ReplicationSet(String name, ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssmincidents/replicationSet:ReplicationSet", name, args == null ? ReplicationSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssmincidents/replicationSet:ReplicationSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReplicationSet(String name, Output<String> id, @Nullable ReplicationSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssmincidents/replicationSet:ReplicationSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReplicationSetArgs makeArgs(ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

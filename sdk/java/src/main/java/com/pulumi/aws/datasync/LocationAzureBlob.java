@@ -247,11 +247,18 @@ public class LocationAzureBlob extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocationAzureBlob(String name, LocationAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/locationAzureBlob:LocationAzureBlob", name, args == null ? LocationAzureBlobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:datasync/locationAzureBlob:LocationAzureBlob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocationAzureBlob(String name, Output<String> id, @Nullable LocationAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:datasync/locationAzureBlob:LocationAzureBlob", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocationAzureBlobArgs makeArgs(LocationAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocationAzureBlobArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -211,11 +211,18 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcIngressConnection(String name, VpcIngressConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/vpcIngressConnection:VpcIngressConnection", name, args == null ? VpcIngressConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apprunner/vpcIngressConnection:VpcIngressConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcIngressConnection(String name, Output<String> id, @Nullable VpcIngressConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apprunner/vpcIngressConnection:VpcIngressConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcIngressConnectionArgs makeArgs(VpcIngressConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIngressConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

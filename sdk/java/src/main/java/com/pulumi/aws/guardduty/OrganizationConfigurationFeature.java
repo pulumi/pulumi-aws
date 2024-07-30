@@ -151,11 +151,18 @@ public class OrganizationConfigurationFeature extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public OrganizationConfigurationFeature(String name, OrganizationConfigurationFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature", name, args == null ? OrganizationConfigurationFeatureArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OrganizationConfigurationFeature(String name, Output<String> id, @Nullable OrganizationConfigurationFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OrganizationConfigurationFeatureArgs makeArgs(OrganizationConfigurationFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationConfigurationFeatureArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

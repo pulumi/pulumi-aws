@@ -205,11 +205,18 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocationFsxLustre(String name, LocationFsxLustreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/locationFsxLustre:LocationFsxLustre", name, args == null ? LocationFsxLustreArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:datasync/locationFsxLustre:LocationFsxLustre", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocationFsxLustre(String name, Output<String> id, @Nullable LocationFsxLustreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:datasync/locationFsxLustre:LocationFsxLustre", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocationFsxLustreArgs makeArgs(LocationFsxLustreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocationFsxLustreArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

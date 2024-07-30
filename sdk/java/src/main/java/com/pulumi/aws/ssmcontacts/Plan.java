@@ -242,11 +242,18 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Plan(String name, PlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssmcontacts/plan:Plan", name, args == null ? PlanArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssmcontacts/plan:Plan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Plan(String name, Output<String> id, @Nullable PlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssmcontacts/plan:Plan", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PlanArgs makeArgs(PlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PlanArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -104,11 +104,18 @@ public class SdkvoiceGlobalSettings extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public SdkvoiceGlobalSettings(String name, SdkvoiceGlobalSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings", name, args == null ? SdkvoiceGlobalSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SdkvoiceGlobalSettings(String name, Output<String> id, @Nullable SdkvoiceGlobalSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SdkvoiceGlobalSettingsArgs makeArgs(SdkvoiceGlobalSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SdkvoiceGlobalSettingsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

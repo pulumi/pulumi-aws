@@ -173,11 +173,18 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RoleAssociation(String name, RoleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/roleAssociation:RoleAssociation", name, args == null ? RoleAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:grafana/roleAssociation:RoleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RoleAssociation(String name, Output<String> id, @Nullable RoleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:grafana/roleAssociation:RoleAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RoleAssociationArgs makeArgs(RoleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoleAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

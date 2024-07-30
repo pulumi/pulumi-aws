@@ -119,11 +119,18 @@ public class ControlTowerControl extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ControlTowerControl(String name, ControlTowerControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:controltower/controlTowerControl:ControlTowerControl", name, args == null ? ControlTowerControlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:controltower/controlTowerControl:ControlTowerControl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ControlTowerControl(String name, Output<String> id, @Nullable ControlTowerControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:controltower/controlTowerControl:ControlTowerControl", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ControlTowerControlArgs makeArgs(ControlTowerControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ControlTowerControlArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

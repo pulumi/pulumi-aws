@@ -308,11 +308,18 @@ public class OrganizationCustomPolicyRule extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public OrganizationCustomPolicyRule(String name, OrganizationCustomPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule", name, args == null ? OrganizationCustomPolicyRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OrganizationCustomPolicyRule(String name, Output<String> id, @Nullable OrganizationCustomPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OrganizationCustomPolicyRuleArgs makeArgs(OrganizationCustomPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationCustomPolicyRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

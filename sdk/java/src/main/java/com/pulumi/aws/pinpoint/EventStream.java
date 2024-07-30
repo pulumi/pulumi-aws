@@ -176,11 +176,18 @@ public class EventStream extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventStream(String name, EventStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/eventStream:EventStream", name, args == null ? EventStreamArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:pinpoint/eventStream:EventStream", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventStream(String name, Output<String> id, @Nullable EventStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:pinpoint/eventStream:EventStream", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventStreamArgs makeArgs(EventStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventStreamArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

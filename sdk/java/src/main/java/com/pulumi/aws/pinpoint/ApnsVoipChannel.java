@@ -242,11 +242,18 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApnsVoipChannel(String name, ApnsVoipChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel", name, args == null ? ApnsVoipChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApnsVoipChannel(String name, Output<String> id, @Nullable ApnsVoipChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApnsVoipChannelArgs makeArgs(ApnsVoipChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApnsVoipChannelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

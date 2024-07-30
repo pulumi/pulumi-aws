@@ -182,11 +182,18 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApiCache(String name, ApiCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/apiCache:ApiCache", name, args == null ? ApiCacheArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appsync/apiCache:ApiCache", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApiCache(String name, Output<String> id, @Nullable ApiCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appsync/apiCache:ApiCache", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApiCacheArgs makeArgs(ApiCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiCacheArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

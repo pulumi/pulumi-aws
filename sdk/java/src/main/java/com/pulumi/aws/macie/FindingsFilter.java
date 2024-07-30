@@ -229,11 +229,18 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FindingsFilter(String name, FindingsFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:macie/findingsFilter:FindingsFilter", name, args == null ? FindingsFilterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:macie/findingsFilter:FindingsFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FindingsFilter(String name, Output<String> id, @Nullable FindingsFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:macie/findingsFilter:FindingsFilter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FindingsFilterArgs makeArgs(FindingsFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FindingsFilterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

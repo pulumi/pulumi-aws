@@ -197,11 +197,18 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ResolverQueryLogConfig(String name, ResolverQueryLogConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig", name, args == null ? ResolverQueryLogConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResolverQueryLogConfig(String name, Output<String> id, @Nullable ResolverQueryLogConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResolverQueryLogConfigArgs makeArgs(ResolverQueryLogConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverQueryLogConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

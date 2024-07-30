@@ -288,11 +288,18 @@ public class ContinuousDeploymentPolicy extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public ContinuousDeploymentPolicy(String name, ContinuousDeploymentPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy", name, args == null ? ContinuousDeploymentPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ContinuousDeploymentPolicy(String name, Output<String> id, @Nullable ContinuousDeploymentPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ContinuousDeploymentPolicyArgs makeArgs(ContinuousDeploymentPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContinuousDeploymentPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

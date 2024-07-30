@@ -116,11 +116,18 @@ public class Attachment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Attachment(String name, AttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elb/attachment:Attachment", name, args == null ? AttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:elb/attachment:Attachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Attachment(String name, Output<String> id, @Nullable AttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:elb/attachment:Attachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AttachmentArgs makeArgs(AttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

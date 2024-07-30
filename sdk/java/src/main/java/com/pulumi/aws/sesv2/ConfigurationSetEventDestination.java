@@ -355,11 +355,18 @@ public class ConfigurationSetEventDestination extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public ConfigurationSetEventDestination(String name, ConfigurationSetEventDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination", name, args == null ? ConfigurationSetEventDestinationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConfigurationSetEventDestination(String name, Output<String> id, @Nullable ConfigurationSetEventDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConfigurationSetEventDestinationArgs makeArgs(ConfigurationSetEventDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfigurationSetEventDestinationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

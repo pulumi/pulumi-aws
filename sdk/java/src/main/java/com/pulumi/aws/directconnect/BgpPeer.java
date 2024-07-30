@@ -210,11 +210,18 @@ public class BgpPeer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BgpPeer(String name, BgpPeerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/bgpPeer:BgpPeer", name, args == null ? BgpPeerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directconnect/bgpPeer:BgpPeer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BgpPeer(String name, Output<String> id, @Nullable BgpPeerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directconnect/bgpPeer:BgpPeer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BgpPeerArgs makeArgs(BgpPeerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BgpPeerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -338,11 +338,18 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public TransitVirtualInterface(String name, TransitVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/transitVirtualInterface:TransitVirtualInterface", name, args == null ? TransitVirtualInterfaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directconnect/transitVirtualInterface:TransitVirtualInterface", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TransitVirtualInterface(String name, Output<String> id, @Nullable TransitVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directconnect/transitVirtualInterface:TransitVirtualInterface", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TransitVirtualInterfaceArgs makeArgs(TransitVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TransitVirtualInterfaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

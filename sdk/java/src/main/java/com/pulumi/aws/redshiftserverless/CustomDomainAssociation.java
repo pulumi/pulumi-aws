@@ -162,11 +162,18 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public CustomDomainAssociation(String name, CustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation", name, args == null ? CustomDomainAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CustomDomainAssociation(String name, Output<String> id, @Nullable CustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CustomDomainAssociationArgs makeArgs(CustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomDomainAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

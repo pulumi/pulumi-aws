@@ -361,11 +361,18 @@ public class ContactsRotation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ContactsRotation(String name, ContactsRotationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/contactsRotation:ContactsRotation", name, args == null ? ContactsRotationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssm/contactsRotation:ContactsRotation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ContactsRotation(String name, Output<String> id, @Nullable ContactsRotationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssm/contactsRotation:ContactsRotation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ContactsRotationArgs makeArgs(ContactsRotationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContactsRotationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

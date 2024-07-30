@@ -282,11 +282,18 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public HostedTransitVirtualInterface(String name, HostedTransitVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface", name, args == null ? HostedTransitVirtualInterfaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HostedTransitVirtualInterface(String name, Output<String> id, @Nullable HostedTransitVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HostedTransitVirtualInterfaceArgs makeArgs(HostedTransitVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostedTransitVirtualInterfaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -138,11 +138,18 @@ public class KeyAlias extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KeyAlias(String name, KeyAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:paymentcryptography/keyAlias:KeyAlias", name, args == null ? KeyAliasArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:paymentcryptography/keyAlias:KeyAlias", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KeyAlias(String name, Output<String> id, @Nullable KeyAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:paymentcryptography/keyAlias:KeyAlias", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KeyAliasArgs makeArgs(KeyAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KeyAliasArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

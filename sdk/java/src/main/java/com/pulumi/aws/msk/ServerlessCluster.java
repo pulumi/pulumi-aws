@@ -209,11 +209,18 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerlessCluster(String name, ServerlessClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:msk/serverlessCluster:ServerlessCluster", name, args == null ? ServerlessClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:msk/serverlessCluster:ServerlessCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerlessCluster(String name, Output<String> id, @Nullable ServerlessClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:msk/serverlessCluster:ServerlessCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerlessClusterArgs makeArgs(ServerlessClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerlessClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

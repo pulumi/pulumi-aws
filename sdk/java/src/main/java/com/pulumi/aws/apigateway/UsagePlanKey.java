@@ -181,11 +181,18 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UsagePlanKey(String name, UsagePlanKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/usagePlanKey:UsagePlanKey", name, args == null ? UsagePlanKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:apigateway/usagePlanKey:UsagePlanKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UsagePlanKey(String name, Output<String> id, @Nullable UsagePlanKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:apigateway/usagePlanKey:UsagePlanKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UsagePlanKeyArgs makeArgs(UsagePlanKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UsagePlanKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

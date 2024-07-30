@@ -166,11 +166,18 @@ public class ConfigurationPolicyAssociation extends com.pulumi.resources.CustomR
      * @param options A bag of options that control this resource's behavior.
      */
     public ConfigurationPolicyAssociation(String name, ConfigurationPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation", name, args == null ? ConfigurationPolicyAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConfigurationPolicyAssociation(String name, Output<String> id, @Nullable ConfigurationPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConfigurationPolicyAssociationArgs makeArgs(ConfigurationPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfigurationPolicyAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

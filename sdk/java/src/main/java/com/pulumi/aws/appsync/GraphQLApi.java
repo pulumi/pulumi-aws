@@ -294,11 +294,18 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GraphQLApi(String name, GraphQLApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/graphQLApi:GraphQLApi", name, args == null ? GraphQLApiArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appsync/graphQLApi:GraphQLApi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GraphQLApi(String name, Output<String> id, @Nullable GraphQLApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appsync/graphQLApi:GraphQLApi", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GraphQLApiArgs makeArgs(GraphQLApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GraphQLApiArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
