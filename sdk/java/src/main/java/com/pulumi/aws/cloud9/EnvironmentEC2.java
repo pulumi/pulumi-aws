@@ -369,11 +369,18 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EnvironmentEC2(String name, EnvironmentEC2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloud9/environmentEC2:EnvironmentEC2", name, args == null ? EnvironmentEC2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloud9/environmentEC2:EnvironmentEC2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EnvironmentEC2(String name, Output<String> id, @Nullable EnvironmentEC2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloud9/environmentEC2:EnvironmentEC2", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EnvironmentEC2Args makeArgs(EnvironmentEC2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnvironmentEC2Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -138,11 +138,18 @@ public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RuleGroupNamespace(String name, RuleGroupNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amp/ruleGroupNamespace:RuleGroupNamespace", name, args == null ? RuleGroupNamespaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:amp/ruleGroupNamespace:RuleGroupNamespace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RuleGroupNamespace(String name, Output<String> id, @Nullable RuleGroupNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:amp/ruleGroupNamespace:RuleGroupNamespace", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RuleGroupNamespaceArgs makeArgs(RuleGroupNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RuleGroupNamespaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

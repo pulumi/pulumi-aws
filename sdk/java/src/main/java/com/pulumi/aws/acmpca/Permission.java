@@ -168,11 +168,18 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Permission(String name, PermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:acmpca/permission:Permission", name, args == null ? PermissionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:acmpca/permission:Permission", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Permission(String name, Output<String> id, @Nullable PermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:acmpca/permission:Permission", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PermissionArgs makeArgs(PermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PermissionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -373,11 +373,18 @@ public class Function extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Function(String name, FunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/function:Function", name, args == null ? FunctionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appsync/function:Function", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Function(String name, Output<String> id, @Nullable FunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appsync/function:Function", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FunctionArgs makeArgs(FunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

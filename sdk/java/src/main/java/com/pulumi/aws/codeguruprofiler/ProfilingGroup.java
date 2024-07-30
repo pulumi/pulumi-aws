@@ -187,11 +187,18 @@ public class ProfilingGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProfilingGroup(String name, @Nullable ProfilingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codeguruprofiler/profilingGroup:ProfilingGroup", name, args == null ? ProfilingGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:codeguruprofiler/profilingGroup:ProfilingGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProfilingGroup(String name, Output<String> id, @Nullable ProfilingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:codeguruprofiler/profilingGroup:ProfilingGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProfilingGroupArgs makeArgs(@Nullable ProfilingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProfilingGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

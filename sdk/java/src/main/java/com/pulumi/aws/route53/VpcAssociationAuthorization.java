@@ -159,11 +159,18 @@ public class VpcAssociationAuthorization extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcAssociationAuthorization(String name, VpcAssociationAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization", name, args == null ? VpcAssociationAuthorizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcAssociationAuthorization(String name, Output<String> id, @Nullable VpcAssociationAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcAssociationAuthorizationArgs makeArgs(VpcAssociationAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcAssociationAuthorizationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

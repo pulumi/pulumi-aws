@@ -152,11 +152,18 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Ciphertext(String name, CiphertextArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kms/ciphertext:Ciphertext", name, args == null ? CiphertextArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:kms/ciphertext:Ciphertext", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Ciphertext(String name, Output<String> id, @Nullable CiphertextState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:kms/ciphertext:Ciphertext", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CiphertextArgs makeArgs(CiphertextArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CiphertextArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

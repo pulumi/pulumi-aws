@@ -131,11 +131,18 @@ public class VpnGatewayAttachment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VpnGatewayAttachment(String name, VpnGatewayAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment", name, args == null ? VpnGatewayAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpnGatewayAttachment(String name, Output<String> id, @Nullable VpnGatewayAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpnGatewayAttachmentArgs makeArgs(VpnGatewayAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpnGatewayAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

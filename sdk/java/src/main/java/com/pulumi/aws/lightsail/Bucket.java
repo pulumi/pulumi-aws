@@ -239,11 +239,18 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Bucket(String name, BucketArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/bucket:Bucket", name, args == null ? BucketArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lightsail/bucket:Bucket", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Bucket(String name, Output<String> id, @Nullable BucketState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lightsail/bucket:Bucket", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BucketArgs makeArgs(BucketArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

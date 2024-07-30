@@ -264,11 +264,18 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccessGrant(String name, AccessGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessGrant:AccessGrant", name, args == null ? AccessGrantArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3control/accessGrant:AccessGrant", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccessGrant(String name, Output<String> id, @Nullable AccessGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3control/accessGrant:AccessGrant", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccessGrantArgs makeArgs(AccessGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessGrantArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

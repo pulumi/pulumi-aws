@@ -152,11 +152,18 @@ public class VpcIpv6CidrBlockAssociation extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcIpv6CidrBlockAssociation(String name, VpcIpv6CidrBlockAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation", name, args == null ? VpcIpv6CidrBlockAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcIpv6CidrBlockAssociation(String name, Output<String> id, @Nullable VpcIpv6CidrBlockAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcIpv6CidrBlockAssociationArgs makeArgs(VpcIpv6CidrBlockAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpv6CidrBlockAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

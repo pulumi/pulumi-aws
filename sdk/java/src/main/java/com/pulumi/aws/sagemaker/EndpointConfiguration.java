@@ -246,11 +246,18 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EndpointConfiguration(String name, EndpointConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, args == null ? EndpointConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EndpointConfiguration(String name, Output<String> id, @Nullable EndpointConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EndpointConfigurationArgs makeArgs(EndpointConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

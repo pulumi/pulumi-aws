@@ -188,11 +188,18 @@ public class ResourceSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceSet(String name, ResourceSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53recoveryreadiness/resourceSet:ResourceSet", name, args == null ? ResourceSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53recoveryreadiness/resourceSet:ResourceSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceSet(String name, Output<String> id, @Nullable ResourceSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53recoveryreadiness/resourceSet:ResourceSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceSetArgs makeArgs(ResourceSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

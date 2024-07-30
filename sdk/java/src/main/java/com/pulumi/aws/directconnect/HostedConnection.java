@@ -293,11 +293,18 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public HostedConnection(String name, HostedConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/hostedConnection:HostedConnection", name, args == null ? HostedConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directconnect/hostedConnection:HostedConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HostedConnection(String name, Output<String> id, @Nullable HostedConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directconnect/hostedConnection:HostedConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HostedConnectionArgs makeArgs(HostedConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostedConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -182,11 +182,18 @@ public class UploadBuffer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UploadBuffer(String name, UploadBufferArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/uploadBuffer:UploadBuffer", name, args == null ? UploadBufferArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:storagegateway/uploadBuffer:UploadBuffer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UploadBuffer(String name, Output<String> id, @Nullable UploadBufferState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:storagegateway/uploadBuffer:UploadBuffer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UploadBufferArgs makeArgs(UploadBufferArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UploadBufferArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

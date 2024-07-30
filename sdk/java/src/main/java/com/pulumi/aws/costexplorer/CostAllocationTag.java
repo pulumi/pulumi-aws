@@ -128,11 +128,18 @@ public class CostAllocationTag extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CostAllocationTag(String name, CostAllocationTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:costexplorer/costAllocationTag:CostAllocationTag", name, args == null ? CostAllocationTagArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:costexplorer/costAllocationTag:CostAllocationTag", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CostAllocationTag(String name, Output<String> id, @Nullable CostAllocationTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:costexplorer/costAllocationTag:CostAllocationTag", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CostAllocationTagArgs makeArgs(CostAllocationTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CostAllocationTagArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

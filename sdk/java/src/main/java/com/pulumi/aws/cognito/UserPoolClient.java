@@ -633,11 +633,18 @@ public class UserPoolClient extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserPoolClient(String name, UserPoolClientArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/userPoolClient:UserPoolClient", name, args == null ? UserPoolClientArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cognito/userPoolClient:UserPoolClient", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserPoolClient(String name, Output<String> id, @Nullable UserPoolClientState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cognito/userPoolClient:UserPoolClient", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserPoolClientArgs makeArgs(UserPoolClientArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserPoolClientArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -245,11 +245,18 @@ public class LocationSmb extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocationSmb(String name, LocationSmbArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/locationSmb:LocationSmb", name, args == null ? LocationSmbArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:datasync/locationSmb:LocationSmb", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocationSmb(String name, Output<String> id, @Nullable LocationSmbState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:datasync/locationSmb:LocationSmb", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocationSmbArgs makeArgs(LocationSmbArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocationSmbArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -134,11 +134,18 @@ public class ProxyProtocolPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProxyProtocolPolicy(String name, ProxyProtocolPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, args == null ? ProxyProtocolPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProxyProtocolPolicy(String name, Output<String> id, @Nullable ProxyProtocolPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProxyProtocolPolicyArgs makeArgs(ProxyProtocolPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProxyProtocolPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

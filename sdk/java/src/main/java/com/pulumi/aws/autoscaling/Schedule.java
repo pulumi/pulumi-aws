@@ -253,11 +253,18 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Schedule(String name, ScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:autoscaling/schedule:Schedule", name, args == null ? ScheduleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:autoscaling/schedule:Schedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Schedule(String name, Output<String> id, @Nullable ScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:autoscaling/schedule:Schedule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ScheduleArgs makeArgs(ScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScheduleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

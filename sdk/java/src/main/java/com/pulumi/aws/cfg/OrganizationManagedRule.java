@@ -256,11 +256,18 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public OrganizationManagedRule(String name, OrganizationManagedRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, args == null ? OrganizationManagedRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OrganizationManagedRule(String name, Output<String> id, @Nullable OrganizationManagedRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OrganizationManagedRuleArgs makeArgs(OrganizationManagedRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationManagedRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

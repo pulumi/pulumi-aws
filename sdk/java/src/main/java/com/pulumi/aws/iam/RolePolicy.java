@@ -178,11 +178,18 @@ public class RolePolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RolePolicy(String name, RolePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/rolePolicy:RolePolicy", name, args == null ? RolePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/rolePolicy:RolePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RolePolicy(String name, Output<String> id, @Nullable RolePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/rolePolicy:RolePolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RolePolicyArgs makeArgs(RolePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RolePolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

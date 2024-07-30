@@ -282,11 +282,18 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccessKey(String name, AccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/accessKey:AccessKey", name, args == null ? AccessKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/accessKey:AccessKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccessKey(String name, Output<String> id, @Nullable AccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/accessKey:AccessKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccessKeyArgs makeArgs(AccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

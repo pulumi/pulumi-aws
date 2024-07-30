@@ -239,11 +239,18 @@ public class InternetMonitor extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public InternetMonitor(String name, InternetMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/internetMonitor:InternetMonitor", name, args == null ? InternetMonitorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudwatch/internetMonitor:InternetMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private InternetMonitor(String name, Output<String> id, @Nullable InternetMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/internetMonitor:InternetMonitor", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InternetMonitorArgs makeArgs(InternetMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InternetMonitorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

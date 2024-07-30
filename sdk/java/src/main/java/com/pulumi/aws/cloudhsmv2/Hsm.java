@@ -192,11 +192,18 @@ public class Hsm extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Hsm(String name, HsmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudhsmv2/hsm:Hsm", name, args == null ? HsmArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudhsmv2/hsm:Hsm", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Hsm(String name, Output<String> id, @Nullable HsmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudhsmv2/hsm:Hsm", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HsmArgs makeArgs(HsmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HsmArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

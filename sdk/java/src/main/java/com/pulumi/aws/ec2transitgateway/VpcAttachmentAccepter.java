@@ -268,11 +268,18 @@ public class VpcAttachmentAccepter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcAttachmentAccepter(String name, VpcAttachmentAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, args == null ? VpcAttachmentAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcAttachmentAccepter(String name, Output<String> id, @Nullable VpcAttachmentAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcAttachmentAccepterArgs makeArgs(VpcAttachmentAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcAttachmentAccepterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

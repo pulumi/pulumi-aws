@@ -195,11 +195,18 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RoutingControl(String name, RoutingControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53recoverycontrol/routingControl:RoutingControl", name, args == null ? RoutingControlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53recoverycontrol/routingControl:RoutingControl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RoutingControl(String name, Output<String> id, @Nullable RoutingControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53recoverycontrol/routingControl:RoutingControl", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RoutingControlArgs makeArgs(RoutingControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoutingControlArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

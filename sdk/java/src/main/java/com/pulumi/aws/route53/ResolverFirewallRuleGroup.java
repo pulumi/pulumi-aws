@@ -175,11 +175,18 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public ResolverFirewallRuleGroup(String name, @Nullable ResolverFirewallRuleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", name, args == null ? ResolverFirewallRuleGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResolverFirewallRuleGroup(String name, Output<String> id, @Nullable ResolverFirewallRuleGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResolverFirewallRuleGroupArgs makeArgs(@Nullable ResolverFirewallRuleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverFirewallRuleGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

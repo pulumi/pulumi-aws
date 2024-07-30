@@ -310,11 +310,18 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GlobalCluster(String name, GlobalClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:neptune/globalCluster:GlobalCluster", name, args == null ? GlobalClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:neptune/globalCluster:GlobalCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GlobalCluster(String name, Output<String> id, @Nullable GlobalClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:neptune/globalCluster:GlobalCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GlobalClusterArgs makeArgs(GlobalClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GlobalClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -146,11 +146,18 @@ public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.Custom
      * @param options A bag of options that control this resource's behavior.
      */
     public BucketAccelerateConfigurationV2(String name, BucketAccelerateConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2", name, args == null ? BucketAccelerateConfigurationV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BucketAccelerateConfigurationV2(String name, Output<String> id, @Nullable BucketAccelerateConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BucketAccelerateConfigurationV2Args makeArgs(BucketAccelerateConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketAccelerateConfigurationV2Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

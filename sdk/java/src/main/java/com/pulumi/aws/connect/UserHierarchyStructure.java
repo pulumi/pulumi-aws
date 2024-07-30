@@ -182,11 +182,18 @@ public class UserHierarchyStructure extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public UserHierarchyStructure(String name, UserHierarchyStructureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/userHierarchyStructure:UserHierarchyStructure", name, args == null ? UserHierarchyStructureArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:connect/userHierarchyStructure:UserHierarchyStructure", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserHierarchyStructure(String name, Output<String> id, @Nullable UserHierarchyStructureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:connect/userHierarchyStructure:UserHierarchyStructure", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserHierarchyStructureArgs makeArgs(UserHierarchyStructureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserHierarchyStructureArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

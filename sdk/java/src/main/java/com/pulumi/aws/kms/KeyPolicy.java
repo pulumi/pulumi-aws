@@ -158,11 +158,18 @@ public class KeyPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KeyPolicy(String name, KeyPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kms/keyPolicy:KeyPolicy", name, args == null ? KeyPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:kms/keyPolicy:KeyPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KeyPolicy(String name, Output<String> id, @Nullable KeyPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:kms/keyPolicy:KeyPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KeyPolicyArgs makeArgs(KeyPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KeyPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

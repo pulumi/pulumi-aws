@@ -119,11 +119,18 @@ public class VpcDhcpOptionsAssociation extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcDhcpOptionsAssociation(String name, VpcDhcpOptionsAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, args == null ? VpcDhcpOptionsAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcDhcpOptionsAssociation(String name, Output<String> id, @Nullable VpcDhcpOptionsAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcDhcpOptionsAssociationArgs makeArgs(VpcDhcpOptionsAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcDhcpOptionsAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

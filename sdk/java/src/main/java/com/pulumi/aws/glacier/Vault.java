@@ -226,11 +226,18 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Vault(String name, @Nullable VaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glacier/vault:Vault", name, args == null ? VaultArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:glacier/vault:Vault", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Vault(String name, Output<String> id, @Nullable VaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:glacier/vault:Vault", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VaultArgs makeArgs(@Nullable VaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VaultArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

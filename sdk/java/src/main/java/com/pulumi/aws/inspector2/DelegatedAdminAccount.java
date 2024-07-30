@@ -119,11 +119,18 @@ public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DelegatedAdminAccount(String name, DelegatedAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount", name, args == null ? DelegatedAdminAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DelegatedAdminAccount(String name, Output<String> id, @Nullable DelegatedAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DelegatedAdminAccountArgs makeArgs(DelegatedAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DelegatedAdminAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

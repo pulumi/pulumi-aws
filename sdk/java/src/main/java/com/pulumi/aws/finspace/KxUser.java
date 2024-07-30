@@ -216,11 +216,18 @@ public class KxUser extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KxUser(String name, KxUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxUser:KxUser", name, args == null ? KxUserArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:finspace/kxUser:KxUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KxUser(String name, Output<String> id, @Nullable KxUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:finspace/kxUser:KxUser", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KxUserArgs makeArgs(KxUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KxUserArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

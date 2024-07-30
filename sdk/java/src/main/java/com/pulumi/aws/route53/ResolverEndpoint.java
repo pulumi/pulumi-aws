@@ -256,11 +256,18 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ResolverEndpoint(String name, ResolverEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverEndpoint:ResolverEndpoint", name, args == null ? ResolverEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53/resolverEndpoint:ResolverEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResolverEndpoint(String name, Output<String> id, @Nullable ResolverEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/resolverEndpoint:ResolverEndpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResolverEndpointArgs makeArgs(ResolverEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverEndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

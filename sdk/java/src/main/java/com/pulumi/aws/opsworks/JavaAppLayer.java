@@ -461,11 +461,18 @@ public class JavaAppLayer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public JavaAppLayer(String name, JavaAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/javaAppLayer:JavaAppLayer", name, args == null ? JavaAppLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opsworks/javaAppLayer:JavaAppLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private JavaAppLayer(String name, Output<String> id, @Nullable JavaAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opsworks/javaAppLayer:JavaAppLayer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static JavaAppLayerArgs makeArgs(JavaAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JavaAppLayerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

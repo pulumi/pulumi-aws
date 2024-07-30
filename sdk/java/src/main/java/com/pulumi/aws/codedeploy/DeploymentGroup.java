@@ -629,11 +629,18 @@ public class DeploymentGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DeploymentGroup(String name, DeploymentGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codedeploy/deploymentGroup:DeploymentGroup", name, args == null ? DeploymentGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:codedeploy/deploymentGroup:DeploymentGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DeploymentGroup(String name, Output<String> id, @Nullable DeploymentGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:codedeploy/deploymentGroup:DeploymentGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DeploymentGroupArgs makeArgs(DeploymentGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeploymentGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

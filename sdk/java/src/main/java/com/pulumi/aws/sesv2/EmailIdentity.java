@@ -330,11 +330,18 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EmailIdentity(String name, EmailIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/emailIdentity:EmailIdentity", name, args == null ? EmailIdentityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sesv2/emailIdentity:EmailIdentity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EmailIdentity(String name, Output<String> id, @Nullable EmailIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sesv2/emailIdentity:EmailIdentity", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EmailIdentityArgs makeArgs(EmailIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmailIdentityArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

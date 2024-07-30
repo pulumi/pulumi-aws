@@ -191,11 +191,18 @@ public class RegistryScanningConfiguration extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public RegistryScanningConfiguration(String name, RegistryScanningConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration", name, args == null ? RegistryScanningConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RegistryScanningConfiguration(String name, Output<String> id, @Nullable RegistryScanningConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegistryScanningConfigurationArgs makeArgs(RegistryScanningConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegistryScanningConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

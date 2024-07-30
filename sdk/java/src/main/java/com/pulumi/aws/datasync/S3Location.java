@@ -216,11 +216,18 @@ public class S3Location extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public S3Location(String name, S3LocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/s3Location:S3Location", name, args == null ? S3LocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:datasync/s3Location:S3Location", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private S3Location(String name, Output<String> id, @Nullable S3LocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:datasync/s3Location:S3Location", name, state, makeResourceOptions(options, id));
+    }
+
+    private static S3LocationArgs makeArgs(S3LocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? S3LocationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

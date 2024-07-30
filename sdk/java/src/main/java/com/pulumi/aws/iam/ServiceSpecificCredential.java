@@ -178,11 +178,18 @@ public class ServiceSpecificCredential extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceSpecificCredential(String name, ServiceSpecificCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", name, args == null ? ServiceSpecificCredentialArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceSpecificCredential(String name, Output<String> id, @Nullable ServiceSpecificCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceSpecificCredentialArgs makeArgs(ServiceSpecificCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceSpecificCredentialArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

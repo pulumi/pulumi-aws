@@ -180,11 +180,18 @@ public class UsageLimit extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UsageLimit(String name, UsageLimitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshiftserverless/usageLimit:UsageLimit", name, args == null ? UsageLimitArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:redshiftserverless/usageLimit:UsageLimit", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UsageLimit(String name, Output<String> id, @Nullable UsageLimitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:redshiftserverless/usageLimit:UsageLimit", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UsageLimitArgs makeArgs(UsageLimitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UsageLimitArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
