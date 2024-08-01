@@ -349,11 +349,18 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Zone(String name, @Nullable ZoneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/zone:Zone", name, args == null ? ZoneArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53/zone:Zone", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Zone(String name, Output<String> id, @Nullable ZoneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/zone:Zone", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ZoneArgs makeArgs(@Nullable ZoneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ZoneArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -36,7 +36,7 @@ import (
 //			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//				Definition: pulumi.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -48,7 +48,7 @@ import (
 //	  }
 //	}
 //
-// `, lambda.Arn)),
+// `, lambda.Arn),
 //
 //			})
 //			if err != nil {
@@ -81,7 +81,7 @@ import (
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Type:    pulumi.String("EXPRESS"),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//				Definition: pulumi.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -93,7 +93,7 @@ import (
 //	  }
 //	}
 //
-// `, lambda.Arn)),
+// `, lambda.Arn),
 //
 //			})
 //			if err != nil {
@@ -127,7 +127,7 @@ import (
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Publish: pulumi.Bool(true),
 //				Type:    pulumi.String("EXPRESS"),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//				Definition: pulumi.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -139,7 +139,7 @@ import (
 //	  }
 //	}
 //
-// `, lambda.Arn)),
+// `, lambda.Arn),
 //
 //			})
 //			if err != nil {
@@ -173,7 +173,7 @@ import (
 //			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//				Definition: pulumi.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -185,10 +185,10 @@ import (
 //	  }
 //	}
 //
-// `, lambda.Arn)),
+// `, lambda.Arn),
 //
 //				LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
-//					LogDestination:       pulumi.String(fmt.Sprintf("%v:*", logGroupForSfn.Arn)),
+//					LogDestination:       pulumi.Sprintf("%v:*", logGroupForSfn.Arn),
 //					IncludeExecutionData: pulumi.Bool(true),
 //					Level:                pulumi.String("ERROR"),
 //				},

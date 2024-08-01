@@ -146,11 +146,18 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SubnetGroup(String name, SubnetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dax/subnetGroup:SubnetGroup", name, args == null ? SubnetGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:dax/subnetGroup:SubnetGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SubnetGroup(String name, Output<String> id, @Nullable SubnetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:dax/subnetGroup:SubnetGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SubnetGroupArgs makeArgs(SubnetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubnetGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

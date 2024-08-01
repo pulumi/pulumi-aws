@@ -165,11 +165,18 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ImageVersion(String name, ImageVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/imageVersion:ImageVersion", name, args == null ? ImageVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sagemaker/imageVersion:ImageVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ImageVersion(String name, Output<String> id, @Nullable ImageVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sagemaker/imageVersion:ImageVersion", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ImageVersionArgs makeArgs(ImageVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ImageVersionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

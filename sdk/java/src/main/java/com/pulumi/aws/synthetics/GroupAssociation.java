@@ -136,11 +136,18 @@ public class GroupAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GroupAssociation(String name, GroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:synthetics/groupAssociation:GroupAssociation", name, args == null ? GroupAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:synthetics/groupAssociation:GroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GroupAssociation(String name, Output<String> id, @Nullable GroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:synthetics/groupAssociation:GroupAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GroupAssociationArgs makeArgs(GroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GroupAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

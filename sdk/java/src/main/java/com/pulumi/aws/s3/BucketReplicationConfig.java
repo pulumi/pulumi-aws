@@ -364,11 +364,18 @@ public class BucketReplicationConfig extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public BucketReplicationConfig(String name, BucketReplicationConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketReplicationConfig:BucketReplicationConfig", name, args == null ? BucketReplicationConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3/bucketReplicationConfig:BucketReplicationConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BucketReplicationConfig(String name, Output<String> id, @Nullable BucketReplicationConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3/bucketReplicationConfig:BucketReplicationConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BucketReplicationConfigArgs makeArgs(BucketReplicationConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketReplicationConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

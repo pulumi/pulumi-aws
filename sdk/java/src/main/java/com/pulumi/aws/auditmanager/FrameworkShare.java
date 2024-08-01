@@ -164,11 +164,18 @@ public class FrameworkShare extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FrameworkShare(String name, FrameworkShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/frameworkShare:FrameworkShare", name, args == null ? FrameworkShareArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:auditmanager/frameworkShare:FrameworkShare", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FrameworkShare(String name, Output<String> id, @Nullable FrameworkShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:auditmanager/frameworkShare:FrameworkShare", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FrameworkShareArgs makeArgs(FrameworkShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrameworkShareArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

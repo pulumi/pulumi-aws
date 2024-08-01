@@ -246,11 +246,18 @@ public class ListenerPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ListenerPolicy(String name, ListenerPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elb/listenerPolicy:ListenerPolicy", name, args == null ? ListenerPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:elb/listenerPolicy:ListenerPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ListenerPolicy(String name, Output<String> id, @Nullable ListenerPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:elb/listenerPolicy:ListenerPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ListenerPolicyArgs makeArgs(ListenerPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ListenerPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

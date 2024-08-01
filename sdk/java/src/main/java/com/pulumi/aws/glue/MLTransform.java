@@ -407,11 +407,18 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MLTransform(String name, MLTransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/mLTransform:MLTransform", name, args == null ? MLTransformArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:glue/mLTransform:MLTransform", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MLTransform(String name, Output<String> id, @Nullable MLTransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:glue/mLTransform:MLTransform", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MLTransformArgs makeArgs(MLTransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MLTransformArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -449,11 +449,18 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Subnet(String name, SubnetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/subnet:Subnet", name, args == null ? SubnetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/subnet:Subnet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Subnet(String name, Output<String> id, @Nullable SubnetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/subnet:Subnet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SubnetArgs makeArgs(SubnetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubnetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

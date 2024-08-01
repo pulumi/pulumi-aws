@@ -138,11 +138,18 @@ public class VoiceConnectorLogging extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VoiceConnectorLogging(String name, VoiceConnectorLoggingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/voiceConnectorLogging:VoiceConnectorLogging", name, args == null ? VoiceConnectorLoggingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:chime/voiceConnectorLogging:VoiceConnectorLogging", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VoiceConnectorLogging(String name, Output<String> id, @Nullable VoiceConnectorLoggingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:chime/voiceConnectorLogging:VoiceConnectorLogging", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VoiceConnectorLoggingArgs makeArgs(VoiceConnectorLoggingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VoiceConnectorLoggingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

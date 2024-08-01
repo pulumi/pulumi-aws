@@ -265,11 +265,18 @@ public class LinkAggregationGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkAggregationGroup(String name, LinkAggregationGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, args == null ? LinkAggregationGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkAggregationGroup(String name, Output<String> id, @Nullable LinkAggregationGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkAggregationGroupArgs makeArgs(LinkAggregationGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkAggregationGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

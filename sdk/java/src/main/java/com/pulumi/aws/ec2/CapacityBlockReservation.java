@@ -346,11 +346,18 @@ public class CapacityBlockReservation extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public CapacityBlockReservation(String name, CapacityBlockReservationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/capacityBlockReservation:CapacityBlockReservation", name, args == null ? CapacityBlockReservationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/capacityBlockReservation:CapacityBlockReservation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CapacityBlockReservation(String name, Output<String> id, @Nullable CapacityBlockReservationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/capacityBlockReservation:CapacityBlockReservation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CapacityBlockReservationArgs makeArgs(CapacityBlockReservationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CapacityBlockReservationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -280,11 +280,18 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public HostedConfigurationVersion(String name, HostedConfigurationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion", name, args == null ? HostedConfigurationVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HostedConfigurationVersion(String name, Output<String> id, @Nullable HostedConfigurationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HostedConfigurationVersionArgs makeArgs(HostedConfigurationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostedConfigurationVersionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -229,11 +229,18 @@ public class MacsecKeyAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MacsecKeyAssociation(String name, MacsecKeyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation", name, args == null ? MacsecKeyAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MacsecKeyAssociation(String name, Output<String> id, @Nullable MacsecKeyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MacsecKeyAssociationArgs makeArgs(MacsecKeyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MacsecKeyAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

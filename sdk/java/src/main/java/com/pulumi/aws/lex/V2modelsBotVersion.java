@@ -160,11 +160,18 @@ public class V2modelsBotVersion extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public V2modelsBotVersion(String name, V2modelsBotVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/v2modelsBotVersion:V2modelsBotVersion", name, args == null ? V2modelsBotVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lex/v2modelsBotVersion:V2modelsBotVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private V2modelsBotVersion(String name, Output<String> id, @Nullable V2modelsBotVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lex/v2modelsBotVersion:V2modelsBotVersion", name, state, makeResourceOptions(options, id));
+    }
+
+    private static V2modelsBotVersionArgs makeArgs(V2modelsBotVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? V2modelsBotVersionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

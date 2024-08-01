@@ -391,11 +391,18 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StaticWebLayer(String name, StaticWebLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/staticWebLayer:StaticWebLayer", name, args == null ? StaticWebLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opsworks/staticWebLayer:StaticWebLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StaticWebLayer(String name, Output<String> id, @Nullable StaticWebLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opsworks/staticWebLayer:StaticWebLayer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StaticWebLayerArgs makeArgs(StaticWebLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StaticWebLayerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

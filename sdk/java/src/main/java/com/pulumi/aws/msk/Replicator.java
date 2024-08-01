@@ -236,11 +236,18 @@ public class Replicator extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Replicator(String name, ReplicatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:msk/replicator:Replicator", name, args == null ? ReplicatorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:msk/replicator:Replicator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Replicator(String name, Output<String> id, @Nullable ReplicatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:msk/replicator:Replicator", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReplicatorArgs makeArgs(ReplicatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicatorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

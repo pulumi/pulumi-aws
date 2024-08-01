@@ -210,11 +210,18 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Multiplex(String name, MultiplexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/multiplex:Multiplex", name, args == null ? MultiplexArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:medialive/multiplex:Multiplex", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Multiplex(String name, Output<String> id, @Nullable MultiplexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:medialive/multiplex:Multiplex", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MultiplexArgs makeArgs(MultiplexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MultiplexArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

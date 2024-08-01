@@ -145,11 +145,18 @@ public class ClusterCapacityProviders extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public ClusterCapacityProviders(String name, ClusterCapacityProvidersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders", name, args == null ? ClusterCapacityProvidersArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClusterCapacityProviders(String name, Output<String> id, @Nullable ClusterCapacityProvidersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterCapacityProvidersArgs makeArgs(ClusterCapacityProvidersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterCapacityProvidersArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -409,11 +409,18 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StackSet(String name, @Nullable StackSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudformation/stackSet:StackSet", name, args == null ? StackSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cloudformation/stackSet:StackSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StackSet(String name, Output<String> id, @Nullable StackSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudformation/stackSet:StackSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StackSetArgs makeArgs(@Nullable StackSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StackSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

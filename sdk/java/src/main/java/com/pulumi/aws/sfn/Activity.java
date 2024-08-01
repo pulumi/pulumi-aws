@@ -147,11 +147,18 @@ public class Activity extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Activity(String name, @Nullable ActivityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sfn/activity:Activity", name, args == null ? ActivityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:sfn/activity:Activity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Activity(String name, Output<String> id, @Nullable ActivityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:sfn/activity:Activity", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ActivityArgs makeArgs(@Nullable ActivityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActivityArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

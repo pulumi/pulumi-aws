@@ -184,11 +184,18 @@ public class TrustStore extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TrustStore(String name, TrustStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lb/trustStore:TrustStore", name, args == null ? TrustStoreArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lb/trustStore:TrustStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrustStore(String name, Output<String> id, @Nullable TrustStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lb/trustStore:TrustStore", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrustStoreArgs makeArgs(TrustStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrustStoreArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

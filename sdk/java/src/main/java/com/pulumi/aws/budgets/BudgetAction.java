@@ -368,11 +368,18 @@ public class BudgetAction extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BudgetAction(String name, BudgetActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:budgets/budgetAction:BudgetAction", name, args == null ? BudgetActionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:budgets/budgetAction:BudgetAction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BudgetAction(String name, Output<String> id, @Nullable BudgetActionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:budgets/budgetAction:BudgetAction", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BudgetActionArgs makeArgs(BudgetActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BudgetActionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

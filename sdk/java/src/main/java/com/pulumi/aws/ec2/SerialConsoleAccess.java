@@ -102,11 +102,18 @@ public class SerialConsoleAccess extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SerialConsoleAccess(String name, @Nullable SerialConsoleAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, args == null ? SerialConsoleAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SerialConsoleAccess(String name, Output<String> id, @Nullable SerialConsoleAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SerialConsoleAccessArgs makeArgs(@Nullable SerialConsoleAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SerialConsoleAccessArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

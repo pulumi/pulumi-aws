@@ -490,11 +490,18 @@ public class Document extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Document(String name, DocumentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/document:Document", name, args == null ? DocumentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ssm/document:Document", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Document(String name, Output<String> id, @Nullable DocumentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssm/document:Document", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DocumentArgs makeArgs(DocumentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DocumentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

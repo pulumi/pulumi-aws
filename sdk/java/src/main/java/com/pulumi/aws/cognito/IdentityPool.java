@@ -279,11 +279,18 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentityPool(String name, IdentityPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/identityPool:IdentityPool", name, args == null ? IdentityPoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cognito/identityPool:IdentityPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentityPool(String name, Output<String> id, @Nullable IdentityPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cognito/identityPool:IdentityPool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentityPoolArgs makeArgs(IdentityPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityPoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

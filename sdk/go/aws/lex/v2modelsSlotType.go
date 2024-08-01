@@ -34,7 +34,7 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := iam.NewRolePolicyAttachment(ctx, "test", &iam.RolePolicyAttachmentArgs{
 // Role: pulumi.Any(testAwsIamRole.Name),
-// PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/AmazonLexFullAccess", current.Partition)),
+// PolicyArn: pulumi.Sprintf("arn:%v:iam::aws:policy/AmazonLexFullAccess", current.Partition),
 // })
 // if err != nil {
 // return err

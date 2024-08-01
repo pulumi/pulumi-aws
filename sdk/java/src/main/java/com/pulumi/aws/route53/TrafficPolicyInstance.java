@@ -160,11 +160,18 @@ public class TrafficPolicyInstance extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TrafficPolicyInstance(String name, TrafficPolicyInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/trafficPolicyInstance:TrafficPolicyInstance", name, args == null ? TrafficPolicyInstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:route53/trafficPolicyInstance:TrafficPolicyInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrafficPolicyInstance(String name, Output<String> id, @Nullable TrafficPolicyInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/trafficPolicyInstance:TrafficPolicyInstance", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrafficPolicyInstanceArgs makeArgs(TrafficPolicyInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrafficPolicyInstanceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -224,11 +224,18 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceNetworkServiceAssociation(String name, ServiceNetworkServiceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation", name, args == null ? ServiceNetworkServiceAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceNetworkServiceAssociation(String name, Output<String> id, @Nullable ServiceNetworkServiceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceNetworkServiceAssociationArgs makeArgs(ServiceNetworkServiceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceNetworkServiceAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

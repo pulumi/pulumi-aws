@@ -345,11 +345,18 @@ public class ContactFlow extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ContactFlow(String name, ContactFlowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/contactFlow:ContactFlow", name, args == null ? ContactFlowArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:connect/contactFlow:ContactFlow", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ContactFlow(String name, Output<String> id, @Nullable ContactFlowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:connect/contactFlow:ContactFlow", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ContactFlowArgs makeArgs(ContactFlowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContactFlowArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

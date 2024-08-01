@@ -261,11 +261,18 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerlessCollection(String name, @Nullable ServerlessCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/serverlessCollection:ServerlessCollection", name, args == null ? ServerlessCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opensearch/serverlessCollection:ServerlessCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerlessCollection(String name, Output<String> id, @Nullable ServerlessCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opensearch/serverlessCollection:ServerlessCollection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerlessCollectionArgs makeArgs(@Nullable ServerlessCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerlessCollectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

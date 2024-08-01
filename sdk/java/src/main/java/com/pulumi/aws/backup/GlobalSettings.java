@@ -100,11 +100,18 @@ public class GlobalSettings extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GlobalSettings(String name, GlobalSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/globalSettings:GlobalSettings", name, args == null ? GlobalSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:backup/globalSettings:GlobalSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GlobalSettings(String name, Output<String> id, @Nullable GlobalSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:backup/globalSettings:GlobalSettings", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GlobalSettingsArgs makeArgs(GlobalSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GlobalSettingsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

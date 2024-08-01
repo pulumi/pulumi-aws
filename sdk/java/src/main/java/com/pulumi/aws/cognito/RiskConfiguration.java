@@ -172,11 +172,18 @@ public class RiskConfiguration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RiskConfiguration(String name, RiskConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/riskConfiguration:RiskConfiguration", name, args == null ? RiskConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:cognito/riskConfiguration:RiskConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RiskConfiguration(String name, Output<String> id, @Nullable RiskConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cognito/riskConfiguration:RiskConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RiskConfigurationArgs makeArgs(RiskConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RiskConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

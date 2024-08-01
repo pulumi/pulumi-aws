@@ -114,11 +114,18 @@ public class DomainNameApiAssociation extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public DomainNameApiAssociation(String name, DomainNameApiAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/domainNameApiAssociation:DomainNameApiAssociation", name, args == null ? DomainNameApiAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:appsync/domainNameApiAssociation:DomainNameApiAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DomainNameApiAssociation(String name, Output<String> id, @Nullable DomainNameApiAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:appsync/domainNameApiAssociation:DomainNameApiAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DomainNameApiAssociationArgs makeArgs(DomainNameApiAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainNameApiAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

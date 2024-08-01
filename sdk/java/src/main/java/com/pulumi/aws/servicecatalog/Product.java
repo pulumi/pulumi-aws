@@ -334,11 +334,18 @@ public class Product extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Product(String name, ProductArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/product:Product", name, args == null ? ProductArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:servicecatalog/product:Product", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Product(String name, Output<String> id, @Nullable ProductState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:servicecatalog/product:Product", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProductArgs makeArgs(ProductArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProductArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

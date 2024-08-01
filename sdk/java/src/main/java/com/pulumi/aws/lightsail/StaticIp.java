@@ -135,11 +135,18 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StaticIp(String name, @Nullable StaticIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/staticIp:StaticIp", name, args == null ? StaticIpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:lightsail/staticIp:StaticIp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StaticIp(String name, Output<String> id, @Nullable StaticIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lightsail/staticIp:StaticIp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StaticIpArgs makeArgs(@Nullable StaticIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StaticIpArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

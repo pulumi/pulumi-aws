@@ -189,11 +189,18 @@ public class Package extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Package(String name, PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/package:Package", name, args == null ? PackageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:opensearch/package:Package", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Package(String name, Output<String> id, @Nullable PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opensearch/package:Package", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PackageArgs makeArgs(PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PackageArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

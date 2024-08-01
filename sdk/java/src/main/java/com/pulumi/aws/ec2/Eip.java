@@ -563,11 +563,18 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Eip(String name, @Nullable EipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/eip:Eip", name, args == null ? EipArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/eip:Eip", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Eip(String name, Output<String> id, @Nullable EipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/eip:Eip", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EipArgs makeArgs(@Nullable EipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EipArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

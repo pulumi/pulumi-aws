@@ -127,11 +127,18 @@ public class ByteMatchSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ByteMatchSet(String name, @Nullable ByteMatchSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafregional/byteMatchSet:ByteMatchSet", name, args == null ? ByteMatchSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:wafregional/byteMatchSet:ByteMatchSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ByteMatchSet(String name, Output<String> id, @Nullable ByteMatchSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:wafregional/byteMatchSet:ByteMatchSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ByteMatchSetArgs makeArgs(@Nullable ByteMatchSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ByteMatchSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -134,11 +134,18 @@ public class CustomRoutingListener extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CustomRoutingListener(String name, CustomRoutingListenerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:globalaccelerator/customRoutingListener:CustomRoutingListener", name, args == null ? CustomRoutingListenerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:globalaccelerator/customRoutingListener:CustomRoutingListener", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CustomRoutingListener(String name, Output<String> id, @Nullable CustomRoutingListenerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:globalaccelerator/customRoutingListener:CustomRoutingListener", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CustomRoutingListenerArgs makeArgs(CustomRoutingListenerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomRoutingListenerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

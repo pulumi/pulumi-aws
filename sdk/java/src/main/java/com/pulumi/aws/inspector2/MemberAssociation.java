@@ -143,11 +143,18 @@ public class MemberAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MemberAssociation(String name, MemberAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector2/memberAssociation:MemberAssociation", name, args == null ? MemberAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:inspector2/memberAssociation:MemberAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MemberAssociation(String name, Output<String> id, @Nullable MemberAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:inspector2/memberAssociation:MemberAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MemberAssociationArgs makeArgs(MemberAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MemberAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

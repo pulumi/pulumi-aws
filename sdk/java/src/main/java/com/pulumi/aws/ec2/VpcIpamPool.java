@@ -444,11 +444,18 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VpcIpamPool(String name, VpcIpamPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamPool:VpcIpamPool", name, args == null ? VpcIpamPoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ec2/vpcIpamPool:VpcIpamPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpcIpamPool(String name, Output<String> id, @Nullable VpcIpamPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/vpcIpamPool:VpcIpamPool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpcIpamPoolArgs makeArgs(VpcIpamPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpamPoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

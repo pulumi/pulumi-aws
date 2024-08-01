@@ -178,11 +178,18 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public OpenIdConnectProvider(String name, OpenIdConnectProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, args == null ? OpenIdConnectProviderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OpenIdConnectProvider(String name, Output<String> id, @Nullable OpenIdConnectProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OpenIdConnectProviderArgs makeArgs(OpenIdConnectProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OpenIdConnectProviderArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

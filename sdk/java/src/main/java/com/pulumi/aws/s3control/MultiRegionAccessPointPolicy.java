@@ -109,11 +109,18 @@ public class MultiRegionAccessPointPolicy extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public MultiRegionAccessPointPolicy(String name, MultiRegionAccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy", name, args == null ? MultiRegionAccessPointPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MultiRegionAccessPointPolicy(String name, Output<String> id, @Nullable MultiRegionAccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MultiRegionAccessPointPolicyArgs makeArgs(MultiRegionAccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MultiRegionAccessPointPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

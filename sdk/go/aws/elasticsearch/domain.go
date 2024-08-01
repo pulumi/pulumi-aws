@@ -240,7 +240,7 @@ import (
 // return err
 // }
 // es, err := ec2.NewSecurityGroup(ctx, "es", &ec2.SecurityGroupArgs{
-// Name: pulumi.String(fmt.Sprintf("%v-elasticsearch-%v", vpc, domain)),
+// Name: pulumi.Sprintf("%v-elasticsearch-%v", vpc, domain),
 // Description: pulumi.String("Managed by Pulumi"),
 // VpcId: pulumi.String(selected.Id),
 // Ingress: ec2.SecurityGroupIngressArray{

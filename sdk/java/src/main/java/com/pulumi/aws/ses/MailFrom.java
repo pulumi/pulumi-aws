@@ -207,11 +207,18 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MailFrom(String name, MailFromArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/mailFrom:MailFrom", name, args == null ? MailFromArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("aws:ses/mailFrom:MailFrom", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MailFrom(String name, Output<String> id, @Nullable MailFromState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ses/mailFrom:MailFrom", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MailFromArgs makeArgs(MailFromArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MailFromArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

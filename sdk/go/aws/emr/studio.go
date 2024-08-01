@@ -32,7 +32,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewStudio(ctx, "example", &emr.StudioArgs{
 //				AuthMode:              pulumi.String("SSO"),
-//				DefaultS3Location:     pulumi.String(fmt.Sprintf("s3://%v/test", test.Bucket)),
+//				DefaultS3Location:     pulumi.Sprintf("s3://%v/test", test.Bucket),
 //				EngineSecurityGroupId: pulumi.Any(testAwsSecurityGroup.Id),
 //				Name:                  pulumi.String("example"),
 //				ServiceRole:           pulumi.Any(testAwsIamRole.Arn),
