@@ -346,10 +346,10 @@ index 4cdc5534b8..027f57f753 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/option_group.go b/internal/service/rds/option_group.go
-index fb39089994..5e702b7d41 100644
+index 14fea7aed7..6850948f7c 100644
 --- a/internal/service/rds/option_group.go
 +++ b/internal/service/rds/option_group.go
-@@ -125,7 +125,7 @@ func ResourceOptionGroup() *schema.Resource {
+@@ -127,7 +127,7 @@ func resourceOptionGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
