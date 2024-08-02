@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
+    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, role_arn=None, status=None, tags=None, upgrade_policies=None, version=None, vpc_config=None):
         if access_configs and not isinstance(access_configs, list):
             raise TypeError("Expected argument 'access_configs' to be a list")
         pulumi.set(__self__, "access_configs", access_configs)
@@ -76,6 +76,9 @@ class GetClusterResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if upgrade_policies and not isinstance(upgrade_policies, list):
+            raise TypeError("Expected argument 'upgrade_policies' to be a list")
+        pulumi.set(__self__, "upgrade_policies", upgrade_policies)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -209,6 +212,14 @@ class GetClusterResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="upgradePolicies")
+    def upgrade_policies(self) -> Sequence['outputs.GetClusterUpgradePolicyResult']:
+        """
+        (Optional) Configuration block for the support policy to use for the cluster.
+        """
+        return pulumi.get(self, "upgrade_policies")
+
+    @property
     @pulumi.getter
     def version(self) -> str:
         """
@@ -247,6 +258,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             role_arn=self.role_arn,
             status=self.status,
             tags=self.tags,
+            upgrade_policies=self.upgrade_policies,
             version=self.version,
             vpc_config=self.vpc_config)
 
@@ -296,6 +308,7 @@ def get_cluster(name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
+        upgrade_policies=pulumi.get(__ret__, 'upgrade_policies'),
         version=pulumi.get(__ret__, 'version'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
 

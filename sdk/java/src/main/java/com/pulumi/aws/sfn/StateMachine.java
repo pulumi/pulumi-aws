@@ -6,6 +6,7 @@ package com.pulumi.aws.sfn;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sfn.StateMachineArgs;
 import com.pulumi.aws.sfn.inputs.StateMachineState;
+import com.pulumi.aws.sfn.outputs.StateMachineEncryptionConfiguration;
 import com.pulumi.aws.sfn.outputs.StateMachineLoggingConfiguration;
 import com.pulumi.aws.sfn.outputs.StateMachineTracingConfiguration;
 import com.pulumi.core.Output;
@@ -234,6 +235,64 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Encryption
+ * 
+ * &gt; *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sfn.StateMachine;
+ * import com.pulumi.aws.sfn.StateMachineArgs;
+ * import com.pulumi.aws.sfn.inputs.StateMachineEncryptionConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // ...
+ *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
+ *             .name("my-state-machine")
+ *             .roleArn(iamForSfn.arn())
+ *             .definition("""
+ * {
+ *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+ *   "StartAt": "HelloWorld",
+ *   "States": {
+ *     "HelloWorld": {
+ *       "Type": "Task",
+ *       "Resource": "%s",
+ *       "End": true
+ *     }
+ *   }
+ * }
+ * ", lambda.arn()))
+ *             .encryptionConfiguration(StateMachineEncryptionConfigurationArgs.builder()
+ *                 .kmsKeyId(kmsKeyForSfn.arn())
+ *                 .type("CUSTOMER_MANAGED_KMS_KEY")
+ *                 .kmsDataKeyReusePeriodSeconds(900)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import State Machines using the `arn`. For example:
@@ -292,6 +351,20 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
 
     public Output<String> description() {
         return this.description;
+    }
+    /**
+     * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+     * 
+     */
+    @Export(name="encryptionConfiguration", refs={StateMachineEncryptionConfiguration.class}, tree="[0]")
+    private Output<StateMachineEncryptionConfiguration> encryptionConfiguration;
+
+    /**
+     * @return Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+     * 
+     */
+    public Output<StateMachineEncryptionConfiguration> encryptionConfiguration() {
+        return this.encryptionConfiguration;
     }
     /**
      * Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.

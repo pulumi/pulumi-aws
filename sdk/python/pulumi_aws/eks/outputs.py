@@ -26,6 +26,7 @@ __all__ = [
     'ClusterKubernetesNetworkConfig',
     'ClusterOutpostConfig',
     'ClusterOutpostConfigControlPlanePlacement',
+    'ClusterUpgradePolicy',
     'ClusterVpcConfig',
     'FargateProfileSelector',
     'IdentityProviderConfigOidc',
@@ -43,6 +44,7 @@ __all__ = [
     'GetClusterKubernetesNetworkConfigResult',
     'GetClusterOutpostConfigResult',
     'GetClusterOutpostConfigControlPlanePlacementResult',
+    'GetClusterUpgradePolicyResult',
     'GetClusterVpcConfigResult',
     'GetNodeGroupLaunchTemplateResult',
     'GetNodeGroupRemoteAccessResult',
@@ -442,6 +444,42 @@ class ClusterOutpostConfigControlPlanePlacement(dict):
         The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
         """
         return pulumi.get(self, "group_name")
+
+
+@pulumi.output_type
+class ClusterUpgradePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportType":
+            suggest = "support_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 support_type: Optional[str] = None):
+        """
+        :param str support_type: Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+        """
+        if support_type is not None:
+            pulumi.set(__self__, "support_type", support_type)
+
+    @property
+    @pulumi.getter(name="supportType")
+    def support_type(self) -> Optional[str]:
+        """
+        Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+        """
+        return pulumi.get(self, "support_type")
 
 
 @pulumi.output_type
@@ -1220,6 +1258,24 @@ class GetClusterOutpostConfigControlPlanePlacementResult(dict):
         The name of the placement group for the Kubernetes control plane instances.
         """
         return pulumi.get(self, "group_name")
+
+
+@pulumi.output_type
+class GetClusterUpgradePolicyResult(dict):
+    def __init__(__self__, *,
+                 support_type: str):
+        """
+        :param str support_type: (Optional) Support type to use for the cluster.
+        """
+        pulumi.set(__self__, "support_type", support_type)
+
+    @property
+    @pulumi.getter(name="supportType")
+    def support_type(self) -> str:
+        """
+        (Optional) Support type to use for the cluster.
+        """
+        return pulumi.get(self, "support_type")
 
 
 @pulumi.output_type

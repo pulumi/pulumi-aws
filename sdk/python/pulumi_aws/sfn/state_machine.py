@@ -23,6 +23,7 @@ class StateMachineArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
+                 encryption_configuration: Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']] = None,
                  logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,7 @@ class StateMachineArgs:
         The set of arguments for constructing a StateMachine resource.
         :param pulumi.Input[str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        :param pulumi.Input['StateMachineEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
         :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -44,6 +46,8 @@ class StateMachineArgs:
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "role_arn", role_arn)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if name is not None:
@@ -82,6 +86,18 @@ class StateMachineArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]:
+        """
+        Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="loggingConfiguration")
@@ -175,6 +191,7 @@ class _StateMachineState:
                  creation_date: Optional[pulumi.Input[str]] = None,
                  definition: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']] = None,
                  logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -193,6 +210,7 @@ class _StateMachineState:
         :param pulumi.Input[str] arn: The ARN of the state machine.
         :param pulumi.Input[str] creation_date: The date the state machine was created.
         :param pulumi.Input[str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
+        :param pulumi.Input['StateMachineEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
         :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -213,6 +231,8 @@ class _StateMachineState:
             pulumi.set(__self__, "definition", definition)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if name is not None:
@@ -287,6 +307,18 @@ class _StateMachineState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]:
+        """
+        Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="loggingConfiguration")
@@ -446,6 +478,7 @@ class StateMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -566,6 +599,37 @@ class StateMachine(pulumi.CustomResource):
             })
         ```
 
+        ### Encryption
+
+        > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
+            definition=f\"\"\"{{
+          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+          "StartAt": "HelloWorld",
+          "States": {{
+            "HelloWorld": {{
+              "Type": "Task",
+              "Resource": "{lambda_["arn"]}",
+              "End": true
+            }}
+          }}
+        }}
+        \"\"\",
+            encryption_configuration={
+                "kms_key_id": kms_key_for_sfn["arn"],
+                "type": "CUSTOMER_MANAGED_KMS_KEY",
+                "kms_data_key_reuse_period_seconds": 900,
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
@@ -577,6 +641,7 @@ class StateMachine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
+        :param pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
         :param pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -703,6 +768,37 @@ class StateMachine(pulumi.CustomResource):
             })
         ```
 
+        ### Encryption
+
+        > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...
+        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            name="my-state-machine",
+            role_arn=iam_for_sfn["arn"],
+            definition=f\"\"\"{{
+          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+          "StartAt": "HelloWorld",
+          "States": {{
+            "HelloWorld": {{
+              "Type": "Task",
+              "Resource": "{lambda_["arn"]}",
+              "End": true
+            }}
+          }}
+        }}
+        \"\"\",
+            encryption_configuration={
+                "kms_key_id": kms_key_for_sfn["arn"],
+                "type": "CUSTOMER_MANAGED_KMS_KEY",
+                "kms_data_key_reuse_period_seconds": 900,
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
@@ -727,6 +823,7 @@ class StateMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -747,6 +844,7 @@ class StateMachine(pulumi.CustomResource):
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
@@ -779,6 +877,7 @@ class StateMachine(pulumi.CustomResource):
             creation_date: Optional[pulumi.Input[str]] = None,
             definition: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            encryption_configuration: Optional[pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
             logging_configuration: Optional[pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
@@ -802,6 +901,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the state machine.
         :param pulumi.Input[str] creation_date: The date the state machine was created.
         :param pulumi.Input[str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
+        :param pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
         :param pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -822,6 +922,7 @@ class StateMachine(pulumi.CustomResource):
         __props__.__dict__["creation_date"] = creation_date
         __props__.__dict__["definition"] = definition
         __props__.__dict__["description"] = description
+        __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["logging_configuration"] = logging_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
@@ -865,6 +966,14 @@ class StateMachine(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output['outputs.StateMachineEncryptionConfiguration']:
+        """
+        Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+        """
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="loggingConfiguration")

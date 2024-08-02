@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync;
 
 import com.pulumi.aws.appsync.inputs.GraphQLApiAdditionalAuthenticationProviderArgs;
+import com.pulumi.aws.appsync.inputs.GraphQLApiEnhancedMetricsConfigArgs;
 import com.pulumi.aws.appsync.inputs.GraphQLApiLambdaAuthorizerConfigArgs;
 import com.pulumi.aws.appsync.inputs.GraphQLApiLogConfigArgs;
 import com.pulumi.aws.appsync.inputs.GraphQLApiOpenidConnectConfigArgs;
@@ -56,6 +57,21 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * 
+     */
+    @Import(name="enhancedMetricsConfig")
+    private @Nullable Output<GraphQLApiEnhancedMetricsConfigArgs> enhancedMetricsConfig;
+
+    /**
+     * @return Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * 
+     */
+    public Optional<Output<GraphQLApiEnhancedMetricsConfigArgs>> enhancedMetricsConfig() {
+        return Optional.ofNullable(this.enhancedMetricsConfig);
+    }
+
+    /**
      * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
      * 
      */
@@ -103,12 +119,16 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * User-supplied name for the GraphSQL API.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return User-supplied name for the GraphSQL API.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -244,6 +264,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     private GraphQLApiArgs(GraphQLApiArgs $) {
         this.additionalAuthenticationProviders = $.additionalAuthenticationProviders;
         this.authenticationType = $.authenticationType;
+        this.enhancedMetricsConfig = $.enhancedMetricsConfig;
         this.introspectionConfig = $.introspectionConfig;
         this.lambdaAuthorizerConfig = $.lambdaAuthorizerConfig;
         this.logConfig = $.logConfig;
@@ -329,6 +350,27 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param enhancedMetricsConfig Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enhancedMetricsConfig(@Nullable Output<GraphQLApiEnhancedMetricsConfigArgs> enhancedMetricsConfig) {
+            $.enhancedMetricsConfig = enhancedMetricsConfig;
+            return this;
+        }
+
+        /**
+         * @param enhancedMetricsConfig Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enhancedMetricsConfig(GraphQLApiEnhancedMetricsConfigArgs enhancedMetricsConfig) {
+            return enhancedMetricsConfig(Output.of(enhancedMetricsConfig));
+        }
+
+        /**
          * @param introspectionConfig Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
          * 
          * @return builder
@@ -394,6 +436,8 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name User-supplied name for the GraphSQL API.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -404,6 +448,8 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name User-supplied name for the GraphSQL API.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

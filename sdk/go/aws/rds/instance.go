@@ -661,6 +661,8 @@ type Instance struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone pulumi.StringOutput `pulumi:"timezone"`
+	// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+	UpgradeStorageConfig pulumi.BoolPtrOutput `pulumi:"upgradeStorageConfig"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username pulumi.StringOutput `pulumi:"username"`
@@ -946,6 +948,8 @@ type instanceState struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone *string `pulumi:"timezone"`
+	// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+	UpgradeStorageConfig *bool `pulumi:"upgradeStorageConfig"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username *string `pulumi:"username"`
@@ -1192,6 +1196,8 @@ type InstanceState struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone pulumi.StringPtrInput
+	// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+	UpgradeStorageConfig pulumi.BoolPtrInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username pulumi.StringPtrInput
@@ -1417,6 +1423,8 @@ type instanceArgs struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone *string `pulumi:"timezone"`
+	// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+	UpgradeStorageConfig *bool `pulumi:"upgradeStorageConfig"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username *string `pulumi:"username"`
@@ -1639,6 +1647,8 @@ type InstanceArgs struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone pulumi.StringPtrInput
+	// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+	UpgradeStorageConfig pulumi.BoolPtrInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username pulumi.StringPtrInput
@@ -2203,6 +2213,11 @@ func (o InstanceOutput) TagsAll() pulumi.StringMapOutput {
 // for more information.
 func (o InstanceOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Timezone }).(pulumi.StringOutput)
+}
+
+// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+func (o InstanceOutput) UpgradeStorageConfig() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.UpgradeStorageConfig }).(pulumi.BoolPtrOutput)
 }
 
 // (Required unless a `snapshotIdentifier` or `replicateSourceDb`

@@ -34,6 +34,7 @@ __all__ = [
     'GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig',
     'GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig',
     'GraphQLApiAdditionalAuthenticationProviderUserPoolConfig',
+    'GraphQLApiEnhancedMetricsConfig',
     'GraphQLApiLambdaAuthorizerConfig',
     'GraphQLApiLogConfig',
     'GraphQLApiOpenidConnectConfig',
@@ -1030,6 +1031,67 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig(dict):
         AWS region in which the user pool was created.
         """
         return pulumi.get(self, "aws_region")
+
+
+@pulumi.output_type
+class GraphQLApiEnhancedMetricsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceLevelMetricsBehavior":
+            suggest = "data_source_level_metrics_behavior"
+        elif key == "operationLevelMetricsConfig":
+            suggest = "operation_level_metrics_config"
+        elif key == "resolverLevelMetricsBehavior":
+            suggest = "resolver_level_metrics_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQLApiEnhancedMetricsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQLApiEnhancedMetricsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQLApiEnhancedMetricsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_level_metrics_behavior: str,
+                 operation_level_metrics_config: str,
+                 resolver_level_metrics_behavior: str):
+        """
+        :param str data_source_level_metrics_behavior: How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+        :param str operation_level_metrics_config: How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+        :param str resolver_level_metrics_behavior: How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+        """
+        pulumi.set(__self__, "data_source_level_metrics_behavior", data_source_level_metrics_behavior)
+        pulumi.set(__self__, "operation_level_metrics_config", operation_level_metrics_config)
+        pulumi.set(__self__, "resolver_level_metrics_behavior", resolver_level_metrics_behavior)
+
+    @property
+    @pulumi.getter(name="dataSourceLevelMetricsBehavior")
+    def data_source_level_metrics_behavior(self) -> str:
+        """
+        How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+        """
+        return pulumi.get(self, "data_source_level_metrics_behavior")
+
+    @property
+    @pulumi.getter(name="operationLevelMetricsConfig")
+    def operation_level_metrics_config(self) -> str:
+        """
+        How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+        """
+        return pulumi.get(self, "operation_level_metrics_config")
+
+    @property
+    @pulumi.getter(name="resolverLevelMetricsBehavior")
+    def resolver_level_metrics_behavior(self) -> str:
+        """
+        How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+        """
+        return pulumi.get(self, "resolver_level_metrics_behavior")
 
 
 @pulumi.output_type

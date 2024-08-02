@@ -178,7 +178,7 @@ type DomainIndexField struct {
 	Facet *bool `pulumi:"facet"`
 	// You can highlight information.
 	Highlight *bool `pulumi:"highlight"`
-	// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+	// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
 	Name string `pulumi:"name"`
 	// You can enable returning the value of all searchable fields.
 	Return *bool `pulumi:"return"`
@@ -212,7 +212,7 @@ type DomainIndexFieldArgs struct {
 	Facet pulumi.BoolPtrInput `pulumi:"facet"`
 	// You can highlight information.
 	Highlight pulumi.BoolPtrInput `pulumi:"highlight"`
-	// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+	// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// You can enable returning the value of all searchable fields.
 	Return pulumi.BoolPtrInput `pulumi:"return"`
@@ -297,7 +297,7 @@ func (o DomainIndexFieldOutput) Highlight() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *bool { return v.Highlight }).(pulumi.BoolPtrOutput)
 }
 
-// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
 func (o DomainIndexFieldOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainIndexField) string { return v.Name }).(pulumi.StringOutput)
 }

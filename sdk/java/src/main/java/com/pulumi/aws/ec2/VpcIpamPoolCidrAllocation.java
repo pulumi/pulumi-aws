@@ -234,14 +234,14 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="netmaskLength", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> netmaskLength;
+    private Output<Integer> netmaskLength;
 
     /**
      * @return The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
-    public Output<Optional<Integer>> netmaskLength() {
-        return Codegen.optional(this.netmaskLength);
+    public Output<Integer> netmaskLength() {
+        return this.netmaskLength;
     }
     /**
      * The ID of the resource.

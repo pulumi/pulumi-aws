@@ -191,6 +191,10 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// (Optional) Configuration block for the support policy to use for the cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterUpgradePolicyResult> UpgradePolicies;
+        /// <summary>
         /// Kubernetes server version for the cluster.
         /// </summary>
         public readonly string Version;
@@ -233,6 +237,8 @@ namespace Pulumi.Aws.Eks
 
             ImmutableDictionary<string, string> tags,
 
+            ImmutableArray<Outputs.GetClusterUpgradePolicyResult> upgradePolicies,
+
             string version,
 
             Outputs.GetClusterVpcConfigResult vpcConfig)
@@ -253,6 +259,7 @@ namespace Pulumi.Aws.Eks
             RoleArn = roleArn;
             Status = status;
             Tags = tags;
+            UpgradePolicies = upgradePolicies;
             Version = version;
             VpcConfig = vpcConfig;
         }

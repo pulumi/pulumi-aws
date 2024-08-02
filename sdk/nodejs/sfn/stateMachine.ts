@@ -122,6 +122,38 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Encryption
+ *
+ * > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ...
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     name: "my-state-machine",
+ *     roleArn: iamForSfn.arn,
+ *     definition: `{
+ *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+ *   "StartAt": "HelloWorld",
+ *   "States": {
+ *     "HelloWorld": {
+ *       "Type": "Task",
+ *       "Resource": "${lambda.arn}",
+ *       "End": true
+ *     }
+ *   }
+ * }
+ * `,
+ *     encryptionConfiguration: {
+ *         kmsKeyId: kmsKeyForSfn.arn,
+ *         type: "CUSTOMER_MANAGED_KMS_KEY",
+ *         kmsDataKeyReusePeriodSeconds: 900,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import State Machines using the `arn`. For example:
@@ -171,6 +203,10 @@ export class StateMachine extends pulumi.CustomResource {
      */
     public readonly definition!: pulumi.Output<string>;
     public /*out*/ readonly description!: pulumi.Output<string>;
+    /**
+     * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+     */
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.sfn.StateMachineEncryptionConfiguration>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
@@ -237,6 +273,7 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["creationDate"] = state ? state.creationDate : undefined;
             resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -259,6 +296,7 @@ export class StateMachine extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleArn'");
             }
             resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
@@ -298,6 +336,10 @@ export interface StateMachineState {
      */
     definition?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    /**
+     * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.sfn.StateMachineEncryptionConfiguration>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
@@ -356,6 +398,10 @@ export interface StateMachineArgs {
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
     definition: pulumi.Input<string>;
+    /**
+     * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.sfn.StateMachineEncryptionConfiguration>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */

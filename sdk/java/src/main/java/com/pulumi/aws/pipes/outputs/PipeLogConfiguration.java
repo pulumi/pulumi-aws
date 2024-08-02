@@ -9,6 +9,7 @@ import com.pulumi.aws.pipes.outputs.PipeLogConfigurationS3LogDestination;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,6 +26,11 @@ public final class PipeLogConfiguration {
      * 
      */
     private @Nullable PipeLogConfigurationFirehoseLogDestination firehoseLogDestination;
+    /**
+     * @return String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+     * 
+     */
+    private @Nullable List<String> includeExecutionDatas;
     /**
      * @return The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
      * 
@@ -52,6 +58,13 @@ public final class PipeLogConfiguration {
         return Optional.ofNullable(this.firehoseLogDestination);
     }
     /**
+     * @return String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+     * 
+     */
+    public List<String> includeExecutionDatas() {
+        return this.includeExecutionDatas == null ? List.of() : this.includeExecutionDatas;
+    }
+    /**
      * @return The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
      * 
      */
@@ -77,6 +90,7 @@ public final class PipeLogConfiguration {
     public static final class Builder {
         private @Nullable PipeLogConfigurationCloudwatchLogsLogDestination cloudwatchLogsLogDestination;
         private @Nullable PipeLogConfigurationFirehoseLogDestination firehoseLogDestination;
+        private @Nullable List<String> includeExecutionDatas;
         private String level;
         private @Nullable PipeLogConfigurationS3LogDestination s3LogDestination;
         public Builder() {}
@@ -84,6 +98,7 @@ public final class PipeLogConfiguration {
     	      Objects.requireNonNull(defaults);
     	      this.cloudwatchLogsLogDestination = defaults.cloudwatchLogsLogDestination;
     	      this.firehoseLogDestination = defaults.firehoseLogDestination;
+    	      this.includeExecutionDatas = defaults.includeExecutionDatas;
     	      this.level = defaults.level;
     	      this.s3LogDestination = defaults.s3LogDestination;
         }
@@ -99,6 +114,15 @@ public final class PipeLogConfiguration {
 
             this.firehoseLogDestination = firehoseLogDestination;
             return this;
+        }
+        @CustomType.Setter
+        public Builder includeExecutionDatas(@Nullable List<String> includeExecutionDatas) {
+
+            this.includeExecutionDatas = includeExecutionDatas;
+            return this;
+        }
+        public Builder includeExecutionDatas(String... includeExecutionDatas) {
+            return includeExecutionDatas(List.of(includeExecutionDatas));
         }
         @CustomType.Setter
         public Builder level(String level) {
@@ -118,6 +142,7 @@ public final class PipeLogConfiguration {
             final var _resultValue = new PipeLogConfiguration();
             _resultValue.cloudwatchLogsLogDestination = cloudwatchLogsLogDestination;
             _resultValue.firehoseLogDestination = firehoseLogDestination;
+            _resultValue.includeExecutionDatas = includeExecutionDatas;
             _resultValue.level = level;
             _resultValue.s3LogDestination = s3LogDestination;
             return _resultValue;

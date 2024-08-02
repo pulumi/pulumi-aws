@@ -445,15 +445,27 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly networkType!: pulumi.Output<string>;
     /**
-     * Port on which the DB accepts connections
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     */
+    public readonly performanceInsightsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     */
+    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     */
+    public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number>;
+    /**
+     * Port on which the DB accepts connections.
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      */
     public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
-     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
@@ -573,6 +585,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterUserSecrets"] = state ? state.masterUserSecrets : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
             resourceInputs["networkType"] = state ? state.networkType : undefined;
+            resourceInputs["performanceInsightsEnabled"] = state ? state.performanceInsightsEnabled : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
+            resourceInputs["performanceInsightsRetentionPeriod"] = state ? state.performanceInsightsRetentionPeriod : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
@@ -635,6 +650,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterUserSecretKmsKeyId"] = args ? args.masterUserSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["networkType"] = args ? args.networkType : undefined;
+            resourceInputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
+            resourceInputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
@@ -866,15 +884,27 @@ export interface ClusterState {
      */
     networkType?: pulumi.Input<string>;
     /**
-     * Port on which the DB accepts connections
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     */
+    performanceInsightsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     */
+    performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     */
+    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * Port on which the DB accepts connections.
      */
     port?: pulumi.Input<number>;
     /**
-     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
-     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
@@ -1106,15 +1136,27 @@ export interface ClusterArgs {
      */
     networkType?: pulumi.Input<string>;
     /**
-     * Port on which the DB accepts connections
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     */
+    performanceInsightsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     */
+    performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     */
+    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * Port on which the DB accepts connections.
      */
     port?: pulumi.Input<number>;
     /**
-     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
-     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**

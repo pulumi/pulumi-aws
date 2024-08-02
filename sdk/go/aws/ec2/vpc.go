@@ -174,7 +174,7 @@ type Vpc struct {
 	Ipv6CidrBlockNetworkBorderGroup pulumi.StringOutput `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
-	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
 	Ipv6NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv6NetmaskLength"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
@@ -254,7 +254,7 @@ type vpcState struct {
 	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
-	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
 	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
@@ -305,7 +305,7 @@ type VpcState struct {
 	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId pulumi.StringPtrInput
-	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
 	Ipv6NetmaskLength pulumi.IntPtrInput
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
@@ -348,7 +348,7 @@ type vpcArgs struct {
 	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
-	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
 	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -378,7 +378,7 @@ type VpcArgs struct {
 	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId pulumi.StringPtrInput
-	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
 	Ipv6NetmaskLength pulumi.IntPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -556,7 +556,7 @@ func (o VpcOutput) Ipv6IpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringPtrOutput { return v.Ipv6IpamPoolId }).(pulumi.StringPtrOutput)
 }
 
-// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
 func (o VpcOutput) Ipv6NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.IntPtrOutput { return v.Ipv6NetmaskLength }).(pulumi.IntPtrOutput)
 }

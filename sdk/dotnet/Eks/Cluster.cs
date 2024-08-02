@@ -442,6 +442,12 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+        /// </summary>
+        [Output("upgradePolicy")]
+        public Output<Outputs.ClusterUpgradePolicy> UpgradePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         /// </summary>
         [Output("version")]
@@ -574,6 +580,12 @@ namespace Pulumi.Aws.Eks
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+        /// </summary>
+        [Input("upgradePolicy")]
+        public Input<Inputs.ClusterUpgradePolicyArgs>? UpgradePolicy { get; set; }
 
         /// <summary>
         /// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
@@ -745,6 +757,12 @@ namespace Pulumi.Aws.Eks
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+        /// </summary>
+        [Input("upgradePolicy")]
+        public Input<Inputs.ClusterUpgradePolicyGetArgs>? UpgradePolicy { get; set; }
 
         /// <summary>
         /// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.

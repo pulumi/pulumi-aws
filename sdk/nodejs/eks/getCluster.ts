@@ -117,6 +117,10 @@ export interface GetClusterResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * (Optional) Configuration block for the support policy to use for the cluster.
+     */
+    readonly upgradePolicies: outputs.eks.GetClusterUpgradePolicy[];
+    /**
      * Kubernetes server version for the cluster.
      */
     readonly version: string;

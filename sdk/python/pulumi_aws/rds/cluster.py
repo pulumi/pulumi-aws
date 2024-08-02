@@ -62,6 +62,9 @@ class ClusterArgs:
                  master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
+                 performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -125,9 +128,12 @@ class ClusterArgs:
         :param pulumi.Input[str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
-        :param pulumi.Input[int] port: Port on which the DB accepts connections
-        :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[bool] performance_insights_enabled: Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        :param pulumi.Input[str] performance_insights_kms_key_id: Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        :param pulumi.Input[int] performance_insights_retention_period: Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        :param pulumi.Input[int] port: Port on which the DB accepts connections.
+        :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
+        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
         :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input['ClusterScalingConfigurationArgs'] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
@@ -219,6 +225,12 @@ class ClusterArgs:
             pulumi.set(__self__, "master_username", master_username)
         if network_type is not None:
             pulumi.set(__self__, "network_type", network_type)
+        if performance_insights_enabled is not None:
+            pulumi.set(__self__, "performance_insights_enabled", performance_insights_enabled)
+        if performance_insights_kms_key_id is not None:
+            pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
+        if performance_insights_retention_period is not None:
+            pulumi.set(__self__, "performance_insights_retention_period", performance_insights_retention_period)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
@@ -737,10 +749,46 @@ class ClusterArgs:
         pulumi.set(self, "network_type", value)
 
     @property
+    @pulumi.getter(name="performanceInsightsEnabled")
+    def performance_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        """
+        return pulumi.get(self, "performance_insights_enabled")
+
+    @performance_insights_enabled.setter
+    def performance_insights_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "performance_insights_enabled", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
+    def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        """
+        return pulumi.get(self, "performance_insights_kms_key_id")
+
+    @performance_insights_kms_key_id.setter
+    def performance_insights_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "performance_insights_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsRetentionPeriod")
+    def performance_insights_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        """
+        return pulumi.get(self, "performance_insights_retention_period")
+
+    @performance_insights_retention_period.setter
+    def performance_insights_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "performance_insights_retention_period", value)
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        Port on which the DB accepts connections
+        Port on which the DB accepts connections.
         """
         return pulumi.get(self, "port")
 
@@ -752,7 +800,7 @@ class ClusterArgs:
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -764,7 +812,7 @@ class ClusterArgs:
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -964,6 +1012,9 @@ class _ClusterState:
                  master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
+                 performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -1036,9 +1087,12 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
-        :param pulumi.Input[int] port: Port on which the DB accepts connections
-        :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[bool] performance_insights_enabled: Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        :param pulumi.Input[str] performance_insights_kms_key_id: Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        :param pulumi.Input[int] performance_insights_retention_period: Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        :param pulumi.Input[int] port: Port on which the DB accepts connections.
+        :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
+        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         :param pulumi.Input[str] reader_endpoint: Read-only endpoint for the Aurora cluster, automatically
                load-balanced across replicas
         :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
@@ -1148,6 +1202,12 @@ class _ClusterState:
             pulumi.set(__self__, "master_username", master_username)
         if network_type is not None:
             pulumi.set(__self__, "network_type", network_type)
+        if performance_insights_enabled is not None:
+            pulumi.set(__self__, "performance_insights_enabled", performance_insights_enabled)
+        if performance_insights_kms_key_id is not None:
+            pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
+        if performance_insights_retention_period is not None:
+            pulumi.set(__self__, "performance_insights_retention_period", performance_insights_retention_period)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
@@ -1757,10 +1817,46 @@ class _ClusterState:
         pulumi.set(self, "network_type", value)
 
     @property
+    @pulumi.getter(name="performanceInsightsEnabled")
+    def performance_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        """
+        return pulumi.get(self, "performance_insights_enabled")
+
+    @performance_insights_enabled.setter
+    def performance_insights_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "performance_insights_enabled", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
+    def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        """
+        return pulumi.get(self, "performance_insights_kms_key_id")
+
+    @performance_insights_kms_key_id.setter
+    def performance_insights_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "performance_insights_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsRetentionPeriod")
+    def performance_insights_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        """
+        return pulumi.get(self, "performance_insights_retention_period")
+
+    @performance_insights_retention_period.setter
+    def performance_insights_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "performance_insights_retention_period", value)
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        Port on which the DB accepts connections
+        Port on which the DB accepts connections.
         """
         return pulumi.get(self, "port")
 
@@ -1772,7 +1868,7 @@ class _ClusterState:
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -1784,7 +1880,7 @@ class _ClusterState:
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -2005,6 +2101,9 @@ class Cluster(pulumi.CustomResource):
                  master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
+                 performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -2272,9 +2371,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
-        :param pulumi.Input[int] port: Port on which the DB accepts connections
-        :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[bool] performance_insights_enabled: Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        :param pulumi.Input[str] performance_insights_kms_key_id: Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        :param pulumi.Input[int] performance_insights_retention_period: Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        :param pulumi.Input[int] port: Port on which the DB accepts connections.
+        :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
+        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
         :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
@@ -2551,6 +2653,9 @@ class Cluster(pulumi.CustomResource):
                  master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
+                 performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -2617,6 +2722,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["network_type"] = network_type
+            __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
+            __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
@@ -2700,6 +2808,9 @@ class Cluster(pulumi.CustomResource):
             master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]]] = None,
             master_username: Optional[pulumi.Input[str]] = None,
             network_type: Optional[pulumi.Input[str]] = None,
+            performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
+            performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+            performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
             port: Optional[pulumi.Input[int]] = None,
             preferred_backup_window: Optional[pulumi.Input[str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -2777,9 +2888,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
-        :param pulumi.Input[int] port: Port on which the DB accepts connections
-        :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[bool] performance_insights_enabled: Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        :param pulumi.Input[str] performance_insights_kms_key_id: Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        :param pulumi.Input[int] performance_insights_retention_period: Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        :param pulumi.Input[int] port: Port on which the DB accepts connections.
+        :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
+        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         :param pulumi.Input[str] reader_endpoint: Read-only endpoint for the Aurora cluster, automatically
                load-balanced across replicas
         :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
@@ -2846,6 +2960,9 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["master_user_secrets"] = master_user_secrets
         __props__.__dict__["master_username"] = master_username
         __props__.__dict__["network_type"] = network_type
+        __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
+        __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+        __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
@@ -3248,10 +3365,34 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "network_type")
 
     @property
+    @pulumi.getter(name="performanceInsightsEnabled")
+    def performance_insights_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        """
+        return pulumi.get(self, "performance_insights_enabled")
+
+    @property
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
+    def performance_insights_kms_key_id(self) -> pulumi.Output[str]:
+        """
+        Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        """
+        return pulumi.get(self, "performance_insights_kms_key_id")
+
+    @property
+    @pulumi.getter(name="performanceInsightsRetentionPeriod")
+    def performance_insights_retention_period(self) -> pulumi.Output[int]:
+        """
+        Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        """
+        return pulumi.get(self, "performance_insights_retention_period")
+
+    @property
     @pulumi.getter
     def port(self) -> pulumi.Output[int]:
         """
-        Port on which the DB accepts connections
+        Port on which the DB accepts connections.
         """
         return pulumi.get(self, "port")
 
@@ -3259,7 +3400,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[str]:
         """
-        Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -3267,7 +3408,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[str]:
         """
-        Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         """
         return pulumi.get(self, "preferred_maintenance_window")
 

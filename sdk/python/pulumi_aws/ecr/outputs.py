@@ -22,11 +22,13 @@ __all__ = [
     'ReplicationConfigurationReplicationConfigurationRule',
     'ReplicationConfigurationReplicationConfigurationRuleDestination',
     'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter',
+    'RepositoryCreationTemplateEncryptionConfiguration',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
     'GetLifecyclePolicyDocumentRuleResult',
     'GetLifecyclePolicyDocumentRuleActionResult',
     'GetLifecyclePolicyDocumentRuleSelectionResult',
+    'GetRepositoryCreationTemplateEncryptionConfigurationResult',
     'GetRepositoryEncryptionConfigurationResult',
     'GetRepositoryImageScanningConfigurationResult',
 ]
@@ -273,6 +275,56 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter(dict)
 
 
 @pulumi.output_type
+class RepositoryCreationTemplateEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCreationTemplateEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCreationTemplateEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCreationTemplateEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_type: Optional[str] = None,
+                 kms_key: Optional[str] = None):
+        """
+        :param str encryption_type: The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+        :param str kms_key: The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        """
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[str]:
+        """
+        The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[str]:
+        """
+        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        """
+        return pulumi.get(self, "kms_key")
+
+
+@pulumi.output_type
 class RepositoryEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -503,6 +555,35 @@ class GetLifecyclePolicyDocumentRuleSelectionResult(dict):
         You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
         """
         return pulumi.get(self, "tag_prefix_lists")
+
+
+@pulumi.output_type
+class GetRepositoryCreationTemplateEncryptionConfigurationResult(dict):
+    def __init__(__self__, *,
+                 encryption_type: str,
+                 kms_key: str):
+        """
+        :param str encryption_type: Encryption type to use for any created repositories, either `AES256` or `KMS`.
+        :param str kms_key: If `encryption_type` is `KMS`, the ARN of the KMS key used.
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> str:
+        """
+        Encryption type to use for any created repositories, either `AES256` or `KMS`.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> str:
+        """
+        If `encryption_type` is `KMS`, the ARN of the KMS key used.
+        """
+        return pulumi.get(self, "kms_key")
 
 
 @pulumi.output_type

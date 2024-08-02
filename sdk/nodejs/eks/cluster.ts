@@ -309,6 +309,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+     */
+    public readonly upgradePolicy!: pulumi.Output<outputs.eks.ClusterUpgradePolicy>;
+    /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     public readonly version!: pulumi.Output<string>;
@@ -352,6 +356,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["upgradePolicy"] = state ? state.upgradePolicy : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
@@ -372,6 +377,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -471,6 +477,10 @@ export interface ClusterState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+     */
+    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicy>;
+    /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     version?: pulumi.Input<string>;
@@ -523,6 +533,10 @@ export interface ClusterArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+     */
+    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicy>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */

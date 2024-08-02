@@ -7780,6 +7780,21 @@ export namespace appsync {
         userPoolId: string;
     }
 
+    export interface GraphQLApiEnhancedMetricsConfig {
+        /**
+         * How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+         */
+        dataSourceLevelMetricsBehavior: string;
+        /**
+         * How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+         */
+        operationLevelMetricsConfig: string;
+        /**
+         * How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+         */
+        resolverLevelMetricsBehavior: string;
+    }
+
     export interface GraphQLApiLambdaAuthorizerConfig {
         /**
          * Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
@@ -12400,6 +12415,39 @@ export namespace cfg {
 
 }
 
+export namespace chatbot {
+    export interface SlackChannelConfigurationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface TeamsChannelConfigurationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+}
+
 export namespace chime {
     export interface SdkvoiceGlobalSettingsVoiceConnector {
         /**
@@ -14301,7 +14349,7 @@ export namespace cloudsearch {
          */
         highlight?: boolean;
         /**
-         * A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+         * A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
          */
         name: string;
         /**
@@ -18558,6 +18606,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         rekognition?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        resiliencehub?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -27763,7 +27815,7 @@ export namespace ec2 {
 
     export interface InstanceInstanceMarketOptions {
         /**
-         * Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
+         * Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
          */
         marketType: string;
         /**
@@ -30981,6 +31033,17 @@ export namespace ecr {
         tagStatus: string;
     }
 
+    export interface GetRepositoryCreationTemplateEncryptionConfiguration {
+        /**
+         * Encryption type to use for any created repositories, either `AES256` or `KMS`.
+         */
+        encryptionType: string;
+        /**
+         * If `encryptionType` is `KMS`, the ARN of the KMS key used.
+         */
+        kmsKey: string;
+    }
+
     export interface GetRepositoryEncryptionConfiguration {
         /**
          * Encryption type to use for the repository, either `AES256` or `KMS`.
@@ -31053,6 +31116,17 @@ export namespace ecr {
          * The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
          */
         filterType: string;
+    }
+
+    export interface RepositoryCreationTemplateEncryptionConfiguration {
+        /**
+         * The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+         */
+        encryptionType?: string;
+        /**
+         * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         */
+        kmsKey: string;
     }
 
     export interface RepositoryEncryptionConfiguration {
@@ -32219,6 +32293,13 @@ export namespace eks {
         groupName: string;
     }
 
+    export interface ClusterUpgradePolicy {
+        /**
+         * Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+         */
+        supportType: string;
+    }
+
     export interface ClusterVpcConfig {
         /**
          * Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
@@ -32330,6 +32411,13 @@ export namespace eks {
          * The name of the placement group for the Kubernetes control plane instances.
          */
         groupName: string;
+    }
+
+    export interface GetClusterUpgradePolicy {
+        /**
+         * (Optional) Support type to use for the cluster.
+         */
+        supportType: string;
     }
 
     export interface GetClusterVpcConfig {
@@ -66714,6 +66802,10 @@ export namespace pipes {
          */
         firehoseLogDestination?: outputs.pipes.PipeLogConfigurationFirehoseLogDestination;
         /**
+         * String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+         */
+        includeExecutionDatas?: string[];
+        /**
          * The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
          */
         level: string;
@@ -69617,7 +69709,11 @@ export namespace rds {
         /**
          * Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
          */
-        sourceClusterIdentifier: string;
+        sourceClusterIdentifier?: string;
+        /**
+         * Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+         */
+        sourceClusterResourceId?: string;
         /**
          * Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
          */
@@ -79826,6 +79922,21 @@ export namespace sesv2 {
 }
 
 export namespace sfn {
+    export interface ActivityEncryptionConfiguration {
+        /**
+         * Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+         */
+        kmsDataKeyReusePeriodSeconds?: number;
+        /**
+         * The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+         */
+        kmsKeyId?: string;
+        /**
+         * The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+         */
+        type?: string;
+    }
+
     export interface AliasRoutingConfiguration {
         /**
          * The Amazon Resource Name (ARN) of the state machine version.
@@ -79840,6 +79951,21 @@ export namespace sfn {
     export interface GetAliasRoutingConfiguration {
         stateMachineVersionArn: string;
         weight: number;
+    }
+
+    export interface StateMachineEncryptionConfiguration {
+        /**
+         * Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+         */
+        kmsDataKeyReusePeriodSeconds?: number;
+        /**
+         * The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+         */
+        kmsKeyId?: string;
+        /**
+         * The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+         */
+        type?: string;
     }
 
     export interface StateMachineLoggingConfiguration {
@@ -81298,6 +81424,44 @@ export namespace synthetics {
          * ID of the VPC where this canary is to run.
          */
         vpcId: string;
+    }
+
+}
+
+export namespace timestreaminfluxdb {
+    export interface DbInstanceLogDeliveryConfiguration {
+        /**
+         * Configuration for S3 bucket log delivery.
+         */
+        s3Configuration?: outputs.timestreaminfluxdb.DbInstanceLogDeliveryConfigurationS3Configuration;
+    }
+
+    export interface DbInstanceLogDeliveryConfigurationS3Configuration {
+        /**
+         * Name of the S3 bucket to deliver logs to.
+         */
+        bucketName: string;
+        /**
+         * Indicates whether log delivery to the S3 bucket is enabled.
+         *
+         * **Note**: Only three arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `dbParameterGroupIdentifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `dbParameterGroupIdentifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
+         */
+        enabled: boolean;
+    }
+
+    export interface DbInstanceTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
 }

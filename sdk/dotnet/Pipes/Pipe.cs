@@ -209,6 +209,51 @@ namespace Pulumi.Aws.Pipes
     /// });
     /// ```
     /// 
+    /// ### CloudWatch Logs Logging Configuration Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = "example-pipe-target",
+    ///     });
+    /// 
+    ///     var examplePipe = new Aws.Pipes.Pipe("example", new()
+    ///     {
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = sourceAwsSqsQueue.Arn,
+    ///         Target = targetAwsSqsQueue.Arn,
+    ///         LogConfiguration = new Aws.Pipes.Inputs.PipeLogConfigurationArgs
+    ///         {
+    ///             IncludeExecutionDatas = new[]
+    ///             {
+    ///                 "ALL",
+    ///             },
+    ///             Level = "INFO",
+    ///             CloudwatchLogsLogDestination = new Aws.Pipes.Inputs.PipeLogConfigurationCloudwatchLogsLogDestinationArgs
+    ///             {
+    ///                 LogGroupArn = targetAwsCloudwatchLogGroup.Arn,
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             source,
+    ///             target,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import pipes using the `name`. For example:

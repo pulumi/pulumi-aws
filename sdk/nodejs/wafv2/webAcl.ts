@@ -77,6 +77,10 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+     */
+    public readonly ruleJson!: pulumi.Output<string | undefined>;
+    /**
      * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
@@ -127,6 +131,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["lockToken"] = state ? state.lockToken : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ruleJson"] = state ? state.ruleJson : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -151,6 +156,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ruleJson"] = args ? args.ruleJson : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -213,6 +219,10 @@ export interface WebAclState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+     */
+    ruleJson?: pulumi.Input<string>;
+    /**
      * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[]>;
@@ -272,6 +282,10 @@ export interface WebAclArgs {
      * Friendly name of the WebACL.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+     */
+    ruleJson?: pulumi.Input<string>;
     /**
      * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      */

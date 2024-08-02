@@ -103,10 +103,6 @@ class UserGroupAssociation(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Associate an existing ElastiCache user and an existing user group.
-
-        > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
-
         ## Example Usage
 
         ```python
@@ -154,10 +150,6 @@ class UserGroupAssociation(pulumi.CustomResource):
                  args: UserGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Associate an existing ElastiCache user and an existing user group.
-
-        > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
-
         ## Example Usage
 
         ```python

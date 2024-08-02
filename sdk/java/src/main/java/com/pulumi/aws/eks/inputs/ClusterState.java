@@ -9,6 +9,7 @@ import com.pulumi.aws.eks.inputs.ClusterEncryptionConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterIdentityArgs;
 import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterUpgradePolicyArgs;
 import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -318,6 +319,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * 
+     */
+    @Import(name="upgradePolicy")
+    private @Nullable Output<ClusterUpgradePolicyArgs> upgradePolicy;
+
+    /**
+     * @return Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * 
+     */
+    public Optional<Output<ClusterUpgradePolicyArgs>> upgradePolicy() {
+        return Optional.ofNullable(this.upgradePolicy);
+    }
+
+    /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      * 
      */
@@ -374,6 +390,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.upgradePolicy = $.upgradePolicy;
         this.version = $.version;
         this.vpcConfig = $.vpcConfig;
     }
@@ -826,6 +843,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param upgradePolicy Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradePolicy(@Nullable Output<ClusterUpgradePolicyArgs> upgradePolicy) {
+            $.upgradePolicy = upgradePolicy;
+            return this;
+        }
+
+        /**
+         * @param upgradePolicy Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradePolicy(ClusterUpgradePolicyArgs upgradePolicy) {
+            return upgradePolicy(Output.of(upgradePolicy));
         }
 
         /**

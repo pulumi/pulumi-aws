@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly Outputs.PipeLogConfigurationFirehoseLogDestination? FirehoseLogDestination;
         /// <summary>
+        /// String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+        /// </summary>
+        public readonly ImmutableArray<string> IncludeExecutionDatas;
+        /// <summary>
         /// The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
         /// </summary>
         public readonly string Level;
@@ -36,12 +40,15 @@ namespace Pulumi.Aws.Pipes.Outputs
 
             Outputs.PipeLogConfigurationFirehoseLogDestination? firehoseLogDestination,
 
+            ImmutableArray<string> includeExecutionDatas,
+
             string level,
 
             Outputs.PipeLogConfigurationS3LogDestination? s3LogDestination)
         {
             CloudwatchLogsLogDestination = cloudwatchLogsLogDestination;
             FirehoseLogDestination = firehoseLogDestination;
+            IncludeExecutionDatas = includeExecutionDatas;
             Level = level;
             S3LogDestination = s3LogDestination;
         }

@@ -92,6 +92,8 @@ type LookupClusterResult struct {
 	Status string `pulumi:"status"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// (Optional) Configuration block for the support policy to use for the cluster.
+	UpgradePolicies []GetClusterUpgradePolicy `pulumi:"upgradePolicies"`
 	// Kubernetes server version for the cluster.
 	Version string `pulumi:"version"`
 	// Nested list containing VPC configuration for the cluster.
@@ -215,6 +217,11 @@ func (o LookupClusterResultOutput) Status() pulumi.StringOutput {
 // Key-value map of resource tags.
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// (Optional) Configuration block for the support policy to use for the cluster.
+func (o LookupClusterResultOutput) UpgradePolicies() GetClusterUpgradePolicyArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterUpgradePolicy { return v.UpgradePolicies }).(GetClusterUpgradePolicyArrayOutput)
 }
 
 // Kubernetes server version for the cluster.

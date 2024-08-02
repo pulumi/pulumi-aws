@@ -1334,6 +1334,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Resiliencehub { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Resourceexplorer2 { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

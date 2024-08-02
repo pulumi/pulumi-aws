@@ -241,6 +241,64 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### CloudWatch Logs Logging Configuration Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.pipes.Pipe;
+ * import com.pulumi.aws.pipes.PipeArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeLogConfigurationArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeLogConfigurationCloudwatchLogsLogDestinationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
+ *             .name("example-pipe-target")
+ *             .build());
+ * 
+ *         var examplePipe = new Pipe("examplePipe", PipeArgs.builder()
+ *             .name("example-pipe")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .source(sourceAwsSqsQueue.arn())
+ *             .target(targetAwsSqsQueue.arn())
+ *             .logConfiguration(PipeLogConfigurationArgs.builder()
+ *                 .includeExecutionDatas("ALL")
+ *                 .level("INFO")
+ *                 .cloudwatchLogsLogDestination(PipeLogConfigurationCloudwatchLogsLogDestinationArgs.builder()
+ *                     .logGroupArn(targetAwsCloudwatchLogGroup.arn())
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     source,
+ *                     target)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### SQS Source and Target Configuration Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

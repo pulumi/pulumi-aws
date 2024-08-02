@@ -15,8 +15,12 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ActivityEncryptionConfigurationArgs',
+    'ActivityEncryptionConfigurationArgsDict',
     'AliasRoutingConfigurationArgs',
     'AliasRoutingConfigurationArgsDict',
+    'StateMachineEncryptionConfigurationArgs',
+    'StateMachineEncryptionConfigurationArgsDict',
     'StateMachineLoggingConfigurationArgs',
     'StateMachineLoggingConfigurationArgsDict',
     'StateMachineTracingConfigurationArgs',
@@ -24,6 +28,78 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ActivityEncryptionConfigurationArgsDict(TypedDict):
+        kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        """
+elif False:
+    ActivityEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ActivityEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] kms_data_key_reuse_period_seconds: Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+        :param pulumi.Input[str] kms_key_id: The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+        :param pulumi.Input[str] type: The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        """
+        if kms_data_key_reuse_period_seconds is not None:
+            pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
+    def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+        """
+        return pulumi.get(self, "kms_data_key_reuse_period_seconds")
+
+    @kms_data_key_reuse_period_seconds.setter
+    def kms_data_key_reuse_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "kms_data_key_reuse_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
 
 if not MYPY:
     class AliasRoutingConfigurationArgsDict(TypedDict):
@@ -73,6 +149,78 @@ class AliasRoutingConfigurationArgs:
     @weight.setter
     def weight(self, value: pulumi.Input[int]):
         pulumi.set(self, "weight", value)
+
+
+if not MYPY:
+    class StateMachineEncryptionConfigurationArgsDict(TypedDict):
+        kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        """
+elif False:
+    StateMachineEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StateMachineEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] kms_data_key_reuse_period_seconds: Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+        :param pulumi.Input[str] kms_key_id: The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+        :param pulumi.Input[str] type: The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        """
+        if kms_data_key_reuse_period_seconds is not None:
+            pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
+    def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+        """
+        return pulumi.get(self, "kms_data_key_reuse_period_seconds")
+
+    @kms_data_key_reuse_period_seconds.setter
+    def kms_data_key_reuse_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "kms_data_key_reuse_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

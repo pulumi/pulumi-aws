@@ -6,6 +6,7 @@ package com.pulumi.aws.sfn;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sfn.ActivityArgs;
 import com.pulumi.aws.sfn.inputs.ActivityState;
+import com.pulumi.aws.sfn.outputs.ActivityEncryptionConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -19,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Step Function Activity resource
  * 
  * ## Example Usage
+ * 
+ * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -53,6 +56,49 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Encryption
+ * 
+ * &gt; *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sfn.Activity;
+ * import com.pulumi.aws.sfn.ActivityArgs;
+ * import com.pulumi.aws.sfn.inputs.ActivityEncryptionConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sfnActivity = new Activity("sfnActivity", ActivityArgs.builder()
+ *             .name("my-activity")
+ *             .encryptionConfiguration(ActivityEncryptionConfigurationArgs.builder()
+ *                 .kmsKeyId(kmsKeyForSfn.arn())
+ *                 .type("CUSTOMER_MANAGED_KMS_KEY")
+ *                 .kmsDataKeyReusePeriodSeconds(900)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import activities using the `arn`. For example:
@@ -77,6 +123,20 @@ public class Activity extends com.pulumi.resources.CustomResource {
      */
     public Output<String> creationDate() {
         return this.creationDate;
+    }
+    /**
+     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     * 
+     */
+    @Export(name="encryptionConfiguration", refs={ActivityEncryptionConfiguration.class}, tree="[0]")
+    private Output<ActivityEncryptionConfiguration> encryptionConfiguration;
+
+    /**
+     * @return Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     * 
+     */
+    public Output<ActivityEncryptionConfiguration> encryptionConfiguration() {
+        return this.encryptionConfiguration;
     }
     /**
      * The name of the activity to create.

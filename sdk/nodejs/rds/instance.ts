@@ -701,6 +701,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly timezone!: pulumi.Output<string>;
     /**
+     * Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+     */
+    public readonly upgradeStorageConfig!: pulumi.Output<boolean | undefined>;
+    /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      */
@@ -802,6 +806,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["upgradeStorageConfig"] = state ? state.upgradeStorageConfig : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
             resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
@@ -875,6 +880,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["upgradeStorageConfig"] = args ? args.upgradeStorageConfig : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["address"] = undefined /*out*/;
@@ -1293,6 +1299,10 @@ export interface InstanceState {
      */
     timezone?: pulumi.Input<string>;
     /**
+     * Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+     */
+    upgradeStorageConfig?: pulumi.Input<boolean>;
+    /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      */
@@ -1652,6 +1662,10 @@ export interface InstanceArgs {
      * for more information.
      */
     timezone?: pulumi.Input<string>;
+    /**
+     * Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+     */
+    upgradeStorageConfig?: pulumi.Input<boolean>;
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user. Cannot be specified for a replica.

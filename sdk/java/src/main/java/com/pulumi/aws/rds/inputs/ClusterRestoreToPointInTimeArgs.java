@@ -5,7 +5,6 @@ package com.pulumi.aws.rds.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -53,15 +52,30 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
      * Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
      * 
      */
-    @Import(name="sourceClusterIdentifier", required=true)
-    private Output<String> sourceClusterIdentifier;
+    @Import(name="sourceClusterIdentifier")
+    private @Nullable Output<String> sourceClusterIdentifier;
 
     /**
      * @return Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
      * 
      */
-    public Output<String> sourceClusterIdentifier() {
-        return this.sourceClusterIdentifier;
+    public Optional<Output<String>> sourceClusterIdentifier() {
+        return Optional.ofNullable(this.sourceClusterIdentifier);
+    }
+
+    /**
+     * Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+     * 
+     */
+    @Import(name="sourceClusterResourceId")
+    private @Nullable Output<String> sourceClusterResourceId;
+
+    /**
+     * @return Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+     * 
+     */
+    public Optional<Output<String>> sourceClusterResourceId() {
+        return Optional.ofNullable(this.sourceClusterResourceId);
     }
 
     /**
@@ -85,6 +99,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         this.restoreToTime = $.restoreToTime;
         this.restoreType = $.restoreType;
         this.sourceClusterIdentifier = $.sourceClusterIdentifier;
+        this.sourceClusterResourceId = $.sourceClusterResourceId;
         this.useLatestRestorableTime = $.useLatestRestorableTime;
     }
 
@@ -156,7 +171,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder sourceClusterIdentifier(Output<String> sourceClusterIdentifier) {
+        public Builder sourceClusterIdentifier(@Nullable Output<String> sourceClusterIdentifier) {
             $.sourceClusterIdentifier = sourceClusterIdentifier;
             return this;
         }
@@ -169,6 +184,27 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
          */
         public Builder sourceClusterIdentifier(String sourceClusterIdentifier) {
             return sourceClusterIdentifier(Output.of(sourceClusterIdentifier));
+        }
+
+        /**
+         * @param sourceClusterResourceId Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceClusterResourceId(@Nullable Output<String> sourceClusterResourceId) {
+            $.sourceClusterResourceId = sourceClusterResourceId;
+            return this;
+        }
+
+        /**
+         * @param sourceClusterResourceId Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceClusterResourceId(String sourceClusterResourceId) {
+            return sourceClusterResourceId(Output.of(sourceClusterResourceId));
         }
 
         /**
@@ -193,9 +229,6 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         public ClusterRestoreToPointInTimeArgs build() {
-            if ($.sourceClusterIdentifier == null) {
-                throw new MissingRequiredPropertyException("ClusterRestoreToPointInTimeArgs", "sourceClusterIdentifier");
-            }
             return $;
         }
     }

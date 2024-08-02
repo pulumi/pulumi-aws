@@ -12,10 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associate an existing ElastiCache user and an existing user group.
-//
-// > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignoreChanges` option as shown in the example.
-//
 // ## Example Usage
 //
 // ```go

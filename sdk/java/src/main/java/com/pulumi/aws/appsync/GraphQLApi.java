@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.appsync.GraphQLApiArgs;
 import com.pulumi.aws.appsync.inputs.GraphQLApiState;
 import com.pulumi.aws.appsync.outputs.GraphQLApiAdditionalAuthenticationProvider;
+import com.pulumi.aws.appsync.outputs.GraphQLApiEnhancedMetricsConfig;
 import com.pulumi.aws.appsync.outputs.GraphQLApiLambdaAuthorizerConfig;
 import com.pulumi.aws.appsync.outputs.GraphQLApiLogConfig;
 import com.pulumi.aws.appsync.outputs.GraphQLApiOpenidConnectConfig;
@@ -68,6 +69,20 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return this.authenticationType;
     }
     /**
+     * Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * 
+     */
+    @Export(name="enhancedMetricsConfig", refs={GraphQLApiEnhancedMetricsConfig.class}, tree="[0]")
+    private Output</* @Nullable */ GraphQLApiEnhancedMetricsConfig> enhancedMetricsConfig;
+
+    /**
+     * @return Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * 
+     */
+    public Output<Optional<GraphQLApiEnhancedMetricsConfig>> enhancedMetricsConfig() {
+        return Codegen.optional(this.enhancedMetricsConfig);
+    }
+    /**
      * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
      * 
      */
@@ -112,12 +127,16 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
     /**
      * User-supplied name for the GraphSQL API.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return User-supplied name for the GraphSQL API.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

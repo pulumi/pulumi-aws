@@ -13,6 +13,181 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ActivityEncryptionConfiguration struct {
+	// Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+	Type *string `pulumi:"type"`
+}
+
+// ActivityEncryptionConfigurationInput is an input type that accepts ActivityEncryptionConfigurationArgs and ActivityEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `ActivityEncryptionConfigurationInput` via:
+//
+//	ActivityEncryptionConfigurationArgs{...}
+type ActivityEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToActivityEncryptionConfigurationOutput() ActivityEncryptionConfigurationOutput
+	ToActivityEncryptionConfigurationOutputWithContext(context.Context) ActivityEncryptionConfigurationOutput
+}
+
+type ActivityEncryptionConfigurationArgs struct {
+	// Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ActivityEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i ActivityEncryptionConfigurationArgs) ToActivityEncryptionConfigurationOutput() ActivityEncryptionConfigurationOutput {
+	return i.ToActivityEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ActivityEncryptionConfigurationArgs) ToActivityEncryptionConfigurationOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEncryptionConfigurationOutput)
+}
+
+func (i ActivityEncryptionConfigurationArgs) ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput {
+	return i.ToActivityEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ActivityEncryptionConfigurationArgs) ToActivityEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEncryptionConfigurationOutput).ToActivityEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// ActivityEncryptionConfigurationPtrInput is an input type that accepts ActivityEncryptionConfigurationArgs, ActivityEncryptionConfigurationPtr and ActivityEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `ActivityEncryptionConfigurationPtrInput` via:
+//
+//	        ActivityEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActivityEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput
+	ToActivityEncryptionConfigurationPtrOutputWithContext(context.Context) ActivityEncryptionConfigurationPtrOutput
+}
+
+type activityEncryptionConfigurationPtrType ActivityEncryptionConfigurationArgs
+
+func ActivityEncryptionConfigurationPtr(v *ActivityEncryptionConfigurationArgs) ActivityEncryptionConfigurationPtrInput {
+	return (*activityEncryptionConfigurationPtrType)(v)
+}
+
+func (*activityEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActivityEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *activityEncryptionConfigurationPtrType) ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput {
+	return i.ToActivityEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *activityEncryptionConfigurationPtrType) ToActivityEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEncryptionConfigurationPtrOutput)
+}
+
+type ActivityEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ActivityEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfigurationOutput() ActivityEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfigurationOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput {
+	return o.ToActivityEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityEncryptionConfiguration) *ActivityEncryptionConfiguration {
+		return &v
+	}).(ActivityEncryptionConfigurationPtrOutput)
+}
+
+// Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+func (o ActivityEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActivityEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+func (o ActivityEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActivityEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+func (o ActivityEncryptionConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActivityEncryptionConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ActivityEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ActivityEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActivityEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ActivityEncryptionConfigurationPtrOutput) ToActivityEncryptionConfigurationPtrOutput() ActivityEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ActivityEncryptionConfigurationPtrOutput) ToActivityEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ActivityEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ActivityEncryptionConfigurationPtrOutput) Elem() ActivityEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *ActivityEncryptionConfiguration) ActivityEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityEncryptionConfiguration
+		return ret
+	}).(ActivityEncryptionConfigurationOutput)
+}
+
+// Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+func (o ActivityEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KmsDataKeyReusePeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+func (o ActivityEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+func (o ActivityEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type AliasRoutingConfiguration struct {
 	// The Amazon Resource Name (ARN) of the state machine version.
 	StateMachineVersionArn string `pulumi:"stateMachineVersionArn"`
@@ -117,6 +292,181 @@ func (o AliasRoutingConfigurationArrayOutput) Index(i pulumi.IntInput) AliasRout
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AliasRoutingConfiguration {
 		return vs[0].([]AliasRoutingConfiguration)[vs[1].(int)]
 	}).(AliasRoutingConfigurationOutput)
+}
+
+type StateMachineEncryptionConfiguration struct {
+	// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+	Type *string `pulumi:"type"`
+}
+
+// StateMachineEncryptionConfigurationInput is an input type that accepts StateMachineEncryptionConfigurationArgs and StateMachineEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `StateMachineEncryptionConfigurationInput` via:
+//
+//	StateMachineEncryptionConfigurationArgs{...}
+type StateMachineEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToStateMachineEncryptionConfigurationOutput() StateMachineEncryptionConfigurationOutput
+	ToStateMachineEncryptionConfigurationOutputWithContext(context.Context) StateMachineEncryptionConfigurationOutput
+}
+
+type StateMachineEncryptionConfigurationArgs struct {
+	// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (StateMachineEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i StateMachineEncryptionConfigurationArgs) ToStateMachineEncryptionConfigurationOutput() StateMachineEncryptionConfigurationOutput {
+	return i.ToStateMachineEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i StateMachineEncryptionConfigurationArgs) ToStateMachineEncryptionConfigurationOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineEncryptionConfigurationOutput)
+}
+
+func (i StateMachineEncryptionConfigurationArgs) ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput {
+	return i.ToStateMachineEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StateMachineEncryptionConfigurationArgs) ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineEncryptionConfigurationOutput).ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// StateMachineEncryptionConfigurationPtrInput is an input type that accepts StateMachineEncryptionConfigurationArgs, StateMachineEncryptionConfigurationPtr and StateMachineEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `StateMachineEncryptionConfigurationPtrInput` via:
+//
+//	        StateMachineEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StateMachineEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput
+	ToStateMachineEncryptionConfigurationPtrOutputWithContext(context.Context) StateMachineEncryptionConfigurationPtrOutput
+}
+
+type stateMachineEncryptionConfigurationPtrType StateMachineEncryptionConfigurationArgs
+
+func StateMachineEncryptionConfigurationPtr(v *StateMachineEncryptionConfigurationArgs) StateMachineEncryptionConfigurationPtrInput {
+	return (*stateMachineEncryptionConfigurationPtrType)(v)
+}
+
+func (*stateMachineEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *stateMachineEncryptionConfigurationPtrType) ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput {
+	return i.ToStateMachineEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *stateMachineEncryptionConfigurationPtrType) ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineEncryptionConfigurationPtrOutput)
+}
+
+type StateMachineEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StateMachineEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfigurationOutput() StateMachineEncryptionConfigurationOutput {
+	return o
+}
+
+func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfigurationOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationOutput {
+	return o
+}
+
+func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput {
+	return o.ToStateMachineEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineEncryptionConfiguration) *StateMachineEncryptionConfiguration {
+		return &v
+	}).(StateMachineEncryptionConfigurationPtrOutput)
+}
+
+// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+func (o StateMachineEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+func (o StateMachineEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+func (o StateMachineEncryptionConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type StateMachineEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StateMachineEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o StateMachineEncryptionConfigurationPtrOutput) ToStateMachineEncryptionConfigurationPtrOutput() StateMachineEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o StateMachineEncryptionConfigurationPtrOutput) ToStateMachineEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StateMachineEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o StateMachineEncryptionConfigurationPtrOutput) Elem() StateMachineEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) StateMachineEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StateMachineEncryptionConfiguration
+		return ret
+	}).(StateMachineEncryptionConfigurationOutput)
+}
+
+// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+func (o StateMachineEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KmsDataKeyReusePeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+func (o StateMachineEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+func (o StateMachineEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type StateMachineLoggingConfiguration struct {
@@ -532,16 +882,24 @@ func (o GetAliasRoutingConfigurationArrayOutput) Index(i pulumi.IntInput) GetAli
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityEncryptionConfigurationInput)(nil)).Elem(), ActivityEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityEncryptionConfigurationPtrInput)(nil)).Elem(), ActivityEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigurationInput)(nil)).Elem(), AliasRoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigurationArrayInput)(nil)).Elem(), AliasRoutingConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineEncryptionConfigurationInput)(nil)).Elem(), StateMachineEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineEncryptionConfigurationPtrInput)(nil)).Elem(), StateMachineEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationInput)(nil)).Elem(), StateMachineLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationPtrInput)(nil)).Elem(), StateMachineLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTracingConfigurationInput)(nil)).Elem(), StateMachineTracingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTracingConfigurationPtrInput)(nil)).Elem(), StateMachineTracingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAliasRoutingConfigurationInput)(nil)).Elem(), GetAliasRoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAliasRoutingConfigurationArrayInput)(nil)).Elem(), GetAliasRoutingConfigurationArray{})
+	pulumi.RegisterOutputType(ActivityEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(ActivityEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigurationOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(StateMachineEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(StateMachineEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineTracingConfigurationOutput{})
