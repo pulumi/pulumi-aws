@@ -17,14 +17,14 @@ public final class InstanceInstanceMarketOptionsArgs extends com.pulumi.resource
     public static final InstanceInstanceMarketOptionsArgs Empty = new InstanceInstanceMarketOptionsArgs();
 
     /**
-     * Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+     * Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
      * 
      */
     @Import(name="marketType")
     private @Nullable Output<String> marketType;
 
     /**
-     * @return Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+     * @return Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
      * 
      */
     public Optional<Output<String>> marketType() {
@@ -72,7 +72,7 @@ public final class InstanceInstanceMarketOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param marketType Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+         * @param marketType Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class InstanceInstanceMarketOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param marketType Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+         * @param marketType Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
          * 
          * @return builder
          * 

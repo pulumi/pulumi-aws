@@ -1738,6 +1738,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.timezone;
     }
     /**
+     * Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+     * 
+     */
+    @Export(name="upgradeStorageConfig", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> upgradeStorageConfig;
+
+    /**
+     * @return Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+     * 
+     */
+    public Output<Optional<Boolean>> upgradeStorageConfig() {
+        return Codegen.optional(this.upgradeStorageConfig);
+    }
+    /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 

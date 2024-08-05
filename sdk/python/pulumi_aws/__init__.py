@@ -420,6 +420,8 @@ if typing.TYPE_CHECKING:
     swf = __swf
     import pulumi_aws.synthetics as __synthetics
     synthetics = __synthetics
+    import pulumi_aws.timestreaminfluxdb as __timestreaminfluxdb
+    timestreaminfluxdb = __timestreaminfluxdb
     import pulumi_aws.timestreamwrite as __timestreamwrite
     timestreamwrite = __timestreamwrite
     import pulumi_aws.transcribe as __transcribe
@@ -645,6 +647,7 @@ else:
     storagegateway = _utilities.lazy_import('pulumi_aws.storagegateway')
     swf = _utilities.lazy_import('pulumi_aws.swf')
     synthetics = _utilities.lazy_import('pulumi_aws.synthetics')
+    timestreaminfluxdb = _utilities.lazy_import('pulumi_aws.timestreaminfluxdb')
     timestreamwrite = _utilities.lazy_import('pulumi_aws.timestreamwrite')
     transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
@@ -2080,6 +2083,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "chatbot/slackChannelConfiguration",
+  "fqn": "pulumi_aws.chatbot",
+  "classes": {
+   "aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration": "SlackChannelConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "chatbot/teamsChannelConfiguration",
+  "fqn": "pulumi_aws.chatbot",
+  "classes": {
+   "aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration": "TeamsChannelConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "chime/sdkvoiceGlobalSettings",
   "fqn": "pulumi_aws.chime",
   "classes": {
@@ -3308,6 +3327,14 @@ _utilities.register(
   "fqn": "pulumi_aws.datazone",
   "classes": {
    "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration": "EnvironmentBlueprintConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/glossary",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/glossary:Glossary": "Glossary"
   }
  },
  {
@@ -4956,6 +4983,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ecr",
   "classes": {
    "aws:ecr/repository:Repository": "Repository"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecr/repositoryCreationTemplate",
+  "fqn": "pulumi_aws.ecr",
+  "classes": {
+   "aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate": "RepositoryCreationTemplate"
   }
  },
  {
@@ -11188,6 +11223,14 @@ _utilities.register(
   "fqn": "pulumi_aws.synthetics",
   "classes": {
    "aws:synthetics/groupAssociation:GroupAssociation": "GroupAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "timestreaminfluxdb/dbInstance",
+  "fqn": "pulumi_aws.timestreaminfluxdb",
+  "classes": {
+   "aws:timestreaminfluxdb/dbInstance:DbInstance": "DbInstance"
   }
  },
  {

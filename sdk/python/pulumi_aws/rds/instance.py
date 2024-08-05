@@ -88,6 +88,7 @@ class InstanceArgs:
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
+                 upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -237,6 +238,7 @@ class InstanceArgs:
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -376,6 +378,8 @@ class InstanceArgs:
             pulumi.set(__self__, "tags", tags)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if upgrade_storage_config is not None:
+            pulumi.set(__self__, "upgrade_storage_config", upgrade_storage_config)
         if username is not None:
             pulumi.set(__self__, "username", username)
         if vpc_security_group_ids is not None:
@@ -1252,6 +1256,18 @@ class InstanceArgs:
         pulumi.set(self, "timezone", value)
 
     @property
+    @pulumi.getter(name="upgradeStorageConfig")
+    def upgrade_storage_config(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        """
+        return pulumi.get(self, "upgrade_storage_config")
+
+    @upgrade_storage_config.setter
+    def upgrade_storage_config(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "upgrade_storage_config", value)
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1359,6 +1375,7 @@ class _InstanceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
+                 upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -1519,6 +1536,7 @@ class _InstanceState:
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -1686,6 +1704,8 @@ class _InstanceState:
             pulumi.set(__self__, "tags_all", tags_all)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if upgrade_storage_config is not None:
+            pulumi.set(__self__, "upgrade_storage_config", upgrade_storage_config)
         if username is not None:
             pulumi.set(__self__, "username", username)
         if vpc_security_group_ids is not None:
@@ -2704,6 +2724,18 @@ class _InstanceState:
         pulumi.set(self, "timezone", value)
 
     @property
+    @pulumi.getter(name="upgradeStorageConfig")
+    def upgrade_storage_config(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        """
+        return pulumi.get(self, "upgrade_storage_config")
+
+    @upgrade_storage_config.setter
+    def upgrade_storage_config(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "upgrade_storage_config", value)
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2801,6 +2833,7 @@ class Instance(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
+                 upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -3204,6 +3237,7 @@ class Instance(pulumi.CustomResource):
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -3549,6 +3583,7 @@ class Instance(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
+                 upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -3628,6 +3663,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timezone"] = timezone
+            __props__.__dict__["upgrade_storage_config"] = upgrade_storage_config
             __props__.__dict__["username"] = username
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["address"] = None
@@ -3732,6 +3768,7 @@ class Instance(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
+            upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
             username: Optional[pulumi.Input[str]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Instance':
         """
@@ -3897,6 +3934,7 @@ class Instance(pulumi.CustomResource):
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -3984,6 +4022,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timezone"] = timezone
+        __props__.__dict__["upgrade_storage_config"] = upgrade_storage_config
         __props__.__dict__["username"] = username
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return Instance(resource_name, opts=opts, __props__=__props__)
@@ -4687,6 +4726,14 @@ class Instance(pulumi.CustomResource):
         for more information.
         """
         return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="upgradeStorageConfig")
+    def upgrade_storage_config(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        """
+        return pulumi.get(self, "upgrade_storage_config")
 
     @property
     @pulumi.getter

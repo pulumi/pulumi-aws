@@ -5,7 +5,7 @@ Subject: [PATCH] restore ecr NewConn
 
 
 diff --git a/internal/service/ecr/service_package_gen.go b/internal/service/ecr/service_package_gen.go
-index 200916df88..e7ce686f96 100644
+index 9a1f8e3ee2..4cf24b81e4 100644
 --- a/internal/service/ecr/service_package_gen.go
 +++ b/internal/service/ecr/service_package_gen.go
 @@ -7,6 +7,9 @@ import (
@@ -18,7 +18,7 @@ index 200916df88..e7ce686f96 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
  	"github.com/hashicorp/terraform-provider-aws/internal/types"
  	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -106,6 +109,13 @@ func (p *servicePackage) ServicePackageName() string {
+@@ -116,6 +119,13 @@ func (p *servicePackage) ServicePackageName() string {
  	return names.ECR
  }
  

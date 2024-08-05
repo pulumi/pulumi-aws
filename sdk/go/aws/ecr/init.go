@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationConfiguration{}
 	case "aws:ecr/repository:Repository":
 		r = &Repository{}
+	case "aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate":
+		r = &RepositoryCreationTemplate{}
 	case "aws:ecr/repositoryPolicy:RepositoryPolicy":
 		r = &RepositoryPolicy{}
 	default:
@@ -76,6 +78,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ecr/repository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecr/repositoryCreationTemplate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -12,6 +12,7 @@ import com.pulumi.aws.eks.outputs.ClusterEncryptionConfig;
 import com.pulumi.aws.eks.outputs.ClusterIdentity;
 import com.pulumi.aws.eks.outputs.ClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.ClusterOutpostConfig;
+import com.pulumi.aws.eks.outputs.ClusterUpgradePolicy;
 import com.pulumi.aws.eks.outputs.ClusterVpcConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -656,6 +657,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * 
+     */
+    @Export(name="upgradePolicy", refs={ClusterUpgradePolicy.class}, tree="[0]")
+    private Output<ClusterUpgradePolicy> upgradePolicy;
+
+    /**
+     * @return Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * 
+     */
+    public Output<ClusterUpgradePolicy> upgradePolicy() {
+        return this.upgradePolicy;
     }
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.

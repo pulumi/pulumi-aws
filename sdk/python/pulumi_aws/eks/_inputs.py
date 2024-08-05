@@ -35,6 +35,8 @@ __all__ = [
     'ClusterOutpostConfigArgsDict',
     'ClusterOutpostConfigControlPlanePlacementArgs',
     'ClusterOutpostConfigControlPlanePlacementArgsDict',
+    'ClusterUpgradePolicyArgs',
+    'ClusterUpgradePolicyArgsDict',
     'ClusterVpcConfigArgs',
     'ClusterVpcConfigArgsDict',
     'FargateProfileSelectorArgs',
@@ -555,6 +557,38 @@ class ClusterOutpostConfigControlPlanePlacementArgs:
     @group_name.setter
     def group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "group_name", value)
+
+
+if not MYPY:
+    class ClusterUpgradePolicyArgsDict(TypedDict):
+        support_type: NotRequired[pulumi.Input[str]]
+        """
+        Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+        """
+elif False:
+    ClusterUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterUpgradePolicyArgs:
+    def __init__(__self__, *,
+                 support_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] support_type: Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+        """
+        if support_type is not None:
+            pulumi.set(__self__, "support_type", support_type)
+
+    @property
+    @pulumi.getter(name="supportType")
+    def support_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+        """
+        return pulumi.get(self, "support_type")
+
+    @support_type.setter
+    def support_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "support_type", value)
 
 
 if not MYPY:

@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Ipv6IpamPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         /// </summary>
         [Output("ipv6NetmaskLength")]
         public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Ipv6IpamPoolId { get; set; }
 
         /// <summary>
-        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         /// </summary>
         [Input("ipv6NetmaskLength")]
         public Input<int>? Ipv6NetmaskLength { get; set; }
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Ipv6IpamPoolId { get; set; }
 
         /// <summary>
-        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         /// </summary>
         [Input("ipv6NetmaskLength")]
         public Input<int>? Ipv6NetmaskLength { get; set; }

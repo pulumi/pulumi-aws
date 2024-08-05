@@ -48,6 +48,10 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly authenticationType!: pulumi.Output<string>;
     /**
+     * Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
+     */
+    public readonly enhancedMetricsConfig!: pulumi.Output<outputs.appsync.GraphQLApiEnhancedMetricsConfig | undefined>;
+    /**
      * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
      */
     public readonly introspectionConfig!: pulumi.Output<string | undefined>;
@@ -61,6 +65,8 @@ export class GraphQLApi extends pulumi.CustomResource {
     public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
     /**
      * User-supplied name for the GraphSQL API.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -124,6 +130,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["additionalAuthenticationProviders"] = state ? state.additionalAuthenticationProviders : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["enhancedMetricsConfig"] = state ? state.enhancedMetricsConfig : undefined;
             resourceInputs["introspectionConfig"] = state ? state.introspectionConfig : undefined;
             resourceInputs["lambdaAuthorizerConfig"] = state ? state.lambdaAuthorizerConfig : undefined;
             resourceInputs["logConfig"] = state ? state.logConfig : undefined;
@@ -145,6 +152,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             }
             resourceInputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["enhancedMetricsConfig"] = args ? args.enhancedMetricsConfig : undefined;
             resourceInputs["introspectionConfig"] = args ? args.introspectionConfig : undefined;
             resourceInputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
             resourceInputs["logConfig"] = args ? args.logConfig : undefined;
@@ -183,6 +191,10 @@ export interface GraphQLApiState {
      */
     authenticationType?: pulumi.Input<string>;
     /**
+     * Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
+     */
+    enhancedMetricsConfig?: pulumi.Input<inputs.appsync.GraphQLApiEnhancedMetricsConfig>;
+    /**
      * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
      */
     introspectionConfig?: pulumi.Input<string>;
@@ -196,6 +208,8 @@ export interface GraphQLApiState {
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
      * User-supplied name for the GraphSQL API.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -257,6 +271,10 @@ export interface GraphQLApiArgs {
      */
     authenticationType: pulumi.Input<string>;
     /**
+     * Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
+     */
+    enhancedMetricsConfig?: pulumi.Input<inputs.appsync.GraphQLApiEnhancedMetricsConfig>;
+    /**
      * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
      */
     introspectionConfig?: pulumi.Input<string>;
@@ -270,6 +288,8 @@ export interface GraphQLApiArgs {
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
      * User-supplied name for the GraphSQL API.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

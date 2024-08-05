@@ -904,6 +904,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> Timezone { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        /// </summary>
+        [Output("upgradeStorageConfig")]
+        public Output<bool?> UpgradeStorageConfig { get; private set; } = null!;
+
+        /// <summary>
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
         /// is provided) Username for the master DB user. Cannot be specified for a replica.
         /// </summary>
@@ -1467,6 +1473,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
+
+        /// <summary>
+        /// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        /// </summary>
+        [Input("upgradeStorageConfig")]
+        public Input<bool>? UpgradeStorageConfig { get; set; }
 
         /// <summary>
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
@@ -2089,6 +2101,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
+
+        /// <summary>
+        /// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        /// </summary>
+        [Input("upgradeStorageConfig")]
+        public Input<bool>? UpgradeStorageConfig { get; set; }
 
         /// <summary>
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`

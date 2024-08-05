@@ -4,7 +4,6 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -28,7 +27,12 @@ public final class ClusterRestoreToPointInTime {
      * @return Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
      * 
      */
-    private String sourceClusterIdentifier;
+    private @Nullable String sourceClusterIdentifier;
+    /**
+     * @return Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+     * 
+     */
+    private @Nullable String sourceClusterResourceId;
     /**
      * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
      * 
@@ -55,8 +59,15 @@ public final class ClusterRestoreToPointInTime {
      * @return Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
      * 
      */
-    public String sourceClusterIdentifier() {
-        return this.sourceClusterIdentifier;
+    public Optional<String> sourceClusterIdentifier() {
+        return Optional.ofNullable(this.sourceClusterIdentifier);
+    }
+    /**
+     * @return Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+     * 
+     */
+    public Optional<String> sourceClusterResourceId() {
+        return Optional.ofNullable(this.sourceClusterResourceId);
     }
     /**
      * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
@@ -77,7 +88,8 @@ public final class ClusterRestoreToPointInTime {
     public static final class Builder {
         private @Nullable String restoreToTime;
         private @Nullable String restoreType;
-        private String sourceClusterIdentifier;
+        private @Nullable String sourceClusterIdentifier;
+        private @Nullable String sourceClusterResourceId;
         private @Nullable Boolean useLatestRestorableTime;
         public Builder() {}
         public Builder(ClusterRestoreToPointInTime defaults) {
@@ -85,6 +97,7 @@ public final class ClusterRestoreToPointInTime {
     	      this.restoreToTime = defaults.restoreToTime;
     	      this.restoreType = defaults.restoreType;
     	      this.sourceClusterIdentifier = defaults.sourceClusterIdentifier;
+    	      this.sourceClusterResourceId = defaults.sourceClusterResourceId;
     	      this.useLatestRestorableTime = defaults.useLatestRestorableTime;
         }
 
@@ -101,11 +114,15 @@ public final class ClusterRestoreToPointInTime {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceClusterIdentifier(String sourceClusterIdentifier) {
-            if (sourceClusterIdentifier == null) {
-              throw new MissingRequiredPropertyException("ClusterRestoreToPointInTime", "sourceClusterIdentifier");
-            }
+        public Builder sourceClusterIdentifier(@Nullable String sourceClusterIdentifier) {
+
             this.sourceClusterIdentifier = sourceClusterIdentifier;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sourceClusterResourceId(@Nullable String sourceClusterResourceId) {
+
+            this.sourceClusterResourceId = sourceClusterResourceId;
             return this;
         }
         @CustomType.Setter
@@ -119,6 +136,7 @@ public final class ClusterRestoreToPointInTime {
             _resultValue.restoreToTime = restoreToTime;
             _resultValue.restoreType = restoreType;
             _resultValue.sourceClusterIdentifier = sourceClusterIdentifier;
+            _resultValue.sourceClusterResourceId = sourceClusterResourceId;
             _resultValue.useLatestRestorableTime = useLatestRestorableTime;
             return _resultValue;
         }

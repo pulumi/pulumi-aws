@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -9,11 +12,31 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const sfnActivity = new aws.sfn.Activity("sfn_activity", {name: "my-activity"});
+ * ```
+ *
+ * ### Encryption
+ *
+ * > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sfnActivity = new aws.sfn.Activity("sfn_activity", {
+ *     name: "my-activity",
+ *     encryptionConfiguration: {
+ *         kmsKeyId: kmsKeyForSfn.arn,
+ *         type: "CUSTOMER_MANAGED_KMS_KEY",
+ *         kmsDataKeyReusePeriodSeconds: 900,
+ *     },
+ * });
  * ```
  *
  * ## Import
@@ -57,6 +80,10 @@ export class Activity extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
+     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     */
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.sfn.ActivityEncryptionConfiguration>;
+    /**
      * The name of the activity to create.
      */
     public readonly name!: pulumi.Output<string>;
@@ -85,11 +112,13 @@ export class Activity extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ActivityState | undefined;
             resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ActivityArgs | undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationDate"] = undefined /*out*/;
@@ -108,6 +137,10 @@ export interface ActivityState {
      * The date the activity was created.
      */
     creationDate?: pulumi.Input<string>;
+    /**
+     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.sfn.ActivityEncryptionConfiguration>;
     /**
      * The name of the activity to create.
      */
@@ -128,6 +161,10 @@ export interface ActivityState {
  * The set of arguments for constructing a Activity resource.
  */
 export interface ActivityArgs {
+    /**
+     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.sfn.ActivityEncryptionConfiguration>;
     /**
      * The name of the activity to create.
      */

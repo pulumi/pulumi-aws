@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class InstanceInstanceMarketOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+        /// Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
         /// </summary>
         [Input("marketType")]
         public Input<string>? MarketType { get; set; }

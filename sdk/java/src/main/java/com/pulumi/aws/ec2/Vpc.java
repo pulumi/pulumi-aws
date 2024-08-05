@@ -411,14 +411,14 @@ public class Vpc extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipv6IpamPoolId);
     }
     /**
-     * Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+     * Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
      * 
      */
     @Export(name="ipv6NetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipv6NetmaskLength;
 
     /**
-     * @return Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+     * @return Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
      * 
      */
     public Output<Optional<Integer>> ipv6NetmaskLength() {

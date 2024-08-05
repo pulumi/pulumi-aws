@@ -45,7 +45,7 @@ class VpcArgs:
         :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if assign_generated_ipv6_cidr_block is not None:
@@ -211,7 +211,7 @@ class VpcArgs:
     @pulumi.getter(name="ipv6NetmaskLength")
     def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
         """
-        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         """
         return pulumi.get(self, "ipv6_netmask_length")
 
@@ -276,7 +276,7 @@ class _VpcState:
         :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         :param pulumi.Input[str] main_route_table_id: The ID of the main route table associated with
                this VPC. Note that you can change a VPC's main route table by using an
                `ec2.MainRouteTableAssociation`.
@@ -540,7 +540,7 @@ class _VpcState:
     @pulumi.getter(name="ipv6NetmaskLength")
     def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
         """
-        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         """
         return pulumi.get(self, "ipv6_netmask_length")
 
@@ -691,7 +691,7 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -874,7 +874,7 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         :param pulumi.Input[str] main_route_table_id: The ID of the main route table associated with
                this VPC. Note that you can change a VPC's main route table by using an
                `ec2.MainRouteTableAssociation`.
@@ -1050,7 +1050,7 @@ class Vpc(pulumi.CustomResource):
     @pulumi.getter(name="ipv6NetmaskLength")
     def ipv6_netmask_length(self) -> pulumi.Output[Optional[int]]:
         """
-        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         """
         return pulumi.get(self, "ipv6_netmask_length")
 

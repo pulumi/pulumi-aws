@@ -175,12 +175,14 @@ class ClusterRestoreToPointInTime(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceClusterIdentifier":
-            suggest = "source_cluster_identifier"
-        elif key == "restoreToTime":
+        if key == "restoreToTime":
             suggest = "restore_to_time"
         elif key == "restoreType":
             suggest = "restore_type"
+        elif key == "sourceClusterIdentifier":
+            suggest = "source_cluster_identifier"
+        elif key == "sourceClusterResourceId":
+            suggest = "source_cluster_resource_id"
         elif key == "useLatestRestorableTime":
             suggest = "use_latest_restorable_time"
 
@@ -196,32 +198,29 @@ class ClusterRestoreToPointInTime(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_cluster_identifier: str,
                  restore_to_time: Optional[str] = None,
                  restore_type: Optional[str] = None,
+                 source_cluster_identifier: Optional[str] = None,
+                 source_cluster_resource_id: Optional[str] = None,
                  use_latest_restorable_time: Optional[bool] = None):
         """
-        :param str source_cluster_identifier: Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
         :param str restore_to_time: Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
         :param str restore_type: Type of restore to be performed.
                Valid options are `full-copy` (default) and `copy-on-write`.
+        :param str source_cluster_identifier: Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
+        :param str source_cluster_resource_id: Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
         :param bool use_latest_restorable_time: Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
         """
-        pulumi.set(__self__, "source_cluster_identifier", source_cluster_identifier)
         if restore_to_time is not None:
             pulumi.set(__self__, "restore_to_time", restore_to_time)
         if restore_type is not None:
             pulumi.set(__self__, "restore_type", restore_type)
+        if source_cluster_identifier is not None:
+            pulumi.set(__self__, "source_cluster_identifier", source_cluster_identifier)
+        if source_cluster_resource_id is not None:
+            pulumi.set(__self__, "source_cluster_resource_id", source_cluster_resource_id)
         if use_latest_restorable_time is not None:
             pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
-
-    @property
-    @pulumi.getter(name="sourceClusterIdentifier")
-    def source_cluster_identifier(self) -> str:
-        """
-        Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-        """
-        return pulumi.get(self, "source_cluster_identifier")
 
     @property
     @pulumi.getter(name="restoreToTime")
@@ -239,6 +238,22 @@ class ClusterRestoreToPointInTime(dict):
         Valid options are `full-copy` (default) and `copy-on-write`.
         """
         return pulumi.get(self, "restore_type")
+
+    @property
+    @pulumi.getter(name="sourceClusterIdentifier")
+    def source_cluster_identifier(self) -> Optional[str]:
+        """
+        Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
+        """
+        return pulumi.get(self, "source_cluster_identifier")
+
+    @property
+    @pulumi.getter(name="sourceClusterResourceId")
+    def source_cluster_resource_id(self) -> Optional[str]:
+        """
+        Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+        """
+        return pulumi.get(self, "source_cluster_resource_id")
 
     @property
     @pulumi.getter(name="useLatestRestorableTime")

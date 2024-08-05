@@ -3364,6 +3364,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="resiliencehub")
+    private @Nullable Output<String> resiliencehub;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> resiliencehub() {
+        return Optional.ofNullable(this.resiliencehub);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="resourceexplorer2")
     private @Nullable Output<String> resourceexplorer2;
 
@@ -4546,6 +4561,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.redshiftdataapiservice = $.redshiftdataapiservice;
         this.redshiftserverless = $.redshiftserverless;
         this.rekognition = $.rekognition;
+        this.resiliencehub = $.resiliencehub;
         this.resourceexplorer2 = $.resourceexplorer2;
         this.resourcegroups = $.resourcegroups;
         this.resourcegroupstagging = $.resourcegroupstagging;
@@ -9311,6 +9327,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder rekognition(String rekognition) {
             return rekognition(Output.of(rekognition));
+        }
+
+        /**
+         * @param resiliencehub Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resiliencehub(@Nullable Output<String> resiliencehub) {
+            $.resiliencehub = resiliencehub;
+            return this;
+        }
+
+        /**
+         * @param resiliencehub Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resiliencehub(String resiliencehub) {
+            return resiliencehub(Output.of(resiliencehub));
         }
 
         /**

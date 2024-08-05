@@ -181,6 +181,8 @@ class PipeLogConfiguration(dict):
             suggest = "cloudwatch_logs_log_destination"
         elif key == "firehoseLogDestination":
             suggest = "firehose_log_destination"
+        elif key == "includeExecutionDatas":
+            suggest = "include_execution_datas"
         elif key == "s3LogDestination":
             suggest = "s3_log_destination"
 
@@ -199,11 +201,13 @@ class PipeLogConfiguration(dict):
                  level: str,
                  cloudwatch_logs_log_destination: Optional['outputs.PipeLogConfigurationCloudwatchLogsLogDestination'] = None,
                  firehose_log_destination: Optional['outputs.PipeLogConfigurationFirehoseLogDestination'] = None,
+                 include_execution_datas: Optional[Sequence[str]] = None,
                  s3_log_destination: Optional['outputs.PipeLogConfigurationS3LogDestination'] = None):
         """
         :param str level: The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
         :param 'PipeLogConfigurationCloudwatchLogsLogDestinationArgs' cloudwatch_logs_log_destination: Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
         :param 'PipeLogConfigurationFirehoseLogDestinationArgs' firehose_log_destination: Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+        :param Sequence[str] include_execution_datas: String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
         :param 'PipeLogConfigurationS3LogDestinationArgs' s3_log_destination: Amazon S3 logging configuration settings for the pipe. Detailed below.
         """
         pulumi.set(__self__, "level", level)
@@ -211,6 +215,8 @@ class PipeLogConfiguration(dict):
             pulumi.set(__self__, "cloudwatch_logs_log_destination", cloudwatch_logs_log_destination)
         if firehose_log_destination is not None:
             pulumi.set(__self__, "firehose_log_destination", firehose_log_destination)
+        if include_execution_datas is not None:
+            pulumi.set(__self__, "include_execution_datas", include_execution_datas)
         if s3_log_destination is not None:
             pulumi.set(__self__, "s3_log_destination", s3_log_destination)
 
@@ -237,6 +243,14 @@ class PipeLogConfiguration(dict):
         Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
         """
         return pulumi.get(self, "firehose_log_destination")
+
+    @property
+    @pulumi.getter(name="includeExecutionDatas")
+    def include_execution_datas(self) -> Optional[Sequence[str]]:
+        """
+        String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+        """
+        return pulumi.get(self, "include_execution_datas")
 
     @property
     @pulumi.getter(name="s3LogDestination")

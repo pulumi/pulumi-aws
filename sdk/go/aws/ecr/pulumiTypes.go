@@ -684,6 +684,112 @@ func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArra
 	}).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput)
 }
 
+type RepositoryCreationTemplateEncryptionConfiguration struct {
+	// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+	EncryptionType *string `pulumi:"encryptionType"`
+	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	KmsKey *string `pulumi:"kmsKey"`
+}
+
+// RepositoryCreationTemplateEncryptionConfigurationInput is an input type that accepts RepositoryCreationTemplateEncryptionConfigurationArgs and RepositoryCreationTemplateEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RepositoryCreationTemplateEncryptionConfigurationInput` via:
+//
+//	RepositoryCreationTemplateEncryptionConfigurationArgs{...}
+type RepositoryCreationTemplateEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateEncryptionConfigurationOutput() RepositoryCreationTemplateEncryptionConfigurationOutput
+	ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Context) RepositoryCreationTemplateEncryptionConfigurationOutput
+}
+
+type RepositoryCreationTemplateEncryptionConfigurationArgs struct {
+	// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
+	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+}
+
+func (RepositoryCreationTemplateEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArgs) ToRepositoryCreationTemplateEncryptionConfigurationOutput() RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return i.ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArgs) ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateEncryptionConfigurationOutput)
+}
+
+// RepositoryCreationTemplateEncryptionConfigurationArrayInput is an input type that accepts RepositoryCreationTemplateEncryptionConfigurationArray and RepositoryCreationTemplateEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `RepositoryCreationTemplateEncryptionConfigurationArrayInput` via:
+//
+//	RepositoryCreationTemplateEncryptionConfigurationArray{ RepositoryCreationTemplateEncryptionConfigurationArgs{...} }
+type RepositoryCreationTemplateEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateEncryptionConfigurationArrayOutput() RepositoryCreationTemplateEncryptionConfigurationArrayOutput
+	ToRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(context.Context) RepositoryCreationTemplateEncryptionConfigurationArrayOutput
+}
+
+type RepositoryCreationTemplateEncryptionConfigurationArray []RepositoryCreationTemplateEncryptionConfigurationInput
+
+func (RepositoryCreationTemplateEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArray) ToRepositoryCreationTemplateEncryptionConfigurationArrayOutput() RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return i.ToRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArray) ToRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateEncryptionConfigurationArrayOutput)
+}
+
+type RepositoryCreationTemplateEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCreationTemplateEncryptionConfigurationOutput() RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryCreationTemplateEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationArrayOutput) ToRepositoryCreationTemplateEncryptionConfigurationArrayOutput() RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationArrayOutput) ToRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCreationTemplateEncryptionConfiguration {
+		return vs[0].([]RepositoryCreationTemplateEncryptionConfiguration)[vs[1].(int)]
+	}).(RepositoryCreationTemplateEncryptionConfigurationOutput)
+}
+
 type RepositoryEncryptionConfiguration struct {
 	// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -1420,6 +1526,112 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagStatus() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetRepositoryCreationTemplateEncryptionConfiguration struct {
+	// Encryption type to use for any created repositories, either `AES256` or `KMS`.
+	EncryptionType string `pulumi:"encryptionType"`
+	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
+	KmsKey string `pulumi:"kmsKey"`
+}
+
+// GetRepositoryCreationTemplateEncryptionConfigurationInput is an input type that accepts GetRepositoryCreationTemplateEncryptionConfigurationArgs and GetRepositoryCreationTemplateEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `GetRepositoryCreationTemplateEncryptionConfigurationInput` via:
+//
+//	GetRepositoryCreationTemplateEncryptionConfigurationArgs{...}
+type GetRepositoryCreationTemplateEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToGetRepositoryCreationTemplateEncryptionConfigurationOutput() GetRepositoryCreationTemplateEncryptionConfigurationOutput
+	ToGetRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Context) GetRepositoryCreationTemplateEncryptionConfigurationOutput
+}
+
+type GetRepositoryCreationTemplateEncryptionConfigurationArgs struct {
+	// Encryption type to use for any created repositories, either `AES256` or `KMS`.
+	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
+	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
+	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
+}
+
+func (GetRepositoryCreationTemplateEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetRepositoryCreationTemplateEncryptionConfigurationArgs) ToGetRepositoryCreationTemplateEncryptionConfigurationOutput() GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return i.ToGetRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryCreationTemplateEncryptionConfigurationArgs) ToGetRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryCreationTemplateEncryptionConfigurationOutput)
+}
+
+// GetRepositoryCreationTemplateEncryptionConfigurationArrayInput is an input type that accepts GetRepositoryCreationTemplateEncryptionConfigurationArray and GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryCreationTemplateEncryptionConfigurationArrayInput` via:
+//
+//	GetRepositoryCreationTemplateEncryptionConfigurationArray{ GetRepositoryCreationTemplateEncryptionConfigurationArgs{...} }
+type GetRepositoryCreationTemplateEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutput() GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput
+	ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(context.Context) GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput
+}
+
+type GetRepositoryCreationTemplateEncryptionConfigurationArray []GetRepositoryCreationTemplateEncryptionConfigurationInput
+
+func (GetRepositoryCreationTemplateEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetRepositoryCreationTemplateEncryptionConfigurationArray) ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutput() GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return i.ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryCreationTemplateEncryptionConfigurationArray) ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput)
+}
+
+type GetRepositoryCreationTemplateEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryCreationTemplateEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) ToGetRepositoryCreationTemplateEncryptionConfigurationOutput() GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) ToGetRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+// Encryption type to use for any created repositories, either `AES256` or `KMS`.
+func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) EncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryCreationTemplateEncryptionConfiguration) string { return v.EncryptionType }).(pulumi.StringOutput)
+}
+
+// If `encryptionType` is `KMS`, the ARN of the KMS key used.
+func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryCreationTemplateEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
+}
+
+type GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput) ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutput() GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput) ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryCreationTemplateEncryptionConfiguration {
+		return vs[0].([]GetRepositoryCreationTemplateEncryptionConfiguration)[vs[1].(int)]
+	}).(GetRepositoryCreationTemplateEncryptionConfigurationOutput)
+}
+
 type GetRepositoryEncryptionConfiguration struct {
 	// Encryption type to use for the repository, either `AES256` or `KMS`.
 	EncryptionType string `pulumi:"encryptionType"`
@@ -1636,6 +1848,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfigurationInput)(nil)).Elem(), RepositoryCreationTemplateEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfigurationArrayInput)(nil)).Elem(), RepositoryCreationTemplateEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationInput)(nil)).Elem(), RepositoryEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), RepositoryEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
@@ -1646,6 +1860,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleActionPtrInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleSelectionInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleSelectionPtrInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfigurationInput)(nil)).Elem(), GetRepositoryCreationTemplateEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfigurationArrayInput)(nil)).Elem(), GetRepositoryCreationTemplateEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArgs{})
@@ -1662,6 +1878,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationOutput{})
@@ -1672,6 +1890,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleActionPtrOutput{})
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleSelectionOutput{})
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleSelectionPtrOutput{})
+	pulumi.RegisterOutputType(GetRepositoryCreationTemplateEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(GetRepositoryEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryImageScanningConfigurationOutput{})

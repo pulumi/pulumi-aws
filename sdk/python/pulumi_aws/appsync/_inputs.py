@@ -51,6 +51,8 @@ __all__ = [
     'GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgsDict',
     'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs',
     'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgsDict',
+    'GraphQLApiEnhancedMetricsConfigArgs',
+    'GraphQLApiEnhancedMetricsConfigArgsDict',
     'GraphQLApiLambdaAuthorizerConfigArgs',
     'GraphQLApiLambdaAuthorizerConfigArgsDict',
     'GraphQLApiLogConfigArgs',
@@ -1212,6 +1214,75 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs:
     @aws_region.setter
     def aws_region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aws_region", value)
+
+
+if not MYPY:
+    class GraphQLApiEnhancedMetricsConfigArgsDict(TypedDict):
+        data_source_level_metrics_behavior: pulumi.Input[str]
+        """
+        How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+        """
+        operation_level_metrics_config: pulumi.Input[str]
+        """
+        How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+        """
+        resolver_level_metrics_behavior: pulumi.Input[str]
+        """
+        How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+        """
+elif False:
+    GraphQLApiEnhancedMetricsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GraphQLApiEnhancedMetricsConfigArgs:
+    def __init__(__self__, *,
+                 data_source_level_metrics_behavior: pulumi.Input[str],
+                 operation_level_metrics_config: pulumi.Input[str],
+                 resolver_level_metrics_behavior: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] data_source_level_metrics_behavior: How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+        :param pulumi.Input[str] operation_level_metrics_config: How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+        :param pulumi.Input[str] resolver_level_metrics_behavior: How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+        """
+        pulumi.set(__self__, "data_source_level_metrics_behavior", data_source_level_metrics_behavior)
+        pulumi.set(__self__, "operation_level_metrics_config", operation_level_metrics_config)
+        pulumi.set(__self__, "resolver_level_metrics_behavior", resolver_level_metrics_behavior)
+
+    @property
+    @pulumi.getter(name="dataSourceLevelMetricsBehavior")
+    def data_source_level_metrics_behavior(self) -> pulumi.Input[str]:
+        """
+        How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+        """
+        return pulumi.get(self, "data_source_level_metrics_behavior")
+
+    @data_source_level_metrics_behavior.setter
+    def data_source_level_metrics_behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source_level_metrics_behavior", value)
+
+    @property
+    @pulumi.getter(name="operationLevelMetricsConfig")
+    def operation_level_metrics_config(self) -> pulumi.Input[str]:
+        """
+        How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+        """
+        return pulumi.get(self, "operation_level_metrics_config")
+
+    @operation_level_metrics_config.setter
+    def operation_level_metrics_config(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operation_level_metrics_config", value)
+
+    @property
+    @pulumi.getter(name="resolverLevelMetricsBehavior")
+    def resolver_level_metrics_behavior(self) -> pulumi.Input[str]:
+        """
+        How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+        """
+        return pulumi.get(self, "resolver_level_metrics_behavior")
+
+    @resolver_level_metrics_behavior.setter
+    def resolver_level_metrics_behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resolver_level_metrics_behavior", value)
 
 
 if not MYPY:

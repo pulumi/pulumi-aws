@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -50,6 +51,21 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+     * 
+     */
+    @Import(name="includeExecutionDatas")
+    private @Nullable Output<List<String>> includeExecutionDatas;
+
+    /**
+     * @return String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+     * 
+     */
+    public Optional<Output<List<String>>> includeExecutionDatas() {
+        return Optional.ofNullable(this.includeExecutionDatas);
+    }
+
+    /**
      * The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
      * 
      */
@@ -84,6 +100,7 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
     private PipeLogConfigurationArgs(PipeLogConfigurationArgs $) {
         this.cloudwatchLogsLogDestination = $.cloudwatchLogsLogDestination;
         this.firehoseLogDestination = $.firehoseLogDestination;
+        this.includeExecutionDatas = $.includeExecutionDatas;
         this.level = $.level;
         this.s3LogDestination = $.s3LogDestination;
     }
@@ -146,6 +163,37 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
          */
         public Builder firehoseLogDestination(PipeLogConfigurationFirehoseLogDestinationArgs firehoseLogDestination) {
             return firehoseLogDestination(Output.of(firehoseLogDestination));
+        }
+
+        /**
+         * @param includeExecutionDatas String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeExecutionDatas(@Nullable Output<List<String>> includeExecutionDatas) {
+            $.includeExecutionDatas = includeExecutionDatas;
+            return this;
+        }
+
+        /**
+         * @param includeExecutionDatas String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeExecutionDatas(List<String> includeExecutionDatas) {
+            return includeExecutionDatas(Output.of(includeExecutionDatas));
+        }
+
+        /**
+         * @param includeExecutionDatas String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeExecutionDatas(String... includeExecutionDatas) {
+            return includeExecutionDatas(List.of(includeExecutionDatas));
         }
 
         /**

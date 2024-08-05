@@ -241,6 +241,7 @@ const (
 	storagegatewayMod           = "StorageGateway"           // Storage Gateway
 	swfMod                      = "Swf"                      // Simple Workflow Service (SWF)
 	syntheticsMod               = "Synthetics"               // Synthetics
+	timestreamInfluxDBMod       = "TimestreamInfluxDB"       // Timestream Influx DB
 	timestreamWriteMod          = "TimestreamWrite"          // Timestream Write
 	transcribeMod               = "Transcribe"               // Transcribe
 	transferMod                 = "Transfer"                 // Transfer Service
@@ -299,6 +300,7 @@ var moduleMap = map[string]string{
 	"bcmdataexports":                  bcmDataMod,
 	"budgets":                         budgetsMod,
 	"ce":                              costExplorerMod,
+	"chatbot":                         chatbotMod,
 	"chime":                           chimeMod,
 	"chimesdkmediapipelines":          chimeSDKMediaPipelinesMod,
 	"cleanrooms":                      "CleanRooms",
@@ -462,6 +464,7 @@ var moduleMap = map[string]string{
 	"storagegateway":                  storagegatewayMod,
 	"swf":                             swfMod,
 	"synthetics":                      syntheticsMod,
+	"timestreaminfluxdb":              timestreamInfluxDBMod,
 	"timestreamwrite":                 timestreamWriteMod,
 	"transcribe":                      transcribeMod,
 	"transfer":                        transferMod,
@@ -6165,5 +6168,11 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	}
 	prov.Resources["aws_rekognition_stream_processor"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "name"), nil
+	}
+	prov.Resources["aws_chatbot_slack_channel_configuration"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "configurationName"), nil
+	}
+	prov.Resources["aws_chatbot_teams_channel_configuration"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "configurationName"), nil
 	}
 }

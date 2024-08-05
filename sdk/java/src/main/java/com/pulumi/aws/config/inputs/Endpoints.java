@@ -1130,6 +1130,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String resiliencehub;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String resourceexplorer2;
     /**
      * @return Use this to override the default service endpoint URL
@@ -3013,6 +3018,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> resiliencehub() {
+        return Optional.ofNullable(this.resiliencehub);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> resourceexplorer2() {
         return Optional.ofNullable(this.resourceexplorer2);
     }
@@ -3690,6 +3702,7 @@ public final class Endpoints {
         private @Nullable String redshiftdataapiservice;
         private @Nullable String redshiftserverless;
         private @Nullable String rekognition;
+        private @Nullable String resiliencehub;
         private @Nullable String resourceexplorer2;
         private @Nullable String resourcegroups;
         private @Nullable String resourcegroupstagging;
@@ -3980,6 +3993,7 @@ public final class Endpoints {
     	      this.redshiftdataapiservice = defaults.redshiftdataapiservice;
     	      this.redshiftserverless = defaults.redshiftserverless;
     	      this.rekognition = defaults.rekognition;
+    	      this.resiliencehub = defaults.resiliencehub;
     	      this.resourceexplorer2 = defaults.resourceexplorer2;
     	      this.resourcegroups = defaults.resourcegroups;
     	      this.resourcegroupstagging = defaults.resourcegroupstagging;
@@ -5385,6 +5399,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder resiliencehub(@Nullable String resiliencehub) {
+
+            this.resiliencehub = resiliencehub;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceexplorer2(@Nullable String resourceexplorer2) {
 
             this.resourceexplorer2 = resourceexplorer2;
@@ -5993,6 +6013,7 @@ public final class Endpoints {
             _resultValue.redshiftdataapiservice = redshiftdataapiservice;
             _resultValue.redshiftserverless = redshiftserverless;
             _resultValue.rekognition = rekognition;
+            _resultValue.resiliencehub = resiliencehub;
             _resultValue.resourceexplorer2 = resourceexplorer2;
             _resultValue.resourcegroups = resourcegroups;
             _resultValue.resourcegroupstagging = resourcegroupstagging;

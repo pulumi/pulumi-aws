@@ -2978,6 +2978,181 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) UserP
 	}).(pulumi.StringPtrOutput)
 }
 
+type GraphQLApiEnhancedMetricsConfig struct {
+	// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+	DataSourceLevelMetricsBehavior string `pulumi:"dataSourceLevelMetricsBehavior"`
+	// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+	OperationLevelMetricsConfig string `pulumi:"operationLevelMetricsConfig"`
+	// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+	ResolverLevelMetricsBehavior string `pulumi:"resolverLevelMetricsBehavior"`
+}
+
+// GraphQLApiEnhancedMetricsConfigInput is an input type that accepts GraphQLApiEnhancedMetricsConfigArgs and GraphQLApiEnhancedMetricsConfigOutput values.
+// You can construct a concrete instance of `GraphQLApiEnhancedMetricsConfigInput` via:
+//
+//	GraphQLApiEnhancedMetricsConfigArgs{...}
+type GraphQLApiEnhancedMetricsConfigInput interface {
+	pulumi.Input
+
+	ToGraphQLApiEnhancedMetricsConfigOutput() GraphQLApiEnhancedMetricsConfigOutput
+	ToGraphQLApiEnhancedMetricsConfigOutputWithContext(context.Context) GraphQLApiEnhancedMetricsConfigOutput
+}
+
+type GraphQLApiEnhancedMetricsConfigArgs struct {
+	// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+	DataSourceLevelMetricsBehavior pulumi.StringInput `pulumi:"dataSourceLevelMetricsBehavior"`
+	// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+	OperationLevelMetricsConfig pulumi.StringInput `pulumi:"operationLevelMetricsConfig"`
+	// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+	ResolverLevelMetricsBehavior pulumi.StringInput `pulumi:"resolverLevelMetricsBehavior"`
+}
+
+func (GraphQLApiEnhancedMetricsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiEnhancedMetricsConfig)(nil)).Elem()
+}
+
+func (i GraphQLApiEnhancedMetricsConfigArgs) ToGraphQLApiEnhancedMetricsConfigOutput() GraphQLApiEnhancedMetricsConfigOutput {
+	return i.ToGraphQLApiEnhancedMetricsConfigOutputWithContext(context.Background())
+}
+
+func (i GraphQLApiEnhancedMetricsConfigArgs) ToGraphQLApiEnhancedMetricsConfigOutputWithContext(ctx context.Context) GraphQLApiEnhancedMetricsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiEnhancedMetricsConfigOutput)
+}
+
+func (i GraphQLApiEnhancedMetricsConfigArgs) ToGraphQLApiEnhancedMetricsConfigPtrOutput() GraphQLApiEnhancedMetricsConfigPtrOutput {
+	return i.ToGraphQLApiEnhancedMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GraphQLApiEnhancedMetricsConfigArgs) ToGraphQLApiEnhancedMetricsConfigPtrOutputWithContext(ctx context.Context) GraphQLApiEnhancedMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiEnhancedMetricsConfigOutput).ToGraphQLApiEnhancedMetricsConfigPtrOutputWithContext(ctx)
+}
+
+// GraphQLApiEnhancedMetricsConfigPtrInput is an input type that accepts GraphQLApiEnhancedMetricsConfigArgs, GraphQLApiEnhancedMetricsConfigPtr and GraphQLApiEnhancedMetricsConfigPtrOutput values.
+// You can construct a concrete instance of `GraphQLApiEnhancedMetricsConfigPtrInput` via:
+//
+//	        GraphQLApiEnhancedMetricsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GraphQLApiEnhancedMetricsConfigPtrInput interface {
+	pulumi.Input
+
+	ToGraphQLApiEnhancedMetricsConfigPtrOutput() GraphQLApiEnhancedMetricsConfigPtrOutput
+	ToGraphQLApiEnhancedMetricsConfigPtrOutputWithContext(context.Context) GraphQLApiEnhancedMetricsConfigPtrOutput
+}
+
+type graphQLApiEnhancedMetricsConfigPtrType GraphQLApiEnhancedMetricsConfigArgs
+
+func GraphQLApiEnhancedMetricsConfigPtr(v *GraphQLApiEnhancedMetricsConfigArgs) GraphQLApiEnhancedMetricsConfigPtrInput {
+	return (*graphQLApiEnhancedMetricsConfigPtrType)(v)
+}
+
+func (*graphQLApiEnhancedMetricsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQLApiEnhancedMetricsConfig)(nil)).Elem()
+}
+
+func (i *graphQLApiEnhancedMetricsConfigPtrType) ToGraphQLApiEnhancedMetricsConfigPtrOutput() GraphQLApiEnhancedMetricsConfigPtrOutput {
+	return i.ToGraphQLApiEnhancedMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *graphQLApiEnhancedMetricsConfigPtrType) ToGraphQLApiEnhancedMetricsConfigPtrOutputWithContext(ctx context.Context) GraphQLApiEnhancedMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiEnhancedMetricsConfigPtrOutput)
+}
+
+type GraphQLApiEnhancedMetricsConfigOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiEnhancedMetricsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiEnhancedMetricsConfig)(nil)).Elem()
+}
+
+func (o GraphQLApiEnhancedMetricsConfigOutput) ToGraphQLApiEnhancedMetricsConfigOutput() GraphQLApiEnhancedMetricsConfigOutput {
+	return o
+}
+
+func (o GraphQLApiEnhancedMetricsConfigOutput) ToGraphQLApiEnhancedMetricsConfigOutputWithContext(ctx context.Context) GraphQLApiEnhancedMetricsConfigOutput {
+	return o
+}
+
+func (o GraphQLApiEnhancedMetricsConfigOutput) ToGraphQLApiEnhancedMetricsConfigPtrOutput() GraphQLApiEnhancedMetricsConfigPtrOutput {
+	return o.ToGraphQLApiEnhancedMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GraphQLApiEnhancedMetricsConfigOutput) ToGraphQLApiEnhancedMetricsConfigPtrOutputWithContext(ctx context.Context) GraphQLApiEnhancedMetricsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiEnhancedMetricsConfig) *GraphQLApiEnhancedMetricsConfig {
+		return &v
+	}).(GraphQLApiEnhancedMetricsConfigPtrOutput)
+}
+
+// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+func (o GraphQLApiEnhancedMetricsConfigOutput) DataSourceLevelMetricsBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQLApiEnhancedMetricsConfig) string { return v.DataSourceLevelMetricsBehavior }).(pulumi.StringOutput)
+}
+
+// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+func (o GraphQLApiEnhancedMetricsConfigOutput) OperationLevelMetricsConfig() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQLApiEnhancedMetricsConfig) string { return v.OperationLevelMetricsConfig }).(pulumi.StringOutput)
+}
+
+// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+func (o GraphQLApiEnhancedMetricsConfigOutput) ResolverLevelMetricsBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQLApiEnhancedMetricsConfig) string { return v.ResolverLevelMetricsBehavior }).(pulumi.StringOutput)
+}
+
+type GraphQLApiEnhancedMetricsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiEnhancedMetricsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQLApiEnhancedMetricsConfig)(nil)).Elem()
+}
+
+func (o GraphQLApiEnhancedMetricsConfigPtrOutput) ToGraphQLApiEnhancedMetricsConfigPtrOutput() GraphQLApiEnhancedMetricsConfigPtrOutput {
+	return o
+}
+
+func (o GraphQLApiEnhancedMetricsConfigPtrOutput) ToGraphQLApiEnhancedMetricsConfigPtrOutputWithContext(ctx context.Context) GraphQLApiEnhancedMetricsConfigPtrOutput {
+	return o
+}
+
+func (o GraphQLApiEnhancedMetricsConfigPtrOutput) Elem() GraphQLApiEnhancedMetricsConfigOutput {
+	return o.ApplyT(func(v *GraphQLApiEnhancedMetricsConfig) GraphQLApiEnhancedMetricsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GraphQLApiEnhancedMetricsConfig
+		return ret
+	}).(GraphQLApiEnhancedMetricsConfigOutput)
+}
+
+// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+func (o GraphQLApiEnhancedMetricsConfigPtrOutput) DataSourceLevelMetricsBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiEnhancedMetricsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceLevelMetricsBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+func (o GraphQLApiEnhancedMetricsConfigPtrOutput) OperationLevelMetricsConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiEnhancedMetricsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperationLevelMetricsConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+func (o GraphQLApiEnhancedMetricsConfigPtrOutput) ResolverLevelMetricsBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiEnhancedMetricsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResolverLevelMetricsBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
 type GraphQLApiLambdaAuthorizerConfig struct {
 	// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
@@ -4516,6 +4691,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderUserPoolConfigInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiEnhancedMetricsConfigInput)(nil)).Elem(), GraphQLApiEnhancedMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiEnhancedMetricsConfigPtrInput)(nil)).Elem(), GraphQLApiEnhancedMetricsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLambdaAuthorizerConfigInput)(nil)).Elem(), GraphQLApiLambdaAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLambdaAuthorizerConfigPtrInput)(nil)).Elem(), GraphQLApiLambdaAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLogConfigInput)(nil)).Elem(), GraphQLApiLogConfigArgs{})
@@ -4570,6 +4747,8 @@ func init() {
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput{})
+	pulumi.RegisterOutputType(GraphQLApiEnhancedMetricsConfigOutput{})
+	pulumi.RegisterOutputType(GraphQLApiEnhancedMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiLambdaAuthorizerConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiLambdaAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiLogConfigOutput{})

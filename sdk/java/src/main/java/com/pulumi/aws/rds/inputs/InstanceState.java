@@ -1362,6 +1362,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+     * 
+     */
+    @Import(name="upgradeStorageConfig")
+    private @Nullable Output<Boolean> upgradeStorageConfig;
+
+    /**
+     * @return Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+     * 
+     */
+    public Optional<Output<Boolean>> upgradeStorageConfig() {
+        return Optional.ofNullable(this.upgradeStorageConfig);
+    }
+
+    /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 
@@ -1476,6 +1491,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timezone = $.timezone;
+        this.upgradeStorageConfig = $.upgradeStorageConfig;
         this.username = $.username;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
     }
@@ -3384,6 +3400,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder timezone(String timezone) {
             return timezone(Output.of(timezone));
+        }
+
+        /**
+         * @param upgradeStorageConfig Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradeStorageConfig(@Nullable Output<Boolean> upgradeStorageConfig) {
+            $.upgradeStorageConfig = upgradeStorageConfig;
+            return this;
+        }
+
+        /**
+         * @param upgradeStorageConfig Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradeStorageConfig(Boolean upgradeStorageConfig) {
+            return upgradeStorageConfig(Output.of(upgradeStorageConfig));
         }
 
         /**

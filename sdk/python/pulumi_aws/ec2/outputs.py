@@ -3825,7 +3825,7 @@ class InstanceInstanceMarketOptions(dict):
                  market_type: Optional[str] = None,
                  spot_options: Optional['outputs.InstanceInstanceMarketOptionsSpotOptions'] = None):
         """
-        :param str market_type: Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+        :param str market_type: Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
         :param 'InstanceInstanceMarketOptionsSpotOptionsArgs' spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         """
         if market_type is not None:
@@ -3837,7 +3837,7 @@ class InstanceInstanceMarketOptions(dict):
     @pulumi.getter(name="marketType")
     def market_type(self) -> Optional[str]:
         """
-        Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+        Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
         """
         return pulumi.get(self, "market_type")
 

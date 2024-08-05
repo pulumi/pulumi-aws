@@ -76,6 +76,12 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        /// </summary>
+        [Output("ruleJson")]
+        public Output<string?> RuleJson { get; private set; } = null!;
+
+        /// <summary>
         /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         /// </summary>
         [Output("rules")]
@@ -205,6 +211,12 @@ namespace Pulumi.Aws.WafV2
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        /// </summary>
+        [Input("ruleJson")]
+        public Input<string>? RuleJson { get; set; }
+
         [Input("rules")]
         private InputList<Inputs.WebAclRuleArgs>? _rules;
 
@@ -329,6 +341,12 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        /// </summary>
+        [Input("ruleJson")]
+        public Input<string>? RuleJson { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.WebAclRuleGetArgs>? _rules;

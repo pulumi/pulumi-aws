@@ -465,6 +465,7 @@ class Endpoints(dict):
                  redshiftdataapiservice: Optional[str] = None,
                  redshiftserverless: Optional[str] = None,
                  rekognition: Optional[str] = None,
+                 resiliencehub: Optional[str] = None,
                  resourceexplorer2: Optional[str] = None,
                  resourcegroups: Optional[str] = None,
                  resourcegroupstagging: Optional[str] = None,
@@ -753,6 +754,7 @@ class Endpoints(dict):
         :param str redshiftdataapiservice: Use this to override the default service endpoint URL
         :param str redshiftserverless: Use this to override the default service endpoint URL
         :param str rekognition: Use this to override the default service endpoint URL
+        :param str resiliencehub: Use this to override the default service endpoint URL
         :param str resourceexplorer2: Use this to override the default service endpoint URL
         :param str resourcegroups: Use this to override the default service endpoint URL
         :param str resourcegroupstagging: Use this to override the default service endpoint URL
@@ -1264,6 +1266,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "redshiftserverless", redshiftserverless)
         if rekognition is not None:
             pulumi.set(__self__, "rekognition", rekognition)
+        if resiliencehub is not None:
+            pulumi.set(__self__, "resiliencehub", resiliencehub)
         if resourceexplorer2 is not None:
             pulumi.set(__self__, "resourceexplorer2", resourceexplorer2)
         if resourcegroups is not None:
@@ -3176,6 +3180,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "rekognition")
+
+    @property
+    @pulumi.getter
+    def resiliencehub(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "resiliencehub")
 
     @property
     @pulumi.getter

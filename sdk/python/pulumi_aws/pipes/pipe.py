@@ -631,6 +631,31 @@ class Pipe(pulumi.CustomResource):
             })
         ```
 
+        ### CloudWatch Logs Logging Configuration Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.LogGroup("example", name="example-pipe-target")
+        example_pipe = aws.pipes.Pipe("example",
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source_aws_sqs_queue["arn"],
+            target=target_aws_sqs_queue["arn"],
+            log_configuration={
+                "include_execution_datas": ["ALL"],
+                "level": "INFO",
+                "cloudwatch_logs_log_destination": {
+                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
+                },
+            },
+            opts = pulumi.ResourceOptions(depends_on=[
+                    source,
+                    target,
+                ]))
+        ```
+
         ## Import
 
         Using `pulumi import`, import pipes using the `name`. For example:
@@ -782,6 +807,31 @@ class Pipe(pulumi.CustomResource):
                     }],
                 },
             })
+        ```
+
+        ### CloudWatch Logs Logging Configuration Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.LogGroup("example", name="example-pipe-target")
+        example_pipe = aws.pipes.Pipe("example",
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source_aws_sqs_queue["arn"],
+            target=target_aws_sqs_queue["arn"],
+            log_configuration={
+                "include_execution_datas": ["ALL"],
+                "level": "INFO",
+                "cloudwatch_logs_log_destination": {
+                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
+                },
+            },
+            opts = pulumi.ResourceOptions(depends_on=[
+                    source,
+                    target,
+                ]))
         ```
 
         ## Import

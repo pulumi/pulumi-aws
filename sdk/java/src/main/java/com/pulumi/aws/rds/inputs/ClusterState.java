@@ -745,14 +745,59 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Port on which the DB accepts connections
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     * 
+     */
+    @Import(name="performanceInsightsEnabled")
+    private @Nullable Output<Boolean> performanceInsightsEnabled;
+
+    /**
+     * @return Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     * 
+     */
+    public Optional<Output<Boolean>> performanceInsightsEnabled() {
+        return Optional.ofNullable(this.performanceInsightsEnabled);
+    }
+
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     * 
+     */
+    @Import(name="performanceInsightsKmsKeyId")
+    private @Nullable Output<String> performanceInsightsKmsKeyId;
+
+    /**
+     * @return Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     * 
+     */
+    public Optional<Output<String>> performanceInsightsKmsKeyId() {
+        return Optional.ofNullable(this.performanceInsightsKmsKeyId);
+    }
+
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     * 
+     */
+    @Import(name="performanceInsightsRetentionPeriod")
+    private @Nullable Output<Integer> performanceInsightsRetentionPeriod;
+
+    /**
+     * @return Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     * 
+     */
+    public Optional<Output<Integer>> performanceInsightsRetentionPeriod() {
+        return Optional.ofNullable(this.performanceInsightsRetentionPeriod);
+    }
+
+    /**
+     * Port on which the DB accepts connections.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Port on which the DB accepts connections
+     * @return Port on which the DB accepts connections.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -760,14 +805,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      * 
      */
     @Import(name="preferredBackupWindow")
     private @Nullable Output<String> preferredBackupWindow;
 
     /**
-     * @return Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * @return Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      * 
      */
     public Optional<Output<String>> preferredBackupWindow() {
@@ -775,14 +820,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      * 
      */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
     /**
-     * @return Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * @return Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -1051,6 +1096,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.masterUserSecrets = $.masterUserSecrets;
         this.masterUsername = $.masterUsername;
         this.networkType = $.networkType;
+        this.performanceInsightsEnabled = $.performanceInsightsEnabled;
+        this.performanceInsightsKmsKeyId = $.performanceInsightsKmsKeyId;
+        this.performanceInsightsRetentionPeriod = $.performanceInsightsRetentionPeriod;
         this.port = $.port;
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
@@ -2181,7 +2229,70 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port on which the DB accepts connections
+         * @param performanceInsightsEnabled Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performanceInsightsEnabled(@Nullable Output<Boolean> performanceInsightsEnabled) {
+            $.performanceInsightsEnabled = performanceInsightsEnabled;
+            return this;
+        }
+
+        /**
+         * @param performanceInsightsEnabled Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performanceInsightsEnabled(Boolean performanceInsightsEnabled) {
+            return performanceInsightsEnabled(Output.of(performanceInsightsEnabled));
+        }
+
+        /**
+         * @param performanceInsightsKmsKeyId Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performanceInsightsKmsKeyId(@Nullable Output<String> performanceInsightsKmsKeyId) {
+            $.performanceInsightsKmsKeyId = performanceInsightsKmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param performanceInsightsKmsKeyId Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performanceInsightsKmsKeyId(String performanceInsightsKmsKeyId) {
+            return performanceInsightsKmsKeyId(Output.of(performanceInsightsKmsKeyId));
+        }
+
+        /**
+         * @param performanceInsightsRetentionPeriod Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performanceInsightsRetentionPeriod(@Nullable Output<Integer> performanceInsightsRetentionPeriod) {
+            $.performanceInsightsRetentionPeriod = performanceInsightsRetentionPeriod;
+            return this;
+        }
+
+        /**
+         * @param performanceInsightsRetentionPeriod Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performanceInsightsRetentionPeriod(Integer performanceInsightsRetentionPeriod) {
+            return performanceInsightsRetentionPeriod(Output.of(performanceInsightsRetentionPeriod));
+        }
+
+        /**
+         * @param port Port on which the DB accepts connections.
          * 
          * @return builder
          * 
@@ -2192,7 +2303,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port on which the DB accepts connections
+         * @param port Port on which the DB accepts connections.
          * 
          * @return builder
          * 
@@ -2202,7 +2313,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+         * @param preferredBackupWindow Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
          * 
          * @return builder
          * 
@@ -2213,7 +2324,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+         * @param preferredBackupWindow Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
          * 
          * @return builder
          * 
@@ -2223,7 +2334,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
          * 
          * @return builder
          * 
@@ -2234,7 +2345,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
          * 
          * @return builder
          * 

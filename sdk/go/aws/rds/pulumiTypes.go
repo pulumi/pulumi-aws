@@ -256,7 +256,9 @@ type ClusterRestoreToPointInTime struct {
 	// Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType *string `pulumi:"restoreType"`
 	// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-	SourceClusterIdentifier string `pulumi:"sourceClusterIdentifier"`
+	SourceClusterIdentifier *string `pulumi:"sourceClusterIdentifier"`
+	// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+	SourceClusterResourceId *string `pulumi:"sourceClusterResourceId"`
 	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
 	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
 }
@@ -279,7 +281,9 @@ type ClusterRestoreToPointInTimeArgs struct {
 	// Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType pulumi.StringPtrInput `pulumi:"restoreType"`
 	// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-	SourceClusterIdentifier pulumi.StringInput `pulumi:"sourceClusterIdentifier"`
+	SourceClusterIdentifier pulumi.StringPtrInput `pulumi:"sourceClusterIdentifier"`
+	// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+	SourceClusterResourceId pulumi.StringPtrInput `pulumi:"sourceClusterResourceId"`
 	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
 	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
 }
@@ -373,8 +377,13 @@ func (o ClusterRestoreToPointInTimeOutput) RestoreType() pulumi.StringPtrOutput 
 }
 
 // Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterRestoreToPointInTime) string { return v.SourceClusterIdentifier }).(pulumi.StringOutput)
+func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.SourceClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+func (o ClusterRestoreToPointInTimeOutput) SourceClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.SourceClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
@@ -433,7 +442,17 @@ func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterIdentifier() pulumi.S
 		if v == nil {
 			return nil
 		}
-		return &v.SourceClusterIdentifier
+		return v.SourceClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceClusterResourceId
 	}).(pulumi.StringPtrOutput)
 }
 

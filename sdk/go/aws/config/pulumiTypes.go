@@ -737,6 +737,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Rekognition *string `pulumi:"rekognition"`
 	// Use this to override the default service endpoint URL
+	Resiliencehub *string `pulumi:"resiliencehub"`
+	// Use this to override the default service endpoint URL
 	Resourceexplorer2 *string `pulumi:"resourceexplorer2"`
 	// Use this to override the default service endpoint URL
 	Resourcegroups *string `pulumi:"resourcegroups"`
@@ -1324,6 +1326,8 @@ type EndpointsArgs struct {
 	Redshiftserverless pulumi.StringPtrInput `pulumi:"redshiftserverless"`
 	// Use this to override the default service endpoint URL
 	Rekognition pulumi.StringPtrInput `pulumi:"rekognition"`
+	// Use this to override the default service endpoint URL
+	Resiliencehub pulumi.StringPtrInput `pulumi:"resiliencehub"`
 	// Use this to override the default service endpoint URL
 	Resourceexplorer2 pulumi.StringPtrInput `pulumi:"resourceexplorer2"`
 	// Use this to override the default service endpoint URL
@@ -2618,6 +2622,11 @@ func (o EndpointsOutput) Redshiftserverless() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Rekognition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Rekognition }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Resiliencehub() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Resiliencehub }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

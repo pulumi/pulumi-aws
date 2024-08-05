@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CloudSearch.Outputs
         /// </summary>
         public readonly bool? Highlight;
         /// <summary>
-        /// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        /// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
         /// </summary>
         public readonly string Name;
         /// <summary>

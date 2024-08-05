@@ -337,6 +337,8 @@ type PipeLogConfiguration struct {
 	CloudwatchLogsLogDestination *PipeLogConfigurationCloudwatchLogsLogDestination `pulumi:"cloudwatchLogsLogDestination"`
 	// Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
 	FirehoseLogDestination *PipeLogConfigurationFirehoseLogDestination `pulumi:"firehoseLogDestination"`
+	// String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+	IncludeExecutionDatas []string `pulumi:"includeExecutionDatas"`
 	// The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
 	Level string `pulumi:"level"`
 	// Amazon S3 logging configuration settings for the pipe. Detailed below.
@@ -359,6 +361,8 @@ type PipeLogConfigurationArgs struct {
 	CloudwatchLogsLogDestination PipeLogConfigurationCloudwatchLogsLogDestinationPtrInput `pulumi:"cloudwatchLogsLogDestination"`
 	// Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
 	FirehoseLogDestination PipeLogConfigurationFirehoseLogDestinationPtrInput `pulumi:"firehoseLogDestination"`
+	// String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+	IncludeExecutionDatas pulumi.StringArrayInput `pulumi:"includeExecutionDatas"`
 	// The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
 	Level pulumi.StringInput `pulumi:"level"`
 	// Amazon S3 logging configuration settings for the pipe. Detailed below.
@@ -456,6 +460,11 @@ func (o PipeLogConfigurationOutput) FirehoseLogDestination() PipeLogConfiguratio
 	}).(PipeLogConfigurationFirehoseLogDestinationPtrOutput)
 }
 
+// String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+func (o PipeLogConfigurationOutput) IncludeExecutionDatas() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipeLogConfiguration) []string { return v.IncludeExecutionDatas }).(pulumi.StringArrayOutput)
+}
+
 // The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
 func (o PipeLogConfigurationOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeLogConfiguration) string { return v.Level }).(pulumi.StringOutput)
@@ -508,6 +517,16 @@ func (o PipeLogConfigurationPtrOutput) FirehoseLogDestination() PipeLogConfigura
 		}
 		return v.FirehoseLogDestination
 	}).(PipeLogConfigurationFirehoseLogDestinationPtrOutput)
+}
+
+// String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+func (o PipeLogConfigurationPtrOutput) IncludeExecutionDatas() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipeLogConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeExecutionDatas
+	}).(pulumi.StringArrayOutput)
 }
 
 // The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.

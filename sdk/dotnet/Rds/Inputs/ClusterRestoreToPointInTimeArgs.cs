@@ -28,8 +28,14 @@ namespace Pulumi.Aws.Rds.Inputs
         /// <summary>
         /// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
         /// </summary>
-        [Input("sourceClusterIdentifier", required: true)]
-        public Input<string> SourceClusterIdentifier { get; set; } = null!;
+        [Input("sourceClusterIdentifier")]
+        public Input<string>? SourceClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+        /// </summary>
+        [Input("sourceClusterResourceId")]
+        public Input<string>? SourceClusterResourceId { get; set; }
 
         /// <summary>
         /// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.

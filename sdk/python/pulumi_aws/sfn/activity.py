@@ -13,23 +13,41 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ActivityArgs', 'Activity']
 
 @pulumi.input_type
 class ActivityArgs:
     def __init__(__self__, *,
+                 encryption_configuration: Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Activity resource.
+        :param pulumi.Input['ActivityEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the activity to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']]:
+        """
+        Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter
@@ -60,18 +78,22 @@ class ActivityArgs:
 class _ActivityState:
     def __init__(__self__, *,
                  creation_date: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Activity resources.
         :param pulumi.Input[str] creation_date: The date the activity was created.
+        :param pulumi.Input['ActivityEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the activity to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if creation_date is not None:
             pulumi.set(__self__, "creation_date", creation_date)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -93,6 +115,18 @@ class _ActivityState:
     @creation_date.setter
     def creation_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "creation_date", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']]:
+        """
+        Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter
@@ -137,6 +171,7 @@ class Activity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -145,11 +180,30 @@ class Activity(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
+        ```
+
+        ### Encryption
+
+        > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sfn_activity = aws.sfn.Activity("sfn_activity",
+            name="my-activity",
+            encryption_configuration={
+                "kms_key_id": kms_key_for_sfn["arn"],
+                "type": "CUSTOMER_MANAGED_KMS_KEY",
+                "kms_data_key_reuse_period_seconds": 900,
+            })
         ```
 
         ## Import
@@ -162,6 +216,7 @@ class Activity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the activity to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -176,11 +231,30 @@ class Activity(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
+        ```
+
+        ### Encryption
+
+        > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sfn_activity = aws.sfn.Activity("sfn_activity",
+            name="my-activity",
+            encryption_configuration={
+                "kms_key_id": kms_key_for_sfn["arn"],
+                "type": "CUSTOMER_MANAGED_KMS_KEY",
+                "kms_data_key_reuse_period_seconds": 900,
+            })
         ```
 
         ## Import
@@ -206,6 +280,7 @@ class Activity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -217,6 +292,7 @@ class Activity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActivityArgs.__new__(ActivityArgs)
 
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_date"] = None
@@ -232,6 +308,7 @@ class Activity(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             creation_date: Optional[pulumi.Input[str]] = None,
+            encryption_configuration: Optional[pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Activity':
@@ -243,6 +320,7 @@ class Activity(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] creation_date: The date the activity was created.
+        :param pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the activity to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -252,6 +330,7 @@ class Activity(pulumi.CustomResource):
         __props__ = _ActivityState.__new__(_ActivityState)
 
         __props__.__dict__["creation_date"] = creation_date
+        __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -264,6 +343,14 @@ class Activity(pulumi.CustomResource):
         The date the activity was created.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output['outputs.ActivityEncryptionConfiguration']:
+        """
+        Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+        """
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter
