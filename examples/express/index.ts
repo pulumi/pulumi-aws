@@ -1,4 +1,4 @@
-// Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+// Copyright 2016-2024, Pulumi Corporation.  All rights reserved.
 
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
@@ -19,7 +19,16 @@ const lambda = new aws.lambda.CallbackFunction<any, any>("mylambda", {
 
     app.get("/", (req, res) => {
       console.log("Invoked url: " + req.url);
-      res.json({ message: hello + "\n\nSucceeded with " + ctx.getRemainingTimeInMillis() + "ms remaining.\n" });
+
+      // Test fetch.
+      // Per https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html
+      // fetch is available in Node.js 18 and later runtimes
+      fetch('https://www.pulumi.com/robots.txt').then(resp => {
+        res.json({
+          message: hello + "\n\nSucceeded with " + ctx.getRemainingTimeInMillis() + "ms remaining.",
+          fetched: resp.text(),
+        });
+      });
     });
 
     const server = serverlessExpress.createServer(app);
@@ -33,3 +42,6 @@ const lambda = new aws.lambda.CallbackFunction<any, any>("mylambda", {
     }
   }
 }, providerOpts);
+
+export const lambdaARN = lambda.arn;
+export const lambdaRuntime = lambda.runtime;

@@ -64,10 +64,57 @@ func TestAccMinimal(t *testing.T) {
 }
 
 func TestAccExpress(t *testing.T) {
+	// This example is reused to further validate that provisioned CallbackFunctions in Node are working at runtime
+	// as expected, in particular their default runtime is not deprecated and they can utilize new APIs like the
+	// fetch() API that is new in the Node 18 runtime.
+	validate := func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+		lambdaRuntime := stack.Outputs["lambdaRuntime"].(string)
+		t.Logf("Picked the following runtime by default: %v", lambdaRuntime)
+
+		lambdaARN := stack.Outputs["lambdaARN"].(string)
+
+		// Invoke a given Lambda function using Go SDK v2
+		sess := getAwsSession(t)
+		lambdaClient := lambda.New(sess)
+		result, err := lambdaClient.Invoke(&lambda.InvokeInput{
+			FunctionName: aws.String(lambdaARN),
+			Payload:      []byte("{}"),
+		})
+		require.NoError(t, err)
+
+		t.Logf("Raw payload returned by the Lambda: %s", result.Payload)
+
+		type data struct {
+			StatusCode int    `json:"statusCode"`
+			Body       string `json:"body"`
+		}
+		var payload data
+		err = json.Unmarshal(result.Payload, &payload)
+		require.NoError(t, err)
+
+		// Verify that the lambda code succeeded without throwing.
+		require.Equal(t, 200, payload.StatusCode)
+
+		type inner struct {
+			Message string `json:"message"`
+			Fetched string `json:"fetched"`
+		}
+
+		var response inner
+		err = json.Unmarshal([]byte(payload.Body), &response)
+		require.NoError(t, err)
+
+		// Verify that the lambda code emitted the cliche greeting.
+		assert.Contains(t, response.Message, "Hello, world!")
+
+		// Verify that the lambda fetched https://www.pulumi.com/robots.txt for us.
+		assert.Contains(t, response.Fetched, "Host: www.pulumi.com")
+	}
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "express"),
-			RunUpdateTest: true,
+			Dir:                    filepath.Join(getCwd(t), "express"),
+			RunUpdateTest:          true,
+			ExtraRuntimeValidation: validate,
 		})
 	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
