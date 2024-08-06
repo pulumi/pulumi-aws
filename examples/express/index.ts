@@ -26,6 +26,7 @@ const lambda = new aws.lambda.CallbackFunction<any, any>("mylambda", {
       fetch('https://www.pulumi.com/robots.txt').then(resp => {
         res.json({
           message: hello + "\n\nSucceeded with " + ctx.getRemainingTimeInMillis() + "ms remaining.",
+          fetchStatus: resp.status,
           fetched: resp.text(),
         });
       });

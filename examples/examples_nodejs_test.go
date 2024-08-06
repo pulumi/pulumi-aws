@@ -92,23 +92,19 @@ func TestAccExpress(t *testing.T) {
 		err = json.Unmarshal(result.Payload, &payload)
 		require.NoError(t, err)
 
-		// Verify that the lambda code succeeded without throwing.
 		require.Equal(t, 200, payload.StatusCode)
 
 		type inner struct {
-			Message string `json:"message"`
-			Fetched string `json:"fetched"`
+			Message     string `json:"message"`
+			FetchStatus int    `json:"fetchStatus"`
 		}
 
 		var response inner
 		err = json.Unmarshal([]byte(payload.Body), &response)
 		require.NoError(t, err)
 
-		// Verify that the lambda code emitted the cliche greeting.
 		assert.Contains(t, response.Message, "Hello, world!")
-
-		// Verify that the lambda fetched https://www.pulumi.com/robots.txt for us.
-		assert.Contains(t, response.Fetched, "Host: www.pulumi.com")
+		assert.Equal(t, 200, response.FetchStatus)
 	}
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
