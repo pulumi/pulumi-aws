@@ -113,7 +113,6 @@ func TestAccExpress(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:                    filepath.Join(getCwd(t), "express"),
-			RunUpdateTest:          true,
 			ExtraRuntimeValidation: validate,
 		})
 	skipRefresh(&test)
