@@ -4538,7 +4538,11 @@ compatibility shim in favor of the new "name" field.`)
 					{Value: "java17", Name: "Java17"},
 					{Value: "java21", Name: "Java21"},
 					{Value: "java8.al2", Name: "Java8AL2"},
-					{Value: "nodejs16.x", Name: "NodeJS16dX"},
+					{
+						Value:              "nodejs16.x",
+						Name:               "NodeJS16dX",
+						DeprecationMessage: "Deprecated since June 12, 2024. See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported",
+					},
 					{Value: "nodejs18.x", Name: "NodeJS18dX"},
 					{Value: "nodejs20.x", Name: "NodeJS20dX"},
 					{Value: "provided.al2", Name: "CustomAL2"},
