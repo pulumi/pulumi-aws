@@ -27,7 +27,6 @@ namespace Pulumi.Aws.Lambda
         public static Runtime Java17 { get; } = new Runtime("java17");
         public static Runtime Java21 { get; } = new Runtime("java21");
         public static Runtime Java8AL2 { get; } = new Runtime("java8.al2");
-        public static Runtime NodeJS16dX { get; } = new Runtime("nodejs16.x");
         public static Runtime NodeJS18dX { get; } = new Runtime("nodejs18.x");
         public static Runtime NodeJS20dX { get; } = new Runtime("nodejs20.x");
         public static Runtime CustomAL2 { get; } = new Runtime("provided.al2");
@@ -54,6 +53,8 @@ namespace Pulumi.Aws.Lambda
         public static Runtime NodeJS12dX { get; } = new Runtime("nodejs12.x");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime NodeJS14dX { get; } = new Runtime("nodejs14.x");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime NodeJS16dX { get; } = new Runtime("nodejs16.x");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Custom { get; } = new Runtime("provided");
         [Obsolete(@"This runtime is now deprecated")]
