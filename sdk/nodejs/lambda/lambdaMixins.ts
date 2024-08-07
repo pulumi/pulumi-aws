@@ -224,7 +224,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
     policies?: Record<string, pulumi.Input<arn.ARN>> | arn.ARN[];
 
     /**
-     * The Lambda runtime to use.  If not provided, will default to [NodeJS8d10Runtime]
+     * The Lambda runtime to use.  If not provided, will default to [aws.lambda.Runtime.NodeJS20dX].
      */
     runtime?: Runtime | string;
 
