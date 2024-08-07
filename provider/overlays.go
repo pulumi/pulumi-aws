@@ -39,6 +39,7 @@ var typeOverlays = map[string]schema.ComplexTypeSpec{}
 //go:embed pkg/overlays/examples/callbackFunction.md
 var callbackFunctionMD string
 
+// The CallbackFunction resource is an overlay based on the AWS Lambda Function resource. Properties are copied from the lambda/Function resource and additional properties/overrides are added here.
 var callbackFunction = schema.ResourceSpec{
 	ObjectTypeSpec: schema.ObjectTypeSpec{
 		IsOverlay:                 true,
