@@ -4,7 +4,16 @@ The JavaScript function may capture references to other variables in the surroun
 
 See [Function Serialization](https://www.pulumi.com/docs/concepts/inputs-outputs/function-serialization/) for additional details on this process.
 
-If no IAM Role is specified, CallbackFunction will automatically use the following managed policies:
+### Lambda Function Handler
+
+You can provide the JavaScript function used for the Lambda Function's Handler either directly by setting the `callback` input property or instead specify the `callbackFactory`, which is a Javascript function that will be called to produce the callback function that is the entrypoint for the AWS Lambda.
+Using `callbackFactory` is useful when there is expensive initialization work that should only be executed once. The factory-function will be invoked once when the final AWS Lambda module is loaded. It can run whatever code it needs, and will end by returning the actual function that Lambda will call into each time the Lambda is invoked.
+
+It is recommended to use an async function, otherwise the Lambda execution will run until the `callback` parameter is called and the event loop is empty. See [Define Lambda function handler in Node.js](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html) for additional details.
+
+### Lambda Function Permissions
+
+If neither `role` nor `policies` is specified, `CallbackFunction` will create an IAM role and automatically use the following managed policies:
 - `AWSLambda_FullAccess`
 - `CloudWatchFullAccessV2`
 - `CloudWatchEventsFullAccess`
@@ -15,13 +24,6 @@ If no IAM Role is specified, CallbackFunction will automatically use the followi
 - `AWSCloudFormationReadOnlyAccess`
 - `AmazonCognitoPowerUser`
 - `AWSXrayWriteOnlyAccess`
-
-### Lambda Function Handler
-
-You can provide the JavaScript function used for the Lambda Function's Handler either directly by setting the `callback` input property or instead specify the `callbackFactory`, which is a Javascript function that will be called to produce the callback function that is the entrypoint for the AWS Lambda.
-Using `callbackFactory` is useful when there is expensive initialization work that should only be executed once. The factory-function will be invoked once when the final AWS Lambda module is loaded. It can run whatever code it needs, and will end by returning the actual function that Lambda will call into each time the Lambda is invoked.
-
-The callback function should follow the following signature: `(event: E, context: Context, callback: (error?: Error | string | null, result?: R) => void) => Promise<R> | void`. It is recommended to use an async function, otherwise the Lambda execution will run until the `callback` parameter is called and the event loop is empty. See [Define Lambda function handler in Node.js](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html) for additional details.
 
 ### Customizing Lambda function attributes
 
@@ -174,7 +176,7 @@ import * as aws from "@pulumi/aws";
 const lambda = new aws.lambda.CallbackFunction("fetcher", {
     callback: async(event) => {
         try {
-            const res = await fetch("https://www.pulumi.com");
+            const res = await fetch("https://www.pulumi.com/robots.txt");
             console.info("status", res.status);
             return res.status;
         }
@@ -183,6 +185,49 @@ const lambda = new aws.lambda.CallbackFunction("fetcher", {
             return 500;
         }
     },
+});
+```
+{{% /example %}}
+
+{{% example %}}
+### Lambda Function with expensive initialization work
+This creates a RESTful API using the Express Framework. Initializing the middleware is an expensive operation. In order to only do that when a
+function instance first starts (i.e. cold start) the `callbackFactory` property is used.
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as aws from "@pulumi/aws";
+import * as express from "express";
+import * as serverlessExpress from "aws-serverless-express";
+import * as middleware from "aws-serverless-express/middleware";
+
+const lambda = new aws.lambda.CallbackFunction<any, any>("mylambda", {
+  callbackFactory: () => {
+    const app = express();
+    app.use(middleware.eventContext());
+    let ctx;
+
+    app.get("/", (req, res) => {
+      console.log("Invoked url: " + req.url);
+
+      fetch('https://www.pulumi.com/robots.txt').then(resp => {
+        res.json({
+          message: "Hello, world!\n\nSucceeded with " + ctx.getRemainingTimeInMillis() + "ms remaining.",
+          fetchStatus: resp.status,
+          fetched: resp.text(),
+        });
+      });
+    });
+
+    const server = serverlessExpress.createServer(app);
+    return (event, context) => {
+      console.log("Lambda invoked");
+      console.log("Invoked function: " + context.invokedFunctionArn);
+      console.log("Proxying to express");
+      ctx = context;
+      serverlessExpress.proxy(server, event, <any>context);
+    }
+  }
 });
 ```
 {{% /example %}}
