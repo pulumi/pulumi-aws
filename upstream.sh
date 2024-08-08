@@ -186,6 +186,8 @@ init() {
   fi
 
   git submodule update --force --init
+  cd upstream && git clean -fxd && cd ..
+
   if [[ "${force}" == "true" ]]; then
     clean_rebases
     clean_branches
