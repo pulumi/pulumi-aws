@@ -21,7 +21,6 @@ const (
 	RuntimeJava17       = Runtime("java17")
 	RuntimeJava21       = Runtime("java21")
 	RuntimeJava8AL2     = Runtime("java8.al2")
-	RuntimeNodeJS16dX   = Runtime("nodejs16.x")
 	RuntimeNodeJS18dX   = Runtime("nodejs18.x")
 	RuntimeNodeJS20dX   = Runtime("nodejs20.x")
 	RuntimeCustomAL2    = Runtime("provided.al2")
@@ -48,6 +47,8 @@ const (
 	RuntimeNodeJS12dX = Runtime("nodejs12.x")
 	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS14dX = Runtime("nodejs14.x")
+	// Deprecated: This runtime is now deprecated
+	RuntimeNodeJS16dX = Runtime("nodejs16.x")
 	// Deprecated: This runtime is now deprecated
 	RuntimeCustom = Runtime("provided")
 	// Deprecated: This runtime is now deprecated
@@ -191,7 +192,6 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 //	RuntimeJava17
 //	RuntimeJava21
 //	RuntimeJava8AL2
-//	RuntimeNodeJS16dX
 //	RuntimeNodeJS18dX
 //	RuntimeNodeJS20dX
 //	RuntimeCustomAL2
