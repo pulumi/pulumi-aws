@@ -191,8 +191,6 @@ const lambda = new aws.lambda.CallbackFunction("fetcher", {
 
 {{% example %}}
 ### Lambda Function with expensive initialization work
-This creates a RESTful API using the Express Framework. Initializing the middleware is an expensive operation. In order to only do that when a
-function instance first starts (i.e. cold start) the `callbackFactory` property is used.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
