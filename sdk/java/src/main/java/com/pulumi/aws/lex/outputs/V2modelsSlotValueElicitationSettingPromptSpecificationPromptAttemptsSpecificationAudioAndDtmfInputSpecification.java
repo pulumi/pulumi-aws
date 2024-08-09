@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification;
-import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification;
+import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingAudioSpecification;
+import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingDtmfSpecification;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -14,15 +14,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification {
-    private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification;
-    private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification;
+    private @Nullable V2modelsSlotValueElicitationSettingAudioSpecification audioSpecification;
+    private @Nullable V2modelsSlotValueElicitationSettingDtmfSpecification dtmfSpecification;
     private Integer startTimeoutMs;
 
     private V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification() {}
-    public Optional<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification> audioSpecification() {
+    public Optional<V2modelsSlotValueElicitationSettingAudioSpecification> audioSpecification() {
         return Optional.ofNullable(this.audioSpecification);
     }
-    public Optional<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification> dtmfSpecification() {
+    public Optional<V2modelsSlotValueElicitationSettingDtmfSpecification> dtmfSpecification() {
         return Optional.ofNullable(this.dtmfSpecification);
     }
     public Integer startTimeoutMs() {
@@ -38,8 +38,8 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationPromptA
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification;
-        private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification;
+        private @Nullable V2modelsSlotValueElicitationSettingAudioSpecification audioSpecification;
+        private @Nullable V2modelsSlotValueElicitationSettingDtmfSpecification dtmfSpecification;
         private Integer startTimeoutMs;
         public Builder() {}
         public Builder(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification defaults) {
@@ -50,13 +50,13 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationPromptA
         }
 
         @CustomType.Setter
-        public Builder audioSpecification(@Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification) {
+        public Builder audioSpecification(@Nullable V2modelsSlotValueElicitationSettingAudioSpecification audioSpecification) {
 
             this.audioSpecification = audioSpecification;
             return this;
         }
         @CustomType.Setter
-        public Builder dtmfSpecification(@Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification) {
+        public Builder dtmfSpecification(@Nullable V2modelsSlotValueElicitationSettingDtmfSpecification dtmfSpecification) {
 
             this.dtmfSpecification = dtmfSpecification;
             return this;

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.autoscaling.inputs;
 
-import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs;
+import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationDimensionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -23,13 +23,13 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * 
      */
     @Import(name="dimensions")
-    private @Nullable Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>> dimensions;
+    private @Nullable Output<List<PolicyPredictiveScalingConfigurationDimensionArgs>> dimensions;
 
     /**
      * @return Dimensions of the metric.
      * 
      */
-    public Optional<Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>>> dimensions() {
+    public Optional<Output<List<PolicyPredictiveScalingConfigurationDimensionArgs>>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
@@ -95,7 +95,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
          * @return builder
          * 
          */
-        public Builder dimensions(@Nullable Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>> dimensions) {
+        public Builder dimensions(@Nullable Output<List<PolicyPredictiveScalingConfigurationDimensionArgs>> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
@@ -106,7 +106,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
          * @return builder
          * 
          */
-        public Builder dimensions(List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs> dimensions) {
+        public Builder dimensions(List<PolicyPredictiveScalingConfigurationDimensionArgs> dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
@@ -116,7 +116,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
          * @return builder
          * 
          */
-        public Builder dimensions(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs... dimensions) {
+        public Builder dimensions(PolicyPredictiveScalingConfigurationDimensionArgs... dimensions) {
             return dimensions(List.of(dimensions));
         }
 

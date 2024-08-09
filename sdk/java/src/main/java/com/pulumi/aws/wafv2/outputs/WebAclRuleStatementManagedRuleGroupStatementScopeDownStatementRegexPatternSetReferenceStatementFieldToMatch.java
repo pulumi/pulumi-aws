@@ -3,17 +3,17 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleAllQueryArguments;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleJa3Fingerprint;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleSingleQueryArgument;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder;
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -27,7 +27,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return Inspect all query arguments.
      * 
      */
-    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments allQueryArguments;
+    private @Nullable WebAclRuleAllQueryArguments allQueryArguments;
     /**
      * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
@@ -52,7 +52,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
      * 
      */
-    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+    private @Nullable WebAclRuleJa3Fingerprint ja3Fingerprint;
     /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
@@ -77,7 +77,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
-    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+    private @Nullable WebAclRuleSingleQueryArgument singleQueryArgument;
     /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
@@ -89,7 +89,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return Inspect all query arguments.
      * 
      */
-    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments> allQueryArguments() {
+    public Optional<WebAclRuleAllQueryArguments> allQueryArguments() {
         return Optional.ofNullable(this.allQueryArguments);
     }
     /**
@@ -124,7 +124,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
      * 
      */
-    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
+    public Optional<WebAclRuleJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
     /**
@@ -159,7 +159,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
-    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {
+    public Optional<WebAclRuleSingleQueryArgument> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
     /**
@@ -179,17 +179,17 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments allQueryArguments;
+        private @Nullable WebAclRuleAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody body;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies cookies;
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers;
-        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+        private @Nullable WebAclRuleJa3Fingerprint ja3Fingerprint;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString queryString;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader singleHeader;
-        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+        private @Nullable WebAclRuleSingleQueryArgument singleQueryArgument;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath uriPath;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch defaults) {
@@ -209,7 +209,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         @CustomType.Setter
-        public Builder allQueryArguments(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments allQueryArguments) {
+        public Builder allQueryArguments(@Nullable WebAclRuleAllQueryArguments allQueryArguments) {
 
             this.allQueryArguments = allQueryArguments;
             return this;
@@ -245,7 +245,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return headers(List.of(headers));
         }
         @CustomType.Setter
-        public Builder ja3Fingerprint(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+        public Builder ja3Fingerprint(@Nullable WebAclRuleJa3Fingerprint ja3Fingerprint) {
 
             this.ja3Fingerprint = ja3Fingerprint;
             return this;
@@ -275,7 +275,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return this;
         }
         @CustomType.Setter
-        public Builder singleQueryArgument(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument) {
+        public Builder singleQueryArgument(@Nullable WebAclRuleSingleQueryArgument singleQueryArgument) {
 
             this.singleQueryArgument = singleQueryArgument;
             return this;

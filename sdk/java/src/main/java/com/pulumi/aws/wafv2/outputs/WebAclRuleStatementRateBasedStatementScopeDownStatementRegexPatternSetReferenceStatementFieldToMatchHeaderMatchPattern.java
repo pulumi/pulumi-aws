@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleAll;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -17,7 +17,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
      * @return An empty configuration block that is used for inspecting all headers.
      * 
      */
-    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll all;
+    private @Nullable WebAclRuleAll all;
     /**
      * @return An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
      * 
@@ -34,7 +34,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
      * @return An empty configuration block that is used for inspecting all headers.
      * 
      */
-    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll> all() {
+    public Optional<WebAclRuleAll> all() {
         return Optional.ofNullable(this.all);
     }
     /**
@@ -61,7 +61,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll all;
+        private @Nullable WebAclRuleAll all;
         private @Nullable List<String> excludedHeaders;
         private @Nullable List<String> includedHeaders;
         public Builder() {}
@@ -73,7 +73,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
         }
 
         @CustomType.Setter
-        public Builder all(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll all) {
+        public Builder all(@Nullable WebAclRuleAll all) {
 
             this.all = all;
             return this;

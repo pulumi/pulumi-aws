@@ -4,9 +4,9 @@
 package com.pulumi.aws.lex.inputs;
 
 import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs;
-import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs;
-import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingImageResponseCardArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingPlainTextMessageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -38,13 +38,13 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * 
      */
     @Import(name="imageResponseCard")
-    private @Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs> imageResponseCard;
+    private @Nullable Output<V2modelsIntentInitialResponseSettingImageResponseCardArgs> imageResponseCard;
 
     /**
      * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
      * 
      */
-    public Optional<Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs>> imageResponseCard() {
+    public Optional<Output<V2modelsIntentInitialResponseSettingImageResponseCardArgs>> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
     }
 
@@ -53,13 +53,13 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * 
      */
     @Import(name="plainTextMessage")
-    private @Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs> plainTextMessage;
+    private @Nullable Output<V2modelsIntentInitialResponseSettingPlainTextMessageArgs> plainTextMessage;
 
     /**
      * @return Configuration block for a message in plain text format. See `plain_text_message`.
      * 
      */
-    public Optional<Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs>> plainTextMessage() {
+    public Optional<Output<V2modelsIntentInitialResponseSettingPlainTextMessageArgs>> plainTextMessage() {
         return Optional.ofNullable(this.plainTextMessage);
     }
 
@@ -132,7 +132,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder imageResponseCard(@Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs> imageResponseCard) {
+        public Builder imageResponseCard(@Nullable Output<V2modelsIntentInitialResponseSettingImageResponseCardArgs> imageResponseCard) {
             $.imageResponseCard = imageResponseCard;
             return this;
         }
@@ -143,7 +143,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder imageResponseCard(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs imageResponseCard) {
+        public Builder imageResponseCard(V2modelsIntentInitialResponseSettingImageResponseCardArgs imageResponseCard) {
             return imageResponseCard(Output.of(imageResponseCard));
         }
 
@@ -153,7 +153,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder plainTextMessage(@Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs> plainTextMessage) {
+        public Builder plainTextMessage(@Nullable Output<V2modelsIntentInitialResponseSettingPlainTextMessageArgs> plainTextMessage) {
             $.plainTextMessage = plainTextMessage;
             return this;
         }
@@ -164,7 +164,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder plainTextMessage(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs plainTextMessage) {
+        public Builder plainTextMessage(V2modelsIntentInitialResponseSettingPlainTextMessageArgs plainTextMessage) {
             return plainTextMessage(Output.of(plainTextMessage));
         }
 

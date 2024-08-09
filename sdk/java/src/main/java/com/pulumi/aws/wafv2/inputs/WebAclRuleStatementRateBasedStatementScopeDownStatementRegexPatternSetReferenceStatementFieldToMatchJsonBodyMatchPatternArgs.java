@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleAllArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -22,13 +22,13 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
      * 
      */
     @Import(name="all")
-    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
+    private @Nullable Output<WebAclRuleAllArgs> all;
 
     /**
      * @return An empty configuration block that is used for inspecting all headers.
      * 
      */
-    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs>> all() {
+    public Optional<Output<WebAclRuleAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
 
@@ -70,7 +70,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
          * @return builder
          * 
          */
-        public Builder all(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs> all) {
+        public Builder all(@Nullable Output<WebAclRuleAllArgs> all) {
             $.all = all;
             return this;
         }
@@ -81,7 +81,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
          * @return builder
          * 
          */
-        public Builder all(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs all) {
+        public Builder all(WebAclRuleAllArgs all) {
             return all(Output.of(all));
         }
 

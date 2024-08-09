@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingDialogActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -23,13 +23,13 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * 
      */
     @Import(name="dialogAction")
-    private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgs> dialogAction;
+    private @Nullable Output<V2modelsIntentConfirmationSettingDialogActionArgs> dialogAction;
 
     /**
      * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    public Optional<Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgs>> dialogAction() {
+    public Optional<Output<V2modelsIntentConfirmationSettingDialogActionArgs>> dialogAction() {
         return Optional.ofNullable(this.dialogAction);
     }
 
@@ -95,7 +95,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
          * @return builder
          * 
          */
-        public Builder dialogAction(@Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgs> dialogAction) {
+        public Builder dialogAction(@Nullable Output<V2modelsIntentConfirmationSettingDialogActionArgs> dialogAction) {
             $.dialogAction = dialogAction;
             return this;
         }
@@ -106,7 +106,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
          * @return builder
          * 
          */
-        public Builder dialogAction(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgs dialogAction) {
+        public Builder dialogAction(V2modelsIntentConfirmationSettingDialogActionArgs dialogAction) {
             return dialogAction(Output.of(dialogAction));
         }
 

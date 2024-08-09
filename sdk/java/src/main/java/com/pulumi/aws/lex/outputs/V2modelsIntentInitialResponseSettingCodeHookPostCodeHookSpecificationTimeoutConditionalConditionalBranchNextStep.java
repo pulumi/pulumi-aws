@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction;
 import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntent;
+import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingDialogAction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
@@ -18,7 +18,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction dialogAction;
+    private @Nullable V2modelsIntentInitialResponseSettingDialogAction dialogAction;
     /**
      * @return Configuration block for override settings to configure the intent state. See `intent`.
      * 
@@ -35,7 +35,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction> dialogAction() {
+    public Optional<V2modelsIntentInitialResponseSettingDialogAction> dialogAction() {
         return Optional.ofNullable(this.dialogAction);
     }
     /**
@@ -62,7 +62,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction dialogAction;
+        private @Nullable V2modelsIntentInitialResponseSettingDialogAction dialogAction;
         private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntent intent;
         private @Nullable Map<String,String> sessionAttributes;
         public Builder() {}
@@ -74,7 +74,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
         }
 
         @CustomType.Setter
-        public Builder dialogAction(@Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction dialogAction) {
+        public Builder dialogAction(@Nullable V2modelsIntentInitialResponseSettingDialogAction dialogAction) {
 
             this.dialogAction = dialogAction;
             return this;

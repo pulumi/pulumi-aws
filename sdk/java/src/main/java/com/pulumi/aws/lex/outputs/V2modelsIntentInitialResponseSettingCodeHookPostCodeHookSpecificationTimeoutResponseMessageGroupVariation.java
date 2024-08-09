@@ -4,9 +4,9 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload;
-import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard;
-import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage;
 import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage;
+import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingImageResponseCard;
+import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingPlainTextMessage;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -23,12 +23,12 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
      * 
      */
-    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard imageResponseCard;
+    private @Nullable V2modelsIntentInitialResponseSettingImageResponseCard imageResponseCard;
     /**
      * @return Configuration block for a message in plain text format. See `plain_text_message`.
      * 
      */
-    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage plainTextMessage;
+    private @Nullable V2modelsIntentInitialResponseSettingPlainTextMessage plainTextMessage;
     /**
      * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
      * 
@@ -47,14 +47,14 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
      * 
      */
-    public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard> imageResponseCard() {
+    public Optional<V2modelsIntentInitialResponseSettingImageResponseCard> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
     }
     /**
      * @return Configuration block for a message in plain text format. See `plain_text_message`.
      * 
      */
-    public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage> plainTextMessage() {
+    public Optional<V2modelsIntentInitialResponseSettingPlainTextMessage> plainTextMessage() {
         return Optional.ofNullable(this.plainTextMessage);
     }
     /**
@@ -75,8 +75,8 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
     @CustomType.Builder
     public static final class Builder {
         private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload customPayload;
-        private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard imageResponseCard;
-        private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage plainTextMessage;
+        private @Nullable V2modelsIntentInitialResponseSettingImageResponseCard imageResponseCard;
+        private @Nullable V2modelsIntentInitialResponseSettingPlainTextMessage plainTextMessage;
         private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage ssmlMessage;
         public Builder() {}
         public Builder(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation defaults) {
@@ -94,13 +94,13 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
             return this;
         }
         @CustomType.Setter
-        public Builder imageResponseCard(@Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard imageResponseCard) {
+        public Builder imageResponseCard(@Nullable V2modelsIntentInitialResponseSettingImageResponseCard imageResponseCard) {
 
             this.imageResponseCard = imageResponseCard;
             return this;
         }
         @CustomType.Setter
-        public Builder plainTextMessage(@Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage plainTextMessage) {
+        public Builder plainTextMessage(@Nullable V2modelsIntentInitialResponseSettingPlainTextMessage plainTextMessage) {
 
             this.plainTextMessage = plainTextMessage;
             return this;

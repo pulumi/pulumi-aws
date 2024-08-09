@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentFulfillmentCodeHookDialogActionArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -23,13 +23,13 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      * 
      */
     @Import(name="dialogAction")
-    private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs> dialogAction;
+    private @Nullable Output<V2modelsIntentFulfillmentCodeHookDialogActionArgs> dialogAction;
 
     /**
      * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs>> dialogAction() {
+    public Optional<Output<V2modelsIntentFulfillmentCodeHookDialogActionArgs>> dialogAction() {
         return Optional.ofNullable(this.dialogAction);
     }
 
@@ -95,7 +95,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
          * @return builder
          * 
          */
-        public Builder dialogAction(@Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs> dialogAction) {
+        public Builder dialogAction(@Nullable Output<V2modelsIntentFulfillmentCodeHookDialogActionArgs> dialogAction) {
             $.dialogAction = dialogAction;
             return this;
         }
@@ -106,7 +106,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
          * @return builder
          * 
          */
-        public Builder dialogAction(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs dialogAction) {
+        public Builder dialogAction(V2modelsIntentFulfillmentCodeHookDialogActionArgs dialogAction) {
             return dialogAction(Output.of(dialogAction));
         }
 

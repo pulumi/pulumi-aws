@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.autoscaling.outputs;
 
-import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension;
+import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationDimension;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -17,7 +17,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * @return Dimensions of the metric.
      * 
      */
-    private @Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions;
+    private @Nullable List<PolicyPredictiveScalingConfigurationDimension> dimensions;
     /**
      * @return Name of the metric.
      * 
@@ -34,7 +34,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * @return Dimensions of the metric.
      * 
      */
-    public List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions() {
+    public List<PolicyPredictiveScalingConfigurationDimension> dimensions() {
         return this.dimensions == null ? List.of() : this.dimensions;
     }
     /**
@@ -61,7 +61,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions;
+        private @Nullable List<PolicyPredictiveScalingConfigurationDimension> dimensions;
         private String metricName;
         private String namespace;
         public Builder() {}
@@ -73,12 +73,12 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         @CustomType.Setter
-        public Builder dimensions(@Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions) {
+        public Builder dimensions(@Nullable List<PolicyPredictiveScalingConfigurationDimension> dimensions) {
 
             this.dimensions = dimensions;
             return this;
         }
-        public Builder dimensions(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension... dimensions) {
+        public Builder dimensions(PolicyPredictiveScalingConfigurationDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
         @CustomType.Setter

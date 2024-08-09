@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField;
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField;
+import com.pulumi.aws.wafv2.outputs.WebAclRulePasswordField;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleUsernameField;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -16,7 +16,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * @return Details about your login page password field. See `password_field` for more details.
      * 
      */
-    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField;
+    private WebAclRulePasswordField passwordField;
     /**
      * @return The payload type for your login endpoint, either JSON or form encoded.
      * 
@@ -26,14 +26,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * @return Details about your login page username field. See `username_field` for more details.
      * 
      */
-    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField;
+    private WebAclRuleUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection() {}
     /**
      * @return Details about your login page password field. See `password_field` for more details.
      * 
      */
-    public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField() {
+    public WebAclRulePasswordField passwordField() {
         return this.passwordField;
     }
     /**
@@ -47,7 +47,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * @return Details about your login page username field. See `username_field` for more details.
      * 
      */
-    public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField() {
+    public WebAclRuleUsernameField usernameField() {
         return this.usernameField;
     }
 
@@ -60,9 +60,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
     @CustomType.Builder
     public static final class Builder {
-        private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField;
+        private WebAclRulePasswordField passwordField;
         private String payloadType;
-        private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField;
+        private WebAclRuleUsernameField usernameField;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,7 +72,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         @CustomType.Setter
-        public Builder passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField) {
+        public Builder passwordField(WebAclRulePasswordField passwordField) {
             if (passwordField == null) {
               throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection", "passwordField");
             }
@@ -88,7 +88,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return this;
         }
         @CustomType.Setter
-        public Builder usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField) {
+        public Builder usernameField(WebAclRuleUsernameField usernameField) {
             if (usernameField == null) {
               throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection", "usernameField");
             }

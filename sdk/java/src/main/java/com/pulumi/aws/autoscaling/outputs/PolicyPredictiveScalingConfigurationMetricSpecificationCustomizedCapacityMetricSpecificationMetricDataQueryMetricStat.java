@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.autoscaling.outputs;
 
-import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric;
+import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetric;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -17,7 +17,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
      * 
      */
-    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric metric;
+    private PolicyPredictiveScalingConfigurationMetric metric;
     /**
      * @return Statistic of the metrics to return.
      * 
@@ -34,7 +34,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
      * 
      */
-    public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric metric() {
+    public PolicyPredictiveScalingConfigurationMetric metric() {
         return this.metric;
     }
     /**
@@ -61,7 +61,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
     @CustomType.Builder
     public static final class Builder {
-        private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric metric;
+        private PolicyPredictiveScalingConfigurationMetric metric;
         private String stat;
         private @Nullable String unit;
         public Builder() {}
@@ -73,7 +73,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         @CustomType.Setter
-        public Builder metric(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric metric) {
+        public Builder metric(PolicyPredictiveScalingConfigurationMetric metric) {
             if (metric == null) {
               throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat", "metric");
             }

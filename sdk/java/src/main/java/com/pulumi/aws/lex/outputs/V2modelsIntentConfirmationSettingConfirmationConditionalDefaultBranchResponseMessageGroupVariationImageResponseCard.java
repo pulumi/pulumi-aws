@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton;
+import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingButton;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -18,7 +18,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
      * @return Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
      * 
      */
-    private @Nullable List<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton> buttons;
+    private @Nullable List<V2modelsIntentConfirmationSettingButton> buttons;
     /**
      * @return URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
      * 
@@ -40,7 +40,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
      * @return Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
      * 
      */
-    public List<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton> buttons() {
+    public List<V2modelsIntentConfirmationSettingButton> buttons() {
         return this.buttons == null ? List.of() : this.buttons;
     }
     /**
@@ -74,7 +74,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton> buttons;
+        private @Nullable List<V2modelsIntentConfirmationSettingButton> buttons;
         private @Nullable String imageUrl;
         private @Nullable String subtitle;
         private String title;
@@ -88,12 +88,12 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
         }
 
         @CustomType.Setter
-        public Builder buttons(@Nullable List<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton> buttons) {
+        public Builder buttons(@Nullable List<V2modelsIntentConfirmationSettingButton> buttons) {
 
             this.buttons = buttons;
             return this;
         }
-        public Builder buttons(V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton... buttons) {
+        public Builder buttons(V2modelsIntentConfirmationSettingButton... buttons) {
             return buttons(List.of(buttons));
         }
         @CustomType.Setter

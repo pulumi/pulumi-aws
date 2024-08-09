@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs;
-import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingMessageArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingVariationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -23,13 +23,13 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * 
      */
     @Import(name="message", required=true)
-    private Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs> message;
+    private Output<V2modelsIntentInitialResponseSettingMessageArgs> message;
 
     /**
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs> message() {
+    public Output<V2modelsIntentInitialResponseSettingMessageArgs> message() {
         return this.message;
     }
 
@@ -38,13 +38,13 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * 
      */
     @Import(name="variations")
-    private @Nullable Output<List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs>> variations;
+    private @Nullable Output<List<V2modelsIntentInitialResponseSettingVariationArgs>> variations;
 
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    public Optional<Output<List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs>>> variations() {
+    public Optional<Output<List<V2modelsIntentInitialResponseSettingVariationArgs>>> variations() {
         return Optional.ofNullable(this.variations);
     }
 
@@ -79,7 +79,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder message(Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs> message) {
+        public Builder message(Output<V2modelsIntentInitialResponseSettingMessageArgs> message) {
             $.message = message;
             return this;
         }
@@ -90,7 +90,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder message(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs message) {
+        public Builder message(V2modelsIntentInitialResponseSettingMessageArgs message) {
             return message(Output.of(message));
         }
 
@@ -100,7 +100,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder variations(@Nullable Output<List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs>> variations) {
+        public Builder variations(@Nullable Output<List<V2modelsIntentInitialResponseSettingVariationArgs>> variations) {
             $.variations = variations;
             return this;
         }
@@ -111,7 +111,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder variations(List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs> variations) {
+        public Builder variations(List<V2modelsIntentInitialResponseSettingVariationArgs> variations) {
             return variations(Output.of(variations));
         }
 
@@ -121,7 +121,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder variations(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs... variations) {
+        public Builder variations(V2modelsIntentInitialResponseSettingVariationArgs... variations) {
             return variations(List.of(variations));
         }
 

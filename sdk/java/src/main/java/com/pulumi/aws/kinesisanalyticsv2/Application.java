@@ -155,13 +155,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationCsvMappingParametersArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationJsonMappingParametersArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationCloudwatchLoggingOptionsArgs;
  * import java.util.List;
@@ -220,7 +220,7 @@ import javax.annotation.Nullable;
  *                             .recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs.builder()
  *                                 .recordFormatType("CSV")
  *                                 .mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs.builder()
- *                                     .csvMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs.builder()
+ *                                     .csvMappingParameters(ApplicationApplicationConfigurationCsvMappingParametersArgs.builder()
  *                                         .recordColumnDelimiter(",")
  *                                         .recordRowDelimiter("""
  * 
@@ -261,8 +261,8 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs.builder()
  *                                 .recordFormatType("JSON")
- *                                 .mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs.builder()
- *                                     .jsonMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs.builder()
+ *                                 .mappingParameters(ApplicationApplicationConfigurationMappingParametersArgs.builder()
+ *                                     .jsonMappingParameters(ApplicationApplicationConfigurationJsonMappingParametersArgs.builder()
  *                                         .recordRowPath("$")
  *                                         .build())
  *                                     .build())

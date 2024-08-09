@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs;
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRulePasswordFieldArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleUsernameFieldArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -21,13 +21,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * 
      */
     @Import(name="passwordField", required=true)
-    private Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField;
+    private Output<WebAclRulePasswordFieldArgs> passwordField;
 
     /**
      * @return Details about your login page password field. See `password_field` for more details.
      * 
      */
-    public Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField() {
+    public Output<WebAclRulePasswordFieldArgs> passwordField() {
         return this.passwordField;
     }
 
@@ -51,13 +51,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * 
      */
     @Import(name="usernameField", required=true)
-    private Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField;
+    private Output<WebAclRuleUsernameFieldArgs> usernameField;
 
     /**
      * @return Details about your login page username field. See `username_field` for more details.
      * 
      */
-    public Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField() {
+    public Output<WebAclRuleUsernameFieldArgs> usernameField() {
         return this.usernameField;
     }
 
@@ -93,7 +93,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder passwordField(Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField) {
+        public Builder passwordField(Output<WebAclRulePasswordFieldArgs> passwordField) {
             $.passwordField = passwordField;
             return this;
         }
@@ -104,7 +104,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs passwordField) {
+        public Builder passwordField(WebAclRulePasswordFieldArgs passwordField) {
             return passwordField(Output.of(passwordField));
         }
 
@@ -135,7 +135,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder usernameField(Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField) {
+        public Builder usernameField(Output<WebAclRuleUsernameFieldArgs> usernameField) {
             $.usernameField = usernameField;
             return this;
         }
@@ -146,7 +146,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs usernameField) {
+        public Builder usernameField(WebAclRuleUsernameFieldArgs usernameField) {
             return usernameField(Output.of(usernameField));
         }
 

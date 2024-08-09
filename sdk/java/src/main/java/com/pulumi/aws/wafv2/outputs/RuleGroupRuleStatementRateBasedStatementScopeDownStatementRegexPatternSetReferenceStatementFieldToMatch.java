@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleSingleQueryArgument;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies;
@@ -13,7 +14,6 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScop
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
-import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -73,7 +73,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * @return Inspect a single query argument. See Single Query Argument below for details.
      * 
      */
-    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+    private @Nullable RuleGroupRuleSingleQueryArgument singleQueryArgument;
     /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
@@ -151,7 +151,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * @return Inspect a single query argument. See Single Query Argument below for details.
      * 
      */
-    public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {
+    public Optional<RuleGroupRuleSingleQueryArgument> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
     /**
@@ -181,7 +181,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString queryString;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader singleHeader;
-        private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+        private @Nullable RuleGroupRuleSingleQueryArgument singleQueryArgument;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath uriPath;
         public Builder() {}
         public Builder(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch defaults) {
@@ -267,7 +267,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
             return this;
         }
         @CustomType.Setter
-        public Builder singleQueryArgument(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument) {
+        public Builder singleQueryArgument(@Nullable RuleGroupRuleSingleQueryArgument singleQueryArgument) {
 
             this.singleQueryArgument = singleQueryArgument;
             return this;

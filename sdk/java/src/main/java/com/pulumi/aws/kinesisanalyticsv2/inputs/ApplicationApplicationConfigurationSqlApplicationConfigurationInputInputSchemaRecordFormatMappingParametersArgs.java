@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs;
-import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs;
+import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationCsvMappingParametersArgs;
+import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationJsonMappingParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -21,13 +21,13 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * 
      */
     @Import(name="csvMappingParameters")
-    private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs> csvMappingParameters;
+    private @Nullable Output<ApplicationApplicationConfigurationCsvMappingParametersArgs> csvMappingParameters;
 
     /**
      * @return Provides additional mapping information when the record format uses delimiters (for example, CSV).
      * 
      */
-    public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs>> csvMappingParameters() {
+    public Optional<Output<ApplicationApplicationConfigurationCsvMappingParametersArgs>> csvMappingParameters() {
         return Optional.ofNullable(this.csvMappingParameters);
     }
 
@@ -36,13 +36,13 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * 
      */
     @Import(name="jsonMappingParameters")
-    private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs> jsonMappingParameters;
+    private @Nullable Output<ApplicationApplicationConfigurationJsonMappingParametersArgs> jsonMappingParameters;
 
     /**
      * @return Provides additional mapping information when JSON is the record format on the streaming source.
      * 
      */
-    public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs>> jsonMappingParameters() {
+    public Optional<Output<ApplicationApplicationConfigurationJsonMappingParametersArgs>> jsonMappingParameters() {
         return Optional.ofNullable(this.jsonMappingParameters);
     }
 
@@ -77,7 +77,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
          * @return builder
          * 
          */
-        public Builder csvMappingParameters(@Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs> csvMappingParameters) {
+        public Builder csvMappingParameters(@Nullable Output<ApplicationApplicationConfigurationCsvMappingParametersArgs> csvMappingParameters) {
             $.csvMappingParameters = csvMappingParameters;
             return this;
         }
@@ -88,7 +88,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
          * @return builder
          * 
          */
-        public Builder csvMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs csvMappingParameters) {
+        public Builder csvMappingParameters(ApplicationApplicationConfigurationCsvMappingParametersArgs csvMappingParameters) {
             return csvMappingParameters(Output.of(csvMappingParameters));
         }
 
@@ -98,7 +98,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
          * @return builder
          * 
          */
-        public Builder jsonMappingParameters(@Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs> jsonMappingParameters) {
+        public Builder jsonMappingParameters(@Nullable Output<ApplicationApplicationConfigurationJsonMappingParametersArgs> jsonMappingParameters) {
             $.jsonMappingParameters = jsonMappingParameters;
             return this;
         }
@@ -109,7 +109,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
          * @return builder
          * 
          */
-        public Builder jsonMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs jsonMappingParameters) {
+        public Builder jsonMappingParameters(ApplicationApplicationConfigurationJsonMappingParametersArgs jsonMappingParameters) {
             return jsonMappingParameters(Output.of(jsonMappingParameters));
         }
 

@@ -3,11 +3,11 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleAddressFieldsArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRulePasswordFieldArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRulePhoneNumberFieldsArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs;
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs;
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs;
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleUsernameFieldArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -26,13 +26,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * 
      */
     @Import(name="addressFields")
-    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs> addressFields;
+    private @Nullable Output<WebAclRuleAddressFieldsArgs> addressFields;
 
     /**
      * @return The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
      * 
      */
-    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs>> addressFields() {
+    public Optional<Output<WebAclRuleAddressFieldsArgs>> addressFields() {
         return Optional.ofNullable(this.addressFields);
     }
 
@@ -56,13 +56,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * 
      */
     @Import(name="passwordField")
-    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs> passwordField;
+    private @Nullable Output<WebAclRulePasswordFieldArgs> passwordField;
 
     /**
      * @return Details about your login page password field. See `password_field` for more details.
      * 
      */
-    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs>> passwordField() {
+    public Optional<Output<WebAclRulePasswordFieldArgs>> passwordField() {
         return Optional.ofNullable(this.passwordField);
     }
 
@@ -86,13 +86,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * 
      */
     @Import(name="phoneNumberFields")
-    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs> phoneNumberFields;
+    private @Nullable Output<WebAclRulePhoneNumberFieldsArgs> phoneNumberFields;
 
     /**
      * @return The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
      * 
      */
-    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs>> phoneNumberFields() {
+    public Optional<Output<WebAclRulePhoneNumberFieldsArgs>> phoneNumberFields() {
         return Optional.ofNullable(this.phoneNumberFields);
     }
 
@@ -101,13 +101,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * 
      */
     @Import(name="usernameField")
-    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs> usernameField;
+    private @Nullable Output<WebAclRuleUsernameFieldArgs> usernameField;
 
     /**
      * @return Details about your login page username field. See `username_field` for more details.
      * 
      */
-    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs>> usernameField() {
+    public Optional<Output<WebAclRuleUsernameFieldArgs>> usernameField() {
         return Optional.ofNullable(this.usernameField);
     }
 
@@ -146,7 +146,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder addressFields(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs> addressFields) {
+        public Builder addressFields(@Nullable Output<WebAclRuleAddressFieldsArgs> addressFields) {
             $.addressFields = addressFields;
             return this;
         }
@@ -157,7 +157,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder addressFields(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs addressFields) {
+        public Builder addressFields(WebAclRuleAddressFieldsArgs addressFields) {
             return addressFields(Output.of(addressFields));
         }
 
@@ -188,7 +188,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder passwordField(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs> passwordField) {
+        public Builder passwordField(@Nullable Output<WebAclRulePasswordFieldArgs> passwordField) {
             $.passwordField = passwordField;
             return this;
         }
@@ -199,7 +199,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs passwordField) {
+        public Builder passwordField(WebAclRulePasswordFieldArgs passwordField) {
             return passwordField(Output.of(passwordField));
         }
 
@@ -230,7 +230,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder phoneNumberFields(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs> phoneNumberFields) {
+        public Builder phoneNumberFields(@Nullable Output<WebAclRulePhoneNumberFieldsArgs> phoneNumberFields) {
             $.phoneNumberFields = phoneNumberFields;
             return this;
         }
@@ -241,7 +241,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder phoneNumberFields(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs phoneNumberFields) {
+        public Builder phoneNumberFields(WebAclRulePhoneNumberFieldsArgs phoneNumberFields) {
             return phoneNumberFields(Output.of(phoneNumberFields));
         }
 
@@ -251,7 +251,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder usernameField(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs> usernameField) {
+        public Builder usernameField(@Nullable Output<WebAclRuleUsernameFieldArgs> usernameField) {
             $.usernameField = usernameField;
             return this;
         }
@@ -262,7 +262,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs usernameField) {
+        public Builder usernameField(WebAclRuleUsernameFieldArgs usernameField) {
             return usernameField(Output.of(usernameField));
         }
 

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.autoscaling.inputs;
 
-import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs;
+import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -22,13 +22,13 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * 
      */
     @Import(name="metric", required=true)
-    private Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs> metric;
+    private Output<PolicyPredictiveScalingConfigurationMetricArgs> metric;
 
     /**
      * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
      * 
      */
-    public Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs> metric() {
+    public Output<PolicyPredictiveScalingConfigurationMetricArgs> metric() {
         return this.metric;
     }
 
@@ -94,7 +94,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
          * @return builder
          * 
          */
-        public Builder metric(Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs> metric) {
+        public Builder metric(Output<PolicyPredictiveScalingConfigurationMetricArgs> metric) {
             $.metric = metric;
             return this;
         }
@@ -105,7 +105,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
          * @return builder
          * 
          */
-        public Builder metric(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs metric) {
+        public Builder metric(PolicyPredictiveScalingConfigurationMetricArgs metric) {
             return metric(Output.of(metric));
         }
 

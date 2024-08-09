@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingSlotArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -37,13 +37,13 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * 
      */
     @Import(name="slots")
-    private @Nullable Output<List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgs>> slots;
+    private @Nullable Output<List<V2modelsIntentInitialResponseSettingSlotArgs>> slots;
 
     /**
      * @return Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren&#39;t overridden. See `slot`.
      * 
      */
-    public Optional<Output<List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgs>>> slots() {
+    public Optional<Output<List<V2modelsIntentInitialResponseSettingSlotArgs>>> slots() {
         return Optional.ofNullable(this.slots);
     }
 
@@ -99,7 +99,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder slots(@Nullable Output<List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgs>> slots) {
+        public Builder slots(@Nullable Output<List<V2modelsIntentInitialResponseSettingSlotArgs>> slots) {
             $.slots = slots;
             return this;
         }
@@ -110,7 +110,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder slots(List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgs> slots) {
+        public Builder slots(List<V2modelsIntentInitialResponseSettingSlotArgs> slots) {
             return slots(Output.of(slots));
         }
 
@@ -120,7 +120,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder slots(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgs... slots) {
+        public Builder slots(V2modelsIntentInitialResponseSettingSlotArgs... slots) {
             return slots(List.of(slots));
         }
 

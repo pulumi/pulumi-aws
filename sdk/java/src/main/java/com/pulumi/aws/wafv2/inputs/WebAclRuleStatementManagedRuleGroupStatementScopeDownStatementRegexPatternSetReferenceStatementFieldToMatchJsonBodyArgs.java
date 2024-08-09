@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleMatchPatternArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -37,13 +37,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * 
      */
     @Import(name="matchPattern", required=true)
-    private Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern;
+    private Output<WebAclRuleMatchPatternArgs> matchPattern;
 
     /**
      * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
      * 
      */
-    public Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern() {
+    public Output<WebAclRuleMatchPatternArgs> matchPattern() {
         return this.matchPattern;
     }
 
@@ -131,7 +131,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          * @return builder
          * 
          */
-        public Builder matchPattern(Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern) {
+        public Builder matchPattern(Output<WebAclRuleMatchPatternArgs> matchPattern) {
             $.matchPattern = matchPattern;
             return this;
         }
@@ -142,7 +142,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          * @return builder
          * 
          */
-        public Builder matchPattern(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs matchPattern) {
+        public Builder matchPattern(WebAclRuleMatchPatternArgs matchPattern) {
             return matchPattern(Output.of(matchPattern));
         }
 

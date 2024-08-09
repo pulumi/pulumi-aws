@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleMatchPatternArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,13 +20,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * 
      */
     @Import(name="matchPattern", required=true)
-    private Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
+    private Output<RuleGroupRuleMatchPatternArgs> matchPattern;
 
     /**
      * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
      * 
      */
-    public Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern() {
+    public Output<RuleGroupRuleMatchPatternArgs> matchPattern() {
         return this.matchPattern;
     }
 
@@ -92,7 +92,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          * @return builder
          * 
          */
-        public Builder matchPattern(Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern) {
+        public Builder matchPattern(Output<RuleGroupRuleMatchPatternArgs> matchPattern) {
             $.matchPattern = matchPattern;
             return this;
         }
@@ -103,7 +103,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          * @return builder
          * 
          */
-        public Builder matchPattern(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs matchPattern) {
+        public Builder matchPattern(RuleGroupRuleMatchPatternArgs matchPattern) {
             return matchPattern(Output.of(matchPattern));
         }
 

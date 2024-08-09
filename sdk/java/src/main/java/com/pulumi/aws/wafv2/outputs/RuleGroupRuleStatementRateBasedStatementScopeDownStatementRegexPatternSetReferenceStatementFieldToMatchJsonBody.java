@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleMatchPattern;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -22,7 +22,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
      * 
      */
-    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern matchPattern;
+    private RuleGroupRuleMatchPattern matchPattern;
     /**
      * @return The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
      * 
@@ -46,7 +46,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
      * 
      */
-    public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern matchPattern() {
+    public RuleGroupRuleMatchPattern matchPattern() {
         return this.matchPattern;
     }
     /**
@@ -74,7 +74,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String invalidFallbackBehavior;
-        private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern matchPattern;
+        private RuleGroupRuleMatchPattern matchPattern;
         private String matchScope;
         private @Nullable String oversizeHandling;
         public Builder() {}
@@ -93,7 +93,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
             return this;
         }
         @CustomType.Setter
-        public Builder matchPattern(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern matchPattern) {
+        public Builder matchPattern(RuleGroupRuleMatchPattern matchPattern) {
             if (matchPattern == null) {
               throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody", "matchPattern");
             }

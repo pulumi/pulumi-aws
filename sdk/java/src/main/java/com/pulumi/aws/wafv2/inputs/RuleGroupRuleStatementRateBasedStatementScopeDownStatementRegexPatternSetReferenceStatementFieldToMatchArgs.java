@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleSingleQueryArgumentArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs;
@@ -13,7 +14,6 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScope
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs;
-import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -174,13 +174,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * 
      */
     @Import(name="singleQueryArgument")
-    private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
+    private @Nullable Output<RuleGroupRuleSingleQueryArgumentArgs> singleQueryArgument;
 
     /**
      * @return Inspect a single query argument. See Single Query Argument below for details.
      * 
      */
-    public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs>> singleQueryArgument() {
+    public Optional<Output<RuleGroupRuleSingleQueryArgumentArgs>> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
 
@@ -458,7 +458,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          * @return builder
          * 
          */
-        public Builder singleQueryArgument(@Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument) {
+        public Builder singleQueryArgument(@Nullable Output<RuleGroupRuleSingleQueryArgumentArgs> singleQueryArgument) {
             $.singleQueryArgument = singleQueryArgument;
             return this;
         }
@@ -469,7 +469,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          * @return builder
          * 
          */
-        public Builder singleQueryArgument(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs singleQueryArgument) {
+        public Builder singleQueryArgument(RuleGroupRuleSingleQueryArgumentArgs singleQueryArgument) {
             return singleQueryArgument(Output.of(singleQueryArgument));
         }
 

@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage;
-import com.pulumi.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation;
+import com.pulumi.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookMessage;
+import com.pulumi.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookVariation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
@@ -17,26 +17,26 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    private V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage message;
+    private V2modelsIntentFulfillmentCodeHookMessage message;
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    private @Nullable List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation> variations;
+    private @Nullable List<V2modelsIntentFulfillmentCodeHookVariation> variations;
 
     private V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroup() {}
     /**
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage message() {
+    public V2modelsIntentFulfillmentCodeHookMessage message() {
         return this.message;
     }
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    public List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation> variations() {
+    public List<V2modelsIntentFulfillmentCodeHookVariation> variations() {
         return this.variations == null ? List.of() : this.variations;
     }
 
@@ -49,8 +49,8 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage message;
-        private @Nullable List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation> variations;
+        private V2modelsIntentFulfillmentCodeHookMessage message;
+        private @Nullable List<V2modelsIntentFulfillmentCodeHookVariation> variations;
         public Builder() {}
         public Builder(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroup defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,7 +59,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         @CustomType.Setter
-        public Builder message(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage message) {
+        public Builder message(V2modelsIntentFulfillmentCodeHookMessage message) {
             if (message == null) {
               throw new MissingRequiredPropertyException("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroup", "message");
             }
@@ -67,12 +67,12 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
             return this;
         }
         @CustomType.Setter
-        public Builder variations(@Nullable List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation> variations) {
+        public Builder variations(@Nullable List<V2modelsIntentFulfillmentCodeHookVariation> variations) {
 
             this.variations = variations;
             return this;
         }
-        public Builder variations(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation... variations) {
+        public Builder variations(V2modelsIntentFulfillmentCodeHookVariation... variations) {
             return variations(List.of(variations));
         }
         public V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroup build() {

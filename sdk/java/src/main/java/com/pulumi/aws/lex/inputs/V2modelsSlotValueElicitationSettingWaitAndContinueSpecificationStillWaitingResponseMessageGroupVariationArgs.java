@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.inputs;
 
+import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingImageResponseCardArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs;
-import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs;
 import com.pulumi.core.Output;
@@ -27,9 +27,9 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     }
 
     @Import(name="imageResponseCard")
-    private @Nullable Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs> imageResponseCard;
+    private @Nullable Output<V2modelsSlotValueElicitationSettingImageResponseCardArgs> imageResponseCard;
 
-    public Optional<Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs>> imageResponseCard() {
+    public Optional<Output<V2modelsSlotValueElicitationSettingImageResponseCardArgs>> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
     }
 
@@ -87,12 +87,12 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             return customPayloads(List.of(customPayloads));
         }
 
-        public Builder imageResponseCard(@Nullable Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs> imageResponseCard) {
+        public Builder imageResponseCard(@Nullable Output<V2modelsSlotValueElicitationSettingImageResponseCardArgs> imageResponseCard) {
             $.imageResponseCard = imageResponseCard;
             return this;
         }
 
-        public Builder imageResponseCard(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs imageResponseCard) {
+        public Builder imageResponseCard(V2modelsSlotValueElicitationSettingImageResponseCardArgs imageResponseCard) {
             return imageResponseCard(Output.of(imageResponseCard));
         }
 

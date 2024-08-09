@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleMatchPattern;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -16,7 +16,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
-    private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern> matchPatterns;
+    private List<RuleGroupRuleMatchPattern> matchPatterns;
     /**
      * @return The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
      * 
@@ -33,7 +33,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
-    public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern> matchPatterns() {
+    public List<RuleGroupRuleMatchPattern> matchPatterns() {
         return this.matchPatterns;
     }
     /**
@@ -60,7 +60,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern> matchPatterns;
+        private List<RuleGroupRuleMatchPattern> matchPatterns;
         private String matchScope;
         private String oversizeHandling;
         public Builder() {}
@@ -72,14 +72,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
         }
 
         @CustomType.Setter
-        public Builder matchPatterns(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern> matchPatterns) {
+        public Builder matchPatterns(List<RuleGroupRuleMatchPattern> matchPatterns) {
             if (matchPatterns == null) {
               throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies", "matchPatterns");
             }
             this.matchPatterns = matchPatterns;
             return this;
         }
-        public Builder matchPatterns(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern... matchPatterns) {
+        public Builder matchPatterns(RuleGroupRuleMatchPattern... matchPatterns) {
             return matchPatterns(List.of(matchPatterns));
         }
         @CustomType.Setter

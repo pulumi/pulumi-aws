@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingValueArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -52,13 +52,13 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * 
      */
     @Import(name="value")
-    private @Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs> value;
+    private @Nullable Output<V2modelsIntentInitialResponseSettingValueArgs> value;
 
     /**
      * @return Configuration block for the current value of the slot. See `value`.
      * 
      */
-    public Optional<Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs>> value() {
+    public Optional<Output<V2modelsIntentInitialResponseSettingValueArgs>> value() {
         return Optional.ofNullable(this.value);
     }
 
@@ -136,7 +136,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder value(@Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs> value) {
+        public Builder value(@Nullable Output<V2modelsIntentInitialResponseSettingValueArgs> value) {
             $.value = value;
             return this;
         }
@@ -147,7 +147,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder value(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs value) {
+        public Builder value(V2modelsIntentInitialResponseSettingValueArgs value) {
             return value(Output.of(value));
         }
 

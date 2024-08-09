@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleBodyContainsArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs;
@@ -23,13 +23,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * 
      */
     @Import(name="bodyContains")
-    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs> bodyContains;
+    private @Nullable Output<WebAclRuleBodyContainsArgs> bodyContains;
 
     /**
      * @return Configures inspection of the response body. See `body_contains` for more details.
      * 
      */
-    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs>> bodyContains() {
+    public Optional<Output<WebAclRuleBodyContainsArgs>> bodyContains() {
         return Optional.ofNullable(this.bodyContains);
     }
 
@@ -111,7 +111,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder bodyContains(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs> bodyContains) {
+        public Builder bodyContains(@Nullable Output<WebAclRuleBodyContainsArgs> bodyContains) {
             $.bodyContains = bodyContains;
             return this;
         }
@@ -122,7 +122,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          * @return builder
          * 
          */
-        public Builder bodyContains(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs bodyContains) {
+        public Builder bodyContains(WebAclRuleBodyContainsArgs bodyContains) {
             return bodyContains(Output.of(bodyContains));
         }
 

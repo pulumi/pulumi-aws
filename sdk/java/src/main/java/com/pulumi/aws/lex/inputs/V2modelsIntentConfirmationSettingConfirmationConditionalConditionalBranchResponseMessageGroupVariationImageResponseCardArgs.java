@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingButtonArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -23,13 +23,13 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
      * 
      */
     @Import(name="buttons")
-    private @Nullable Output<List<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs>> buttons;
+    private @Nullable Output<List<V2modelsIntentConfirmationSettingButtonArgs>> buttons;
 
     /**
      * @return Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
      * 
      */
-    public Optional<Output<List<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs>>> buttons() {
+    public Optional<Output<List<V2modelsIntentConfirmationSettingButtonArgs>>> buttons() {
         return Optional.ofNullable(this.buttons);
     }
 
@@ -111,7 +111,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
          * @return builder
          * 
          */
-        public Builder buttons(@Nullable Output<List<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs>> buttons) {
+        public Builder buttons(@Nullable Output<List<V2modelsIntentConfirmationSettingButtonArgs>> buttons) {
             $.buttons = buttons;
             return this;
         }
@@ -122,7 +122,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
          * @return builder
          * 
          */
-        public Builder buttons(List<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs> buttons) {
+        public Builder buttons(List<V2modelsIntentConfirmationSettingButtonArgs> buttons) {
             return buttons(Output.of(buttons));
         }
 
@@ -132,7 +132,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
          * @return builder
          * 
          */
-        public Builder buttons(V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs... buttons) {
+        public Builder buttons(V2modelsIntentConfirmationSettingButtonArgs... buttons) {
             return buttons(List.of(buttons));
         }
 

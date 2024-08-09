@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleMatchPatternArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -37,13 +37,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * 
      */
     @Import(name="matchPattern", required=true)
-    private Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern;
+    private Output<RuleGroupRuleMatchPatternArgs> matchPattern;
 
     /**
      * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
      * 
      */
-    public Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern() {
+    public Output<RuleGroupRuleMatchPatternArgs> matchPattern() {
         return this.matchPattern;
     }
 
@@ -131,7 +131,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          * @return builder
          * 
          */
-        public Builder matchPattern(Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern) {
+        public Builder matchPattern(Output<RuleGroupRuleMatchPatternArgs> matchPattern) {
             $.matchPattern = matchPattern;
             return this;
         }
@@ -142,7 +142,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          * @return builder
          * 
          */
-        public Builder matchPattern(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs matchPattern) {
+        public Builder matchPattern(RuleGroupRuleMatchPatternArgs matchPattern) {
             return matchPattern(Output.of(matchPattern));
         }
 

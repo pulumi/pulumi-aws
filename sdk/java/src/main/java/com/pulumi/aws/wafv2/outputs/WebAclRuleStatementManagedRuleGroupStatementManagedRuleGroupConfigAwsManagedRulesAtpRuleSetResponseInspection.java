@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleBodyContains;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode;
@@ -18,7 +18,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * @return Configures inspection of the response body. See `body_contains` for more details.
      * 
      */
-    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains bodyContains;
+    private @Nullable WebAclRuleBodyContains bodyContains;
     /**
      * @return Configures inspection of the response header.See `header` for more details.
      * 
@@ -40,7 +40,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * @return Configures inspection of the response body. See `body_contains` for more details.
      * 
      */
-    public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains> bodyContains() {
+    public Optional<WebAclRuleBodyContains> bodyContains() {
         return Optional.ofNullable(this.bodyContains);
     }
     /**
@@ -74,7 +74,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains bodyContains;
+        private @Nullable WebAclRuleBodyContains bodyContains;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader header;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson json;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode statusCode;
@@ -88,7 +88,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         @CustomType.Setter
-        public Builder bodyContains(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains bodyContains) {
+        public Builder bodyContains(@Nullable WebAclRuleBodyContains bodyContains) {
 
             this.bodyContains = bodyContains;
             return this;

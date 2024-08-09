@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentFulfillmentCodeHookMessageGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -37,13 +37,13 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      * 
      */
     @Import(name="messageGroups")
-    private @Nullable Output<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgs>> messageGroups;
+    private @Nullable Output<List<V2modelsIntentFulfillmentCodeHookMessageGroupArgs>> messageGroups;
 
     /**
      * @return Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
      * 
      */
-    public Optional<Output<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgs>>> messageGroups() {
+    public Optional<Output<List<V2modelsIntentFulfillmentCodeHookMessageGroupArgs>>> messageGroups() {
         return Optional.ofNullable(this.messageGroups);
     }
 
@@ -99,7 +99,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
          * @return builder
          * 
          */
-        public Builder messageGroups(@Nullable Output<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgs>> messageGroups) {
+        public Builder messageGroups(@Nullable Output<List<V2modelsIntentFulfillmentCodeHookMessageGroupArgs>> messageGroups) {
             $.messageGroups = messageGroups;
             return this;
         }
@@ -110,7 +110,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
          * @return builder
          * 
          */
-        public Builder messageGroups(List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgs> messageGroups) {
+        public Builder messageGroups(List<V2modelsIntentFulfillmentCodeHookMessageGroupArgs> messageGroups) {
             return messageGroups(Output.of(messageGroups));
         }
 
@@ -120,7 +120,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
          * @return builder
          * 
          */
-        public Builder messageGroups(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgs... messageGroups) {
+        public Builder messageGroups(V2modelsIntentFulfillmentCodeHookMessageGroupArgs... messageGroups) {
             return messageGroups(List.of(messageGroups));
         }
 

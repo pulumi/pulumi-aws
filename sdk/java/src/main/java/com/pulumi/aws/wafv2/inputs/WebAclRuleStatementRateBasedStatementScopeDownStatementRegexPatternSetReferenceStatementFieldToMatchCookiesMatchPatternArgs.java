@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleAllArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -22,13 +22,13 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
      * 
      */
     @Import(name="all")
-    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs> all;
+    private @Nullable Output<WebAclRuleAllArgs> all;
 
     /**
      * @return An empty configuration block that is used for inspecting all headers.
      * 
      */
-    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs>> all() {
+    public Optional<Output<WebAclRuleAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
 
@@ -78,7 +78,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
          * @return builder
          * 
          */
-        public Builder all(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs> all) {
+        public Builder all(@Nullable Output<WebAclRuleAllArgs> all) {
             $.all = all;
             return this;
         }
@@ -89,7 +89,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
          * @return builder
          * 
          */
-        public Builder all(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs all) {
+        public Builder all(WebAclRuleAllArgs all) {
             return all(Output.of(all));
         }
 

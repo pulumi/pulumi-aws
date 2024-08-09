@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.kinesis.inputs;
 
-import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs;
-import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationOrcSerDeArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationParquetSerDeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -21,13 +21,13 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * 
      */
     @Import(name="orcSerDe")
-    private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs> orcSerDe;
+    private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationOrcSerDeArgs> orcSerDe;
 
     /**
      * @return Specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orc_ser_de` block below for details.
      * 
      */
-    public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs>> orcSerDe() {
+    public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationOrcSerDeArgs>> orcSerDe() {
         return Optional.ofNullable(this.orcSerDe);
     }
 
@@ -36,13 +36,13 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * 
      */
     @Import(name="parquetSerDe")
-    private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs> parquetSerDe;
+    private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationParquetSerDeArgs> parquetSerDe;
 
     /**
      * @return Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
      * 
      */
-    public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs>> parquetSerDe() {
+    public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationParquetSerDeArgs>> parquetSerDe() {
         return Optional.ofNullable(this.parquetSerDe);
     }
 
@@ -77,7 +77,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
          * @return builder
          * 
          */
-        public Builder orcSerDe(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs> orcSerDe) {
+        public Builder orcSerDe(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationOrcSerDeArgs> orcSerDe) {
             $.orcSerDe = orcSerDe;
             return this;
         }
@@ -88,7 +88,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
          * @return builder
          * 
          */
-        public Builder orcSerDe(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs orcSerDe) {
+        public Builder orcSerDe(FirehoseDeliveryStreamExtendedS3ConfigurationOrcSerDeArgs orcSerDe) {
             return orcSerDe(Output.of(orcSerDe));
         }
 
@@ -98,7 +98,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
          * @return builder
          * 
          */
-        public Builder parquetSerDe(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs> parquetSerDe) {
+        public Builder parquetSerDe(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationParquetSerDeArgs> parquetSerDe) {
             $.parquetSerDe = parquetSerDe;
             return this;
         }
@@ -109,7 +109,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
          * @return builder
          * 
          */
-        public Builder parquetSerDe(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs parquetSerDe) {
+        public Builder parquetSerDe(FirehoseDeliveryStreamExtendedS3ConfigurationParquetSerDeArgs parquetSerDe) {
             return parquetSerDe(Output.of(parquetSerDe));
         }
 

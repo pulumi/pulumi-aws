@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleMatchPattern;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -16,7 +16,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
-    private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern> matchPatterns;
+    private List<WebAclRuleMatchPattern> matchPatterns;
     /**
      * @return The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
      * 
@@ -33,7 +33,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
-    public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern> matchPatterns() {
+    public List<WebAclRuleMatchPattern> matchPatterns() {
         return this.matchPatterns;
     }
     /**
@@ -60,7 +60,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern> matchPatterns;
+        private List<WebAclRuleMatchPattern> matchPatterns;
         private String matchScope;
         private String oversizeHandling;
         public Builder() {}
@@ -72,14 +72,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         @CustomType.Setter
-        public Builder matchPatterns(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern> matchPatterns) {
+        public Builder matchPatterns(List<WebAclRuleMatchPattern> matchPatterns) {
             if (matchPatterns == null) {
               throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies", "matchPatterns");
             }
             this.matchPatterns = matchPatterns;
             return this;
         }
-        public Builder matchPatterns(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern... matchPatterns) {
+        public Builder matchPatterns(WebAclRuleMatchPattern... matchPatterns) {
             return matchPatterns(List.of(matchPatterns));
         }
         @CustomType.Setter

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingValueArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -52,13 +52,13 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * 
      */
     @Import(name="value")
-    private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs> value;
+    private @Nullable Output<V2modelsIntentConfirmationSettingValueArgs> value;
 
     /**
      * @return Configuration block for the current value of the slot. See `value`.
      * 
      */
-    public Optional<Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs>> value() {
+    public Optional<Output<V2modelsIntentConfirmationSettingValueArgs>> value() {
         return Optional.ofNullable(this.value);
     }
 
@@ -136,7 +136,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
          * @return builder
          * 
          */
-        public Builder value(@Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs> value) {
+        public Builder value(@Nullable Output<V2modelsIntentConfirmationSettingValueArgs> value) {
             $.value = value;
             return this;
         }
@@ -147,7 +147,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
          * @return builder
          * 
          */
-        public Builder value(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs value) {
+        public Builder value(V2modelsIntentConfirmationSettingValueArgs value) {
             return value(Output.of(value));
         }
 

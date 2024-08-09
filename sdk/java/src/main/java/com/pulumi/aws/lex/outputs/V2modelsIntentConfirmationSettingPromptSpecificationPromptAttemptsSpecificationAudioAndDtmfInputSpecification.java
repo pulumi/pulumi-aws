@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification;
-import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification;
+import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingAudioSpecification;
+import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingDtmfSpecification;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -18,12 +18,12 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
      * @return Configuration block for the settings on audio input. See `audio_specification`.
      * 
      */
-    private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification;
+    private @Nullable V2modelsIntentConfirmationSettingAudioSpecification audioSpecification;
     /**
      * @return Configuration block for the settings on DTMF input. See `dtmf_specification`.
      * 
      */
-    private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification;
+    private @Nullable V2modelsIntentConfirmationSettingDtmfSpecification dtmfSpecification;
     /**
      * @return Time for which a bot waits before assuming that the customer isn&#39;t going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
      * 
@@ -35,14 +35,14 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
      * @return Configuration block for the settings on audio input. See `audio_specification`.
      * 
      */
-    public Optional<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification> audioSpecification() {
+    public Optional<V2modelsIntentConfirmationSettingAudioSpecification> audioSpecification() {
         return Optional.ofNullable(this.audioSpecification);
     }
     /**
      * @return Configuration block for the settings on DTMF input. See `dtmf_specification`.
      * 
      */
-    public Optional<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification> dtmfSpecification() {
+    public Optional<V2modelsIntentConfirmationSettingDtmfSpecification> dtmfSpecification() {
         return Optional.ofNullable(this.dtmfSpecification);
     }
     /**
@@ -62,8 +62,8 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification;
-        private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification;
+        private @Nullable V2modelsIntentConfirmationSettingAudioSpecification audioSpecification;
+        private @Nullable V2modelsIntentConfirmationSettingDtmfSpecification dtmfSpecification;
         private Integer startTimeoutMs;
         public Builder() {}
         public Builder(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification defaults) {
@@ -74,13 +74,13 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         @CustomType.Setter
-        public Builder audioSpecification(@Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification) {
+        public Builder audioSpecification(@Nullable V2modelsIntentConfirmationSettingAudioSpecification audioSpecification) {
 
             this.audioSpecification = audioSpecification;
             return this;
         }
         @CustomType.Setter
-        public Builder dtmfSpecification(@Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification) {
+        public Builder dtmfSpecification(@Nullable V2modelsIntentConfirmationSettingDtmfSpecification dtmfSpecification) {
 
             this.dtmfSpecification = dtmfSpecification;
             return this;

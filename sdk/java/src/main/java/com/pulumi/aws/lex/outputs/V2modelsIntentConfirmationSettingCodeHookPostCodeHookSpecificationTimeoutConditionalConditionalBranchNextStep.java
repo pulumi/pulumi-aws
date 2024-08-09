@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction;
 import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntent;
+import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingDialogAction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
@@ -18,7 +18,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction dialogAction;
+    private @Nullable V2modelsIntentConfirmationSettingDialogAction dialogAction;
     /**
      * @return Configuration block for override settings to configure the intent state. See `intent`.
      * 
@@ -35,7 +35,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction> dialogAction() {
+    public Optional<V2modelsIntentConfirmationSettingDialogAction> dialogAction() {
         return Optional.ofNullable(this.dialogAction);
     }
     /**
@@ -62,7 +62,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction dialogAction;
+        private @Nullable V2modelsIntentConfirmationSettingDialogAction dialogAction;
         private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntent intent;
         private @Nullable Map<String,String> sessionAttributes;
         public Builder() {}
@@ -74,7 +74,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         }
 
         @CustomType.Setter
-        public Builder dialogAction(@Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction dialogAction) {
+        public Builder dialogAction(@Nullable V2modelsIntentConfirmationSettingDialogAction dialogAction) {
 
             this.dialogAction = dialogAction;
             return this;

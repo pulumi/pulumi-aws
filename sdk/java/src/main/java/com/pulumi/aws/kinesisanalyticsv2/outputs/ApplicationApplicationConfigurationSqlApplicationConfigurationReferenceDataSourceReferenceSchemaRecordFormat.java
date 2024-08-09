@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters;
+import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationMappingParameters;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -15,7 +15,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
      * 
      */
-    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters;
+    private ApplicationApplicationConfigurationMappingParameters mappingParameters;
     /**
      * @return The type of record format. Valid values: `CSV`, `JSON`.
      * 
@@ -27,7 +27,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
      * 
      */
-    public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters() {
+    public ApplicationApplicationConfigurationMappingParameters mappingParameters() {
         return this.mappingParameters;
     }
     /**
@@ -47,7 +47,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
     @CustomType.Builder
     public static final class Builder {
-        private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters;
+        private ApplicationApplicationConfigurationMappingParameters mappingParameters;
         private String recordFormatType;
         public Builder() {}
         public Builder(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat defaults) {
@@ -57,7 +57,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         @CustomType.Setter
-        public Builder mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters) {
+        public Builder mappingParameters(ApplicationApplicationConfigurationMappingParameters mappingParameters) {
             if (mappingParameters == null) {
               throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat", "mappingParameters");
             }

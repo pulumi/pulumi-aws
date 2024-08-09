@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs;
+import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationMappingParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,13 +20,13 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * 
      */
     @Import(name="mappingParameters", required=true)
-    private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs> mappingParameters;
+    private Output<ApplicationApplicationConfigurationMappingParametersArgs> mappingParameters;
 
     /**
      * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
      * 
      */
-    public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs> mappingParameters() {
+    public Output<ApplicationApplicationConfigurationMappingParametersArgs> mappingParameters() {
         return this.mappingParameters;
     }
 
@@ -76,7 +76,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
          * @return builder
          * 
          */
-        public Builder mappingParameters(Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs> mappingParameters) {
+        public Builder mappingParameters(Output<ApplicationApplicationConfigurationMappingParametersArgs> mappingParameters) {
             $.mappingParameters = mappingParameters;
             return this;
         }
@@ -87,7 +87,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
          * @return builder
          * 
          */
-        public Builder mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs mappingParameters) {
+        public Builder mappingParameters(ApplicationApplicationConfigurationMappingParametersArgs mappingParameters) {
             return mappingParameters(Output.of(mappingParameters));
         }
 

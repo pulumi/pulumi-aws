@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs;
-import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs;
+import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingAudioSpecificationArgs;
+import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingDtmfSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,16 +19,16 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationPromptA
     public static final V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs Empty = new V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs();
 
     @Import(name="audioSpecification")
-    private @Nullable Output<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs> audioSpecification;
+    private @Nullable Output<V2modelsSlotValueElicitationSettingAudioSpecificationArgs> audioSpecification;
 
-    public Optional<Output<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs>> audioSpecification() {
+    public Optional<Output<V2modelsSlotValueElicitationSettingAudioSpecificationArgs>> audioSpecification() {
         return Optional.ofNullable(this.audioSpecification);
     }
 
     @Import(name="dtmfSpecification")
-    private @Nullable Output<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs> dtmfSpecification;
+    private @Nullable Output<V2modelsSlotValueElicitationSettingDtmfSpecificationArgs> dtmfSpecification;
 
-    public Optional<Output<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs>> dtmfSpecification() {
+    public Optional<Output<V2modelsSlotValueElicitationSettingDtmfSpecificationArgs>> dtmfSpecification() {
         return Optional.ofNullable(this.dtmfSpecification);
     }
 
@@ -65,21 +65,21 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationPromptA
             $ = new V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder audioSpecification(@Nullable Output<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs> audioSpecification) {
+        public Builder audioSpecification(@Nullable Output<V2modelsSlotValueElicitationSettingAudioSpecificationArgs> audioSpecification) {
             $.audioSpecification = audioSpecification;
             return this;
         }
 
-        public Builder audioSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs audioSpecification) {
+        public Builder audioSpecification(V2modelsSlotValueElicitationSettingAudioSpecificationArgs audioSpecification) {
             return audioSpecification(Output.of(audioSpecification));
         }
 
-        public Builder dtmfSpecification(@Nullable Output<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs> dtmfSpecification) {
+        public Builder dtmfSpecification(@Nullable Output<V2modelsSlotValueElicitationSettingDtmfSpecificationArgs> dtmfSpecification) {
             $.dtmfSpecification = dtmfSpecification;
             return this;
         }
 
-        public Builder dtmfSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs dtmfSpecification) {
+        public Builder dtmfSpecification(V2modelsSlotValueElicitationSettingDtmfSpecificationArgs dtmfSpecification) {
             return dtmfSpecification(Output.of(dtmfSpecification));
         }
 

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue;
+import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingValue;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -27,7 +27,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * @return Configuration block for the current value of the slot. See `value`.
      * 
      */
-    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue value;
+    private @Nullable V2modelsIntentInitialResponseSettingValue value;
 
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot() {}
     /**
@@ -48,7 +48,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * @return Configuration block for the current value of the slot. See `value`.
      * 
      */
-    public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue> value() {
+    public Optional<V2modelsIntentInitialResponseSettingValue> value() {
         return Optional.ofNullable(this.value);
     }
 
@@ -63,7 +63,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
     public static final class Builder {
         private String mapBlockKey;
         private @Nullable String shape;
-        private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue value;
+        private @Nullable V2modelsIntentInitialResponseSettingValue value;
         public Builder() {}
         public Builder(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot defaults) {
     	      Objects.requireNonNull(defaults);
@@ -87,7 +87,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
             return this;
         }
         @CustomType.Setter
-        public Builder value(@Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue value) {
+        public Builder value(@Nullable V2modelsIntentInitialResponseSettingValue value) {
 
             this.value = value;
             return this;

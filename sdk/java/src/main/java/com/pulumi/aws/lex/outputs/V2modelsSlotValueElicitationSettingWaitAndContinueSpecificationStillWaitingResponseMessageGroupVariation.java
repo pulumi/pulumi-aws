@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.outputs;
 
+import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingImageResponseCard;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload;
-import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage;
 import com.pulumi.core.annotations.CustomType;
@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation {
     private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload> customPayloads;
-    private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard imageResponseCard;
+    private @Nullable V2modelsSlotValueElicitationSettingImageResponseCard imageResponseCard;
     private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage plainTextMessage;
     private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage ssmlMessage;
 
@@ -24,7 +24,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload> customPayloads() {
         return this.customPayloads == null ? List.of() : this.customPayloads;
     }
-    public Optional<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard> imageResponseCard() {
+    public Optional<V2modelsSlotValueElicitationSettingImageResponseCard> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
     }
     public Optional<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage> plainTextMessage() {
@@ -44,7 +44,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload> customPayloads;
-        private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard imageResponseCard;
+        private @Nullable V2modelsSlotValueElicitationSettingImageResponseCard imageResponseCard;
         private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage plainTextMessage;
         private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage ssmlMessage;
         public Builder() {}
@@ -66,7 +66,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             return customPayloads(List.of(customPayloads));
         }
         @CustomType.Setter
-        public Builder imageResponseCard(@Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard imageResponseCard) {
+        public Builder imageResponseCard(@Nullable V2modelsSlotValueElicitationSettingImageResponseCard imageResponseCard) {
 
             this.imageResponseCard = imageResponseCard;
             return this;

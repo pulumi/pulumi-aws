@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs;
-import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingAudioSpecificationArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingDtmfSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -23,13 +23,13 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
      * 
      */
     @Import(name="audioSpecification")
-    private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs> audioSpecification;
+    private @Nullable Output<V2modelsIntentConfirmationSettingAudioSpecificationArgs> audioSpecification;
 
     /**
      * @return Configuration block for the settings on audio input. See `audio_specification`.
      * 
      */
-    public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs>> audioSpecification() {
+    public Optional<Output<V2modelsIntentConfirmationSettingAudioSpecificationArgs>> audioSpecification() {
         return Optional.ofNullable(this.audioSpecification);
     }
 
@@ -38,13 +38,13 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
      * 
      */
     @Import(name="dtmfSpecification")
-    private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs> dtmfSpecification;
+    private @Nullable Output<V2modelsIntentConfirmationSettingDtmfSpecificationArgs> dtmfSpecification;
 
     /**
      * @return Configuration block for the settings on DTMF input. See `dtmf_specification`.
      * 
      */
-    public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs>> dtmfSpecification() {
+    public Optional<Output<V2modelsIntentConfirmationSettingDtmfSpecificationArgs>> dtmfSpecification() {
         return Optional.ofNullable(this.dtmfSpecification);
     }
 
@@ -95,7 +95,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
          * @return builder
          * 
          */
-        public Builder audioSpecification(@Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs> audioSpecification) {
+        public Builder audioSpecification(@Nullable Output<V2modelsIntentConfirmationSettingAudioSpecificationArgs> audioSpecification) {
             $.audioSpecification = audioSpecification;
             return this;
         }
@@ -106,7 +106,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
          * @return builder
          * 
          */
-        public Builder audioSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs audioSpecification) {
+        public Builder audioSpecification(V2modelsIntentConfirmationSettingAudioSpecificationArgs audioSpecification) {
             return audioSpecification(Output.of(audioSpecification));
         }
 
@@ -116,7 +116,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
          * @return builder
          * 
          */
-        public Builder dtmfSpecification(@Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs> dtmfSpecification) {
+        public Builder dtmfSpecification(@Nullable Output<V2modelsIntentConfirmationSettingDtmfSpecificationArgs> dtmfSpecification) {
             $.dtmfSpecification = dtmfSpecification;
             return this;
         }
@@ -127,7 +127,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
          * @return builder
          * 
          */
-        public Builder dtmfSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs dtmfSpecification) {
+        public Builder dtmfSpecification(V2modelsIntentConfirmationSettingDtmfSpecificationArgs dtmfSpecification) {
             return dtmfSpecification(Output.of(dtmfSpecification));
         }
 

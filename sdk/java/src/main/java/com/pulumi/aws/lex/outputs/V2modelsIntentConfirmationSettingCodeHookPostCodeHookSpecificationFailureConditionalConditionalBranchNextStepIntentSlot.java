@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue;
+import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingValue;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -27,7 +27,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration block for the current value of the slot. See `value`.
      * 
      */
-    private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue value;
+    private @Nullable V2modelsIntentConfirmationSettingValue value;
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot() {}
     /**
@@ -48,7 +48,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration block for the current value of the slot. See `value`.
      * 
      */
-    public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue> value() {
+    public Optional<V2modelsIntentConfirmationSettingValue> value() {
         return Optional.ofNullable(this.value);
     }
 
@@ -63,7 +63,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
     public static final class Builder {
         private String mapBlockKey;
         private @Nullable String shape;
-        private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue value;
+        private @Nullable V2modelsIntentConfirmationSettingValue value;
         public Builder() {}
         public Builder(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot defaults) {
     	      Objects.requireNonNull(defaults);
@@ -87,7 +87,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
             return this;
         }
         @CustomType.Setter
-        public Builder value(@Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue value) {
+        public Builder value(@Nullable V2modelsIntentConfirmationSettingValue value) {
 
             this.value = value;
             return this;

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleMatchPattern;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -15,7 +15,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
      * 
      */
-    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern matchPattern;
+    private RuleGroupRuleMatchPattern matchPattern;
     /**
      * @return The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
      * 
@@ -32,7 +32,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
      * 
      */
-    public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern matchPattern() {
+    public RuleGroupRuleMatchPattern matchPattern() {
         return this.matchPattern;
     }
     /**
@@ -59,7 +59,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
     }
     @CustomType.Builder
     public static final class Builder {
-        private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern matchPattern;
+        private RuleGroupRuleMatchPattern matchPattern;
         private String matchScope;
         private String oversizeHandling;
         public Builder() {}
@@ -71,7 +71,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
         }
 
         @CustomType.Setter
-        public Builder matchPattern(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern matchPattern) {
+        public Builder matchPattern(RuleGroupRuleMatchPattern matchPattern) {
             if (matchPattern == null) {
               throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader", "matchPattern");
             }

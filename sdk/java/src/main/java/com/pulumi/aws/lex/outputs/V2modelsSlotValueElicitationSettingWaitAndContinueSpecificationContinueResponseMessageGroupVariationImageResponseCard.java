@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton;
+import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingButton;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -14,13 +14,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard {
-    private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton> buttons;
+    private @Nullable List<V2modelsSlotValueElicitationSettingButton> buttons;
     private @Nullable String imageUrl;
     private @Nullable String subtitle;
     private String title;
 
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard() {}
-    public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton> buttons() {
+    public List<V2modelsSlotValueElicitationSettingButton> buttons() {
         return this.buttons == null ? List.of() : this.buttons;
     }
     public Optional<String> imageUrl() {
@@ -42,7 +42,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton> buttons;
+        private @Nullable List<V2modelsSlotValueElicitationSettingButton> buttons;
         private @Nullable String imageUrl;
         private @Nullable String subtitle;
         private String title;
@@ -56,12 +56,12 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
         }
 
         @CustomType.Setter
-        public Builder buttons(@Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton> buttons) {
+        public Builder buttons(@Nullable List<V2modelsSlotValueElicitationSettingButton> buttons) {
 
             this.buttons = buttons;
             return this;
         }
-        public Builder buttons(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton... buttons) {
+        public Builder buttons(V2modelsSlotValueElicitationSettingButton... buttons) {
             return buttons(List.of(buttons));
         }
         @CustomType.Setter

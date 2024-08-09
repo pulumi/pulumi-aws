@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleMatchPattern;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -15,7 +15,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
      * 
      */
-    private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern matchPattern;
+    private WebAclRuleMatchPattern matchPattern;
     /**
      * @return The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
      * 
@@ -32,7 +32,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
      * 
      */
-    public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern matchPattern() {
+    public WebAclRuleMatchPattern matchPattern() {
         return this.matchPattern;
     }
     /**
@@ -59,7 +59,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
     @CustomType.Builder
     public static final class Builder {
-        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern matchPattern;
+        private WebAclRuleMatchPattern matchPattern;
         private String matchScope;
         private String oversizeHandling;
         public Builder() {}
@@ -71,7 +71,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         @CustomType.Setter
-        public Builder matchPattern(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern matchPattern) {
+        public Builder matchPattern(WebAclRuleMatchPattern matchPattern) {
             if (matchPattern == null) {
               throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader", "matchPattern");
             }

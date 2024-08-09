@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage;
-import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation;
+import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingMessage;
+import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingVariation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
@@ -17,26 +17,26 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage message;
+    private V2modelsIntentConfirmationSettingMessage message;
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    private @Nullable List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation> variations;
+    private @Nullable List<V2modelsIntentConfirmationSettingVariation> variations;
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup() {}
     /**
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage message() {
+    public V2modelsIntentConfirmationSettingMessage message() {
         return this.message;
     }
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    public List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation> variations() {
+    public List<V2modelsIntentConfirmationSettingVariation> variations() {
         return this.variations == null ? List.of() : this.variations;
     }
 
@@ -49,8 +49,8 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage message;
-        private @Nullable List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation> variations;
+        private V2modelsIntentConfirmationSettingMessage message;
+        private @Nullable List<V2modelsIntentConfirmationSettingVariation> variations;
         public Builder() {}
         public Builder(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,7 +59,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         }
 
         @CustomType.Setter
-        public Builder message(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage message) {
+        public Builder message(V2modelsIntentConfirmationSettingMessage message) {
             if (message == null) {
               throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup", "message");
             }
@@ -67,12 +67,12 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
             return this;
         }
         @CustomType.Setter
-        public Builder variations(@Nullable List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation> variations) {
+        public Builder variations(@Nullable List<V2modelsIntentConfirmationSettingVariation> variations) {
 
             this.variations = variations;
             return this;
         }
-        public Builder variations(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation... variations) {
+        public Builder variations(V2modelsIntentConfirmationSettingVariation... variations) {
             return variations(List.of(variations));
         }
         public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup build() {

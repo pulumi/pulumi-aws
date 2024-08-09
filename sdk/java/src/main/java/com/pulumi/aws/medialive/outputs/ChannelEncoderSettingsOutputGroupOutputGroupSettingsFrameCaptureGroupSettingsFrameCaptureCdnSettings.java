@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.medialive.outputs;
 
-import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsFrameCaptureS3Settings;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,10 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings {
-    private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings frameCaptureS3Settings;
+    private @Nullable ChannelEncoderSettingsFrameCaptureS3Settings frameCaptureS3Settings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings() {}
-    public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings> frameCaptureS3Settings() {
+    public Optional<ChannelEncoderSettingsFrameCaptureS3Settings> frameCaptureS3Settings() {
         return Optional.ofNullable(this.frameCaptureS3Settings);
     }
 
@@ -27,7 +27,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings frameCaptureS3Settings;
+        private @Nullable ChannelEncoderSettingsFrameCaptureS3Settings frameCaptureS3Settings;
         public Builder() {}
         public Builder(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -35,7 +35,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
         }
 
         @CustomType.Setter
-        public Builder frameCaptureS3Settings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings frameCaptureS3Settings) {
+        public Builder frameCaptureS3Settings(@Nullable ChannelEncoderSettingsFrameCaptureS3Settings frameCaptureS3Settings) {
 
             this.frameCaptureS3Settings = frameCaptureS3Settings;
             return this;

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup;
+import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingMessageGroup;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.List;
@@ -22,7 +22,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
      * 
      */
-    private @Nullable List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup> messageGroups;
+    private @Nullable List<V2modelsIntentConfirmationSettingMessageGroup> messageGroups;
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponse() {}
     /**
@@ -36,7 +36,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * @return Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
      * 
      */
-    public List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup> messageGroups() {
+    public List<V2modelsIntentConfirmationSettingMessageGroup> messageGroups() {
         return this.messageGroups == null ? List.of() : this.messageGroups;
     }
 
@@ -50,7 +50,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowInterrupt;
-        private @Nullable List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup> messageGroups;
+        private @Nullable List<V2modelsIntentConfirmationSettingMessageGroup> messageGroups;
         public Builder() {}
         public Builder(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponse defaults) {
     	      Objects.requireNonNull(defaults);
@@ -65,12 +65,12 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
             return this;
         }
         @CustomType.Setter
-        public Builder messageGroups(@Nullable List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup> messageGroups) {
+        public Builder messageGroups(@Nullable List<V2modelsIntentConfirmationSettingMessageGroup> messageGroups) {
 
             this.messageGroups = messageGroups;
             return this;
         }
-        public Builder messageGroups(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup... messageGroups) {
+        public Builder messageGroups(V2modelsIntentConfirmationSettingMessageGroup... messageGroups) {
             return messageGroups(List.of(messageGroups));
         }
         public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponse build() {

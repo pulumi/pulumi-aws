@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage;
-import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation;
+import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingMessage;
+import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSettingVariation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
@@ -17,26 +17,26 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage message;
+    private V2modelsIntentInitialResponseSettingMessage message;
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    private @Nullable List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation> variations;
+    private @Nullable List<V2modelsIntentInitialResponseSettingVariation> variations;
 
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup() {}
     /**
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage message() {
+    public V2modelsIntentInitialResponseSettingMessage message() {
         return this.message;
     }
     /**
      * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    public List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation> variations() {
+    public List<V2modelsIntentInitialResponseSettingVariation> variations() {
         return this.variations == null ? List.of() : this.variations;
     }
 
@@ -49,8 +49,8 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage message;
-        private @Nullable List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation> variations;
+        private V2modelsIntentInitialResponseSettingMessage message;
+        private @Nullable List<V2modelsIntentInitialResponseSettingVariation> variations;
         public Builder() {}
         public Builder(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,7 +59,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
         }
 
         @CustomType.Setter
-        public Builder message(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage message) {
+        public Builder message(V2modelsIntentInitialResponseSettingMessage message) {
             if (message == null) {
               throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup", "message");
             }
@@ -67,12 +67,12 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
             return this;
         }
         @CustomType.Setter
-        public Builder variations(@Nullable List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation> variations) {
+        public Builder variations(@Nullable List<V2modelsIntentInitialResponseSettingVariation> variations) {
 
             this.variations = variations;
             return this;
         }
-        public Builder variations(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation... variations) {
+        public Builder variations(V2modelsIntentInitialResponseSettingVariation... variations) {
             return variations(List.of(variations));
         }
         public V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup build() {

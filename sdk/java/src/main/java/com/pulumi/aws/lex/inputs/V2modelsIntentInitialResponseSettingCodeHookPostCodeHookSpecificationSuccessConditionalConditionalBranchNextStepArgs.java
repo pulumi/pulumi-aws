@@ -3,8 +3,8 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingDialogActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -23,13 +23,13 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * 
      */
     @Import(name="dialogAction")
-    private @Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs> dialogAction;
+    private @Nullable Output<V2modelsIntentInitialResponseSettingDialogActionArgs> dialogAction;
 
     /**
      * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    public Optional<Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs>> dialogAction() {
+    public Optional<Output<V2modelsIntentInitialResponseSettingDialogActionArgs>> dialogAction() {
         return Optional.ofNullable(this.dialogAction);
     }
 
@@ -95,7 +95,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder dialogAction(@Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs> dialogAction) {
+        public Builder dialogAction(@Nullable Output<V2modelsIntentInitialResponseSettingDialogActionArgs> dialogAction) {
             $.dialogAction = dialogAction;
             return this;
         }
@@ -106,7 +106,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
          * @return builder
          * 
          */
-        public Builder dialogAction(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs dialogAction) {
+        public Builder dialogAction(V2modelsIntentInitialResponseSettingDialogActionArgs dialogAction) {
             return dialogAction(Output.of(dialogAction));
         }
 

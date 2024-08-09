@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleMatchPatternArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,13 +20,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * 
      */
     @Import(name="matchPattern", required=true)
-    private Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
+    private Output<WebAclRuleMatchPatternArgs> matchPattern;
 
     /**
      * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
      * 
      */
-    public Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern() {
+    public Output<WebAclRuleMatchPatternArgs> matchPattern() {
         return this.matchPattern;
     }
 
@@ -92,7 +92,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          * @return builder
          * 
          */
-        public Builder matchPattern(Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern) {
+        public Builder matchPattern(Output<WebAclRuleMatchPatternArgs> matchPattern) {
             $.matchPattern = matchPattern;
             return this;
         }
@@ -103,7 +103,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          * @return builder
          * 
          */
-        public Builder matchPattern(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs matchPattern) {
+        public Builder matchPattern(WebAclRuleMatchPatternArgs matchPattern) {
             return matchPattern(Output.of(matchPattern));
         }
 

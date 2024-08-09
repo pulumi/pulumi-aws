@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.medialive.inputs;
 
-import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs;
+import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsFrameCaptureS3SettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -16,9 +16,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs();
 
     @Import(name="frameCaptureS3Settings")
-    private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs> frameCaptureS3Settings;
+    private @Nullable Output<ChannelEncoderSettingsFrameCaptureS3SettingsArgs> frameCaptureS3Settings;
 
-    public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs>> frameCaptureS3Settings() {
+    public Optional<Output<ChannelEncoderSettingsFrameCaptureS3SettingsArgs>> frameCaptureS3Settings() {
         return Optional.ofNullable(this.frameCaptureS3Settings);
     }
 
@@ -46,12 +46,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder frameCaptureS3Settings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs> frameCaptureS3Settings) {
+        public Builder frameCaptureS3Settings(@Nullable Output<ChannelEncoderSettingsFrameCaptureS3SettingsArgs> frameCaptureS3Settings) {
             $.frameCaptureS3Settings = frameCaptureS3Settings;
             return this;
         }
 
-        public Builder frameCaptureS3Settings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs frameCaptureS3Settings) {
+        public Builder frameCaptureS3Settings(ChannelEncoderSettingsFrameCaptureS3SettingsArgs frameCaptureS3Settings) {
             return frameCaptureS3Settings(Output.of(frameCaptureS3Settings));
         }
 

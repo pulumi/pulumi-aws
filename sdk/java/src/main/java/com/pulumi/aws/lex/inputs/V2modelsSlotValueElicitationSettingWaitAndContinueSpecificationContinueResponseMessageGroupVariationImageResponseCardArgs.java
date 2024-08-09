@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs;
+import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingButtonArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,9 +19,9 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     public static final V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs Empty = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs();
 
     @Import(name="buttons")
-    private @Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs>> buttons;
+    private @Nullable Output<List<V2modelsSlotValueElicitationSettingButtonArgs>> buttons;
 
-    public Optional<Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs>>> buttons() {
+    public Optional<Output<List<V2modelsSlotValueElicitationSettingButtonArgs>>> buttons() {
         return Optional.ofNullable(this.buttons);
     }
 
@@ -73,16 +73,16 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             $ = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder buttons(@Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs>> buttons) {
+        public Builder buttons(@Nullable Output<List<V2modelsSlotValueElicitationSettingButtonArgs>> buttons) {
             $.buttons = buttons;
             return this;
         }
 
-        public Builder buttons(List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs> buttons) {
+        public Builder buttons(List<V2modelsSlotValueElicitationSettingButtonArgs> buttons) {
             return buttons(Output.of(buttons));
         }
 
-        public Builder buttons(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs... buttons) {
+        public Builder buttons(V2modelsSlotValueElicitationSettingButtonArgs... buttons) {
             return buttons(List.of(buttons));
         }
 

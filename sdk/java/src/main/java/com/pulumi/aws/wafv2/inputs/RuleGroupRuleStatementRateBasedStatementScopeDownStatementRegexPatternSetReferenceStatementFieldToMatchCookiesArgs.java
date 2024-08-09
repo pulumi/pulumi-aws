@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleMatchPatternArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -21,13 +21,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * 
      */
     @Import(name="matchPatterns", required=true)
-    private Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns;
+    private Output<List<RuleGroupRuleMatchPatternArgs>> matchPatterns;
 
     /**
      * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
-    public Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns() {
+    public Output<List<RuleGroupRuleMatchPatternArgs>> matchPatterns() {
         return this.matchPatterns;
     }
 
@@ -93,7 +93,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          * @return builder
          * 
          */
-        public Builder matchPatterns(Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns) {
+        public Builder matchPatterns(Output<List<RuleGroupRuleMatchPatternArgs>> matchPatterns) {
             $.matchPatterns = matchPatterns;
             return this;
         }
@@ -104,7 +104,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          * @return builder
          * 
          */
-        public Builder matchPatterns(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs> matchPatterns) {
+        public Builder matchPatterns(List<RuleGroupRuleMatchPatternArgs> matchPatterns) {
             return matchPatterns(Output.of(matchPatterns));
         }
 
@@ -114,7 +114,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          * @return builder
          * 
          */
-        public Builder matchPatterns(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs... matchPatterns) {
+        public Builder matchPatterns(RuleGroupRuleMatchPatternArgs... matchPatterns) {
             return matchPatterns(List.of(matchPatterns));
         }
 
