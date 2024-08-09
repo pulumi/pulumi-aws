@@ -116,7 +116,7 @@ public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TopicRuleDestination(String name) {
+    public TopicRuleDestination(java.lang.String name) {
         this(name, TopicRuleDestinationArgs.Empty);
     }
     /**
@@ -124,7 +124,7 @@ public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TopicRuleDestination(String name, TopicRuleDestinationArgs args) {
+    public TopicRuleDestination(java.lang.String name, TopicRuleDestinationArgs args) {
         this(name, args, null);
     }
     /**
@@ -133,15 +133,22 @@ public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TopicRuleDestination(String name, TopicRuleDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/topicRuleDestination:TopicRuleDestination", name, args == null ? TopicRuleDestinationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TopicRuleDestination(java.lang.String name, TopicRuleDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/topicRuleDestination:TopicRuleDestination", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TopicRuleDestination(String name, Output<String> id, @Nullable TopicRuleDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/topicRuleDestination:TopicRuleDestination", name, state, makeResourceOptions(options, id));
+    private TopicRuleDestination(java.lang.String name, Output<java.lang.String> id, @Nullable TopicRuleDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/topicRuleDestination:TopicRuleDestination", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TopicRuleDestinationArgs makeArgs(TopicRuleDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TopicRuleDestinationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +164,7 @@ public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TopicRuleDestination get(String name, Output<String> id, @Nullable TopicRuleDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TopicRuleDestination get(java.lang.String name, Output<java.lang.String> id, @Nullable TopicRuleDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TopicRuleDestination(name, id, state, options);
     }
 }

@@ -169,7 +169,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CapacityProvider(String name) {
+    public CapacityProvider(java.lang.String name) {
         this(name, CapacityProviderArgs.Empty);
     }
     /**
@@ -177,7 +177,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CapacityProvider(String name, CapacityProviderArgs args) {
+    public CapacityProvider(java.lang.String name, CapacityProviderArgs args) {
         this(name, args, null);
     }
     /**
@@ -186,15 +186,22 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CapacityProvider(String name, CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/capacityProvider:CapacityProvider", name, args == null ? CapacityProviderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CapacityProvider(java.lang.String name, CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecs/capacityProvider:CapacityProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CapacityProvider(String name, Output<String> id, @Nullable CapacityProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/capacityProvider:CapacityProvider", name, state, makeResourceOptions(options, id));
+    private CapacityProvider(java.lang.String name, Output<java.lang.String> id, @Nullable CapacityProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecs/capacityProvider:CapacityProvider", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CapacityProviderArgs makeArgs(CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CapacityProviderArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -210,7 +217,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CapacityProvider get(String name, Output<String> id, @Nullable CapacityProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CapacityProvider get(java.lang.String name, Output<java.lang.String> id, @Nullable CapacityProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CapacityProvider(name, id, state, options);
     }
 }

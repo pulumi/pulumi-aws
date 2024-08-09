@@ -197,7 +197,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public QuickConnect(String name) {
+    public QuickConnect(java.lang.String name) {
         this(name, QuickConnectArgs.Empty);
     }
     /**
@@ -205,7 +205,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public QuickConnect(String name, QuickConnectArgs args) {
+    public QuickConnect(java.lang.String name, QuickConnectArgs args) {
         this(name, args, null);
     }
     /**
@@ -214,15 +214,22 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public QuickConnect(String name, QuickConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/quickConnect:QuickConnect", name, args == null ? QuickConnectArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public QuickConnect(java.lang.String name, QuickConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/quickConnect:QuickConnect", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private QuickConnect(String name, Output<String> id, @Nullable QuickConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/quickConnect:QuickConnect", name, state, makeResourceOptions(options, id));
+    private QuickConnect(java.lang.String name, Output<java.lang.String> id, @Nullable QuickConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/quickConnect:QuickConnect", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static QuickConnectArgs makeArgs(QuickConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? QuickConnectArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -238,7 +245,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static QuickConnect get(String name, Output<String> id, @Nullable QuickConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static QuickConnect get(java.lang.String name, Output<java.lang.String> id, @Nullable QuickConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new QuickConnect(name, id, state, options);
     }
 }

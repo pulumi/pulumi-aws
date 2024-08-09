@@ -208,7 +208,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PermissionSet(String name) {
+    public PermissionSet(java.lang.String name) {
         this(name, PermissionSetArgs.Empty);
     }
     /**
@@ -216,7 +216,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PermissionSet(String name, PermissionSetArgs args) {
+    public PermissionSet(java.lang.String name, PermissionSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -225,15 +225,22 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PermissionSet(String name, PermissionSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/permissionSet:PermissionSet", name, args == null ? PermissionSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PermissionSet(java.lang.String name, PermissionSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssoadmin/permissionSet:PermissionSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PermissionSet(String name, Output<String> id, @Nullable PermissionSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/permissionSet:PermissionSet", name, state, makeResourceOptions(options, id));
+    private PermissionSet(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssoadmin/permissionSet:PermissionSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PermissionSetArgs makeArgs(PermissionSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PermissionSetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -249,7 +256,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PermissionSet get(String name, Output<String> id, @Nullable PermissionSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PermissionSet get(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PermissionSet(name, id, state, options);
     }
 }

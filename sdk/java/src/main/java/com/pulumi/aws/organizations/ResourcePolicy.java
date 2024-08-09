@@ -160,7 +160,7 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourcePolicy(String name) {
+    public ResourcePolicy(java.lang.String name) {
         this(name, ResourcePolicyArgs.Empty);
     }
     /**
@@ -168,7 +168,7 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourcePolicy(String name, ResourcePolicyArgs args) {
+    public ResourcePolicy(java.lang.String name, ResourcePolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -177,15 +177,22 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourcePolicy(String name, ResourcePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:organizations/resourcePolicy:ResourcePolicy", name, args == null ? ResourcePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResourcePolicy(java.lang.String name, ResourcePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:organizations/resourcePolicy:ResourcePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourcePolicy(String name, Output<String> id, @Nullable ResourcePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:organizations/resourcePolicy:ResourcePolicy", name, state, makeResourceOptions(options, id));
+    private ResourcePolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ResourcePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:organizations/resourcePolicy:ResourcePolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourcePolicyArgs makeArgs(ResourcePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourcePolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -201,7 +208,7 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourcePolicy get(String name, Output<String> id, @Nullable ResourcePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourcePolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourcePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourcePolicy(name, id, state, options);
     }
 }

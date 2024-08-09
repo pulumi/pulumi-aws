@@ -169,8 +169,8 @@ import (
 //							Driver:        pulumi.String("local"),
 //							DriverOpts: pulumi.StringMap{
 //								"type":   pulumi.String("nfs"),
-//								"device": pulumi.String(fmt.Sprintf("%v:/", fs.DnsName)),
-//								"o":      pulumi.String(fmt.Sprintf("addr=%v,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.DnsName)),
+//								"device": pulumi.Sprintf("%v:/", fs.DnsName),
+//								"o":      pulumi.Sprintf("addr=%v,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.DnsName),
 //							},
 //						},
 //					},

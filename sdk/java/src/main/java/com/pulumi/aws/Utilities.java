@@ -17,7 +17,7 @@ import com.pulumi.deployment.InvokeOptions;
 
 public class Utilities {
 
-	public static Optional<String> getEnv(String... names) {
+	public static Optional<java.lang.String> getEnv(java.lang.String... names) {
         for (var n : names) {
             var value = Environment.getEnvironmentVariable(n);
             if (value.isValue()) {
@@ -27,7 +27,7 @@ public class Utilities {
         return Optional.empty();
     }
 
-	public static Optional<Boolean> getEnvBoolean(String... names) {
+	public static Optional<java.lang.Boolean> getEnvBoolean(java.lang.String... names) {
         for (var n : names) {
             var value = Environment.getBooleanEnvironmentVariable(n);
             if (value.isValue()) {
@@ -37,7 +37,7 @@ public class Utilities {
         return Optional.empty();
 	}
 
-	public static Optional<Integer> getEnvInteger(String... names) {
+	public static Optional<java.lang.Integer> getEnvInteger(java.lang.String... names) {
         for (var n : names) {
             var value = Environment.getIntegerEnvironmentVariable(n);
             if (value.isValue()) {
@@ -47,7 +47,7 @@ public class Utilities {
         return Optional.empty();
 	}
 
-	public static Optional<Double> getEnvDouble(String... names) {
+	public static Optional<java.lang.Double> getEnvDouble(java.lang.String... names) {
         for (var n : names) {
             var value = Environment.getDoubleEnvironmentVariable(n);
             if (value.isValue()) {
@@ -68,8 +68,8 @@ public class Utilities {
             );
         }
 
-    private static final String version;
-    public static String getVersion() {
+    private static final java.lang.String version;
+    public static java.lang.String getVersion() {
         return version;
     }
 
@@ -78,7 +78,7 @@ public class Utilities {
         var versionFile = Utilities.class.getClassLoader().getResourceAsStream(resourceName);
         if (versionFile == null) {
             throw new IllegalStateException(
-                    String.format("expected resource '%s' on Classpath, not found", resourceName)
+                    java.lang.String.format("expected resource '%s' on Classpath, not found", resourceName)
             );
         }
         version = new BufferedReader(new InputStreamReader(versionFile))

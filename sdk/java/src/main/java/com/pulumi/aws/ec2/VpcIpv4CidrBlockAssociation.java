@@ -135,7 +135,7 @@ public class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcIpv4CidrBlockAssociation(String name) {
+    public VpcIpv4CidrBlockAssociation(java.lang.String name) {
         this(name, VpcIpv4CidrBlockAssociationArgs.Empty);
     }
     /**
@@ -143,7 +143,7 @@ public class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcIpv4CidrBlockAssociation(String name, VpcIpv4CidrBlockAssociationArgs args) {
+    public VpcIpv4CidrBlockAssociation(java.lang.String name, VpcIpv4CidrBlockAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -152,15 +152,22 @@ public class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcIpv4CidrBlockAssociation(String name, VpcIpv4CidrBlockAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, args == null ? VpcIpv4CidrBlockAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcIpv4CidrBlockAssociation(java.lang.String name, VpcIpv4CidrBlockAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcIpv4CidrBlockAssociation(String name, Output<String> id, @Nullable VpcIpv4CidrBlockAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, state, makeResourceOptions(options, id));
+    private VpcIpv4CidrBlockAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpv4CidrBlockAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcIpv4CidrBlockAssociationArgs makeArgs(VpcIpv4CidrBlockAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpv4CidrBlockAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -176,7 +183,7 @@ public class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcIpv4CidrBlockAssociation get(String name, Output<String> id, @Nullable VpcIpv4CidrBlockAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcIpv4CidrBlockAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpv4CidrBlockAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcIpv4CidrBlockAssociation(name, id, state, options);
     }
 }

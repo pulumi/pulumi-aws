@@ -597,7 +597,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketNotification(String name) {
+    public BucketNotification(java.lang.String name) {
         this(name, BucketNotificationArgs.Empty);
     }
     /**
@@ -605,7 +605,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketNotification(String name, BucketNotificationArgs args) {
+    public BucketNotification(java.lang.String name, BucketNotificationArgs args) {
         this(name, args, null);
     }
     /**
@@ -614,15 +614,22 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketNotification(String name, BucketNotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketNotification:BucketNotification", name, args == null ? BucketNotificationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketNotification(java.lang.String name, BucketNotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketNotification:BucketNotification", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketNotification(String name, Output<String> id, @Nullable BucketNotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketNotification:BucketNotification", name, state, makeResourceOptions(options, id));
+    private BucketNotification(java.lang.String name, Output<java.lang.String> id, @Nullable BucketNotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketNotification:BucketNotification", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketNotificationArgs makeArgs(BucketNotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketNotificationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -638,7 +645,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketNotification get(String name, Output<String> id, @Nullable BucketNotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketNotification get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketNotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketNotification(name, id, state, options);
     }
 }

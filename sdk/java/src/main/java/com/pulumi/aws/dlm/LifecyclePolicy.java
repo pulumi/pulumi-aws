@@ -413,7 +413,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LifecyclePolicy(String name) {
+    public LifecyclePolicy(java.lang.String name) {
         this(name, LifecyclePolicyArgs.Empty);
     }
     /**
@@ -421,7 +421,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LifecyclePolicy(String name, LifecyclePolicyArgs args) {
+    public LifecyclePolicy(java.lang.String name, LifecyclePolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -430,15 +430,22 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LifecyclePolicy(String name, LifecyclePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args == null ? LifecyclePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LifecyclePolicy(java.lang.String name, LifecyclePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LifecyclePolicy(String name, Output<String> id, @Nullable LifecyclePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, state, makeResourceOptions(options, id));
+    private LifecyclePolicy(java.lang.String name, Output<java.lang.String> id, @Nullable LifecyclePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LifecyclePolicyArgs makeArgs(LifecyclePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LifecyclePolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -454,7 +461,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LifecyclePolicy get(String name, Output<String> id, @Nullable LifecyclePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LifecyclePolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable LifecyclePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LifecyclePolicy(name, id, state, options);
     }
 }

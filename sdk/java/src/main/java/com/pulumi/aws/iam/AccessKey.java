@@ -264,7 +264,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessKey(String name) {
+    public AccessKey(java.lang.String name) {
         this(name, AccessKeyArgs.Empty);
     }
     /**
@@ -272,7 +272,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessKey(String name, AccessKeyArgs args) {
+    public AccessKey(java.lang.String name, AccessKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -281,15 +281,22 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessKey(String name, AccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/accessKey:AccessKey", name, args == null ? AccessKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccessKey(java.lang.String name, AccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/accessKey:AccessKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessKey(String name, Output<String> id, @Nullable AccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/accessKey:AccessKey", name, state, makeResourceOptions(options, id));
+    private AccessKey(java.lang.String name, Output<java.lang.String> id, @Nullable AccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/accessKey:AccessKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccessKeyArgs makeArgs(AccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -309,7 +316,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessKey get(String name, Output<String> id, @Nullable AccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessKey get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessKey(name, id, state, options);
     }
 }

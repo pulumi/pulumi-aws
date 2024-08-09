@@ -266,7 +266,7 @@ public class SecurityGroupEgressRule extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityGroupEgressRule(String name) {
+    public SecurityGroupEgressRule(java.lang.String name) {
         this(name, SecurityGroupEgressRuleArgs.Empty);
     }
     /**
@@ -274,7 +274,7 @@ public class SecurityGroupEgressRule extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityGroupEgressRule(String name, SecurityGroupEgressRuleArgs args) {
+    public SecurityGroupEgressRule(java.lang.String name, SecurityGroupEgressRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -283,15 +283,22 @@ public class SecurityGroupEgressRule extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityGroupEgressRule(String name, SecurityGroupEgressRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule", name, args == null ? SecurityGroupEgressRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityGroupEgressRule(java.lang.String name, SecurityGroupEgressRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityGroupEgressRule(String name, Output<String> id, @Nullable SecurityGroupEgressRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule", name, state, makeResourceOptions(options, id));
+    private SecurityGroupEgressRule(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityGroupEgressRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityGroupEgressRuleArgs makeArgs(SecurityGroupEgressRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityGroupEgressRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -307,7 +314,7 @@ public class SecurityGroupEgressRule extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityGroupEgressRule get(String name, Output<String> id, @Nullable SecurityGroupEgressRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityGroupEgressRule get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityGroupEgressRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityGroupEgressRule(name, id, state, options);
     }
 }

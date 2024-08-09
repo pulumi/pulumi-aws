@@ -490,7 +490,7 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedUserPoolClient(String name) {
+    public ManagedUserPoolClient(java.lang.String name) {
         this(name, ManagedUserPoolClientArgs.Empty);
     }
     /**
@@ -498,7 +498,7 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedUserPoolClient(String name, ManagedUserPoolClientArgs args) {
+    public ManagedUserPoolClient(java.lang.String name, ManagedUserPoolClientArgs args) {
         this(name, args, null);
     }
     /**
@@ -507,15 +507,22 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedUserPoolClient(String name, ManagedUserPoolClientArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/managedUserPoolClient:ManagedUserPoolClient", name, args == null ? ManagedUserPoolClientArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ManagedUserPoolClient(java.lang.String name, ManagedUserPoolClientArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cognito/managedUserPoolClient:ManagedUserPoolClient", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedUserPoolClient(String name, Output<String> id, @Nullable ManagedUserPoolClientState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/managedUserPoolClient:ManagedUserPoolClient", name, state, makeResourceOptions(options, id));
+    private ManagedUserPoolClient(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedUserPoolClientState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cognito/managedUserPoolClient:ManagedUserPoolClient", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ManagedUserPoolClientArgs makeArgs(ManagedUserPoolClientArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedUserPoolClientArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -534,7 +541,7 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedUserPoolClient get(String name, Output<String> id, @Nullable ManagedUserPoolClientState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedUserPoolClient get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedUserPoolClientState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedUserPoolClient(name, id, state, options);
     }
 }

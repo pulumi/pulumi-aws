@@ -123,7 +123,7 @@ public class Graph extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Graph(String name) {
+    public Graph(java.lang.String name) {
         this(name, GraphArgs.Empty);
     }
     /**
@@ -131,7 +131,7 @@ public class Graph extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Graph(String name, @Nullable GraphArgs args) {
+    public Graph(java.lang.String name, @Nullable GraphArgs args) {
         this(name, args, null);
     }
     /**
@@ -140,15 +140,22 @@ public class Graph extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Graph(String name, @Nullable GraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:detective/graph:Graph", name, args == null ? GraphArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Graph(java.lang.String name, @Nullable GraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:detective/graph:Graph", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Graph(String name, Output<String> id, @Nullable GraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:detective/graph:Graph", name, state, makeResourceOptions(options, id));
+    private Graph(java.lang.String name, Output<java.lang.String> id, @Nullable GraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:detective/graph:Graph", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GraphArgs makeArgs(@Nullable GraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GraphArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -164,7 +171,7 @@ public class Graph extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Graph get(String name, Output<String> id, @Nullable GraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Graph get(java.lang.String name, Output<java.lang.String> id, @Nullable GraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Graph(name, id, state, options);
     }
 }

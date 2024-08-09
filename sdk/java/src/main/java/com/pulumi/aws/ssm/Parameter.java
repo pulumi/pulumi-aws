@@ -344,7 +344,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Parameter(String name) {
+    public Parameter(java.lang.String name) {
         this(name, ParameterArgs.Empty);
     }
     /**
@@ -352,7 +352,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Parameter(String name, ParameterArgs args) {
+    public Parameter(java.lang.String name, ParameterArgs args) {
         this(name, args, null);
     }
     /**
@@ -361,15 +361,22 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Parameter(String name, ParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/parameter:Parameter", name, args == null ? ParameterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Parameter(java.lang.String name, ParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/parameter:Parameter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Parameter(String name, Output<String> id, @Nullable ParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/parameter:Parameter", name, state, makeResourceOptions(options, id));
+    private Parameter(java.lang.String name, Output<java.lang.String> id, @Nullable ParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/parameter:Parameter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ParameterArgs makeArgs(ParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ParameterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -388,7 +395,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Parameter get(String name, Output<String> id, @Nullable ParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Parameter get(java.lang.String name, Output<java.lang.String> id, @Nullable ParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Parameter(name, id, state, options);
     }
 }

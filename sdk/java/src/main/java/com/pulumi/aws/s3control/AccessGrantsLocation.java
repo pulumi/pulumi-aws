@@ -175,7 +175,7 @@ public class AccessGrantsLocation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessGrantsLocation(String name) {
+    public AccessGrantsLocation(java.lang.String name) {
         this(name, AccessGrantsLocationArgs.Empty);
     }
     /**
@@ -183,7 +183,7 @@ public class AccessGrantsLocation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessGrantsLocation(String name, AccessGrantsLocationArgs args) {
+    public AccessGrantsLocation(java.lang.String name, AccessGrantsLocationArgs args) {
         this(name, args, null);
     }
     /**
@@ -192,15 +192,22 @@ public class AccessGrantsLocation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessGrantsLocation(String name, AccessGrantsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessGrantsLocation:AccessGrantsLocation", name, args == null ? AccessGrantsLocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccessGrantsLocation(java.lang.String name, AccessGrantsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/accessGrantsLocation:AccessGrantsLocation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessGrantsLocation(String name, Output<String> id, @Nullable AccessGrantsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessGrantsLocation:AccessGrantsLocation", name, state, makeResourceOptions(options, id));
+    private AccessGrantsLocation(java.lang.String name, Output<java.lang.String> id, @Nullable AccessGrantsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/accessGrantsLocation:AccessGrantsLocation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccessGrantsLocationArgs makeArgs(AccessGrantsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessGrantsLocationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -216,7 +223,7 @@ public class AccessGrantsLocation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessGrantsLocation get(String name, Output<String> id, @Nullable AccessGrantsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessGrantsLocation get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessGrantsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessGrantsLocation(name, id, state, options);
     }
 }

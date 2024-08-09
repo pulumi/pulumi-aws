@@ -142,7 +142,7 @@ public class SecurityConfiguration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityConfiguration(String name) {
+    public SecurityConfiguration(java.lang.String name) {
         this(name, SecurityConfigurationArgs.Empty);
     }
     /**
@@ -150,7 +150,7 @@ public class SecurityConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityConfiguration(String name, SecurityConfigurationArgs args) {
+    public SecurityConfiguration(java.lang.String name, SecurityConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -159,15 +159,22 @@ public class SecurityConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityConfiguration(String name, SecurityConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emr/securityConfiguration:SecurityConfiguration", name, args == null ? SecurityConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityConfiguration(java.lang.String name, SecurityConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emr/securityConfiguration:SecurityConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityConfiguration(String name, Output<String> id, @Nullable SecurityConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emr/securityConfiguration:SecurityConfiguration", name, state, makeResourceOptions(options, id));
+    private SecurityConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emr/securityConfiguration:SecurityConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityConfigurationArgs makeArgs(SecurityConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -183,7 +190,7 @@ public class SecurityConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityConfiguration get(String name, Output<String> id, @Nullable SecurityConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityConfiguration(name, id, state, options);
     }
 }

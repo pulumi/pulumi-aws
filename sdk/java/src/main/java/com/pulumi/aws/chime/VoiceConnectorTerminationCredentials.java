@@ -126,7 +126,7 @@ public class VoiceConnectorTerminationCredentials extends com.pulumi.resources.C
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VoiceConnectorTerminationCredentials(String name) {
+    public VoiceConnectorTerminationCredentials(java.lang.String name) {
         this(name, VoiceConnectorTerminationCredentialsArgs.Empty);
     }
     /**
@@ -134,7 +134,7 @@ public class VoiceConnectorTerminationCredentials extends com.pulumi.resources.C
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VoiceConnectorTerminationCredentials(String name, VoiceConnectorTerminationCredentialsArgs args) {
+    public VoiceConnectorTerminationCredentials(java.lang.String name, VoiceConnectorTerminationCredentialsArgs args) {
         this(name, args, null);
     }
     /**
@@ -143,15 +143,22 @@ public class VoiceConnectorTerminationCredentials extends com.pulumi.resources.C
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VoiceConnectorTerminationCredentials(String name, VoiceConnectorTerminationCredentialsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials", name, args == null ? VoiceConnectorTerminationCredentialsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VoiceConnectorTerminationCredentials(java.lang.String name, VoiceConnectorTerminationCredentialsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VoiceConnectorTerminationCredentials(String name, Output<String> id, @Nullable VoiceConnectorTerminationCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials", name, state, makeResourceOptions(options, id));
+    private VoiceConnectorTerminationCredentials(java.lang.String name, Output<java.lang.String> id, @Nullable VoiceConnectorTerminationCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VoiceConnectorTerminationCredentialsArgs makeArgs(VoiceConnectorTerminationCredentialsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VoiceConnectorTerminationCredentialsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -167,7 +174,7 @@ public class VoiceConnectorTerminationCredentials extends com.pulumi.resources.C
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VoiceConnectorTerminationCredentials get(String name, Output<String> id, @Nullable VoiceConnectorTerminationCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VoiceConnectorTerminationCredentials get(java.lang.String name, Output<java.lang.String> id, @Nullable VoiceConnectorTerminationCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VoiceConnectorTerminationCredentials(name, id, state, options);
     }
 }

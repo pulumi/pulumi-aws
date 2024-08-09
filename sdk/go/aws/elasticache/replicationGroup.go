@@ -113,7 +113,7 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := elasticache.NewCluster(ctx, fmt.Sprintf("replica-%v", key0), &elasticache.ClusterArgs{
-//					ClusterId:          pulumi.String(fmt.Sprintf("tf-rep-group-1-%v", val0)),
+//					ClusterId:          pulumi.Sprintf("tf-rep-group-1-%v", val0),
 //					ReplicationGroupId: example.ID(),
 //				})
 //				if err != nil {

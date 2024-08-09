@@ -363,7 +363,7 @@ public class Trust extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Trust(String name) {
+    public Trust(java.lang.String name) {
         this(name, TrustArgs.Empty);
     }
     /**
@@ -371,7 +371,7 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Trust(String name, TrustArgs args) {
+    public Trust(java.lang.String name, TrustArgs args) {
         this(name, args, null);
     }
     /**
@@ -380,15 +380,22 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Trust(String name, TrustArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directoryservice/trust:Trust", name, args == null ? TrustArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Trust(java.lang.String name, TrustArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directoryservice/trust:Trust", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Trust(String name, Output<String> id, @Nullable TrustState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directoryservice/trust:Trust", name, state, makeResourceOptions(options, id));
+    private Trust(java.lang.String name, Output<java.lang.String> id, @Nullable TrustState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directoryservice/trust:Trust", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TrustArgs makeArgs(TrustArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrustArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -404,7 +411,7 @@ public class Trust extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Trust get(String name, Output<String> id, @Nullable TrustState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Trust get(java.lang.String name, Output<java.lang.String> id, @Nullable TrustState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Trust(name, id, state, options);
     }
 }

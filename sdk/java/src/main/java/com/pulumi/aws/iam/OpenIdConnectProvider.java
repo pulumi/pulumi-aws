@@ -160,7 +160,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OpenIdConnectProvider(String name) {
+    public OpenIdConnectProvider(java.lang.String name) {
         this(name, OpenIdConnectProviderArgs.Empty);
     }
     /**
@@ -168,7 +168,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OpenIdConnectProvider(String name, OpenIdConnectProviderArgs args) {
+    public OpenIdConnectProvider(java.lang.String name, OpenIdConnectProviderArgs args) {
         this(name, args, null);
     }
     /**
@@ -177,15 +177,22 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OpenIdConnectProvider(String name, OpenIdConnectProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, args == null ? OpenIdConnectProviderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OpenIdConnectProvider(java.lang.String name, OpenIdConnectProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OpenIdConnectProvider(String name, Output<String> id, @Nullable OpenIdConnectProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, state, makeResourceOptions(options, id));
+    private OpenIdConnectProvider(java.lang.String name, Output<java.lang.String> id, @Nullable OpenIdConnectProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OpenIdConnectProviderArgs makeArgs(OpenIdConnectProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OpenIdConnectProviderArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -201,7 +208,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OpenIdConnectProvider get(String name, Output<String> id, @Nullable OpenIdConnectProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OpenIdConnectProvider get(java.lang.String name, Output<java.lang.String> id, @Nullable OpenIdConnectProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OpenIdConnectProvider(name, id, state, options);
     }
 }

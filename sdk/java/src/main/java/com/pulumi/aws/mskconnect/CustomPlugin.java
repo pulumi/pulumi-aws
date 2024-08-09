@@ -231,7 +231,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomPlugin(String name) {
+    public CustomPlugin(java.lang.String name) {
         this(name, CustomPluginArgs.Empty);
     }
     /**
@@ -239,7 +239,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomPlugin(String name, CustomPluginArgs args) {
+    public CustomPlugin(java.lang.String name, CustomPluginArgs args) {
         this(name, args, null);
     }
     /**
@@ -248,15 +248,22 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomPlugin(String name, CustomPluginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:mskconnect/customPlugin:CustomPlugin", name, args == null ? CustomPluginArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CustomPlugin(java.lang.String name, CustomPluginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:mskconnect/customPlugin:CustomPlugin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomPlugin(String name, Output<String> id, @Nullable CustomPluginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:mskconnect/customPlugin:CustomPlugin", name, state, makeResourceOptions(options, id));
+    private CustomPlugin(java.lang.String name, Output<java.lang.String> id, @Nullable CustomPluginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:mskconnect/customPlugin:CustomPlugin", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CustomPluginArgs makeArgs(CustomPluginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomPluginArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -272,7 +279,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomPlugin get(String name, Output<String> id, @Nullable CustomPluginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomPlugin get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomPluginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomPlugin(name, id, state, options);
     }
 }

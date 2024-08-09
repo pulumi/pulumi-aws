@@ -145,7 +145,7 @@ public class PolicyTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PolicyTemplate(String name) {
+    public PolicyTemplate(java.lang.String name) {
         this(name, PolicyTemplateArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class PolicyTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PolicyTemplate(String name, PolicyTemplateArgs args) {
+    public PolicyTemplate(java.lang.String name, PolicyTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class PolicyTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PolicyTemplate(String name, PolicyTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedpermissions/policyTemplate:PolicyTemplate", name, args == null ? PolicyTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PolicyTemplate(java.lang.String name, PolicyTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:verifiedpermissions/policyTemplate:PolicyTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PolicyTemplate(String name, Output<String> id, @Nullable PolicyTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedpermissions/policyTemplate:PolicyTemplate", name, state, makeResourceOptions(options, id));
+    private PolicyTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:verifiedpermissions/policyTemplate:PolicyTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PolicyTemplateArgs makeArgs(PolicyTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicyTemplateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class PolicyTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PolicyTemplate get(String name, Output<String> id, @Nullable PolicyTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PolicyTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PolicyTemplate(name, id, state, options);
     }
 }

@@ -153,7 +153,7 @@ public class DefaultPatchBaseline extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DefaultPatchBaseline(String name) {
+    public DefaultPatchBaseline(java.lang.String name) {
         this(name, DefaultPatchBaselineArgs.Empty);
     }
     /**
@@ -161,7 +161,7 @@ public class DefaultPatchBaseline extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DefaultPatchBaseline(String name, DefaultPatchBaselineArgs args) {
+    public DefaultPatchBaseline(java.lang.String name, DefaultPatchBaselineArgs args) {
         this(name, args, null);
     }
     /**
@@ -170,15 +170,22 @@ public class DefaultPatchBaseline extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DefaultPatchBaseline(String name, DefaultPatchBaselineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline", name, args == null ? DefaultPatchBaselineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DefaultPatchBaseline(java.lang.String name, DefaultPatchBaselineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DefaultPatchBaseline(String name, Output<String> id, @Nullable DefaultPatchBaselineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline", name, state, makeResourceOptions(options, id));
+    private DefaultPatchBaseline(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultPatchBaselineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DefaultPatchBaselineArgs makeArgs(DefaultPatchBaselineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DefaultPatchBaselineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -194,7 +201,7 @@ public class DefaultPatchBaseline extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DefaultPatchBaseline get(String name, Output<String> id, @Nullable DefaultPatchBaselineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DefaultPatchBaseline get(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultPatchBaselineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DefaultPatchBaseline(name, id, state, options);
     }
 }

@@ -316,7 +316,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Product(String name) {
+    public Product(java.lang.String name) {
         this(name, ProductArgs.Empty);
     }
     /**
@@ -324,7 +324,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Product(String name, ProductArgs args) {
+    public Product(java.lang.String name, ProductArgs args) {
         this(name, args, null);
     }
     /**
@@ -333,15 +333,22 @@ public class Product extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Product(String name, ProductArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/product:Product", name, args == null ? ProductArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Product(java.lang.String name, ProductArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/product:Product", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Product(String name, Output<String> id, @Nullable ProductState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/product:Product", name, state, makeResourceOptions(options, id));
+    private Product(java.lang.String name, Output<java.lang.String> id, @Nullable ProductState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/product:Product", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProductArgs makeArgs(ProductArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProductArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -357,7 +364,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Product get(String name, Output<String> id, @Nullable ProductState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Product get(java.lang.String name, Output<java.lang.String> id, @Nullable ProductState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Product(name, id, state, options);
     }
 }

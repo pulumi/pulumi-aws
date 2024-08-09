@@ -360,7 +360,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Fleet(String name) {
+    public Fleet(java.lang.String name) {
         this(name, FleetArgs.Empty);
     }
     /**
@@ -368,7 +368,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Fleet(String name, FleetArgs args) {
+    public Fleet(java.lang.String name, FleetArgs args) {
         this(name, args, null);
     }
     /**
@@ -377,15 +377,22 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Fleet(String name, FleetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:gamelift/fleet:Fleet", name, args == null ? FleetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Fleet(java.lang.String name, FleetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:gamelift/fleet:Fleet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Fleet(String name, Output<String> id, @Nullable FleetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:gamelift/fleet:Fleet", name, state, makeResourceOptions(options, id));
+    private Fleet(java.lang.String name, Output<java.lang.String> id, @Nullable FleetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:gamelift/fleet:Fleet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FleetArgs makeArgs(FleetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FleetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -401,7 +408,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Fleet get(String name, Output<String> id, @Nullable FleetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Fleet get(java.lang.String name, Output<java.lang.String> id, @Nullable FleetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Fleet(name, id, state, options);
     }
 }

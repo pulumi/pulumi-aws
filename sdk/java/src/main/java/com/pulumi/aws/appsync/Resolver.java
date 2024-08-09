@@ -402,7 +402,7 @@ public class Resolver extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Resolver(String name) {
+    public Resolver(java.lang.String name) {
         this(name, ResolverArgs.Empty);
     }
     /**
@@ -410,7 +410,7 @@ public class Resolver extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Resolver(String name, ResolverArgs args) {
+    public Resolver(java.lang.String name, ResolverArgs args) {
         this(name, args, null);
     }
     /**
@@ -419,15 +419,22 @@ public class Resolver extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Resolver(String name, ResolverArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/resolver:Resolver", name, args == null ? ResolverArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Resolver(java.lang.String name, ResolverArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appsync/resolver:Resolver", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Resolver(String name, Output<String> id, @Nullable ResolverState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/resolver:Resolver", name, state, makeResourceOptions(options, id));
+    private Resolver(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appsync/resolver:Resolver", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResolverArgs makeArgs(ResolverArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -443,7 +450,7 @@ public class Resolver extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Resolver get(String name, Output<String> id, @Nullable ResolverState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Resolver get(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Resolver(name, id, state, options);
     }
 }

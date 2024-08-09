@@ -60,7 +60,7 @@ public class BucketResourceAccess extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketResourceAccess(String name) {
+    public BucketResourceAccess(java.lang.String name) {
         this(name, BucketResourceAccessArgs.Empty);
     }
     /**
@@ -68,7 +68,7 @@ public class BucketResourceAccess extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketResourceAccess(String name, BucketResourceAccessArgs args) {
+    public BucketResourceAccess(java.lang.String name, BucketResourceAccessArgs args) {
         this(name, args, null);
     }
     /**
@@ -77,15 +77,22 @@ public class BucketResourceAccess extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketResourceAccess(String name, BucketResourceAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, args == null ? BucketResourceAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketResourceAccess(java.lang.String name, BucketResourceAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketResourceAccess(String name, Output<String> id, @Nullable BucketResourceAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, state, makeResourceOptions(options, id));
+    private BucketResourceAccess(java.lang.String name, Output<java.lang.String> id, @Nullable BucketResourceAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketResourceAccessArgs makeArgs(BucketResourceAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketResourceAccessArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -101,7 +108,7 @@ public class BucketResourceAccess extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketResourceAccess get(String name, Output<String> id, @Nullable BucketResourceAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketResourceAccess get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketResourceAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketResourceAccess(name, id, state, options);
     }
 }

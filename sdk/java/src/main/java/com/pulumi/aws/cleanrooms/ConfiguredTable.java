@@ -227,7 +227,7 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConfiguredTable(String name) {
+    public ConfiguredTable(java.lang.String name) {
         this(name, ConfiguredTableArgs.Empty);
     }
     /**
@@ -235,7 +235,7 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConfiguredTable(String name, ConfiguredTableArgs args) {
+    public ConfiguredTable(java.lang.String name, ConfiguredTableArgs args) {
         this(name, args, null);
     }
     /**
@@ -244,15 +244,22 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConfiguredTable(String name, ConfiguredTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cleanrooms/configuredTable:ConfiguredTable", name, args == null ? ConfiguredTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConfiguredTable(java.lang.String name, ConfiguredTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cleanrooms/configuredTable:ConfiguredTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConfiguredTable(String name, Output<String> id, @Nullable ConfiguredTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cleanrooms/configuredTable:ConfiguredTable", name, state, makeResourceOptions(options, id));
+    private ConfiguredTable(java.lang.String name, Output<java.lang.String> id, @Nullable ConfiguredTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cleanrooms/configuredTable:ConfiguredTable", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConfiguredTableArgs makeArgs(ConfiguredTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfiguredTableArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -268,7 +275,7 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConfiguredTable get(String name, Output<String> id, @Nullable ConfiguredTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConfiguredTable get(java.lang.String name, Output<java.lang.String> id, @Nullable ConfiguredTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConfiguredTable(name, id, state, options);
     }
 }

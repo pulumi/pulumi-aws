@@ -150,7 +150,7 @@ public class ServiceNetwork extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceNetwork(String name) {
+    public ServiceNetwork(java.lang.String name) {
         this(name, ServiceNetworkArgs.Empty);
     }
     /**
@@ -158,7 +158,7 @@ public class ServiceNetwork extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceNetwork(String name, @Nullable ServiceNetworkArgs args) {
+    public ServiceNetwork(java.lang.String name, @Nullable ServiceNetworkArgs args) {
         this(name, args, null);
     }
     /**
@@ -167,15 +167,22 @@ public class ServiceNetwork extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceNetwork(String name, @Nullable ServiceNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/serviceNetwork:ServiceNetwork", name, args == null ? ServiceNetworkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceNetwork(java.lang.String name, @Nullable ServiceNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/serviceNetwork:ServiceNetwork", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceNetwork(String name, Output<String> id, @Nullable ServiceNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/serviceNetwork:ServiceNetwork", name, state, makeResourceOptions(options, id));
+    private ServiceNetwork(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/serviceNetwork:ServiceNetwork", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceNetworkArgs makeArgs(@Nullable ServiceNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceNetworkArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -191,7 +198,7 @@ public class ServiceNetwork extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceNetwork get(String name, Output<String> id, @Nullable ServiceNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceNetwork get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceNetwork(name, id, state, options);
     }
 }

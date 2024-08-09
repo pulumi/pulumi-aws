@@ -186,7 +186,7 @@ public class NetworkInterfaceSecurityGroupAttachment extends com.pulumi.resource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkInterfaceSecurityGroupAttachment(String name) {
+    public NetworkInterfaceSecurityGroupAttachment(java.lang.String name) {
         this(name, NetworkInterfaceSecurityGroupAttachmentArgs.Empty);
     }
     /**
@@ -194,7 +194,7 @@ public class NetworkInterfaceSecurityGroupAttachment extends com.pulumi.resource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkInterfaceSecurityGroupAttachment(String name, NetworkInterfaceSecurityGroupAttachmentArgs args) {
+    public NetworkInterfaceSecurityGroupAttachment(java.lang.String name, NetworkInterfaceSecurityGroupAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -203,15 +203,22 @@ public class NetworkInterfaceSecurityGroupAttachment extends com.pulumi.resource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkInterfaceSecurityGroupAttachment(String name, NetworkInterfaceSecurityGroupAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, args == null ? NetworkInterfaceSecurityGroupAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkInterfaceSecurityGroupAttachment(java.lang.String name, NetworkInterfaceSecurityGroupAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkInterfaceSecurityGroupAttachment(String name, Output<String> id, @Nullable NetworkInterfaceSecurityGroupAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, state, makeResourceOptions(options, id));
+    private NetworkInterfaceSecurityGroupAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceSecurityGroupAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkInterfaceSecurityGroupAttachmentArgs makeArgs(NetworkInterfaceSecurityGroupAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInterfaceSecurityGroupAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -227,7 +234,7 @@ public class NetworkInterfaceSecurityGroupAttachment extends com.pulumi.resource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkInterfaceSecurityGroupAttachment get(String name, Output<String> id, @Nullable NetworkInterfaceSecurityGroupAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkInterfaceSecurityGroupAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceSecurityGroupAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkInterfaceSecurityGroupAttachment(name, id, state, options);
     }
 }

@@ -328,7 +328,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TargetGroup(String name) {
+    public TargetGroup(java.lang.String name) {
         this(name, TargetGroupArgs.Empty);
     }
     /**
@@ -336,7 +336,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TargetGroup(String name, TargetGroupArgs args) {
+    public TargetGroup(java.lang.String name, TargetGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -345,15 +345,22 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TargetGroup(String name, TargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/targetGroup:TargetGroup", name, args == null ? TargetGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TargetGroup(java.lang.String name, TargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/targetGroup:TargetGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TargetGroup(String name, Output<String> id, @Nullable TargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/targetGroup:TargetGroup", name, state, makeResourceOptions(options, id));
+    private TargetGroup(java.lang.String name, Output<java.lang.String> id, @Nullable TargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/targetGroup:TargetGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TargetGroupArgs makeArgs(TargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TargetGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -369,7 +376,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TargetGroup get(String name, Output<String> id, @Nullable TargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TargetGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable TargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TargetGroup(name, id, state, options);
     }
 }

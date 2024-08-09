@@ -111,7 +111,7 @@ public class ListenerCertificate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ListenerCertificate(String name) {
+    public ListenerCertificate(java.lang.String name) {
         this(name, ListenerCertificateArgs.Empty);
     }
     /**
@@ -119,7 +119,7 @@ public class ListenerCertificate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ListenerCertificate(String name, ListenerCertificateArgs args) {
+    public ListenerCertificate(java.lang.String name, ListenerCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -128,15 +128,22 @@ public class ListenerCertificate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ListenerCertificate(String name, ListenerCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lb/listenerCertificate:ListenerCertificate", name, args == null ? ListenerCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ListenerCertificate(java.lang.String name, ListenerCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lb/listenerCertificate:ListenerCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ListenerCertificate(String name, Output<String> id, @Nullable ListenerCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lb/listenerCertificate:ListenerCertificate", name, state, makeResourceOptions(options, id));
+    private ListenerCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable ListenerCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lb/listenerCertificate:ListenerCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ListenerCertificateArgs makeArgs(ListenerCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ListenerCertificateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -155,7 +162,7 @@ public class ListenerCertificate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ListenerCertificate get(String name, Output<String> id, @Nullable ListenerCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ListenerCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable ListenerCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ListenerCertificate(name, id, state, options);
     }
 }

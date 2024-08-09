@@ -157,7 +157,7 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResolverFirewallRuleGroup(String name) {
+    public ResolverFirewallRuleGroup(java.lang.String name) {
         this(name, ResolverFirewallRuleGroupArgs.Empty);
     }
     /**
@@ -165,7 +165,7 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResolverFirewallRuleGroup(String name, @Nullable ResolverFirewallRuleGroupArgs args) {
+    public ResolverFirewallRuleGroup(java.lang.String name, @Nullable ResolverFirewallRuleGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -174,15 +174,22 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResolverFirewallRuleGroup(String name, @Nullable ResolverFirewallRuleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", name, args == null ? ResolverFirewallRuleGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResolverFirewallRuleGroup(java.lang.String name, @Nullable ResolverFirewallRuleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResolverFirewallRuleGroup(String name, Output<String> id, @Nullable ResolverFirewallRuleGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", name, state, makeResourceOptions(options, id));
+    private ResolverFirewallRuleGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverFirewallRuleGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResolverFirewallRuleGroupArgs makeArgs(@Nullable ResolverFirewallRuleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverFirewallRuleGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -198,7 +205,7 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResolverFirewallRuleGroup get(String name, Output<String> id, @Nullable ResolverFirewallRuleGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResolverFirewallRuleGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverFirewallRuleGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResolverFirewallRuleGroup(name, id, state, options);
     }
 }

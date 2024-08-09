@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewLustreFileSystem(ctx, "example", &fsx.LustreFileSystemArgs{
-//				ImportPath:      pulumi.String(fmt.Sprintf("s3://%v", exampleAwsS3Bucket.Bucket)),
+//				ImportPath:      pulumi.Sprintf("s3://%v", exampleAwsS3Bucket.Bucket),
 //				StorageCapacity: pulumi.Int(1200),
 //				SubnetIds:       pulumi.Any(exampleAwsSubnet.Id),
 //			})

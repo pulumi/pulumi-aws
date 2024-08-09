@@ -482,7 +482,7 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TopicSubscription(String name) {
+    public TopicSubscription(java.lang.String name) {
         this(name, TopicSubscriptionArgs.Empty);
     }
     /**
@@ -490,7 +490,7 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TopicSubscription(String name, TopicSubscriptionArgs args) {
+    public TopicSubscription(java.lang.String name, TopicSubscriptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -499,15 +499,22 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TopicSubscription(String name, TopicSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sns/topicSubscription:TopicSubscription", name, args == null ? TopicSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TopicSubscription(java.lang.String name, TopicSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sns/topicSubscription:TopicSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TopicSubscription(String name, Output<String> id, @Nullable TopicSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sns/topicSubscription:TopicSubscription", name, state, makeResourceOptions(options, id));
+    private TopicSubscription(java.lang.String name, Output<java.lang.String> id, @Nullable TopicSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sns/topicSubscription:TopicSubscription", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TopicSubscriptionArgs makeArgs(TopicSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TopicSubscriptionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -523,7 +530,7 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TopicSubscription get(String name, Output<String> id, @Nullable TopicSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TopicSubscription get(java.lang.String name, Output<java.lang.String> id, @Nullable TopicSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TopicSubscription(name, id, state, options);
     }
 }

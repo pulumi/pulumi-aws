@@ -146,7 +146,7 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessLogSubscription(String name) {
+    public AccessLogSubscription(java.lang.String name) {
         this(name, AccessLogSubscriptionArgs.Empty);
     }
     /**
@@ -154,7 +154,7 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessLogSubscription(String name, AccessLogSubscriptionArgs args) {
+    public AccessLogSubscription(java.lang.String name, AccessLogSubscriptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -163,15 +163,22 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessLogSubscription(String name, AccessLogSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, args == null ? AccessLogSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccessLogSubscription(java.lang.String name, AccessLogSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessLogSubscription(String name, Output<String> id, @Nullable AccessLogSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, state, makeResourceOptions(options, id));
+    private AccessLogSubscription(java.lang.String name, Output<java.lang.String> id, @Nullable AccessLogSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccessLogSubscriptionArgs makeArgs(AccessLogSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessLogSubscriptionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -187,7 +194,7 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessLogSubscription get(String name, Output<String> id, @Nullable AccessLogSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessLogSubscription get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessLogSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessLogSubscription(name, id, state, options);
     }
 }

@@ -271,7 +271,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TransitGatewayRouteTableAttachment(String name) {
+    public TransitGatewayRouteTableAttachment(java.lang.String name) {
         this(name, TransitGatewayRouteTableAttachmentArgs.Empty);
     }
     /**
@@ -279,7 +279,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TransitGatewayRouteTableAttachment(String name, TransitGatewayRouteTableAttachmentArgs args) {
+    public TransitGatewayRouteTableAttachment(java.lang.String name, TransitGatewayRouteTableAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -288,15 +288,22 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TransitGatewayRouteTableAttachment(String name, TransitGatewayRouteTableAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, args == null ? TransitGatewayRouteTableAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TransitGatewayRouteTableAttachment(java.lang.String name, TransitGatewayRouteTableAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TransitGatewayRouteTableAttachment(String name, Output<String> id, @Nullable TransitGatewayRouteTableAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, state, makeResourceOptions(options, id));
+    private TransitGatewayRouteTableAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable TransitGatewayRouteTableAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TransitGatewayRouteTableAttachmentArgs makeArgs(TransitGatewayRouteTableAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TransitGatewayRouteTableAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -312,7 +319,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TransitGatewayRouteTableAttachment get(String name, Output<String> id, @Nullable TransitGatewayRouteTableAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TransitGatewayRouteTableAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable TransitGatewayRouteTableAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TransitGatewayRouteTableAttachment(name, id, state, options);
     }
 }

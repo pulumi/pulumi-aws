@@ -165,7 +165,7 @@ import (
 //			replicas, err := appautoscaling.NewTarget(ctx, "replicas", &appautoscaling.TargetArgs{
 //				ServiceNamespace:  pulumi.String("rds"),
 //				ScalableDimension: pulumi.String("rds:cluster:ReadReplicaCount"),
-//				ResourceId:        pulumi.String(fmt.Sprintf("cluster:%v", example.Id)),
+//				ResourceId:        pulumi.Sprintf("cluster:%v", example.Id),
 //				MinCapacity:       pulumi.Int(1),
 //				MaxCapacity:       pulumi.Int(15),
 //			})

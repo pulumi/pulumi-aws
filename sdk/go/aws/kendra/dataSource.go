@@ -111,7 +111,7 @@ import (
 //					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
 //						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
 //						AccessControlListConfiguration: &kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{
-//							KeyPath: pulumi.String(fmt.Sprintf("s3://%v/path-1", exampleAwsS3Bucket.Id)),
+//							KeyPath: pulumi.Sprintf("s3://%v/path-1", exampleAwsS3Bucket.Id),
 //						},
 //					},
 //				},

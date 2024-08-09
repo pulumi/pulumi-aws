@@ -390,7 +390,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", lambdaProcessor.Arn)),
+//										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
 //									},
 //								},
 //							},
@@ -571,7 +571,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", lambdaProcessor.Arn)),
+//										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
 //									},
 //								},
 //							},
@@ -754,7 +754,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", lambdaProcessor.Arn)),
+//										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
 //									},
 //								},
 //							},

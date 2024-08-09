@@ -105,15 +105,15 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Example SES Email Identity
  *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
- *             .email("user{@literal @}example.com")
+ *             .email("user}{@literal @}{@code example.com")
  *             .build());
  * 
  *         var exampleMailFrom = new MailFrom("exampleMailFrom", MailFromArgs.builder()
@@ -121,8 +121,8 @@ import javax.annotation.Nullable;
  *             .mailFromDomain("mail.example.com")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -189,7 +189,7 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MailFrom(String name) {
+    public MailFrom(java.lang.String name) {
         this(name, MailFromArgs.Empty);
     }
     /**
@@ -197,7 +197,7 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MailFrom(String name, MailFromArgs args) {
+    public MailFrom(java.lang.String name, MailFromArgs args) {
         this(name, args, null);
     }
     /**
@@ -206,15 +206,22 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MailFrom(String name, MailFromArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/mailFrom:MailFrom", name, args == null ? MailFromArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MailFrom(java.lang.String name, MailFromArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ses/mailFrom:MailFrom", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MailFrom(String name, Output<String> id, @Nullable MailFromState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/mailFrom:MailFrom", name, state, makeResourceOptions(options, id));
+    private MailFrom(java.lang.String name, Output<java.lang.String> id, @Nullable MailFromState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ses/mailFrom:MailFrom", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MailFromArgs makeArgs(MailFromArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MailFromArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -230,7 +237,7 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MailFrom get(String name, Output<String> id, @Nullable MailFromState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MailFrom get(java.lang.String name, Output<java.lang.String> id, @Nullable MailFromState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MailFrom(name, id, state, options);
     }
 }

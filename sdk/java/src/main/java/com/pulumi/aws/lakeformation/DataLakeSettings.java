@@ -320,7 +320,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataLakeSettings(String name) {
+    public DataLakeSettings(java.lang.String name) {
         this(name, DataLakeSettingsArgs.Empty);
     }
     /**
@@ -328,7 +328,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataLakeSettings(String name, @Nullable DataLakeSettingsArgs args) {
+    public DataLakeSettings(java.lang.String name, @Nullable DataLakeSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -337,15 +337,22 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataLakeSettings(String name, @Nullable DataLakeSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lakeformation/dataLakeSettings:DataLakeSettings", name, args == null ? DataLakeSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataLakeSettings(java.lang.String name, @Nullable DataLakeSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lakeformation/dataLakeSettings:DataLakeSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataLakeSettings(String name, Output<String> id, @Nullable DataLakeSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lakeformation/dataLakeSettings:DataLakeSettings", name, state, makeResourceOptions(options, id));
+    private DataLakeSettings(java.lang.String name, Output<java.lang.String> id, @Nullable DataLakeSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lakeformation/dataLakeSettings:DataLakeSettings", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataLakeSettingsArgs makeArgs(@Nullable DataLakeSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataLakeSettingsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -361,7 +368,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataLakeSettings get(String name, Output<String> id, @Nullable DataLakeSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataLakeSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable DataLakeSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataLakeSettings(name, id, state, options);
     }
 }

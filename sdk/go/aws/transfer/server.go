@@ -192,7 +192,7 @@ import (
 //				},
 //				Certificate:          pulumi.Any(exampleAwsAcmCertificate.Arn),
 //				IdentityProviderType: pulumi.String("API_GATEWAY"),
-//				Url:                  pulumi.String(fmt.Sprintf("%v%v", exampleAwsApiGatewayDeployment.InvokeUrl, exampleAwsApiGatewayResource.Path)),
+//				Url:                  pulumi.Sprintf("%v%v", exampleAwsApiGatewayDeployment.InvokeUrl, exampleAwsApiGatewayResource.Path),
 //			})
 //			if err != nil {
 //				return err

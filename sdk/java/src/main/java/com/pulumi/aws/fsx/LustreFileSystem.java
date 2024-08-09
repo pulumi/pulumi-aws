@@ -544,7 +544,7 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LustreFileSystem(String name) {
+    public LustreFileSystem(java.lang.String name) {
         this(name, LustreFileSystemArgs.Empty);
     }
     /**
@@ -552,7 +552,7 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LustreFileSystem(String name, LustreFileSystemArgs args) {
+    public LustreFileSystem(java.lang.String name, LustreFileSystemArgs args) {
         this(name, args, null);
     }
     /**
@@ -561,15 +561,22 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LustreFileSystem(String name, LustreFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/lustreFileSystem:LustreFileSystem", name, args == null ? LustreFileSystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LustreFileSystem(java.lang.String name, LustreFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/lustreFileSystem:LustreFileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LustreFileSystem(String name, Output<String> id, @Nullable LustreFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/lustreFileSystem:LustreFileSystem", name, state, makeResourceOptions(options, id));
+    private LustreFileSystem(java.lang.String name, Output<java.lang.String> id, @Nullable LustreFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/lustreFileSystem:LustreFileSystem", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LustreFileSystemArgs makeArgs(LustreFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LustreFileSystemArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -585,7 +592,7 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LustreFileSystem get(String name, Output<String> id, @Nullable LustreFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LustreFileSystem get(java.lang.String name, Output<java.lang.String> id, @Nullable LustreFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LustreFileSystem(name, id, state, options);
     }
 }

@@ -148,12 +148,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new App("example", AppArgs.builder()
  *             .name("app")
  *             .build());
@@ -168,7 +168,7 @@ import javax.annotation.Nullable;
  *         var amplifyAppMasterEventRule = new EventRule("amplifyAppMasterEventRule", EventRuleArgs.builder()
  *             .name(master.branchName().applyValue(branchName -> String.format("amplify-%s-%s-branch-notification", app.id(),branchName)))
  *             .description(master.branchName().applyValue(branchName -> String.format("AWS Amplify build notifications for :  App: %s Branch: %s", app.id(),branchName)))
- *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -> {
+ *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -> }{{@code
  *                 var id = values.t1;
  *                 var branchName = values.t2;
  *                 return serializeJson(
@@ -185,7 +185,7 @@ import javax.annotation.Nullable;
  *                         jsonProperty("detail-type", jsonArray("Amplify Deployment Status Change")),
  *                         jsonProperty("source", jsonArray("aws.amplify"))
  *                     ));
- *             }))
+ *             }}{@code ))
  *             .build());
  * 
  *         // SNS Topic for Amplify notifications
@@ -230,11 +230,11 @@ import javax.annotation.Nullable;
  *         var this_ = new TopicSubscription("this", TopicSubscriptionArgs.builder()
  *             .topic(amplifyAppMasterTopic.arn())
  *             .protocol("email")
- *             .endpoint("user{@literal @}acme.com")
+ *             .endpoint("user}{@literal @}{@code acme.com")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -581,7 +581,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Branch(String name) {
+    public Branch(java.lang.String name) {
         this(name, BranchArgs.Empty);
     }
     /**
@@ -589,7 +589,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Branch(String name, BranchArgs args) {
+    public Branch(java.lang.String name, BranchArgs args) {
         this(name, args, null);
     }
     /**
@@ -598,15 +598,22 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Branch(String name, BranchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amplify/branch:Branch", name, args == null ? BranchArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Branch(java.lang.String name, BranchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amplify/branch:Branch", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Branch(String name, Output<String> id, @Nullable BranchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amplify/branch:Branch", name, state, makeResourceOptions(options, id));
+    private Branch(java.lang.String name, Output<java.lang.String> id, @Nullable BranchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amplify/branch:Branch", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BranchArgs makeArgs(BranchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BranchArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -625,7 +632,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Branch get(String name, Output<String> id, @Nullable BranchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Branch get(java.lang.String name, Output<java.lang.String> id, @Nullable BranchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Branch(name, id, state, options);
     }
 }

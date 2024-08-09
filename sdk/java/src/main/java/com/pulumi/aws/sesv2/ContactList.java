@@ -222,7 +222,7 @@ public class ContactList extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ContactList(String name) {
+    public ContactList(java.lang.String name) {
         this(name, ContactListArgs.Empty);
     }
     /**
@@ -230,7 +230,7 @@ public class ContactList extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ContactList(String name, ContactListArgs args) {
+    public ContactList(java.lang.String name, ContactListArgs args) {
         this(name, args, null);
     }
     /**
@@ -239,15 +239,22 @@ public class ContactList extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ContactList(String name, ContactListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/contactList:ContactList", name, args == null ? ContactListArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ContactList(java.lang.String name, ContactListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/contactList:ContactList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ContactList(String name, Output<String> id, @Nullable ContactListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/contactList:ContactList", name, state, makeResourceOptions(options, id));
+    private ContactList(java.lang.String name, Output<java.lang.String> id, @Nullable ContactListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/contactList:ContactList", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ContactListArgs makeArgs(ContactListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContactListArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -263,7 +270,7 @@ public class ContactList extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ContactList get(String name, Output<String> id, @Nullable ContactListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ContactList get(java.lang.String name, Output<java.lang.String> id, @Nullable ContactListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ContactList(name, id, state, options);
     }
 }

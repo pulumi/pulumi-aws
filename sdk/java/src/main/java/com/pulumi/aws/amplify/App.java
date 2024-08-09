@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .repository("https://github.com/example/app")
@@ -67,10 +67,10 @@ import javax.annotation.Nullable;
  *   artifacts:
  *     baseDirectory: build
  *     files:
- *       - '**{@literal /}*'
+ *       - '**}&#47;{@code *'
  *   cache:
  *     paths:
- *       - node_modules/**{@literal /}*
+ *       - node_modules/**}&#47;{@code *
  *             """)
  *             .customRules(AppCustomRuleArgs.builder()
  *                 .source("/<*>")
@@ -80,8 +80,8 @@ import javax.annotation.Nullable;
  *             .environmentVariables(Map.of("ENV", "test"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -147,25 +147,25 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .enableAutoBranchCreation(true)
  *             .autoBranchCreationPatterns(            
  *                 "*",
- *                 "*{@literal /}**")
+ *                 "*}&#47;{@code **")
  *             .autoBranchCreationConfig(AppAutoBranchCreationConfigArgs.builder()
  *                 .enableAutoBuild(true)
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -685,7 +685,7 @@ public class App extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public App(String name) {
+    public App(java.lang.String name) {
         this(name, AppArgs.Empty);
     }
     /**
@@ -693,7 +693,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public App(String name, @Nullable AppArgs args) {
+    public App(java.lang.String name, @Nullable AppArgs args) {
         this(name, args, null);
     }
     /**
@@ -702,15 +702,22 @@ public class App extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public App(String name, @Nullable AppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amplify/app:App", name, args == null ? AppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public App(java.lang.String name, @Nullable AppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amplify/app:App", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private App(String name, Output<String> id, @Nullable AppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amplify/app:App", name, state, makeResourceOptions(options, id));
+    private App(java.lang.String name, Output<java.lang.String> id, @Nullable AppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amplify/app:App", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppArgs makeArgs(@Nullable AppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -731,7 +738,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static App get(String name, Output<String> id, @Nullable AppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static App get(java.lang.String name, Output<java.lang.String> id, @Nullable AppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new App(name, id, state, options);
     }
 }

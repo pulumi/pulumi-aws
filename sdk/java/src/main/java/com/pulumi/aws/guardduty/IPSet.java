@@ -222,7 +222,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IPSet(String name) {
+    public IPSet(java.lang.String name) {
         this(name, IPSetArgs.Empty);
     }
     /**
@@ -230,7 +230,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IPSet(String name, IPSetArgs args) {
+    public IPSet(java.lang.String name, IPSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -239,15 +239,22 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IPSet(String name, IPSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/iPSet:IPSet", name, args == null ? IPSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IPSet(java.lang.String name, IPSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:guardduty/iPSet:IPSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IPSet(String name, Output<String> id, @Nullable IPSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/iPSet:IPSet", name, state, makeResourceOptions(options, id));
+    private IPSet(java.lang.String name, Output<java.lang.String> id, @Nullable IPSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:guardduty/iPSet:IPSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IPSetArgs makeArgs(IPSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IPSetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -263,7 +270,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IPSet get(String name, Output<String> id, @Nullable IPSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IPSet get(java.lang.String name, Output<java.lang.String> id, @Nullable IPSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IPSet(name, id, state, options);
     }
 }

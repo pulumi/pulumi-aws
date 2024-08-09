@@ -152,7 +152,7 @@ public class ConnectionAlias extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConnectionAlias(String name) {
+    public ConnectionAlias(java.lang.String name) {
         this(name, ConnectionAliasArgs.Empty);
     }
     /**
@@ -160,7 +160,7 @@ public class ConnectionAlias extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConnectionAlias(String name, ConnectionAliasArgs args) {
+    public ConnectionAlias(java.lang.String name, ConnectionAliasArgs args) {
         this(name, args, null);
     }
     /**
@@ -169,15 +169,22 @@ public class ConnectionAlias extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConnectionAlias(String name, ConnectionAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:workspaces/connectionAlias:ConnectionAlias", name, args == null ? ConnectionAliasArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConnectionAlias(java.lang.String name, ConnectionAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:workspaces/connectionAlias:ConnectionAlias", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConnectionAlias(String name, Output<String> id, @Nullable ConnectionAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:workspaces/connectionAlias:ConnectionAlias", name, state, makeResourceOptions(options, id));
+    private ConnectionAlias(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:workspaces/connectionAlias:ConnectionAlias", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConnectionAliasArgs makeArgs(ConnectionAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectionAliasArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -193,7 +200,7 @@ public class ConnectionAlias extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConnectionAlias get(String name, Output<String> id, @Nullable ConnectionAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConnectionAlias get(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConnectionAlias(name, id, state, options);
     }
 }

@@ -137,7 +137,7 @@ public class VoiceConnectorOrganization extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VoiceConnectorOrganization(String name) {
+    public VoiceConnectorOrganization(java.lang.String name) {
         this(name, VoiceConnectorOrganizationArgs.Empty);
     }
     /**
@@ -145,7 +145,7 @@ public class VoiceConnectorOrganization extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VoiceConnectorOrganization(String name, VoiceConnectorOrganizationArgs args) {
+    public VoiceConnectorOrganization(java.lang.String name, VoiceConnectorOrganizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -154,15 +154,22 @@ public class VoiceConnectorOrganization extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VoiceConnectorOrganization(String name, VoiceConnectorOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization", name, args == null ? VoiceConnectorOrganizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VoiceConnectorOrganization(java.lang.String name, VoiceConnectorOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VoiceConnectorOrganization(String name, Output<String> id, @Nullable VoiceConnectorOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization", name, state, makeResourceOptions(options, id));
+    private VoiceConnectorOrganization(java.lang.String name, Output<java.lang.String> id, @Nullable VoiceConnectorOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VoiceConnectorOrganizationArgs makeArgs(VoiceConnectorOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VoiceConnectorOrganizationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -178,7 +185,7 @@ public class VoiceConnectorOrganization extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VoiceConnectorOrganization get(String name, Output<String> id, @Nullable VoiceConnectorOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VoiceConnectorOrganization get(java.lang.String name, Output<java.lang.String> id, @Nullable VoiceConnectorOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VoiceConnectorOrganization(name, id, state, options);
     }
 }

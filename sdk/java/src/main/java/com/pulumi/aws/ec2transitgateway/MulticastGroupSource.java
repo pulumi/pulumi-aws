@@ -104,7 +104,7 @@ public class MulticastGroupSource extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MulticastGroupSource(String name) {
+    public MulticastGroupSource(java.lang.String name) {
         this(name, MulticastGroupSourceArgs.Empty);
     }
     /**
@@ -112,7 +112,7 @@ public class MulticastGroupSource extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MulticastGroupSource(String name, MulticastGroupSourceArgs args) {
+    public MulticastGroupSource(java.lang.String name, MulticastGroupSourceArgs args) {
         this(name, args, null);
     }
     /**
@@ -121,15 +121,22 @@ public class MulticastGroupSource extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MulticastGroupSource(String name, MulticastGroupSourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource", name, args == null ? MulticastGroupSourceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MulticastGroupSource(java.lang.String name, MulticastGroupSourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MulticastGroupSource(String name, Output<String> id, @Nullable MulticastGroupSourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource", name, state, makeResourceOptions(options, id));
+    private MulticastGroupSource(java.lang.String name, Output<java.lang.String> id, @Nullable MulticastGroupSourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MulticastGroupSourceArgs makeArgs(MulticastGroupSourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MulticastGroupSourceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -145,7 +152,7 @@ public class MulticastGroupSource extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MulticastGroupSource get(String name, Output<String> id, @Nullable MulticastGroupSourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MulticastGroupSource get(java.lang.String name, Output<java.lang.String> id, @Nullable MulticastGroupSourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MulticastGroupSource(name, id, state, options);
     }
 }

@@ -36,7 +36,7 @@ import (
 //				Name:       pulumi.String("Example"),
 //				EngineType: pulumi.String("bluage"),
 //				Definition: &m2.ApplicationDefinitionArgs{
-//					Content: pulumi.String(fmt.Sprintf(`{
+//					Content: pulumi.Sprintf(`{
 //	  "definition": {
 //	    "listeners": [
 //	      {
@@ -61,7 +61,7 @@ import (
 //	  "template-version": "2.0"
 //	}
 //
-// `, s3_source)),
+// `, s3_source),
 //
 //				},
 //			})

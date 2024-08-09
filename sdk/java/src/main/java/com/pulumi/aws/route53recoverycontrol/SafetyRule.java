@@ -253,7 +253,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SafetyRule(String name) {
+    public SafetyRule(java.lang.String name) {
         this(name, SafetyRuleArgs.Empty);
     }
     /**
@@ -261,7 +261,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SafetyRule(String name, SafetyRuleArgs args) {
+    public SafetyRule(java.lang.String name, SafetyRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -270,15 +270,22 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SafetyRule(String name, SafetyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53recoverycontrol/safetyRule:SafetyRule", name, args == null ? SafetyRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SafetyRule(java.lang.String name, SafetyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53recoverycontrol/safetyRule:SafetyRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SafetyRule(String name, Output<String> id, @Nullable SafetyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53recoverycontrol/safetyRule:SafetyRule", name, state, makeResourceOptions(options, id));
+    private SafetyRule(java.lang.String name, Output<java.lang.String> id, @Nullable SafetyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53recoverycontrol/safetyRule:SafetyRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SafetyRuleArgs makeArgs(SafetyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SafetyRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -294,7 +301,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SafetyRule get(String name, Output<String> id, @Nullable SafetyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SafetyRule get(java.lang.String name, Output<java.lang.String> id, @Nullable SafetyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SafetyRule(name, id, state, options);
     }
 }

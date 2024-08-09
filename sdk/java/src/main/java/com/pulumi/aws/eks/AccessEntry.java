@@ -223,7 +223,7 @@ public class AccessEntry extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessEntry(String name) {
+    public AccessEntry(java.lang.String name) {
         this(name, AccessEntryArgs.Empty);
     }
     /**
@@ -231,7 +231,7 @@ public class AccessEntry extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessEntry(String name, AccessEntryArgs args) {
+    public AccessEntry(java.lang.String name, AccessEntryArgs args) {
         this(name, args, null);
     }
     /**
@@ -240,15 +240,22 @@ public class AccessEntry extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessEntry(String name, AccessEntryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/accessEntry:AccessEntry", name, args == null ? AccessEntryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccessEntry(java.lang.String name, AccessEntryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:eks/accessEntry:AccessEntry", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessEntry(String name, Output<String> id, @Nullable AccessEntryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/accessEntry:AccessEntry", name, state, makeResourceOptions(options, id));
+    private AccessEntry(java.lang.String name, Output<java.lang.String> id, @Nullable AccessEntryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:eks/accessEntry:AccessEntry", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccessEntryArgs makeArgs(AccessEntryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessEntryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -264,7 +271,7 @@ public class AccessEntry extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessEntry get(String name, Output<String> id, @Nullable AccessEntryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessEntry get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessEntryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessEntry(name, id, state, options);
     }
 }

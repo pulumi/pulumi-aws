@@ -140,7 +140,7 @@ public class ServerlessVpcEndpoint extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerlessVpcEndpoint(String name) {
+    public ServerlessVpcEndpoint(java.lang.String name) {
         this(name, ServerlessVpcEndpointArgs.Empty);
     }
     /**
@@ -148,7 +148,7 @@ public class ServerlessVpcEndpoint extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerlessVpcEndpoint(String name, ServerlessVpcEndpointArgs args) {
+    public ServerlessVpcEndpoint(java.lang.String name, ServerlessVpcEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -157,15 +157,22 @@ public class ServerlessVpcEndpoint extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerlessVpcEndpoint(String name, ServerlessVpcEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint", name, args == null ? ServerlessVpcEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServerlessVpcEndpoint(java.lang.String name, ServerlessVpcEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerlessVpcEndpoint(String name, Output<String> id, @Nullable ServerlessVpcEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint", name, state, makeResourceOptions(options, id));
+    private ServerlessVpcEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessVpcEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServerlessVpcEndpointArgs makeArgs(ServerlessVpcEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerlessVpcEndpointArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -181,7 +188,7 @@ public class ServerlessVpcEndpoint extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerlessVpcEndpoint get(String name, Output<String> id, @Nullable ServerlessVpcEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerlessVpcEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessVpcEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerlessVpcEndpoint(name, id, state, options);
     }
 }

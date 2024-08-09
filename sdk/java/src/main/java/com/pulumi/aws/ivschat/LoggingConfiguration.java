@@ -261,7 +261,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LoggingConfiguration(String name) {
+    public LoggingConfiguration(java.lang.String name) {
         this(name, LoggingConfigurationArgs.Empty);
     }
     /**
@@ -269,7 +269,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LoggingConfiguration(String name, @Nullable LoggingConfigurationArgs args) {
+    public LoggingConfiguration(java.lang.String name, @Nullable LoggingConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -278,15 +278,22 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LoggingConfiguration(String name, @Nullable LoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ivschat/loggingConfiguration:LoggingConfiguration", name, args == null ? LoggingConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LoggingConfiguration(java.lang.String name, @Nullable LoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ivschat/loggingConfiguration:LoggingConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LoggingConfiguration(String name, Output<String> id, @Nullable LoggingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ivschat/loggingConfiguration:LoggingConfiguration", name, state, makeResourceOptions(options, id));
+    private LoggingConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable LoggingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ivschat/loggingConfiguration:LoggingConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LoggingConfigurationArgs makeArgs(@Nullable LoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LoggingConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -302,7 +309,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LoggingConfiguration get(String name, Output<String> id, @Nullable LoggingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LoggingConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable LoggingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LoggingConfiguration(name, id, state, options);
     }
 }

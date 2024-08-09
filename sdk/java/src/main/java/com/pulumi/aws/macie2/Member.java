@@ -266,7 +266,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Member(String name) {
+    public Member(java.lang.String name) {
         this(name, MemberArgs.Empty);
     }
     /**
@@ -274,7 +274,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Member(String name, MemberArgs args) {
+    public Member(java.lang.String name, MemberArgs args) {
         this(name, args, null);
     }
     /**
@@ -283,15 +283,22 @@ public class Member extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Member(String name, MemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:macie2/member:Member", name, args == null ? MemberArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Member(java.lang.String name, MemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:macie2/member:Member", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Member(String name, Output<String> id, @Nullable MemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:macie2/member:Member", name, state, makeResourceOptions(options, id));
+    private Member(java.lang.String name, Output<java.lang.String> id, @Nullable MemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:macie2/member:Member", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MemberArgs makeArgs(MemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MemberArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -307,7 +314,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Member get(String name, Output<String> id, @Nullable MemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Member get(java.lang.String name, Output<java.lang.String> id, @Nullable MemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Member(name, id, state, options);
     }
 }

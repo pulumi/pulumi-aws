@@ -230,7 +230,7 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppAuthorization(String name) {
+    public AppAuthorization(java.lang.String name) {
         this(name, AppAuthorizationArgs.Empty);
     }
     /**
@@ -238,7 +238,7 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppAuthorization(String name, AppAuthorizationArgs args) {
+    public AppAuthorization(java.lang.String name, AppAuthorizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -247,15 +247,22 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppAuthorization(String name, AppAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appfabric/appAuthorization:AppAuthorization", name, args == null ? AppAuthorizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AppAuthorization(java.lang.String name, AppAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appfabric/appAuthorization:AppAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppAuthorization(String name, Output<String> id, @Nullable AppAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appfabric/appAuthorization:AppAuthorization", name, state, makeResourceOptions(options, id));
+    private AppAuthorization(java.lang.String name, Output<java.lang.String> id, @Nullable AppAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appfabric/appAuthorization:AppAuthorization", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppAuthorizationArgs makeArgs(AppAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppAuthorizationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -271,7 +278,7 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppAuthorization get(String name, Output<String> id, @Nullable AppAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppAuthorization get(java.lang.String name, Output<java.lang.String> id, @Nullable AppAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppAuthorization(name, id, state, options);
     }
 }

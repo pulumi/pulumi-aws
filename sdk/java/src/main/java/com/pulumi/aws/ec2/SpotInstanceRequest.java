@@ -1026,7 +1026,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpotInstanceRequest(String name) {
+    public SpotInstanceRequest(java.lang.String name) {
         this(name, SpotInstanceRequestArgs.Empty);
     }
     /**
@@ -1034,7 +1034,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpotInstanceRequest(String name, @Nullable SpotInstanceRequestArgs args) {
+    public SpotInstanceRequest(java.lang.String name, @Nullable SpotInstanceRequestArgs args) {
         this(name, args, null);
     }
     /**
@@ -1043,15 +1043,22 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpotInstanceRequest(String name, @Nullable SpotInstanceRequestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, args == null ? SpotInstanceRequestArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpotInstanceRequest(java.lang.String name, @Nullable SpotInstanceRequestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpotInstanceRequest(String name, Output<String> id, @Nullable SpotInstanceRequestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, state, makeResourceOptions(options, id));
+    private SpotInstanceRequest(java.lang.String name, Output<java.lang.String> id, @Nullable SpotInstanceRequestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpotInstanceRequestArgs makeArgs(@Nullable SpotInstanceRequestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpotInstanceRequestArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -1067,7 +1074,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpotInstanceRequest get(String name, Output<String> id, @Nullable SpotInstanceRequestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpotInstanceRequest get(java.lang.String name, Output<java.lang.String> id, @Nullable SpotInstanceRequestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpotInstanceRequest(name, id, state, options);
     }
 }

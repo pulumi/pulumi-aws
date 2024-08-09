@@ -200,7 +200,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AssessmentTemplate(String name) {
+    public AssessmentTemplate(java.lang.String name) {
         this(name, AssessmentTemplateArgs.Empty);
     }
     /**
@@ -208,7 +208,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AssessmentTemplate(String name, AssessmentTemplateArgs args) {
+    public AssessmentTemplate(java.lang.String name, AssessmentTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -217,15 +217,22 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AssessmentTemplate(String name, AssessmentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector/assessmentTemplate:AssessmentTemplate", name, args == null ? AssessmentTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AssessmentTemplate(java.lang.String name, AssessmentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:inspector/assessmentTemplate:AssessmentTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AssessmentTemplate(String name, Output<String> id, @Nullable AssessmentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector/assessmentTemplate:AssessmentTemplate", name, state, makeResourceOptions(options, id));
+    private AssessmentTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable AssessmentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:inspector/assessmentTemplate:AssessmentTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AssessmentTemplateArgs makeArgs(AssessmentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssessmentTemplateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -241,7 +248,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AssessmentTemplate get(String name, Output<String> id, @Nullable AssessmentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AssessmentTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable AssessmentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AssessmentTemplate(name, id, state, options);
     }
 }

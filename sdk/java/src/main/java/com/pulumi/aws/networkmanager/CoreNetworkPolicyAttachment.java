@@ -511,7 +511,7 @@ public class CoreNetworkPolicyAttachment extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CoreNetworkPolicyAttachment(String name) {
+    public CoreNetworkPolicyAttachment(java.lang.String name) {
         this(name, CoreNetworkPolicyAttachmentArgs.Empty);
     }
     /**
@@ -519,7 +519,7 @@ public class CoreNetworkPolicyAttachment extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CoreNetworkPolicyAttachment(String name, CoreNetworkPolicyAttachmentArgs args) {
+    public CoreNetworkPolicyAttachment(java.lang.String name, CoreNetworkPolicyAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -528,15 +528,22 @@ public class CoreNetworkPolicyAttachment extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CoreNetworkPolicyAttachment(String name, CoreNetworkPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment", name, args == null ? CoreNetworkPolicyAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CoreNetworkPolicyAttachment(java.lang.String name, CoreNetworkPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CoreNetworkPolicyAttachment(String name, Output<String> id, @Nullable CoreNetworkPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment", name, state, makeResourceOptions(options, id));
+    private CoreNetworkPolicyAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable CoreNetworkPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CoreNetworkPolicyAttachmentArgs makeArgs(CoreNetworkPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CoreNetworkPolicyAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -552,7 +559,7 @@ public class CoreNetworkPolicyAttachment extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CoreNetworkPolicyAttachment get(String name, Output<String> id, @Nullable CoreNetworkPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CoreNetworkPolicyAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable CoreNetworkPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CoreNetworkPolicyAttachment(name, id, state, options);
     }
 }

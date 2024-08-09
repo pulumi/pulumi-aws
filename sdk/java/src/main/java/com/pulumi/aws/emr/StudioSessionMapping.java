@@ -140,7 +140,7 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StudioSessionMapping(String name) {
+    public StudioSessionMapping(java.lang.String name) {
         this(name, StudioSessionMappingArgs.Empty);
     }
     /**
@@ -148,7 +148,7 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StudioSessionMapping(String name, StudioSessionMappingArgs args) {
+    public StudioSessionMapping(java.lang.String name, StudioSessionMappingArgs args) {
         this(name, args, null);
     }
     /**
@@ -157,15 +157,22 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StudioSessionMapping(String name, StudioSessionMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emr/studioSessionMapping:StudioSessionMapping", name, args == null ? StudioSessionMappingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public StudioSessionMapping(java.lang.String name, StudioSessionMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emr/studioSessionMapping:StudioSessionMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StudioSessionMapping(String name, Output<String> id, @Nullable StudioSessionMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emr/studioSessionMapping:StudioSessionMapping", name, state, makeResourceOptions(options, id));
+    private StudioSessionMapping(java.lang.String name, Output<java.lang.String> id, @Nullable StudioSessionMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emr/studioSessionMapping:StudioSessionMapping", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static StudioSessionMappingArgs makeArgs(StudioSessionMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StudioSessionMappingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -181,7 +188,7 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StudioSessionMapping get(String name, Output<String> id, @Nullable StudioSessionMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StudioSessionMapping get(java.lang.String name, Output<java.lang.String> id, @Nullable StudioSessionMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StudioSessionMapping(name, id, state, options);
     }
 }

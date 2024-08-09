@@ -124,7 +124,7 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketRequestPaymentConfigurationV2(String name) {
+    public BucketRequestPaymentConfigurationV2(java.lang.String name) {
         this(name, BucketRequestPaymentConfigurationV2Args.Empty);
     }
     /**
@@ -132,7 +132,7 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketRequestPaymentConfigurationV2(String name, BucketRequestPaymentConfigurationV2Args args) {
+    public BucketRequestPaymentConfigurationV2(java.lang.String name, BucketRequestPaymentConfigurationV2Args args) {
         this(name, args, null);
     }
     /**
@@ -141,15 +141,22 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketRequestPaymentConfigurationV2(String name, BucketRequestPaymentConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2", name, args == null ? BucketRequestPaymentConfigurationV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketRequestPaymentConfigurationV2(java.lang.String name, BucketRequestPaymentConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketRequestPaymentConfigurationV2(String name, Output<String> id, @Nullable BucketRequestPaymentConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2", name, state, makeResourceOptions(options, id));
+    private BucketRequestPaymentConfigurationV2(java.lang.String name, Output<java.lang.String> id, @Nullable BucketRequestPaymentConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketRequestPaymentConfigurationV2Args makeArgs(BucketRequestPaymentConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketRequestPaymentConfigurationV2Args.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -165,7 +172,7 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketRequestPaymentConfigurationV2 get(String name, Output<String> id, @Nullable BucketRequestPaymentConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketRequestPaymentConfigurationV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketRequestPaymentConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketRequestPaymentConfigurationV2(name, id, state, options);
     }
 }

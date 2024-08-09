@@ -189,7 +189,7 @@ public class RuntimeManagementConfig extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RuntimeManagementConfig(String name) {
+    public RuntimeManagementConfig(java.lang.String name) {
         this(name, RuntimeManagementConfigArgs.Empty);
     }
     /**
@@ -197,7 +197,7 @@ public class RuntimeManagementConfig extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RuntimeManagementConfig(String name, RuntimeManagementConfigArgs args) {
+    public RuntimeManagementConfig(java.lang.String name, RuntimeManagementConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -206,15 +206,22 @@ public class RuntimeManagementConfig extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RuntimeManagementConfig(String name, RuntimeManagementConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig", name, args == null ? RuntimeManagementConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RuntimeManagementConfig(java.lang.String name, RuntimeManagementConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RuntimeManagementConfig(String name, Output<String> id, @Nullable RuntimeManagementConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig", name, state, makeResourceOptions(options, id));
+    private RuntimeManagementConfig(java.lang.String name, Output<java.lang.String> id, @Nullable RuntimeManagementConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RuntimeManagementConfigArgs makeArgs(RuntimeManagementConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RuntimeManagementConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -230,7 +237,7 @@ public class RuntimeManagementConfig extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RuntimeManagementConfig get(String name, Output<String> id, @Nullable RuntimeManagementConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RuntimeManagementConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable RuntimeManagementConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RuntimeManagementConfig(name, id, state, options);
     }
 }

@@ -179,7 +179,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventIntegration(String name) {
+    public EventIntegration(java.lang.String name) {
         this(name, EventIntegrationArgs.Empty);
     }
     /**
@@ -187,7 +187,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventIntegration(String name, EventIntegrationArgs args) {
+    public EventIntegration(java.lang.String name, EventIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -196,15 +196,22 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventIntegration(String name, EventIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/eventIntegration:EventIntegration", name, args == null ? EventIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventIntegration(java.lang.String name, EventIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appconfig/eventIntegration:EventIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventIntegration(String name, Output<String> id, @Nullable EventIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/eventIntegration:EventIntegration", name, state, makeResourceOptions(options, id));
+    private EventIntegration(java.lang.String name, Output<java.lang.String> id, @Nullable EventIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appconfig/eventIntegration:EventIntegration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventIntegrationArgs makeArgs(EventIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventIntegrationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -220,7 +227,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventIntegration get(String name, Output<String> id, @Nullable EventIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventIntegration get(java.lang.String name, Output<java.lang.String> id, @Nullable EventIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventIntegration(name, id, state, options);
     }
 }

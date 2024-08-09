@@ -224,7 +224,7 @@ public class ApnsChannel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApnsChannel(String name) {
+    public ApnsChannel(java.lang.String name) {
         this(name, ApnsChannelArgs.Empty);
     }
     /**
@@ -232,7 +232,7 @@ public class ApnsChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApnsChannel(String name, ApnsChannelArgs args) {
+    public ApnsChannel(java.lang.String name, ApnsChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -241,15 +241,22 @@ public class ApnsChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApnsChannel(String name, ApnsChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/apnsChannel:ApnsChannel", name, args == null ? ApnsChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ApnsChannel(java.lang.String name, ApnsChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:pinpoint/apnsChannel:ApnsChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApnsChannel(String name, Output<String> id, @Nullable ApnsChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/apnsChannel:ApnsChannel", name, state, makeResourceOptions(options, id));
+    private ApnsChannel(java.lang.String name, Output<java.lang.String> id, @Nullable ApnsChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:pinpoint/apnsChannel:ApnsChannel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ApnsChannelArgs makeArgs(ApnsChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApnsChannelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -273,7 +280,7 @@ public class ApnsChannel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApnsChannel get(String name, Output<String> id, @Nullable ApnsChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApnsChannel get(java.lang.String name, Output<java.lang.String> id, @Nullable ApnsChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApnsChannel(name, id, state, options);
     }
 }

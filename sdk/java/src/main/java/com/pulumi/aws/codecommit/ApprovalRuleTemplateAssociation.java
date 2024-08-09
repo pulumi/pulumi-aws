@@ -96,7 +96,7 @@ public class ApprovalRuleTemplateAssociation extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApprovalRuleTemplateAssociation(String name) {
+    public ApprovalRuleTemplateAssociation(java.lang.String name) {
         this(name, ApprovalRuleTemplateAssociationArgs.Empty);
     }
     /**
@@ -104,7 +104,7 @@ public class ApprovalRuleTemplateAssociation extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApprovalRuleTemplateAssociation(String name, ApprovalRuleTemplateAssociationArgs args) {
+    public ApprovalRuleTemplateAssociation(java.lang.String name, ApprovalRuleTemplateAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -113,15 +113,22 @@ public class ApprovalRuleTemplateAssociation extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApprovalRuleTemplateAssociation(String name, ApprovalRuleTemplateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", name, args == null ? ApprovalRuleTemplateAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ApprovalRuleTemplateAssociation(java.lang.String name, ApprovalRuleTemplateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApprovalRuleTemplateAssociation(String name, Output<String> id, @Nullable ApprovalRuleTemplateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", name, state, makeResourceOptions(options, id));
+    private ApprovalRuleTemplateAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable ApprovalRuleTemplateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ApprovalRuleTemplateAssociationArgs makeArgs(ApprovalRuleTemplateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApprovalRuleTemplateAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -137,7 +144,7 @@ public class ApprovalRuleTemplateAssociation extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApprovalRuleTemplateAssociation get(String name, Output<String> id, @Nullable ApprovalRuleTemplateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApprovalRuleTemplateAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable ApprovalRuleTemplateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApprovalRuleTemplateAssociation(name, id, state, options);
     }
 }

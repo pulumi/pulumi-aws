@@ -329,7 +329,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ContactFlowModule(String name) {
+    public ContactFlowModule(java.lang.String name) {
         this(name, ContactFlowModuleArgs.Empty);
     }
     /**
@@ -337,7 +337,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ContactFlowModule(String name, ContactFlowModuleArgs args) {
+    public ContactFlowModule(java.lang.String name, ContactFlowModuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -346,15 +346,22 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ContactFlowModule(String name, ContactFlowModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/contactFlowModule:ContactFlowModule", name, args == null ? ContactFlowModuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ContactFlowModule(java.lang.String name, ContactFlowModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/contactFlowModule:ContactFlowModule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ContactFlowModule(String name, Output<String> id, @Nullable ContactFlowModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/contactFlowModule:ContactFlowModule", name, state, makeResourceOptions(options, id));
+    private ContactFlowModule(java.lang.String name, Output<java.lang.String> id, @Nullable ContactFlowModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/contactFlowModule:ContactFlowModule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ContactFlowModuleArgs makeArgs(ContactFlowModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContactFlowModuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -370,7 +377,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ContactFlowModule get(String name, Output<String> id, @Nullable ContactFlowModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ContactFlowModule get(java.lang.String name, Output<java.lang.String> id, @Nullable ContactFlowModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ContactFlowModule(name, id, state, options);
     }
 }

@@ -146,7 +146,7 @@ public class PreparedStatement extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PreparedStatement(String name) {
+    public PreparedStatement(java.lang.String name) {
         this(name, PreparedStatementArgs.Empty);
     }
     /**
@@ -154,7 +154,7 @@ public class PreparedStatement extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PreparedStatement(String name, PreparedStatementArgs args) {
+    public PreparedStatement(java.lang.String name, PreparedStatementArgs args) {
         this(name, args, null);
     }
     /**
@@ -163,15 +163,22 @@ public class PreparedStatement extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PreparedStatement(String name, PreparedStatementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:athena/preparedStatement:PreparedStatement", name, args == null ? PreparedStatementArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PreparedStatement(java.lang.String name, PreparedStatementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:athena/preparedStatement:PreparedStatement", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PreparedStatement(String name, Output<String> id, @Nullable PreparedStatementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:athena/preparedStatement:PreparedStatement", name, state, makeResourceOptions(options, id));
+    private PreparedStatement(java.lang.String name, Output<java.lang.String> id, @Nullable PreparedStatementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:athena/preparedStatement:PreparedStatement", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PreparedStatementArgs makeArgs(PreparedStatementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PreparedStatementArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -187,7 +194,7 @@ public class PreparedStatement extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PreparedStatement get(String name, Output<String> id, @Nullable PreparedStatementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PreparedStatement get(java.lang.String name, Output<java.lang.String> id, @Nullable PreparedStatementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PreparedStatement(name, id, state, options);
     }
 }

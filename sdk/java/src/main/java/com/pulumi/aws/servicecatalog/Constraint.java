@@ -188,7 +188,7 @@ public class Constraint extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Constraint(String name) {
+    public Constraint(java.lang.String name) {
         this(name, ConstraintArgs.Empty);
     }
     /**
@@ -196,7 +196,7 @@ public class Constraint extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Constraint(String name, ConstraintArgs args) {
+    public Constraint(java.lang.String name, ConstraintArgs args) {
         this(name, args, null);
     }
     /**
@@ -205,15 +205,22 @@ public class Constraint extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Constraint(String name, ConstraintArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/constraint:Constraint", name, args == null ? ConstraintArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Constraint(java.lang.String name, ConstraintArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/constraint:Constraint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Constraint(String name, Output<String> id, @Nullable ConstraintState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/constraint:Constraint", name, state, makeResourceOptions(options, id));
+    private Constraint(java.lang.String name, Output<java.lang.String> id, @Nullable ConstraintState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/constraint:Constraint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConstraintArgs makeArgs(ConstraintArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConstraintArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -229,7 +236,7 @@ public class Constraint extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Constraint get(String name, Output<String> id, @Nullable ConstraintState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Constraint get(java.lang.String name, Output<java.lang.String> id, @Nullable ConstraintState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Constraint(name, id, state, options);
     }
 }

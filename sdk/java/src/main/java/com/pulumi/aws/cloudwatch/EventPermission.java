@@ -190,7 +190,7 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventPermission(String name) {
+    public EventPermission(java.lang.String name) {
         this(name, EventPermissionArgs.Empty);
     }
     /**
@@ -198,7 +198,7 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventPermission(String name, EventPermissionArgs args) {
+    public EventPermission(java.lang.String name, EventPermissionArgs args) {
         this(name, args, null);
     }
     /**
@@ -207,15 +207,22 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventPermission(String name, EventPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventPermission:EventPermission", name, args == null ? EventPermissionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventPermission(java.lang.String name, EventPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventPermission:EventPermission", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventPermission(String name, Output<String> id, @Nullable EventPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventPermission:EventPermission", name, state, makeResourceOptions(options, id));
+    private EventPermission(java.lang.String name, Output<java.lang.String> id, @Nullable EventPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventPermission:EventPermission", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventPermissionArgs makeArgs(EventPermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventPermissionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -231,7 +238,7 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventPermission get(String name, Output<String> id, @Nullable EventPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventPermission get(java.lang.String name, Output<java.lang.String> id, @Nullable EventPermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventPermission(name, id, state, options);
     }
 }

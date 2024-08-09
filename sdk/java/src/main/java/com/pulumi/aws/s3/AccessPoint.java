@@ -336,7 +336,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessPoint(String name) {
+    public AccessPoint(java.lang.String name) {
         this(name, AccessPointArgs.Empty);
     }
     /**
@@ -344,7 +344,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessPoint(String name, AccessPointArgs args) {
+    public AccessPoint(java.lang.String name, AccessPointArgs args) {
         this(name, args, null);
     }
     /**
@@ -353,15 +353,22 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessPoint(String name, AccessPointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/accessPoint:AccessPoint", name, args == null ? AccessPointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccessPoint(java.lang.String name, AccessPointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/accessPoint:AccessPoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessPoint(String name, Output<String> id, @Nullable AccessPointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/accessPoint:AccessPoint", name, state, makeResourceOptions(options, id));
+    private AccessPoint(java.lang.String name, Output<java.lang.String> id, @Nullable AccessPointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/accessPoint:AccessPoint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccessPointArgs makeArgs(AccessPointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessPointArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -377,7 +384,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessPoint get(String name, Output<String> id, @Nullable AccessPointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessPoint get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessPointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessPoint(name, id, state, options);
     }
 }

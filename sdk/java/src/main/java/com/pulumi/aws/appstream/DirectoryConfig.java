@@ -131,7 +131,7 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DirectoryConfig(String name) {
+    public DirectoryConfig(java.lang.String name) {
         this(name, DirectoryConfigArgs.Empty);
     }
     /**
@@ -139,7 +139,7 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DirectoryConfig(String name, DirectoryConfigArgs args) {
+    public DirectoryConfig(java.lang.String name, DirectoryConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -148,15 +148,22 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DirectoryConfig(String name, DirectoryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appstream/directoryConfig:DirectoryConfig", name, args == null ? DirectoryConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DirectoryConfig(java.lang.String name, DirectoryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appstream/directoryConfig:DirectoryConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DirectoryConfig(String name, Output<String> id, @Nullable DirectoryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appstream/directoryConfig:DirectoryConfig", name, state, makeResourceOptions(options, id));
+    private DirectoryConfig(java.lang.String name, Output<java.lang.String> id, @Nullable DirectoryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appstream/directoryConfig:DirectoryConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DirectoryConfigArgs makeArgs(DirectoryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DirectoryConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -172,7 +179,7 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DirectoryConfig get(String name, Output<String> id, @Nullable DirectoryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DirectoryConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable DirectoryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DirectoryConfig(name, id, state, options);
     }
 }

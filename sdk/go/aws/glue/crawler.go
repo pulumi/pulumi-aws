@@ -105,7 +105,7 @@ import (
 //				Role:         pulumi.Any(exampleAwsIamRole.Arn),
 //				S3Targets: glue.CrawlerS3TargetArray{
 //					&glue.CrawlerS3TargetArgs{
-//						Path: pulumi.String(fmt.Sprintf("s3://%v", exampleAwsS3Bucket.Bucket)),
+//						Path: pulumi.Sprintf("s3://%v", exampleAwsS3Bucket.Bucket),
 //					},
 //				},
 //			})
@@ -235,13 +235,13 @@ import (
 //			_, err = glue.NewCrawler(ctx, "events_crawler", &glue.CrawlerArgs{
 //				DatabaseName:  pulumi.Any(glueDatabase.Name),
 //				Schedule:      pulumi.String("cron(0 1 * * ? *)"),
-//				Name:          pulumi.String(fmt.Sprintf("events_crawler_%v", environmentName)),
+//				Name:          pulumi.Sprintf("events_crawler_%v", environmentName),
 //				Role:          pulumi.Any(glueRole.Arn),
 //				Tags:          pulumi.Any(tags),
 //				Configuration: pulumi.String(json0),
 //				S3Targets: glue.CrawlerS3TargetArray{
 //					&glue.CrawlerS3TargetArgs{
-//						Path: pulumi.String(fmt.Sprintf("s3://%v", dataLakeBucket.Bucket)),
+//						Path: pulumi.Sprintf("s3://%v", dataLakeBucket.Bucket),
 //					},
 //				},
 //			})

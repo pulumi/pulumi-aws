@@ -54,7 +54,7 @@ import (
 //				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
 //				CertificateSigningRequest: exampleCertificateAuthority.CertificateSigningRequest,
 //				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-//				TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition)),
+//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition),
 //				Validity: &acmpca.CertificateValidityArgs{
 //					Type:  pulumi.String("YEARS"),
 //					Value: pulumi.String("1"),
@@ -121,7 +121,7 @@ import (
 //				CertificateAuthorityArn:   root.Arn,
 //				CertificateSigningRequest: subordinateCertificateAuthority.CertificateSigningRequest,
 //				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-//				TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.Partition)),
+//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.Partition),
 //				Validity: &acmpca.CertificateValidityArgs{
 //					Type:  pulumi.String("YEARS"),
 //					Value: pulumi.String("1"),

@@ -121,7 +121,7 @@ public class LbHttpsRedirectionPolicy extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LbHttpsRedirectionPolicy(String name) {
+    public LbHttpsRedirectionPolicy(java.lang.String name) {
         this(name, LbHttpsRedirectionPolicyArgs.Empty);
     }
     /**
@@ -129,7 +129,7 @@ public class LbHttpsRedirectionPolicy extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LbHttpsRedirectionPolicy(String name, LbHttpsRedirectionPolicyArgs args) {
+    public LbHttpsRedirectionPolicy(java.lang.String name, LbHttpsRedirectionPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -138,15 +138,22 @@ public class LbHttpsRedirectionPolicy extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LbHttpsRedirectionPolicy(String name, LbHttpsRedirectionPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy", name, args == null ? LbHttpsRedirectionPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LbHttpsRedirectionPolicy(java.lang.String name, LbHttpsRedirectionPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LbHttpsRedirectionPolicy(String name, Output<String> id, @Nullable LbHttpsRedirectionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy", name, state, makeResourceOptions(options, id));
+    private LbHttpsRedirectionPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable LbHttpsRedirectionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LbHttpsRedirectionPolicyArgs makeArgs(LbHttpsRedirectionPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LbHttpsRedirectionPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -162,7 +169,7 @@ public class LbHttpsRedirectionPolicy extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LbHttpsRedirectionPolicy get(String name, Output<String> id, @Nullable LbHttpsRedirectionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LbHttpsRedirectionPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable LbHttpsRedirectionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LbHttpsRedirectionPolicy(name, id, state, options);
     }
 }

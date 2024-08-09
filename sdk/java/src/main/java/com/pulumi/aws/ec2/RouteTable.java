@@ -355,7 +355,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RouteTable(String name) {
+    public RouteTable(java.lang.String name) {
         this(name, RouteTableArgs.Empty);
     }
     /**
@@ -363,7 +363,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RouteTable(String name, RouteTableArgs args) {
+    public RouteTable(java.lang.String name, RouteTableArgs args) {
         this(name, args, null);
     }
     /**
@@ -372,15 +372,22 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RouteTable(String name, RouteTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/routeTable:RouteTable", name, args == null ? RouteTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RouteTable(java.lang.String name, RouteTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/routeTable:RouteTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RouteTable(String name, Output<String> id, @Nullable RouteTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/routeTable:RouteTable", name, state, makeResourceOptions(options, id));
+    private RouteTable(java.lang.String name, Output<java.lang.String> id, @Nullable RouteTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/routeTable:RouteTable", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RouteTableArgs makeArgs(RouteTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RouteTableArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -396,7 +403,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RouteTable get(String name, Output<String> id, @Nullable RouteTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RouteTable get(java.lang.String name, Output<java.lang.String> id, @Nullable RouteTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RouteTable(name, id, state, options);
     }
 }

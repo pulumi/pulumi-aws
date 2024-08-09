@@ -106,7 +106,7 @@ public class EmailIdentityFeedbackAttributes extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EmailIdentityFeedbackAttributes(String name) {
+    public EmailIdentityFeedbackAttributes(java.lang.String name) {
         this(name, EmailIdentityFeedbackAttributesArgs.Empty);
     }
     /**
@@ -114,7 +114,7 @@ public class EmailIdentityFeedbackAttributes extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EmailIdentityFeedbackAttributes(String name, EmailIdentityFeedbackAttributesArgs args) {
+    public EmailIdentityFeedbackAttributes(java.lang.String name, EmailIdentityFeedbackAttributesArgs args) {
         this(name, args, null);
     }
     /**
@@ -123,15 +123,22 @@ public class EmailIdentityFeedbackAttributes extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EmailIdentityFeedbackAttributes(String name, EmailIdentityFeedbackAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes", name, args == null ? EmailIdentityFeedbackAttributesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EmailIdentityFeedbackAttributes(java.lang.String name, EmailIdentityFeedbackAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EmailIdentityFeedbackAttributes(String name, Output<String> id, @Nullable EmailIdentityFeedbackAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes", name, state, makeResourceOptions(options, id));
+    private EmailIdentityFeedbackAttributes(java.lang.String name, Output<java.lang.String> id, @Nullable EmailIdentityFeedbackAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EmailIdentityFeedbackAttributesArgs makeArgs(EmailIdentityFeedbackAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmailIdentityFeedbackAttributesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -147,7 +154,7 @@ public class EmailIdentityFeedbackAttributes extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EmailIdentityFeedbackAttributes get(String name, Output<String> id, @Nullable EmailIdentityFeedbackAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EmailIdentityFeedbackAttributes get(java.lang.String name, Output<java.lang.String> id, @Nullable EmailIdentityFeedbackAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EmailIdentityFeedbackAttributes(name, id, state, options);
     }
 }

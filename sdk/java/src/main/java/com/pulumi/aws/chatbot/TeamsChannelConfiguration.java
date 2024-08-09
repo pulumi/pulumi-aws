@@ -291,7 +291,7 @@ public class TeamsChannelConfiguration extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TeamsChannelConfiguration(String name) {
+    public TeamsChannelConfiguration(java.lang.String name) {
         this(name, TeamsChannelConfigurationArgs.Empty);
     }
     /**
@@ -299,7 +299,7 @@ public class TeamsChannelConfiguration extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TeamsChannelConfiguration(String name, TeamsChannelConfigurationArgs args) {
+    public TeamsChannelConfiguration(java.lang.String name, TeamsChannelConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -308,15 +308,22 @@ public class TeamsChannelConfiguration extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TeamsChannelConfiguration(String name, TeamsChannelConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration", name, args == null ? TeamsChannelConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TeamsChannelConfiguration(java.lang.String name, TeamsChannelConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TeamsChannelConfiguration(String name, Output<String> id, @Nullable TeamsChannelConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration", name, state, makeResourceOptions(options, id));
+    private TeamsChannelConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable TeamsChannelConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TeamsChannelConfigurationArgs makeArgs(TeamsChannelConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TeamsChannelConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -332,7 +339,7 @@ public class TeamsChannelConfiguration extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TeamsChannelConfiguration get(String name, Output<String> id, @Nullable TeamsChannelConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TeamsChannelConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable TeamsChannelConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TeamsChannelConfiguration(name, id, state, options);
     }
 }

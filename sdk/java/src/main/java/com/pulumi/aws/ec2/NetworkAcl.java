@@ -218,7 +218,7 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkAcl(String name) {
+    public NetworkAcl(java.lang.String name) {
         this(name, NetworkAclArgs.Empty);
     }
     /**
@@ -226,7 +226,7 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkAcl(String name, NetworkAclArgs args) {
+    public NetworkAcl(java.lang.String name, NetworkAclArgs args) {
         this(name, args, null);
     }
     /**
@@ -235,15 +235,22 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkAcl(String name, NetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkAcl:NetworkAcl", name, args == null ? NetworkAclArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkAcl(java.lang.String name, NetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/networkAcl:NetworkAcl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkAcl(String name, Output<String> id, @Nullable NetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkAcl:NetworkAcl", name, state, makeResourceOptions(options, id));
+    private NetworkAcl(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/networkAcl:NetworkAcl", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkAclArgs makeArgs(NetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkAclArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -259,7 +266,7 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkAcl get(String name, Output<String> id, @Nullable NetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkAcl get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkAcl(name, id, state, options);
     }
 }
