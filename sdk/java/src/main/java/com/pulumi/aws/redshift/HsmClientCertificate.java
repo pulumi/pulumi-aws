@@ -143,7 +143,7 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public HsmClientCertificate(String name) {
+    public HsmClientCertificate(java.lang.String name) {
         this(name, HsmClientCertificateArgs.Empty);
     }
     /**
@@ -151,7 +151,7 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public HsmClientCertificate(String name, HsmClientCertificateArgs args) {
+    public HsmClientCertificate(java.lang.String name, HsmClientCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -160,15 +160,22 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public HsmClientCertificate(String name, HsmClientCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/hsmClientCertificate:HsmClientCertificate", name, args == null ? HsmClientCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public HsmClientCertificate(java.lang.String name, HsmClientCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/hsmClientCertificate:HsmClientCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private HsmClientCertificate(String name, Output<String> id, @Nullable HsmClientCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/hsmClientCertificate:HsmClientCertificate", name, state, makeResourceOptions(options, id));
+    private HsmClientCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable HsmClientCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/hsmClientCertificate:HsmClientCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HsmClientCertificateArgs makeArgs(HsmClientCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HsmClientCertificateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -184,7 +191,7 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static HsmClientCertificate get(String name, Output<String> id, @Nullable HsmClientCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static HsmClientCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable HsmClientCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new HsmClientCertificate(name, id, state, options);
     }
 }

@@ -183,7 +183,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GeofenceCollection(String name) {
+    public GeofenceCollection(java.lang.String name) {
         this(name, GeofenceCollectionArgs.Empty);
     }
     /**
@@ -191,7 +191,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GeofenceCollection(String name, GeofenceCollectionArgs args) {
+    public GeofenceCollection(java.lang.String name, GeofenceCollectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -200,15 +200,22 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GeofenceCollection(String name, GeofenceCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:location/geofenceCollection:GeofenceCollection", name, args == null ? GeofenceCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GeofenceCollection(java.lang.String name, GeofenceCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:location/geofenceCollection:GeofenceCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GeofenceCollection(String name, Output<String> id, @Nullable GeofenceCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:location/geofenceCollection:GeofenceCollection", name, state, makeResourceOptions(options, id));
+    private GeofenceCollection(java.lang.String name, Output<java.lang.String> id, @Nullable GeofenceCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:location/geofenceCollection:GeofenceCollection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GeofenceCollectionArgs makeArgs(GeofenceCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GeofenceCollectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -224,7 +231,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GeofenceCollection get(String name, Output<String> id, @Nullable GeofenceCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GeofenceCollection get(java.lang.String name, Output<java.lang.String> id, @Nullable GeofenceCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GeofenceCollection(name, id, state, options);
     }
 }

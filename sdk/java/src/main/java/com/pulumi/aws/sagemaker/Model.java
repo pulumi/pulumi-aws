@@ -254,7 +254,7 @@ public class Model extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Model(String name) {
+    public Model(java.lang.String name) {
         this(name, ModelArgs.Empty);
     }
     /**
@@ -262,7 +262,7 @@ public class Model extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Model(String name, ModelArgs args) {
+    public Model(java.lang.String name, ModelArgs args) {
         this(name, args, null);
     }
     /**
@@ -271,15 +271,22 @@ public class Model extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Model(String name, ModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/model:Model", name, args == null ? ModelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Model(java.lang.String name, ModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/model:Model", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Model(String name, Output<String> id, @Nullable ModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/model:Model", name, state, makeResourceOptions(options, id));
+    private Model(java.lang.String name, Output<java.lang.String> id, @Nullable ModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/model:Model", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ModelArgs makeArgs(ModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ModelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -295,7 +302,7 @@ public class Model extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Model get(String name, Output<String> id, @Nullable ModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Model get(java.lang.String name, Output<java.lang.String> id, @Nullable ModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Model(name, id, state, options);
     }
 }

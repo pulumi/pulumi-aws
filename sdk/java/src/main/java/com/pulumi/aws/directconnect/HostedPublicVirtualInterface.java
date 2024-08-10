@@ -253,7 +253,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public HostedPublicVirtualInterface(String name) {
+    public HostedPublicVirtualInterface(java.lang.String name) {
         this(name, HostedPublicVirtualInterfaceArgs.Empty);
     }
     /**
@@ -261,7 +261,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public HostedPublicVirtualInterface(String name, HostedPublicVirtualInterfaceArgs args) {
+    public HostedPublicVirtualInterface(java.lang.String name, HostedPublicVirtualInterfaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -270,15 +270,22 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public HostedPublicVirtualInterface(String name, HostedPublicVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface", name, args == null ? HostedPublicVirtualInterfaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public HostedPublicVirtualInterface(java.lang.String name, HostedPublicVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private HostedPublicVirtualInterface(String name, Output<String> id, @Nullable HostedPublicVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface", name, state, makeResourceOptions(options, id));
+    private HostedPublicVirtualInterface(java.lang.String name, Output<java.lang.String> id, @Nullable HostedPublicVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HostedPublicVirtualInterfaceArgs makeArgs(HostedPublicVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostedPublicVirtualInterfaceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -294,7 +301,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static HostedPublicVirtualInterface get(String name, Output<String> id, @Nullable HostedPublicVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static HostedPublicVirtualInterface get(java.lang.String name, Output<java.lang.String> id, @Nullable HostedPublicVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new HostedPublicVirtualInterface(name, id, state, options);
     }
 }

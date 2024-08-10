@@ -147,7 +147,7 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GroupPolicy(String name) {
+    public GroupPolicy(java.lang.String name) {
         this(name, GroupPolicyArgs.Empty);
     }
     /**
@@ -155,7 +155,7 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GroupPolicy(String name, GroupPolicyArgs args) {
+    public GroupPolicy(java.lang.String name, GroupPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -164,15 +164,22 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GroupPolicy(String name, GroupPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/groupPolicy:GroupPolicy", name, args == null ? GroupPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GroupPolicy(java.lang.String name, GroupPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/groupPolicy:GroupPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GroupPolicy(String name, Output<String> id, @Nullable GroupPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/groupPolicy:GroupPolicy", name, state, makeResourceOptions(options, id));
+    private GroupPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable GroupPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/groupPolicy:GroupPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GroupPolicyArgs makeArgs(GroupPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GroupPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -188,7 +195,7 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GroupPolicy get(String name, Output<String> id, @Nullable GroupPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GroupPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable GroupPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GroupPolicy(name, id, state, options);
     }
 }

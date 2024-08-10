@@ -211,7 +211,7 @@ public class DeliveryChannel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DeliveryChannel(String name) {
+    public DeliveryChannel(java.lang.String name) {
         this(name, DeliveryChannelArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class DeliveryChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DeliveryChannel(String name, DeliveryChannelArgs args) {
+    public DeliveryChannel(java.lang.String name, DeliveryChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,15 +228,22 @@ public class DeliveryChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DeliveryChannel(String name, DeliveryChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/deliveryChannel:DeliveryChannel", name, args == null ? DeliveryChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DeliveryChannel(java.lang.String name, DeliveryChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/deliveryChannel:DeliveryChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DeliveryChannel(String name, Output<String> id, @Nullable DeliveryChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/deliveryChannel:DeliveryChannel", name, state, makeResourceOptions(options, id));
+    private DeliveryChannel(java.lang.String name, Output<java.lang.String> id, @Nullable DeliveryChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/deliveryChannel:DeliveryChannel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DeliveryChannelArgs makeArgs(DeliveryChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeliveryChannelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +259,7 @@ public class DeliveryChannel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DeliveryChannel get(String name, Output<String> id, @Nullable DeliveryChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DeliveryChannel get(java.lang.String name, Output<java.lang.String> id, @Nullable DeliveryChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DeliveryChannel(name, id, state, options);
     }
 }

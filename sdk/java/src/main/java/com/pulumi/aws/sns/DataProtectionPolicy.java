@@ -119,7 +119,7 @@ public class DataProtectionPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataProtectionPolicy(String name) {
+    public DataProtectionPolicy(java.lang.String name) {
         this(name, DataProtectionPolicyArgs.Empty);
     }
     /**
@@ -127,7 +127,7 @@ public class DataProtectionPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataProtectionPolicy(String name, DataProtectionPolicyArgs args) {
+    public DataProtectionPolicy(java.lang.String name, DataProtectionPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -136,15 +136,22 @@ public class DataProtectionPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataProtectionPolicy(String name, DataProtectionPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sns/dataProtectionPolicy:DataProtectionPolicy", name, args == null ? DataProtectionPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataProtectionPolicy(java.lang.String name, DataProtectionPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sns/dataProtectionPolicy:DataProtectionPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataProtectionPolicy(String name, Output<String> id, @Nullable DataProtectionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sns/dataProtectionPolicy:DataProtectionPolicy", name, state, makeResourceOptions(options, id));
+    private DataProtectionPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable DataProtectionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sns/dataProtectionPolicy:DataProtectionPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataProtectionPolicyArgs makeArgs(DataProtectionPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataProtectionPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -160,7 +167,7 @@ public class DataProtectionPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataProtectionPolicy get(String name, Output<String> id, @Nullable DataProtectionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataProtectionPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable DataProtectionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataProtectionPolicy(name, id, state, options);
     }
 }

@@ -203,7 +203,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcIpamScope(String name) {
+    public VpcIpamScope(java.lang.String name) {
         this(name, VpcIpamScopeArgs.Empty);
     }
     /**
@@ -211,7 +211,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcIpamScope(String name, VpcIpamScopeArgs args) {
+    public VpcIpamScope(java.lang.String name, VpcIpamScopeArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,15 +220,22 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcIpamScope(String name, VpcIpamScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamScope:VpcIpamScope", name, args == null ? VpcIpamScopeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcIpamScope(java.lang.String name, VpcIpamScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamScope:VpcIpamScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcIpamScope(String name, Output<String> id, @Nullable VpcIpamScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamScope:VpcIpamScope", name, state, makeResourceOptions(options, id));
+    private VpcIpamScope(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamScope:VpcIpamScope", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcIpamScopeArgs makeArgs(VpcIpamScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpamScopeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +251,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcIpamScope get(String name, Output<String> id, @Nullable VpcIpamScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcIpamScope get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcIpamScope(name, id, state, options);
     }
 }

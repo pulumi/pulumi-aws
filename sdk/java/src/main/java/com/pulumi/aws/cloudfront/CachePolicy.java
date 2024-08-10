@@ -199,7 +199,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CachePolicy(String name) {
+    public CachePolicy(java.lang.String name) {
         this(name, CachePolicyArgs.Empty);
     }
     /**
@@ -207,7 +207,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CachePolicy(String name, CachePolicyArgs args) {
+    public CachePolicy(java.lang.String name, CachePolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -216,15 +216,22 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CachePolicy(String name, CachePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/cachePolicy:CachePolicy", name, args == null ? CachePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CachePolicy(java.lang.String name, CachePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/cachePolicy:CachePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CachePolicy(String name, Output<String> id, @Nullable CachePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/cachePolicy:CachePolicy", name, state, makeResourceOptions(options, id));
+    private CachePolicy(java.lang.String name, Output<java.lang.String> id, @Nullable CachePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/cachePolicy:CachePolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CachePolicyArgs makeArgs(CachePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CachePolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -240,7 +247,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CachePolicy get(String name, Output<String> id, @Nullable CachePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CachePolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable CachePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CachePolicy(name, id, state, options);
     }
 }

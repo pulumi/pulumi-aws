@@ -483,7 +483,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ComputeEnvironment(String name) {
+    public ComputeEnvironment(java.lang.String name) {
         this(name, ComputeEnvironmentArgs.Empty);
     }
     /**
@@ -491,7 +491,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ComputeEnvironment(String name, ComputeEnvironmentArgs args) {
+    public ComputeEnvironment(java.lang.String name, ComputeEnvironmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -500,15 +500,22 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ComputeEnvironment(String name, ComputeEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:batch/computeEnvironment:ComputeEnvironment", name, args == null ? ComputeEnvironmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ComputeEnvironment(java.lang.String name, ComputeEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:batch/computeEnvironment:ComputeEnvironment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ComputeEnvironment(String name, Output<String> id, @Nullable ComputeEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:batch/computeEnvironment:ComputeEnvironment", name, state, makeResourceOptions(options, id));
+    private ComputeEnvironment(java.lang.String name, Output<java.lang.String> id, @Nullable ComputeEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:batch/computeEnvironment:ComputeEnvironment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ComputeEnvironmentArgs makeArgs(ComputeEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ComputeEnvironmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -524,7 +531,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ComputeEnvironment get(String name, Output<String> id, @Nullable ComputeEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ComputeEnvironment get(java.lang.String name, Output<java.lang.String> id, @Nullable ComputeEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ComputeEnvironment(name, id, state, options);
     }
 }

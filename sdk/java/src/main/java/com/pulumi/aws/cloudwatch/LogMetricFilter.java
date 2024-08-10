@@ -140,7 +140,7 @@ public class LogMetricFilter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogMetricFilter(String name) {
+    public LogMetricFilter(java.lang.String name) {
         this(name, LogMetricFilterArgs.Empty);
     }
     /**
@@ -148,7 +148,7 @@ public class LogMetricFilter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogMetricFilter(String name, LogMetricFilterArgs args) {
+    public LogMetricFilter(java.lang.String name, LogMetricFilterArgs args) {
         this(name, args, null);
     }
     /**
@@ -157,15 +157,22 @@ public class LogMetricFilter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogMetricFilter(String name, LogMetricFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, args == null ? LogMetricFilterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogMetricFilter(java.lang.String name, LogMetricFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogMetricFilter(String name, Output<String> id, @Nullable LogMetricFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, state, makeResourceOptions(options, id));
+    private LogMetricFilter(java.lang.String name, Output<java.lang.String> id, @Nullable LogMetricFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogMetricFilterArgs makeArgs(LogMetricFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogMetricFilterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -181,7 +188,7 @@ public class LogMetricFilter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogMetricFilter get(String name, Output<String> id, @Nullable LogMetricFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogMetricFilter get(java.lang.String name, Output<java.lang.String> id, @Nullable LogMetricFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogMetricFilter(name, id, state, options);
     }
 }

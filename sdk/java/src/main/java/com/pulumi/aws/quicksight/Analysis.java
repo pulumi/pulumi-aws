@@ -303,7 +303,7 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Analysis(String name) {
+    public Analysis(java.lang.String name) {
         this(name, AnalysisArgs.Empty);
     }
     /**
@@ -311,7 +311,7 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Analysis(String name, AnalysisArgs args) {
+    public Analysis(java.lang.String name, AnalysisArgs args) {
         this(name, args, null);
     }
     /**
@@ -320,15 +320,22 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Analysis(String name, AnalysisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:quicksight/analysis:Analysis", name, args == null ? AnalysisArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Analysis(java.lang.String name, AnalysisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:quicksight/analysis:Analysis", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Analysis(String name, Output<String> id, @Nullable AnalysisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:quicksight/analysis:Analysis", name, state, makeResourceOptions(options, id));
+    private Analysis(java.lang.String name, Output<java.lang.String> id, @Nullable AnalysisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:quicksight/analysis:Analysis", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AnalysisArgs makeArgs(AnalysisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnalysisArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -344,7 +351,7 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Analysis get(String name, Output<String> id, @Nullable AnalysisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Analysis get(java.lang.String name, Output<java.lang.String> id, @Nullable AnalysisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Analysis(name, id, state, options);
     }
 }

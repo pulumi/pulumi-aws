@@ -174,7 +174,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Vault(String name) {
+    public Vault(java.lang.String name) {
         this(name, VaultArgs.Empty);
     }
     /**
@@ -182,7 +182,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Vault(String name, @Nullable VaultArgs args) {
+    public Vault(java.lang.String name, @Nullable VaultArgs args) {
         this(name, args, null);
     }
     /**
@@ -191,15 +191,22 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Vault(String name, @Nullable VaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/vault:Vault", name, args == null ? VaultArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Vault(java.lang.String name, @Nullable VaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/vault:Vault", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Vault(String name, Output<String> id, @Nullable VaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/vault:Vault", name, state, makeResourceOptions(options, id));
+    private Vault(java.lang.String name, Output<java.lang.String> id, @Nullable VaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/vault:Vault", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VaultArgs makeArgs(@Nullable VaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VaultArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -215,7 +222,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Vault get(String name, Output<String> id, @Nullable VaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Vault get(java.lang.String name, Output<java.lang.String> id, @Nullable VaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Vault(name, id, state, options);
     }
 }

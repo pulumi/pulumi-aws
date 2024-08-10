@@ -121,7 +121,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcEndpoint(String name) {
+    public VpcEndpoint(java.lang.String name) {
         this(name, VpcEndpointArgs.Empty);
     }
     /**
@@ -129,7 +129,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcEndpoint(String name, VpcEndpointArgs args) {
+    public VpcEndpoint(java.lang.String name, VpcEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -138,15 +138,22 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcEndpoint(String name, VpcEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticsearch/vpcEndpoint:VpcEndpoint", name, args == null ? VpcEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcEndpoint(java.lang.String name, VpcEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticsearch/vpcEndpoint:VpcEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcEndpoint(String name, Output<String> id, @Nullable VpcEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticsearch/vpcEndpoint:VpcEndpoint", name, state, makeResourceOptions(options, id));
+    private VpcEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable VpcEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticsearch/vpcEndpoint:VpcEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcEndpointArgs makeArgs(VpcEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcEndpointArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -162,7 +169,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcEndpoint get(String name, Output<String> id, @Nullable VpcEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcEndpoint(name, id, state, options);
     }
 }

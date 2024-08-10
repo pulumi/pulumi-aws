@@ -143,7 +143,7 @@ public class AppAuthorizationConnection extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppAuthorizationConnection(String name) {
+    public AppAuthorizationConnection(java.lang.String name) {
         this(name, AppAuthorizationConnectionArgs.Empty);
     }
     /**
@@ -151,7 +151,7 @@ public class AppAuthorizationConnection extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppAuthorizationConnection(String name, AppAuthorizationConnectionArgs args) {
+    public AppAuthorizationConnection(java.lang.String name, AppAuthorizationConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -160,15 +160,22 @@ public class AppAuthorizationConnection extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppAuthorizationConnection(String name, AppAuthorizationConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection", name, args == null ? AppAuthorizationConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AppAuthorizationConnection(java.lang.String name, AppAuthorizationConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppAuthorizationConnection(String name, Output<String> id, @Nullable AppAuthorizationConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection", name, state, makeResourceOptions(options, id));
+    private AppAuthorizationConnection(java.lang.String name, Output<java.lang.String> id, @Nullable AppAuthorizationConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppAuthorizationConnectionArgs makeArgs(AppAuthorizationConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppAuthorizationConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -184,7 +191,7 @@ public class AppAuthorizationConnection extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppAuthorizationConnection get(String name, Output<String> id, @Nullable AppAuthorizationConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppAuthorizationConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable AppAuthorizationConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppAuthorizationConnection(name, id, state, options);
     }
 }

@@ -307,7 +307,7 @@ public class KxVolume extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KxVolume(String name) {
+    public KxVolume(java.lang.String name) {
         this(name, KxVolumeArgs.Empty);
     }
     /**
@@ -315,7 +315,7 @@ public class KxVolume extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KxVolume(String name, KxVolumeArgs args) {
+    public KxVolume(java.lang.String name, KxVolumeArgs args) {
         this(name, args, null);
     }
     /**
@@ -324,15 +324,22 @@ public class KxVolume extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KxVolume(String name, KxVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxVolume:KxVolume", name, args == null ? KxVolumeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public KxVolume(java.lang.String name, KxVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxVolume:KxVolume", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KxVolume(String name, Output<String> id, @Nullable KxVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxVolume:KxVolume", name, state, makeResourceOptions(options, id));
+    private KxVolume(java.lang.String name, Output<java.lang.String> id, @Nullable KxVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxVolume:KxVolume", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KxVolumeArgs makeArgs(KxVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KxVolumeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -348,7 +355,7 @@ public class KxVolume extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KxVolume get(String name, Output<String> id, @Nullable KxVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KxVolume get(java.lang.String name, Output<java.lang.String> id, @Nullable KxVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KxVolume(name, id, state, options);
     }
 }

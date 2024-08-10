@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name:            pulumi.String(fmt.Sprintf("/aws/directoryservice/%v", exampleAwsDirectoryServiceDirectory.Id)),
+//				Name:            pulumi.Sprintf("/aws/directoryservice/%v", exampleAwsDirectoryServiceDirectory.Id),
 //				RetentionInDays: pulumi.Int(14),
 //			})
 //			if err != nil {

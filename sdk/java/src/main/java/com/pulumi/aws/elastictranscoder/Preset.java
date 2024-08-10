@@ -278,7 +278,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Preset(String name) {
+    public Preset(java.lang.String name) {
         this(name, PresetArgs.Empty);
     }
     /**
@@ -286,7 +286,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Preset(String name, PresetArgs args) {
+    public Preset(java.lang.String name, PresetArgs args) {
         this(name, args, null);
     }
     /**
@@ -295,15 +295,22 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Preset(String name, PresetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elastictranscoder/preset:Preset", name, args == null ? PresetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Preset(java.lang.String name, PresetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elastictranscoder/preset:Preset", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Preset(String name, Output<String> id, @Nullable PresetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elastictranscoder/preset:Preset", name, state, makeResourceOptions(options, id));
+    private Preset(java.lang.String name, Output<java.lang.String> id, @Nullable PresetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elastictranscoder/preset:Preset", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PresetArgs makeArgs(PresetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PresetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -319,7 +326,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Preset get(String name, Output<String> id, @Nullable PresetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Preset get(java.lang.String name, Output<java.lang.String> id, @Nullable PresetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Preset(name, id, state, options);
     }
 }

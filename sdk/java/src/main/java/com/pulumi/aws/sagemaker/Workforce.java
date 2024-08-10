@@ -244,7 +244,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Workforce(String name) {
+    public Workforce(java.lang.String name) {
         this(name, WorkforceArgs.Empty);
     }
     /**
@@ -252,7 +252,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Workforce(String name, WorkforceArgs args) {
+    public Workforce(java.lang.String name, WorkforceArgs args) {
         this(name, args, null);
     }
     /**
@@ -261,15 +261,22 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Workforce(String name, WorkforceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/workforce:Workforce", name, args == null ? WorkforceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Workforce(java.lang.String name, WorkforceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/workforce:Workforce", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Workforce(String name, Output<String> id, @Nullable WorkforceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/workforce:Workforce", name, state, makeResourceOptions(options, id));
+    private Workforce(java.lang.String name, Output<java.lang.String> id, @Nullable WorkforceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/workforce:Workforce", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkforceArgs makeArgs(WorkforceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkforceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -285,7 +292,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Workforce get(String name, Output<String> id, @Nullable WorkforceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Workforce get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkforceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Workforce(name, id, state, options);
     }
 }

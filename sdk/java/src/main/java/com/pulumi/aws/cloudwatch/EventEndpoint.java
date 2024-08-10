@@ -213,7 +213,7 @@ public class EventEndpoint extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventEndpoint(String name) {
+    public EventEndpoint(java.lang.String name) {
         this(name, EventEndpointArgs.Empty);
     }
     /**
@@ -221,7 +221,7 @@ public class EventEndpoint extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventEndpoint(String name, EventEndpointArgs args) {
+    public EventEndpoint(java.lang.String name, EventEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -230,15 +230,22 @@ public class EventEndpoint extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventEndpoint(String name, EventEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventEndpoint:EventEndpoint", name, args == null ? EventEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventEndpoint(java.lang.String name, EventEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventEndpoint:EventEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventEndpoint(String name, Output<String> id, @Nullable EventEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventEndpoint:EventEndpoint", name, state, makeResourceOptions(options, id));
+    private EventEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable EventEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventEndpoint:EventEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventEndpointArgs makeArgs(EventEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventEndpointArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -254,7 +261,7 @@ public class EventEndpoint extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventEndpoint get(String name, Output<String> id, @Nullable EventEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable EventEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventEndpoint(name, id, state, options);
     }
 }

@@ -246,7 +246,7 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessGrant(String name) {
+    public AccessGrant(java.lang.String name) {
         this(name, AccessGrantArgs.Empty);
     }
     /**
@@ -254,7 +254,7 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessGrant(String name, AccessGrantArgs args) {
+    public AccessGrant(java.lang.String name, AccessGrantArgs args) {
         this(name, args, null);
     }
     /**
@@ -263,15 +263,22 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessGrant(String name, AccessGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessGrant:AccessGrant", name, args == null ? AccessGrantArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccessGrant(java.lang.String name, AccessGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/accessGrant:AccessGrant", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessGrant(String name, Output<String> id, @Nullable AccessGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessGrant:AccessGrant", name, state, makeResourceOptions(options, id));
+    private AccessGrant(java.lang.String name, Output<java.lang.String> id, @Nullable AccessGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/accessGrant:AccessGrant", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccessGrantArgs makeArgs(AccessGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessGrantArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -287,7 +294,7 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessGrant get(String name, Output<String> id, @Nullable AccessGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessGrant get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessGrant(name, id, state, options);
     }
 }

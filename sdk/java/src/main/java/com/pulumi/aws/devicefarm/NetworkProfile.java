@@ -293,7 +293,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkProfile(String name) {
+    public NetworkProfile(java.lang.String name) {
         this(name, NetworkProfileArgs.Empty);
     }
     /**
@@ -301,7 +301,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkProfile(String name, NetworkProfileArgs args) {
+    public NetworkProfile(java.lang.String name, NetworkProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -310,15 +310,22 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkProfile(String name, NetworkProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:devicefarm/networkProfile:NetworkProfile", name, args == null ? NetworkProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkProfile(java.lang.String name, NetworkProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:devicefarm/networkProfile:NetworkProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkProfile(String name, Output<String> id, @Nullable NetworkProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:devicefarm/networkProfile:NetworkProfile", name, state, makeResourceOptions(options, id));
+    private NetworkProfile(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:devicefarm/networkProfile:NetworkProfile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkProfileArgs makeArgs(NetworkProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkProfileArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -334,7 +341,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkProfile get(String name, Output<String> id, @Nullable NetworkProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkProfile get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkProfile(name, id, state, options);
     }
 }

@@ -214,7 +214,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReportPlan(String name) {
+    public ReportPlan(java.lang.String name) {
         this(name, ReportPlanArgs.Empty);
     }
     /**
@@ -222,7 +222,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReportPlan(String name, ReportPlanArgs args) {
+    public ReportPlan(java.lang.String name, ReportPlanArgs args) {
         this(name, args, null);
     }
     /**
@@ -231,15 +231,22 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReportPlan(String name, ReportPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/reportPlan:ReportPlan", name, args == null ? ReportPlanArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ReportPlan(java.lang.String name, ReportPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/reportPlan:ReportPlan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReportPlan(String name, Output<String> id, @Nullable ReportPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/reportPlan:ReportPlan", name, state, makeResourceOptions(options, id));
+    private ReportPlan(java.lang.String name, Output<java.lang.String> id, @Nullable ReportPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/reportPlan:ReportPlan", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ReportPlanArgs makeArgs(ReportPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReportPlanArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -255,7 +262,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReportPlan get(String name, Output<String> id, @Nullable ReportPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReportPlan get(java.lang.String name, Output<java.lang.String> id, @Nullable ReportPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReportPlan(name, id, state, options);
     }
 }

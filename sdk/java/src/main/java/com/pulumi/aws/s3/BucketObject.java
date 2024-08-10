@@ -710,7 +710,7 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketObject(String name) {
+    public BucketObject(java.lang.String name) {
         this(name, BucketObjectArgs.Empty);
     }
     /**
@@ -718,7 +718,7 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketObject(String name, BucketObjectArgs args) {
+    public BucketObject(java.lang.String name, BucketObjectArgs args) {
         this(name, args, null);
     }
     /**
@@ -727,15 +727,22 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketObject(String name, BucketObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketObject:BucketObject", name, args == null ? BucketObjectArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketObject(java.lang.String name, BucketObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketObject:BucketObject", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketObject(String name, Output<String> id, @Nullable BucketObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketObject:BucketObject", name, state, makeResourceOptions(options, id));
+    private BucketObject(java.lang.String name, Output<java.lang.String> id, @Nullable BucketObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketObject:BucketObject", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketObjectArgs makeArgs(BucketObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketObjectArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -751,7 +758,7 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketObject get(String name, Output<String> id, @Nullable BucketObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketObject get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketObject(name, id, state, options);
     }
 }

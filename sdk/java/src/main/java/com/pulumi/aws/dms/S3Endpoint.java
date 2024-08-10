@@ -921,7 +921,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public S3Endpoint(String name) {
+    public S3Endpoint(java.lang.String name) {
         this(name, S3EndpointArgs.Empty);
     }
     /**
@@ -929,7 +929,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public S3Endpoint(String name, S3EndpointArgs args) {
+    public S3Endpoint(java.lang.String name, S3EndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -938,15 +938,22 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public S3Endpoint(String name, S3EndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dms/s3Endpoint:S3Endpoint", name, args == null ? S3EndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public S3Endpoint(java.lang.String name, S3EndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dms/s3Endpoint:S3Endpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private S3Endpoint(String name, Output<String> id, @Nullable S3EndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dms/s3Endpoint:S3Endpoint", name, state, makeResourceOptions(options, id));
+    private S3Endpoint(java.lang.String name, Output<java.lang.String> id, @Nullable S3EndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dms/s3Endpoint:S3Endpoint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static S3EndpointArgs makeArgs(S3EndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? S3EndpointArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -962,7 +969,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static S3Endpoint get(String name, Output<String> id, @Nullable S3EndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static S3Endpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable S3EndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new S3Endpoint(name, id, state, options);
     }
 }

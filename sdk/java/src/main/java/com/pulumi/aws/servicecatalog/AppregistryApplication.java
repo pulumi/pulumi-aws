@@ -175,7 +175,7 @@ public class AppregistryApplication extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppregistryApplication(String name) {
+    public AppregistryApplication(java.lang.String name) {
         this(name, AppregistryApplicationArgs.Empty);
     }
     /**
@@ -183,7 +183,7 @@ public class AppregistryApplication extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppregistryApplication(String name, @Nullable AppregistryApplicationArgs args) {
+    public AppregistryApplication(java.lang.String name, @Nullable AppregistryApplicationArgs args) {
         this(name, args, null);
     }
     /**
@@ -192,15 +192,22 @@ public class AppregistryApplication extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppregistryApplication(String name, @Nullable AppregistryApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/appregistryApplication:AppregistryApplication", name, args == null ? AppregistryApplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AppregistryApplication(java.lang.String name, @Nullable AppregistryApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/appregistryApplication:AppregistryApplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppregistryApplication(String name, Output<String> id, @Nullable AppregistryApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/appregistryApplication:AppregistryApplication", name, state, makeResourceOptions(options, id));
+    private AppregistryApplication(java.lang.String name, Output<java.lang.String> id, @Nullable AppregistryApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/appregistryApplication:AppregistryApplication", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppregistryApplicationArgs makeArgs(@Nullable AppregistryApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppregistryApplicationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -216,7 +223,7 @@ public class AppregistryApplication extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppregistryApplication get(String name, Output<String> id, @Nullable AppregistryApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppregistryApplication get(java.lang.String name, Output<java.lang.String> id, @Nullable AppregistryApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppregistryApplication(name, id, state, options);
     }
 }

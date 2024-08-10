@@ -35,7 +35,7 @@ import (
 //			_, err := auditmanager.NewAssessment(ctx, "test", &auditmanager.AssessmentArgs{
 //				Name: pulumi.String("example"),
 //				AssessmentReportsDestination: &auditmanager.AssessmentAssessmentReportsDestinationArgs{
-//					Destination:     pulumi.String(fmt.Sprintf("s3://%v", testAwsS3Bucket.Id)),
+//					Destination:     pulumi.Sprintf("s3://%v", testAwsS3Bucket.Id),
 //					DestinationType: pulumi.String("S3"),
 //				},
 //				FrameworkId: pulumi.Any(testAwsAuditmanagerFramework.Id),

@@ -349,7 +349,7 @@ public class KeySigningKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KeySigningKey(String name) {
+    public KeySigningKey(java.lang.String name) {
         this(name, KeySigningKeyArgs.Empty);
     }
     /**
@@ -357,7 +357,7 @@ public class KeySigningKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KeySigningKey(String name, KeySigningKeyArgs args) {
+    public KeySigningKey(java.lang.String name, KeySigningKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -366,15 +366,22 @@ public class KeySigningKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KeySigningKey(String name, KeySigningKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/keySigningKey:KeySigningKey", name, args == null ? KeySigningKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public KeySigningKey(java.lang.String name, KeySigningKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/keySigningKey:KeySigningKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KeySigningKey(String name, Output<String> id, @Nullable KeySigningKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/keySigningKey:KeySigningKey", name, state, makeResourceOptions(options, id));
+    private KeySigningKey(java.lang.String name, Output<java.lang.String> id, @Nullable KeySigningKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/keySigningKey:KeySigningKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KeySigningKeyArgs makeArgs(KeySigningKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KeySigningKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -390,7 +397,7 @@ public class KeySigningKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KeySigningKey get(String name, Output<String> id, @Nullable KeySigningKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KeySigningKey get(java.lang.String name, Output<java.lang.String> id, @Nullable KeySigningKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KeySigningKey(name, id, state, options);
     }
 }

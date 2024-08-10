@@ -131,7 +131,7 @@ public class UserInGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserInGroup(String name) {
+    public UserInGroup(java.lang.String name) {
         this(name, UserInGroupArgs.Empty);
     }
     /**
@@ -139,7 +139,7 @@ public class UserInGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserInGroup(String name, UserInGroupArgs args) {
+    public UserInGroup(java.lang.String name, UserInGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -148,15 +148,22 @@ public class UserInGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserInGroup(String name, UserInGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/userInGroup:UserInGroup", name, args == null ? UserInGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public UserInGroup(java.lang.String name, UserInGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cognito/userInGroup:UserInGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserInGroup(String name, Output<String> id, @Nullable UserInGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/userInGroup:UserInGroup", name, state, makeResourceOptions(options, id));
+    private UserInGroup(java.lang.String name, Output<java.lang.String> id, @Nullable UserInGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cognito/userInGroup:UserInGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static UserInGroupArgs makeArgs(UserInGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserInGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -172,7 +179,7 @@ public class UserInGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserInGroup get(String name, Output<String> id, @Nullable UserInGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserInGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable UserInGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserInGroup(name, id, state, options);
     }
 }

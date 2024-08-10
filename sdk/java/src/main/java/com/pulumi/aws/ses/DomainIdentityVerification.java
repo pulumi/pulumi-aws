@@ -112,7 +112,7 @@ public class DomainIdentityVerification extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DomainIdentityVerification(String name) {
+    public DomainIdentityVerification(java.lang.String name) {
         this(name, DomainIdentityVerificationArgs.Empty);
     }
     /**
@@ -120,7 +120,7 @@ public class DomainIdentityVerification extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DomainIdentityVerification(String name, DomainIdentityVerificationArgs args) {
+    public DomainIdentityVerification(java.lang.String name, DomainIdentityVerificationArgs args) {
         this(name, args, null);
     }
     /**
@@ -129,15 +129,22 @@ public class DomainIdentityVerification extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DomainIdentityVerification(String name, DomainIdentityVerificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, args == null ? DomainIdentityVerificationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DomainIdentityVerification(java.lang.String name, DomainIdentityVerificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DomainIdentityVerification(String name, Output<String> id, @Nullable DomainIdentityVerificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, state, makeResourceOptions(options, id));
+    private DomainIdentityVerification(java.lang.String name, Output<java.lang.String> id, @Nullable DomainIdentityVerificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DomainIdentityVerificationArgs makeArgs(DomainIdentityVerificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainIdentityVerificationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -153,7 +160,7 @@ public class DomainIdentityVerification extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DomainIdentityVerification get(String name, Output<String> id, @Nullable DomainIdentityVerificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DomainIdentityVerification get(java.lang.String name, Output<java.lang.String> id, @Nullable DomainIdentityVerificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DomainIdentityVerification(name, id, state, options);
     }
 }

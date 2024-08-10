@@ -122,7 +122,7 @@ public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SizeConstraintSet(String name) {
+    public SizeConstraintSet(java.lang.String name) {
         this(name, SizeConstraintSetArgs.Empty);
     }
     /**
@@ -130,7 +130,7 @@ public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SizeConstraintSet(String name, @Nullable SizeConstraintSetArgs args) {
+    public SizeConstraintSet(java.lang.String name, @Nullable SizeConstraintSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -139,15 +139,22 @@ public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SizeConstraintSet(String name, @Nullable SizeConstraintSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:waf/sizeConstraintSet:SizeConstraintSet", name, args == null ? SizeConstraintSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SizeConstraintSet(java.lang.String name, @Nullable SizeConstraintSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:waf/sizeConstraintSet:SizeConstraintSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SizeConstraintSet(String name, Output<String> id, @Nullable SizeConstraintSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:waf/sizeConstraintSet:SizeConstraintSet", name, state, makeResourceOptions(options, id));
+    private SizeConstraintSet(java.lang.String name, Output<java.lang.String> id, @Nullable SizeConstraintSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:waf/sizeConstraintSet:SizeConstraintSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SizeConstraintSetArgs makeArgs(@Nullable SizeConstraintSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SizeConstraintSetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -163,7 +170,7 @@ public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SizeConstraintSet get(String name, Output<String> id, @Nullable SizeConstraintSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SizeConstraintSet get(java.lang.String name, Output<java.lang.String> id, @Nullable SizeConstraintSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SizeConstraintSet(name, id, state, options);
     }
 }

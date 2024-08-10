@@ -267,7 +267,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResolverRule(String name) {
+    public ResolverRule(java.lang.String name) {
         this(name, ResolverRuleArgs.Empty);
     }
     /**
@@ -275,7 +275,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResolverRule(String name, ResolverRuleArgs args) {
+    public ResolverRule(java.lang.String name, ResolverRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -284,15 +284,22 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResolverRule(String name, ResolverRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverRule:ResolverRule", name, args == null ? ResolverRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResolverRule(java.lang.String name, ResolverRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/resolverRule:ResolverRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResolverRule(String name, Output<String> id, @Nullable ResolverRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverRule:ResolverRule", name, state, makeResourceOptions(options, id));
+    private ResolverRule(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/resolverRule:ResolverRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResolverRuleArgs makeArgs(ResolverRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -308,7 +315,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResolverRule get(String name, Output<String> id, @Nullable ResolverRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResolverRule get(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResolverRule(name, id, state, options);
     }
 }

@@ -199,7 +199,7 @@ public class BotAlias extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BotAlias(String name) {
+    public BotAlias(java.lang.String name) {
         this(name, BotAliasArgs.Empty);
     }
     /**
@@ -207,7 +207,7 @@ public class BotAlias extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BotAlias(String name, BotAliasArgs args) {
+    public BotAlias(java.lang.String name, BotAliasArgs args) {
         this(name, args, null);
     }
     /**
@@ -216,15 +216,22 @@ public class BotAlias extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BotAlias(String name, BotAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/botAlias:BotAlias", name, args == null ? BotAliasArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BotAlias(java.lang.String name, BotAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/botAlias:BotAlias", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BotAlias(String name, Output<String> id, @Nullable BotAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/botAlias:BotAlias", name, state, makeResourceOptions(options, id));
+    private BotAlias(java.lang.String name, Output<java.lang.String> id, @Nullable BotAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/botAlias:BotAlias", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BotAliasArgs makeArgs(BotAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BotAliasArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -240,7 +247,7 @@ public class BotAlias extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BotAlias get(String name, Output<String> id, @Nullable BotAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BotAlias get(java.lang.String name, Output<java.lang.String> id, @Nullable BotAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BotAlias(name, id, state, options);
     }
 }

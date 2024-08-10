@@ -36,7 +36,7 @@ import (
 //				DeviceFleetName: pulumi.String("example"),
 //				RoleArn:         pulumi.Any(test.Arn),
 //				OutputConfig: &sagemaker.DeviceFleetOutputConfigArgs{
-//					S3OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/prefix/", exampleAwsS3Bucket.Bucket)),
+//					S3OutputLocation: pulumi.Sprintf("s3://%v/prefix/", exampleAwsS3Bucket.Bucket),
 //				},
 //			})
 //			if err != nil {

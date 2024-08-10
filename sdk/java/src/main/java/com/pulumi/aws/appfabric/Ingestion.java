@@ -179,7 +179,7 @@ public class Ingestion extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Ingestion(String name) {
+    public Ingestion(java.lang.String name) {
         this(name, IngestionArgs.Empty);
     }
     /**
@@ -187,7 +187,7 @@ public class Ingestion extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Ingestion(String name, IngestionArgs args) {
+    public Ingestion(java.lang.String name, IngestionArgs args) {
         this(name, args, null);
     }
     /**
@@ -196,15 +196,22 @@ public class Ingestion extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Ingestion(String name, IngestionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appfabric/ingestion:Ingestion", name, args == null ? IngestionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Ingestion(java.lang.String name, IngestionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appfabric/ingestion:Ingestion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Ingestion(String name, Output<String> id, @Nullable IngestionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appfabric/ingestion:Ingestion", name, state, makeResourceOptions(options, id));
+    private Ingestion(java.lang.String name, Output<java.lang.String> id, @Nullable IngestionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appfabric/ingestion:Ingestion", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IngestionArgs makeArgs(IngestionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IngestionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -220,7 +227,7 @@ public class Ingestion extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Ingestion get(String name, Output<String> id, @Nullable IngestionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Ingestion get(java.lang.String name, Output<java.lang.String> id, @Nullable IngestionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Ingestion(name, id, state, options);
     }
 }

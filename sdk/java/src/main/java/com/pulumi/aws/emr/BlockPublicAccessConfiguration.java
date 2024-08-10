@@ -232,7 +232,7 @@ public class BlockPublicAccessConfiguration extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BlockPublicAccessConfiguration(String name) {
+    public BlockPublicAccessConfiguration(java.lang.String name) {
         this(name, BlockPublicAccessConfigurationArgs.Empty);
     }
     /**
@@ -240,7 +240,7 @@ public class BlockPublicAccessConfiguration extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BlockPublicAccessConfiguration(String name, BlockPublicAccessConfigurationArgs args) {
+    public BlockPublicAccessConfiguration(java.lang.String name, BlockPublicAccessConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -249,15 +249,22 @@ public class BlockPublicAccessConfiguration extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BlockPublicAccessConfiguration(String name, BlockPublicAccessConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration", name, args == null ? BlockPublicAccessConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BlockPublicAccessConfiguration(java.lang.String name, BlockPublicAccessConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BlockPublicAccessConfiguration(String name, Output<String> id, @Nullable BlockPublicAccessConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration", name, state, makeResourceOptions(options, id));
+    private BlockPublicAccessConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable BlockPublicAccessConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BlockPublicAccessConfigurationArgs makeArgs(BlockPublicAccessConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BlockPublicAccessConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -273,7 +280,7 @@ public class BlockPublicAccessConfiguration extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BlockPublicAccessConfiguration get(String name, Output<String> id, @Nullable BlockPublicAccessConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BlockPublicAccessConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable BlockPublicAccessConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BlockPublicAccessConfiguration(name, id, state, options);
     }
 }

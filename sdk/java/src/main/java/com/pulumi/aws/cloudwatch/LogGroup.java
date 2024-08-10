@@ -213,7 +213,7 @@ public class LogGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogGroup(String name) {
+    public LogGroup(java.lang.String name) {
         this(name, LogGroupArgs.Empty);
     }
     /**
@@ -221,7 +221,7 @@ public class LogGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogGroup(String name, @Nullable LogGroupArgs args) {
+    public LogGroup(java.lang.String name, @Nullable LogGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -230,15 +230,22 @@ public class LogGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogGroup(String name, @Nullable LogGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logGroup:LogGroup", name, args == null ? LogGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogGroup(java.lang.String name, @Nullable LogGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/logGroup:LogGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogGroup(String name, Output<String> id, @Nullable LogGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logGroup:LogGroup", name, state, makeResourceOptions(options, id));
+    private LogGroup(java.lang.String name, Output<java.lang.String> id, @Nullable LogGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/logGroup:LogGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogGroupArgs makeArgs(@Nullable LogGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -254,7 +261,7 @@ public class LogGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogGroup get(String name, Output<String> id, @Nullable LogGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable LogGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogGroup(name, id, state, options);
     }
 }

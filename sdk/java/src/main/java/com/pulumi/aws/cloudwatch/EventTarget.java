@@ -1013,7 +1013,7 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventTarget(String name) {
+    public EventTarget(java.lang.String name) {
         this(name, EventTargetArgs.Empty);
     }
     /**
@@ -1021,7 +1021,7 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventTarget(String name, EventTargetArgs args) {
+    public EventTarget(java.lang.String name, EventTargetArgs args) {
         this(name, args, null);
     }
     /**
@@ -1030,15 +1030,22 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventTarget(String name, EventTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventTarget:EventTarget", name, args == null ? EventTargetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventTarget(java.lang.String name, EventTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventTarget:EventTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventTarget(String name, Output<String> id, @Nullable EventTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventTarget:EventTarget", name, state, makeResourceOptions(options, id));
+    private EventTarget(java.lang.String name, Output<java.lang.String> id, @Nullable EventTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventTarget:EventTarget", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventTargetArgs makeArgs(EventTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventTargetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -1054,7 +1061,7 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventTarget get(String name, Output<String> id, @Nullable EventTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventTarget get(java.lang.String name, Output<java.lang.String> id, @Nullable EventTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventTarget(name, id, state, options);
     }
 }

@@ -180,7 +180,7 @@ public class OriginRequestPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OriginRequestPolicy(String name) {
+    public OriginRequestPolicy(java.lang.String name) {
         this(name, OriginRequestPolicyArgs.Empty);
     }
     /**
@@ -188,7 +188,7 @@ public class OriginRequestPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OriginRequestPolicy(String name, OriginRequestPolicyArgs args) {
+    public OriginRequestPolicy(java.lang.String name, OriginRequestPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -197,15 +197,22 @@ public class OriginRequestPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OriginRequestPolicy(String name, OriginRequestPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/originRequestPolicy:OriginRequestPolicy", name, args == null ? OriginRequestPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OriginRequestPolicy(java.lang.String name, OriginRequestPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/originRequestPolicy:OriginRequestPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OriginRequestPolicy(String name, Output<String> id, @Nullable OriginRequestPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/originRequestPolicy:OriginRequestPolicy", name, state, makeResourceOptions(options, id));
+    private OriginRequestPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable OriginRequestPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/originRequestPolicy:OriginRequestPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OriginRequestPolicyArgs makeArgs(OriginRequestPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OriginRequestPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -221,7 +228,7 @@ public class OriginRequestPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OriginRequestPolicy get(String name, Output<String> id, @Nullable OriginRequestPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OriginRequestPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable OriginRequestPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OriginRequestPolicy(name, id, state, options);
     }
 }

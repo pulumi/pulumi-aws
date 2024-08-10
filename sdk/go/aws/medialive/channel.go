@@ -52,10 +52,10 @@ import (
 //						Id: pulumi.String("destination"),
 //						Settings: medialive.ChannelDestinationSettingArray{
 //							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.String(fmt.Sprintf("s3://%v/test1", main.Id)),
+//								Url: pulumi.Sprintf("s3://%v/test1", main.Id),
 //							},
 //							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.String(fmt.Sprintf("s3://%v/test2", main2.Id)),
+//								Url: pulumi.Sprintf("s3://%v/test2", main2.Id),
 //							},
 //						},
 //					},

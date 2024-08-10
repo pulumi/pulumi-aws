@@ -47,10 +47,10 @@ import (
 //					"learningRateWarmupSteps": pulumi.String("0"),
 //				},
 //				OutputDataConfig: &bedrock.CustomModelOutputDataConfigArgs{
-//					S3Uri: pulumi.String(fmt.Sprintf("s3://%v/data/", output.Id)),
+//					S3Uri: pulumi.Sprintf("s3://%v/data/", output.Id),
 //				},
 //				TrainingDataConfig: &bedrock.CustomModelTrainingDataConfigArgs{
-//					S3Uri: pulumi.String(fmt.Sprintf("s3://%v/data/train.jsonl", training.Id)),
+//					S3Uri: pulumi.Sprintf("s3://%v/data/train.jsonl", training.Id),
 //				},
 //			})
 //			if err != nil {

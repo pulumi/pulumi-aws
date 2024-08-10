@@ -366,7 +366,7 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LaunchConfiguration(String name) {
+    public LaunchConfiguration(java.lang.String name) {
         this(name, LaunchConfigurationArgs.Empty);
     }
     /**
@@ -374,7 +374,7 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LaunchConfiguration(String name, LaunchConfigurationArgs args) {
+    public LaunchConfiguration(java.lang.String name, LaunchConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -383,15 +383,22 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LaunchConfiguration(String name, LaunchConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/launchConfiguration:LaunchConfiguration", name, args == null ? LaunchConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LaunchConfiguration(java.lang.String name, LaunchConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/launchConfiguration:LaunchConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LaunchConfiguration(String name, Output<String> id, @Nullable LaunchConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/launchConfiguration:LaunchConfiguration", name, state, makeResourceOptions(options, id));
+    private LaunchConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable LaunchConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/launchConfiguration:LaunchConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LaunchConfigurationArgs makeArgs(LaunchConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LaunchConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -407,7 +414,7 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LaunchConfiguration get(String name, Output<String> id, @Nullable LaunchConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LaunchConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable LaunchConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LaunchConfiguration(name, id, state, options);
     }
 }

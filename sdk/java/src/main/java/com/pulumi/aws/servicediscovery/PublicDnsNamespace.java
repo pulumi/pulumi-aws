@@ -158,7 +158,7 @@ public class PublicDnsNamespace extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PublicDnsNamespace(String name) {
+    public PublicDnsNamespace(java.lang.String name) {
         this(name, PublicDnsNamespaceArgs.Empty);
     }
     /**
@@ -166,7 +166,7 @@ public class PublicDnsNamespace extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PublicDnsNamespace(String name, @Nullable PublicDnsNamespaceArgs args) {
+    public PublicDnsNamespace(java.lang.String name, @Nullable PublicDnsNamespaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -175,15 +175,22 @@ public class PublicDnsNamespace extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PublicDnsNamespace(String name, @Nullable PublicDnsNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, args == null ? PublicDnsNamespaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PublicDnsNamespace(java.lang.String name, @Nullable PublicDnsNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PublicDnsNamespace(String name, Output<String> id, @Nullable PublicDnsNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, state, makeResourceOptions(options, id));
+    private PublicDnsNamespace(java.lang.String name, Output<java.lang.String> id, @Nullable PublicDnsNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PublicDnsNamespaceArgs makeArgs(@Nullable PublicDnsNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PublicDnsNamespaceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -199,7 +206,7 @@ public class PublicDnsNamespace extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PublicDnsNamespace get(String name, Output<String> id, @Nullable PublicDnsNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PublicDnsNamespace get(java.lang.String name, Output<java.lang.String> id, @Nullable PublicDnsNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PublicDnsNamespace(name, id, state, options);
     }
 }

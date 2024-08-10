@@ -244,7 +244,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Accelerator(String name) {
+    public Accelerator(java.lang.String name) {
         this(name, AcceleratorArgs.Empty);
     }
     /**
@@ -252,7 +252,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Accelerator(String name, @Nullable AcceleratorArgs args) {
+    public Accelerator(java.lang.String name, @Nullable AcceleratorArgs args) {
         this(name, args, null);
     }
     /**
@@ -261,15 +261,22 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Accelerator(String name, @Nullable AcceleratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:globalaccelerator/accelerator:Accelerator", name, args == null ? AcceleratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Accelerator(java.lang.String name, @Nullable AcceleratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:globalaccelerator/accelerator:Accelerator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Accelerator(String name, Output<String> id, @Nullable AcceleratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:globalaccelerator/accelerator:Accelerator", name, state, makeResourceOptions(options, id));
+    private Accelerator(java.lang.String name, Output<java.lang.String> id, @Nullable AcceleratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:globalaccelerator/accelerator:Accelerator", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AcceleratorArgs makeArgs(@Nullable AcceleratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AcceleratorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -285,7 +292,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Accelerator get(String name, Output<String> id, @Nullable AcceleratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Accelerator get(java.lang.String name, Output<java.lang.String> id, @Nullable AcceleratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Accelerator(name, id, state, options);
     }
 }

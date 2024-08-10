@@ -318,7 +318,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ListenerRule(String name) {
+    public ListenerRule(java.lang.String name) {
         this(name, ListenerRuleArgs.Empty);
     }
     /**
@@ -326,7 +326,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ListenerRule(String name, ListenerRuleArgs args) {
+    public ListenerRule(java.lang.String name, ListenerRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -335,15 +335,22 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ListenerRule(String name, ListenerRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/listenerRule:ListenerRule", name, args == null ? ListenerRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ListenerRule(java.lang.String name, ListenerRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/listenerRule:ListenerRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ListenerRule(String name, Output<String> id, @Nullable ListenerRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/listenerRule:ListenerRule", name, state, makeResourceOptions(options, id));
+    private ListenerRule(java.lang.String name, Output<java.lang.String> id, @Nullable ListenerRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/listenerRule:ListenerRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ListenerRuleArgs makeArgs(ListenerRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ListenerRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -359,7 +366,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ListenerRule get(String name, Output<String> id, @Nullable ListenerRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ListenerRule get(java.lang.String name, Output<java.lang.String> id, @Nullable ListenerRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ListenerRule(name, id, state, options);
     }
 }

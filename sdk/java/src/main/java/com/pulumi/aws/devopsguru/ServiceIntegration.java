@@ -175,7 +175,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceIntegration(String name) {
+    public ServiceIntegration(java.lang.String name) {
         this(name, ServiceIntegrationArgs.Empty);
     }
     /**
@@ -183,7 +183,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceIntegration(String name, @Nullable ServiceIntegrationArgs args) {
+    public ServiceIntegration(java.lang.String name, @Nullable ServiceIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -192,15 +192,22 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceIntegration(String name, @Nullable ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:devopsguru/serviceIntegration:ServiceIntegration", name, args == null ? ServiceIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceIntegration(java.lang.String name, @Nullable ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:devopsguru/serviceIntegration:ServiceIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceIntegration(String name, Output<String> id, @Nullable ServiceIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:devopsguru/serviceIntegration:ServiceIntegration", name, state, makeResourceOptions(options, id));
+    private ServiceIntegration(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:devopsguru/serviceIntegration:ServiceIntegration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceIntegrationArgs makeArgs(@Nullable ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceIntegrationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -216,7 +223,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceIntegration get(String name, Output<String> id, @Nullable ServiceIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceIntegration get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceIntegration(name, id, state, options);
     }
 }

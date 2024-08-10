@@ -201,7 +201,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Stream(String name) {
+    public Stream(java.lang.String name) {
         this(name, StreamArgs.Empty);
     }
     /**
@@ -209,7 +209,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Stream(String name, StreamArgs args) {
+    public Stream(java.lang.String name, StreamArgs args) {
         this(name, args, null);
     }
     /**
@@ -218,15 +218,22 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Stream(String name, StreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:qldb/stream:Stream", name, args == null ? StreamArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Stream(java.lang.String name, StreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:qldb/stream:Stream", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Stream(String name, Output<String> id, @Nullable StreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:qldb/stream:Stream", name, state, makeResourceOptions(options, id));
+    private Stream(java.lang.String name, Output<java.lang.String> id, @Nullable StreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:qldb/stream:Stream", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static StreamArgs makeArgs(StreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StreamArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -242,7 +249,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Stream get(String name, Output<String> id, @Nullable StreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Stream get(java.lang.String name, Output<java.lang.String> id, @Nullable StreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Stream(name, id, state, options);
     }
 }

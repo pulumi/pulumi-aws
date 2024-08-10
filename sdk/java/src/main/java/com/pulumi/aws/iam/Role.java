@@ -577,7 +577,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Role(String name) {
+    public Role(java.lang.String name) {
         this(name, RoleArgs.Empty);
     }
     /**
@@ -585,7 +585,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Role(String name, RoleArgs args) {
+    public Role(java.lang.String name, RoleArgs args) {
         this(name, args, null);
     }
     /**
@@ -594,15 +594,22 @@ public class Role extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Role(String name, RoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/role:Role", name, args == null ? RoleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Role(java.lang.String name, RoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/role:Role", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Role(String name, Output<String> id, @Nullable RoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/role:Role", name, state, makeResourceOptions(options, id));
+    private Role(java.lang.String name, Output<java.lang.String> id, @Nullable RoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/role:Role", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RoleArgs makeArgs(RoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -618,7 +625,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Role get(String name, Output<String> id, @Nullable RoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Role get(java.lang.String name, Output<java.lang.String> id, @Nullable RoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Role(name, id, state, options);
     }
 }

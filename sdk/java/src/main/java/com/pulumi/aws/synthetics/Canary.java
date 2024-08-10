@@ -432,7 +432,7 @@ public class Canary extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Canary(String name) {
+    public Canary(java.lang.String name) {
         this(name, CanaryArgs.Empty);
     }
     /**
@@ -440,7 +440,7 @@ public class Canary extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Canary(String name, CanaryArgs args) {
+    public Canary(java.lang.String name, CanaryArgs args) {
         this(name, args, null);
     }
     /**
@@ -449,15 +449,22 @@ public class Canary extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Canary(String name, CanaryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:synthetics/canary:Canary", name, args == null ? CanaryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Canary(java.lang.String name, CanaryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:synthetics/canary:Canary", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Canary(String name, Output<String> id, @Nullable CanaryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:synthetics/canary:Canary", name, state, makeResourceOptions(options, id));
+    private Canary(java.lang.String name, Output<java.lang.String> id, @Nullable CanaryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:synthetics/canary:Canary", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CanaryArgs makeArgs(CanaryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CanaryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -473,7 +480,7 @@ public class Canary extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Canary get(String name, Output<String> id, @Nullable CanaryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Canary get(java.lang.String name, Output<java.lang.String> id, @Nullable CanaryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Canary(name, id, state, options);
     }
 }

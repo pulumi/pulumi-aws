@@ -157,7 +157,7 @@ public class Portfolio extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Portfolio(String name) {
+    public Portfolio(java.lang.String name) {
         this(name, PortfolioArgs.Empty);
     }
     /**
@@ -165,7 +165,7 @@ public class Portfolio extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Portfolio(String name, PortfolioArgs args) {
+    public Portfolio(java.lang.String name, PortfolioArgs args) {
         this(name, args, null);
     }
     /**
@@ -174,15 +174,22 @@ public class Portfolio extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Portfolio(String name, PortfolioArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/portfolio:Portfolio", name, args == null ? PortfolioArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Portfolio(java.lang.String name, PortfolioArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/portfolio:Portfolio", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Portfolio(String name, Output<String> id, @Nullable PortfolioState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/portfolio:Portfolio", name, state, makeResourceOptions(options, id));
+    private Portfolio(java.lang.String name, Output<java.lang.String> id, @Nullable PortfolioState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/portfolio:Portfolio", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PortfolioArgs makeArgs(PortfolioArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PortfolioArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -198,7 +205,7 @@ public class Portfolio extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Portfolio get(String name, Output<String> id, @Nullable PortfolioState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Portfolio get(java.lang.String name, Output<java.lang.String> id, @Nullable PortfolioState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Portfolio(name, id, state, options);
     }
 }

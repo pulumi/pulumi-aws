@@ -158,7 +158,7 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualCluster(String name) {
+    public VirtualCluster(java.lang.String name) {
         this(name, VirtualClusterArgs.Empty);
     }
     /**
@@ -166,7 +166,7 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualCluster(String name, VirtualClusterArgs args) {
+    public VirtualCluster(java.lang.String name, VirtualClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -175,15 +175,22 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualCluster(String name, VirtualClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emrcontainers/virtualCluster:VirtualCluster", name, args == null ? VirtualClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualCluster(java.lang.String name, VirtualClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emrcontainers/virtualCluster:VirtualCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualCluster(String name, Output<String> id, @Nullable VirtualClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emrcontainers/virtualCluster:VirtualCluster", name, state, makeResourceOptions(options, id));
+    private VirtualCluster(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emrcontainers/virtualCluster:VirtualCluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualClusterArgs makeArgs(VirtualClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -199,7 +206,7 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualCluster get(String name, Output<String> id, @Nullable VirtualClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualCluster(name, id, state, options);
     }
 }

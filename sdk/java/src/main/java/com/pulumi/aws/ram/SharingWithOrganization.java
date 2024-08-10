@@ -63,7 +63,7 @@ public class SharingWithOrganization extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SharingWithOrganization(String name) {
+    public SharingWithOrganization(java.lang.String name) {
         this(name, SharingWithOrganizationArgs.Empty);
     }
     /**
@@ -71,7 +71,7 @@ public class SharingWithOrganization extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SharingWithOrganization(String name, @Nullable SharingWithOrganizationArgs args) {
+    public SharingWithOrganization(java.lang.String name, @Nullable SharingWithOrganizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -80,15 +80,22 @@ public class SharingWithOrganization extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SharingWithOrganization(String name, @Nullable SharingWithOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ram/sharingWithOrganization:SharingWithOrganization", name, args == null ? SharingWithOrganizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SharingWithOrganization(java.lang.String name, @Nullable SharingWithOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ram/sharingWithOrganization:SharingWithOrganization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SharingWithOrganization(String name, Output<String> id, @Nullable SharingWithOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ram/sharingWithOrganization:SharingWithOrganization", name, state, makeResourceOptions(options, id));
+    private SharingWithOrganization(java.lang.String name, Output<java.lang.String> id, @Nullable SharingWithOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ram/sharingWithOrganization:SharingWithOrganization", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SharingWithOrganizationArgs makeArgs(@Nullable SharingWithOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SharingWithOrganizationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -104,7 +111,7 @@ public class SharingWithOrganization extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SharingWithOrganization get(String name, Output<String> id, @Nullable SharingWithOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SharingWithOrganization get(java.lang.String name, Output<java.lang.String> id, @Nullable SharingWithOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SharingWithOrganization(name, id, state, options);
     }
 }

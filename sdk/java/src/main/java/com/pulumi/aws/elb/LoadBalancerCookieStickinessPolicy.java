@@ -144,7 +144,7 @@ public class LoadBalancerCookieStickinessPolicy extends com.pulumi.resources.Cus
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LoadBalancerCookieStickinessPolicy(String name) {
+    public LoadBalancerCookieStickinessPolicy(java.lang.String name) {
         this(name, LoadBalancerCookieStickinessPolicyArgs.Empty);
     }
     /**
@@ -152,7 +152,7 @@ public class LoadBalancerCookieStickinessPolicy extends com.pulumi.resources.Cus
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LoadBalancerCookieStickinessPolicy(String name, LoadBalancerCookieStickinessPolicyArgs args) {
+    public LoadBalancerCookieStickinessPolicy(java.lang.String name, LoadBalancerCookieStickinessPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -161,15 +161,22 @@ public class LoadBalancerCookieStickinessPolicy extends com.pulumi.resources.Cus
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LoadBalancerCookieStickinessPolicy(String name, LoadBalancerCookieStickinessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, args == null ? LoadBalancerCookieStickinessPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LoadBalancerCookieStickinessPolicy(java.lang.String name, LoadBalancerCookieStickinessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LoadBalancerCookieStickinessPolicy(String name, Output<String> id, @Nullable LoadBalancerCookieStickinessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, state, makeResourceOptions(options, id));
+    private LoadBalancerCookieStickinessPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable LoadBalancerCookieStickinessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LoadBalancerCookieStickinessPolicyArgs makeArgs(LoadBalancerCookieStickinessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LoadBalancerCookieStickinessPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -188,7 +195,7 @@ public class LoadBalancerCookieStickinessPolicy extends com.pulumi.resources.Cus
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LoadBalancerCookieStickinessPolicy get(String name, Output<String> id, @Nullable LoadBalancerCookieStickinessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LoadBalancerCookieStickinessPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable LoadBalancerCookieStickinessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LoadBalancerCookieStickinessPolicy(name, id, state, options);
     }
 }

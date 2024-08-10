@@ -160,7 +160,7 @@ public class PublicKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PublicKey(String name) {
+    public PublicKey(java.lang.String name) {
         this(name, PublicKeyArgs.Empty);
     }
     /**
@@ -168,7 +168,7 @@ public class PublicKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PublicKey(String name, PublicKeyArgs args) {
+    public PublicKey(java.lang.String name, PublicKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -177,15 +177,22 @@ public class PublicKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PublicKey(String name, PublicKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/publicKey:PublicKey", name, args == null ? PublicKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PublicKey(java.lang.String name, PublicKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/publicKey:PublicKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PublicKey(String name, Output<String> id, @Nullable PublicKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/publicKey:PublicKey", name, state, makeResourceOptions(options, id));
+    private PublicKey(java.lang.String name, Output<java.lang.String> id, @Nullable PublicKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/publicKey:PublicKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PublicKeyArgs makeArgs(PublicKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PublicKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -201,7 +208,7 @@ public class PublicKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PublicKey get(String name, Output<String> id, @Nullable PublicKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PublicKey get(java.lang.String name, Output<java.lang.String> id, @Nullable PublicKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PublicKey(name, id, state, options);
     }
 }

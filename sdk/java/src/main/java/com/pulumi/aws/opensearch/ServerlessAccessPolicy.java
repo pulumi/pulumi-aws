@@ -285,7 +285,7 @@ public class ServerlessAccessPolicy extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerlessAccessPolicy(String name) {
+    public ServerlessAccessPolicy(java.lang.String name) {
         this(name, ServerlessAccessPolicyArgs.Empty);
     }
     /**
@@ -293,7 +293,7 @@ public class ServerlessAccessPolicy extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerlessAccessPolicy(String name, ServerlessAccessPolicyArgs args) {
+    public ServerlessAccessPolicy(java.lang.String name, ServerlessAccessPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -302,15 +302,22 @@ public class ServerlessAccessPolicy extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerlessAccessPolicy(String name, ServerlessAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy", name, args == null ? ServerlessAccessPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServerlessAccessPolicy(java.lang.String name, ServerlessAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerlessAccessPolicy(String name, Output<String> id, @Nullable ServerlessAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy", name, state, makeResourceOptions(options, id));
+    private ServerlessAccessPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServerlessAccessPolicyArgs makeArgs(ServerlessAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerlessAccessPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -326,7 +333,7 @@ public class ServerlessAccessPolicy extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerlessAccessPolicy get(String name, Output<String> id, @Nullable ServerlessAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerlessAccessPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerlessAccessPolicy(name, id, state, options);
     }
 }

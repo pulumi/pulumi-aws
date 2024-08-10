@@ -205,14 +205,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/methodSettings:MethodSettings")
 public class MethodSettings extends com.pulumi.resources.CustomResource {
     /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*{@literal /}*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
      * 
      */
     @Export(name="methodPath", refs={String.class}, tree="[0]")
     private Output<String> methodPath;
 
     /**
-     * @return Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*{@literal /}*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
+     * @return Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
      * 
      */
     public Output<String> methodPath() {
@@ -265,7 +265,7 @@ public class MethodSettings extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MethodSettings(String name) {
+    public MethodSettings(java.lang.String name) {
         this(name, MethodSettingsArgs.Empty);
     }
     /**
@@ -273,7 +273,7 @@ public class MethodSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MethodSettings(String name, MethodSettingsArgs args) {
+    public MethodSettings(java.lang.String name, MethodSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -282,15 +282,22 @@ public class MethodSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MethodSettings(String name, MethodSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/methodSettings:MethodSettings", name, args == null ? MethodSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MethodSettings(java.lang.String name, MethodSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/methodSettings:MethodSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MethodSettings(String name, Output<String> id, @Nullable MethodSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/methodSettings:MethodSettings", name, state, makeResourceOptions(options, id));
+    private MethodSettings(java.lang.String name, Output<java.lang.String> id, @Nullable MethodSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/methodSettings:MethodSettings", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MethodSettingsArgs makeArgs(MethodSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MethodSettingsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -306,7 +313,7 @@ public class MethodSettings extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MethodSettings get(String name, Output<String> id, @Nullable MethodSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MethodSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable MethodSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MethodSettings(name, id, state, options);
     }
 }

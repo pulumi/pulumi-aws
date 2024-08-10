@@ -176,7 +176,7 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MultiRegionAccessPoint(String name) {
+    public MultiRegionAccessPoint(java.lang.String name) {
         this(name, MultiRegionAccessPointArgs.Empty);
     }
     /**
@@ -184,7 +184,7 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MultiRegionAccessPoint(String name, MultiRegionAccessPointArgs args) {
+    public MultiRegionAccessPoint(java.lang.String name, MultiRegionAccessPointArgs args) {
         this(name, args, null);
     }
     /**
@@ -193,15 +193,22 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MultiRegionAccessPoint(String name, MultiRegionAccessPointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint", name, args == null ? MultiRegionAccessPointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MultiRegionAccessPoint(java.lang.String name, MultiRegionAccessPointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MultiRegionAccessPoint(String name, Output<String> id, @Nullable MultiRegionAccessPointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint", name, state, makeResourceOptions(options, id));
+    private MultiRegionAccessPoint(java.lang.String name, Output<java.lang.String> id, @Nullable MultiRegionAccessPointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MultiRegionAccessPointArgs makeArgs(MultiRegionAccessPointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MultiRegionAccessPointArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -217,7 +224,7 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MultiRegionAccessPoint get(String name, Output<String> id, @Nullable MultiRegionAccessPointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MultiRegionAccessPoint get(java.lang.String name, Output<java.lang.String> id, @Nullable MultiRegionAccessPointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MultiRegionAccessPoint(name, id, state, options);
     }
 }

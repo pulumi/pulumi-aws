@@ -291,7 +291,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrganizationConformancePack(String name) {
+    public OrganizationConformancePack(java.lang.String name) {
         this(name, OrganizationConformancePackArgs.Empty);
     }
     /**
@@ -299,7 +299,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrganizationConformancePack(String name, @Nullable OrganizationConformancePackArgs args) {
+    public OrganizationConformancePack(java.lang.String name, @Nullable OrganizationConformancePackArgs args) {
         this(name, args, null);
     }
     /**
@@ -308,15 +308,22 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrganizationConformancePack(String name, @Nullable OrganizationConformancePackArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/organizationConformancePack:OrganizationConformancePack", name, args == null ? OrganizationConformancePackArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OrganizationConformancePack(java.lang.String name, @Nullable OrganizationConformancePackArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/organizationConformancePack:OrganizationConformancePack", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrganizationConformancePack(String name, Output<String> id, @Nullable OrganizationConformancePackState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/organizationConformancePack:OrganizationConformancePack", name, state, makeResourceOptions(options, id));
+    private OrganizationConformancePack(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationConformancePackState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/organizationConformancePack:OrganizationConformancePack", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OrganizationConformancePackArgs makeArgs(@Nullable OrganizationConformancePackArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationConformancePackArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -332,7 +339,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrganizationConformancePack get(String name, Output<String> id, @Nullable OrganizationConformancePackState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrganizationConformancePack get(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationConformancePackState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrganizationConformancePack(name, id, state, options);
     }
 }

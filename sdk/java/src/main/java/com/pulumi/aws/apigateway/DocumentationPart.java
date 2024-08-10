@@ -137,7 +137,7 @@ public class DocumentationPart extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DocumentationPart(String name) {
+    public DocumentationPart(java.lang.String name) {
         this(name, DocumentationPartArgs.Empty);
     }
     /**
@@ -145,7 +145,7 @@ public class DocumentationPart extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DocumentationPart(String name, DocumentationPartArgs args) {
+    public DocumentationPart(java.lang.String name, DocumentationPartArgs args) {
         this(name, args, null);
     }
     /**
@@ -154,15 +154,22 @@ public class DocumentationPart extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DocumentationPart(String name, DocumentationPartArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/documentationPart:DocumentationPart", name, args == null ? DocumentationPartArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DocumentationPart(java.lang.String name, DocumentationPartArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/documentationPart:DocumentationPart", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DocumentationPart(String name, Output<String> id, @Nullable DocumentationPartState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/documentationPart:DocumentationPart", name, state, makeResourceOptions(options, id));
+    private DocumentationPart(java.lang.String name, Output<java.lang.String> id, @Nullable DocumentationPartState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/documentationPart:DocumentationPart", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DocumentationPartArgs makeArgs(DocumentationPartArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DocumentationPartArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -178,7 +185,7 @@ public class DocumentationPart extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DocumentationPart get(String name, Output<String> id, @Nullable DocumentationPartState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DocumentationPart get(java.lang.String name, Output<java.lang.String> id, @Nullable DocumentationPartState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DocumentationPart(name, id, state, options);
     }
 }
