@@ -1265,7 +1265,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
-     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1279,7 +1279,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessControl(GetOriginAccessControlArgs.builder()
      *             .id("E2T5VTFBZJ3BJB")
      *             .build());
      * 
@@ -1309,7 +1309,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
-     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1323,7 +1323,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessControl(GetOriginAccessControlArgs.builder()
      *             .id("E2T5VTFBZJ3BJB")
      *             .build());
      * 
@@ -1353,7 +1353,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
-     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1367,7 +1367,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessControl(GetOriginAccessControlArgs.builder()
      *             .id("E2T5VTFBZJ3BJB")
      *             .build());
      * 
@@ -1397,7 +1397,7 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
-     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1411,7 +1411,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessControl(GetOriginAccessControlArgs.builder()
      *             .id("E2T5VTFBZJ3BJB")
      *             .build());
      * 

@@ -10,7 +10,7 @@ Subject: [PATCH] add matchmaking configuration (#72)
 * add resource docs
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 81babf4a9c..92763850ac 100644
+index 5cfbc29f36..f64c912033 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -15,6 +15,7 @@ import (
@@ -21,7 +21,7 @@ index 81babf4a9c..92763850ac 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
  
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
-@@ -264,6 +265,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -267,6 +268,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
  
  		ResourcesMap: map[string]*schema.Resource{
  			"aws_s3_bucket_legacy": s3legacy.ResourceBucketLegacy(),

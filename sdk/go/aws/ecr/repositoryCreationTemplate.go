@@ -133,7 +133,7 @@ type RepositoryCreationTemplate struct {
 	ImageTagMutability pulumi.StringPtrOutput `pulumi:"imageTagMutability"`
 	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
 	LifecyclePolicy pulumi.StringPtrOutput `pulumi:"lifecyclePolicy"`
-	// The repository name prefix to match against.
+	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix pulumi.StringOutput `pulumi:"prefix"`
 	// The registry ID the repository creation template applies to.
 	RegistryId       pulumi.StringOutput    `pulumi:"registryId"`
@@ -190,7 +190,7 @@ type repositoryCreationTemplateState struct {
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
 	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
-	// The repository name prefix to match against.
+	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix *string `pulumi:"prefix"`
 	// The registry ID the repository creation template applies to.
 	RegistryId       *string `pulumi:"registryId"`
@@ -212,7 +212,7 @@ type RepositoryCreationTemplateState struct {
 	ImageTagMutability pulumi.StringPtrInput
 	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
 	LifecyclePolicy pulumi.StringPtrInput
-	// The repository name prefix to match against.
+	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix pulumi.StringPtrInput
 	// The registry ID the repository creation template applies to.
 	RegistryId       pulumi.StringPtrInput
@@ -238,7 +238,7 @@ type repositoryCreationTemplateArgs struct {
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
 	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
-	// The repository name prefix to match against.
+	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix           string  `pulumi:"prefix"`
 	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
 	// A map of tags to assign to any created repositories.
@@ -259,7 +259,7 @@ type RepositoryCreationTemplateArgs struct {
 	ImageTagMutability pulumi.StringPtrInput
 	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
 	LifecyclePolicy pulumi.StringPtrInput
-	// The repository name prefix to match against.
+	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix           pulumi.StringInput
 	RepositoryPolicy pulumi.StringPtrInput
 	// A map of tags to assign to any created repositories.
@@ -385,7 +385,7 @@ func (o RepositoryCreationTemplateOutput) LifecyclePolicy() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.LifecyclePolicy }).(pulumi.StringPtrOutput)
 }
 
-// The repository name prefix to match against.
+// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 func (o RepositoryCreationTemplateOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.Prefix }).(pulumi.StringOutput)
 }

@@ -229,7 +229,7 @@ type Cluster struct {
 
 	// ARN that identifies the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Execute command configuration for the cluster. See `configueration` Block for details.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration ClusterConfigurationPtrOutput `pulumi:"configuration"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	//
@@ -279,7 +279,7 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// ARN that identifies the cluster.
 	Arn *string `pulumi:"arn"`
-	// Execute command configuration for the cluster. See `configueration` Block for details.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	//
@@ -300,7 +300,7 @@ type clusterState struct {
 type ClusterState struct {
 	// ARN that identifies the cluster.
 	Arn pulumi.StringPtrInput
-	// Execute command configuration for the cluster. See `configueration` Block for details.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration ClusterConfigurationPtrInput
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	//
@@ -323,7 +323,7 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// Execute command configuration for the cluster. See `configueration` Block for details.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	//
@@ -339,7 +339,7 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// Execute command configuration for the cluster. See `configueration` Block for details.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration ClusterConfigurationPtrInput
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	//
@@ -445,7 +445,7 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Execute command configuration for the cluster. See `configueration` Block for details.
+// Execute command configuration for the cluster. See `configuration` Block for details.
 func (o ClusterOutput) Configuration() ClusterConfigurationPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterConfigurationPtrOutput { return v.Configuration }).(ClusterConfigurationPtrOutput)
 }

@@ -160,14 +160,14 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
         return this.locationUri;
     }
     /**
-     * Name for the configuration profile. Must be between 1 and 64 characters in length.
+     * Name for the configuration profile. Must be between 1 and 128 characters in length.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name for the configuration profile. Must be between 1 and 64 characters in length.
+     * @return Name for the configuration profile. Must be between 1 and 128 characters in length.
      * 
      */
     public Output<String> name() {

@@ -142,7 +142,7 @@ export interface ProviderAssumeRoleWithWebIdentity {
 
 export interface ProviderDefaultTags {
     /**
-     * Resource tags to default across all resources
+     * Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -1304,11 +1304,11 @@ export interface ProviderEndpoint {
 
 export interface ProviderIgnoreTags {
     /**
-     * Resource tag key prefixes to ignore across all resources.
+     * Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
      */
     keyPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Resource tag keys to ignore across all resources.
+     * Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
      */
     keys?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -2203,6 +2203,10 @@ export namespace alb {
          * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
          */
         enableUnhealthyConnectionTermination: pulumi.Input<boolean>;
+        /**
+         * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
+         */
+        unhealthyDrainingInterval?: pulumi.Input<number>;
     }
 }
 
@@ -10179,7 +10183,7 @@ export namespace bedrock {
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
         /**
-         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
          */
         chunkingStrategy: pulumi.Input<string>;
         /**
@@ -39267,6 +39271,10 @@ export namespace lb {
          * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
          */
         enableUnhealthyConnectionTermination: pulumi.Input<boolean>;
+        /**
+         * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
+         */
+        unhealthyDrainingInterval?: pulumi.Input<number>;
     }
 }
 
@@ -50865,6 +50873,379 @@ export namespace lex {
         obfuscationSettingType: pulumi.Input<string>;
     }
 
+    export interface V2modelsSlotSubSlotSetting {
+        expression?: pulumi.Input<string>;
+        slotSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecification>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecification {
+        mapBlockKey: pulumi.Input<string>;
+        /**
+         * Unique identifier for the slot type associated with this slot.
+         */
+        slotTypeId: pulumi.Input<string>;
+        /**
+         * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+         *
+         * The following arguments are optional:
+         */
+        valueElicitationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting {
+        defaultValueSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification>[]>;
+        promptSpecification: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification>;
+        sampleUtterances?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance>[]>;
+        waitAndContinueSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification {
+        defaultValueLists?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        defaultValue: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification {
+        allowInterrupt?: pulumi.Input<boolean>;
+        maxRetries: pulumi.Input<number>;
+        messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup>[]>;
+        messageSelectionStrategy?: pulumi.Input<string>;
+        promptAttemptsSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup {
+        message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage>;
+        variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification {
+        allowInterrupt?: pulumi.Input<boolean>;
+        allowedInputTypes: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes>;
+        audioAndDtmfInputSpecification?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification>;
+        mapBlockKey: pulumi.Input<string>;
+        textInputSpecification?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
+        allowAudioInput: pulumi.Input<boolean>;
+        allowDtmfInput: pulumi.Input<boolean>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification {
+        audioSpecification?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification>;
+        dtmfSpecification?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification>;
+        startTimeoutMs: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification {
+        endTimeoutMs: pulumi.Input<number>;
+        maxLengthMs: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification {
+        deletionCharacter: pulumi.Input<string>;
+        endCharacter: pulumi.Input<string>;
+        endTimeoutMs: pulumi.Input<number>;
+        maxLength: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification {
+        startTimeoutMs: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance {
+        utterance: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification {
+        active?: pulumi.Input<boolean>;
+        continueResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse>[]>;
+        stillWaitingResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse>[]>;
+        waitingResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        allowInterrupt?: pulumi.Input<boolean>;
+        messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage>;
+        variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        allowInterrupt?: pulumi.Input<boolean>;
+        frequencyInSeconds: pulumi.Input<number>;
+        messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup>[]>;
+        timeoutInSeconds: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage>;
+        variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        allowInterrupt?: pulumi.Input<boolean>;
+        messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage>;
+        variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
     export interface V2modelsSlotTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -61810,6 +62191,17 @@ export namespace rds {
          * This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
          */
         sourceEngineVersion: pulumi.Input<string>;
+    }
+
+    export interface IntegrationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
     }
 
     export interface OptionGroupOption {

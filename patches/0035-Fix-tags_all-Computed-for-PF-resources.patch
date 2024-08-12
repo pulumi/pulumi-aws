@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index 7af155285d..1d4ecd0a99 100644
+index ab081ee5b5..f878288ea6 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
 @@ -84,7 +84,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest

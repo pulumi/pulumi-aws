@@ -72,6 +72,11 @@ export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
+export { GetClusterParameterGroupArgs, GetClusterParameterGroupResult, GetClusterParameterGroupOutputArgs } from "./getClusterParameterGroup";
+export const getClusterParameterGroup: typeof import("./getClusterParameterGroup").getClusterParameterGroup = null as any;
+export const getClusterParameterGroupOutput: typeof import("./getClusterParameterGroup").getClusterParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterParameterGroup","getClusterParameterGroupOutput"], () => require("./getClusterParameterGroup"));
+
 export { GetClusterSnapshotArgs, GetClusterSnapshotResult, GetClusterSnapshotOutputArgs } from "./getClusterSnapshot";
 export const getClusterSnapshot: typeof import("./getClusterSnapshot").getClusterSnapshot = null as any;
 export const getClusterSnapshotOutput: typeof import("./getClusterSnapshot").getClusterSnapshotOutput = null as any;
@@ -148,6 +153,11 @@ export const InstanceAutomatedBackupsReplication: typeof import("./instanceAutom
 utilities.lazyLoad(exports, ["InstanceAutomatedBackupsReplication"], () => require("./instanceAutomatedBackupsReplication"));
 
 export * from "./instanceType";
+export { IntegrationArgs, IntegrationState } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
+
 export { OptionGroupArgs, OptionGroupState } from "./optionGroup";
 export type OptionGroup = import("./optionGroup").OptionGroup;
 export const OptionGroup: typeof import("./optionGroup").OptionGroup = null as any;
@@ -240,6 +250,8 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication":
                 return new InstanceAutomatedBackupsReplication(name, <any>undefined, { urn })
+            case "aws:rds/integration:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws:rds/optionGroup:OptionGroup":
                 return new OptionGroup(name, <any>undefined, { urn })
             case "aws:rds/parameterGroup:ParameterGroup":
@@ -281,6 +293,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/exportTask", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/globalCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/instanceAutomatedBackupsReplication", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/integration", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/optionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/proxy", _module)

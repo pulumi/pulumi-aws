@@ -370,7 +370,7 @@ if not MYPY:
     class ProviderDefaultTagsArgsDict(TypedDict):
         tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
-        Resource tags to default across all resources
+        Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
 elif False:
     ProviderDefaultTagsArgsDict: TypeAlias = Mapping[str, Any]
@@ -380,7 +380,7 @@ class ProviderDefaultTagsArgs:
     def __init__(__self__, *,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags to default across all resources
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -389,7 +389,7 @@ class ProviderDefaultTagsArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags to default across all resources
+        Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
         return pulumi.get(self, "tags")
 
@@ -6174,11 +6174,11 @@ if not MYPY:
     class ProviderIgnoreTagsArgsDict(TypedDict):
         key_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Resource tag key prefixes to ignore across all resources.
+        Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
         """
         keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Resource tag keys to ignore across all resources.
+        Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
 elif False:
     ProviderIgnoreTagsArgsDict: TypeAlias = Mapping[str, Any]
@@ -6189,8 +6189,8 @@ class ProviderIgnoreTagsArgs:
                  key_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_prefixes: Resource tag key prefixes to ignore across all resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Resource tag keys to ignore across all resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_prefixes: Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
         if key_prefixes is not None:
             pulumi.set(__self__, "key_prefixes", key_prefixes)
@@ -6201,7 +6201,7 @@ class ProviderIgnoreTagsArgs:
     @pulumi.getter(name="keyPrefixes")
     def key_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Resource tag key prefixes to ignore across all resources.
+        Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
         """
         return pulumi.get(self, "key_prefixes")
 
@@ -6213,7 +6213,7 @@ class ProviderIgnoreTagsArgs:
     @pulumi.getter
     def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Resource tag keys to ignore across all resources.
+        Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
         return pulumi.get(self, "keys")
 

@@ -17,14 +17,14 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
     public static final ProviderIgnoreTagsArgs Empty = new ProviderIgnoreTagsArgs();
 
     /**
-     * Resource tag key prefixes to ignore across all resources.
+     * Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
      * 
      */
     @Import(name="keyPrefixes")
     private @Nullable Output<List<String>> keyPrefixes;
 
     /**
-     * @return Resource tag key prefixes to ignore across all resources.
+     * @return Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
      * 
      */
     public Optional<Output<List<String>>> keyPrefixes() {
@@ -32,14 +32,14 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Resource tag keys to ignore across all resources.
+     * Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
      * 
      */
     @Import(name="keys")
     private @Nullable Output<List<String>> keys;
 
     /**
-     * @return Resource tag keys to ignore across all resources.
+     * @return Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
      * 
      */
     public Optional<Output<List<String>>> keys() {
@@ -72,7 +72,7 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyPrefixes Resource tag key prefixes to ignore across all resources.
+         * @param keyPrefixes Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyPrefixes Resource tag key prefixes to ignore across all resources.
+         * @param keyPrefixes Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyPrefixes Resource tag key prefixes to ignore across all resources.
+         * @param keyPrefixes Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keys Resource tag keys to ignore across all resources.
+         * @param keys Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keys Resource tag keys to ignore across all resources.
+         * @param keys Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keys Resource tag keys to ignore across all resources.
+         * @param keys Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
          * 
          * @return builder
          * 

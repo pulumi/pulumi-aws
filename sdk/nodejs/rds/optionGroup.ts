@@ -123,6 +123,10 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly options!: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
     /**
+     * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+     */
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -153,6 +157,7 @@ export class OptionGroup extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["optionGroupDescription"] = state ? state.optionGroupDescription : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -169,6 +174,7 @@ export class OptionGroup extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) ?? "Managed by Pulumi";
             resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -211,6 +217,10 @@ export interface OptionGroupState {
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
+     * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -250,6 +260,10 @@ export interface OptionGroupArgs {
      * The options to apply. See `option` Block below for more details.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
+    /**
+     * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

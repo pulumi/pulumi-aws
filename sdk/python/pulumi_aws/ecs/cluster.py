@@ -28,7 +28,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input['ClusterConfigurationArgs'] configuration: Execute command configuration for the cluster. See `configueration` Block for details.
+        :param pulumi.Input['ClusterConfigurationArgs'] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
@@ -51,7 +51,7 @@ class ClusterArgs:
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
         """
-        Execute command configuration for the cluster. See `configueration` Block for details.
+        Execute command configuration for the cluster. See `configuration` Block for details.
         """
         return pulumi.get(self, "configuration")
 
@@ -123,7 +123,7 @@ class _ClusterState:
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] arn: ARN that identifies the cluster.
-        :param pulumi.Input['ClusterConfigurationArgs'] configuration: Execute command configuration for the cluster. See `configueration` Block for details.
+        :param pulumi.Input['ClusterConfigurationArgs'] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
@@ -166,7 +166,7 @@ class _ClusterState:
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
         """
-        Execute command configuration for the cluster. See `configueration` Block for details.
+        Execute command configuration for the cluster. See `configuration` Block for details.
         """
         return pulumi.get(self, "configuration")
 
@@ -371,7 +371,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: Execute command configuration for the cluster. See `configueration` Block for details.
+        :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
@@ -566,7 +566,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN that identifies the cluster.
-        :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: Execute command configuration for the cluster. See `configueration` Block for details.
+        :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
@@ -600,7 +600,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.ClusterConfiguration']]:
         """
-        Execute command configuration for the cluster. See `configueration` Block for details.
+        Execute command configuration for the cluster. See `configuration` Block for details.
         """
         return pulumi.get(self, "configuration")
 

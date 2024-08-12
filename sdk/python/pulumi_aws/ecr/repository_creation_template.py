@@ -33,7 +33,7 @@ class RepositoryCreationTemplateArgs:
         """
         The set of arguments for constructing a RepositoryCreationTemplate resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applied_fors: Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
-        :param pulumi.Input[str] prefix: The repository name prefix to match against.
+        :param pulumi.Input[str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         :param pulumi.Input[str] description: The description for this template.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
@@ -74,7 +74,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter
     def prefix(self) -> pulumi.Input[str]:
         """
-        The repository name prefix to match against.
+        The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         """
         return pulumi.get(self, "prefix")
 
@@ -185,7 +185,7 @@ class _RepositoryCreationTemplateState:
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        :param pulumi.Input[str] prefix: The repository name prefix to match against.
+        :param pulumi.Input[str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[str] registry_id: The registry ID the repository creation template applies to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of tags to assign to any created repositories.
         """
@@ -286,7 +286,7 @@ class _RepositoryCreationTemplateState:
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        The repository name prefix to match against.
+        The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         """
         return pulumi.get(self, "prefix")
 
@@ -425,7 +425,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        :param pulumi.Input[str] prefix: The repository name prefix to match against.
+        :param pulumi.Input[str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         ...
@@ -588,7 +588,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        :param pulumi.Input[str] prefix: The repository name prefix to match against.
+        :param pulumi.Input[str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[str] registry_id: The registry ID the repository creation template applies to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of tags to assign to any created repositories.
         """
@@ -660,7 +660,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter
     def prefix(self) -> pulumi.Output[str]:
         """
-        The repository name prefix to match against.
+        The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         """
         return pulumi.get(self, "prefix")
 

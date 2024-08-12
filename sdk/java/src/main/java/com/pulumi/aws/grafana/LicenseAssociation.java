@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -106,6 +107,20 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      */
     public Output<String> freeTrialExpiration() {
         return this.freeTrialExpiration;
+    }
+    /**
+     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * 
+     */
+    @Export(name="grafanaToken", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> grafanaToken;
+
+    /**
+     * @return A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * 
+     */
+    public Output<Optional<String>> grafanaToken() {
+        return Codegen.optional(this.grafanaToken);
     }
     /**
      * If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.cloudfront.getOriginAccessIdentity({
+ * const example = aws.cloudfront.getOriginAccessControl({
  *     id: "E2T5VTFBZJ3BJB",
  * });
  * ```
@@ -79,7 +79,7 @@ export interface GetOriginAccessControlResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.cloudfront.getOriginAccessIdentity({
+ * const example = aws.cloudfront.getOriginAccessControl({
  *     id: "E2T5VTFBZJ3BJB",
  * });
  * ```

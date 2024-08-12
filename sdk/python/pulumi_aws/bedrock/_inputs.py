@@ -1228,7 +1228,7 @@ if not MYPY:
     class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict(TypedDict):
         chunking_strategy: pulumi.Input[str]
         """
-        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
         """
         fixed_size_chunking_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgsDict']]
         """
@@ -1243,7 +1243,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs:
                  chunking_strategy: pulumi.Input[str],
                  fixed_size_chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']] = None):
         """
-        :param pulumi.Input[str] chunking_strategy: Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+        :param pulumi.Input[str] chunking_strategy: Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs'] fixed_size_chunking_configuration: Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
         """
         pulumi.set(__self__, "chunking_strategy", chunking_strategy)
@@ -1254,7 +1254,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs:
     @pulumi.getter(name="chunkingStrategy")
     def chunking_strategy(self) -> pulumi.Input[str]:
         """
-        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
         """
         return pulumi.get(self, "chunking_strategy")
 

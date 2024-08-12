@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentity.Invoke(new()
+        ///     var example = Aws.CloudFront.GetOriginAccessControl.Invoke(new()
         ///     {
         ///         Id = "E2T5VTFBZJ3BJB",
         ///     });
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentity.Invoke(new()
+        ///     var example = Aws.CloudFront.GetOriginAccessControl.Invoke(new()
         ///     {
         ///         Id = "E2T5VTFBZJ3BJB",
         ///     });

@@ -91,6 +91,7 @@ class FunctionArgs:
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Snap start settings block. Detailed below.
+        :param pulumi.Input[str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Configuration block. Detailed below.
@@ -507,6 +508,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        """
         return pulumi.get(self, "source_code_hash")
 
     @source_code_hash.setter
@@ -653,6 +657,7 @@ class _FunctionState:
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Snap start settings block. Detailed below.
+        :param pulumi.Input[str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1194,6 +1199,9 @@ class _FunctionState:
     @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        """
         return pulumi.get(self, "source_code_hash")
 
     @source_code_hash.setter
@@ -1560,6 +1568,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Snap start settings block. Detailed below.
+        :param pulumi.Input[str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         :param pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']] tracing_config: Configuration block. Detailed below.
@@ -1976,6 +1985,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Snap start settings block. Detailed below.
+        :param pulumi.Input[str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -2331,6 +2341,9 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> pulumi.Output[str]:
+        """
+        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        """
         return pulumi.get(self, "source_code_hash")
 
     @property

@@ -18,14 +18,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     public static final DiskState Empty = new DiskState();
 
     /**
-     * The ARN of the Lightsail load balancer.
+     * The ARN of the Lightsail disk.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail load balancer.
+     * @return The ARN of the Lightsail disk.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -48,14 +48,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timestamp when the load balancer was created.
+     * The timestamp when the disk was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The timestamp when the load balancer was created.
+     * @return The timestamp when the disk was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -63,14 +63,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Lightsail load balancer.
+     * The name of the disk.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Lightsail load balancer.
+     * @return The name of the disk.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +78,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance port the load balancer will connect.
+     * The size of the disk in GB.
      * 
      */
     @Import(name="sizeInGb")
     private @Nullable Output<Integer> sizeInGb;
 
     /**
-     * @return The instance port the load balancer will connect.
+     * @return The size of the disk in GB.
      * 
      */
     public Optional<Output<Integer>> sizeInGb() {
@@ -177,7 +177,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Lightsail load balancer.
+         * @param arn The ARN of the Lightsail disk.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Lightsail load balancer.
+         * @param arn The ARN of the Lightsail disk.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The timestamp when the load balancer was created.
+         * @param createdAt The timestamp when the disk was created.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The timestamp when the load balancer was created.
+         * @param createdAt The timestamp when the disk was created.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Lightsail load balancer.
+         * @param name The name of the disk.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Lightsail load balancer.
+         * @param name The name of the disk.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInGb The instance port the load balancer will connect.
+         * @param sizeInGb The size of the disk in GB.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInGb The instance port the load balancer will connect.
+         * @param sizeInGb The size of the disk in GB.
          * 
          * @return builder
          * 

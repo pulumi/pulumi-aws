@@ -137,7 +137,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      */
     public readonly lifecyclePolicy!: pulumi.Output<string | undefined>;
     /**
-     * The repository name prefix to match against.
+     * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
      */
     public readonly prefix!: pulumi.Output<string>;
     /**
@@ -226,7 +226,7 @@ export interface RepositoryCreationTemplateState {
      */
     lifecyclePolicy?: pulumi.Input<string>;
     /**
-     * The repository name prefix to match against.
+     * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
      */
     prefix?: pulumi.Input<string>;
     /**
@@ -269,7 +269,7 @@ export interface RepositoryCreationTemplateArgs {
      */
     lifecyclePolicy?: pulumi.Input<string>;
     /**
-     * The repository name prefix to match against.
+     * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
      */
     prefix: pulumi.Input<string>;
     repositoryPolicy?: pulumi.Input<string>;

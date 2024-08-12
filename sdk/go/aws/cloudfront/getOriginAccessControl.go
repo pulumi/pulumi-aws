@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.LookupOriginAccessIdentity(ctx, &cloudfront.LookupOriginAccessIdentityArgs{
+//			_, err := cloudfront.LookupOriginAccessControl(ctx, &cloudfront.LookupOriginAccessControlArgs{
 //				Id: "E2T5VTFBZJ3BJB",
 //			}, nil)
 //			if err != nil {

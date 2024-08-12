@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DefaultTags {
     /**
-     * @return Resource tags to default across all resources
+     * @return Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
      * 
      */
     private @Nullable Map<String,String> tags;
 
     private DefaultTags() {}
     /**
-     * @return Resource tags to default across all resources
+     * @return Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
      * 
      */
     public Map<String,String> tags() {

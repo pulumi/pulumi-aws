@@ -261,14 +261,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Execute command configuration for the cluster. See `configueration` Block for details.
+     * Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
     @Export(name="configuration", refs={ClusterConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ClusterConfiguration> configuration;
 
     /**
-     * @return Execute command configuration for the cluster. See `configueration` Block for details.
+     * @return Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
     public Output<Optional<ClusterConfiguration>> configuration() {

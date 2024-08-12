@@ -225,7 +225,7 @@ class DefaultTags(dict):
     def __init__(__self__, *,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        :param Mapping[str, str] tags: Resource tags to default across all resources
+        :param Mapping[str, str] tags: Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -234,7 +234,7 @@ class DefaultTags(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags to default across all resources
+        Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
         return pulumi.get(self, "tags")
 
@@ -3708,8 +3708,8 @@ class IgnoreTags(dict):
                  key_prefixes: Optional[Sequence[str]] = None,
                  keys: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] key_prefixes: Resource tag key prefixes to ignore across all resources.
-        :param Sequence[str] keys: Resource tag keys to ignore across all resources.
+        :param Sequence[str] key_prefixes: Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
+        :param Sequence[str] keys: Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
         if key_prefixes is not None:
             pulumi.set(__self__, "key_prefixes", key_prefixes)
@@ -3720,7 +3720,7 @@ class IgnoreTags(dict):
     @pulumi.getter(name="keyPrefixes")
     def key_prefixes(self) -> Optional[Sequence[str]]:
         """
-        Resource tag key prefixes to ignore across all resources.
+        Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
         """
         return pulumi.get(self, "key_prefixes")
 
@@ -3728,7 +3728,7 @@ class IgnoreTags(dict):
     @pulumi.getter
     def keys(self) -> Optional[Sequence[str]]:
         """
-        Resource tag keys to ignore across all resources.
+        Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
         return pulumi.get(self, "keys")
 

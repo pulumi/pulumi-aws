@@ -75,8 +75,10 @@ type V2modelsSlot struct {
 	// Unique identifier associated with the slot.
 	SlotId pulumi.StringOutput `pulumi:"slotId"`
 	// Unique identifier for the slot type associated with this slot.
-	SlotTypeId pulumi.StringPtrOutput        `pulumi:"slotTypeId"`
-	Timeouts   V2modelsSlotTimeoutsPtrOutput `pulumi:"timeouts"`
+	SlotTypeId pulumi.StringOutput `pulumi:"slotTypeId"`
+	// Specifications for the constituent sub slots and the expression for the composite slot.
+	SubSlotSettings V2modelsSlotSubSlotSettingArrayOutput `pulumi:"subSlotSettings"`
+	Timeouts        V2modelsSlotTimeoutsPtrOutput         `pulumi:"timeouts"`
 	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
 	//
 	// The following arguments are optional:
@@ -144,8 +146,10 @@ type v2modelsSlotState struct {
 	// Unique identifier associated with the slot.
 	SlotId *string `pulumi:"slotId"`
 	// Unique identifier for the slot type associated with this slot.
-	SlotTypeId *string               `pulumi:"slotTypeId"`
-	Timeouts   *V2modelsSlotTimeouts `pulumi:"timeouts"`
+	SlotTypeId *string `pulumi:"slotTypeId"`
+	// Specifications for the constituent sub slots and the expression for the composite slot.
+	SubSlotSettings []V2modelsSlotSubSlotSetting `pulumi:"subSlotSettings"`
+	Timeouts        *V2modelsSlotTimeouts        `pulumi:"timeouts"`
 	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
 	//
 	// The following arguments are optional:
@@ -173,7 +177,9 @@ type V2modelsSlotState struct {
 	SlotId pulumi.StringPtrInput
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId pulumi.StringPtrInput
-	Timeouts   V2modelsSlotTimeoutsPtrInput
+	// Specifications for the constituent sub slots and the expression for the composite slot.
+	SubSlotSettings V2modelsSlotSubSlotSettingArrayInput
+	Timeouts        V2modelsSlotTimeoutsPtrInput
 	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
 	//
 	// The following arguments are optional:
@@ -202,8 +208,10 @@ type v2modelsSlotArgs struct {
 	// Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings []V2modelsSlotObfuscationSetting `pulumi:"obfuscationSettings"`
 	// Unique identifier for the slot type associated with this slot.
-	SlotTypeId *string               `pulumi:"slotTypeId"`
-	Timeouts   *V2modelsSlotTimeouts `pulumi:"timeouts"`
+	SlotTypeId *string `pulumi:"slotTypeId"`
+	// Specifications for the constituent sub slots and the expression for the composite slot.
+	SubSlotSettings []V2modelsSlotSubSlotSetting `pulumi:"subSlotSettings"`
+	Timeouts        *V2modelsSlotTimeouts        `pulumi:"timeouts"`
 	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
 	//
 	// The following arguments are optional:
@@ -230,7 +238,9 @@ type V2modelsSlotArgs struct {
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayInput
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId pulumi.StringPtrInput
-	Timeouts   V2modelsSlotTimeoutsPtrInput
+	// Specifications for the constituent sub slots and the expression for the composite slot.
+	SubSlotSettings V2modelsSlotSubSlotSettingArrayInput
+	Timeouts        V2modelsSlotTimeoutsPtrInput
 	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
 	//
 	// The following arguments are optional:
@@ -370,8 +380,13 @@ func (o V2modelsSlotOutput) SlotId() pulumi.StringOutput {
 }
 
 // Unique identifier for the slot type associated with this slot.
-func (o V2modelsSlotOutput) SlotTypeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringPtrOutput { return v.SlotTypeId }).(pulumi.StringPtrOutput)
+func (o V2modelsSlotOutput) SlotTypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.SlotTypeId }).(pulumi.StringOutput)
+}
+
+// Specifications for the constituent sub slots and the expression for the composite slot.
+func (o V2modelsSlotOutput) SubSlotSettings() V2modelsSlotSubSlotSettingArrayOutput {
+	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotSubSlotSettingArrayOutput { return v.SubSlotSettings }).(V2modelsSlotSubSlotSettingArrayOutput)
 }
 
 func (o V2modelsSlotOutput) Timeouts() V2modelsSlotTimeoutsPtrOutput {

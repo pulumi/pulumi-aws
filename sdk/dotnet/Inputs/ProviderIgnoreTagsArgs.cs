@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Inputs
         private InputList<string>? _keyPrefixes;
 
         /// <summary>
-        /// Resource tag key prefixes to ignore across all resources.
+        /// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
         /// </summary>
         public InputList<string> KeyPrefixes
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Inputs
         private InputList<string>? _keys;
 
         /// <summary>
-        /// Resource tag keys to ignore across all resources.
+        /// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         /// </summary>
         public InputList<string> Keys
         {

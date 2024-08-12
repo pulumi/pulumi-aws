@@ -21,14 +21,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterArgs Empty = new ClusterArgs();
 
     /**
-     * Execute command configuration for the cluster. See `configueration` Block for details.
+     * Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<ClusterConfigurationArgs> configuration;
 
     /**
-     * @return Execute command configuration for the cluster. See `configueration` Block for details.
+     * @return Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
     public Optional<Output<ClusterConfigurationArgs>> configuration() {
@@ -128,7 +128,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration Execute command configuration for the cluster. See `configueration` Block for details.
+         * @param configuration Execute command configuration for the cluster. See `configuration` Block for details.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration Execute command configuration for the cluster. See `configueration` Block for details.
+         * @param configuration Execute command configuration for the cluster. See `configuration` Block for details.
          * 
          * @return builder
          * 

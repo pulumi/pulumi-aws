@@ -7,6 +7,7 @@ import com.pulumi.aws.rds.inputs.ParameterGroupParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -109,6 +110,13 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.parameters);
     }
 
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
+    }
+
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -156,6 +164,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.parameters = $.parameters;
+        this.skipDestroy = $.skipDestroy;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -312,6 +321,15 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
          */
         public Builder parameters(ParameterGroupParameterArgs... parameters) {
             return parameters(List.of(parameters));
+        }
+
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         /**

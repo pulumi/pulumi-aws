@@ -208,14 +208,14 @@ public class RepositoryCreationTemplate extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.lifecyclePolicy);
     }
     /**
-     * The repository name prefix to match against.
+     * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
      * 
      */
     @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output<String> prefix;
 
     /**
-     * @return The repository name prefix to match against.
+     * @return The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
      * 
      */
     public Output<String> prefix() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+        /// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
         /// </summary>
         [Input("chunkingStrategy", required: true)]
         public Input<string> ChunkingStrategy { get; set; } = null!;

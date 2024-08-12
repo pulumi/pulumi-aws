@@ -6013,6 +6013,8 @@ func (o TargetGroupTargetGroupHealthUnhealthyStateRoutingPtrOutput) MinimumHealt
 type TargetGroupTargetHealthState struct {
 	// Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
 	EnableUnhealthyConnectionTermination bool `pulumi:"enableUnhealthyConnectionTermination"`
+	// Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
+	UnhealthyDrainingInterval *int `pulumi:"unhealthyDrainingInterval"`
 }
 
 // TargetGroupTargetHealthStateInput is an input type that accepts TargetGroupTargetHealthStateArgs and TargetGroupTargetHealthStateOutput values.
@@ -6029,6 +6031,8 @@ type TargetGroupTargetHealthStateInput interface {
 type TargetGroupTargetHealthStateArgs struct {
 	// Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
 	EnableUnhealthyConnectionTermination pulumi.BoolInput `pulumi:"enableUnhealthyConnectionTermination"`
+	// Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
+	UnhealthyDrainingInterval pulumi.IntPtrInput `pulumi:"unhealthyDrainingInterval"`
 }
 
 func (TargetGroupTargetHealthStateArgs) ElementType() reflect.Type {
@@ -6085,6 +6089,11 @@ func (o TargetGroupTargetHealthStateOutput) ToTargetGroupTargetHealthStateOutput
 // Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
 func (o TargetGroupTargetHealthStateOutput) EnableUnhealthyConnectionTermination() pulumi.BoolOutput {
 	return o.ApplyT(func(v TargetGroupTargetHealthState) bool { return v.EnableUnhealthyConnectionTermination }).(pulumi.BoolOutput)
+}
+
+// Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
+func (o TargetGroupTargetHealthStateOutput) UnhealthyDrainingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetHealthState) *int { return v.UnhealthyDrainingInterval }).(pulumi.IntPtrOutput)
 }
 
 type TargetGroupTargetHealthStateArrayOutput struct{ *pulumi.OutputState }

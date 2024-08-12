@@ -1923,6 +1923,144 @@ __all__ = [
     'V2modelsSlotMultipleValuesSettingArgsDict',
     'V2modelsSlotObfuscationSettingArgs',
     'V2modelsSlotObfuscationSettingArgsDict',
+    'V2modelsSlotSubSlotSettingArgs',
+    'V2modelsSlotSubSlotSettingArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict',
     'V2modelsSlotTimeoutsArgs',
     'V2modelsSlotTimeoutsArgsDict',
     'V2modelsSlotTypeCompositeSlotTypeSettingArgs',
@@ -56408,6 +56546,2700 @@ class V2modelsSlotObfuscationSettingArgs:
     @obfuscation_setting_type.setter
     def obfuscation_setting_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "obfuscation_setting_type", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingArgsDict(TypedDict):
+        expression: NotRequired[pulumi.Input[str]]
+        slot_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingArgs:
+    def __init__(__self__, *,
+                 expression: Optional[pulumi.Input[str]] = None,
+                 slot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]]] = None):
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if slot_specifications is not None:
+            pulumi.set(__self__, "slot_specifications", slot_specifications)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter(name="slotSpecifications")
+    def slot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]]]:
+        return pulumi.get(self, "slot_specifications")
+
+    @slot_specifications.setter
+    def slot_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]]]):
+        pulumi.set(self, "slot_specifications", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationArgsDict(TypedDict):
+        map_block_key: pulumi.Input[str]
+        slot_type_id: pulumi.Input[str]
+        """
+        Unique identifier for the slot type associated with this slot.
+        """
+        value_elicitation_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict']]]]
+        """
+        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+
+        The following arguments are optional:
+        """
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationArgs:
+    def __init__(__self__, *,
+                 map_block_key: pulumi.Input[str],
+                 slot_type_id: pulumi.Input[str],
+                 value_elicitation_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]]] = None):
+        """
+        :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]] value_elicitation_settings: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        pulumi.set(__self__, "slot_type_id", slot_type_id)
+        if value_elicitation_settings is not None:
+            pulumi.set(__self__, "value_elicitation_settings", value_elicitation_settings)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "map_block_key")
+
+    @map_block_key.setter
+    def map_block_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "map_block_key", value)
+
+    @property
+    @pulumi.getter(name="slotTypeId")
+    def slot_type_id(self) -> pulumi.Input[str]:
+        """
+        Unique identifier for the slot type associated with this slot.
+        """
+        return pulumi.get(self, "slot_type_id")
+
+    @slot_type_id.setter
+    def slot_type_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slot_type_id", value)
+
+    @property
+    @pulumi.getter(name="valueElicitationSettings")
+    def value_elicitation_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]]]:
+        """
+        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "value_elicitation_settings")
+
+    @value_elicitation_settings.setter
+    def value_elicitation_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]]]):
+        pulumi.set(self, "value_elicitation_settings", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict(TypedDict):
+        prompt_specification: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict']
+        default_value_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict']]]]
+        sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict']]]]
+        wait_and_continue_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs:
+    def __init__(__self__, *,
+                 prompt_specification: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs'],
+                 default_value_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]]] = None,
+                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs']]]] = None,
+                 wait_and_continue_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]]] = None):
+        pulumi.set(__self__, "prompt_specification", prompt_specification)
+        if default_value_specifications is not None:
+            pulumi.set(__self__, "default_value_specifications", default_value_specifications)
+        if sample_utterances is not None:
+            pulumi.set(__self__, "sample_utterances", sample_utterances)
+        if wait_and_continue_specifications is not None:
+            pulumi.set(__self__, "wait_and_continue_specifications", wait_and_continue_specifications)
+
+    @property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs']:
+        return pulumi.get(self, "prompt_specification")
+
+    @prompt_specification.setter
+    def prompt_specification(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs']):
+        pulumi.set(self, "prompt_specification", value)
+
+    @property
+    @pulumi.getter(name="defaultValueSpecifications")
+    def default_value_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]]]:
+        return pulumi.get(self, "default_value_specifications")
+
+    @default_value_specifications.setter
+    def default_value_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]]]):
+        pulumi.set(self, "default_value_specifications", value)
+
+    @property
+    @pulumi.getter(name="sampleUtterances")
+    def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs']]]]:
+        return pulumi.get(self, "sample_utterances")
+
+    @sample_utterances.setter
+    def sample_utterances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs']]]]):
+        pulumi.set(self, "sample_utterances", value)
+
+    @property
+    @pulumi.getter(name="waitAndContinueSpecifications")
+    def wait_and_continue_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]]]:
+        return pulumi.get(self, "wait_and_continue_specifications")
+
+    @wait_and_continue_specifications.setter
+    def wait_and_continue_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]]]):
+        pulumi.set(self, "wait_and_continue_specifications", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict(TypedDict):
+        default_value_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs:
+    def __init__(__self__, *,
+                 default_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]] = None):
+        if default_value_lists is not None:
+            pulumi.set(__self__, "default_value_lists", default_value_lists)
+
+    @property
+    @pulumi.getter(name="defaultValueLists")
+    def default_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]]:
+        return pulumi.get(self, "default_value_lists")
+
+    @default_value_lists.setter
+    def default_value_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]]):
+        pulumi.set(self, "default_value_lists", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict(TypedDict):
+        default_value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs:
+    def __init__(__self__, *,
+                 default_value: pulumi.Input[str]):
+        pulumi.set(__self__, "default_value", default_value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict(TypedDict):
+        max_retries: pulumi.Input[int]
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict']]]]
+        message_selection_strategy: NotRequired[pulumi.Input[str]]
+        prompt_attempts_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs:
+    def __init__(__self__, *,
+                 max_retries: pulumi.Input[int],
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs']]]] = None,
+                 message_selection_strategy: Optional[pulumi.Input[str]] = None,
+                 prompt_attempts_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs']]]] = None):
+        pulumi.set(__self__, "max_retries", max_retries)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+        if message_selection_strategy is not None:
+            pulumi.set(__self__, "message_selection_strategy", message_selection_strategy)
+        if prompt_attempts_specifications is not None:
+            pulumi.set(__self__, "prompt_attempts_specifications", prompt_attempts_specifications)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_retries")
+
+    @max_retries.setter
+    def max_retries(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_retries", value)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs']]]]:
+        return pulumi.get(self, "message_groups")
+
+    @message_groups.setter
+    def message_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs']]]]):
+        pulumi.set(self, "message_groups", value)
+
+    @property
+    @pulumi.getter(name="messageSelectionStrategy")
+    def message_selection_strategy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "message_selection_strategy")
+
+    @message_selection_strategy.setter
+    def message_selection_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_selection_strategy", value)
+
+    @property
+    @pulumi.getter(name="promptAttemptsSpecifications")
+    def prompt_attempts_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs']]]]:
+        return pulumi.get(self, "prompt_attempts_specifications")
+
+    @prompt_attempts_specifications.setter
+    def prompt_attempts_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs']]]]):
+        pulumi.set(self, "prompt_attempts_specifications", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict(TypedDict):
+        message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict']
+        variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs:
+    def __init__(__self__, *,
+                 message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs'],
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs']:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs']):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]]:
+        return pulumi.get(self, "variations")
+
+    @variations.setter
+    def variations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]]):
+        pulumi.set(self, "variations", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict(TypedDict):
+        allowed_input_types: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict']
+        map_block_key: pulumi.Input[str]
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        audio_and_dtmf_input_specification: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict']]
+        text_input_specification: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs:
+    def __init__(__self__, *,
+                 allowed_input_types: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs'],
+                 map_block_key: pulumi.Input[str],
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 audio_and_dtmf_input_specification: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs']] = None,
+                 text_input_specification: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs']] = None):
+        pulumi.set(__self__, "allowed_input_types", allowed_input_types)
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if audio_and_dtmf_input_specification is not None:
+            pulumi.set(__self__, "audio_and_dtmf_input_specification", audio_and_dtmf_input_specification)
+        if text_input_specification is not None:
+            pulumi.set(__self__, "text_input_specification", text_input_specification)
+
+    @property
+    @pulumi.getter(name="allowedInputTypes")
+    def allowed_input_types(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs']:
+        return pulumi.get(self, "allowed_input_types")
+
+    @allowed_input_types.setter
+    def allowed_input_types(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs']):
+        pulumi.set(self, "allowed_input_types", value)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "map_block_key")
+
+    @map_block_key.setter
+    def map_block_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "map_block_key", value)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="audioAndDtmfInputSpecification")
+    def audio_and_dtmf_input_specification(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs']]:
+        return pulumi.get(self, "audio_and_dtmf_input_specification")
+
+    @audio_and_dtmf_input_specification.setter
+    def audio_and_dtmf_input_specification(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs']]):
+        pulumi.set(self, "audio_and_dtmf_input_specification", value)
+
+    @property
+    @pulumi.getter(name="textInputSpecification")
+    def text_input_specification(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs']]:
+        return pulumi.get(self, "text_input_specification")
+
+    @text_input_specification.setter
+    def text_input_specification(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs']]):
+        pulumi.set(self, "text_input_specification", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict(TypedDict):
+        allow_audio_input: pulumi.Input[bool]
+        allow_dtmf_input: pulumi.Input[bool]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs:
+    def __init__(__self__, *,
+                 allow_audio_input: pulumi.Input[bool],
+                 allow_dtmf_input: pulumi.Input[bool]):
+        pulumi.set(__self__, "allow_audio_input", allow_audio_input)
+        pulumi.set(__self__, "allow_dtmf_input", allow_dtmf_input)
+
+    @property
+    @pulumi.getter(name="allowAudioInput")
+    def allow_audio_input(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "allow_audio_input")
+
+    @allow_audio_input.setter
+    def allow_audio_input(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "allow_audio_input", value)
+
+    @property
+    @pulumi.getter(name="allowDtmfInput")
+    def allow_dtmf_input(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "allow_dtmf_input")
+
+    @allow_dtmf_input.setter
+    def allow_dtmf_input(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "allow_dtmf_input", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict(TypedDict):
+        start_timeout_ms: pulumi.Input[int]
+        audio_specification: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict']]
+        dtmf_specification: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs:
+    def __init__(__self__, *,
+                 start_timeout_ms: pulumi.Input[int],
+                 audio_specification: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs']] = None,
+                 dtmf_specification: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs']] = None):
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+        if audio_specification is not None:
+            pulumi.set(__self__, "audio_specification", audio_specification)
+        if dtmf_specification is not None:
+            pulumi.set(__self__, "dtmf_specification", dtmf_specification)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "start_timeout_ms")
+
+    @start_timeout_ms.setter
+    def start_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="audioSpecification")
+    def audio_specification(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs']]:
+        return pulumi.get(self, "audio_specification")
+
+    @audio_specification.setter
+    def audio_specification(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs']]):
+        pulumi.set(self, "audio_specification", value)
+
+    @property
+    @pulumi.getter(name="dtmfSpecification")
+    def dtmf_specification(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs']]:
+        return pulumi.get(self, "dtmf_specification")
+
+    @dtmf_specification.setter
+    def dtmf_specification(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs']]):
+        pulumi.set(self, "dtmf_specification", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict(TypedDict):
+        end_timeout_ms: pulumi.Input[int]
+        max_length_ms: pulumi.Input[int]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs:
+    def __init__(__self__, *,
+                 end_timeout_ms: pulumi.Input[int],
+                 max_length_ms: pulumi.Input[int]):
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length_ms", max_length_ms)
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "end_timeout_ms")
+
+    @end_timeout_ms.setter
+    def end_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="maxLengthMs")
+    def max_length_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_length_ms")
+
+    @max_length_ms.setter
+    def max_length_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_length_ms", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict(TypedDict):
+        deletion_character: pulumi.Input[str]
+        end_character: pulumi.Input[str]
+        end_timeout_ms: pulumi.Input[int]
+        max_length: pulumi.Input[int]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs:
+    def __init__(__self__, *,
+                 deletion_character: pulumi.Input[str],
+                 end_character: pulumi.Input[str],
+                 end_timeout_ms: pulumi.Input[int],
+                 max_length: pulumi.Input[int]):
+        pulumi.set(__self__, "deletion_character", deletion_character)
+        pulumi.set(__self__, "end_character", end_character)
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length", max_length)
+
+    @property
+    @pulumi.getter(name="deletionCharacter")
+    def deletion_character(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "deletion_character")
+
+    @deletion_character.setter
+    def deletion_character(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deletion_character", value)
+
+    @property
+    @pulumi.getter(name="endCharacter")
+    def end_character(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "end_character")
+
+    @end_character.setter
+    def end_character(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_character", value)
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "end_timeout_ms")
+
+    @end_timeout_ms.setter
+    def end_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_length")
+
+    @max_length.setter
+    def max_length(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_length", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict(TypedDict):
+        start_timeout_ms: pulumi.Input[int]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs:
+    def __init__(__self__, *,
+                 start_timeout_ms: pulumi.Input[int]):
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "start_timeout_ms")
+
+    @start_timeout_ms.setter
+    def start_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_timeout_ms", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict(TypedDict):
+        utterance: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs:
+    def __init__(__self__, *,
+                 utterance: pulumi.Input[str]):
+        pulumi.set(__self__, "utterance", utterance)
+
+    @property
+    @pulumi.getter
+    def utterance(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "utterance")
+
+    @utterance.setter
+    def utterance(self, value: pulumi.Input[str]):
+        pulumi.set(self, "utterance", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict(TypedDict):
+        active: NotRequired[pulumi.Input[bool]]
+        continue_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict']]]]
+        still_waiting_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict']]]]
+        waiting_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs:
+    def __init__(__self__, *,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 continue_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]] = None,
+                 still_waiting_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]] = None,
+                 waiting_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]] = None):
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if continue_responses is not None:
+            pulumi.set(__self__, "continue_responses", continue_responses)
+        if still_waiting_responses is not None:
+            pulumi.set(__self__, "still_waiting_responses", still_waiting_responses)
+        if waiting_responses is not None:
+            pulumi.set(__self__, "waiting_responses", waiting_responses)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter(name="continueResponses")
+    def continue_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]]:
+        return pulumi.get(self, "continue_responses")
+
+    @continue_responses.setter
+    def continue_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]]):
+        pulumi.set(self, "continue_responses", value)
+
+    @property
+    @pulumi.getter(name="stillWaitingResponses")
+    def still_waiting_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]]:
+        return pulumi.get(self, "still_waiting_responses")
+
+    @still_waiting_responses.setter
+    def still_waiting_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]]):
+        pulumi.set(self, "still_waiting_responses", value)
+
+    @property
+    @pulumi.getter(name="waitingResponses")
+    def waiting_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]]:
+        return pulumi.get(self, "waiting_responses")
+
+    @waiting_responses.setter
+    def waiting_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]]):
+        pulumi.set(self, "waiting_responses", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict(TypedDict):
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs:
+    def __init__(__self__, *,
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]] = None):
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]]:
+        return pulumi.get(self, "message_groups")
+
+    @message_groups.setter
+    def message_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]]):
+        pulumi.set(self, "message_groups", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict(TypedDict):
+        message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict']
+        variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs:
+    def __init__(__self__, *,
+                 message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs'],
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs']:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs']):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]]:
+        return pulumi.get(self, "variations")
+
+    @variations.setter
+    def variations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]]):
+        pulumi.set(self, "variations", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict(TypedDict):
+        frequency_in_seconds: pulumi.Input[int]
+        timeout_in_seconds: pulumi.Input[int]
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs:
+    def __init__(__self__, *,
+                 frequency_in_seconds: pulumi.Input[int],
+                 timeout_in_seconds: pulumi.Input[int],
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]] = None):
+        pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
+        pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+
+    @property
+    @pulumi.getter(name="frequencyInSeconds")
+    def frequency_in_seconds(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "frequency_in_seconds")
+
+    @frequency_in_seconds.setter
+    def frequency_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]]:
+        return pulumi.get(self, "message_groups")
+
+    @message_groups.setter
+    def message_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]]):
+        pulumi.set(self, "message_groups", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict(TypedDict):
+        message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict']
+        variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs:
+    def __init__(__self__, *,
+                 message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs'],
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs']:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs']):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]]:
+        return pulumi.get(self, "variations")
+
+    @variations.setter
+    def variations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]]):
+        pulumi.set(self, "variations", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict(TypedDict):
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs:
+    def __init__(__self__, *,
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]] = None):
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]]:
+        return pulumi.get(self, "message_groups")
+
+    @message_groups.setter
+    def message_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]]):
+        pulumi.set(self, "message_groups", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict(TypedDict):
+        message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict']
+        variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs:
+    def __init__(__self__, *,
+                 message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs'],
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs']:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs']):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]]:
+        return pulumi.get(self, "variations")
+
+    @variations.setter
+    def variations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]]):
+        pulumi.set(self, "variations", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

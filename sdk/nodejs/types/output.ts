@@ -1095,6 +1095,10 @@ export namespace alb {
          * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
          */
         enableUnhealthyConnectionTermination: boolean;
+        /**
+         * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
+         */
+        unhealthyDrainingInterval?: number;
     }
 
 }
@@ -11367,7 +11371,7 @@ export namespace bedrock {
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
         /**
-         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
          */
         chunkingStrategy: string;
         /**
@@ -17708,7 +17712,7 @@ export namespace config {
 
     export interface DefaultTags {
         /**
-         * Resource tags to default across all resources
+         * Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
          */
         tags?: {[key: string]: string};
     }
@@ -18870,11 +18874,11 @@ export namespace config {
 
     export interface IgnoreTags {
         /**
-         * Resource tag key prefixes to ignore across all resources.
+         * Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
          */
         keyPrefixes?: string[];
         /**
-         * Resource tag keys to ignore across all resources.
+         * Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
          */
         keys?: string[];
     }
@@ -46307,6 +46311,10 @@ export namespace lb {
          * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
          */
         enableUnhealthyConnectionTermination: boolean;
+        /**
+         * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
+         */
+        unhealthyDrainingInterval?: number;
     }
 
 }
@@ -57909,6 +57917,379 @@ export namespace lex {
          * Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
          */
         obfuscationSettingType: string;
+    }
+
+    export interface V2modelsSlotSubSlotSetting {
+        expression?: string;
+        slotSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecification[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecification {
+        mapBlockKey: string;
+        /**
+         * Unique identifier for the slot type associated with this slot.
+         */
+        slotTypeId: string;
+        /**
+         * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+         *
+         * The following arguments are optional:
+         */
+        valueElicitationSettings?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting {
+        defaultValueSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification[];
+        promptSpecification: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification;
+        sampleUtterances?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance[];
+        waitAndContinueSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification {
+        defaultValueLists?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        defaultValue: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification {
+        allowInterrupt?: boolean;
+        maxRetries: number;
+        messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup[];
+        messageSelectionStrategy?: string;
+        promptAttemptsSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup {
+        message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage;
+        variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage {
+        customPayload?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload;
+        imageResponseCard?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation {
+        customPayload?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload;
+        imageResponseCard?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification {
+        allowInterrupt?: boolean;
+        allowedInputTypes: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes;
+        audioAndDtmfInputSpecification?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification;
+        mapBlockKey: string;
+        textInputSpecification?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
+        allowAudioInput: boolean;
+        allowDtmfInput: boolean;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification {
+        audioSpecification?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification;
+        dtmfSpecification?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification;
+        startTimeoutMs: number;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification {
+        endTimeoutMs: number;
+        maxLengthMs: number;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification {
+        deletionCharacter: string;
+        endCharacter: string;
+        endTimeoutMs: number;
+        maxLength: number;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification {
+        startTimeoutMs: number;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance {
+        utterance: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification {
+        active?: boolean;
+        continueResponses?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse[];
+        stillWaitingResponses?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse[];
+        waitingResponses?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        allowInterrupt?: boolean;
+        messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage;
+        variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
+        customPayload?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload;
+        imageResponseCard?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation {
+        customPayload?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload;
+        imageResponseCard?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        allowInterrupt?: boolean;
+        frequencyInSeconds: number;
+        messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup[];
+        timeoutInSeconds: number;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage;
+        variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
+        customPayload?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload;
+        imageResponseCard?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation {
+        customPayload?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload;
+        imageResponseCard?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        allowInterrupt?: boolean;
+        messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage;
+        variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+        customPayload?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload;
+        imageResponseCard?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
+        customPayload?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload;
+        imageResponseCard?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage {
+        value: string;
     }
 
     export interface V2modelsSlotTimeouts {
@@ -69956,6 +70337,17 @@ export namespace rds {
         sourceEngineVersion: string;
     }
 
+    export interface IntegrationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
     export interface OptionGroupOption {
         /**
          * List of DB Security Groups for which the option is enabled.
@@ -76836,6 +77228,19 @@ export namespace secretsmanager {
         automaticallyAfterDays: number;
         duration: string;
         scheduleExpression: string;
+    }
+
+    export interface GetSecretVersionsVersion {
+        createdTime: string;
+        /**
+         * Date that this version of the secret was last accessed.
+         */
+        lastAccessedDate: string;
+        /**
+         * Unique version identifier of this version of the secret.
+         */
+        versionId: string;
+        versionStages: string[];
     }
 
     export interface GetSecretsFilter {

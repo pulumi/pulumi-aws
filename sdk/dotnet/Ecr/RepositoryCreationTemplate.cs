@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Ecr
         public Output<string?> LifecyclePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The repository name prefix to match against.
+        /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         /// </summary>
         [Output("prefix")]
         public Output<string> Prefix { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Ecr
         public Input<string>? LifecyclePolicy { get; set; }
 
         /// <summary>
-        /// The repository name prefix to match against.
+        /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Ecr
         public Input<string>? LifecyclePolicy { get; set; }
 
         /// <summary>
-        /// The repository name prefix to match against.
+        /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

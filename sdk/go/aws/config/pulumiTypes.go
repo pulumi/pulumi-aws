@@ -238,7 +238,7 @@ func (o AssumeRoleWithWebIdentityOutput) WebIdentityTokenFile() pulumi.StringPtr
 }
 
 type DefaultTags struct {
-	// Resource tags to default across all resources
+	// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -254,7 +254,7 @@ type DefaultTagsInput interface {
 }
 
 type DefaultTagsArgs struct {
-	// Resource tags to default across all resources
+	// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -284,7 +284,7 @@ func (o DefaultTagsOutput) ToDefaultTagsOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// Resource tags to default across all resources
+// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
 func (o DefaultTagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -2970,9 +2970,9 @@ func (o EndpointsArrayOutput) Index(i pulumi.IntInput) EndpointsOutput {
 }
 
 type IgnoreTags struct {
-	// Resource tag key prefixes to ignore across all resources.
+	// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
 	KeyPrefixes []string `pulumi:"keyPrefixes"`
-	// Resource tag keys to ignore across all resources.
+	// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
 	Keys []string `pulumi:"keys"`
 }
 
@@ -2988,9 +2988,9 @@ type IgnoreTagsInput interface {
 }
 
 type IgnoreTagsArgs struct {
-	// Resource tag key prefixes to ignore across all resources.
+	// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
 	KeyPrefixes pulumi.StringArrayInput `pulumi:"keyPrefixes"`
-	// Resource tag keys to ignore across all resources.
+	// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
 }
 
@@ -3020,12 +3020,12 @@ func (o IgnoreTagsOutput) ToIgnoreTagsOutputWithContext(ctx context.Context) Ign
 	return o
 }
 
-// Resource tag key prefixes to ignore across all resources.
+// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
 func (o IgnoreTagsOutput) KeyPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// Resource tag keys to ignore across all resources.
+// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
 func (o IgnoreTagsOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IgnoreTags) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }

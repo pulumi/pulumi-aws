@@ -432,7 +432,7 @@ namespace Pulumi.Aws
              public class DefaultTags
              {
             /// <summary>
-            /// Resource tags to default across all resources
+            /// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
             /// </summary>
                 public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
             }
@@ -1596,11 +1596,11 @@ namespace Pulumi.Aws
              public class IgnoreTags
              {
             /// <summary>
-            /// Resource tag key prefixes to ignore across all resources.
+            /// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
             /// </summary>
                 public ImmutableArray<string> KeyPrefixes { get; set; }
             /// <summary>
-            /// Resource tag keys to ignore across all resources.
+            /// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
             /// </summary>
                 public ImmutableArray<string> Keys { get; set; }
             }

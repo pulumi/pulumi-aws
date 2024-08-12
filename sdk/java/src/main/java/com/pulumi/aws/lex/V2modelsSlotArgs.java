@@ -5,6 +5,7 @@ package com.pulumi.aws.lex;
 
 import com.pulumi.aws.lex.inputs.V2modelsSlotMultipleValuesSettingArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotObfuscationSettingArgs;
+import com.pulumi.aws.lex.inputs.V2modelsSlotSubSlotSettingArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTimeoutsArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingArgs;
 import com.pulumi.core.Output;
@@ -156,6 +157,21 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.slotTypeId);
     }
 
+    /**
+     * Specifications for the constituent sub slots and the expression for the composite slot.
+     * 
+     */
+    @Import(name="subSlotSettings")
+    private @Nullable Output<List<V2modelsSlotSubSlotSettingArgs>> subSlotSettings;
+
+    /**
+     * @return Specifications for the constituent sub slots and the expression for the composite slot.
+     * 
+     */
+    public Optional<Output<List<V2modelsSlotSubSlotSettingArgs>>> subSlotSettings() {
+        return Optional.ofNullable(this.subSlotSettings);
+    }
+
     @Import(name="timeouts")
     private @Nullable Output<V2modelsSlotTimeoutsArgs> timeouts;
 
@@ -194,6 +210,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.obfuscationSettings = $.obfuscationSettings;
         this.slotTypeId = $.slotTypeId;
+        this.subSlotSettings = $.subSlotSettings;
         this.timeouts = $.timeouts;
         this.valueElicitationSetting = $.valueElicitationSetting;
     }
@@ -423,6 +440,37 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder slotTypeId(String slotTypeId) {
             return slotTypeId(Output.of(slotTypeId));
+        }
+
+        /**
+         * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subSlotSettings(@Nullable Output<List<V2modelsSlotSubSlotSettingArgs>> subSlotSettings) {
+            $.subSlotSettings = subSlotSettings;
+            return this;
+        }
+
+        /**
+         * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subSlotSettings(List<V2modelsSlotSubSlotSettingArgs> subSlotSettings) {
+            return subSlotSettings(Output.of(subSlotSettings));
+        }
+
+        /**
+         * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subSlotSettings(V2modelsSlotSubSlotSettingArgs... subSlotSettings) {
+            return subSlotSettings(List.of(subSlotSettings));
         }
 
         public Builder timeouts(@Nullable Output<V2modelsSlotTimeoutsArgs> timeouts) {
