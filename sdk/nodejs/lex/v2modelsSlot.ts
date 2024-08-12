@@ -102,7 +102,11 @@ export class V2modelsSlot extends pulumi.CustomResource {
     /**
      * Unique identifier for the slot type associated with this slot.
      */
-    public readonly slotTypeId!: pulumi.Output<string | undefined>;
+    public readonly slotTypeId!: pulumi.Output<string>;
+    /**
+     * Specifications for the constituent sub slots and the expression for the composite slot.
+     */
+    public readonly subSlotSettings!: pulumi.Output<outputs.lex.V2modelsSlotSubSlotSetting[] | undefined>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsSlotTimeouts | undefined>;
     /**
      * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
@@ -134,6 +138,7 @@ export class V2modelsSlot extends pulumi.CustomResource {
             resourceInputs["obfuscationSettings"] = state ? state.obfuscationSettings : undefined;
             resourceInputs["slotId"] = state ? state.slotId : undefined;
             resourceInputs["slotTypeId"] = state ? state.slotTypeId : undefined;
+            resourceInputs["subSlotSettings"] = state ? state.subSlotSettings : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["valueElicitationSetting"] = state ? state.valueElicitationSetting : undefined;
         } else {
@@ -159,6 +164,7 @@ export class V2modelsSlot extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["obfuscationSettings"] = args ? args.obfuscationSettings : undefined;
             resourceInputs["slotTypeId"] = args ? args.slotTypeId : undefined;
+            resourceInputs["subSlotSettings"] = args ? args.subSlotSettings : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["valueElicitationSetting"] = args ? args.valueElicitationSetting : undefined;
             resourceInputs["slotId"] = undefined /*out*/;
@@ -212,6 +218,10 @@ export interface V2modelsSlotState {
      * Unique identifier for the slot type associated with this slot.
      */
     slotTypeId?: pulumi.Input<string>;
+    /**
+     * Specifications for the constituent sub slots and the expression for the composite slot.
+     */
+    subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
     /**
      * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
@@ -261,6 +271,10 @@ export interface V2modelsSlotArgs {
      * Unique identifier for the slot type associated with this slot.
      */
     slotTypeId?: pulumi.Input<string>;
+    /**
+     * Specifications for the constituent sub slots and the expression for the composite slot.
+     */
+    subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
     /**
      * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.

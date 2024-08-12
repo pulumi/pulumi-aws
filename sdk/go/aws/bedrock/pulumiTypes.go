@@ -2655,7 +2655,7 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfigurat
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfiguration struct {
-	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
 	ChunkingStrategy string `pulumi:"chunkingStrategy"`
 	// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
 	FixedSizeChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration `pulumi:"fixedSizeChunkingConfiguration"`
@@ -2673,7 +2673,7 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationInput inter
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs struct {
-	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
 	ChunkingStrategy pulumi.StringInput `pulumi:"chunkingStrategy"`
 	// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
 	FixedSizeChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrInput `pulumi:"fixedSizeChunkingConfiguration"`
@@ -2756,7 +2756,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) 
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
-// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) ChunkingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) string {
 		return v.ChunkingStrategy
@@ -2794,7 +2794,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput)
 }
 
-// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) ChunkingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *string {
 		if v == nil {

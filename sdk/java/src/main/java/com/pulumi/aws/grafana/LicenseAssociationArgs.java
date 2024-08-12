@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LicenseAssociationArgs Empty = new LicenseAssociationArgs();
+
+    /**
+     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * 
+     */
+    @Import(name="grafanaToken")
+    private @Nullable Output<String> grafanaToken;
+
+    /**
+     * @return A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * 
+     */
+    public Optional<Output<String>> grafanaToken() {
+        return Optional.ofNullable(this.grafanaToken);
+    }
 
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
@@ -47,6 +64,7 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
     private LicenseAssociationArgs() {}
 
     private LicenseAssociationArgs(LicenseAssociationArgs $) {
+        this.grafanaToken = $.grafanaToken;
         this.licenseType = $.licenseType;
         this.workspaceId = $.workspaceId;
     }
@@ -67,6 +85,27 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
 
         public Builder(LicenseAssociationArgs defaults) {
             $ = new LicenseAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param grafanaToken A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grafanaToken(@Nullable Output<String> grafanaToken) {
+            $.grafanaToken = grafanaToken;
+            return this;
+        }
+
+        /**
+         * @param grafanaToken A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grafanaToken(String grafanaToken) {
+            return grafanaToken(Output.of(grafanaToken));
         }
 
         /**

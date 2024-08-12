@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lightsail/disk:Disk")
 public class Disk extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Lightsail load balancer.
+     * The ARN of the Lightsail disk.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail load balancer.
+     * @return The ARN of the Lightsail disk.
      * 
      */
     public Output<String> arn() {
@@ -106,42 +106,42 @@ public class Disk extends com.pulumi.resources.CustomResource {
         return this.availabilityZone;
     }
     /**
-     * The timestamp when the load balancer was created.
+     * The timestamp when the disk was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The timestamp when the load balancer was created.
+     * @return The timestamp when the disk was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The name of the Lightsail load balancer.
+     * The name of the disk.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Lightsail load balancer.
+     * @return The name of the disk.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The instance port the load balancer will connect.
+     * The size of the disk in GB.
      * 
      */
     @Export(name="sizeInGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> sizeInGb;
 
     /**
-     * @return The instance port the load balancer will connect.
+     * @return The size of the disk in GB.
      * 
      */
     public Output<Integer> sizeInGb() {

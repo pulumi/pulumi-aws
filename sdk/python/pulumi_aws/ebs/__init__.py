@@ -15,6 +15,7 @@ from .get_snapshot import *
 from .get_snapshot_ids import *
 from .get_volume import *
 from .snapshot import *
+from .snapshot_block_public_access import *
 from .snapshot_copy import *
 from .snapshot_import import *
 from .volume import *

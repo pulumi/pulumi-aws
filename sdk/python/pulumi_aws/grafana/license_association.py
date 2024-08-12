@@ -20,14 +20,18 @@ __all__ = ['LicenseAssociationArgs', 'LicenseAssociation']
 class LicenseAssociationArgs:
     def __init__(__self__, *,
                  license_type: pulumi.Input[str],
-                 workspace_id: pulumi.Input[str]):
+                 workspace_id: pulumi.Input[str],
+                 grafana_token: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LicenseAssociation resource.
         :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         :param pulumi.Input[str] workspace_id: The workspace id.
+        :param pulumi.Input[str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         """
         pulumi.set(__self__, "license_type", license_type)
         pulumi.set(__self__, "workspace_id", workspace_id)
+        if grafana_token is not None:
+            pulumi.set(__self__, "grafana_token", grafana_token)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -53,23 +57,39 @@ class LicenseAssociationArgs:
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
 
+    @property
+    @pulumi.getter(name="grafanaToken")
+    def grafana_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+        """
+        return pulumi.get(self, "grafana_token")
+
+    @grafana_token.setter
+    def grafana_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grafana_token", value)
+
 
 @pulumi.input_type
 class _LicenseAssociationState:
     def __init__(__self__, *,
                  free_trial_expiration: Optional[pulumi.Input[str]] = None,
+                 grafana_token: Optional[pulumi.Input[str]] = None,
                  license_expiration: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LicenseAssociation resources.
         :param pulumi.Input[str] free_trial_expiration: If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+        :param pulumi.Input[str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[str] license_expiration: If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         :param pulumi.Input[str] workspace_id: The workspace id.
         """
         if free_trial_expiration is not None:
             pulumi.set(__self__, "free_trial_expiration", free_trial_expiration)
+        if grafana_token is not None:
+            pulumi.set(__self__, "grafana_token", grafana_token)
         if license_expiration is not None:
             pulumi.set(__self__, "license_expiration", license_expiration)
         if license_type is not None:
@@ -88,6 +108,18 @@ class _LicenseAssociationState:
     @free_trial_expiration.setter
     def free_trial_expiration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "free_trial_expiration", value)
+
+    @property
+    @pulumi.getter(name="grafanaToken")
+    def grafana_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+        """
+        return pulumi.get(self, "grafana_token")
+
+    @grafana_token.setter
+    def grafana_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grafana_token", value)
 
     @property
     @pulumi.getter(name="licenseExpiration")
@@ -131,6 +163,7 @@ class LicenseAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 grafana_token: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -179,6 +212,7 @@ class LicenseAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         :param pulumi.Input[str] workspace_id: The workspace id.
         """
@@ -246,6 +280,7 @@ class LicenseAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 grafana_token: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -257,6 +292,7 @@ class LicenseAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LicenseAssociationArgs.__new__(LicenseAssociationArgs)
 
+            __props__.__dict__["grafana_token"] = grafana_token
             if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")
             __props__.__dict__["license_type"] = license_type
@@ -276,6 +312,7 @@ class LicenseAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             free_trial_expiration: Optional[pulumi.Input[str]] = None,
+            grafana_token: Optional[pulumi.Input[str]] = None,
             license_expiration: Optional[pulumi.Input[str]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             workspace_id: Optional[pulumi.Input[str]] = None) -> 'LicenseAssociation':
@@ -287,6 +324,7 @@ class LicenseAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] free_trial_expiration: If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+        :param pulumi.Input[str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[str] license_expiration: If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         :param pulumi.Input[str] workspace_id: The workspace id.
@@ -296,6 +334,7 @@ class LicenseAssociation(pulumi.CustomResource):
         __props__ = _LicenseAssociationState.__new__(_LicenseAssociationState)
 
         __props__.__dict__["free_trial_expiration"] = free_trial_expiration
+        __props__.__dict__["grafana_token"] = grafana_token
         __props__.__dict__["license_expiration"] = license_expiration
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["workspace_id"] = workspace_id
@@ -308,6 +347,14 @@ class LicenseAssociation(pulumi.CustomResource):
         If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
         """
         return pulumi.get(self, "free_trial_expiration")
+
+    @property
+    @pulumi.getter(name="grafanaToken")
+    def grafana_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+        """
+        return pulumi.get(self, "grafana_token")
 
     @property
     @pulumi.getter(name="licenseExpiration")

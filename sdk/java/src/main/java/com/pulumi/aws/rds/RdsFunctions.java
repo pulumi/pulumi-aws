@@ -7,6 +7,8 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.rds.inputs.GetCertificateArgs;
 import com.pulumi.aws.rds.inputs.GetCertificatePlainArgs;
 import com.pulumi.aws.rds.inputs.GetClusterArgs;
+import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
+import com.pulumi.aws.rds.inputs.GetClusterParameterGroupPlainArgs;
 import com.pulumi.aws.rds.inputs.GetClusterPlainArgs;
 import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
 import com.pulumi.aws.rds.inputs.GetClusterSnapshotPlainArgs;
@@ -33,6 +35,7 @@ import com.pulumi.aws.rds.inputs.GetSnapshotPlainArgs;
 import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
 import com.pulumi.aws.rds.inputs.GetSubnetGroupPlainArgs;
 import com.pulumi.aws.rds.outputs.GetCertificateResult;
+import com.pulumi.aws.rds.outputs.GetClusterParameterGroupResult;
 import com.pulumi.aws.rds.outputs.GetClusterResult;
 import com.pulumi.aws.rds.outputs.GetClusterSnapshotResult;
 import com.pulumi.aws.rds.outputs.GetClustersResult;
@@ -472,6 +475,174 @@ public final class RdsFunctions {
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:rds/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about an RDS cluster parameter group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getClusterParameterGroup(GetClusterParameterGroupArgs.builder()
+     *             .name("default.postgres15")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetClusterParameterGroupResult> getClusterParameterGroup(GetClusterParameterGroupArgs args) {
+        return getClusterParameterGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about an RDS cluster parameter group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getClusterParameterGroup(GetClusterParameterGroupArgs.builder()
+     *             .name("default.postgres15")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetClusterParameterGroupResult> getClusterParameterGroupPlain(GetClusterParameterGroupPlainArgs args) {
+        return getClusterParameterGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about an RDS cluster parameter group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getClusterParameterGroup(GetClusterParameterGroupArgs.builder()
+     *             .name("default.postgres15")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetClusterParameterGroupResult> getClusterParameterGroup(GetClusterParameterGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getClusterParameterGroup:getClusterParameterGroup", TypeShape.of(GetClusterParameterGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about an RDS cluster parameter group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getClusterParameterGroup(GetClusterParameterGroupArgs.builder()
+     *             .name("default.postgres15")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetClusterParameterGroupResult> getClusterParameterGroupPlain(GetClusterParameterGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:rds/getClusterParameterGroup:getClusterParameterGroup", TypeShape.of(GetClusterParameterGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.

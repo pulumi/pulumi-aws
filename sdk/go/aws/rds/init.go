@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Instance{}
 	case "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication":
 		r = &InstanceAutomatedBackupsReplication{}
+	case "aws:rds/integration:Integration":
+		r = &Integration{}
 	case "aws:rds/optionGroup:OptionGroup":
 		r = &OptionGroup{}
 	case "aws:rds/parameterGroup:ParameterGroup":
@@ -152,6 +154,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/instanceAutomatedBackupsReplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/integration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -34,14 +34,14 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Lightsail load balancer.
+     * The name of the disk.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Lightsail load balancer.
+     * @return The name of the disk.
      * 
      */
     public Optional<Output<String>> name() {
@@ -49,14 +49,14 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance port the load balancer will connect.
+     * The size of the disk in GB.
      * 
      */
     @Import(name="sizeInGb", required=true)
     private Output<Integer> sizeInGb;
 
     /**
-     * @return The instance port the load balancer will connect.
+     * @return The size of the disk in GB.
      * 
      */
     public Output<Integer> sizeInGb() {
@@ -127,7 +127,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Lightsail load balancer.
+         * @param name The name of the disk.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Lightsail load balancer.
+         * @param name The name of the disk.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInGb The instance port the load balancer will connect.
+         * @param sizeInGb The size of the disk in GB.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInGb The instance port the load balancer will connect.
+         * @param sizeInGb The size of the disk in GB.
          * 
          * @return builder
          * 

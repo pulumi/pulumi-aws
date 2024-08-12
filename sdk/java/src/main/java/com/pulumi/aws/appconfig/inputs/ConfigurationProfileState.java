@@ -109,14 +109,14 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Name for the configuration profile. Must be between 1 and 64 characters in length.
+     * Name for the configuration profile. Must be between 1 and 128 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name for the configuration profile. Must be between 1 and 64 characters in length.
+     * @return Name for the configuration profile. Must be between 1 and 128 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -368,7 +368,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name Name for the configuration profile. Must be between 1 and 64 characters in length.
+         * @param name Name for the configuration profile. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name Name for the configuration profile. Must be between 1 and 64 characters in length.
+         * @param name Name for the configuration profile. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 

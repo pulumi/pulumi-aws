@@ -60,7 +60,7 @@ namespace Pulumi.Aws.LightSail
     public partial class Disk : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Lightsail load balancer.
+        /// The ARN of the Lightsail disk.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -72,19 +72,19 @@ namespace Pulumi.Aws.LightSail
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the load balancer was created.
+        /// The timestamp when the disk was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// The name of the disk.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The instance port the load balancer will connect.
+        /// The size of the disk in GB.
         /// </summary>
         [Output("sizeInGb")]
         public Output<int> SizeInGb { get; private set; } = null!;
@@ -160,13 +160,13 @@ namespace Pulumi.Aws.LightSail
         public Input<string> AvailabilityZone { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// The name of the disk.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The instance port the load balancer will connect.
+        /// The size of the disk in GB.
         /// </summary>
         [Input("sizeInGb", required: true)]
         public Input<int> SizeInGb { get; set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class DiskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Lightsail load balancer.
+        /// The ARN of the Lightsail disk.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -204,19 +204,19 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The timestamp when the load balancer was created.
+        /// The timestamp when the disk was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// The name of the disk.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The instance port the load balancer will connect.
+        /// The size of the disk in GB.
         /// </summary>
         [Input("sizeInGb")]
         public Input<int>? SizeInGb { get; set; }

@@ -8,6 +8,7 @@ import com.pulumi.aws.lex.V2modelsSlotArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotState;
 import com.pulumi.aws.lex.outputs.V2modelsSlotMultipleValuesSetting;
 import com.pulumi.aws.lex.outputs.V2modelsSlotObfuscationSetting;
+import com.pulumi.aws.lex.outputs.V2modelsSlotSubSlotSetting;
 import com.pulumi.aws.lex.outputs.V2modelsSlotTimeouts;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSetting;
 import com.pulumi.core.Output;
@@ -205,14 +206,28 @@ public class V2modelsSlot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="slotTypeId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> slotTypeId;
+    private Output<String> slotTypeId;
 
     /**
      * @return Unique identifier for the slot type associated with this slot.
      * 
      */
-    public Output<Optional<String>> slotTypeId() {
-        return Codegen.optional(this.slotTypeId);
+    public Output<String> slotTypeId() {
+        return this.slotTypeId;
+    }
+    /**
+     * Specifications for the constituent sub slots and the expression for the composite slot.
+     * 
+     */
+    @Export(name="subSlotSettings", refs={List.class,V2modelsSlotSubSlotSetting.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<V2modelsSlotSubSlotSetting>> subSlotSettings;
+
+    /**
+     * @return Specifications for the constituent sub slots and the expression for the composite slot.
+     * 
+     */
+    public Output<Optional<List<V2modelsSlotSubSlotSetting>>> subSlotSettings() {
+        return Codegen.optional(this.subSlotSettings);
     }
     @Export(name="timeouts", refs={V2modelsSlotTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ V2modelsSlotTimeouts> timeouts;

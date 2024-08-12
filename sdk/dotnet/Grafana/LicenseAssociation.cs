@@ -85,6 +85,12 @@ namespace Pulumi.Aws.Grafana
         public Output<string> FreeTrialExpiration { get; private set; } = null!;
 
         /// <summary>
+        /// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+        /// </summary>
+        [Output("grafanaToken")]
+        public Output<string?> GrafanaToken { get; private set; } = null!;
+
+        /// <summary>
         /// If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         /// </summary>
         [Output("licenseExpiration")]
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.Grafana
     public sealed class LicenseAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+        /// </summary>
+        [Input("grafanaToken")]
+        public Input<string>? GrafanaToken { get; set; }
+
+        /// <summary>
         /// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         /// </summary>
         [Input("licenseType", required: true)]
@@ -173,6 +185,12 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         [Input("freeTrialExpiration")]
         public Input<string>? FreeTrialExpiration { get; set; }
+
+        /// <summary>
+        /// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+        /// </summary>
+        [Input("grafanaToken")]
+        public Input<string>? GrafanaToken { get; set; }
 
         /// <summary>
         /// If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.

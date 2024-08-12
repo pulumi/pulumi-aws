@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Execute command configuration for the cluster. See `configueration` Block for details.
+        /// Execute command configuration for the cluster. See `configuration` Block for details.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ClusterConfiguration?> Configuration { get; private set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Execute command configuration for the cluster. See `configueration` Block for details.
+        /// Execute command configuration for the cluster. See `configuration` Block for details.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterConfigurationArgs>? Configuration { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Execute command configuration for the cluster. See `configueration` Block for details.
+        /// Execute command configuration for the cluster. See `configuration` Block for details.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterConfigurationGetArgs>? Configuration { get; set; }

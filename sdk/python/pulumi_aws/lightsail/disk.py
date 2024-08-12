@@ -26,8 +26,8 @@ class DiskArgs:
         """
         The set of arguments for constructing a Disk resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk.
-        :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
-        :param pulumi.Input[str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[int] size_in_gb: The size of the disk in GB.
+        :param pulumi.Input[str] name: The name of the disk.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -53,7 +53,7 @@ class DiskArgs:
     @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> pulumi.Input[int]:
         """
-        The instance port the load balancer will connect.
+        The size of the disk in GB.
         """
         return pulumi.get(self, "size_in_gb")
 
@@ -65,7 +65,7 @@ class DiskArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Lightsail load balancer.
+        The name of the disk.
         """
         return pulumi.get(self, "name")
 
@@ -99,11 +99,11 @@ class _DiskState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Disk resources.
-        :param pulumi.Input[str] arn: The ARN of the Lightsail load balancer.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail disk.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk.
-        :param pulumi.Input[str] created_at: The timestamp when the load balancer was created.
-        :param pulumi.Input[str] name: The name of the Lightsail load balancer.
-        :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
+        :param pulumi.Input[str] created_at: The timestamp when the disk was created.
+        :param pulumi.Input[str] name: The name of the disk.
+        :param pulumi.Input[int] size_in_gb: The size of the disk in GB.
         :param pulumi.Input[str] support_code: The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -132,7 +132,7 @@ class _DiskState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Lightsail load balancer.
+        The ARN of the Lightsail disk.
         """
         return pulumi.get(self, "arn")
 
@@ -156,7 +156,7 @@ class _DiskState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
         """
-        The timestamp when the load balancer was created.
+        The timestamp when the disk was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -168,7 +168,7 @@ class _DiskState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Lightsail load balancer.
+        The name of the disk.
         """
         return pulumi.get(self, "name")
 
@@ -180,7 +180,7 @@ class _DiskState:
     @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
-        The instance port the load balancer will connect.
+        The size of the disk in GB.
         """
         return pulumi.get(self, "size_in_gb")
 
@@ -267,8 +267,8 @@ class Disk(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk.
-        :param pulumi.Input[str] name: The name of the Lightsail load balancer.
-        :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
+        :param pulumi.Input[str] name: The name of the disk.
+        :param pulumi.Input[int] size_in_gb: The size of the disk in GB.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -370,11 +370,11 @@ class Disk(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the Lightsail load balancer.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail disk.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk.
-        :param pulumi.Input[str] created_at: The timestamp when the load balancer was created.
-        :param pulumi.Input[str] name: The name of the Lightsail load balancer.
-        :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
+        :param pulumi.Input[str] created_at: The timestamp when the disk was created.
+        :param pulumi.Input[str] name: The name of the disk.
+        :param pulumi.Input[int] size_in_gb: The size of the disk in GB.
         :param pulumi.Input[str] support_code: The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -397,7 +397,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the Lightsail load balancer.
+        The ARN of the Lightsail disk.
         """
         return pulumi.get(self, "arn")
 
@@ -413,7 +413,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         """
-        The timestamp when the load balancer was created.
+        The timestamp when the disk was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -421,7 +421,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Lightsail load balancer.
+        The name of the disk.
         """
         return pulumi.get(self, "name")
 
@@ -429,7 +429,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> pulumi.Output[int]:
         """
-        The instance port the load balancer will connect.
+        The size of the disk in GB.
         """
         return pulumi.get(self, "size_in_gb")
 

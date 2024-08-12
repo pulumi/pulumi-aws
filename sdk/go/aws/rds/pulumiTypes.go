@@ -2173,6 +2173,162 @@ func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type IntegrationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// IntegrationTimeoutsInput is an input type that accepts IntegrationTimeoutsArgs and IntegrationTimeoutsOutput values.
+// You can construct a concrete instance of `IntegrationTimeoutsInput` via:
+//
+//	IntegrationTimeoutsArgs{...}
+type IntegrationTimeoutsInput interface {
+	pulumi.Input
+
+	ToIntegrationTimeoutsOutput() IntegrationTimeoutsOutput
+	ToIntegrationTimeoutsOutputWithContext(context.Context) IntegrationTimeoutsOutput
+}
+
+type IntegrationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (IntegrationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTimeouts)(nil)).Elem()
+}
+
+func (i IntegrationTimeoutsArgs) ToIntegrationTimeoutsOutput() IntegrationTimeoutsOutput {
+	return i.ToIntegrationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i IntegrationTimeoutsArgs) ToIntegrationTimeoutsOutputWithContext(ctx context.Context) IntegrationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTimeoutsOutput)
+}
+
+func (i IntegrationTimeoutsArgs) ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput {
+	return i.ToIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationTimeoutsArgs) ToIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) IntegrationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTimeoutsOutput).ToIntegrationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// IntegrationTimeoutsPtrInput is an input type that accepts IntegrationTimeoutsArgs, IntegrationTimeoutsPtr and IntegrationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `IntegrationTimeoutsPtrInput` via:
+//
+//	        IntegrationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput
+	ToIntegrationTimeoutsPtrOutputWithContext(context.Context) IntegrationTimeoutsPtrOutput
+}
+
+type integrationTimeoutsPtrType IntegrationTimeoutsArgs
+
+func IntegrationTimeoutsPtr(v *IntegrationTimeoutsArgs) IntegrationTimeoutsPtrInput {
+	return (*integrationTimeoutsPtrType)(v)
+}
+
+func (*integrationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationTimeouts)(nil)).Elem()
+}
+
+func (i *integrationTimeoutsPtrType) ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput {
+	return i.ToIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationTimeoutsPtrType) ToIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) IntegrationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTimeoutsPtrOutput)
+}
+
+type IntegrationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTimeouts)(nil)).Elem()
+}
+
+func (o IntegrationTimeoutsOutput) ToIntegrationTimeoutsOutput() IntegrationTimeoutsOutput {
+	return o
+}
+
+func (o IntegrationTimeoutsOutput) ToIntegrationTimeoutsOutputWithContext(ctx context.Context) IntegrationTimeoutsOutput {
+	return o
+}
+
+func (o IntegrationTimeoutsOutput) ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput {
+	return o.ToIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTimeoutsOutput) ToIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) IntegrationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationTimeouts) *IntegrationTimeouts {
+		return &v
+	}).(IntegrationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IntegrationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IntegrationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationTimeouts)(nil)).Elem()
+}
+
+func (o IntegrationTimeoutsPtrOutput) ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput {
+	return o
+}
+
+func (o IntegrationTimeoutsPtrOutput) ToIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) IntegrationTimeoutsPtrOutput {
+	return o
+}
+
+func (o IntegrationTimeoutsPtrOutput) Elem() IntegrationTimeoutsOutput {
+	return o.ApplyT(func(v *IntegrationTimeouts) IntegrationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationTimeouts
+		return ret
+	}).(IntegrationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IntegrationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IntegrationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type OptionGroupOption struct {
 	// List of DB Security Groups for which the option is enabled.
 	DbSecurityGroupMemberships []string `pulumi:"dbSecurityGroupMemberships"`
@@ -3705,6 +3861,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimePtrInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceS3ImportInput)(nil)).Elem(), InstanceS3ImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceS3ImportPtrInput)(nil)).Elem(), InstanceS3ImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTimeoutsInput)(nil)).Elem(), IntegrationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTimeoutsPtrInput)(nil)).Elem(), IntegrationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionInput)(nil)).Elem(), OptionGroupOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionArrayInput)(nil)).Elem(), OptionGroupOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionOptionSettingInput)(nil)).Elem(), OptionGroupOptionOptionSettingArgs{})
@@ -3755,6 +3913,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationTimeoutsOutput{})
+	pulumi.RegisterOutputType(IntegrationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionArrayOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionOptionSettingOutput{})

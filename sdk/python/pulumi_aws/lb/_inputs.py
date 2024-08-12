@@ -3209,17 +3209,25 @@ if not MYPY:
         """
         Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
         """
+        unhealthy_draining_interval: NotRequired[pulumi.Input[int]]
+        """
+        Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+        """
 elif False:
     TargetGroupTargetHealthStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetGroupTargetHealthStateArgs:
     def __init__(__self__, *,
-                 enable_unhealthy_connection_termination: pulumi.Input[bool]):
+                 enable_unhealthy_connection_termination: pulumi.Input[bool],
+                 unhealthy_draining_interval: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] enable_unhealthy_connection_termination: Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
+        :param pulumi.Input[int] unhealthy_draining_interval: Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
         """
         pulumi.set(__self__, "enable_unhealthy_connection_termination", enable_unhealthy_connection_termination)
+        if unhealthy_draining_interval is not None:
+            pulumi.set(__self__, "unhealthy_draining_interval", unhealthy_draining_interval)
 
     @property
     @pulumi.getter(name="enableUnhealthyConnectionTermination")
@@ -3232,5 +3240,17 @@ class TargetGroupTargetHealthStateArgs:
     @enable_unhealthy_connection_termination.setter
     def enable_unhealthy_connection_termination(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enable_unhealthy_connection_termination", value)
+
+    @property
+    @pulumi.getter(name="unhealthyDrainingInterval")
+    def unhealthy_draining_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+        """
+        return pulumi.get(self, "unhealthy_draining_interval")
+
+    @unhealthy_draining_interval.setter
+    def unhealthy_draining_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "unhealthy_draining_interval", value)
 
 

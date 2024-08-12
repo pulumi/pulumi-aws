@@ -55,6 +55,11 @@ export type Snapshot = import("./snapshot").Snapshot;
 export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
 utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
 
+export { SnapshotBlockPublicAccessArgs, SnapshotBlockPublicAccessState } from "./snapshotBlockPublicAccess";
+export type SnapshotBlockPublicAccess = import("./snapshotBlockPublicAccess").SnapshotBlockPublicAccess;
+export const SnapshotBlockPublicAccess: typeof import("./snapshotBlockPublicAccess").SnapshotBlockPublicAccess = null as any;
+utilities.lazyLoad(exports, ["SnapshotBlockPublicAccess"], () => require("./snapshotBlockPublicAccess"));
+
 export { SnapshotCopyArgs, SnapshotCopyState } from "./snapshotCopy";
 export type SnapshotCopy = import("./snapshotCopy").SnapshotCopy;
 export const SnapshotCopy: typeof import("./snapshotCopy").SnapshotCopy = null as any;
@@ -83,6 +88,8 @@ const _module = {
                 return new FastSnapshotRestore(name, <any>undefined, { urn })
             case "aws:ebs/snapshot:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
+            case "aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess":
+                return new SnapshotBlockPublicAccess(name, <any>undefined, { urn })
             case "aws:ebs/snapshotCopy:SnapshotCopy":
                 return new SnapshotCopy(name, <any>undefined, { urn })
             case "aws:ebs/snapshotImport:SnapshotImport":
@@ -98,6 +105,7 @@ pulumi.runtime.registerResourceModule("aws", "ebs/defaultKmsKey", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/encryptionByDefault", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/fastSnapshotRestore", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshot", _module)
+pulumi.runtime.registerResourceModule("aws", "ebs/snapshotBlockPublicAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshotCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshotImport", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/volume", _module)

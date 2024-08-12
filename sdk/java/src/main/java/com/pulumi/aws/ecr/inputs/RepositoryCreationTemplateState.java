@@ -109,14 +109,14 @@ public final class RepositoryCreationTemplateState extends com.pulumi.resources.
     }
 
     /**
-     * The repository name prefix to match against.
+     * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The repository name prefix to match against.
+     * @return The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -340,7 +340,7 @@ public final class RepositoryCreationTemplateState extends com.pulumi.resources.
         }
 
         /**
-         * @param prefix The repository name prefix to match against.
+         * @param prefix The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class RepositoryCreationTemplateState extends com.pulumi.resources.
         }
 
         /**
-         * @param prefix The repository name prefix to match against.
+         * @param prefix The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
          * 
          * @return builder
          * 

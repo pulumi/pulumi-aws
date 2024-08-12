@@ -25,6 +25,11 @@ export const getSecretVersion: typeof import("./getSecretVersion").getSecretVers
 export const getSecretVersionOutput: typeof import("./getSecretVersion").getSecretVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getSecretVersion","getSecretVersionOutput"], () => require("./getSecretVersion"));
 
+export { GetSecretVersionsArgs, GetSecretVersionsResult, GetSecretVersionsOutputArgs } from "./getSecretVersions";
+export const getSecretVersions: typeof import("./getSecretVersions").getSecretVersions = null as any;
+export const getSecretVersionsOutput: typeof import("./getSecretVersions").getSecretVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getSecretVersions","getSecretVersionsOutput"], () => require("./getSecretVersions"));
+
 export { GetSecretsArgs, GetSecretsResult, GetSecretsOutputArgs } from "./getSecrets";
 export const getSecrets: typeof import("./getSecrets").getSecrets = null as any;
 export const getSecretsOutput: typeof import("./getSecrets").getSecretsOutput = null as any;

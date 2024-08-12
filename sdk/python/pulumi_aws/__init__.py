@@ -3955,6 +3955,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ebs/snapshotBlockPublicAccess",
+  "fqn": "pulumi_aws.ebs",
+  "classes": {
+   "aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess": "SnapshotBlockPublicAccess"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ebs/snapshotCopy",
   "fqn": "pulumi_aws.ebs",
   "classes": {
@@ -8815,6 +8823,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication": "InstanceAutomatedBackupsReplication"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rds/integration",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/integration:Integration": "Integration"
   }
  },
  {

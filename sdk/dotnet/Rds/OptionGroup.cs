@@ -133,6 +133,12 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<Outputs.OptionGroupOption>> Options { get; private set; } = null!;
 
         /// <summary>
+        /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+        /// </summary>
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -232,6 +238,12 @@ namespace Pulumi.Aws.Rds
             set => _options = value;
         }
 
+        /// <summary>
+        /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -300,6 +312,12 @@ namespace Pulumi.Aws.Rds
             get => _options ?? (_options = new InputList<Inputs.OptionGroupOptionGetArgs>());
             set => _options = value;
         }
+
+        /// <summary>
+        /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -82,6 +82,10 @@ export class LicenseAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly freeTrialExpiration!: pulumi.Output<string>;
     /**
+     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     */
+    public readonly grafanaToken!: pulumi.Output<string | undefined>;
+    /**
      * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      */
     public /*out*/ readonly licenseExpiration!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class LicenseAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LicenseAssociationState | undefined;
             resourceInputs["freeTrialExpiration"] = state ? state.freeTrialExpiration : undefined;
+            resourceInputs["grafanaToken"] = state ? state.grafanaToken : undefined;
             resourceInputs["licenseExpiration"] = state ? state.licenseExpiration : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
@@ -119,6 +124,7 @@ export class LicenseAssociation extends pulumi.CustomResource {
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
+            resourceInputs["grafanaToken"] = args ? args.grafanaToken : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["freeTrialExpiration"] = undefined /*out*/;
@@ -138,6 +144,10 @@ export interface LicenseAssociationState {
      */
     freeTrialExpiration?: pulumi.Input<string>;
     /**
+     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     */
+    grafanaToken?: pulumi.Input<string>;
+    /**
      * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      */
     licenseExpiration?: pulumi.Input<string>;
@@ -155,6 +165,10 @@ export interface LicenseAssociationState {
  * The set of arguments for constructing a LicenseAssociation resource.
  */
 export interface LicenseAssociationArgs {
+    /**
+     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     */
+    grafanaToken?: pulumi.Input<string>;
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      */

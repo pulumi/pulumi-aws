@@ -441,6 +441,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableExecuteCommand);
     }
     /**
+     * Enable to delete a service even if it wasn&#39;t scaled down to zero tasks. It&#39;s only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+     * 
+     */
+    @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forceDelete;
+
+    /**
+     * @return Enable to delete a service even if it wasn&#39;t scaled down to zero tasks. It&#39;s only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+     * 
+     */
+    public Output<Optional<Boolean>> forceDelete() {
+        return Codegen.optional(this.forceDelete);
+    }
+    /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
      * 
      */

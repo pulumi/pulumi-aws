@@ -166,7 +166,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Execute command configuration for the cluster. See `configueration` Block for details.
+     * Execute command configuration for the cluster. See `configuration` Block for details.
      */
     public readonly configuration!: pulumi.Output<outputs.ecs.ClusterConfiguration | undefined>;
     /**
@@ -238,7 +238,7 @@ export interface ClusterState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Execute command configuration for the cluster. See `configueration` Block for details.
+     * Execute command configuration for the cluster. See `configuration` Block for details.
      */
     configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
     /**
@@ -272,7 +272,7 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * Execute command configuration for the cluster. See `configueration` Block for details.
+     * Execute command configuration for the cluster. See `configuration` Block for details.
      */
     configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
     /**

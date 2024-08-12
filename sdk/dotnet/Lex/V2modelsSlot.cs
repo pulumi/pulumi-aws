@@ -105,7 +105,13 @@ namespace Pulumi.Aws.Lex
         /// Unique identifier for the slot type associated with this slot.
         /// </summary>
         [Output("slotTypeId")]
-        public Output<string?> SlotTypeId { get; private set; } = null!;
+        public Output<string> SlotTypeId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifications for the constituent sub slots and the expression for the composite slot.
+        /// </summary>
+        [Output("subSlotSettings")]
+        public Output<ImmutableArray<Outputs.V2modelsSlotSubSlotSetting>> SubSlotSettings { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.V2modelsSlotTimeouts?> Timeouts { get; private set; } = null!;
@@ -230,6 +236,18 @@ namespace Pulumi.Aws.Lex
         [Input("slotTypeId")]
         public Input<string>? SlotTypeId { get; set; }
 
+        [Input("subSlotSettings")]
+        private InputList<Inputs.V2modelsSlotSubSlotSettingArgs>? _subSlotSettings;
+
+        /// <summary>
+        /// Specifications for the constituent sub slots and the expression for the composite slot.
+        /// </summary>
+        public InputList<Inputs.V2modelsSlotSubSlotSettingArgs> SubSlotSettings
+        {
+            get => _subSlotSettings ?? (_subSlotSettings = new InputList<Inputs.V2modelsSlotSubSlotSettingArgs>());
+            set => _subSlotSettings = value;
+        }
+
         [Input("timeouts")]
         public Input<Inputs.V2modelsSlotTimeoutsArgs>? Timeouts { get; set; }
 
@@ -320,6 +338,18 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("slotTypeId")]
         public Input<string>? SlotTypeId { get; set; }
+
+        [Input("subSlotSettings")]
+        private InputList<Inputs.V2modelsSlotSubSlotSettingGetArgs>? _subSlotSettings;
+
+        /// <summary>
+        /// Specifications for the constituent sub slots and the expression for the composite slot.
+        /// </summary>
+        public InputList<Inputs.V2modelsSlotSubSlotSettingGetArgs> SubSlotSettings
+        {
+            get => _subSlotSettings ?? (_subSlotSettings = new InputList<Inputs.V2modelsSlotSubSlotSettingGetArgs>());
+            set => _subSlotSettings = value;
+        }
 
         [Input("timeouts")]
         public Input<Inputs.V2modelsSlotTimeoutsGetArgs>? Timeouts { get; set; }

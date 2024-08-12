@@ -463,8 +463,9 @@ type Function struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
-	SnapStart      FunctionSnapStartPtrOutput `pulumi:"snapStart"`
-	SourceCodeHash pulumi.StringOutput        `pulumi:"sourceCodeHash"`
+	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -593,8 +594,9 @@ type functionState struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
-	SnapStart      *FunctionSnapStart `pulumi:"snapStart"`
-	SourceCodeHash *string            `pulumi:"sourceCodeHash"`
+	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -691,7 +693,8 @@ type FunctionState struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
 	// Snap start settings block. Detailed below.
-	SnapStart      FunctionSnapStartPtrInput
+	SnapStart FunctionSnapStartPtrInput
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringPtrInput
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
@@ -777,8 +780,9 @@ type functionArgs struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
-	SnapStart      *FunctionSnapStart `pulumi:"snapStart"`
-	SourceCodeHash *string            `pulumi:"sourceCodeHash"`
+	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
@@ -852,7 +856,8 @@ type FunctionArgs struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
 	// Snap start settings block. Detailed below.
-	SnapStart      FunctionSnapStartPtrInput
+	SnapStart FunctionSnapStartPtrInput
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -1137,6 +1142,7 @@ func (o FunctionOutput) SnapStart() FunctionSnapStartPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionSnapStartPtrOutput { return v.SnapStart }).(FunctionSnapStartPtrOutput)
 }
 
+// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 func (o FunctionOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SourceCodeHash }).(pulumi.StringOutput)
 }

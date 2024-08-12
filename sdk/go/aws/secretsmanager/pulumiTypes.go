@@ -427,6 +427,124 @@ func (o GetSecretRotationRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSe
 	}).(GetSecretRotationRotationRuleOutput)
 }
 
+type GetSecretVersionsVersion struct {
+	CreatedTime string `pulumi:"createdTime"`
+	// Date that this version of the secret was last accessed.
+	LastAccessedDate string `pulumi:"lastAccessedDate"`
+	// Unique version identifier of this version of the secret.
+	VersionId     string   `pulumi:"versionId"`
+	VersionStages []string `pulumi:"versionStages"`
+}
+
+// GetSecretVersionsVersionInput is an input type that accepts GetSecretVersionsVersionArgs and GetSecretVersionsVersionOutput values.
+// You can construct a concrete instance of `GetSecretVersionsVersionInput` via:
+//
+//	GetSecretVersionsVersionArgs{...}
+type GetSecretVersionsVersionInput interface {
+	pulumi.Input
+
+	ToGetSecretVersionsVersionOutput() GetSecretVersionsVersionOutput
+	ToGetSecretVersionsVersionOutputWithContext(context.Context) GetSecretVersionsVersionOutput
+}
+
+type GetSecretVersionsVersionArgs struct {
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// Date that this version of the secret was last accessed.
+	LastAccessedDate pulumi.StringInput `pulumi:"lastAccessedDate"`
+	// Unique version identifier of this version of the secret.
+	VersionId     pulumi.StringInput      `pulumi:"versionId"`
+	VersionStages pulumi.StringArrayInput `pulumi:"versionStages"`
+}
+
+func (GetSecretVersionsVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretVersionsVersion)(nil)).Elem()
+}
+
+func (i GetSecretVersionsVersionArgs) ToGetSecretVersionsVersionOutput() GetSecretVersionsVersionOutput {
+	return i.ToGetSecretVersionsVersionOutputWithContext(context.Background())
+}
+
+func (i GetSecretVersionsVersionArgs) ToGetSecretVersionsVersionOutputWithContext(ctx context.Context) GetSecretVersionsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretVersionsVersionOutput)
+}
+
+// GetSecretVersionsVersionArrayInput is an input type that accepts GetSecretVersionsVersionArray and GetSecretVersionsVersionArrayOutput values.
+// You can construct a concrete instance of `GetSecretVersionsVersionArrayInput` via:
+//
+//	GetSecretVersionsVersionArray{ GetSecretVersionsVersionArgs{...} }
+type GetSecretVersionsVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetSecretVersionsVersionArrayOutput() GetSecretVersionsVersionArrayOutput
+	ToGetSecretVersionsVersionArrayOutputWithContext(context.Context) GetSecretVersionsVersionArrayOutput
+}
+
+type GetSecretVersionsVersionArray []GetSecretVersionsVersionInput
+
+func (GetSecretVersionsVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretVersionsVersion)(nil)).Elem()
+}
+
+func (i GetSecretVersionsVersionArray) ToGetSecretVersionsVersionArrayOutput() GetSecretVersionsVersionArrayOutput {
+	return i.ToGetSecretVersionsVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecretVersionsVersionArray) ToGetSecretVersionsVersionArrayOutputWithContext(ctx context.Context) GetSecretVersionsVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretVersionsVersionArrayOutput)
+}
+
+type GetSecretVersionsVersionOutput struct{ *pulumi.OutputState }
+
+func (GetSecretVersionsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretVersionsVersion)(nil)).Elem()
+}
+
+func (o GetSecretVersionsVersionOutput) ToGetSecretVersionsVersionOutput() GetSecretVersionsVersionOutput {
+	return o
+}
+
+func (o GetSecretVersionsVersionOutput) ToGetSecretVersionsVersionOutputWithContext(ctx context.Context) GetSecretVersionsVersionOutput {
+	return o
+}
+
+func (o GetSecretVersionsVersionOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretVersionsVersion) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Date that this version of the secret was last accessed.
+func (o GetSecretVersionsVersionOutput) LastAccessedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretVersionsVersion) string { return v.LastAccessedDate }).(pulumi.StringOutput)
+}
+
+// Unique version identifier of this version of the secret.
+func (o GetSecretVersionsVersionOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretVersionsVersion) string { return v.VersionId }).(pulumi.StringOutput)
+}
+
+func (o GetSecretVersionsVersionOutput) VersionStages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecretVersionsVersion) []string { return v.VersionStages }).(pulumi.StringArrayOutput)
+}
+
+type GetSecretVersionsVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecretVersionsVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretVersionsVersion)(nil)).Elem()
+}
+
+func (o GetSecretVersionsVersionArrayOutput) ToGetSecretVersionsVersionArrayOutput() GetSecretVersionsVersionArrayOutput {
+	return o
+}
+
+func (o GetSecretVersionsVersionArrayOutput) ToGetSecretVersionsVersionArrayOutputWithContext(ctx context.Context) GetSecretVersionsVersionArrayOutput {
+	return o
+}
+
+func (o GetSecretVersionsVersionArrayOutput) Index(i pulumi.IntInput) GetSecretVersionsVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecretVersionsVersion {
+		return vs[0].([]GetSecretVersionsVersion)[vs[1].(int)]
+	}).(GetSecretVersionsVersionOutput)
+}
+
 type GetSecretsFilter struct {
 	// Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
 	Name string `pulumi:"name"`
@@ -540,6 +658,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationRotationRulesPtrInput)(nil)).Elem(), SecretRotationRotationRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRotationRuleInput)(nil)).Elem(), GetSecretRotationRotationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRotationRuleArrayInput)(nil)).Elem(), GetSecretRotationRotationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretVersionsVersionInput)(nil)).Elem(), GetSecretVersionsVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretVersionsVersionArrayInput)(nil)).Elem(), GetSecretVersionsVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsFilterInput)(nil)).Elem(), GetSecretsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsFilterArrayInput)(nil)).Elem(), GetSecretsFilterArray{})
 	pulumi.RegisterOutputType(SecretReplicaOutput{})
@@ -548,6 +668,8 @@ func init() {
 	pulumi.RegisterOutputType(SecretRotationRotationRulesPtrOutput{})
 	pulumi.RegisterOutputType(GetSecretRotationRotationRuleOutput{})
 	pulumi.RegisterOutputType(GetSecretRotationRotationRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetSecretVersionsVersionOutput{})
+	pulumi.RegisterOutputType(GetSecretVersionsVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretsFilterOutput{})
 	pulumi.RegisterOutputType(GetSecretsFilterArrayOutput{})
 }

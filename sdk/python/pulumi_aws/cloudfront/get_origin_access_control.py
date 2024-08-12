@@ -131,7 +131,7 @@ def get_origin_access_control(id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudfront.get_origin_access_identity(id="E2T5VTFBZJ3BJB")
+    example = aws.cloudfront.get_origin_access_control(id="E2T5VTFBZJ3BJB")
     ```
 
 
@@ -166,7 +166,7 @@ def get_origin_access_control_output(id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudfront.get_origin_access_identity(id="E2T5VTFBZJ3BJB")
+    example = aws.cloudfront.get_origin_access_control(id="E2T5VTFBZJ3BJB")
     ```
 
 

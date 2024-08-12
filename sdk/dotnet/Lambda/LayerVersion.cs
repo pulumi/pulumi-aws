@@ -159,6 +159,9 @@ namespace Pulumi.Aws.Lambda
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
+        /// <summary>
+        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// </summary>
         [Output("sourceCodeHash")]
         public Output<string> SourceCodeHash { get; private set; } = null!;
 
@@ -294,6 +297,9 @@ namespace Pulumi.Aws.Lambda
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
+        /// <summary>
+        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
 
@@ -415,6 +421,9 @@ namespace Pulumi.Aws.Lambda
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
+        /// <summary>
+        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
 

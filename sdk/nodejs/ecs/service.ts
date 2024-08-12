@@ -194,6 +194,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+     */
+    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      */
     public readonly forceNewDeployment!: pulumi.Output<boolean | undefined>;
@@ -301,6 +305,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["desiredCount"] = state ? state.desiredCount : undefined;
             resourceInputs["enableEcsManagedTags"] = state ? state.enableEcsManagedTags : undefined;
             resourceInputs["enableExecuteCommand"] = state ? state.enableExecuteCommand : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
             resourceInputs["forceNewDeployment"] = state ? state.forceNewDeployment : undefined;
             resourceInputs["healthCheckGracePeriodSeconds"] = state ? state.healthCheckGracePeriodSeconds : undefined;
             resourceInputs["iamRole"] = state ? state.iamRole : undefined;
@@ -333,6 +338,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["desiredCount"] = args ? args.desiredCount : undefined;
             resourceInputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
             resourceInputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
             resourceInputs["forceNewDeployment"] = args ? args.forceNewDeployment : undefined;
             resourceInputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
             resourceInputs["iamRole"] = args ? args.iamRole : undefined;
@@ -403,6 +409,10 @@ export interface ServiceState {
      * Whether to enable Amazon ECS Exec for the tasks within the service.
      */
     enableExecuteCommand?: pulumi.Input<boolean>;
+    /**
+     * Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+     */
+    forceDelete?: pulumi.Input<boolean>;
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      */
@@ -533,6 +543,10 @@ export interface ServiceArgs {
      * Whether to enable Amazon ECS Exec for the tasks within the service.
      */
     enableExecuteCommand?: pulumi.Input<boolean>;
+    /**
+     * Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+     */
+    forceDelete?: pulumi.Input<boolean>;
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      */

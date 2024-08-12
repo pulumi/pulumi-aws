@@ -12,12 +12,15 @@ import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationPlainArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionPlainArgs;
+import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionsArgs;
+import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionsPlainArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretsPlainArgs;
 import com.pulumi.aws.secretsmanager.outputs.GetRandomPasswordResult;
 import com.pulumi.aws.secretsmanager.outputs.GetSecretResult;
 import com.pulumi.aws.secretsmanager.outputs.GetSecretRotationResult;
 import com.pulumi.aws.secretsmanager.outputs.GetSecretVersionResult;
+import com.pulumi.aws.secretsmanager.outputs.GetSecretVersionsResult;
 import com.pulumi.aws.secretsmanager.outputs.GetSecretsResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -1261,6 +1264,18 @@ public final class SecretsmanagerFunctions {
      */
     public static CompletableFuture<GetSecretVersionResult> getSecretVersionPlain(GetSecretVersionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:secretsmanager/getSecretVersion:getSecretVersion", TypeShape.of(GetSecretVersionResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetSecretVersionsResult> getSecretVersions(GetSecretVersionsArgs args) {
+        return getSecretVersions(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSecretVersionsResult> getSecretVersionsPlain(GetSecretVersionsPlainArgs args) {
+        return getSecretVersionsPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSecretVersionsResult> getSecretVersions(GetSecretVersionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:secretsmanager/getSecretVersions:getSecretVersions", TypeShape.of(GetSecretVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSecretVersionsResult> getSecretVersionsPlain(GetSecretVersionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:secretsmanager/getSecretVersions:getSecretVersions", TypeShape.of(GetSecretVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.

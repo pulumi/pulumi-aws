@@ -19,6 +19,7 @@ from .event_subscription import *
 from .export_task import *
 from .get_certificate import *
 from .get_cluster import *
+from .get_cluster_parameter_group import *
 from .get_cluster_snapshot import *
 from .get_clusters import *
 from .get_engine_version import *
@@ -34,6 +35,7 @@ from .get_subnet_group import *
 from .global_cluster import *
 from .instance import *
 from .instance_automated_backups_replication import *
+from .integration import *
 from .option_group import *
 from .parameter_group import *
 from .proxy import *

@@ -64,7 +64,7 @@ export class Disk extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Lightsail load balancer.
+     * The ARN of the Lightsail disk.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -72,15 +72,15 @@ export class Disk extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The timestamp when the load balancer was created.
+     * The timestamp when the disk was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * The name of the Lightsail load balancer.
+     * The name of the disk.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The instance port the load balancer will connect.
+     * The size of the disk in GB.
      */
     public readonly sizeInGb!: pulumi.Output<number>;
     /**
@@ -146,7 +146,7 @@ export class Disk extends pulumi.CustomResource {
  */
 export interface DiskState {
     /**
-     * The ARN of the Lightsail load balancer.
+     * The ARN of the Lightsail disk.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -154,15 +154,15 @@ export interface DiskState {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The timestamp when the load balancer was created.
+     * The timestamp when the disk was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * The name of the Lightsail load balancer.
+     * The name of the disk.
      */
     name?: pulumi.Input<string>;
     /**
-     * The instance port the load balancer will connect.
+     * The size of the disk in GB.
      */
     sizeInGb?: pulumi.Input<number>;
     /**
@@ -190,11 +190,11 @@ export interface DiskArgs {
      */
     availabilityZone: pulumi.Input<string>;
     /**
-     * The name of the Lightsail load balancer.
+     * The name of the disk.
      */
     name?: pulumi.Input<string>;
     /**
-     * The instance port the load balancer will connect.
+     * The size of the disk in GB.
      */
     sizeInGb: pulumi.Input<number>;
     /**
