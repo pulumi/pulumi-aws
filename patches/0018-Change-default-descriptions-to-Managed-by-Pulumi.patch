@@ -255,10 +255,10 @@ index 961d1f0438..710fd0b998 100644
  			"hls_ingest": {
  				Type:     schema.TypeList,
 diff --git a/internal/service/memorydb/cluster.go b/internal/service/memorydb/cluster.go
-index 6da7b98284..1c32f5cd6a 100644
+index 2949e693d0..41e116d86e 100644
 --- a/internal/service/memorydb/cluster.go
 +++ b/internal/service/memorydb/cluster.go
-@@ -73,7 +73,7 @@ func ResourceCluster() *schema.Resource {
+@@ -74,7 +74,7 @@ func ResourceCluster() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
@@ -268,10 +268,10 @@ index 6da7b98284..1c32f5cd6a 100644
  			"engine_patch_version": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/parameter_group.go b/internal/service/memorydb/parameter_group.go
-index ca5f2daae9..ae4c0946b3 100644
+index bb5a2aa140..c7b0e542f1 100644
 --- a/internal/service/memorydb/parameter_group.go
 +++ b/internal/service/memorydb/parameter_group.go
-@@ -51,7 +51,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -53,7 +53,7 @@ func ResourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -281,10 +281,10 @@ index ca5f2daae9..ae4c0946b3 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/subnet_group.go b/internal/service/memorydb/subnet_group.go
-index 314802c87e..9bd9633a92 100644
+index e0793679f8..f187f9c2c8 100644
 --- a/internal/service/memorydb/subnet_group.go
 +++ b/internal/service/memorydb/subnet_group.go
-@@ -46,7 +46,7 @@ func ResourceSubnetGroup() *schema.Resource {
+@@ -47,7 +47,7 @@ func ResourceSubnetGroup() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
@@ -346,7 +346,7 @@ index 4cdc5534b8..027f57f753 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/option_group.go b/internal/service/rds/option_group.go
-index 14fea7aed7..6850948f7c 100644
+index 1cadaf1754..7ddd71cbe5 100644
 --- a/internal/service/rds/option_group.go
 +++ b/internal/service/rds/option_group.go
 @@ -127,7 +127,7 @@ func resourceOptionGroup() *schema.Resource {
@@ -356,10 +356,10 @@ index 14fea7aed7..6850948f7c 100644
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			names.AttrTags:    tftags.TagsSchema(),
- 			names.AttrTagsAll: tftags.TagsSchemaComputed(),
+ 			names.AttrSkipDestroy: {
+ 				Type:     schema.TypeBool,
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index 9dc8d4ed15..d9c94aaef9 100644
+index 7f88932b6f..e5d014a8c8 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
 @@ -53,7 +53,7 @@ func resourceParameterGroup() *schema.Resource {

@@ -54,7 +54,7 @@ index 93b0f2a4d6..8ba13b8354 100644
  			DebugLogging:   aws.Bool(d.Get("debug_logging").(bool)),
  			NewDBProxyName: aws.String(nName.(string)),
 diff --git a/internal/service/rds/proxy_test.go b/internal/service/rds/proxy_test.go
-index 77f58e1e4e..402b85fb6c 100644
+index 92e434b607..72b5778bfc 100644
 --- a/internal/service/rds/proxy_test.go
 +++ b/internal/service/rds/proxy_test.go
 @@ -40,18 +40,16 @@ func TestAccRDSProxy_basic(t *testing.T) {
@@ -474,7 +474,7 @@ index 77f58e1e4e..402b85fb6c 100644
 -}
 -
 -func testAccProxyConfig_tags1(rName, tagKey1, tagValue1 string) string {
--	return testAccProxyConfig_base(rName) + fmt.Sprintf(`
+-	return acctest.ConfigCompose(testAccProxyConfig_base(rName), fmt.Sprintf(`
 -resource "aws_db_proxy" "test" {
 -  depends_on = [
 -    aws_secretsmanager_secret_version.test,
@@ -498,14 +498,14 @@ index 77f58e1e4e..402b85fb6c 100644
 -    %[2]q = %[3]q
 -  }
 -}
--`, rName, tagKey1, tagValue1)
+-`, rName, tagKey1, tagValue1))
 +`, rName, nName)
  }
  
 -func testAccProxyConfig_tags2(rName, tagKey1, tagValue1, tagKey2, tagValue2 string) string {
--	return testAccProxyConfig_base(rName) + fmt.Sprintf(`
+-	return acctest.ConfigCompose(testAccProxyConfig_base(rName), fmt.Sprintf(`
 +func testAccProxyConfig_tags(rName, key, value string) string {
-+	return testAccProxyBaseConfig(rName) + fmt.Sprintf(`
++	return acctest.ConfigCompose(testAccProxyBaseConfig(rName), fmt.Sprintf(`
  resource "aws_db_proxy" "test" {
    depends_on = [
      aws_secretsmanager_secret_version.test,
@@ -526,6 +526,6 @@ index 77f58e1e4e..402b85fb6c 100644
 +    %[2]s = "%[3]s"
    }
  }
--`, rName, tagKey1, tagValue1, tagKey2, tagValue2)
-+`, rName, key, value)
+-`, rName, tagKey1, tagValue1, tagKey2, tagValue2))
++`, rName, key, value))
  }

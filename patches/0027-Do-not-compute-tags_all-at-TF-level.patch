@@ -21,10 +21,10 @@ index 7c33a2aae0..3c17d64604 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 907368474a..e91f383a3a 100644
+index 5435b50317..1e888e3ae9 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -432,8 +432,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -435,8 +435,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
@@ -140,10 +140,10 @@ index a707a1277b..cd8d6dfd54 100644
  				Optional: true,
  				Validators: []validator.Int64{
 diff --git a/internal/service/lexv2models/bot.go b/internal/service/lexv2models/bot.go
-index 95c069c72f..bb4bcf390e 100644
+index dc959ccd7e..1d0f2caaa0 100644
 --- a/internal/service/lexv2models/bot.go
 +++ b/internal/service/lexv2models/bot.go
-@@ -82,7 +82,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
+@@ -83,7 +83,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
  				Required:   true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

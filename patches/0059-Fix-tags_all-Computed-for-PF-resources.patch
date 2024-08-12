@@ -1,71 +1,19 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Florian Stadler <florian@pulumi.com>
-Date: Tue, 18 Jun 2024 10:24:51 +0200
+Date: Mon, 24 Jun 2024 12:21:45 +0200
 Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
-diff --git a/internal/service/appfabric/app_authorization.go b/internal/service/appfabric/app_authorization.go
-index 07bafd3e84..df82b14d52 100644
---- a/internal/service/appfabric/app_authorization.go
-+++ b/internal/service/appfabric/app_authorization.go
-@@ -105,7 +105,7 @@ func (r *appAuthorizationResource) Schema(ctx context.Context, request resource.
- 				},
- 			},
- 			names.AttrTags:    tftags.TagsAttribute(),
--			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
+diff --git a/internal/service/drs/replication_configuration_template.go b/internal/service/drs/replication_configuration_template.go
+index 8c08dee0b2..75eb1266a5 100644
+--- a/internal/service/drs/replication_configuration_template.go
++++ b/internal/service/drs/replication_configuration_template.go
+@@ -106,7 +106,7 @@ func (r *replicationConfigurationTemplateResource) Schema(ctx context.Context, r
+ 
+ 			"staging_area_tags": tftags.TagsAttribute(),
+ 			names.AttrTags:      tftags.TagsAttribute(),
+-			names.AttrTagsAll:   tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll: tftags.TagsAttribute(),
- 			"updated_at": schema.StringAttribute{
- 				CustomType: timetypes.RFC3339Type{},
- 				Computed:   true,
-diff --git a/internal/service/appfabric/app_bundle.go b/internal/service/appfabric/app_bundle.go
-index 98a55920b8..e1085f4cc4 100644
---- a/internal/service/appfabric/app_bundle.go
-+++ b/internal/service/appfabric/app_bundle.go
-@@ -58,7 +58,7 @@ func (r *appBundleResource) Schema(ctx context.Context, request resource.SchemaR
- 			},
- 			names.AttrID:      framework.IDAttribute(),
- 			names.AttrTags:    tftags.TagsAttribute(),
--			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
- 		},
- 	}
- }
-diff --git a/internal/service/ec2/ec2_capacity_block_reservation.go b/internal/service/ec2/ec2_capacity_block_reservation.go
-index 6a9c0292d9..f4a82b54e3 100644
---- a/internal/service/ec2/ec2_capacity_block_reservation.go
-+++ b/internal/service/ec2/ec2_capacity_block_reservation.go
-@@ -146,7 +146,7 @@ func (r *capacityBlockReservationResource) Schema(ctx context.Context, _ resourc
- 				},
- 			},
- 			names.AttrTags:    tftags.TagsAttribute(),
--			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
- 			"tenancy": schema.StringAttribute{
- 				Computed: true,
- 				PlanModifiers: []planmodifier.String{
-diff --git a/internal/service/fms/resource_set.go b/internal/service/fms/resource_set.go
-index 8722e6a2b6..09293cdecc 100644
---- a/internal/service/fms/resource_set.go
-+++ b/internal/service/fms/resource_set.go
-@@ -103,7 +103,7 @@ func (r *resourceResourceSet) Schema(ctx context.Context, req resource.SchemaReq
- 			names.AttrID:      framework.IDAttribute(),
- 			names.AttrARN:     framework.ARNAttributeComputedOnly(),
- 			names.AttrTags:    tftags.TagsAttribute(),
--			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
- 		},
- 		Blocks: map[string]schema.Block{
- 			"resource_set": resourceSetLNB,
-diff --git a/internal/service/guardduty/malware_protection_plan.go b/internal/service/guardduty/malware_protection_plan.go
-index efe2773748..c48b5ff4aa 100644
---- a/internal/service/guardduty/malware_protection_plan.go
-+++ b/internal/service/guardduty/malware_protection_plan.go
-@@ -88,7 +88,7 @@ func (r *resourceMalwareProtectionPlan) Schema(ctx context.Context, req resource
- 				Computed: true,
- 			},
- 			names.AttrTags:    tftags.TagsAttribute(),
--			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
- 		},
- 		Blocks: map[string]schema.Block{
- 			"protected_resource": schema.ListNestedBlock{
+ 
+ 			"use_dedicated_replication_server": schema.BoolAttribute{
+ 				Required: true,
