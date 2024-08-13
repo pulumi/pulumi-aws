@@ -677,7 +677,7 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketLifecycleConfigurationV2(String name) {
+    public BucketLifecycleConfigurationV2(java.lang.String name) {
         this(name, BucketLifecycleConfigurationV2Args.Empty);
     }
     /**
@@ -685,7 +685,7 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketLifecycleConfigurationV2(String name, BucketLifecycleConfigurationV2Args args) {
+    public BucketLifecycleConfigurationV2(java.lang.String name, BucketLifecycleConfigurationV2Args args) {
         this(name, args, null);
     }
     /**
@@ -694,15 +694,22 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketLifecycleConfigurationV2(String name, BucketLifecycleConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2", name, args == null ? BucketLifecycleConfigurationV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketLifecycleConfigurationV2(java.lang.String name, BucketLifecycleConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketLifecycleConfigurationV2(String name, Output<String> id, @Nullable BucketLifecycleConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2", name, state, makeResourceOptions(options, id));
+    private BucketLifecycleConfigurationV2(java.lang.String name, Output<java.lang.String> id, @Nullable BucketLifecycleConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketLifecycleConfigurationV2Args makeArgs(BucketLifecycleConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketLifecycleConfigurationV2Args.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -718,7 +725,7 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketLifecycleConfigurationV2 get(String name, Output<String> id, @Nullable BucketLifecycleConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketLifecycleConfigurationV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketLifecycleConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketLifecycleConfigurationV2(name, id, state, options);
     }
 }

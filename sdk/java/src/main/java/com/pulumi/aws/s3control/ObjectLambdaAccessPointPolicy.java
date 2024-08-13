@@ -168,7 +168,7 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ObjectLambdaAccessPointPolicy(String name) {
+    public ObjectLambdaAccessPointPolicy(java.lang.String name) {
         this(name, ObjectLambdaAccessPointPolicyArgs.Empty);
     }
     /**
@@ -176,7 +176,7 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ObjectLambdaAccessPointPolicy(String name, ObjectLambdaAccessPointPolicyArgs args) {
+    public ObjectLambdaAccessPointPolicy(java.lang.String name, ObjectLambdaAccessPointPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -185,15 +185,22 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ObjectLambdaAccessPointPolicy(String name, ObjectLambdaAccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy", name, args == null ? ObjectLambdaAccessPointPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ObjectLambdaAccessPointPolicy(java.lang.String name, ObjectLambdaAccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ObjectLambdaAccessPointPolicy(String name, Output<String> id, @Nullable ObjectLambdaAccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy", name, state, makeResourceOptions(options, id));
+    private ObjectLambdaAccessPointPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ObjectLambdaAccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ObjectLambdaAccessPointPolicyArgs makeArgs(ObjectLambdaAccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ObjectLambdaAccessPointPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -209,7 +216,7 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ObjectLambdaAccessPointPolicy get(String name, Output<String> id, @Nullable ObjectLambdaAccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ObjectLambdaAccessPointPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ObjectLambdaAccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ObjectLambdaAccessPointPolicy(name, id, state, options);
     }
 }

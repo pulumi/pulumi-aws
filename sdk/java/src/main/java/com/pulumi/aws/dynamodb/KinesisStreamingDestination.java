@@ -117,7 +117,7 @@ public class KinesisStreamingDestination extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KinesisStreamingDestination(String name) {
+    public KinesisStreamingDestination(java.lang.String name) {
         this(name, KinesisStreamingDestinationArgs.Empty);
     }
     /**
@@ -125,7 +125,7 @@ public class KinesisStreamingDestination extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KinesisStreamingDestination(String name, KinesisStreamingDestinationArgs args) {
+    public KinesisStreamingDestination(java.lang.String name, KinesisStreamingDestinationArgs args) {
         this(name, args, null);
     }
     /**
@@ -134,15 +134,22 @@ public class KinesisStreamingDestination extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KinesisStreamingDestination(String name, KinesisStreamingDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination", name, args == null ? KinesisStreamingDestinationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public KinesisStreamingDestination(java.lang.String name, KinesisStreamingDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KinesisStreamingDestination(String name, Output<String> id, @Nullable KinesisStreamingDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination", name, state, makeResourceOptions(options, id));
+    private KinesisStreamingDestination(java.lang.String name, Output<java.lang.String> id, @Nullable KinesisStreamingDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KinesisStreamingDestinationArgs makeArgs(KinesisStreamingDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KinesisStreamingDestinationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -158,7 +165,7 @@ public class KinesisStreamingDestination extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KinesisStreamingDestination get(String name, Output<String> id, @Nullable KinesisStreamingDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KinesisStreamingDestination get(java.lang.String name, Output<java.lang.String> id, @Nullable KinesisStreamingDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KinesisStreamingDestination(name, id, state, options);
     }
 }

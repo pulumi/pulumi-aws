@@ -124,7 +124,7 @@ public class ServiceSetting extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceSetting(String name) {
+    public ServiceSetting(java.lang.String name) {
         this(name, ServiceSettingArgs.Empty);
     }
     /**
@@ -132,7 +132,7 @@ public class ServiceSetting extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceSetting(String name, ServiceSettingArgs args) {
+    public ServiceSetting(java.lang.String name, ServiceSettingArgs args) {
         this(name, args, null);
     }
     /**
@@ -141,15 +141,22 @@ public class ServiceSetting extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceSetting(String name, ServiceSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/serviceSetting:ServiceSetting", name, args == null ? ServiceSettingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceSetting(java.lang.String name, ServiceSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/serviceSetting:ServiceSetting", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceSetting(String name, Output<String> id, @Nullable ServiceSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/serviceSetting:ServiceSetting", name, state, makeResourceOptions(options, id));
+    private ServiceSetting(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/serviceSetting:ServiceSetting", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceSettingArgs makeArgs(ServiceSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceSettingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -165,7 +172,7 @@ public class ServiceSetting extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceSetting get(String name, Output<String> id, @Nullable ServiceSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceSetting get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceSetting(name, id, state, options);
     }
 }

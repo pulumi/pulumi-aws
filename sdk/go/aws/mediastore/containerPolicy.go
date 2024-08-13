@@ -53,7 +53,7 @@ import (
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
 //								Identifiers: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("arn:aws:iam::%v:root", currentGetCallerIdentity.AccountId)),
+//									pulumi.Sprintf("arn:aws:iam::%v:root", currentGetCallerIdentity.AccountId),
 //								},
 //							},
 //						},

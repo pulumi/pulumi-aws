@@ -193,7 +193,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ObservabilityConfiguration(String name) {
+    public ObservabilityConfiguration(java.lang.String name) {
         this(name, ObservabilityConfigurationArgs.Empty);
     }
     /**
@@ -201,7 +201,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ObservabilityConfiguration(String name, ObservabilityConfigurationArgs args) {
+    public ObservabilityConfiguration(java.lang.String name, ObservabilityConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -210,15 +210,22 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ObservabilityConfiguration(String name, ObservabilityConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, args == null ? ObservabilityConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ObservabilityConfiguration(java.lang.String name, ObservabilityConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ObservabilityConfiguration(String name, Output<String> id, @Nullable ObservabilityConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, state, makeResourceOptions(options, id));
+    private ObservabilityConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable ObservabilityConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ObservabilityConfigurationArgs makeArgs(ObservabilityConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ObservabilityConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -234,7 +241,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ObservabilityConfiguration get(String name, Output<String> id, @Nullable ObservabilityConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ObservabilityConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable ObservabilityConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ObservabilityConfiguration(name, id, state, options);
     }
 }

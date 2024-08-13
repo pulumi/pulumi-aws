@@ -120,7 +120,7 @@ public class FastSnapshotRestore extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FastSnapshotRestore(String name) {
+    public FastSnapshotRestore(java.lang.String name) {
         this(name, FastSnapshotRestoreArgs.Empty);
     }
     /**
@@ -128,7 +128,7 @@ public class FastSnapshotRestore extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FastSnapshotRestore(String name, FastSnapshotRestoreArgs args) {
+    public FastSnapshotRestore(java.lang.String name, FastSnapshotRestoreArgs args) {
         this(name, args, null);
     }
     /**
@@ -137,15 +137,22 @@ public class FastSnapshotRestore extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FastSnapshotRestore(String name, FastSnapshotRestoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ebs/fastSnapshotRestore:FastSnapshotRestore", name, args == null ? FastSnapshotRestoreArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FastSnapshotRestore(java.lang.String name, FastSnapshotRestoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ebs/fastSnapshotRestore:FastSnapshotRestore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FastSnapshotRestore(String name, Output<String> id, @Nullable FastSnapshotRestoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ebs/fastSnapshotRestore:FastSnapshotRestore", name, state, makeResourceOptions(options, id));
+    private FastSnapshotRestore(java.lang.String name, Output<java.lang.String> id, @Nullable FastSnapshotRestoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ebs/fastSnapshotRestore:FastSnapshotRestore", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FastSnapshotRestoreArgs makeArgs(FastSnapshotRestoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FastSnapshotRestoreArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -161,7 +168,7 @@ public class FastSnapshotRestore extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FastSnapshotRestore get(String name, Output<String> id, @Nullable FastSnapshotRestoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FastSnapshotRestore get(java.lang.String name, Output<java.lang.String> id, @Nullable FastSnapshotRestoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FastSnapshotRestore(name, id, state, options);
     }
 }

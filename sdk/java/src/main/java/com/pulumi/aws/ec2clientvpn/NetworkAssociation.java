@@ -125,7 +125,7 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkAssociation(String name) {
+    public NetworkAssociation(java.lang.String name) {
         this(name, NetworkAssociationArgs.Empty);
     }
     /**
@@ -133,7 +133,7 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkAssociation(String name, NetworkAssociationArgs args) {
+    public NetworkAssociation(java.lang.String name, NetworkAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -142,15 +142,22 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkAssociation(String name, NetworkAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, args == null ? NetworkAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkAssociation(java.lang.String name, NetworkAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkAssociation(String name, Output<String> id, @Nullable NetworkAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, state, makeResourceOptions(options, id));
+    private NetworkAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkAssociationArgs makeArgs(NetworkAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -166,7 +173,7 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkAssociation get(String name, Output<String> id, @Nullable NetworkAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkAssociation(name, id, state, options);
     }
 }

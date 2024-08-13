@@ -309,7 +309,7 @@ import (
 //			// This is to optionally manage the CloudWatch Log Group for the Lambda Function.
 //			// If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
 //			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name:            pulumi.String(fmt.Sprintf("/aws/lambda/%v", lambdaFunctionName)),
+//				Name:            pulumi.Sprintf("/aws/lambda/%v", lambdaFunctionName),
 //				RetentionInDays: pulumi.Int(14),
 //			})
 //			if err != nil {

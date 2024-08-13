@@ -551,7 +551,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OntapFileSystem(String name) {
+    public OntapFileSystem(java.lang.String name) {
         this(name, OntapFileSystemArgs.Empty);
     }
     /**
@@ -559,7 +559,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OntapFileSystem(String name, OntapFileSystemArgs args) {
+    public OntapFileSystem(java.lang.String name, OntapFileSystemArgs args) {
         this(name, args, null);
     }
     /**
@@ -568,15 +568,22 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OntapFileSystem(String name, OntapFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/ontapFileSystem:OntapFileSystem", name, args == null ? OntapFileSystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OntapFileSystem(java.lang.String name, OntapFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/ontapFileSystem:OntapFileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OntapFileSystem(String name, Output<String> id, @Nullable OntapFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/ontapFileSystem:OntapFileSystem", name, state, makeResourceOptions(options, id));
+    private OntapFileSystem(java.lang.String name, Output<java.lang.String> id, @Nullable OntapFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/ontapFileSystem:OntapFileSystem", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OntapFileSystemArgs makeArgs(OntapFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OntapFileSystemArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -595,7 +602,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OntapFileSystem get(String name, Output<String> id, @Nullable OntapFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OntapFileSystem get(java.lang.String name, Output<java.lang.String> id, @Nullable OntapFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OntapFileSystem(name, id, state, options);
     }
 }

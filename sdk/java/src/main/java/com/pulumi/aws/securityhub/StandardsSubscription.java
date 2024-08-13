@@ -125,7 +125,7 @@ public class StandardsSubscription extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StandardsSubscription(String name) {
+    public StandardsSubscription(java.lang.String name) {
         this(name, StandardsSubscriptionArgs.Empty);
     }
     /**
@@ -133,7 +133,7 @@ public class StandardsSubscription extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StandardsSubscription(String name, StandardsSubscriptionArgs args) {
+    public StandardsSubscription(java.lang.String name, StandardsSubscriptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -142,15 +142,22 @@ public class StandardsSubscription extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StandardsSubscription(String name, StandardsSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/standardsSubscription:StandardsSubscription", name, args == null ? StandardsSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public StandardsSubscription(java.lang.String name, StandardsSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/standardsSubscription:StandardsSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StandardsSubscription(String name, Output<String> id, @Nullable StandardsSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/standardsSubscription:StandardsSubscription", name, state, makeResourceOptions(options, id));
+    private StandardsSubscription(java.lang.String name, Output<java.lang.String> id, @Nullable StandardsSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/standardsSubscription:StandardsSubscription", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static StandardsSubscriptionArgs makeArgs(StandardsSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StandardsSubscriptionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -166,7 +173,7 @@ public class StandardsSubscription extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StandardsSubscription get(String name, Output<String> id, @Nullable StandardsSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StandardsSubscription get(java.lang.String name, Output<java.lang.String> id, @Nullable StandardsSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StandardsSubscription(name, id, state, options);
     }
 }

@@ -129,7 +129,7 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PullThroughCacheRule(String name) {
+    public PullThroughCacheRule(java.lang.String name) {
         this(name, PullThroughCacheRuleArgs.Empty);
     }
     /**
@@ -137,7 +137,7 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PullThroughCacheRule(String name, PullThroughCacheRuleArgs args) {
+    public PullThroughCacheRule(java.lang.String name, PullThroughCacheRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -146,15 +146,22 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PullThroughCacheRule(String name, PullThroughCacheRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecr/pullThroughCacheRule:PullThroughCacheRule", name, args == null ? PullThroughCacheRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PullThroughCacheRule(java.lang.String name, PullThroughCacheRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecr/pullThroughCacheRule:PullThroughCacheRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PullThroughCacheRule(String name, Output<String> id, @Nullable PullThroughCacheRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecr/pullThroughCacheRule:PullThroughCacheRule", name, state, makeResourceOptions(options, id));
+    private PullThroughCacheRule(java.lang.String name, Output<java.lang.String> id, @Nullable PullThroughCacheRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecr/pullThroughCacheRule:PullThroughCacheRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PullThroughCacheRuleArgs makeArgs(PullThroughCacheRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PullThroughCacheRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -170,7 +177,7 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PullThroughCacheRule get(String name, Output<String> id, @Nullable PullThroughCacheRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PullThroughCacheRule get(java.lang.String name, Output<java.lang.String> id, @Nullable PullThroughCacheRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PullThroughCacheRule(name, id, state, options);
     }
 }

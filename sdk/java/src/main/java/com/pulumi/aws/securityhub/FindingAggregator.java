@@ -199,7 +199,7 @@ public class FindingAggregator extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FindingAggregator(String name) {
+    public FindingAggregator(java.lang.String name) {
         this(name, FindingAggregatorArgs.Empty);
     }
     /**
@@ -207,7 +207,7 @@ public class FindingAggregator extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FindingAggregator(String name, FindingAggregatorArgs args) {
+    public FindingAggregator(java.lang.String name, FindingAggregatorArgs args) {
         this(name, args, null);
     }
     /**
@@ -216,15 +216,22 @@ public class FindingAggregator extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FindingAggregator(String name, FindingAggregatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/findingAggregator:FindingAggregator", name, args == null ? FindingAggregatorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FindingAggregator(java.lang.String name, FindingAggregatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/findingAggregator:FindingAggregator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FindingAggregator(String name, Output<String> id, @Nullable FindingAggregatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/findingAggregator:FindingAggregator", name, state, makeResourceOptions(options, id));
+    private FindingAggregator(java.lang.String name, Output<java.lang.String> id, @Nullable FindingAggregatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/findingAggregator:FindingAggregator", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FindingAggregatorArgs makeArgs(FindingAggregatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FindingAggregatorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -240,7 +247,7 @@ public class FindingAggregator extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FindingAggregator get(String name, Output<String> id, @Nullable FindingAggregatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FindingAggregator get(java.lang.String name, Output<java.lang.String> id, @Nullable FindingAggregatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FindingAggregator(name, id, state, options);
     }
 }

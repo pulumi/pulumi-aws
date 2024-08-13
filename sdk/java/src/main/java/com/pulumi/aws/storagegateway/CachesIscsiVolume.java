@@ -402,7 +402,7 @@ public class CachesIscsiVolume extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CachesIscsiVolume(String name) {
+    public CachesIscsiVolume(java.lang.String name) {
         this(name, CachesIscsiVolumeArgs.Empty);
     }
     /**
@@ -410,7 +410,7 @@ public class CachesIscsiVolume extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CachesIscsiVolume(String name, CachesIscsiVolumeArgs args) {
+    public CachesIscsiVolume(java.lang.String name, CachesIscsiVolumeArgs args) {
         this(name, args, null);
     }
     /**
@@ -419,15 +419,22 @@ public class CachesIscsiVolume extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CachesIscsiVolume(String name, CachesIscsiVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", name, args == null ? CachesIscsiVolumeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CachesIscsiVolume(java.lang.String name, CachesIscsiVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CachesIscsiVolume(String name, Output<String> id, @Nullable CachesIscsiVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", name, state, makeResourceOptions(options, id));
+    private CachesIscsiVolume(java.lang.String name, Output<java.lang.String> id, @Nullable CachesIscsiVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CachesIscsiVolumeArgs makeArgs(CachesIscsiVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CachesIscsiVolumeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -443,7 +450,7 @@ public class CachesIscsiVolume extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CachesIscsiVolume get(String name, Output<String> id, @Nullable CachesIscsiVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CachesIscsiVolume get(java.lang.String name, Output<java.lang.String> id, @Nullable CachesIscsiVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CachesIscsiVolume(name, id, state, options);
     }
 }

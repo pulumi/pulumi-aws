@@ -229,7 +229,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedPrefixList(String name) {
+    public ManagedPrefixList(java.lang.String name) {
         this(name, ManagedPrefixListArgs.Empty);
     }
     /**
@@ -237,7 +237,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedPrefixList(String name, ManagedPrefixListArgs args) {
+    public ManagedPrefixList(java.lang.String name, ManagedPrefixListArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,15 +246,22 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedPrefixList(String name, ManagedPrefixListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/managedPrefixList:ManagedPrefixList", name, args == null ? ManagedPrefixListArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ManagedPrefixList(java.lang.String name, ManagedPrefixListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/managedPrefixList:ManagedPrefixList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedPrefixList(String name, Output<String> id, @Nullable ManagedPrefixListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/managedPrefixList:ManagedPrefixList", name, state, makeResourceOptions(options, id));
+    private ManagedPrefixList(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedPrefixListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/managedPrefixList:ManagedPrefixList", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ManagedPrefixListArgs makeArgs(ManagedPrefixListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedPrefixListArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -270,7 +277,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedPrefixList get(String name, Output<String> id, @Nullable ManagedPrefixListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedPrefixList get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedPrefixListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedPrefixList(name, id, state, options);
     }
 }

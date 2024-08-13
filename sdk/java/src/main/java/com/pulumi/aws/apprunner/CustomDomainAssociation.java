@@ -158,7 +158,7 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomDomainAssociation(String name) {
+    public CustomDomainAssociation(java.lang.String name) {
         this(name, CustomDomainAssociationArgs.Empty);
     }
     /**
@@ -166,7 +166,7 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomDomainAssociation(String name, CustomDomainAssociationArgs args) {
+    public CustomDomainAssociation(java.lang.String name, CustomDomainAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -175,15 +175,22 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomDomainAssociation(String name, CustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/customDomainAssociation:CustomDomainAssociation", name, args == null ? CustomDomainAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CustomDomainAssociation(java.lang.String name, CustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apprunner/customDomainAssociation:CustomDomainAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomDomainAssociation(String name, Output<String> id, @Nullable CustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/customDomainAssociation:CustomDomainAssociation", name, state, makeResourceOptions(options, id));
+    private CustomDomainAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable CustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apprunner/customDomainAssociation:CustomDomainAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CustomDomainAssociationArgs makeArgs(CustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomDomainAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -199,7 +206,7 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomDomainAssociation get(String name, Output<String> id, @Nullable CustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomDomainAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomDomainAssociation(name, id, state, options);
     }
 }

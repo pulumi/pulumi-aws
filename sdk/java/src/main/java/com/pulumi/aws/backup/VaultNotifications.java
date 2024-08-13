@@ -157,7 +157,7 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VaultNotifications(String name) {
+    public VaultNotifications(java.lang.String name) {
         this(name, VaultNotificationsArgs.Empty);
     }
     /**
@@ -165,7 +165,7 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VaultNotifications(String name, VaultNotificationsArgs args) {
+    public VaultNotifications(java.lang.String name, VaultNotificationsArgs args) {
         this(name, args, null);
     }
     /**
@@ -174,15 +174,22 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VaultNotifications(String name, VaultNotificationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/vaultNotifications:VaultNotifications", name, args == null ? VaultNotificationsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VaultNotifications(java.lang.String name, VaultNotificationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/vaultNotifications:VaultNotifications", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VaultNotifications(String name, Output<String> id, @Nullable VaultNotificationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/vaultNotifications:VaultNotifications", name, state, makeResourceOptions(options, id));
+    private VaultNotifications(java.lang.String name, Output<java.lang.String> id, @Nullable VaultNotificationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/vaultNotifications:VaultNotifications", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VaultNotificationsArgs makeArgs(VaultNotificationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VaultNotificationsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -198,7 +205,7 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VaultNotifications get(String name, Output<String> id, @Nullable VaultNotificationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VaultNotifications get(java.lang.String name, Output<java.lang.String> id, @Nullable VaultNotificationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VaultNotifications(name, id, state, options);
     }
 }

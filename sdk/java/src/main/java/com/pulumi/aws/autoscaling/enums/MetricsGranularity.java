@@ -28,7 +28,7 @@ import java.util.StringJoiner;
         }
 
         @Override
-        public String toString() {
+        public java.lang.String toString() {
             return new StringJoiner(", ", "MetricsGranularity[", "]")
                 .add("value='" + this.value + "'")
                 .toString();

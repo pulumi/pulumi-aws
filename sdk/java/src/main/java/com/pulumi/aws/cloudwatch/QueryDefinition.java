@@ -37,26 +37,26 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new QueryDefinition("example", QueryDefinitionArgs.builder()
  *             .name("custom_query")
  *             .logGroupNames(            
  *                 "/aws/logGroup1",
  *                 "/aws/logGroup2")
  *             .queryString("""
- * fields{@literal @}timestamp,{@literal @}message
- * | sort{@literal @}timestamp desc
+ * fields }{@literal @}{@code timestamp, }{@literal @}{@code message
+ * | sort }{@literal @}{@code timestamp desc
  * | limit 25
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -133,7 +133,7 @@ public class QueryDefinition extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public QueryDefinition(String name) {
+    public QueryDefinition(java.lang.String name) {
         this(name, QueryDefinitionArgs.Empty);
     }
     /**
@@ -141,7 +141,7 @@ public class QueryDefinition extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public QueryDefinition(String name, QueryDefinitionArgs args) {
+    public QueryDefinition(java.lang.String name, QueryDefinitionArgs args) {
         this(name, args, null);
     }
     /**
@@ -150,15 +150,22 @@ public class QueryDefinition extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public QueryDefinition(String name, QueryDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/queryDefinition:QueryDefinition", name, args == null ? QueryDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public QueryDefinition(java.lang.String name, QueryDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/queryDefinition:QueryDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private QueryDefinition(String name, Output<String> id, @Nullable QueryDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/queryDefinition:QueryDefinition", name, state, makeResourceOptions(options, id));
+    private QueryDefinition(java.lang.String name, Output<java.lang.String> id, @Nullable QueryDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/queryDefinition:QueryDefinition", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static QueryDefinitionArgs makeArgs(QueryDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? QueryDefinitionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -174,7 +181,7 @@ public class QueryDefinition extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static QueryDefinition get(String name, Output<String> id, @Nullable QueryDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static QueryDefinition get(java.lang.String name, Output<java.lang.String> id, @Nullable QueryDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new QueryDefinition(name, id, state, options);
     }
 }

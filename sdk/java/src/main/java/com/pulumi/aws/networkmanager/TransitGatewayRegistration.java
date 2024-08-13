@@ -107,7 +107,7 @@ public class TransitGatewayRegistration extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TransitGatewayRegistration(String name) {
+    public TransitGatewayRegistration(java.lang.String name) {
         this(name, TransitGatewayRegistrationArgs.Empty);
     }
     /**
@@ -115,7 +115,7 @@ public class TransitGatewayRegistration extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TransitGatewayRegistration(String name, TransitGatewayRegistrationArgs args) {
+    public TransitGatewayRegistration(java.lang.String name, TransitGatewayRegistrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -124,15 +124,22 @@ public class TransitGatewayRegistration extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TransitGatewayRegistration(String name, TransitGatewayRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration", name, args == null ? TransitGatewayRegistrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TransitGatewayRegistration(java.lang.String name, TransitGatewayRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TransitGatewayRegistration(String name, Output<String> id, @Nullable TransitGatewayRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration", name, state, makeResourceOptions(options, id));
+    private TransitGatewayRegistration(java.lang.String name, Output<java.lang.String> id, @Nullable TransitGatewayRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TransitGatewayRegistrationArgs makeArgs(TransitGatewayRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TransitGatewayRegistrationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -148,7 +155,7 @@ public class TransitGatewayRegistration extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TransitGatewayRegistration get(String name, Output<String> id, @Nullable TransitGatewayRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TransitGatewayRegistration get(java.lang.String name, Output<java.lang.String> id, @Nullable TransitGatewayRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TransitGatewayRegistration(name, id, state, options);
     }
 }

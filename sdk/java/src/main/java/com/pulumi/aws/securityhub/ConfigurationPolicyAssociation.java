@@ -148,7 +148,7 @@ public class ConfigurationPolicyAssociation extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConfigurationPolicyAssociation(String name) {
+    public ConfigurationPolicyAssociation(java.lang.String name) {
         this(name, ConfigurationPolicyAssociationArgs.Empty);
     }
     /**
@@ -156,7 +156,7 @@ public class ConfigurationPolicyAssociation extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConfigurationPolicyAssociation(String name, ConfigurationPolicyAssociationArgs args) {
+    public ConfigurationPolicyAssociation(java.lang.String name, ConfigurationPolicyAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -165,15 +165,22 @@ public class ConfigurationPolicyAssociation extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConfigurationPolicyAssociation(String name, ConfigurationPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation", name, args == null ? ConfigurationPolicyAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConfigurationPolicyAssociation(java.lang.String name, ConfigurationPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConfigurationPolicyAssociation(String name, Output<String> id, @Nullable ConfigurationPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation", name, state, makeResourceOptions(options, id));
+    private ConfigurationPolicyAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConfigurationPolicyAssociationArgs makeArgs(ConfigurationPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfigurationPolicyAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -189,7 +196,7 @@ public class ConfigurationPolicyAssociation extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConfigurationPolicyAssociation get(String name, Output<String> id, @Nullable ConfigurationPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConfigurationPolicyAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConfigurationPolicyAssociation(name, id, state, options);
     }
 }

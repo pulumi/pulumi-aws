@@ -104,7 +104,7 @@ public class VpcEndpointSubnetAssociation extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcEndpointSubnetAssociation(String name) {
+    public VpcEndpointSubnetAssociation(java.lang.String name) {
         this(name, VpcEndpointSubnetAssociationArgs.Empty);
     }
     /**
@@ -112,7 +112,7 @@ public class VpcEndpointSubnetAssociation extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcEndpointSubnetAssociation(String name, VpcEndpointSubnetAssociationArgs args) {
+    public VpcEndpointSubnetAssociation(java.lang.String name, VpcEndpointSubnetAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -121,15 +121,22 @@ public class VpcEndpointSubnetAssociation extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcEndpointSubnetAssociation(String name, VpcEndpointSubnetAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, args == null ? VpcEndpointSubnetAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcEndpointSubnetAssociation(java.lang.String name, VpcEndpointSubnetAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcEndpointSubnetAssociation(String name, Output<String> id, @Nullable VpcEndpointSubnetAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, state, makeResourceOptions(options, id));
+    private VpcEndpointSubnetAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable VpcEndpointSubnetAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcEndpointSubnetAssociationArgs makeArgs(VpcEndpointSubnetAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcEndpointSubnetAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -145,7 +152,7 @@ public class VpcEndpointSubnetAssociation extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcEndpointSubnetAssociation get(String name, Output<String> id, @Nullable VpcEndpointSubnetAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcEndpointSubnetAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcEndpointSubnetAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcEndpointSubnetAssociation(name, id, state, options);
     }
 }

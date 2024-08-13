@@ -135,7 +135,7 @@ public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcIpamOrganizationAdminAccount(String name) {
+    public VpcIpamOrganizationAdminAccount(java.lang.String name) {
         this(name, VpcIpamOrganizationAdminAccountArgs.Empty);
     }
     /**
@@ -143,7 +143,7 @@ public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcIpamOrganizationAdminAccount(String name, VpcIpamOrganizationAdminAccountArgs args) {
+    public VpcIpamOrganizationAdminAccount(java.lang.String name, VpcIpamOrganizationAdminAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -152,15 +152,22 @@ public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcIpamOrganizationAdminAccount(String name, VpcIpamOrganizationAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount", name, args == null ? VpcIpamOrganizationAdminAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcIpamOrganizationAdminAccount(java.lang.String name, VpcIpamOrganizationAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcIpamOrganizationAdminAccount(String name, Output<String> id, @Nullable VpcIpamOrganizationAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount", name, state, makeResourceOptions(options, id));
+    private VpcIpamOrganizationAdminAccount(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamOrganizationAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcIpamOrganizationAdminAccountArgs makeArgs(VpcIpamOrganizationAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpamOrganizationAdminAccountArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -176,7 +183,7 @@ public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcIpamOrganizationAdminAccount get(String name, Output<String> id, @Nullable VpcIpamOrganizationAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcIpamOrganizationAdminAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamOrganizationAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcIpamOrganizationAdminAccount(name, id, state, options);
     }
 }

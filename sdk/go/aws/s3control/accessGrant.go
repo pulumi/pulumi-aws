@@ -38,7 +38,7 @@ import (
 //			}
 //			exampleAccessGrantsLocation, err := s3control.NewAccessGrantsLocation(ctx, "example", &s3control.AccessGrantsLocationArgs{
 //				IamRoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
-//				LocationScope: pulumi.String(fmt.Sprintf("s3://%v/prefixA*", exampleAwsS3Bucket.Bucket)),
+//				LocationScope: pulumi.Sprintf("s3://%v/prefixA*", exampleAwsS3Bucket.Bucket),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))

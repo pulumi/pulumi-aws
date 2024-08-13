@@ -48,7 +48,7 @@ import (
 //				},
 //				Parameters: pulumi.StringMap{
 //					"functionName": pulumi.String("func-postgres-rotator"),
-//					"endpoint":     pulumi.String(fmt.Sprintf("secretsmanager.%v.%v", currentGetRegion.Name, current.DnsSuffix)),
+//					"endpoint":     pulumi.Sprintf("secretsmanager.%v.%v", currentGetRegion.Name, current.DnsSuffix),
 //				},
 //			})
 //			if err != nil {

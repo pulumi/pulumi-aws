@@ -296,7 +296,7 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CaCertificate(String name) {
+    public CaCertificate(java.lang.String name) {
         this(name, CaCertificateArgs.Empty);
     }
     /**
@@ -304,7 +304,7 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CaCertificate(String name, CaCertificateArgs args) {
+    public CaCertificate(java.lang.String name, CaCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -313,15 +313,22 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CaCertificate(String name, CaCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/caCertificate:CaCertificate", name, args == null ? CaCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CaCertificate(java.lang.String name, CaCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/caCertificate:CaCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CaCertificate(String name, Output<String> id, @Nullable CaCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/caCertificate:CaCertificate", name, state, makeResourceOptions(options, id));
+    private CaCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable CaCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/caCertificate:CaCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CaCertificateArgs makeArgs(CaCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CaCertificateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -341,7 +348,7 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CaCertificate get(String name, Output<String> id, @Nullable CaCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CaCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable CaCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CaCertificate(name, id, state, options);
     }
 }

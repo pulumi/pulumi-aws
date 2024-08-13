@@ -267,7 +267,7 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KxScalingGroup(String name) {
+    public KxScalingGroup(java.lang.String name) {
         this(name, KxScalingGroupArgs.Empty);
     }
     /**
@@ -275,7 +275,7 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KxScalingGroup(String name, KxScalingGroupArgs args) {
+    public KxScalingGroup(java.lang.String name, KxScalingGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -284,15 +284,22 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KxScalingGroup(String name, KxScalingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxScalingGroup:KxScalingGroup", name, args == null ? KxScalingGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public KxScalingGroup(java.lang.String name, KxScalingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxScalingGroup:KxScalingGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KxScalingGroup(String name, Output<String> id, @Nullable KxScalingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxScalingGroup:KxScalingGroup", name, state, makeResourceOptions(options, id));
+    private KxScalingGroup(java.lang.String name, Output<java.lang.String> id, @Nullable KxScalingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxScalingGroup:KxScalingGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KxScalingGroupArgs makeArgs(KxScalingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KxScalingGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -308,7 +315,7 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KxScalingGroup get(String name, Output<String> id, @Nullable KxScalingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KxScalingGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable KxScalingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KxScalingGroup(name, id, state, options);
     }
 }

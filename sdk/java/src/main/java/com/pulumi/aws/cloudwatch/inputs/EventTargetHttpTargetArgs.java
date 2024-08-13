@@ -33,14 +33,14 @@ public final class EventTargetHttpTargetArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*{@literal /}POST/pets/*`).
+     * The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
      * 
      */
     @Import(name="pathParameterValues")
     private @Nullable Output<List<String>> pathParameterValues;
 
     /**
-     * @return The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*{@literal /}POST/pets/*`).
+     * @return The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
      * 
      */
     public Optional<Output<List<String>>> pathParameterValues() {
@@ -110,7 +110,7 @@ public final class EventTargetHttpTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param pathParameterValues The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*{@literal /}POST/pets/*`).
+         * @param pathParameterValues The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class EventTargetHttpTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param pathParameterValues The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*{@literal /}POST/pets/*`).
+         * @param pathParameterValues The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class EventTargetHttpTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param pathParameterValues The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*{@literal /}POST/pets/*`).
+         * @param pathParameterValues The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
          * 
          * @return builder
          * 

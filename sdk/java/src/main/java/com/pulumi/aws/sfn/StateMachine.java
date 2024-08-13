@@ -541,7 +541,7 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StateMachine(String name) {
+    public StateMachine(java.lang.String name) {
         this(name, StateMachineArgs.Empty);
     }
     /**
@@ -549,7 +549,7 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StateMachine(String name, StateMachineArgs args) {
+    public StateMachine(java.lang.String name, StateMachineArgs args) {
         this(name, args, null);
     }
     /**
@@ -558,15 +558,22 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StateMachine(String name, StateMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sfn/stateMachine:StateMachine", name, args == null ? StateMachineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public StateMachine(java.lang.String name, StateMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sfn/stateMachine:StateMachine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StateMachine(String name, Output<String> id, @Nullable StateMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sfn/stateMachine:StateMachine", name, state, makeResourceOptions(options, id));
+    private StateMachine(java.lang.String name, Output<java.lang.String> id, @Nullable StateMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sfn/stateMachine:StateMachine", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static StateMachineArgs makeArgs(StateMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StateMachineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -582,7 +589,7 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StateMachine get(String name, Output<String> id, @Nullable StateMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StateMachine get(java.lang.String name, Output<java.lang.String> id, @Nullable StateMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StateMachine(name, id, state, options);
     }
 }

@@ -141,7 +141,7 @@ public class Enabler extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Enabler(String name) {
+    public Enabler(java.lang.String name) {
         this(name, EnablerArgs.Empty);
     }
     /**
@@ -149,7 +149,7 @@ public class Enabler extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Enabler(String name, EnablerArgs args) {
+    public Enabler(java.lang.String name, EnablerArgs args) {
         this(name, args, null);
     }
     /**
@@ -158,15 +158,22 @@ public class Enabler extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Enabler(String name, EnablerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector2/enabler:Enabler", name, args == null ? EnablerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Enabler(java.lang.String name, EnablerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:inspector2/enabler:Enabler", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Enabler(String name, Output<String> id, @Nullable EnablerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector2/enabler:Enabler", name, state, makeResourceOptions(options, id));
+    private Enabler(java.lang.String name, Output<java.lang.String> id, @Nullable EnablerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:inspector2/enabler:Enabler", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EnablerArgs makeArgs(EnablerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnablerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -182,7 +189,7 @@ public class Enabler extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Enabler get(String name, Output<String> id, @Nullable EnablerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Enabler get(java.lang.String name, Output<java.lang.String> id, @Nullable EnablerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Enabler(name, id, state, options);
     }
 }

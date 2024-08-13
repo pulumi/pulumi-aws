@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = securityhub.NewStandardsSubscription(ctx, "pci_321", &securityhub.StandardsSubscriptionArgs{
-//				StandardsArn: pulumi.String(fmt.Sprintf("arn:aws:securityhub:%v::standards/pci-dss/v/3.2.1", current.Name)),
+//				StandardsArn: pulumi.Sprintf("arn:aws:securityhub:%v::standards/pci-dss/v/3.2.1", current.Name),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))

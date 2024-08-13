@@ -196,7 +196,7 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SslNegotiationPolicy(String name) {
+    public SslNegotiationPolicy(java.lang.String name) {
         this(name, SslNegotiationPolicyArgs.Empty);
     }
     /**
@@ -204,7 +204,7 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SslNegotiationPolicy(String name, SslNegotiationPolicyArgs args) {
+    public SslNegotiationPolicy(java.lang.String name, SslNegotiationPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -213,15 +213,22 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SslNegotiationPolicy(String name, SslNegotiationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy", name, args == null ? SslNegotiationPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SslNegotiationPolicy(java.lang.String name, SslNegotiationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SslNegotiationPolicy(String name, Output<String> id, @Nullable SslNegotiationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy", name, state, makeResourceOptions(options, id));
+    private SslNegotiationPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable SslNegotiationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SslNegotiationPolicyArgs makeArgs(SslNegotiationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SslNegotiationPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -240,7 +247,7 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SslNegotiationPolicy get(String name, Output<String> id, @Nullable SslNegotiationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SslNegotiationPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable SslNegotiationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SslNegotiationPolicy(name, id, state, options);
     }
 }

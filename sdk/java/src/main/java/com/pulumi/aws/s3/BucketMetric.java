@@ -229,7 +229,7 @@ public class BucketMetric extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketMetric(String name) {
+    public BucketMetric(java.lang.String name) {
         this(name, BucketMetricArgs.Empty);
     }
     /**
@@ -237,7 +237,7 @@ public class BucketMetric extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketMetric(String name, BucketMetricArgs args) {
+    public BucketMetric(java.lang.String name, BucketMetricArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,15 +246,22 @@ public class BucketMetric extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketMetric(String name, BucketMetricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketMetric:BucketMetric", name, args == null ? BucketMetricArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketMetric(java.lang.String name, BucketMetricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketMetric:BucketMetric", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketMetric(String name, Output<String> id, @Nullable BucketMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketMetric:BucketMetric", name, state, makeResourceOptions(options, id));
+    private BucketMetric(java.lang.String name, Output<java.lang.String> id, @Nullable BucketMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketMetric:BucketMetric", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketMetricArgs makeArgs(BucketMetricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketMetricArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -270,7 +277,7 @@ public class BucketMetric extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketMetric get(String name, Output<String> id, @Nullable BucketMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketMetric get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketMetric(name, id, state, options);
     }
 }

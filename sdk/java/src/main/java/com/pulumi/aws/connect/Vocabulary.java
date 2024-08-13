@@ -238,7 +238,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Vocabulary(String name) {
+    public Vocabulary(java.lang.String name) {
         this(name, VocabularyArgs.Empty);
     }
     /**
@@ -246,7 +246,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Vocabulary(String name, VocabularyArgs args) {
+    public Vocabulary(java.lang.String name, VocabularyArgs args) {
         this(name, args, null);
     }
     /**
@@ -255,15 +255,22 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Vocabulary(String name, VocabularyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/vocabulary:Vocabulary", name, args == null ? VocabularyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Vocabulary(java.lang.String name, VocabularyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/vocabulary:Vocabulary", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Vocabulary(String name, Output<String> id, @Nullable VocabularyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/vocabulary:Vocabulary", name, state, makeResourceOptions(options, id));
+    private Vocabulary(java.lang.String name, Output<java.lang.String> id, @Nullable VocabularyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/vocabulary:Vocabulary", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VocabularyArgs makeArgs(VocabularyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VocabularyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -279,7 +286,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Vocabulary get(String name, Output<String> id, @Nullable VocabularyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Vocabulary get(java.lang.String name, Output<java.lang.String> id, @Nullable VocabularyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Vocabulary(name, id, state, options);
     }
 }

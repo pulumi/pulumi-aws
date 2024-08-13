@@ -266,7 +266,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserPoolDomain(String name) {
+    public UserPoolDomain(java.lang.String name) {
         this(name, UserPoolDomainArgs.Empty);
     }
     /**
@@ -274,7 +274,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserPoolDomain(String name, UserPoolDomainArgs args) {
+    public UserPoolDomain(java.lang.String name, UserPoolDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -283,15 +283,22 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserPoolDomain(String name, UserPoolDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/userPoolDomain:UserPoolDomain", name, args == null ? UserPoolDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public UserPoolDomain(java.lang.String name, UserPoolDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cognito/userPoolDomain:UserPoolDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserPoolDomain(String name, Output<String> id, @Nullable UserPoolDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/userPoolDomain:UserPoolDomain", name, state, makeResourceOptions(options, id));
+    private UserPoolDomain(java.lang.String name, Output<java.lang.String> id, @Nullable UserPoolDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cognito/userPoolDomain:UserPoolDomain", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static UserPoolDomainArgs makeArgs(UserPoolDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserPoolDomainArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -307,7 +314,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserPoolDomain get(String name, Output<String> id, @Nullable UserPoolDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserPoolDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable UserPoolDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserPoolDomain(name, id, state, options);
     }
 }

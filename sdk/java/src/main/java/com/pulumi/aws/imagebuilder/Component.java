@@ -327,7 +327,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Component(String name) {
+    public Component(java.lang.String name) {
         this(name, ComponentArgs.Empty);
     }
     /**
@@ -335,7 +335,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Component(String name, ComponentArgs args) {
+    public Component(java.lang.String name, ComponentArgs args) {
         this(name, args, null);
     }
     /**
@@ -344,15 +344,22 @@ public class Component extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Component(String name, ComponentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:imagebuilder/component:Component", name, args == null ? ComponentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Component(java.lang.String name, ComponentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:imagebuilder/component:Component", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Component(String name, Output<String> id, @Nullable ComponentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:imagebuilder/component:Component", name, state, makeResourceOptions(options, id));
+    private Component(java.lang.String name, Output<java.lang.String> id, @Nullable ComponentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:imagebuilder/component:Component", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ComponentArgs makeArgs(ComponentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ComponentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -368,7 +375,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Component get(String name, Output<String> id, @Nullable ComponentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Component get(java.lang.String name, Output<java.lang.String> id, @Nullable ComponentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Component(name, id, state, options);
     }
 }

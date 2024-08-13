@@ -42,7 +42,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				ProductId:   pulumi.Any(exampleAwsServicecatalogProduct.Id),
 //				Type:        pulumi.String("CLOUD_FORMATION_TEMPLATE"),
-//				TemplateUrl: pulumi.String(fmt.Sprintf("https://%v/%v", exampleAwsS3Bucket.BucketRegionalDomainName, exampleAwsS3Object.Key)),
+//				TemplateUrl: pulumi.Sprintf("https://%v/%v", exampleAwsS3Bucket.BucketRegionalDomainName, exampleAwsS3Object.Key),
 //			})
 //			if err != nil {
 //				return err

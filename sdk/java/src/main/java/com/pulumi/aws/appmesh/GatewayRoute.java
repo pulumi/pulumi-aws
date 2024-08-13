@@ -251,7 +251,7 @@ public class GatewayRoute extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GatewayRoute(String name) {
+    public GatewayRoute(java.lang.String name) {
         this(name, GatewayRouteArgs.Empty);
     }
     /**
@@ -259,7 +259,7 @@ public class GatewayRoute extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GatewayRoute(String name, GatewayRouteArgs args) {
+    public GatewayRoute(java.lang.String name, GatewayRouteArgs args) {
         this(name, args, null);
     }
     /**
@@ -268,15 +268,22 @@ public class GatewayRoute extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GatewayRoute(String name, GatewayRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appmesh/gatewayRoute:GatewayRoute", name, args == null ? GatewayRouteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GatewayRoute(java.lang.String name, GatewayRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appmesh/gatewayRoute:GatewayRoute", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GatewayRoute(String name, Output<String> id, @Nullable GatewayRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appmesh/gatewayRoute:GatewayRoute", name, state, makeResourceOptions(options, id));
+    private GatewayRoute(java.lang.String name, Output<java.lang.String> id, @Nullable GatewayRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appmesh/gatewayRoute:GatewayRoute", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GatewayRouteArgs makeArgs(GatewayRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GatewayRouteArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -292,7 +299,7 @@ public class GatewayRoute extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GatewayRoute get(String name, Output<String> id, @Nullable GatewayRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GatewayRoute get(java.lang.String name, Output<java.lang.String> id, @Nullable GatewayRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GatewayRoute(name, id, state, options);
     }
 }

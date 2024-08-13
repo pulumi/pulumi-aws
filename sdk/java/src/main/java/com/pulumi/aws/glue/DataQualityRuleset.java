@@ -332,7 +332,7 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataQualityRuleset(String name) {
+    public DataQualityRuleset(java.lang.String name) {
         this(name, DataQualityRulesetArgs.Empty);
     }
     /**
@@ -340,7 +340,7 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataQualityRuleset(String name, DataQualityRulesetArgs args) {
+    public DataQualityRuleset(java.lang.String name, DataQualityRulesetArgs args) {
         this(name, args, null);
     }
     /**
@@ -349,15 +349,22 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataQualityRuleset(String name, DataQualityRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/dataQualityRuleset:DataQualityRuleset", name, args == null ? DataQualityRulesetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataQualityRuleset(java.lang.String name, DataQualityRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/dataQualityRuleset:DataQualityRuleset", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataQualityRuleset(String name, Output<String> id, @Nullable DataQualityRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/dataQualityRuleset:DataQualityRuleset", name, state, makeResourceOptions(options, id));
+    private DataQualityRuleset(java.lang.String name, Output<java.lang.String> id, @Nullable DataQualityRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/dataQualityRuleset:DataQualityRuleset", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataQualityRulesetArgs makeArgs(DataQualityRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataQualityRulesetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -373,7 +380,7 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataQualityRuleset get(String name, Output<String> id, @Nullable DataQualityRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataQualityRuleset get(java.lang.String name, Output<java.lang.String> id, @Nullable DataQualityRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataQualityRuleset(name, id, state, options);
     }
 }

@@ -128,7 +128,7 @@ public class VpcEndpointPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcEndpointPolicy(String name) {
+    public VpcEndpointPolicy(java.lang.String name) {
         this(name, VpcEndpointPolicyArgs.Empty);
     }
     /**
@@ -136,7 +136,7 @@ public class VpcEndpointPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcEndpointPolicy(String name, VpcEndpointPolicyArgs args) {
+    public VpcEndpointPolicy(java.lang.String name, VpcEndpointPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -145,15 +145,22 @@ public class VpcEndpointPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcEndpointPolicy(String name, VpcEndpointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy", name, args == null ? VpcEndpointPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcEndpointPolicy(java.lang.String name, VpcEndpointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcEndpointPolicy(String name, Output<String> id, @Nullable VpcEndpointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy", name, state, makeResourceOptions(options, id));
+    private VpcEndpointPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable VpcEndpointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcEndpointPolicyArgs makeArgs(VpcEndpointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcEndpointPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -169,7 +176,7 @@ public class VpcEndpointPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcEndpointPolicy get(String name, Output<String> id, @Nullable VpcEndpointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcEndpointPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcEndpointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcEndpointPolicy(name, id, state, options);
     }
 }

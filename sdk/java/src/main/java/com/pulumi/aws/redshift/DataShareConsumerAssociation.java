@@ -210,7 +210,7 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataShareConsumerAssociation(String name) {
+    public DataShareConsumerAssociation(java.lang.String name) {
         this(name, DataShareConsumerAssociationArgs.Empty);
     }
     /**
@@ -218,7 +218,7 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataShareConsumerAssociation(String name, DataShareConsumerAssociationArgs args) {
+    public DataShareConsumerAssociation(java.lang.String name, DataShareConsumerAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -227,15 +227,22 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataShareConsumerAssociation(String name, DataShareConsumerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation", name, args == null ? DataShareConsumerAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataShareConsumerAssociation(java.lang.String name, DataShareConsumerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataShareConsumerAssociation(String name, Output<String> id, @Nullable DataShareConsumerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation", name, state, makeResourceOptions(options, id));
+    private DataShareConsumerAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable DataShareConsumerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataShareConsumerAssociationArgs makeArgs(DataShareConsumerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataShareConsumerAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -251,7 +258,7 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataShareConsumerAssociation get(String name, Output<String> id, @Nullable DataShareConsumerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataShareConsumerAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable DataShareConsumerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataShareConsumerAssociation(name, id, state, options);
     }
 }

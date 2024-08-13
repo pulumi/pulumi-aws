@@ -297,7 +297,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OpenZfsVolume(String name) {
+    public OpenZfsVolume(java.lang.String name) {
         this(name, OpenZfsVolumeArgs.Empty);
     }
     /**
@@ -305,7 +305,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OpenZfsVolume(String name, OpenZfsVolumeArgs args) {
+    public OpenZfsVolume(java.lang.String name, OpenZfsVolumeArgs args) {
         this(name, args, null);
     }
     /**
@@ -314,15 +314,22 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OpenZfsVolume(String name, OpenZfsVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/openZfsVolume:OpenZfsVolume", name, args == null ? OpenZfsVolumeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OpenZfsVolume(java.lang.String name, OpenZfsVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/openZfsVolume:OpenZfsVolume", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OpenZfsVolume(String name, Output<String> id, @Nullable OpenZfsVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/openZfsVolume:OpenZfsVolume", name, state, makeResourceOptions(options, id));
+    private OpenZfsVolume(java.lang.String name, Output<java.lang.String> id, @Nullable OpenZfsVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/openZfsVolume:OpenZfsVolume", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OpenZfsVolumeArgs makeArgs(OpenZfsVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OpenZfsVolumeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -338,7 +345,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OpenZfsVolume get(String name, Output<String> id, @Nullable OpenZfsVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OpenZfsVolume get(java.lang.String name, Output<java.lang.String> id, @Nullable OpenZfsVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OpenZfsVolume(name, id, state, options);
     }
 }

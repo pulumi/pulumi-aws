@@ -204,7 +204,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomerGateway(String name) {
+    public CustomerGateway(java.lang.String name) {
         this(name, CustomerGatewayArgs.Empty);
     }
     /**
@@ -212,7 +212,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomerGateway(String name, CustomerGatewayArgs args) {
+    public CustomerGateway(java.lang.String name, CustomerGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -221,15 +221,22 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomerGateway(String name, CustomerGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/customerGateway:CustomerGateway", name, args == null ? CustomerGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CustomerGateway(java.lang.String name, CustomerGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/customerGateway:CustomerGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomerGateway(String name, Output<String> id, @Nullable CustomerGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/customerGateway:CustomerGateway", name, state, makeResourceOptions(options, id));
+    private CustomerGateway(java.lang.String name, Output<java.lang.String> id, @Nullable CustomerGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/customerGateway:CustomerGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CustomerGatewayArgs makeArgs(CustomerGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomerGatewayArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -245,7 +252,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomerGateway get(String name, Output<String> id, @Nullable CustomerGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomerGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomerGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomerGateway(name, id, state, options);
     }
 }

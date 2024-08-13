@@ -231,7 +231,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AutoScalingConfigurationVersion(String name) {
+    public AutoScalingConfigurationVersion(java.lang.String name) {
         this(name, AutoScalingConfigurationVersionArgs.Empty);
     }
     /**
@@ -239,7 +239,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AutoScalingConfigurationVersion(String name, AutoScalingConfigurationVersionArgs args) {
+    public AutoScalingConfigurationVersion(java.lang.String name, AutoScalingConfigurationVersionArgs args) {
         this(name, args, null);
     }
     /**
@@ -248,15 +248,22 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AutoScalingConfigurationVersion(String name, AutoScalingConfigurationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", name, args == null ? AutoScalingConfigurationVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AutoScalingConfigurationVersion(java.lang.String name, AutoScalingConfigurationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AutoScalingConfigurationVersion(String name, Output<String> id, @Nullable AutoScalingConfigurationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", name, state, makeResourceOptions(options, id));
+    private AutoScalingConfigurationVersion(java.lang.String name, Output<java.lang.String> id, @Nullable AutoScalingConfigurationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AutoScalingConfigurationVersionArgs makeArgs(AutoScalingConfigurationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AutoScalingConfigurationVersionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -272,7 +279,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AutoScalingConfigurationVersion get(String name, Output<String> id, @Nullable AutoScalingConfigurationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AutoScalingConfigurationVersion get(java.lang.String name, Output<java.lang.String> id, @Nullable AutoScalingConfigurationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AutoScalingConfigurationVersion(name, id, state, options);
     }
 }

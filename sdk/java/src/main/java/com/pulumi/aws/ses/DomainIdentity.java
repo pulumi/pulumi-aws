@@ -156,7 +156,7 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DomainIdentity(String name) {
+    public DomainIdentity(java.lang.String name) {
         this(name, DomainIdentityArgs.Empty);
     }
     /**
@@ -164,7 +164,7 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DomainIdentity(String name, DomainIdentityArgs args) {
+    public DomainIdentity(java.lang.String name, DomainIdentityArgs args) {
         this(name, args, null);
     }
     /**
@@ -173,15 +173,22 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DomainIdentity(String name, DomainIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/domainIdentity:DomainIdentity", name, args == null ? DomainIdentityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DomainIdentity(java.lang.String name, DomainIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ses/domainIdentity:DomainIdentity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DomainIdentity(String name, Output<String> id, @Nullable DomainIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/domainIdentity:DomainIdentity", name, state, makeResourceOptions(options, id));
+    private DomainIdentity(java.lang.String name, Output<java.lang.String> id, @Nullable DomainIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ses/domainIdentity:DomainIdentity", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DomainIdentityArgs makeArgs(DomainIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainIdentityArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -197,7 +204,7 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DomainIdentity get(String name, Output<String> id, @Nullable DomainIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DomainIdentity get(java.lang.String name, Output<java.lang.String> id, @Nullable DomainIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DomainIdentity(name, id, state, options);
     }
 }

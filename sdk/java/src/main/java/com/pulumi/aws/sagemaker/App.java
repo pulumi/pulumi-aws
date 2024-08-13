@@ -205,7 +205,7 @@ public class App extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public App(String name) {
+    public App(java.lang.String name) {
         this(name, AppArgs.Empty);
     }
     /**
@@ -213,7 +213,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public App(String name, AppArgs args) {
+    public App(java.lang.String name, AppArgs args) {
         this(name, args, null);
     }
     /**
@@ -222,15 +222,22 @@ public class App extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public App(String name, AppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/app:App", name, args == null ? AppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public App(java.lang.String name, AppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/app:App", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private App(String name, Output<String> id, @Nullable AppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/app:App", name, state, makeResourceOptions(options, id));
+    private App(java.lang.String name, Output<java.lang.String> id, @Nullable AppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/app:App", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppArgs makeArgs(AppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -246,7 +253,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static App get(String name, Output<String> id, @Nullable AppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static App get(java.lang.String name, Output<java.lang.String> id, @Nullable AppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new App(name, id, state, options);
     }
 }

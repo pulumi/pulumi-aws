@@ -388,7 +388,7 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcPeeringConnection(String name) {
+    public VpcPeeringConnection(java.lang.String name) {
         this(name, VpcPeeringConnectionArgs.Empty);
     }
     /**
@@ -396,7 +396,7 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcPeeringConnection(String name, VpcPeeringConnectionArgs args) {
+    public VpcPeeringConnection(java.lang.String name, VpcPeeringConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -405,15 +405,22 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcPeeringConnection(String name, VpcPeeringConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcPeeringConnection:VpcPeeringConnection", name, args == null ? VpcPeeringConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcPeeringConnection(java.lang.String name, VpcPeeringConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcPeeringConnection:VpcPeeringConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcPeeringConnection(String name, Output<String> id, @Nullable VpcPeeringConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcPeeringConnection:VpcPeeringConnection", name, state, makeResourceOptions(options, id));
+    private VpcPeeringConnection(java.lang.String name, Output<java.lang.String> id, @Nullable VpcPeeringConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcPeeringConnection:VpcPeeringConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcPeeringConnectionArgs makeArgs(VpcPeeringConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcPeeringConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -429,7 +436,7 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcPeeringConnection get(String name, Output<String> id, @Nullable VpcPeeringConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcPeeringConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcPeeringConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcPeeringConnection(name, id, state, options);
     }
 }

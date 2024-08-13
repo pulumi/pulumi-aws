@@ -297,7 +297,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FileSystemAssociation(String name) {
+    public FileSystemAssociation(java.lang.String name) {
         this(name, FileSystemAssociationArgs.Empty);
     }
     /**
@@ -305,7 +305,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FileSystemAssociation(String name, FileSystemAssociationArgs args) {
+    public FileSystemAssociation(java.lang.String name, FileSystemAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -314,15 +314,22 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FileSystemAssociation(String name, FileSystemAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/fileSystemAssociation:FileSystemAssociation", name, args == null ? FileSystemAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FileSystemAssociation(java.lang.String name, FileSystemAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:storagegateway/fileSystemAssociation:FileSystemAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FileSystemAssociation(String name, Output<String> id, @Nullable FileSystemAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/fileSystemAssociation:FileSystemAssociation", name, state, makeResourceOptions(options, id));
+    private FileSystemAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable FileSystemAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:storagegateway/fileSystemAssociation:FileSystemAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FileSystemAssociationArgs makeArgs(FileSystemAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FileSystemAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -341,7 +348,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FileSystemAssociation get(String name, Output<String> id, @Nullable FileSystemAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FileSystemAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable FileSystemAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FileSystemAssociation(name, id, state, options);
     }
 }

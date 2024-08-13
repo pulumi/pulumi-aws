@@ -84,7 +84,7 @@ public class SerialConsoleAccess extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SerialConsoleAccess(String name) {
+    public SerialConsoleAccess(java.lang.String name) {
         this(name, SerialConsoleAccessArgs.Empty);
     }
     /**
@@ -92,7 +92,7 @@ public class SerialConsoleAccess extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SerialConsoleAccess(String name, @Nullable SerialConsoleAccessArgs args) {
+    public SerialConsoleAccess(java.lang.String name, @Nullable SerialConsoleAccessArgs args) {
         this(name, args, null);
     }
     /**
@@ -101,15 +101,22 @@ public class SerialConsoleAccess extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SerialConsoleAccess(String name, @Nullable SerialConsoleAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, args == null ? SerialConsoleAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SerialConsoleAccess(java.lang.String name, @Nullable SerialConsoleAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SerialConsoleAccess(String name, Output<String> id, @Nullable SerialConsoleAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, state, makeResourceOptions(options, id));
+    private SerialConsoleAccess(java.lang.String name, Output<java.lang.String> id, @Nullable SerialConsoleAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SerialConsoleAccessArgs makeArgs(@Nullable SerialConsoleAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SerialConsoleAccessArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -125,7 +132,7 @@ public class SerialConsoleAccess extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SerialConsoleAccess get(String name, Output<String> id, @Nullable SerialConsoleAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SerialConsoleAccess get(java.lang.String name, Output<java.lang.String> id, @Nullable SerialConsoleAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SerialConsoleAccess(name, id, state, options);
     }
 }

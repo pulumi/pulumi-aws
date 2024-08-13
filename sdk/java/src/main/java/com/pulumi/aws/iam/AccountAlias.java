@@ -83,7 +83,7 @@ public class AccountAlias extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccountAlias(String name) {
+    public AccountAlias(java.lang.String name) {
         this(name, AccountAliasArgs.Empty);
     }
     /**
@@ -91,7 +91,7 @@ public class AccountAlias extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccountAlias(String name, AccountAliasArgs args) {
+    public AccountAlias(java.lang.String name, AccountAliasArgs args) {
         this(name, args, null);
     }
     /**
@@ -100,15 +100,22 @@ public class AccountAlias extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccountAlias(String name, AccountAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/accountAlias:AccountAlias", name, args == null ? AccountAliasArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccountAlias(java.lang.String name, AccountAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/accountAlias:AccountAlias", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccountAlias(String name, Output<String> id, @Nullable AccountAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/accountAlias:AccountAlias", name, state, makeResourceOptions(options, id));
+    private AccountAlias(java.lang.String name, Output<java.lang.String> id, @Nullable AccountAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/accountAlias:AccountAlias", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccountAliasArgs makeArgs(AccountAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountAliasArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -124,7 +131,7 @@ public class AccountAlias extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccountAlias get(String name, Output<String> id, @Nullable AccountAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccountAlias get(java.lang.String name, Output<java.lang.String> id, @Nullable AccountAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccountAlias(name, id, state, options);
     }
 }

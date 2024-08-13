@@ -131,7 +131,7 @@ public class VpcNetworkPerformanceMetricSubscription extends com.pulumi.resource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcNetworkPerformanceMetricSubscription(String name) {
+    public VpcNetworkPerformanceMetricSubscription(java.lang.String name) {
         this(name, VpcNetworkPerformanceMetricSubscriptionArgs.Empty);
     }
     /**
@@ -139,7 +139,7 @@ public class VpcNetworkPerformanceMetricSubscription extends com.pulumi.resource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcNetworkPerformanceMetricSubscription(String name, VpcNetworkPerformanceMetricSubscriptionArgs args) {
+    public VpcNetworkPerformanceMetricSubscription(java.lang.String name, VpcNetworkPerformanceMetricSubscriptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -148,15 +148,22 @@ public class VpcNetworkPerformanceMetricSubscription extends com.pulumi.resource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcNetworkPerformanceMetricSubscription(String name, VpcNetworkPerformanceMetricSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription", name, args == null ? VpcNetworkPerformanceMetricSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcNetworkPerformanceMetricSubscription(java.lang.String name, VpcNetworkPerformanceMetricSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcNetworkPerformanceMetricSubscription(String name, Output<String> id, @Nullable VpcNetworkPerformanceMetricSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription", name, state, makeResourceOptions(options, id));
+    private VpcNetworkPerformanceMetricSubscription(java.lang.String name, Output<java.lang.String> id, @Nullable VpcNetworkPerformanceMetricSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcNetworkPerformanceMetricSubscriptionArgs makeArgs(VpcNetworkPerformanceMetricSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcNetworkPerformanceMetricSubscriptionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -172,7 +179,7 @@ public class VpcNetworkPerformanceMetricSubscription extends com.pulumi.resource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcNetworkPerformanceMetricSubscription get(String name, Output<String> id, @Nullable VpcNetworkPerformanceMetricSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcNetworkPerformanceMetricSubscription get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcNetworkPerformanceMetricSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcNetworkPerformanceMetricSubscription(name, id, state, options);
     }
 }

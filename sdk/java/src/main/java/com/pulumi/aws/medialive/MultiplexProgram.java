@@ -151,7 +151,7 @@ public class MultiplexProgram extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MultiplexProgram(String name) {
+    public MultiplexProgram(java.lang.String name) {
         this(name, MultiplexProgramArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class MultiplexProgram extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MultiplexProgram(String name, MultiplexProgramArgs args) {
+    public MultiplexProgram(java.lang.String name, MultiplexProgramArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,15 +168,22 @@ public class MultiplexProgram extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MultiplexProgram(String name, MultiplexProgramArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/multiplexProgram:MultiplexProgram", name, args == null ? MultiplexProgramArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MultiplexProgram(java.lang.String name, MultiplexProgramArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:medialive/multiplexProgram:MultiplexProgram", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MultiplexProgram(String name, Output<String> id, @Nullable MultiplexProgramState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/multiplexProgram:MultiplexProgram", name, state, makeResourceOptions(options, id));
+    private MultiplexProgram(java.lang.String name, Output<java.lang.String> id, @Nullable MultiplexProgramState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:medialive/multiplexProgram:MultiplexProgram", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MultiplexProgramArgs makeArgs(MultiplexProgramArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MultiplexProgramArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -192,7 +199,7 @@ public class MultiplexProgram extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MultiplexProgram get(String name, Output<String> id, @Nullable MultiplexProgramState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MultiplexProgram get(java.lang.String name, Output<java.lang.String> id, @Nullable MultiplexProgramState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MultiplexProgram(name, id, state, options);
     }
 }

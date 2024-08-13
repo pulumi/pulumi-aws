@@ -85,7 +85,7 @@ import (
 //								Test:     pulumi.String("StringEquals"),
 //								Variable: pulumi.String("aws:SourceArn"),
 //								Values: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId)),
+//									pulumi.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
 //								},
 //							},
 //						},
@@ -121,7 +121,7 @@ import (
 //								Test:     pulumi.String("StringEquals"),
 //								Variable: pulumi.String("aws:SourceArn"),
 //								Values: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId)),
+//									pulumi.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
 //								},
 //							},
 //						},
@@ -271,7 +271,7 @@ import (
 //							&cloudtrail.TrailEventSelectorDataResourceArgs{
 //								Type: pulumi.String("AWS::S3::Object"),
 //								Values: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("%v/", important_bucket.Arn)),
+//									pulumi.Sprintf("%v/", important_bucket.Arn),
 //								},
 //							},
 //						},
@@ -330,8 +330,8 @@ import (
 //							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
 //								Field: pulumi.String("resources.ARN"),
 //								NotStartsWiths: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("%v/", not_important_bucket_1.Arn)),
-//									pulumi.String(fmt.Sprintf("%v/", not_important_bucket_2.Arn)),
+//									pulumi.Sprintf("%v/", not_important_bucket_1.Arn),
+//									pulumi.Sprintf("%v/", not_important_bucket_2.Arn),
 //								},
 //							},
 //							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
@@ -420,8 +420,8 @@ import (
 //							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
 //								Field: pulumi.String("resources.ARN"),
 //								StartsWiths: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("%v/", important_bucket_1.Arn)),
-//									pulumi.String(fmt.Sprintf("%v/", important_bucket_2.Arn)),
+//									pulumi.Sprintf("%v/", important_bucket_1.Arn),
+//									pulumi.Sprintf("%v/", important_bucket_2.Arn),
 //								},
 //							},
 //							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
@@ -456,7 +456,7 @@ import (
 //							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{
 //								Field: pulumi.String("resources.ARN"),
 //								Equals: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("%v/important-prefix", important_bucket_3.Arn)),
+//									pulumi.Sprintf("%v/important-prefix", important_bucket_3.Arn),
 //								},
 //							},
 //							&cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs{

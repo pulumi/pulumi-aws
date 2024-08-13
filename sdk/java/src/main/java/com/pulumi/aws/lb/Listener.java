@@ -650,7 +650,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Listener(String name) {
+    public Listener(java.lang.String name) {
         this(name, ListenerArgs.Empty);
     }
     /**
@@ -658,7 +658,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Listener(String name, ListenerArgs args) {
+    public Listener(java.lang.String name, ListenerArgs args) {
         this(name, args, null);
     }
     /**
@@ -667,15 +667,22 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Listener(String name, ListenerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lb/listener:Listener", name, args == null ? ListenerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Listener(java.lang.String name, ListenerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lb/listener:Listener", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Listener(String name, Output<String> id, @Nullable ListenerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lb/listener:Listener", name, state, makeResourceOptions(options, id));
+    private Listener(java.lang.String name, Output<java.lang.String> id, @Nullable ListenerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lb/listener:Listener", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ListenerArgs makeArgs(ListenerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ListenerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -694,7 +701,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Listener get(String name, Output<String> id, @Nullable ListenerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Listener get(java.lang.String name, Output<java.lang.String> id, @Nullable ListenerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Listener(name, id, state, options);
     }
 }

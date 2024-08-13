@@ -203,7 +203,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceShareAccepter(String name) {
+    public ResourceShareAccepter(java.lang.String name) {
         this(name, ResourceShareAccepterArgs.Empty);
     }
     /**
@@ -211,7 +211,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceShareAccepter(String name, ResourceShareAccepterArgs args) {
+    public ResourceShareAccepter(java.lang.String name, ResourceShareAccepterArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,15 +220,22 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceShareAccepter(String name, ResourceShareAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, args == null ? ResourceShareAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResourceShareAccepter(java.lang.String name, ResourceShareAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceShareAccepter(String name, Output<String> id, @Nullable ResourceShareAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, state, makeResourceOptions(options, id));
+    private ResourceShareAccepter(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceShareAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourceShareAccepterArgs makeArgs(ResourceShareAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceShareAccepterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +251,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceShareAccepter get(String name, Output<String> id, @Nullable ResourceShareAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceShareAccepter get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceShareAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceShareAccepter(name, id, state, options);
     }
 }

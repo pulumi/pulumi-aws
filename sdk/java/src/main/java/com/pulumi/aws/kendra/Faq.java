@@ -348,7 +348,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Faq(String name) {
+    public Faq(java.lang.String name) {
         this(name, FaqArgs.Empty);
     }
     /**
@@ -356,7 +356,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Faq(String name, FaqArgs args) {
+    public Faq(java.lang.String name, FaqArgs args) {
         this(name, args, null);
     }
     /**
@@ -365,15 +365,22 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Faq(String name, FaqArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kendra/faq:Faq", name, args == null ? FaqArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Faq(java.lang.String name, FaqArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kendra/faq:Faq", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Faq(String name, Output<String> id, @Nullable FaqState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kendra/faq:Faq", name, state, makeResourceOptions(options, id));
+    private Faq(java.lang.String name, Output<java.lang.String> id, @Nullable FaqState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kendra/faq:Faq", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FaqArgs makeArgs(FaqArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FaqArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -389,7 +396,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Faq get(String name, Output<String> id, @Nullable FaqState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Faq get(java.lang.String name, Output<java.lang.String> id, @Nullable FaqState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Faq(name, id, state, options);
     }
 }

@@ -262,7 +262,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public HostedConfigurationVersion(String name) {
+    public HostedConfigurationVersion(java.lang.String name) {
         this(name, HostedConfigurationVersionArgs.Empty);
     }
     /**
@@ -270,7 +270,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public HostedConfigurationVersion(String name, HostedConfigurationVersionArgs args) {
+    public HostedConfigurationVersion(java.lang.String name, HostedConfigurationVersionArgs args) {
         this(name, args, null);
     }
     /**
@@ -279,15 +279,22 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public HostedConfigurationVersion(String name, HostedConfigurationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion", name, args == null ? HostedConfigurationVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public HostedConfigurationVersion(java.lang.String name, HostedConfigurationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private HostedConfigurationVersion(String name, Output<String> id, @Nullable HostedConfigurationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion", name, state, makeResourceOptions(options, id));
+    private HostedConfigurationVersion(java.lang.String name, Output<java.lang.String> id, @Nullable HostedConfigurationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HostedConfigurationVersionArgs makeArgs(HostedConfigurationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostedConfigurationVersionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -306,7 +313,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static HostedConfigurationVersion get(String name, Output<String> id, @Nullable HostedConfigurationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static HostedConfigurationVersion get(java.lang.String name, Output<java.lang.String> id, @Nullable HostedConfigurationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new HostedConfigurationVersion(name, id, state, options);
     }
 }

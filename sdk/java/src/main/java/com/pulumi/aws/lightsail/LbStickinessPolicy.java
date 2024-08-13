@@ -122,7 +122,7 @@ public class LbStickinessPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LbStickinessPolicy(String name) {
+    public LbStickinessPolicy(java.lang.String name) {
         this(name, LbStickinessPolicyArgs.Empty);
     }
     /**
@@ -130,7 +130,7 @@ public class LbStickinessPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LbStickinessPolicy(String name, LbStickinessPolicyArgs args) {
+    public LbStickinessPolicy(java.lang.String name, LbStickinessPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -139,15 +139,22 @@ public class LbStickinessPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LbStickinessPolicy(String name, LbStickinessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy", name, args == null ? LbStickinessPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LbStickinessPolicy(java.lang.String name, LbStickinessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LbStickinessPolicy(String name, Output<String> id, @Nullable LbStickinessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy", name, state, makeResourceOptions(options, id));
+    private LbStickinessPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable LbStickinessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LbStickinessPolicyArgs makeArgs(LbStickinessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LbStickinessPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -163,7 +170,7 @@ public class LbStickinessPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LbStickinessPolicy get(String name, Output<String> id, @Nullable LbStickinessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LbStickinessPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable LbStickinessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LbStickinessPolicy(name, id, state, options);
     }
 }

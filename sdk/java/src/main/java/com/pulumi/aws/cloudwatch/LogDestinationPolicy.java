@@ -134,7 +134,7 @@ public class LogDestinationPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogDestinationPolicy(String name) {
+    public LogDestinationPolicy(java.lang.String name) {
         this(name, LogDestinationPolicyArgs.Empty);
     }
     /**
@@ -142,7 +142,7 @@ public class LogDestinationPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogDestinationPolicy(String name, LogDestinationPolicyArgs args) {
+    public LogDestinationPolicy(java.lang.String name, LogDestinationPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -151,15 +151,22 @@ public class LogDestinationPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogDestinationPolicy(String name, LogDestinationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, args == null ? LogDestinationPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogDestinationPolicy(java.lang.String name, LogDestinationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogDestinationPolicy(String name, Output<String> id, @Nullable LogDestinationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, state, makeResourceOptions(options, id));
+    private LogDestinationPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable LogDestinationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogDestinationPolicyArgs makeArgs(LogDestinationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogDestinationPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -175,7 +182,7 @@ public class LogDestinationPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogDestinationPolicy get(String name, Output<String> id, @Nullable LogDestinationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogDestinationPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable LogDestinationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogDestinationPolicy(name, id, state, options);
     }
 }

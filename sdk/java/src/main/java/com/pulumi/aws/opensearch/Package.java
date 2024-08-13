@@ -171,7 +171,7 @@ public class Package extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Package(String name) {
+    public Package(java.lang.String name) {
         this(name, PackageArgs.Empty);
     }
     /**
@@ -179,7 +179,7 @@ public class Package extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Package(String name, PackageArgs args) {
+    public Package(java.lang.String name, PackageArgs args) {
         this(name, args, null);
     }
     /**
@@ -188,15 +188,22 @@ public class Package extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Package(String name, PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/package:Package", name, args == null ? PackageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Package(java.lang.String name, PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/package:Package", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Package(String name, Output<String> id, @Nullable PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/package:Package", name, state, makeResourceOptions(options, id));
+    private Package(java.lang.String name, Output<java.lang.String> id, @Nullable PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/package:Package", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PackageArgs makeArgs(PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PackageArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -212,7 +219,7 @@ public class Package extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Package get(String name, Output<String> id, @Nullable PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Package get(java.lang.String name, Output<java.lang.String> id, @Nullable PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Package(name, id, state, options);
     }
 }

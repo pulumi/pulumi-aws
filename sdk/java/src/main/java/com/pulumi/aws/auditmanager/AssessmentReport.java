@@ -145,7 +145,7 @@ public class AssessmentReport extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AssessmentReport(String name) {
+    public AssessmentReport(java.lang.String name) {
         this(name, AssessmentReportArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class AssessmentReport extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AssessmentReport(String name, AssessmentReportArgs args) {
+    public AssessmentReport(java.lang.String name, AssessmentReportArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class AssessmentReport extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AssessmentReport(String name, AssessmentReportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/assessmentReport:AssessmentReport", name, args == null ? AssessmentReportArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AssessmentReport(java.lang.String name, AssessmentReportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:auditmanager/assessmentReport:AssessmentReport", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AssessmentReport(String name, Output<String> id, @Nullable AssessmentReportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/assessmentReport:AssessmentReport", name, state, makeResourceOptions(options, id));
+    private AssessmentReport(java.lang.String name, Output<java.lang.String> id, @Nullable AssessmentReportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:auditmanager/assessmentReport:AssessmentReport", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AssessmentReportArgs makeArgs(AssessmentReportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssessmentReportArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class AssessmentReport extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AssessmentReport get(String name, Output<String> id, @Nullable AssessmentReportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AssessmentReport get(java.lang.String name, Output<java.lang.String> id, @Nullable AssessmentReportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AssessmentReport(name, id, state, options);
     }
 }

@@ -290,7 +290,7 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcIpamPoolCidrAllocation(String name) {
+    public VpcIpamPoolCidrAllocation(java.lang.String name) {
         this(name, VpcIpamPoolCidrAllocationArgs.Empty);
     }
     /**
@@ -298,7 +298,7 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcIpamPoolCidrAllocation(String name, VpcIpamPoolCidrAllocationArgs args) {
+    public VpcIpamPoolCidrAllocation(java.lang.String name, VpcIpamPoolCidrAllocationArgs args) {
         this(name, args, null);
     }
     /**
@@ -307,15 +307,22 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcIpamPoolCidrAllocation(String name, VpcIpamPoolCidrAllocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation", name, args == null ? VpcIpamPoolCidrAllocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcIpamPoolCidrAllocation(java.lang.String name, VpcIpamPoolCidrAllocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcIpamPoolCidrAllocation(String name, Output<String> id, @Nullable VpcIpamPoolCidrAllocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation", name, state, makeResourceOptions(options, id));
+    private VpcIpamPoolCidrAllocation(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamPoolCidrAllocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcIpamPoolCidrAllocationArgs makeArgs(VpcIpamPoolCidrAllocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpamPoolCidrAllocationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -331,7 +338,7 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcIpamPoolCidrAllocation get(String name, Output<String> id, @Nullable VpcIpamPoolCidrAllocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcIpamPoolCidrAllocation get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamPoolCidrAllocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcIpamPoolCidrAllocation(name, id, state, options);
     }
 }

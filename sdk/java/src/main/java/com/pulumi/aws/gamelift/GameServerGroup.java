@@ -414,7 +414,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GameServerGroup(String name) {
+    public GameServerGroup(java.lang.String name) {
         this(name, GameServerGroupArgs.Empty);
     }
     /**
@@ -422,7 +422,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GameServerGroup(String name, GameServerGroupArgs args) {
+    public GameServerGroup(java.lang.String name, GameServerGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -431,15 +431,22 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GameServerGroup(String name, GameServerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:gamelift/gameServerGroup:GameServerGroup", name, args == null ? GameServerGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GameServerGroup(java.lang.String name, GameServerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:gamelift/gameServerGroup:GameServerGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GameServerGroup(String name, Output<String> id, @Nullable GameServerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:gamelift/gameServerGroup:GameServerGroup", name, state, makeResourceOptions(options, id));
+    private GameServerGroup(java.lang.String name, Output<java.lang.String> id, @Nullable GameServerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:gamelift/gameServerGroup:GameServerGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GameServerGroupArgs makeArgs(GameServerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GameServerGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -455,7 +462,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GameServerGroup get(String name, Output<String> id, @Nullable GameServerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GameServerGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable GameServerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GameServerGroup(name, id, state, options);
     }
 }

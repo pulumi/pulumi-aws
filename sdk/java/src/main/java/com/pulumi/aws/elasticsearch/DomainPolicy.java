@@ -110,7 +110,7 @@ public class DomainPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DomainPolicy(String name) {
+    public DomainPolicy(java.lang.String name) {
         this(name, DomainPolicyArgs.Empty);
     }
     /**
@@ -118,7 +118,7 @@ public class DomainPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DomainPolicy(String name, DomainPolicyArgs args) {
+    public DomainPolicy(java.lang.String name, DomainPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -127,15 +127,22 @@ public class DomainPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DomainPolicy(String name, DomainPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticsearch/domainPolicy:DomainPolicy", name, args == null ? DomainPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DomainPolicy(java.lang.String name, DomainPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticsearch/domainPolicy:DomainPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DomainPolicy(String name, Output<String> id, @Nullable DomainPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticsearch/domainPolicy:DomainPolicy", name, state, makeResourceOptions(options, id));
+    private DomainPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable DomainPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticsearch/domainPolicy:DomainPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DomainPolicyArgs makeArgs(DomainPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -151,7 +158,7 @@ public class DomainPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DomainPolicy get(String name, Output<String> id, @Nullable DomainPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DomainPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable DomainPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DomainPolicy(name, id, state, options);
     }
 }

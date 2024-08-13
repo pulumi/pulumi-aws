@@ -136,7 +136,7 @@ public class AuthPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AuthPolicy(String name) {
+    public AuthPolicy(java.lang.String name) {
         this(name, AuthPolicyArgs.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class AuthPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AuthPolicy(String name, AuthPolicyArgs args) {
+    public AuthPolicy(java.lang.String name, AuthPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -153,15 +153,22 @@ public class AuthPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AuthPolicy(String name, AuthPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/authPolicy:AuthPolicy", name, args == null ? AuthPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AuthPolicy(java.lang.String name, AuthPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/authPolicy:AuthPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AuthPolicy(String name, Output<String> id, @Nullable AuthPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/authPolicy:AuthPolicy", name, state, makeResourceOptions(options, id));
+    private AuthPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable AuthPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/authPolicy:AuthPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AuthPolicyArgs makeArgs(AuthPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AuthPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -177,7 +184,7 @@ public class AuthPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AuthPolicy get(String name, Output<String> id, @Nullable AuthPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AuthPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable AuthPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AuthPolicy(name, id, state, options);
     }
 }

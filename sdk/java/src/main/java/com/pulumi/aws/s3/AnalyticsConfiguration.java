@@ -204,7 +204,7 @@ public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AnalyticsConfiguration(String name) {
+    public AnalyticsConfiguration(java.lang.String name) {
         this(name, AnalyticsConfigurationArgs.Empty);
     }
     /**
@@ -212,7 +212,7 @@ public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AnalyticsConfiguration(String name, AnalyticsConfigurationArgs args) {
+    public AnalyticsConfiguration(java.lang.String name, AnalyticsConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -221,15 +221,22 @@ public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AnalyticsConfiguration(String name, AnalyticsConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/analyticsConfiguration:AnalyticsConfiguration", name, args == null ? AnalyticsConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AnalyticsConfiguration(java.lang.String name, AnalyticsConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/analyticsConfiguration:AnalyticsConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AnalyticsConfiguration(String name, Output<String> id, @Nullable AnalyticsConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/analyticsConfiguration:AnalyticsConfiguration", name, state, makeResourceOptions(options, id));
+    private AnalyticsConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable AnalyticsConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/analyticsConfiguration:AnalyticsConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AnalyticsConfigurationArgs makeArgs(AnalyticsConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnalyticsConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -245,7 +252,7 @@ public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AnalyticsConfiguration get(String name, Output<String> id, @Nullable AnalyticsConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AnalyticsConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable AnalyticsConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AnalyticsConfiguration(name, id, state, options);
     }
 }

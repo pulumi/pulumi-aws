@@ -304,7 +304,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Task(String name) {
+    public Task(java.lang.String name) {
         this(name, TaskArgs.Empty);
     }
     /**
@@ -312,7 +312,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Task(String name, TaskArgs args) {
+    public Task(java.lang.String name, TaskArgs args) {
         this(name, args, null);
     }
     /**
@@ -321,15 +321,22 @@ public class Task extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Task(String name, TaskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/task:Task", name, args == null ? TaskArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Task(java.lang.String name, TaskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/task:Task", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Task(String name, Output<String> id, @Nullable TaskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/task:Task", name, state, makeResourceOptions(options, id));
+    private Task(java.lang.String name, Output<java.lang.String> id, @Nullable TaskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/task:Task", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TaskArgs makeArgs(TaskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TaskArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -345,7 +352,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Task get(String name, Output<String> id, @Nullable TaskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Task get(java.lang.String name, Output<java.lang.String> id, @Nullable TaskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Task(name, id, state, options);
     }
 }

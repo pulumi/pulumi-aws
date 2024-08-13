@@ -189,7 +189,7 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExtensionAssociation(String name) {
+    public ExtensionAssociation(java.lang.String name) {
         this(name, ExtensionAssociationArgs.Empty);
     }
     /**
@@ -197,7 +197,7 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExtensionAssociation(String name, ExtensionAssociationArgs args) {
+    public ExtensionAssociation(java.lang.String name, ExtensionAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -206,15 +206,22 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExtensionAssociation(String name, ExtensionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/extensionAssociation:ExtensionAssociation", name, args == null ? ExtensionAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ExtensionAssociation(java.lang.String name, ExtensionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appconfig/extensionAssociation:ExtensionAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExtensionAssociation(String name, Output<String> id, @Nullable ExtensionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/extensionAssociation:ExtensionAssociation", name, state, makeResourceOptions(options, id));
+    private ExtensionAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable ExtensionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appconfig/extensionAssociation:ExtensionAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ExtensionAssociationArgs makeArgs(ExtensionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExtensionAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -230,7 +237,7 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExtensionAssociation get(String name, Output<String> id, @Nullable ExtensionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExtensionAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable ExtensionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExtensionAssociation(name, id, state, options);
     }
 }

@@ -37,7 +37,7 @@ import (
 //				AlarmName:        pulumi.String("example-composite-alarm"),
 //				AlarmActions:     pulumi.Any(exampleAwsSnsTopic.Arn),
 //				OkActions:        pulumi.Any(exampleAwsSnsTopic.Arn),
-//				AlarmRule:        pulumi.String(fmt.Sprintf("ALARM(%v) OR\nALARM(%v)\n", alpha.AlarmName, bravo.AlarmName)),
+//				AlarmRule:        pulumi.Sprintf("ALARM(%v) OR\nALARM(%v)\n", alpha.AlarmName, bravo.AlarmName),
 //				ActionsSuppressor: &cloudwatch.CompositeAlarmActionsSuppressorArgs{
 //					Alarm:           pulumi.String("suppressor-alarm"),
 //					ExtensionPeriod: pulumi.Int(10),

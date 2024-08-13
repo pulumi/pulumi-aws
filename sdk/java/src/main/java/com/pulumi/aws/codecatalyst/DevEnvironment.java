@@ -191,7 +191,7 @@ public class DevEnvironment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DevEnvironment(String name) {
+    public DevEnvironment(java.lang.String name) {
         this(name, DevEnvironmentArgs.Empty);
     }
     /**
@@ -199,7 +199,7 @@ public class DevEnvironment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DevEnvironment(String name, DevEnvironmentArgs args) {
+    public DevEnvironment(java.lang.String name, DevEnvironmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -208,15 +208,22 @@ public class DevEnvironment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DevEnvironment(String name, DevEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecatalyst/devEnvironment:DevEnvironment", name, args == null ? DevEnvironmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DevEnvironment(java.lang.String name, DevEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codecatalyst/devEnvironment:DevEnvironment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DevEnvironment(String name, Output<String> id, @Nullable DevEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecatalyst/devEnvironment:DevEnvironment", name, state, makeResourceOptions(options, id));
+    private DevEnvironment(java.lang.String name, Output<java.lang.String> id, @Nullable DevEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codecatalyst/devEnvironment:DevEnvironment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DevEnvironmentArgs makeArgs(DevEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DevEnvironmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -232,7 +239,7 @@ public class DevEnvironment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DevEnvironment get(String name, Output<String> id, @Nullable DevEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DevEnvironment get(java.lang.String name, Output<java.lang.String> id, @Nullable DevEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DevEnvironment(name, id, state, options);
     }
 }

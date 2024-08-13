@@ -116,7 +116,7 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MainRouteTableAssociation(String name) {
+    public MainRouteTableAssociation(java.lang.String name) {
         this(name, MainRouteTableAssociationArgs.Empty);
     }
     /**
@@ -124,7 +124,7 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MainRouteTableAssociation(String name, MainRouteTableAssociationArgs args) {
+    public MainRouteTableAssociation(java.lang.String name, MainRouteTableAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -133,15 +133,22 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MainRouteTableAssociation(String name, MainRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, args == null ? MainRouteTableAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MainRouteTableAssociation(java.lang.String name, MainRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MainRouteTableAssociation(String name, Output<String> id, @Nullable MainRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, state, makeResourceOptions(options, id));
+    private MainRouteTableAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable MainRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MainRouteTableAssociationArgs makeArgs(MainRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MainRouteTableAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +164,7 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MainRouteTableAssociation get(String name, Output<String> id, @Nullable MainRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MainRouteTableAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable MainRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MainRouteTableAssociation(name, id, state, options);
     }
 }

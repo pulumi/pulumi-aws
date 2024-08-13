@@ -132,7 +132,7 @@ public class DocumentationVersion extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DocumentationVersion(String name) {
+    public DocumentationVersion(java.lang.String name) {
         this(name, DocumentationVersionArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class DocumentationVersion extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DocumentationVersion(String name, DocumentationVersionArgs args) {
+    public DocumentationVersion(java.lang.String name, DocumentationVersionArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,15 +149,22 @@ public class DocumentationVersion extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DocumentationVersion(String name, DocumentationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/documentationVersion:DocumentationVersion", name, args == null ? DocumentationVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DocumentationVersion(java.lang.String name, DocumentationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/documentationVersion:DocumentationVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DocumentationVersion(String name, Output<String> id, @Nullable DocumentationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/documentationVersion:DocumentationVersion", name, state, makeResourceOptions(options, id));
+    private DocumentationVersion(java.lang.String name, Output<java.lang.String> id, @Nullable DocumentationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/documentationVersion:DocumentationVersion", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DocumentationVersionArgs makeArgs(DocumentationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DocumentationVersionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -173,7 +180,7 @@ public class DocumentationVersion extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DocumentationVersion get(String name, Output<String> id, @Nullable DocumentationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DocumentationVersion get(java.lang.String name, Output<java.lang.String> id, @Nullable DocumentationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DocumentationVersion(name, id, state, options);
     }
 }

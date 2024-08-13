@@ -131,7 +131,7 @@ public class PermissionSetInlinePolicy extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PermissionSetInlinePolicy(String name) {
+    public PermissionSetInlinePolicy(java.lang.String name) {
         this(name, PermissionSetInlinePolicyArgs.Empty);
     }
     /**
@@ -139,7 +139,7 @@ public class PermissionSetInlinePolicy extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PermissionSetInlinePolicy(String name, PermissionSetInlinePolicyArgs args) {
+    public PermissionSetInlinePolicy(java.lang.String name, PermissionSetInlinePolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -148,15 +148,22 @@ public class PermissionSetInlinePolicy extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PermissionSetInlinePolicy(String name, PermissionSetInlinePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy", name, args == null ? PermissionSetInlinePolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PermissionSetInlinePolicy(java.lang.String name, PermissionSetInlinePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PermissionSetInlinePolicy(String name, Output<String> id, @Nullable PermissionSetInlinePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy", name, state, makeResourceOptions(options, id));
+    private PermissionSetInlinePolicy(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionSetInlinePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PermissionSetInlinePolicyArgs makeArgs(PermissionSetInlinePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PermissionSetInlinePolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -172,7 +179,7 @@ public class PermissionSetInlinePolicy extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PermissionSetInlinePolicy get(String name, Output<String> id, @Nullable PermissionSetInlinePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PermissionSetInlinePolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionSetInlinePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PermissionSetInlinePolicy(name, id, state, options);
     }
 }

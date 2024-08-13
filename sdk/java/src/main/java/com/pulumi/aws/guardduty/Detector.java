@@ -200,7 +200,7 @@ public class Detector extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Detector(String name) {
+    public Detector(java.lang.String name) {
         this(name, DetectorArgs.Empty);
     }
     /**
@@ -208,7 +208,7 @@ public class Detector extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Detector(String name, @Nullable DetectorArgs args) {
+    public Detector(java.lang.String name, @Nullable DetectorArgs args) {
         this(name, args, null);
     }
     /**
@@ -217,15 +217,22 @@ public class Detector extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Detector(String name, @Nullable DetectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/detector:Detector", name, args == null ? DetectorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Detector(java.lang.String name, @Nullable DetectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:guardduty/detector:Detector", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Detector(String name, Output<String> id, @Nullable DetectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/detector:Detector", name, state, makeResourceOptions(options, id));
+    private Detector(java.lang.String name, Output<java.lang.String> id, @Nullable DetectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:guardduty/detector:Detector", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DetectorArgs makeArgs(@Nullable DetectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DetectorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -241,7 +248,7 @@ public class Detector extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Detector get(String name, Output<String> id, @Nullable DetectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Detector get(java.lang.String name, Output<java.lang.String> id, @Nullable DetectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Detector(name, id, state, options);
     }
 }

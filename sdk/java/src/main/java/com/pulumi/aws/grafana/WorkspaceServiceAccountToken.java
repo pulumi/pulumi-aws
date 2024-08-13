@@ -184,7 +184,7 @@ public class WorkspaceServiceAccountToken extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WorkspaceServiceAccountToken(String name) {
+    public WorkspaceServiceAccountToken(java.lang.String name) {
         this(name, WorkspaceServiceAccountTokenArgs.Empty);
     }
     /**
@@ -192,7 +192,7 @@ public class WorkspaceServiceAccountToken extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WorkspaceServiceAccountToken(String name, WorkspaceServiceAccountTokenArgs args) {
+    public WorkspaceServiceAccountToken(java.lang.String name, WorkspaceServiceAccountTokenArgs args) {
         this(name, args, null);
     }
     /**
@@ -201,15 +201,22 @@ public class WorkspaceServiceAccountToken extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WorkspaceServiceAccountToken(String name, WorkspaceServiceAccountTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken", name, args == null ? WorkspaceServiceAccountTokenArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public WorkspaceServiceAccountToken(java.lang.String name, WorkspaceServiceAccountTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WorkspaceServiceAccountToken(String name, Output<String> id, @Nullable WorkspaceServiceAccountTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken", name, state, makeResourceOptions(options, id));
+    private WorkspaceServiceAccountToken(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceServiceAccountTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkspaceServiceAccountTokenArgs makeArgs(WorkspaceServiceAccountTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceServiceAccountTokenArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -228,7 +235,7 @@ public class WorkspaceServiceAccountToken extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WorkspaceServiceAccountToken get(String name, Output<String> id, @Nullable WorkspaceServiceAccountTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WorkspaceServiceAccountToken get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceServiceAccountTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WorkspaceServiceAccountToken(name, id, state, options);
     }
 }

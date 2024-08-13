@@ -148,7 +148,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RecoveryGroup(String name) {
+    public RecoveryGroup(java.lang.String name) {
         this(name, RecoveryGroupArgs.Empty);
     }
     /**
@@ -156,7 +156,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RecoveryGroup(String name, RecoveryGroupArgs args) {
+    public RecoveryGroup(java.lang.String name, RecoveryGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -165,15 +165,22 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RecoveryGroup(String name, RecoveryGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup", name, args == null ? RecoveryGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RecoveryGroup(java.lang.String name, RecoveryGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RecoveryGroup(String name, Output<String> id, @Nullable RecoveryGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup", name, state, makeResourceOptions(options, id));
+    private RecoveryGroup(java.lang.String name, Output<java.lang.String> id, @Nullable RecoveryGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RecoveryGroupArgs makeArgs(RecoveryGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RecoveryGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -189,7 +196,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RecoveryGroup get(String name, Output<String> id, @Nullable RecoveryGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RecoveryGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable RecoveryGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RecoveryGroup(name, id, state, options);
     }
 }

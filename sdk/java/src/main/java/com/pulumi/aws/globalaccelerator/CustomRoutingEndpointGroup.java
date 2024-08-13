@@ -151,7 +151,7 @@ public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomRoutingEndpointGroup(String name) {
+    public CustomRoutingEndpointGroup(java.lang.String name) {
         this(name, CustomRoutingEndpointGroupArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomRoutingEndpointGroup(String name, CustomRoutingEndpointGroupArgs args) {
+    public CustomRoutingEndpointGroup(java.lang.String name, CustomRoutingEndpointGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,15 +168,22 @@ public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomRoutingEndpointGroup(String name, CustomRoutingEndpointGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup", name, args == null ? CustomRoutingEndpointGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CustomRoutingEndpointGroup(java.lang.String name, CustomRoutingEndpointGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomRoutingEndpointGroup(String name, Output<String> id, @Nullable CustomRoutingEndpointGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup", name, state, makeResourceOptions(options, id));
+    private CustomRoutingEndpointGroup(java.lang.String name, Output<java.lang.String> id, @Nullable CustomRoutingEndpointGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CustomRoutingEndpointGroupArgs makeArgs(CustomRoutingEndpointGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomRoutingEndpointGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -192,7 +199,7 @@ public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomRoutingEndpointGroup get(String name, Output<String> id, @Nullable CustomRoutingEndpointGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomRoutingEndpointGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomRoutingEndpointGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomRoutingEndpointGroup(name, id, state, options);
     }
 }

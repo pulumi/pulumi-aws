@@ -261,7 +261,7 @@ public class LocationObjectStorage extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LocationObjectStorage(String name) {
+    public LocationObjectStorage(java.lang.String name) {
         this(name, LocationObjectStorageArgs.Empty);
     }
     /**
@@ -269,7 +269,7 @@ public class LocationObjectStorage extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LocationObjectStorage(String name, LocationObjectStorageArgs args) {
+    public LocationObjectStorage(java.lang.String name, LocationObjectStorageArgs args) {
         this(name, args, null);
     }
     /**
@@ -278,15 +278,22 @@ public class LocationObjectStorage extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LocationObjectStorage(String name, LocationObjectStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/locationObjectStorage:LocationObjectStorage", name, args == null ? LocationObjectStorageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LocationObjectStorage(java.lang.String name, LocationObjectStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/locationObjectStorage:LocationObjectStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LocationObjectStorage(String name, Output<String> id, @Nullable LocationObjectStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/locationObjectStorage:LocationObjectStorage", name, state, makeResourceOptions(options, id));
+    private LocationObjectStorage(java.lang.String name, Output<java.lang.String> id, @Nullable LocationObjectStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/locationObjectStorage:LocationObjectStorage", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LocationObjectStorageArgs makeArgs(LocationObjectStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocationObjectStorageArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -305,7 +312,7 @@ public class LocationObjectStorage extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LocationObjectStorage get(String name, Output<String> id, @Nullable LocationObjectStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LocationObjectStorage get(java.lang.String name, Output<java.lang.String> id, @Nullable LocationObjectStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LocationObjectStorage(name, id, state, options);
     }
 }

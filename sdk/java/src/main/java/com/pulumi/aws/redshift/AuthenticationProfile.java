@@ -102,7 +102,7 @@ public class AuthenticationProfile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AuthenticationProfile(String name) {
+    public AuthenticationProfile(java.lang.String name) {
         this(name, AuthenticationProfileArgs.Empty);
     }
     /**
@@ -110,7 +110,7 @@ public class AuthenticationProfile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AuthenticationProfile(String name, AuthenticationProfileArgs args) {
+    public AuthenticationProfile(java.lang.String name, AuthenticationProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -119,15 +119,22 @@ public class AuthenticationProfile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AuthenticationProfile(String name, AuthenticationProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/authenticationProfile:AuthenticationProfile", name, args == null ? AuthenticationProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AuthenticationProfile(java.lang.String name, AuthenticationProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/authenticationProfile:AuthenticationProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AuthenticationProfile(String name, Output<String> id, @Nullable AuthenticationProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/authenticationProfile:AuthenticationProfile", name, state, makeResourceOptions(options, id));
+    private AuthenticationProfile(java.lang.String name, Output<java.lang.String> id, @Nullable AuthenticationProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/authenticationProfile:AuthenticationProfile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AuthenticationProfileArgs makeArgs(AuthenticationProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AuthenticationProfileArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -143,7 +150,7 @@ public class AuthenticationProfile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AuthenticationProfile get(String name, Output<String> id, @Nullable AuthenticationProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AuthenticationProfile get(java.lang.String name, Output<java.lang.String> id, @Nullable AuthenticationProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AuthenticationProfile(name, id, state, options);
     }
 }

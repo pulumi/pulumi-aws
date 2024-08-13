@@ -261,7 +261,7 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResponsePlan(String name) {
+    public ResponsePlan(java.lang.String name) {
         this(name, ResponsePlanArgs.Empty);
     }
     /**
@@ -269,7 +269,7 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResponsePlan(String name, ResponsePlanArgs args) {
+    public ResponsePlan(java.lang.String name, ResponsePlanArgs args) {
         this(name, args, null);
     }
     /**
@@ -278,15 +278,22 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResponsePlan(String name, ResponsePlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssmincidents/responsePlan:ResponsePlan", name, args == null ? ResponsePlanArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResponsePlan(java.lang.String name, ResponsePlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssmincidents/responsePlan:ResponsePlan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResponsePlan(String name, Output<String> id, @Nullable ResponsePlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssmincidents/responsePlan:ResponsePlan", name, state, makeResourceOptions(options, id));
+    private ResponsePlan(java.lang.String name, Output<java.lang.String> id, @Nullable ResponsePlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssmincidents/responsePlan:ResponsePlan", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResponsePlanArgs makeArgs(ResponsePlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResponsePlanArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -302,7 +309,7 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResponsePlan get(String name, Output<String> id, @Nullable ResponsePlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResponsePlan get(java.lang.String name, Output<java.lang.String> id, @Nullable ResponsePlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResponsePlan(name, id, state, options);
     }
 }

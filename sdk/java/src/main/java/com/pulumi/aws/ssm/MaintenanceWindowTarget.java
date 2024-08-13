@@ -227,7 +227,7 @@ public class MaintenanceWindowTarget extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MaintenanceWindowTarget(String name) {
+    public MaintenanceWindowTarget(java.lang.String name) {
         this(name, MaintenanceWindowTargetArgs.Empty);
     }
     /**
@@ -235,7 +235,7 @@ public class MaintenanceWindowTarget extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MaintenanceWindowTarget(String name, MaintenanceWindowTargetArgs args) {
+    public MaintenanceWindowTarget(java.lang.String name, MaintenanceWindowTargetArgs args) {
         this(name, args, null);
     }
     /**
@@ -244,15 +244,22 @@ public class MaintenanceWindowTarget extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MaintenanceWindowTarget(String name, MaintenanceWindowTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, args == null ? MaintenanceWindowTargetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MaintenanceWindowTarget(java.lang.String name, MaintenanceWindowTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MaintenanceWindowTarget(String name, Output<String> id, @Nullable MaintenanceWindowTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, state, makeResourceOptions(options, id));
+    private MaintenanceWindowTarget(java.lang.String name, Output<java.lang.String> id, @Nullable MaintenanceWindowTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MaintenanceWindowTargetArgs makeArgs(MaintenanceWindowTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MaintenanceWindowTargetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -268,7 +275,7 @@ public class MaintenanceWindowTarget extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MaintenanceWindowTarget get(String name, Output<String> id, @Nullable MaintenanceWindowTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MaintenanceWindowTarget get(java.lang.String name, Output<java.lang.String> id, @Nullable MaintenanceWindowTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MaintenanceWindowTarget(name, id, state, options);
     }
 }

@@ -100,7 +100,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RegexPatternSet(String name) {
+    public RegexPatternSet(java.lang.String name) {
         this(name, RegexPatternSetArgs.Empty);
     }
     /**
@@ -108,7 +108,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RegexPatternSet(String name, @Nullable RegexPatternSetArgs args) {
+    public RegexPatternSet(java.lang.String name, @Nullable RegexPatternSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -117,15 +117,22 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RegexPatternSet(String name, @Nullable RegexPatternSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafregional/regexPatternSet:RegexPatternSet", name, args == null ? RegexPatternSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RegexPatternSet(java.lang.String name, @Nullable RegexPatternSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:wafregional/regexPatternSet:RegexPatternSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RegexPatternSet(String name, Output<String> id, @Nullable RegexPatternSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafregional/regexPatternSet:RegexPatternSet", name, state, makeResourceOptions(options, id));
+    private RegexPatternSet(java.lang.String name, Output<java.lang.String> id, @Nullable RegexPatternSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:wafregional/regexPatternSet:RegexPatternSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RegexPatternSetArgs makeArgs(@Nullable RegexPatternSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegexPatternSetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -141,7 +148,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RegexPatternSet get(String name, Output<String> id, @Nullable RegexPatternSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RegexPatternSet get(java.lang.String name, Output<java.lang.String> id, @Nullable RegexPatternSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RegexPatternSet(name, id, state, options);
     }
 }

@@ -224,7 +224,7 @@ public class ApnsSandboxChannel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApnsSandboxChannel(String name) {
+    public ApnsSandboxChannel(java.lang.String name) {
         this(name, ApnsSandboxChannelArgs.Empty);
     }
     /**
@@ -232,7 +232,7 @@ public class ApnsSandboxChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApnsSandboxChannel(String name, ApnsSandboxChannelArgs args) {
+    public ApnsSandboxChannel(java.lang.String name, ApnsSandboxChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -241,15 +241,22 @@ public class ApnsSandboxChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApnsSandboxChannel(String name, ApnsSandboxChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel", name, args == null ? ApnsSandboxChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ApnsSandboxChannel(java.lang.String name, ApnsSandboxChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApnsSandboxChannel(String name, Output<String> id, @Nullable ApnsSandboxChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel", name, state, makeResourceOptions(options, id));
+    private ApnsSandboxChannel(java.lang.String name, Output<java.lang.String> id, @Nullable ApnsSandboxChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ApnsSandboxChannelArgs makeArgs(ApnsSandboxChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApnsSandboxChannelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -273,7 +280,7 @@ public class ApnsSandboxChannel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApnsSandboxChannel get(String name, Output<String> id, @Nullable ApnsSandboxChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApnsSandboxChannel get(java.lang.String name, Output<java.lang.String> id, @Nullable ApnsSandboxChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApnsSandboxChannel(name, id, state, options);
     }
 }

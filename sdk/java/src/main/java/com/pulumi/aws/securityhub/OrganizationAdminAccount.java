@@ -101,7 +101,7 @@ public class OrganizationAdminAccount extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrganizationAdminAccount(String name) {
+    public OrganizationAdminAccount(java.lang.String name) {
         this(name, OrganizationAdminAccountArgs.Empty);
     }
     /**
@@ -109,7 +109,7 @@ public class OrganizationAdminAccount extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrganizationAdminAccount(String name, OrganizationAdminAccountArgs args) {
+    public OrganizationAdminAccount(java.lang.String name, OrganizationAdminAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -118,15 +118,22 @@ public class OrganizationAdminAccount extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrganizationAdminAccount(String name, OrganizationAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/organizationAdminAccount:OrganizationAdminAccount", name, args == null ? OrganizationAdminAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OrganizationAdminAccount(java.lang.String name, OrganizationAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/organizationAdminAccount:OrganizationAdminAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrganizationAdminAccount(String name, Output<String> id, @Nullable OrganizationAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/organizationAdminAccount:OrganizationAdminAccount", name, state, makeResourceOptions(options, id));
+    private OrganizationAdminAccount(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/organizationAdminAccount:OrganizationAdminAccount", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OrganizationAdminAccountArgs makeArgs(OrganizationAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationAdminAccountArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -142,7 +149,7 @@ public class OrganizationAdminAccount extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrganizationAdminAccount get(String name, Output<String> id, @Nullable OrganizationAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrganizationAdminAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrganizationAdminAccount(name, id, state, options);
     }
 }

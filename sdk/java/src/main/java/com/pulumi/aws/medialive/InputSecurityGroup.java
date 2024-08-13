@@ -149,7 +149,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InputSecurityGroup(String name) {
+    public InputSecurityGroup(java.lang.String name) {
         this(name, InputSecurityGroupArgs.Empty);
     }
     /**
@@ -157,7 +157,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InputSecurityGroup(String name, InputSecurityGroupArgs args) {
+    public InputSecurityGroup(java.lang.String name, InputSecurityGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,15 +166,22 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InputSecurityGroup(String name, InputSecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/inputSecurityGroup:InputSecurityGroup", name, args == null ? InputSecurityGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InputSecurityGroup(java.lang.String name, InputSecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:medialive/inputSecurityGroup:InputSecurityGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InputSecurityGroup(String name, Output<String> id, @Nullable InputSecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/inputSecurityGroup:InputSecurityGroup", name, state, makeResourceOptions(options, id));
+    private InputSecurityGroup(java.lang.String name, Output<java.lang.String> id, @Nullable InputSecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:medialive/inputSecurityGroup:InputSecurityGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InputSecurityGroupArgs makeArgs(InputSecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InputSecurityGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -190,7 +197,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InputSecurityGroup get(String name, Output<String> id, @Nullable InputSecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InputSecurityGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable InputSecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InputSecurityGroup(name, id, state, options);
     }
 }

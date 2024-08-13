@@ -126,7 +126,7 @@ public class Region extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Region(String name) {
+    public Region(java.lang.String name) {
         this(name, RegionArgs.Empty);
     }
     /**
@@ -134,7 +134,7 @@ public class Region extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Region(String name, RegionArgs args) {
+    public Region(java.lang.String name, RegionArgs args) {
         this(name, args, null);
     }
     /**
@@ -143,15 +143,22 @@ public class Region extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Region(String name, RegionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:account/region:Region", name, args == null ? RegionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Region(java.lang.String name, RegionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:account/region:Region", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Region(String name, Output<String> id, @Nullable RegionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:account/region:Region", name, state, makeResourceOptions(options, id));
+    private Region(java.lang.String name, Output<java.lang.String> id, @Nullable RegionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:account/region:Region", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RegionArgs makeArgs(RegionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -167,7 +174,7 @@ public class Region extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Region get(String name, Output<String> id, @Nullable RegionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Region get(java.lang.String name, Output<java.lang.String> id, @Nullable RegionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Region(name, id, state, options);
     }
 }
