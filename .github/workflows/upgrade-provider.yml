@@ -9,6 +9,12 @@ jobs:
     name: upgrade-provider
     runs-on: ubuntu-latest
     steps:
+    # Run as first step so we don't delete things that have just been installed
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+      with:
+        tool-cache: false
+        swap-storage: false
     - name: Call upgrade provider action
       uses: pulumi/pulumi-upgrade-provider-action@v0.0.12
       with:
