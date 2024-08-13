@@ -162,7 +162,7 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FieldLevelEncryptionConfig(String name) {
+    public FieldLevelEncryptionConfig(java.lang.String name) {
         this(name, FieldLevelEncryptionConfigArgs.Empty);
     }
     /**
@@ -170,7 +170,7 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FieldLevelEncryptionConfig(String name, FieldLevelEncryptionConfigArgs args) {
+    public FieldLevelEncryptionConfig(java.lang.String name, FieldLevelEncryptionConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -179,15 +179,22 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FieldLevelEncryptionConfig(String name, FieldLevelEncryptionConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig", name, args == null ? FieldLevelEncryptionConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FieldLevelEncryptionConfig(java.lang.String name, FieldLevelEncryptionConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FieldLevelEncryptionConfig(String name, Output<String> id, @Nullable FieldLevelEncryptionConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig", name, state, makeResourceOptions(options, id));
+    private FieldLevelEncryptionConfig(java.lang.String name, Output<java.lang.String> id, @Nullable FieldLevelEncryptionConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FieldLevelEncryptionConfigArgs makeArgs(FieldLevelEncryptionConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FieldLevelEncryptionConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -203,7 +210,7 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FieldLevelEncryptionConfig get(String name, Output<String> id, @Nullable FieldLevelEncryptionConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FieldLevelEncryptionConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable FieldLevelEncryptionConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FieldLevelEncryptionConfig(name, id, state, options);
     }
 }

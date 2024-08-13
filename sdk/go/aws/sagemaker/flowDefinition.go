@@ -44,7 +44,7 @@ import (
 //					WorkteamArn:                       pulumi.Any(exampleAwsSagemakerWorkteam.Arn),
 //				},
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket)),
+//					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
 //				},
 //			})
 //			if err != nil {
@@ -81,7 +81,7 @@ import (
 //					TaskCount:                         pulumi.Int(1),
 //					TaskDescription:                   pulumi.String("example"),
 //					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.String(fmt.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Name)),
+//					WorkteamArn:                       pulumi.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Name),
 //					PublicWorkforceTaskPrice: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{
 //						AmountInUsd: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{
 //							Cents:                 pulumi.Int(1),
@@ -90,7 +90,7 @@ import (
 //					},
 //				},
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket)),
+//					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
 //				},
 //			})
 //			if err != nil {
@@ -150,7 +150,7 @@ import (
 //					},
 //				},
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket)),
+//					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
 //				},
 //			})
 //			if err != nil {

@@ -293,7 +293,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Workgroup(String name) {
+    public Workgroup(java.lang.String name) {
         this(name, WorkgroupArgs.Empty);
     }
     /**
@@ -301,7 +301,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Workgroup(String name, WorkgroupArgs args) {
+    public Workgroup(java.lang.String name, WorkgroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -310,15 +310,22 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Workgroup(String name, WorkgroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshiftserverless/workgroup:Workgroup", name, args == null ? WorkgroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Workgroup(java.lang.String name, WorkgroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshiftserverless/workgroup:Workgroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Workgroup(String name, Output<String> id, @Nullable WorkgroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshiftserverless/workgroup:Workgroup", name, state, makeResourceOptions(options, id));
+    private Workgroup(java.lang.String name, Output<java.lang.String> id, @Nullable WorkgroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshiftserverless/workgroup:Workgroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkgroupArgs makeArgs(WorkgroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkgroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -334,7 +341,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Workgroup get(String name, Output<String> id, @Nullable WorkgroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Workgroup get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkgroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Workgroup(name, id, state, options);
     }
 }

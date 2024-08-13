@@ -39,7 +39,7 @@ import (
 //			_, err := appautoscaling.NewTarget(ctx, "dynamodb_table_read_target", &appautoscaling.TargetArgs{
 //				MaxCapacity:       pulumi.Int(100),
 //				MinCapacity:       pulumi.Int(5),
-//				ResourceId:        pulumi.String(fmt.Sprintf("table/%v", example.Name)),
+//				ResourceId:        pulumi.Sprintf("table/%v", example.Name),
 //				ScalableDimension: pulumi.String("dynamodb:table:ReadCapacityUnits"),
 //				ServiceNamespace:  pulumi.String("dynamodb"),
 //			})
@@ -71,7 +71,7 @@ import (
 //			_, err := appautoscaling.NewTarget(ctx, "dynamodb_index_read_target", &appautoscaling.TargetArgs{
 //				MaxCapacity:       pulumi.Int(100),
 //				MinCapacity:       pulumi.Int(5),
-//				ResourceId:        pulumi.String(fmt.Sprintf("table/%v/index/%v", example.Name, indexName)),
+//				ResourceId:        pulumi.Sprintf("table/%v/index/%v", example.Name, indexName),
 //				ScalableDimension: pulumi.String("dynamodb:index:ReadCapacityUnits"),
 //				ServiceNamespace:  pulumi.String("dynamodb"),
 //			})
@@ -103,7 +103,7 @@ import (
 //			_, err := appautoscaling.NewTarget(ctx, "ecs_target", &appautoscaling.TargetArgs{
 //				MaxCapacity:       pulumi.Int(4),
 //				MinCapacity:       pulumi.Int(1),
-//				ResourceId:        pulumi.String(fmt.Sprintf("service/%v/%v", example.Name, exampleAwsEcsService.Name)),
+//				ResourceId:        pulumi.Sprintf("service/%v/%v", example.Name, exampleAwsEcsService.Name),
 //				ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
 //				ServiceNamespace:  pulumi.String("ecs"),
 //			})
@@ -135,7 +135,7 @@ import (
 //			_, err := appautoscaling.NewTarget(ctx, "replicas", &appautoscaling.TargetArgs{
 //				ServiceNamespace:  pulumi.String("rds"),
 //				ScalableDimension: pulumi.String("rds:cluster:ReadReplicaCount"),
-//				ResourceId:        pulumi.String(fmt.Sprintf("cluster:%v", example.Id)),
+//				ResourceId:        pulumi.Sprintf("cluster:%v", example.Id),
 //				MinCapacity:       pulumi.Int(1),
 //				MaxCapacity:       pulumi.Int(15),
 //			})
@@ -167,7 +167,7 @@ import (
 //			_, err := appautoscaling.NewTarget(ctx, "ecs_target", &appautoscaling.TargetArgs{
 //				MaxCapacity:       pulumi.Int(4),
 //				MinCapacity:       pulumi.Int(1),
-//				ResourceId:        pulumi.String(fmt.Sprintf("service/%v/%v", example.Name, exampleAwsEcsService.Name)),
+//				ResourceId:        pulumi.Sprintf("service/%v/%v", example.Name, exampleAwsEcsService.Name),
 //				ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
 //				ServiceNamespace:  pulumi.String("ecs"),
 //			})

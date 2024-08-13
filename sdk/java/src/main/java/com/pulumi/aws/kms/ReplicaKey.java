@@ -275,7 +275,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReplicaKey(String name) {
+    public ReplicaKey(java.lang.String name) {
         this(name, ReplicaKeyArgs.Empty);
     }
     /**
@@ -283,7 +283,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReplicaKey(String name, ReplicaKeyArgs args) {
+    public ReplicaKey(java.lang.String name, ReplicaKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -292,15 +292,22 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReplicaKey(String name, ReplicaKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kms/replicaKey:ReplicaKey", name, args == null ? ReplicaKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ReplicaKey(java.lang.String name, ReplicaKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kms/replicaKey:ReplicaKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReplicaKey(String name, Output<String> id, @Nullable ReplicaKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kms/replicaKey:ReplicaKey", name, state, makeResourceOptions(options, id));
+    private ReplicaKey(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicaKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kms/replicaKey:ReplicaKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ReplicaKeyArgs makeArgs(ReplicaKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicaKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -316,7 +323,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReplicaKey get(String name, Output<String> id, @Nullable ReplicaKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReplicaKey get(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicaKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReplicaKey(name, id, state, options);
     }
 }

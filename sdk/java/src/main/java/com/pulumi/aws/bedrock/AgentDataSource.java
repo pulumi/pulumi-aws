@@ -205,7 +205,7 @@ public class AgentDataSource extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AgentDataSource(String name) {
+    public AgentDataSource(java.lang.String name) {
         this(name, AgentDataSourceArgs.Empty);
     }
     /**
@@ -213,7 +213,7 @@ public class AgentDataSource extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AgentDataSource(String name, AgentDataSourceArgs args) {
+    public AgentDataSource(java.lang.String name, AgentDataSourceArgs args) {
         this(name, args, null);
     }
     /**
@@ -222,15 +222,22 @@ public class AgentDataSource extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AgentDataSource(String name, AgentDataSourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentDataSource:AgentDataSource", name, args == null ? AgentDataSourceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AgentDataSource(java.lang.String name, AgentDataSourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/agentDataSource:AgentDataSource", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AgentDataSource(String name, Output<String> id, @Nullable AgentDataSourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentDataSource:AgentDataSource", name, state, makeResourceOptions(options, id));
+    private AgentDataSource(java.lang.String name, Output<java.lang.String> id, @Nullable AgentDataSourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/agentDataSource:AgentDataSource", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AgentDataSourceArgs makeArgs(AgentDataSourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AgentDataSourceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -246,7 +253,7 @@ public class AgentDataSource extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AgentDataSource get(String name, Output<String> id, @Nullable AgentDataSourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AgentDataSource get(java.lang.String name, Output<java.lang.String> id, @Nullable AgentDataSourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AgentDataSource(name, id, state, options);
     }
 }

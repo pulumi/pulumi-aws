@@ -150,7 +150,7 @@ public class RouteResponse extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RouteResponse(String name) {
+    public RouteResponse(java.lang.String name) {
         this(name, RouteResponseArgs.Empty);
     }
     /**
@@ -158,7 +158,7 @@ public class RouteResponse extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RouteResponse(String name, RouteResponseArgs args) {
+    public RouteResponse(java.lang.String name, RouteResponseArgs args) {
         this(name, args, null);
     }
     /**
@@ -167,15 +167,22 @@ public class RouteResponse extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RouteResponse(String name, RouteResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigatewayv2/routeResponse:RouteResponse", name, args == null ? RouteResponseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RouteResponse(java.lang.String name, RouteResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigatewayv2/routeResponse:RouteResponse", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RouteResponse(String name, Output<String> id, @Nullable RouteResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigatewayv2/routeResponse:RouteResponse", name, state, makeResourceOptions(options, id));
+    private RouteResponse(java.lang.String name, Output<java.lang.String> id, @Nullable RouteResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigatewayv2/routeResponse:RouteResponse", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RouteResponseArgs makeArgs(RouteResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RouteResponseArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -191,7 +198,7 @@ public class RouteResponse extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RouteResponse get(String name, Output<String> id, @Nullable RouteResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RouteResponse get(java.lang.String name, Output<java.lang.String> id, @Nullable RouteResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RouteResponse(name, id, state, options);
     }
 }

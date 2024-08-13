@@ -248,7 +248,7 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TrafficMirrorSession(String name) {
+    public TrafficMirrorSession(java.lang.String name) {
         this(name, TrafficMirrorSessionArgs.Empty);
     }
     /**
@@ -256,7 +256,7 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TrafficMirrorSession(String name, TrafficMirrorSessionArgs args) {
+    public TrafficMirrorSession(java.lang.String name, TrafficMirrorSessionArgs args) {
         this(name, args, null);
     }
     /**
@@ -265,15 +265,22 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TrafficMirrorSession(String name, TrafficMirrorSessionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, args == null ? TrafficMirrorSessionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TrafficMirrorSession(java.lang.String name, TrafficMirrorSessionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TrafficMirrorSession(String name, Output<String> id, @Nullable TrafficMirrorSessionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, state, makeResourceOptions(options, id));
+    private TrafficMirrorSession(java.lang.String name, Output<java.lang.String> id, @Nullable TrafficMirrorSessionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TrafficMirrorSessionArgs makeArgs(TrafficMirrorSessionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrafficMirrorSessionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -289,7 +296,7 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TrafficMirrorSession get(String name, Output<String> id, @Nullable TrafficMirrorSessionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TrafficMirrorSession get(java.lang.String name, Output<java.lang.String> id, @Nullable TrafficMirrorSessionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TrafficMirrorSession(name, id, state, options);
     }
 }

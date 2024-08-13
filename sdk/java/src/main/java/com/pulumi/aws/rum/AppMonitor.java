@@ -217,7 +217,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppMonitor(String name) {
+    public AppMonitor(java.lang.String name) {
         this(name, AppMonitorArgs.Empty);
     }
     /**
@@ -225,7 +225,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppMonitor(String name, AppMonitorArgs args) {
+    public AppMonitor(java.lang.String name, AppMonitorArgs args) {
         this(name, args, null);
     }
     /**
@@ -234,15 +234,22 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppMonitor(String name, AppMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rum/appMonitor:AppMonitor", name, args == null ? AppMonitorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AppMonitor(java.lang.String name, AppMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rum/appMonitor:AppMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppMonitor(String name, Output<String> id, @Nullable AppMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rum/appMonitor:AppMonitor", name, state, makeResourceOptions(options, id));
+    private AppMonitor(java.lang.String name, Output<java.lang.String> id, @Nullable AppMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rum/appMonitor:AppMonitor", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppMonitorArgs makeArgs(AppMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppMonitorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -258,7 +265,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppMonitor get(String name, Output<String> id, @Nullable AppMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppMonitor get(java.lang.String name, Output<java.lang.String> id, @Nullable AppMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppMonitor(name, id, state, options);
     }
 }

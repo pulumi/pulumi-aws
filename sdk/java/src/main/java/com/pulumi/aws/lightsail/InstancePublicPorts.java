@@ -108,7 +108,7 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InstancePublicPorts(String name) {
+    public InstancePublicPorts(java.lang.String name) {
         this(name, InstancePublicPortsArgs.Empty);
     }
     /**
@@ -116,7 +116,7 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InstancePublicPorts(String name, InstancePublicPortsArgs args) {
+    public InstancePublicPorts(java.lang.String name, InstancePublicPortsArgs args) {
         this(name, args, null);
     }
     /**
@@ -125,15 +125,22 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InstancePublicPorts(String name, InstancePublicPortsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/instancePublicPorts:InstancePublicPorts", name, args == null ? InstancePublicPortsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InstancePublicPorts(java.lang.String name, InstancePublicPortsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/instancePublicPorts:InstancePublicPorts", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InstancePublicPorts(String name, Output<String> id, @Nullable InstancePublicPortsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/instancePublicPorts:InstancePublicPorts", name, state, makeResourceOptions(options, id));
+    private InstancePublicPorts(java.lang.String name, Output<java.lang.String> id, @Nullable InstancePublicPortsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/instancePublicPorts:InstancePublicPorts", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InstancePublicPortsArgs makeArgs(InstancePublicPortsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstancePublicPortsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -149,7 +156,7 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InstancePublicPorts get(String name, Output<String> id, @Nullable InstancePublicPortsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InstancePublicPorts get(java.lang.String name, Output<java.lang.String> id, @Nullable InstancePublicPortsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InstancePublicPorts(name, id, state, options);
     }
 }

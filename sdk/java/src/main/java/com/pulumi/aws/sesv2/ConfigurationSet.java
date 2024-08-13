@@ -237,7 +237,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConfigurationSet(String name) {
+    public ConfigurationSet(java.lang.String name) {
         this(name, ConfigurationSetArgs.Empty);
     }
     /**
@@ -245,7 +245,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConfigurationSet(String name, ConfigurationSetArgs args) {
+    public ConfigurationSet(java.lang.String name, ConfigurationSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -254,15 +254,22 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConfigurationSet(String name, ConfigurationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/configurationSet:ConfigurationSet", name, args == null ? ConfigurationSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConfigurationSet(java.lang.String name, ConfigurationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/configurationSet:ConfigurationSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConfigurationSet(String name, Output<String> id, @Nullable ConfigurationSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/configurationSet:ConfigurationSet", name, state, makeResourceOptions(options, id));
+    private ConfigurationSet(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/configurationSet:ConfigurationSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConfigurationSetArgs makeArgs(ConfigurationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfigurationSetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -278,7 +285,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConfigurationSet get(String name, Output<String> id, @Nullable ConfigurationSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConfigurationSet get(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConfigurationSet(name, id, state, options);
     }
 }

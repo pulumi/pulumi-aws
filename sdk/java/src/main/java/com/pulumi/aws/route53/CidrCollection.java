@@ -110,7 +110,7 @@ public class CidrCollection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CidrCollection(String name) {
+    public CidrCollection(java.lang.String name) {
         this(name, CidrCollectionArgs.Empty);
     }
     /**
@@ -118,7 +118,7 @@ public class CidrCollection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CidrCollection(String name, @Nullable CidrCollectionArgs args) {
+    public CidrCollection(java.lang.String name, @Nullable CidrCollectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -127,15 +127,22 @@ public class CidrCollection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CidrCollection(String name, @Nullable CidrCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/cidrCollection:CidrCollection", name, args == null ? CidrCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CidrCollection(java.lang.String name, @Nullable CidrCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/cidrCollection:CidrCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CidrCollection(String name, Output<String> id, @Nullable CidrCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/cidrCollection:CidrCollection", name, state, makeResourceOptions(options, id));
+    private CidrCollection(java.lang.String name, Output<java.lang.String> id, @Nullable CidrCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/cidrCollection:CidrCollection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CidrCollectionArgs makeArgs(@Nullable CidrCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CidrCollectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -151,7 +158,7 @@ public class CidrCollection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CidrCollection get(String name, Output<String> id, @Nullable CidrCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CidrCollection get(java.lang.String name, Output<java.lang.String> id, @Nullable CidrCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CidrCollection(name, id, state, options);
     }
 }

@@ -178,7 +178,7 @@ public class CustomerGatewayAssociation extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomerGatewayAssociation(String name) {
+    public CustomerGatewayAssociation(java.lang.String name) {
         this(name, CustomerGatewayAssociationArgs.Empty);
     }
     /**
@@ -186,7 +186,7 @@ public class CustomerGatewayAssociation extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomerGatewayAssociation(String name, CustomerGatewayAssociationArgs args) {
+    public CustomerGatewayAssociation(java.lang.String name, CustomerGatewayAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -195,15 +195,22 @@ public class CustomerGatewayAssociation extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomerGatewayAssociation(String name, CustomerGatewayAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation", name, args == null ? CustomerGatewayAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CustomerGatewayAssociation(java.lang.String name, CustomerGatewayAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomerGatewayAssociation(String name, Output<String> id, @Nullable CustomerGatewayAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation", name, state, makeResourceOptions(options, id));
+    private CustomerGatewayAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable CustomerGatewayAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CustomerGatewayAssociationArgs makeArgs(CustomerGatewayAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomerGatewayAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -219,7 +226,7 @@ public class CustomerGatewayAssociation extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomerGatewayAssociation get(String name, Output<String> id, @Nullable CustomerGatewayAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomerGatewayAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomerGatewayAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomerGatewayAssociation(name, id, state, options);
     }
 }

@@ -481,7 +481,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Directory(String name) {
+    public Directory(java.lang.String name) {
         this(name, DirectoryArgs.Empty);
     }
     /**
@@ -489,7 +489,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Directory(String name, DirectoryArgs args) {
+    public Directory(java.lang.String name, DirectoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -498,15 +498,22 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Directory(String name, DirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directoryservice/directory:Directory", name, args == null ? DirectoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Directory(java.lang.String name, DirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directoryservice/directory:Directory", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Directory(String name, Output<String> id, @Nullable DirectoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directoryservice/directory:Directory", name, state, makeResourceOptions(options, id));
+    private Directory(java.lang.String name, Output<java.lang.String> id, @Nullable DirectoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directoryservice/directory:Directory", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DirectoryArgs makeArgs(DirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DirectoryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -525,7 +532,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Directory get(String name, Output<String> id, @Nullable DirectoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Directory get(java.lang.String name, Output<java.lang.String> id, @Nullable DirectoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Directory(name, id, state, options);
     }
 }

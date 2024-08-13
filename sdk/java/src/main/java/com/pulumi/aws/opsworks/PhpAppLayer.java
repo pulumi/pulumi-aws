@@ -381,7 +381,7 @@ public class PhpAppLayer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PhpAppLayer(String name) {
+    public PhpAppLayer(java.lang.String name) {
         this(name, PhpAppLayerArgs.Empty);
     }
     /**
@@ -389,7 +389,7 @@ public class PhpAppLayer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PhpAppLayer(String name, PhpAppLayerArgs args) {
+    public PhpAppLayer(java.lang.String name, PhpAppLayerArgs args) {
         this(name, args, null);
     }
     /**
@@ -398,15 +398,22 @@ public class PhpAppLayer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PhpAppLayer(String name, PhpAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/phpAppLayer:PhpAppLayer", name, args == null ? PhpAppLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PhpAppLayer(java.lang.String name, PhpAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opsworks/phpAppLayer:PhpAppLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PhpAppLayer(String name, Output<String> id, @Nullable PhpAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/phpAppLayer:PhpAppLayer", name, state, makeResourceOptions(options, id));
+    private PhpAppLayer(java.lang.String name, Output<java.lang.String> id, @Nullable PhpAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opsworks/phpAppLayer:PhpAppLayer", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PhpAppLayerArgs makeArgs(PhpAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PhpAppLayerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -422,7 +429,7 @@ public class PhpAppLayer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PhpAppLayer get(String name, Output<String> id, @Nullable PhpAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PhpAppLayer get(java.lang.String name, Output<java.lang.String> id, @Nullable PhpAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PhpAppLayer(name, id, state, options);
     }
 }

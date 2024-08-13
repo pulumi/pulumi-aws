@@ -325,7 +325,7 @@ public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InstanceStorageConfig(String name) {
+    public InstanceStorageConfig(java.lang.String name) {
         this(name, InstanceStorageConfigArgs.Empty);
     }
     /**
@@ -333,7 +333,7 @@ public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InstanceStorageConfig(String name, InstanceStorageConfigArgs args) {
+    public InstanceStorageConfig(java.lang.String name, InstanceStorageConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -342,15 +342,22 @@ public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InstanceStorageConfig(String name, InstanceStorageConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/instanceStorageConfig:InstanceStorageConfig", name, args == null ? InstanceStorageConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InstanceStorageConfig(java.lang.String name, InstanceStorageConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/instanceStorageConfig:InstanceStorageConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InstanceStorageConfig(String name, Output<String> id, @Nullable InstanceStorageConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/instanceStorageConfig:InstanceStorageConfig", name, state, makeResourceOptions(options, id));
+    private InstanceStorageConfig(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceStorageConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/instanceStorageConfig:InstanceStorageConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InstanceStorageConfigArgs makeArgs(InstanceStorageConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceStorageConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -366,7 +373,7 @@ public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InstanceStorageConfig get(String name, Output<String> id, @Nullable InstanceStorageConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InstanceStorageConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceStorageConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InstanceStorageConfig(name, id, state, options);
     }
 }

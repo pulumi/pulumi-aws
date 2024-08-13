@@ -277,7 +277,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Agent(String name) {
+    public Agent(java.lang.String name) {
         this(name, AgentArgs.Empty);
     }
     /**
@@ -285,7 +285,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Agent(String name, @Nullable AgentArgs args) {
+    public Agent(java.lang.String name, @Nullable AgentArgs args) {
         this(name, args, null);
     }
     /**
@@ -294,15 +294,22 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Agent(String name, @Nullable AgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/agent:Agent", name, args == null ? AgentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Agent(java.lang.String name, @Nullable AgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/agent:Agent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Agent(String name, Output<String> id, @Nullable AgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/agent:Agent", name, state, makeResourceOptions(options, id));
+    private Agent(java.lang.String name, Output<java.lang.String> id, @Nullable AgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/agent:Agent", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AgentArgs makeArgs(@Nullable AgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AgentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -318,7 +325,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Agent get(String name, Output<String> id, @Nullable AgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Agent get(java.lang.String name, Output<java.lang.String> id, @Nullable AgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Agent(name, id, state, options);
     }
 }

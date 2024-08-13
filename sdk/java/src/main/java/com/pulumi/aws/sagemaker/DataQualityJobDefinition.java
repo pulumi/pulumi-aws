@@ -281,7 +281,7 @@ public class DataQualityJobDefinition extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataQualityJobDefinition(String name) {
+    public DataQualityJobDefinition(java.lang.String name) {
         this(name, DataQualityJobDefinitionArgs.Empty);
     }
     /**
@@ -289,7 +289,7 @@ public class DataQualityJobDefinition extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataQualityJobDefinition(String name, DataQualityJobDefinitionArgs args) {
+    public DataQualityJobDefinition(java.lang.String name, DataQualityJobDefinitionArgs args) {
         this(name, args, null);
     }
     /**
@@ -298,15 +298,22 @@ public class DataQualityJobDefinition extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataQualityJobDefinition(String name, DataQualityJobDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition", name, args == null ? DataQualityJobDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataQualityJobDefinition(java.lang.String name, DataQualityJobDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataQualityJobDefinition(String name, Output<String> id, @Nullable DataQualityJobDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition", name, state, makeResourceOptions(options, id));
+    private DataQualityJobDefinition(java.lang.String name, Output<java.lang.String> id, @Nullable DataQualityJobDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataQualityJobDefinitionArgs makeArgs(DataQualityJobDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataQualityJobDefinitionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -322,7 +329,7 @@ public class DataQualityJobDefinition extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataQualityJobDefinition get(String name, Output<String> id, @Nullable DataQualityJobDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataQualityJobDefinition get(java.lang.String name, Output<java.lang.String> id, @Nullable DataQualityJobDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataQualityJobDefinition(name, id, state, options);
     }
 }

@@ -256,7 +256,7 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DeploymentConfig(String name) {
+    public DeploymentConfig(java.lang.String name) {
         this(name, DeploymentConfigArgs.Empty);
     }
     /**
@@ -264,7 +264,7 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DeploymentConfig(String name, @Nullable DeploymentConfigArgs args) {
+    public DeploymentConfig(java.lang.String name, @Nullable DeploymentConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -273,15 +273,22 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DeploymentConfig(String name, @Nullable DeploymentConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codedeploy/deploymentConfig:DeploymentConfig", name, args == null ? DeploymentConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DeploymentConfig(java.lang.String name, @Nullable DeploymentConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codedeploy/deploymentConfig:DeploymentConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DeploymentConfig(String name, Output<String> id, @Nullable DeploymentConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codedeploy/deploymentConfig:DeploymentConfig", name, state, makeResourceOptions(options, id));
+    private DeploymentConfig(java.lang.String name, Output<java.lang.String> id, @Nullable DeploymentConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codedeploy/deploymentConfig:DeploymentConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DeploymentConfigArgs makeArgs(@Nullable DeploymentConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeploymentConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -297,7 +304,7 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DeploymentConfig get(String name, Output<String> id, @Nullable DeploymentConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DeploymentConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable DeploymentConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DeploymentConfig(name, id, state, options);
     }
 }

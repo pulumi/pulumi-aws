@@ -73,7 +73,7 @@ public class ConnectionConfirmation extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConnectionConfirmation(String name) {
+    public ConnectionConfirmation(java.lang.String name) {
         this(name, ConnectionConfirmationArgs.Empty);
     }
     /**
@@ -81,7 +81,7 @@ public class ConnectionConfirmation extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConnectionConfirmation(String name, ConnectionConfirmationArgs args) {
+    public ConnectionConfirmation(java.lang.String name, ConnectionConfirmationArgs args) {
         this(name, args, null);
     }
     /**
@@ -90,15 +90,22 @@ public class ConnectionConfirmation extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConnectionConfirmation(String name, ConnectionConfirmationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/connectionConfirmation:ConnectionConfirmation", name, args == null ? ConnectionConfirmationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConnectionConfirmation(java.lang.String name, ConnectionConfirmationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/connectionConfirmation:ConnectionConfirmation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConnectionConfirmation(String name, Output<String> id, @Nullable ConnectionConfirmationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/connectionConfirmation:ConnectionConfirmation", name, state, makeResourceOptions(options, id));
+    private ConnectionConfirmation(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionConfirmationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/connectionConfirmation:ConnectionConfirmation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConnectionConfirmationArgs makeArgs(ConnectionConfirmationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectionConfirmationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -114,7 +121,7 @@ public class ConnectionConfirmation extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConnectionConfirmation get(String name, Output<String> id, @Nullable ConnectionConfirmationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConnectionConfirmation get(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionConfirmationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConnectionConfirmation(name, id, state, options);
     }
 }

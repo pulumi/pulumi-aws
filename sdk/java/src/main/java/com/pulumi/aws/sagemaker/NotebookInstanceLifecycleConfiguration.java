@@ -132,7 +132,7 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NotebookInstanceLifecycleConfiguration(String name) {
+    public NotebookInstanceLifecycleConfiguration(java.lang.String name) {
         this(name, NotebookInstanceLifecycleConfigurationArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NotebookInstanceLifecycleConfiguration(String name, @Nullable NotebookInstanceLifecycleConfigurationArgs args) {
+    public NotebookInstanceLifecycleConfiguration(java.lang.String name, @Nullable NotebookInstanceLifecycleConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,15 +149,22 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NotebookInstanceLifecycleConfiguration(String name, @Nullable NotebookInstanceLifecycleConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", name, args == null ? NotebookInstanceLifecycleConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NotebookInstanceLifecycleConfiguration(java.lang.String name, @Nullable NotebookInstanceLifecycleConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NotebookInstanceLifecycleConfiguration(String name, Output<String> id, @Nullable NotebookInstanceLifecycleConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", name, state, makeResourceOptions(options, id));
+    private NotebookInstanceLifecycleConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable NotebookInstanceLifecycleConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NotebookInstanceLifecycleConfigurationArgs makeArgs(@Nullable NotebookInstanceLifecycleConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotebookInstanceLifecycleConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -173,7 +180,7 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NotebookInstanceLifecycleConfiguration get(String name, Output<String> id, @Nullable NotebookInstanceLifecycleConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NotebookInstanceLifecycleConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable NotebookInstanceLifecycleConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NotebookInstanceLifecycleConfiguration(name, id, state, options);
     }
 }

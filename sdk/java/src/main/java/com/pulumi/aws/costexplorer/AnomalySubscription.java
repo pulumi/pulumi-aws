@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new AnomalyMonitor("test", AnomalyMonitorArgs.builder()
  *             .name("AWSServiceMonitor")
  *             .monitorType("DIMENSIONAL")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .monitorArnLists(test.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
  *                 .type("EMAIL")
- *                 .address("abc{@literal @}example.com")
+ *                 .address("abc}{@literal @}{@code example.com")
  *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .dimension(AnomalySubscriptionThresholdExpressionDimensionArgs.builder()
@@ -76,8 +76,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -106,19 +106,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()
  *             .name("AWSServiceMonitor")
  *             .frequency("DAILY")
  *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
  *                 .type("EMAIL")
- *                 .address("abc{@literal @}example.com")
+ *                 .address("abc}{@literal @}{@code example.com")
  *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .dimension(AnomalySubscriptionThresholdExpressionDimensionArgs.builder()
@@ -129,8 +129,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -156,19 +156,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()
  *             .name("AWSServiceMonitor")
  *             .frequency("DAILY")
  *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
  *                 .type("EMAIL")
- *                 .address("abc{@literal @}example.com")
+ *                 .address("abc}{@literal @}{@code example.com")
  *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .ands(                
@@ -189,8 +189,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -448,7 +448,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AnomalySubscription(String name) {
+    public AnomalySubscription(java.lang.String name) {
         this(name, AnomalySubscriptionArgs.Empty);
     }
     /**
@@ -456,7 +456,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AnomalySubscription(String name, AnomalySubscriptionArgs args) {
+    public AnomalySubscription(java.lang.String name, AnomalySubscriptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -465,15 +465,22 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AnomalySubscription(String name, AnomalySubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:costexplorer/anomalySubscription:AnomalySubscription", name, args == null ? AnomalySubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AnomalySubscription(java.lang.String name, AnomalySubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:costexplorer/anomalySubscription:AnomalySubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AnomalySubscription(String name, Output<String> id, @Nullable AnomalySubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:costexplorer/anomalySubscription:AnomalySubscription", name, state, makeResourceOptions(options, id));
+    private AnomalySubscription(java.lang.String name, Output<java.lang.String> id, @Nullable AnomalySubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:costexplorer/anomalySubscription:AnomalySubscription", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AnomalySubscriptionArgs makeArgs(AnomalySubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnomalySubscriptionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -489,7 +496,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AnomalySubscription get(String name, Output<String> id, @Nullable AnomalySubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AnomalySubscription get(java.lang.String name, Output<java.lang.String> id, @Nullable AnomalySubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AnomalySubscription(name, id, state, options);
     }
 }

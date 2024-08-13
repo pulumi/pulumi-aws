@@ -96,7 +96,7 @@ public class VpcEndpointRouteTableAssociation extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcEndpointRouteTableAssociation(String name) {
+    public VpcEndpointRouteTableAssociation(java.lang.String name) {
         this(name, VpcEndpointRouteTableAssociationArgs.Empty);
     }
     /**
@@ -104,7 +104,7 @@ public class VpcEndpointRouteTableAssociation extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcEndpointRouteTableAssociation(String name, VpcEndpointRouteTableAssociationArgs args) {
+    public VpcEndpointRouteTableAssociation(java.lang.String name, VpcEndpointRouteTableAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -113,15 +113,22 @@ public class VpcEndpointRouteTableAssociation extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcEndpointRouteTableAssociation(String name, VpcEndpointRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, args == null ? VpcEndpointRouteTableAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcEndpointRouteTableAssociation(java.lang.String name, VpcEndpointRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcEndpointRouteTableAssociation(String name, Output<String> id, @Nullable VpcEndpointRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, state, makeResourceOptions(options, id));
+    private VpcEndpointRouteTableAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable VpcEndpointRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcEndpointRouteTableAssociationArgs makeArgs(VpcEndpointRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcEndpointRouteTableAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -137,7 +144,7 @@ public class VpcEndpointRouteTableAssociation extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcEndpointRouteTableAssociation get(String name, Output<String> id, @Nullable VpcEndpointRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcEndpointRouteTableAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcEndpointRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcEndpointRouteTableAssociation(name, id, state, options);
     }
 }

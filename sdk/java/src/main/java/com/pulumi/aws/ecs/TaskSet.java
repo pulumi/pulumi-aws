@@ -414,7 +414,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TaskSet(String name) {
+    public TaskSet(java.lang.String name) {
         this(name, TaskSetArgs.Empty);
     }
     /**
@@ -422,7 +422,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TaskSet(String name, TaskSetArgs args) {
+    public TaskSet(java.lang.String name, TaskSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -431,15 +431,22 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TaskSet(String name, TaskSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/taskSet:TaskSet", name, args == null ? TaskSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TaskSet(java.lang.String name, TaskSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecs/taskSet:TaskSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TaskSet(String name, Output<String> id, @Nullable TaskSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/taskSet:TaskSet", name, state, makeResourceOptions(options, id));
+    private TaskSet(java.lang.String name, Output<java.lang.String> id, @Nullable TaskSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecs/taskSet:TaskSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TaskSetArgs makeArgs(TaskSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TaskSetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -455,7 +462,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TaskSet get(String name, Output<String> id, @Nullable TaskSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TaskSet get(java.lang.String name, Output<java.lang.String> id, @Nullable TaskSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TaskSet(name, id, state, options);
     }
 }

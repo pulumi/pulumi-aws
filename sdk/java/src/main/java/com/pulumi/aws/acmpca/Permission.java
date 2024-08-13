@@ -150,7 +150,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Permission(String name) {
+    public Permission(java.lang.String name) {
         this(name, PermissionArgs.Empty);
     }
     /**
@@ -158,7 +158,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Permission(String name, PermissionArgs args) {
+    public Permission(java.lang.String name, PermissionArgs args) {
         this(name, args, null);
     }
     /**
@@ -167,15 +167,22 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Permission(String name, PermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:acmpca/permission:Permission", name, args == null ? PermissionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Permission(java.lang.String name, PermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:acmpca/permission:Permission", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Permission(String name, Output<String> id, @Nullable PermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:acmpca/permission:Permission", name, state, makeResourceOptions(options, id));
+    private Permission(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:acmpca/permission:Permission", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PermissionArgs makeArgs(PermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PermissionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -191,7 +198,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Permission get(String name, Output<String> id, @Nullable PermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Permission get(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Permission(name, id, state, options);
     }
 }

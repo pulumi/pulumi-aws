@@ -282,7 +282,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DefaultNetworkAcl(String name) {
+    public DefaultNetworkAcl(java.lang.String name) {
         this(name, DefaultNetworkAclArgs.Empty);
     }
     /**
@@ -290,7 +290,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DefaultNetworkAcl(String name, DefaultNetworkAclArgs args) {
+    public DefaultNetworkAcl(java.lang.String name, DefaultNetworkAclArgs args) {
         this(name, args, null);
     }
     /**
@@ -299,15 +299,22 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DefaultNetworkAcl(String name, DefaultNetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", name, args == null ? DefaultNetworkAclArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DefaultNetworkAcl(java.lang.String name, DefaultNetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DefaultNetworkAcl(String name, Output<String> id, @Nullable DefaultNetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", name, state, makeResourceOptions(options, id));
+    private DefaultNetworkAcl(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultNetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DefaultNetworkAclArgs makeArgs(DefaultNetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DefaultNetworkAclArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -323,7 +330,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DefaultNetworkAcl get(String name, Output<String> id, @Nullable DefaultNetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DefaultNetworkAcl get(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultNetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DefaultNetworkAcl(name, id, state, options);
     }
 }

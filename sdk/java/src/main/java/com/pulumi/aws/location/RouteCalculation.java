@@ -190,7 +190,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RouteCalculation(String name) {
+    public RouteCalculation(java.lang.String name) {
         this(name, RouteCalculationArgs.Empty);
     }
     /**
@@ -198,7 +198,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RouteCalculation(String name, RouteCalculationArgs args) {
+    public RouteCalculation(java.lang.String name, RouteCalculationArgs args) {
         this(name, args, null);
     }
     /**
@@ -207,15 +207,22 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RouteCalculation(String name, RouteCalculationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:location/routeCalculation:RouteCalculation", name, args == null ? RouteCalculationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RouteCalculation(java.lang.String name, RouteCalculationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:location/routeCalculation:RouteCalculation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RouteCalculation(String name, Output<String> id, @Nullable RouteCalculationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:location/routeCalculation:RouteCalculation", name, state, makeResourceOptions(options, id));
+    private RouteCalculation(java.lang.String name, Output<java.lang.String> id, @Nullable RouteCalculationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:location/routeCalculation:RouteCalculation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RouteCalculationArgs makeArgs(RouteCalculationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RouteCalculationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -231,7 +238,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RouteCalculation get(String name, Output<String> id, @Nullable RouteCalculationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RouteCalculation get(java.lang.String name, Output<java.lang.String> id, @Nullable RouteCalculationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RouteCalculation(name, id, state, options);
     }
 }

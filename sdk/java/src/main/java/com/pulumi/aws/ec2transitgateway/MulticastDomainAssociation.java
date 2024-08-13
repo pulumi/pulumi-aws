@@ -123,7 +123,7 @@ public class MulticastDomainAssociation extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MulticastDomainAssociation(String name) {
+    public MulticastDomainAssociation(java.lang.String name) {
         this(name, MulticastDomainAssociationArgs.Empty);
     }
     /**
@@ -131,7 +131,7 @@ public class MulticastDomainAssociation extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MulticastDomainAssociation(String name, MulticastDomainAssociationArgs args) {
+    public MulticastDomainAssociation(java.lang.String name, MulticastDomainAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -140,15 +140,22 @@ public class MulticastDomainAssociation extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MulticastDomainAssociation(String name, MulticastDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation", name, args == null ? MulticastDomainAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MulticastDomainAssociation(java.lang.String name, MulticastDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MulticastDomainAssociation(String name, Output<String> id, @Nullable MulticastDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation", name, state, makeResourceOptions(options, id));
+    private MulticastDomainAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable MulticastDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MulticastDomainAssociationArgs makeArgs(MulticastDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MulticastDomainAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -164,7 +171,7 @@ public class MulticastDomainAssociation extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MulticastDomainAssociation get(String name, Output<String> id, @Nullable MulticastDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MulticastDomainAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable MulticastDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MulticastDomainAssociation(name, id, state, options);
     }
 }

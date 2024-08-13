@@ -108,7 +108,7 @@ public class TrackerAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TrackerAssociation(String name) {
+    public TrackerAssociation(java.lang.String name) {
         this(name, TrackerAssociationArgs.Empty);
     }
     /**
@@ -116,7 +116,7 @@ public class TrackerAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TrackerAssociation(String name, TrackerAssociationArgs args) {
+    public TrackerAssociation(java.lang.String name, TrackerAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -125,15 +125,22 @@ public class TrackerAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TrackerAssociation(String name, TrackerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:location/trackerAssociation:TrackerAssociation", name, args == null ? TrackerAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TrackerAssociation(java.lang.String name, TrackerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:location/trackerAssociation:TrackerAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TrackerAssociation(String name, Output<String> id, @Nullable TrackerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:location/trackerAssociation:TrackerAssociation", name, state, makeResourceOptions(options, id));
+    private TrackerAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable TrackerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:location/trackerAssociation:TrackerAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TrackerAssociationArgs makeArgs(TrackerAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrackerAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -149,7 +156,7 @@ public class TrackerAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TrackerAssociation get(String name, Output<String> id, @Nullable TrackerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TrackerAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable TrackerAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TrackerAssociation(name, id, state, options);
     }
 }

@@ -117,7 +117,7 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StaticIp(String name) {
+    public StaticIp(java.lang.String name) {
         this(name, StaticIpArgs.Empty);
     }
     /**
@@ -125,7 +125,7 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StaticIp(String name, @Nullable StaticIpArgs args) {
+    public StaticIp(java.lang.String name, @Nullable StaticIpArgs args) {
         this(name, args, null);
     }
     /**
@@ -134,15 +134,22 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StaticIp(String name, @Nullable StaticIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/staticIp:StaticIp", name, args == null ? StaticIpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public StaticIp(java.lang.String name, @Nullable StaticIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/staticIp:StaticIp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StaticIp(String name, Output<String> id, @Nullable StaticIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/staticIp:StaticIp", name, state, makeResourceOptions(options, id));
+    private StaticIp(java.lang.String name, Output<java.lang.String> id, @Nullable StaticIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/staticIp:StaticIp", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static StaticIpArgs makeArgs(@Nullable StaticIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StaticIpArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -158,7 +165,7 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StaticIp get(String name, Output<String> id, @Nullable StaticIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StaticIp get(java.lang.String name, Output<java.lang.String> id, @Nullable StaticIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StaticIp(name, id, state, options);
     }
 }

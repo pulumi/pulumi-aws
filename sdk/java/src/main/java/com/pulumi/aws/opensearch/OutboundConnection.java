@@ -192,7 +192,7 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutboundConnection(String name) {
+    public OutboundConnection(java.lang.String name) {
         this(name, OutboundConnectionArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutboundConnection(String name, OutboundConnectionArgs args) {
+    public OutboundConnection(java.lang.String name, OutboundConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,15 +209,22 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutboundConnection(String name, OutboundConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/outboundConnection:OutboundConnection", name, args == null ? OutboundConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OutboundConnection(java.lang.String name, OutboundConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/outboundConnection:OutboundConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutboundConnection(String name, Output<String> id, @Nullable OutboundConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/outboundConnection:OutboundConnection", name, state, makeResourceOptions(options, id));
+    private OutboundConnection(java.lang.String name, Output<java.lang.String> id, @Nullable OutboundConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/outboundConnection:OutboundConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OutboundConnectionArgs makeArgs(OutboundConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OutboundConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +240,7 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutboundConnection get(String name, Output<String> id, @Nullable OutboundConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutboundConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable OutboundConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutboundConnection(name, id, state, options);
     }
 }

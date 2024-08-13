@@ -269,7 +269,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public V2modelsSlotType(String name) {
+    public V2modelsSlotType(java.lang.String name) {
         this(name, V2modelsSlotTypeArgs.Empty);
     }
     /**
@@ -277,7 +277,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public V2modelsSlotType(String name, V2modelsSlotTypeArgs args) {
+    public V2modelsSlotType(java.lang.String name, V2modelsSlotTypeArgs args) {
         this(name, args, null);
     }
     /**
@@ -286,15 +286,22 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public V2modelsSlotType(String name, V2modelsSlotTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/v2modelsSlotType:V2modelsSlotType", name, args == null ? V2modelsSlotTypeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public V2modelsSlotType(java.lang.String name, V2modelsSlotTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/v2modelsSlotType:V2modelsSlotType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private V2modelsSlotType(String name, Output<String> id, @Nullable V2modelsSlotTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/v2modelsSlotType:V2modelsSlotType", name, state, makeResourceOptions(options, id));
+    private V2modelsSlotType(java.lang.String name, Output<java.lang.String> id, @Nullable V2modelsSlotTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/v2modelsSlotType:V2modelsSlotType", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static V2modelsSlotTypeArgs makeArgs(V2modelsSlotTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? V2modelsSlotTypeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -310,7 +317,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static V2modelsSlotType get(String name, Output<String> id, @Nullable V2modelsSlotTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static V2modelsSlotType get(java.lang.String name, Output<java.lang.String> id, @Nullable V2modelsSlotTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new V2modelsSlotType(name, id, state, options);
     }
 }

@@ -335,7 +335,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Pipeline(String name) {
+    public Pipeline(java.lang.String name) {
         this(name, PipelineArgs.Empty);
     }
     /**
@@ -343,7 +343,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Pipeline(String name, PipelineArgs args) {
+    public Pipeline(java.lang.String name, PipelineArgs args) {
         this(name, args, null);
     }
     /**
@@ -352,15 +352,22 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Pipeline(String name, PipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearchingest/pipeline:Pipeline", name, args == null ? PipelineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Pipeline(java.lang.String name, PipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearchingest/pipeline:Pipeline", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Pipeline(String name, Output<String> id, @Nullable PipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearchingest/pipeline:Pipeline", name, state, makeResourceOptions(options, id));
+    private Pipeline(java.lang.String name, Output<java.lang.String> id, @Nullable PipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearchingest/pipeline:Pipeline", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PipelineArgs makeArgs(PipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PipelineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -376,7 +383,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Pipeline get(String name, Output<String> id, @Nullable PipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Pipeline get(java.lang.String name, Output<java.lang.String> id, @Nullable PipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Pipeline(name, id, state, options);
     }
 }

@@ -290,7 +290,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualGateway(String name) {
+    public VirtualGateway(java.lang.String name) {
         this(name, VirtualGatewayArgs.Empty);
     }
     /**
@@ -298,7 +298,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualGateway(String name, VirtualGatewayArgs args) {
+    public VirtualGateway(java.lang.String name, VirtualGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -307,15 +307,22 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualGateway(String name, VirtualGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appmesh/virtualGateway:VirtualGateway", name, args == null ? VirtualGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualGateway(java.lang.String name, VirtualGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appmesh/virtualGateway:VirtualGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualGateway(String name, Output<String> id, @Nullable VirtualGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appmesh/virtualGateway:VirtualGateway", name, state, makeResourceOptions(options, id));
+    private VirtualGateway(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appmesh/virtualGateway:VirtualGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualGatewayArgs makeArgs(VirtualGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualGatewayArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -331,7 +338,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualGateway get(String name, Output<String> id, @Nullable VirtualGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualGateway(name, id, state, options);
     }
 }

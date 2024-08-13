@@ -250,7 +250,7 @@ public class VpcAttachmentAccepter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcAttachmentAccepter(String name) {
+    public VpcAttachmentAccepter(java.lang.String name) {
         this(name, VpcAttachmentAccepterArgs.Empty);
     }
     /**
@@ -258,7 +258,7 @@ public class VpcAttachmentAccepter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcAttachmentAccepter(String name, VpcAttachmentAccepterArgs args) {
+    public VpcAttachmentAccepter(java.lang.String name, VpcAttachmentAccepterArgs args) {
         this(name, args, null);
     }
     /**
@@ -267,15 +267,22 @@ public class VpcAttachmentAccepter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcAttachmentAccepter(String name, VpcAttachmentAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, args == null ? VpcAttachmentAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcAttachmentAccepter(java.lang.String name, VpcAttachmentAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcAttachmentAccepter(String name, Output<String> id, @Nullable VpcAttachmentAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, state, makeResourceOptions(options, id));
+    private VpcAttachmentAccepter(java.lang.String name, Output<java.lang.String> id, @Nullable VpcAttachmentAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcAttachmentAccepterArgs makeArgs(VpcAttachmentAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcAttachmentAccepterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -291,7 +298,7 @@ public class VpcAttachmentAccepter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcAttachmentAccepter get(String name, Output<String> id, @Nullable VpcAttachmentAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcAttachmentAccepter get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcAttachmentAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcAttachmentAccepter(name, id, state, options);
     }
 }

@@ -212,7 +212,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserDefinedFunction(String name) {
+    public UserDefinedFunction(java.lang.String name) {
         this(name, UserDefinedFunctionArgs.Empty);
     }
     /**
@@ -220,7 +220,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserDefinedFunction(String name, UserDefinedFunctionArgs args) {
+    public UserDefinedFunction(java.lang.String name, UserDefinedFunctionArgs args) {
         this(name, args, null);
     }
     /**
@@ -229,15 +229,22 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserDefinedFunction(String name, UserDefinedFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/userDefinedFunction:UserDefinedFunction", name, args == null ? UserDefinedFunctionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public UserDefinedFunction(java.lang.String name, UserDefinedFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/userDefinedFunction:UserDefinedFunction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserDefinedFunction(String name, Output<String> id, @Nullable UserDefinedFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/userDefinedFunction:UserDefinedFunction", name, state, makeResourceOptions(options, id));
+    private UserDefinedFunction(java.lang.String name, Output<java.lang.String> id, @Nullable UserDefinedFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/userDefinedFunction:UserDefinedFunction", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static UserDefinedFunctionArgs makeArgs(UserDefinedFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserDefinedFunctionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -253,7 +260,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserDefinedFunction get(String name, Output<String> id, @Nullable UserDefinedFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserDefinedFunction get(java.lang.String name, Output<java.lang.String> id, @Nullable UserDefinedFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserDefinedFunction(name, id, state, options);
     }
 }

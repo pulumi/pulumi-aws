@@ -207,7 +207,7 @@ public class KxDatabase extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KxDatabase(String name) {
+    public KxDatabase(java.lang.String name) {
         this(name, KxDatabaseArgs.Empty);
     }
     /**
@@ -215,7 +215,7 @@ public class KxDatabase extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KxDatabase(String name, KxDatabaseArgs args) {
+    public KxDatabase(java.lang.String name, KxDatabaseArgs args) {
         this(name, args, null);
     }
     /**
@@ -224,15 +224,22 @@ public class KxDatabase extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KxDatabase(String name, KxDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxDatabase:KxDatabase", name, args == null ? KxDatabaseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public KxDatabase(java.lang.String name, KxDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxDatabase:KxDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KxDatabase(String name, Output<String> id, @Nullable KxDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxDatabase:KxDatabase", name, state, makeResourceOptions(options, id));
+    private KxDatabase(java.lang.String name, Output<java.lang.String> id, @Nullable KxDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxDatabase:KxDatabase", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KxDatabaseArgs makeArgs(KxDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KxDatabaseArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -248,7 +255,7 @@ public class KxDatabase extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KxDatabase get(String name, Output<String> id, @Nullable KxDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KxDatabase get(java.lang.String name, Output<java.lang.String> id, @Nullable KxDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KxDatabase(name, id, state, options);
     }
 }

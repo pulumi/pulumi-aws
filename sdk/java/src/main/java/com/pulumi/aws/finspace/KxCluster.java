@@ -483,7 +483,7 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KxCluster(String name) {
+    public KxCluster(java.lang.String name) {
         this(name, KxClusterArgs.Empty);
     }
     /**
@@ -491,7 +491,7 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KxCluster(String name, KxClusterArgs args) {
+    public KxCluster(java.lang.String name, KxClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -500,15 +500,22 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KxCluster(String name, KxClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxCluster:KxCluster", name, args == null ? KxClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public KxCluster(java.lang.String name, KxClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxCluster:KxCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KxCluster(String name, Output<String> id, @Nullable KxClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxCluster:KxCluster", name, state, makeResourceOptions(options, id));
+    private KxCluster(java.lang.String name, Output<java.lang.String> id, @Nullable KxClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxCluster:KxCluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KxClusterArgs makeArgs(KxClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KxClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -524,7 +531,7 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KxCluster get(String name, Output<String> id, @Nullable KxClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KxCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable KxClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KxCluster(name, id, state, options);
     }
 }

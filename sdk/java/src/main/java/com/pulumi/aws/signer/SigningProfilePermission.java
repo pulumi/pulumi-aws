@@ -184,7 +184,7 @@ public class SigningProfilePermission extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SigningProfilePermission(String name) {
+    public SigningProfilePermission(java.lang.String name) {
         this(name, SigningProfilePermissionArgs.Empty);
     }
     /**
@@ -192,7 +192,7 @@ public class SigningProfilePermission extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SigningProfilePermission(String name, SigningProfilePermissionArgs args) {
+    public SigningProfilePermission(java.lang.String name, SigningProfilePermissionArgs args) {
         this(name, args, null);
     }
     /**
@@ -201,15 +201,22 @@ public class SigningProfilePermission extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SigningProfilePermission(String name, SigningProfilePermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:signer/signingProfilePermission:SigningProfilePermission", name, args == null ? SigningProfilePermissionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SigningProfilePermission(java.lang.String name, SigningProfilePermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:signer/signingProfilePermission:SigningProfilePermission", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SigningProfilePermission(String name, Output<String> id, @Nullable SigningProfilePermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:signer/signingProfilePermission:SigningProfilePermission", name, state, makeResourceOptions(options, id));
+    private SigningProfilePermission(java.lang.String name, Output<java.lang.String> id, @Nullable SigningProfilePermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:signer/signingProfilePermission:SigningProfilePermission", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SigningProfilePermissionArgs makeArgs(SigningProfilePermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SigningProfilePermissionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -225,7 +232,7 @@ public class SigningProfilePermission extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SigningProfilePermission get(String name, Output<String> id, @Nullable SigningProfilePermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SigningProfilePermission get(java.lang.String name, Output<java.lang.String> id, @Nullable SigningProfilePermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SigningProfilePermission(name, id, state, options);
     }
 }

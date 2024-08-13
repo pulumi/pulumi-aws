@@ -171,7 +171,7 @@ public class SubscriberNotification extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubscriberNotification(String name) {
+    public SubscriberNotification(java.lang.String name) {
         this(name, SubscriberNotificationArgs.Empty);
     }
     /**
@@ -179,7 +179,7 @@ public class SubscriberNotification extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubscriberNotification(String name, SubscriberNotificationArgs args) {
+    public SubscriberNotification(java.lang.String name, SubscriberNotificationArgs args) {
         this(name, args, null);
     }
     /**
@@ -188,15 +188,22 @@ public class SubscriberNotification extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubscriberNotification(String name, SubscriberNotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securitylake/subscriberNotification:SubscriberNotification", name, args == null ? SubscriberNotificationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SubscriberNotification(java.lang.String name, SubscriberNotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securitylake/subscriberNotification:SubscriberNotification", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubscriberNotification(String name, Output<String> id, @Nullable SubscriberNotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securitylake/subscriberNotification:SubscriberNotification", name, state, makeResourceOptions(options, id));
+    private SubscriberNotification(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriberNotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securitylake/subscriberNotification:SubscriberNotification", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SubscriberNotificationArgs makeArgs(SubscriberNotificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubscriberNotificationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -212,7 +219,7 @@ public class SubscriberNotification extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubscriberNotification get(String name, Output<String> id, @Nullable SubscriberNotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubscriberNotification get(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriberNotificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubscriberNotification(name, id, state, options);
     }
 }

@@ -148,7 +148,7 @@ public class TopicPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TopicPolicy(String name) {
+    public TopicPolicy(java.lang.String name) {
         this(name, TopicPolicyArgs.Empty);
     }
     /**
@@ -156,7 +156,7 @@ public class TopicPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TopicPolicy(String name, TopicPolicyArgs args) {
+    public TopicPolicy(java.lang.String name, TopicPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -165,15 +165,22 @@ public class TopicPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TopicPolicy(String name, TopicPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sns/topicPolicy:TopicPolicy", name, args == null ? TopicPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TopicPolicy(java.lang.String name, TopicPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sns/topicPolicy:TopicPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TopicPolicy(String name, Output<String> id, @Nullable TopicPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sns/topicPolicy:TopicPolicy", name, state, makeResourceOptions(options, id));
+    private TopicPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable TopicPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sns/topicPolicy:TopicPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TopicPolicyArgs makeArgs(TopicPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TopicPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -189,7 +196,7 @@ public class TopicPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TopicPolicy get(String name, Output<String> id, @Nullable TopicPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TopicPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable TopicPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TopicPolicy(name, id, state, options);
     }
 }

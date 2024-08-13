@@ -161,7 +161,7 @@ public class ZoneAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ZoneAssociation(String name) {
+    public ZoneAssociation(java.lang.String name) {
         this(name, ZoneAssociationArgs.Empty);
     }
     /**
@@ -169,7 +169,7 @@ public class ZoneAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ZoneAssociation(String name, ZoneAssociationArgs args) {
+    public ZoneAssociation(java.lang.String name, ZoneAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -178,15 +178,22 @@ public class ZoneAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ZoneAssociation(String name, ZoneAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/zoneAssociation:ZoneAssociation", name, args == null ? ZoneAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ZoneAssociation(java.lang.String name, ZoneAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/zoneAssociation:ZoneAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ZoneAssociation(String name, Output<String> id, @Nullable ZoneAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/zoneAssociation:ZoneAssociation", name, state, makeResourceOptions(options, id));
+    private ZoneAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable ZoneAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/zoneAssociation:ZoneAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ZoneAssociationArgs makeArgs(ZoneAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ZoneAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -202,7 +209,7 @@ public class ZoneAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ZoneAssociation get(String name, Output<String> id, @Nullable ZoneAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ZoneAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable ZoneAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ZoneAssociation(name, id, state, options);
     }
 }

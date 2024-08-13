@@ -305,7 +305,7 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EntityRecognizer(String name) {
+    public EntityRecognizer(java.lang.String name) {
         this(name, EntityRecognizerArgs.Empty);
     }
     /**
@@ -313,7 +313,7 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EntityRecognizer(String name, EntityRecognizerArgs args) {
+    public EntityRecognizer(java.lang.String name, EntityRecognizerArgs args) {
         this(name, args, null);
     }
     /**
@@ -322,15 +322,22 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EntityRecognizer(String name, EntityRecognizerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:comprehend/entityRecognizer:EntityRecognizer", name, args == null ? EntityRecognizerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EntityRecognizer(java.lang.String name, EntityRecognizerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:comprehend/entityRecognizer:EntityRecognizer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EntityRecognizer(String name, Output<String> id, @Nullable EntityRecognizerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:comprehend/entityRecognizer:EntityRecognizer", name, state, makeResourceOptions(options, id));
+    private EntityRecognizer(java.lang.String name, Output<java.lang.String> id, @Nullable EntityRecognizerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:comprehend/entityRecognizer:EntityRecognizer", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EntityRecognizerArgs makeArgs(EntityRecognizerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EntityRecognizerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -346,7 +353,7 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EntityRecognizer get(String name, Output<String> id, @Nullable EntityRecognizerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EntityRecognizer get(java.lang.String name, Output<java.lang.String> id, @Nullable EntityRecognizerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EntityRecognizer(name, id, state, options);
     }
 }

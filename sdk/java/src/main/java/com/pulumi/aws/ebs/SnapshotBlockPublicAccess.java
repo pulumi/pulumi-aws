@@ -79,7 +79,7 @@ public class SnapshotBlockPublicAccess extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SnapshotBlockPublicAccess(String name) {
+    public SnapshotBlockPublicAccess(java.lang.String name) {
         this(name, SnapshotBlockPublicAccessArgs.Empty);
     }
     /**
@@ -87,7 +87,7 @@ public class SnapshotBlockPublicAccess extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SnapshotBlockPublicAccess(String name, SnapshotBlockPublicAccessArgs args) {
+    public SnapshotBlockPublicAccess(java.lang.String name, SnapshotBlockPublicAccessArgs args) {
         this(name, args, null);
     }
     /**
@@ -96,15 +96,22 @@ public class SnapshotBlockPublicAccess extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SnapshotBlockPublicAccess(String name, SnapshotBlockPublicAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess", name, args == null ? SnapshotBlockPublicAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SnapshotBlockPublicAccess(java.lang.String name, SnapshotBlockPublicAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SnapshotBlockPublicAccess(String name, Output<String> id, @Nullable SnapshotBlockPublicAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess", name, state, makeResourceOptions(options, id));
+    private SnapshotBlockPublicAccess(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotBlockPublicAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SnapshotBlockPublicAccessArgs makeArgs(SnapshotBlockPublicAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnapshotBlockPublicAccessArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -120,7 +127,7 @@ public class SnapshotBlockPublicAccess extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SnapshotBlockPublicAccess get(String name, Output<String> id, @Nullable SnapshotBlockPublicAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SnapshotBlockPublicAccess get(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotBlockPublicAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SnapshotBlockPublicAccess(name, id, state, options);
     }
 }

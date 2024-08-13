@@ -347,7 +347,7 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventConnection(String name) {
+    public EventConnection(java.lang.String name) {
         this(name, EventConnectionArgs.Empty);
     }
     /**
@@ -355,7 +355,7 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventConnection(String name, EventConnectionArgs args) {
+    public EventConnection(java.lang.String name, EventConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -364,15 +364,22 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventConnection(String name, EventConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventConnection:EventConnection", name, args == null ? EventConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventConnection(java.lang.String name, EventConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventConnection:EventConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventConnection(String name, Output<String> id, @Nullable EventConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventConnection:EventConnection", name, state, makeResourceOptions(options, id));
+    private EventConnection(java.lang.String name, Output<java.lang.String> id, @Nullable EventConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventConnection:EventConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventConnectionArgs makeArgs(EventConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -388,7 +395,7 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventConnection get(String name, Output<String> id, @Nullable EventConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable EventConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventConnection(name, id, state, options);
     }
 }

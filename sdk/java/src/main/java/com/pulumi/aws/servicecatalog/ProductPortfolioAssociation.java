@@ -131,7 +131,7 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProductPortfolioAssociation(String name) {
+    public ProductPortfolioAssociation(java.lang.String name) {
         this(name, ProductPortfolioAssociationArgs.Empty);
     }
     /**
@@ -139,7 +139,7 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProductPortfolioAssociation(String name, ProductPortfolioAssociationArgs args) {
+    public ProductPortfolioAssociation(java.lang.String name, ProductPortfolioAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -148,15 +148,22 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProductPortfolioAssociation(String name, ProductPortfolioAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", name, args == null ? ProductPortfolioAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProductPortfolioAssociation(java.lang.String name, ProductPortfolioAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProductPortfolioAssociation(String name, Output<String> id, @Nullable ProductPortfolioAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", name, state, makeResourceOptions(options, id));
+    private ProductPortfolioAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable ProductPortfolioAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProductPortfolioAssociationArgs makeArgs(ProductPortfolioAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProductPortfolioAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -172,7 +179,7 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProductPortfolioAssociation get(String name, Output<String> id, @Nullable ProductPortfolioAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProductPortfolioAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable ProductPortfolioAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProductPortfolioAssociation(name, id, state, options);
     }
 }

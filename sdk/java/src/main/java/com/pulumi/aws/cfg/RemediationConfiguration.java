@@ -275,7 +275,7 @@ public class RemediationConfiguration extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RemediationConfiguration(String name) {
+    public RemediationConfiguration(java.lang.String name) {
         this(name, RemediationConfigurationArgs.Empty);
     }
     /**
@@ -283,7 +283,7 @@ public class RemediationConfiguration extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RemediationConfiguration(String name, RemediationConfigurationArgs args) {
+    public RemediationConfiguration(java.lang.String name, RemediationConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -292,15 +292,22 @@ public class RemediationConfiguration extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RemediationConfiguration(String name, RemediationConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/remediationConfiguration:RemediationConfiguration", name, args == null ? RemediationConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RemediationConfiguration(java.lang.String name, RemediationConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/remediationConfiguration:RemediationConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RemediationConfiguration(String name, Output<String> id, @Nullable RemediationConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/remediationConfiguration:RemediationConfiguration", name, state, makeResourceOptions(options, id));
+    private RemediationConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable RemediationConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/remediationConfiguration:RemediationConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RemediationConfigurationArgs makeArgs(RemediationConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemediationConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -316,7 +323,7 @@ public class RemediationConfiguration extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RemediationConfiguration get(String name, Output<String> id, @Nullable RemediationConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RemediationConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable RemediationConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RemediationConfiguration(name, id, state, options);
     }
 }

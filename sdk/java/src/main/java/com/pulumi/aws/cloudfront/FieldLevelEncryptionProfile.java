@@ -160,7 +160,7 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FieldLevelEncryptionProfile(String name) {
+    public FieldLevelEncryptionProfile(java.lang.String name) {
         this(name, FieldLevelEncryptionProfileArgs.Empty);
     }
     /**
@@ -168,7 +168,7 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FieldLevelEncryptionProfile(String name, FieldLevelEncryptionProfileArgs args) {
+    public FieldLevelEncryptionProfile(java.lang.String name, FieldLevelEncryptionProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -177,15 +177,22 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FieldLevelEncryptionProfile(String name, FieldLevelEncryptionProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile", name, args == null ? FieldLevelEncryptionProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FieldLevelEncryptionProfile(java.lang.String name, FieldLevelEncryptionProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FieldLevelEncryptionProfile(String name, Output<String> id, @Nullable FieldLevelEncryptionProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile", name, state, makeResourceOptions(options, id));
+    private FieldLevelEncryptionProfile(java.lang.String name, Output<java.lang.String> id, @Nullable FieldLevelEncryptionProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FieldLevelEncryptionProfileArgs makeArgs(FieldLevelEncryptionProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FieldLevelEncryptionProfileArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -201,7 +208,7 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FieldLevelEncryptionProfile get(String name, Output<String> id, @Nullable FieldLevelEncryptionProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FieldLevelEncryptionProfile get(java.lang.String name, Output<java.lang.String> id, @Nullable FieldLevelEncryptionProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FieldLevelEncryptionProfile(name, id, state, options);
     }
 }

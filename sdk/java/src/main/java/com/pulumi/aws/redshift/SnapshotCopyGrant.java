@@ -155,7 +155,7 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SnapshotCopyGrant(String name) {
+    public SnapshotCopyGrant(java.lang.String name) {
         this(name, SnapshotCopyGrantArgs.Empty);
     }
     /**
@@ -163,7 +163,7 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SnapshotCopyGrant(String name, SnapshotCopyGrantArgs args) {
+    public SnapshotCopyGrant(java.lang.String name, SnapshotCopyGrantArgs args) {
         this(name, args, null);
     }
     /**
@@ -172,15 +172,22 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SnapshotCopyGrant(String name, SnapshotCopyGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, args == null ? SnapshotCopyGrantArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SnapshotCopyGrant(java.lang.String name, SnapshotCopyGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SnapshotCopyGrant(String name, Output<String> id, @Nullable SnapshotCopyGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, state, makeResourceOptions(options, id));
+    private SnapshotCopyGrant(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotCopyGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SnapshotCopyGrantArgs makeArgs(SnapshotCopyGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnapshotCopyGrantArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -196,7 +203,7 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SnapshotCopyGrant get(String name, Output<String> id, @Nullable SnapshotCopyGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SnapshotCopyGrant get(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotCopyGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SnapshotCopyGrant(name, id, state, options);
     }
 }

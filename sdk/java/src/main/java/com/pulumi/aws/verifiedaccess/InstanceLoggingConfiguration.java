@@ -324,7 +324,7 @@ public class InstanceLoggingConfiguration extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InstanceLoggingConfiguration(String name) {
+    public InstanceLoggingConfiguration(java.lang.String name) {
         this(name, InstanceLoggingConfigurationArgs.Empty);
     }
     /**
@@ -332,7 +332,7 @@ public class InstanceLoggingConfiguration extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InstanceLoggingConfiguration(String name, InstanceLoggingConfigurationArgs args) {
+    public InstanceLoggingConfiguration(java.lang.String name, InstanceLoggingConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -341,15 +341,22 @@ public class InstanceLoggingConfiguration extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InstanceLoggingConfiguration(String name, InstanceLoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration", name, args == null ? InstanceLoggingConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InstanceLoggingConfiguration(java.lang.String name, InstanceLoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InstanceLoggingConfiguration(String name, Output<String> id, @Nullable InstanceLoggingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration", name, state, makeResourceOptions(options, id));
+    private InstanceLoggingConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceLoggingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InstanceLoggingConfigurationArgs makeArgs(InstanceLoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceLoggingConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -365,7 +372,7 @@ public class InstanceLoggingConfiguration extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InstanceLoggingConfiguration get(String name, Output<String> id, @Nullable InstanceLoggingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InstanceLoggingConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceLoggingConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InstanceLoggingConfiguration(name, id, state, options);
     }
 }

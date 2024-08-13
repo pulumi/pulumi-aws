@@ -120,7 +120,7 @@ public class CidrLocation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CidrLocation(String name) {
+    public CidrLocation(java.lang.String name) {
         this(name, CidrLocationArgs.Empty);
     }
     /**
@@ -128,7 +128,7 @@ public class CidrLocation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CidrLocation(String name, CidrLocationArgs args) {
+    public CidrLocation(java.lang.String name, CidrLocationArgs args) {
         this(name, args, null);
     }
     /**
@@ -137,15 +137,22 @@ public class CidrLocation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CidrLocation(String name, CidrLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/cidrLocation:CidrLocation", name, args == null ? CidrLocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CidrLocation(java.lang.String name, CidrLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/cidrLocation:CidrLocation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CidrLocation(String name, Output<String> id, @Nullable CidrLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/cidrLocation:CidrLocation", name, state, makeResourceOptions(options, id));
+    private CidrLocation(java.lang.String name, Output<java.lang.String> id, @Nullable CidrLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/cidrLocation:CidrLocation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CidrLocationArgs makeArgs(CidrLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CidrLocationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -161,7 +168,7 @@ public class CidrLocation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CidrLocation get(String name, Output<String> id, @Nullable CidrLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CidrLocation get(java.lang.String name, Output<java.lang.String> id, @Nullable CidrLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CidrLocation(name, id, state, options);
     }
 }

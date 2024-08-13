@@ -148,7 +148,7 @@ public class TrafficMirrorFilter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TrafficMirrorFilter(String name) {
+    public TrafficMirrorFilter(java.lang.String name) {
         this(name, TrafficMirrorFilterArgs.Empty);
     }
     /**
@@ -156,7 +156,7 @@ public class TrafficMirrorFilter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TrafficMirrorFilter(String name, @Nullable TrafficMirrorFilterArgs args) {
+    public TrafficMirrorFilter(java.lang.String name, @Nullable TrafficMirrorFilterArgs args) {
         this(name, args, null);
     }
     /**
@@ -165,15 +165,22 @@ public class TrafficMirrorFilter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TrafficMirrorFilter(String name, @Nullable TrafficMirrorFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter", name, args == null ? TrafficMirrorFilterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TrafficMirrorFilter(java.lang.String name, @Nullable TrafficMirrorFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TrafficMirrorFilter(String name, Output<String> id, @Nullable TrafficMirrorFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter", name, state, makeResourceOptions(options, id));
+    private TrafficMirrorFilter(java.lang.String name, Output<java.lang.String> id, @Nullable TrafficMirrorFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TrafficMirrorFilterArgs makeArgs(@Nullable TrafficMirrorFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrafficMirrorFilterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -189,7 +196,7 @@ public class TrafficMirrorFilter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TrafficMirrorFilter get(String name, Output<String> id, @Nullable TrafficMirrorFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TrafficMirrorFilter get(java.lang.String name, Output<java.lang.String> id, @Nullable TrafficMirrorFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TrafficMirrorFilter(name, id, state, options);
     }
 }

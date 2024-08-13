@@ -114,7 +114,7 @@ public class LfTag extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LfTag(String name) {
+    public LfTag(java.lang.String name) {
         this(name, LfTagArgs.Empty);
     }
     /**
@@ -122,7 +122,7 @@ public class LfTag extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LfTag(String name, LfTagArgs args) {
+    public LfTag(java.lang.String name, LfTagArgs args) {
         this(name, args, null);
     }
     /**
@@ -131,15 +131,22 @@ public class LfTag extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LfTag(String name, LfTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lakeformation/lfTag:LfTag", name, args == null ? LfTagArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LfTag(java.lang.String name, LfTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lakeformation/lfTag:LfTag", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LfTag(String name, Output<String> id, @Nullable LfTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lakeformation/lfTag:LfTag", name, state, makeResourceOptions(options, id));
+    private LfTag(java.lang.String name, Output<java.lang.String> id, @Nullable LfTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lakeformation/lfTag:LfTag", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LfTagArgs makeArgs(LfTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LfTagArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -155,7 +162,7 @@ public class LfTag extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LfTag get(String name, Output<String> id, @Nullable LfTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LfTag get(java.lang.String name, Output<java.lang.String> id, @Nullable LfTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LfTag(name, id, state, options);
     }
 }

@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var ec2 = new Budget("ec2", BudgetArgs.builder()
  *             .name("budget-ec2-monthly")
  *             .budgetType("COST")
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .threshold(100)
  *                 .thresholdType("PERCENTAGE")
  *                 .notificationType("FORECASTED")
- *                 .subscriberEmailAddresses("test{@literal @}example.com")
+ *                 .subscriberEmailAddresses("test}{@literal @}{@code example.com")
  *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
@@ -76,8 +76,8 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -647,7 +647,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Budget(String name) {
+    public Budget(java.lang.String name) {
         this(name, BudgetArgs.Empty);
     }
     /**
@@ -655,7 +655,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Budget(String name, BudgetArgs args) {
+    public Budget(java.lang.String name, BudgetArgs args) {
         this(name, args, null);
     }
     /**
@@ -664,15 +664,22 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Budget(String name, BudgetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:budgets/budget:Budget", name, args == null ? BudgetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Budget(java.lang.String name, BudgetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:budgets/budget:Budget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Budget(String name, Output<String> id, @Nullable BudgetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:budgets/budget:Budget", name, state, makeResourceOptions(options, id));
+    private Budget(java.lang.String name, Output<java.lang.String> id, @Nullable BudgetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:budgets/budget:Budget", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BudgetArgs makeArgs(BudgetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BudgetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -688,7 +695,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Budget get(String name, Output<String> id, @Nullable BudgetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Budget get(java.lang.String name, Output<java.lang.String> id, @Nullable BudgetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Budget(name, id, state, options);
     }
 }

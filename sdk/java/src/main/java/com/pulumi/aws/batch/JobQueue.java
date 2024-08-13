@@ -292,7 +292,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public JobQueue(String name) {
+    public JobQueue(java.lang.String name) {
         this(name, JobQueueArgs.Empty);
     }
     /**
@@ -300,7 +300,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public JobQueue(String name, JobQueueArgs args) {
+    public JobQueue(java.lang.String name, JobQueueArgs args) {
         this(name, args, null);
     }
     /**
@@ -309,15 +309,22 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public JobQueue(String name, JobQueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:batch/jobQueue:JobQueue", name, args == null ? JobQueueArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public JobQueue(java.lang.String name, JobQueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:batch/jobQueue:JobQueue", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private JobQueue(String name, Output<String> id, @Nullable JobQueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:batch/jobQueue:JobQueue", name, state, makeResourceOptions(options, id));
+    private JobQueue(java.lang.String name, Output<java.lang.String> id, @Nullable JobQueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:batch/jobQueue:JobQueue", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static JobQueueArgs makeArgs(JobQueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JobQueueArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -333,7 +340,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static JobQueue get(String name, Output<String> id, @Nullable JobQueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static JobQueue get(java.lang.String name, Output<java.lang.String> id, @Nullable JobQueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new JobQueue(name, id, state, options);
     }
 }

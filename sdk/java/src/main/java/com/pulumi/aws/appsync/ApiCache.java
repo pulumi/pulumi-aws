@@ -164,7 +164,7 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiCache(String name) {
+    public ApiCache(java.lang.String name) {
         this(name, ApiCacheArgs.Empty);
     }
     /**
@@ -172,7 +172,7 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiCache(String name, ApiCacheArgs args) {
+    public ApiCache(java.lang.String name, ApiCacheArgs args) {
         this(name, args, null);
     }
     /**
@@ -181,15 +181,22 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiCache(String name, ApiCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/apiCache:ApiCache", name, args == null ? ApiCacheArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ApiCache(java.lang.String name, ApiCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appsync/apiCache:ApiCache", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiCache(String name, Output<String> id, @Nullable ApiCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/apiCache:ApiCache", name, state, makeResourceOptions(options, id));
+    private ApiCache(java.lang.String name, Output<java.lang.String> id, @Nullable ApiCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appsync/apiCache:ApiCache", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ApiCacheArgs makeArgs(ApiCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiCacheArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -205,7 +212,7 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiCache get(String name, Output<String> id, @Nullable ApiCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiCache get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiCache(name, id, state, options);
     }
 }

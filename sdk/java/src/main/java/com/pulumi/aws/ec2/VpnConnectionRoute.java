@@ -117,7 +117,7 @@ public class VpnConnectionRoute extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpnConnectionRoute(String name) {
+    public VpnConnectionRoute(java.lang.String name) {
         this(name, VpnConnectionRouteArgs.Empty);
     }
     /**
@@ -125,7 +125,7 @@ public class VpnConnectionRoute extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpnConnectionRoute(String name, VpnConnectionRouteArgs args) {
+    public VpnConnectionRoute(java.lang.String name, VpnConnectionRouteArgs args) {
         this(name, args, null);
     }
     /**
@@ -134,15 +134,22 @@ public class VpnConnectionRoute extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpnConnectionRoute(String name, VpnConnectionRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, args == null ? VpnConnectionRouteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpnConnectionRoute(java.lang.String name, VpnConnectionRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpnConnectionRoute(String name, Output<String> id, @Nullable VpnConnectionRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, state, makeResourceOptions(options, id));
+    private VpnConnectionRoute(java.lang.String name, Output<java.lang.String> id, @Nullable VpnConnectionRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpnConnectionRouteArgs makeArgs(VpnConnectionRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpnConnectionRouteArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -158,7 +165,7 @@ public class VpnConnectionRoute extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpnConnectionRoute get(String name, Output<String> id, @Nullable VpnConnectionRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpnConnectionRoute get(java.lang.String name, Output<java.lang.String> id, @Nullable VpnConnectionRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpnConnectionRoute(name, id, state, options);
     }
 }

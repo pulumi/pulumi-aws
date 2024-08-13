@@ -132,7 +132,7 @@ public class AppBundle extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppBundle(String name) {
+    public AppBundle(java.lang.String name) {
         this(name, AppBundleArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class AppBundle extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppBundle(String name, @Nullable AppBundleArgs args) {
+    public AppBundle(java.lang.String name, @Nullable AppBundleArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,15 +149,22 @@ public class AppBundle extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppBundle(String name, @Nullable AppBundleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appfabric/appBundle:AppBundle", name, args == null ? AppBundleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AppBundle(java.lang.String name, @Nullable AppBundleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appfabric/appBundle:AppBundle", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppBundle(String name, Output<String> id, @Nullable AppBundleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appfabric/appBundle:AppBundle", name, state, makeResourceOptions(options, id));
+    private AppBundle(java.lang.String name, Output<java.lang.String> id, @Nullable AppBundleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appfabric/appBundle:AppBundle", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppBundleArgs makeArgs(@Nullable AppBundleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppBundleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -173,7 +180,7 @@ public class AppBundle extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppBundle get(String name, Output<String> id, @Nullable AppBundleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppBundle get(java.lang.String name, Output<java.lang.String> id, @Nullable AppBundleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppBundle(name, id, state, options);
     }
 }

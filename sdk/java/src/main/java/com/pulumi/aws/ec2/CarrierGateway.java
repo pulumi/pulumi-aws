@@ -144,7 +144,7 @@ public class CarrierGateway extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CarrierGateway(String name) {
+    public CarrierGateway(java.lang.String name) {
         this(name, CarrierGatewayArgs.Empty);
     }
     /**
@@ -152,7 +152,7 @@ public class CarrierGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CarrierGateway(String name, CarrierGatewayArgs args) {
+    public CarrierGateway(java.lang.String name, CarrierGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -161,15 +161,22 @@ public class CarrierGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CarrierGateway(String name, CarrierGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/carrierGateway:CarrierGateway", name, args == null ? CarrierGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CarrierGateway(java.lang.String name, CarrierGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/carrierGateway:CarrierGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CarrierGateway(String name, Output<String> id, @Nullable CarrierGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/carrierGateway:CarrierGateway", name, state, makeResourceOptions(options, id));
+    private CarrierGateway(java.lang.String name, Output<java.lang.String> id, @Nullable CarrierGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/carrierGateway:CarrierGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CarrierGatewayArgs makeArgs(CarrierGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CarrierGatewayArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -185,7 +192,7 @@ public class CarrierGateway extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CarrierGateway get(String name, Output<String> id, @Nullable CarrierGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CarrierGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable CarrierGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CarrierGateway(name, id, state, options);
     }
 }

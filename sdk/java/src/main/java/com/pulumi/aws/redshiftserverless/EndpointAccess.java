@@ -198,7 +198,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EndpointAccess(String name) {
+    public EndpointAccess(java.lang.String name) {
         this(name, EndpointAccessArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EndpointAccess(String name, EndpointAccessArgs args) {
+    public EndpointAccess(java.lang.String name, EndpointAccessArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,15 +215,22 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EndpointAccess(String name, EndpointAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshiftserverless/endpointAccess:EndpointAccess", name, args == null ? EndpointAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EndpointAccess(java.lang.String name, EndpointAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshiftserverless/endpointAccess:EndpointAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EndpointAccess(String name, Output<String> id, @Nullable EndpointAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshiftserverless/endpointAccess:EndpointAccess", name, state, makeResourceOptions(options, id));
+    private EndpointAccess(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshiftserverless/endpointAccess:EndpointAccess", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EndpointAccessArgs makeArgs(EndpointAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointAccessArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -239,7 +246,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EndpointAccess get(String name, Output<String> id, @Nullable EndpointAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EndpointAccess get(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EndpointAccess(name, id, state, options);
     }
 }

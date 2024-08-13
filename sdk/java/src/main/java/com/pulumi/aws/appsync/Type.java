@@ -167,7 +167,7 @@ public class Type extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Type(String name) {
+    public Type(java.lang.String name) {
         this(name, TypeArgs.Empty);
     }
     /**
@@ -175,7 +175,7 @@ public class Type extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Type(String name, TypeArgs args) {
+    public Type(java.lang.String name, TypeArgs args) {
         this(name, args, null);
     }
     /**
@@ -184,15 +184,22 @@ public class Type extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Type(String name, TypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/type:Type", name, args == null ? TypeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Type(java.lang.String name, TypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appsync/type:Type", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Type(String name, Output<String> id, @Nullable TypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/type:Type", name, state, makeResourceOptions(options, id));
+    private Type(java.lang.String name, Output<java.lang.String> id, @Nullable TypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appsync/type:Type", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TypeArgs makeArgs(TypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TypeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -208,7 +215,7 @@ public class Type extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Type get(String name, Output<String> id, @Nullable TypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Type get(java.lang.String name, Output<java.lang.String> id, @Nullable TypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Type(name, id, state, options);
     }
 }

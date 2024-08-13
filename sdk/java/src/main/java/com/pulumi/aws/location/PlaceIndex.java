@@ -205,7 +205,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PlaceIndex(String name) {
+    public PlaceIndex(java.lang.String name) {
         this(name, PlaceIndexArgs.Empty);
     }
     /**
@@ -213,7 +213,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PlaceIndex(String name, PlaceIndexArgs args) {
+    public PlaceIndex(java.lang.String name, PlaceIndexArgs args) {
         this(name, args, null);
     }
     /**
@@ -222,15 +222,22 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PlaceIndex(String name, PlaceIndexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:location/placeIndex:PlaceIndex", name, args == null ? PlaceIndexArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PlaceIndex(java.lang.String name, PlaceIndexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:location/placeIndex:PlaceIndex", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PlaceIndex(String name, Output<String> id, @Nullable PlaceIndexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:location/placeIndex:PlaceIndex", name, state, makeResourceOptions(options, id));
+    private PlaceIndex(java.lang.String name, Output<java.lang.String> id, @Nullable PlaceIndexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:location/placeIndex:PlaceIndex", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PlaceIndexArgs makeArgs(PlaceIndexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PlaceIndexArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -246,7 +253,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PlaceIndex get(String name, Output<String> id, @Nullable PlaceIndexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PlaceIndex get(java.lang.String name, Output<java.lang.String> id, @Nullable PlaceIndexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PlaceIndex(name, id, state, options);
     }
 }

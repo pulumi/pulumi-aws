@@ -416,7 +416,7 @@ public class NfsFileShare extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NfsFileShare(String name) {
+    public NfsFileShare(java.lang.String name) {
         this(name, NfsFileShareArgs.Empty);
     }
     /**
@@ -424,7 +424,7 @@ public class NfsFileShare extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NfsFileShare(String name, NfsFileShareArgs args) {
+    public NfsFileShare(java.lang.String name, NfsFileShareArgs args) {
         this(name, args, null);
     }
     /**
@@ -433,15 +433,22 @@ public class NfsFileShare extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NfsFileShare(String name, NfsFileShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/nfsFileShare:NfsFileShare", name, args == null ? NfsFileShareArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NfsFileShare(java.lang.String name, NfsFileShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:storagegateway/nfsFileShare:NfsFileShare", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NfsFileShare(String name, Output<String> id, @Nullable NfsFileShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/nfsFileShare:NfsFileShare", name, state, makeResourceOptions(options, id));
+    private NfsFileShare(java.lang.String name, Output<java.lang.String> id, @Nullable NfsFileShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:storagegateway/nfsFileShare:NfsFileShare", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NfsFileShareArgs makeArgs(NfsFileShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NfsFileShareArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -457,7 +464,7 @@ public class NfsFileShare extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NfsFileShare get(String name, Output<String> id, @Nullable NfsFileShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NfsFileShare get(java.lang.String name, Output<java.lang.String> id, @Nullable NfsFileShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NfsFileShare(name, id, state, options);
     }
 }

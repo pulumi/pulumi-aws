@@ -271,7 +271,7 @@ import (
 //			}
 //			_, err = cloudwatch.NewEventTarget(ctx, "stop_instances", &cloudwatch.EventTargetArgs{
 //				TargetId: pulumi.String("StopInstance"),
-//				Arn:      pulumi.String(fmt.Sprintf("arn:aws:ssm:%v::document/AWS-RunShellScript", awsRegion)),
+//				Arn:      pulumi.Sprintf("arn:aws:ssm:%v::document/AWS-RunShellScript", awsRegion),
 //				Input:    pulumi.String("{\"commands\":[\"halt\"]}"),
 //				Rule:     stopInstances.Name,
 //				RoleArn:  pulumi.Any(ssmLifecycle.Arn),

@@ -216,7 +216,7 @@ public class GameSessionQueue extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GameSessionQueue(String name) {
+    public GameSessionQueue(java.lang.String name) {
         this(name, GameSessionQueueArgs.Empty);
     }
     /**
@@ -224,7 +224,7 @@ public class GameSessionQueue extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GameSessionQueue(String name, @Nullable GameSessionQueueArgs args) {
+    public GameSessionQueue(java.lang.String name, @Nullable GameSessionQueueArgs args) {
         this(name, args, null);
     }
     /**
@@ -233,15 +233,22 @@ public class GameSessionQueue extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GameSessionQueue(String name, @Nullable GameSessionQueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:gamelift/gameSessionQueue:GameSessionQueue", name, args == null ? GameSessionQueueArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GameSessionQueue(java.lang.String name, @Nullable GameSessionQueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:gamelift/gameSessionQueue:GameSessionQueue", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GameSessionQueue(String name, Output<String> id, @Nullable GameSessionQueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:gamelift/gameSessionQueue:GameSessionQueue", name, state, makeResourceOptions(options, id));
+    private GameSessionQueue(java.lang.String name, Output<java.lang.String> id, @Nullable GameSessionQueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:gamelift/gameSessionQueue:GameSessionQueue", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GameSessionQueueArgs makeArgs(@Nullable GameSessionQueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GameSessionQueueArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -257,7 +264,7 @@ public class GameSessionQueue extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GameSessionQueue get(String name, Output<String> id, @Nullable GameSessionQueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GameSessionQueue get(java.lang.String name, Output<java.lang.String> id, @Nullable GameSessionQueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GameSessionQueue(name, id, state, options);
     }
 }

@@ -437,7 +437,7 @@ public class Intent extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Intent(String name) {
+    public Intent(java.lang.String name) {
         this(name, IntentArgs.Empty);
     }
     /**
@@ -445,7 +445,7 @@ public class Intent extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Intent(String name, IntentArgs args) {
+    public Intent(java.lang.String name, IntentArgs args) {
         this(name, args, null);
     }
     /**
@@ -454,15 +454,22 @@ public class Intent extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Intent(String name, IntentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/intent:Intent", name, args == null ? IntentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Intent(java.lang.String name, IntentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/intent:Intent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Intent(String name, Output<String> id, @Nullable IntentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/intent:Intent", name, state, makeResourceOptions(options, id));
+    private Intent(java.lang.String name, Output<java.lang.String> id, @Nullable IntentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/intent:Intent", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IntentArgs makeArgs(IntentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -478,7 +485,7 @@ public class Intent extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Intent get(String name, Output<String> id, @Nullable IntentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Intent get(java.lang.String name, Output<java.lang.String> id, @Nullable IntentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Intent(name, id, state, options);
     }
 }

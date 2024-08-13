@@ -18,7 +18,7 @@ public final class EventTargetHttpTarget {
      */
     private @Nullable Map<String,String> headerParameters;
     /**
-     * @return The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*{@literal /}POST/pets/*`).
+     * @return The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
      * 
      */
     private @Nullable List<String> pathParameterValues;
@@ -37,7 +37,7 @@ public final class EventTargetHttpTarget {
         return this.headerParameters == null ? Map.of() : this.headerParameters;
     }
     /**
-     * @return The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*{@literal /}POST/pets/*`).
+     * @return The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
      * 
      */
     public List<String> pathParameterValues() {

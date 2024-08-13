@@ -198,7 +198,7 @@ public class S3Location extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public S3Location(String name) {
+    public S3Location(java.lang.String name) {
         this(name, S3LocationArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class S3Location extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public S3Location(String name, S3LocationArgs args) {
+    public S3Location(java.lang.String name, S3LocationArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,15 +215,22 @@ public class S3Location extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public S3Location(String name, S3LocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/s3Location:S3Location", name, args == null ? S3LocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public S3Location(java.lang.String name, S3LocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/s3Location:S3Location", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private S3Location(String name, Output<String> id, @Nullable S3LocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/s3Location:S3Location", name, state, makeResourceOptions(options, id));
+    private S3Location(java.lang.String name, Output<java.lang.String> id, @Nullable S3LocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/s3Location:S3Location", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static S3LocationArgs makeArgs(S3LocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? S3LocationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -239,7 +246,7 @@ public class S3Location extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static S3Location get(String name, Output<String> id, @Nullable S3LocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static S3Location get(java.lang.String name, Output<java.lang.String> id, @Nullable S3LocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new S3Location(name, id, state, options);
     }
 }

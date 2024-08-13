@@ -501,14 +501,14 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
+     * A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
     @Export(name="validUserLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> validUserLists;
 
     /**
-     * @return A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
+     * @return A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
     public Output<Optional<List<String>>> validUserLists() {
@@ -533,7 +533,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SmbFileShare(String name) {
+    public SmbFileShare(java.lang.String name) {
         this(name, SmbFileShareArgs.Empty);
     }
     /**
@@ -541,7 +541,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SmbFileShare(String name, SmbFileShareArgs args) {
+    public SmbFileShare(java.lang.String name, SmbFileShareArgs args) {
         this(name, args, null);
     }
     /**
@@ -550,15 +550,22 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SmbFileShare(String name, SmbFileShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/smbFileShare:SmbFileShare", name, args == null ? SmbFileShareArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SmbFileShare(java.lang.String name, SmbFileShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:storagegateway/smbFileShare:SmbFileShare", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SmbFileShare(String name, Output<String> id, @Nullable SmbFileShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:storagegateway/smbFileShare:SmbFileShare", name, state, makeResourceOptions(options, id));
+    private SmbFileShare(java.lang.String name, Output<java.lang.String> id, @Nullable SmbFileShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:storagegateway/smbFileShare:SmbFileShare", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SmbFileShareArgs makeArgs(SmbFileShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SmbFileShareArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -574,7 +581,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SmbFileShare get(String name, Output<String> id, @Nullable SmbFileShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SmbFileShare get(java.lang.String name, Output<java.lang.String> id, @Nullable SmbFileShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SmbFileShare(name, id, state, options);
     }
 }

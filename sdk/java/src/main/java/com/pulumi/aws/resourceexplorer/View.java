@@ -192,7 +192,7 @@ public class View extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public View(String name) {
+    public View(java.lang.String name) {
         this(name, ViewArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class View extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public View(String name, @Nullable ViewArgs args) {
+    public View(java.lang.String name, @Nullable ViewArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,15 +209,22 @@ public class View extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public View(String name, @Nullable ViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:resourceexplorer/view:View", name, args == null ? ViewArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public View(java.lang.String name, @Nullable ViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:resourceexplorer/view:View", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private View(String name, Output<String> id, @Nullable ViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:resourceexplorer/view:View", name, state, makeResourceOptions(options, id));
+    private View(java.lang.String name, Output<java.lang.String> id, @Nullable ViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:resourceexplorer/view:View", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ViewArgs makeArgs(@Nullable ViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ViewArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +240,7 @@ public class View extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static View get(String name, Output<String> id, @Nullable ViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static View get(java.lang.String name, Output<java.lang.String> id, @Nullable ViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new View(name, id, state, options);
     }
 }

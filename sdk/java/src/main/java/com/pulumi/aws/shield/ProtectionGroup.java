@@ -291,7 +291,7 @@ public class ProtectionGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProtectionGroup(String name) {
+    public ProtectionGroup(java.lang.String name) {
         this(name, ProtectionGroupArgs.Empty);
     }
     /**
@@ -299,7 +299,7 @@ public class ProtectionGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProtectionGroup(String name, ProtectionGroupArgs args) {
+    public ProtectionGroup(java.lang.String name, ProtectionGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -308,15 +308,22 @@ public class ProtectionGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProtectionGroup(String name, ProtectionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/protectionGroup:ProtectionGroup", name, args == null ? ProtectionGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProtectionGroup(java.lang.String name, ProtectionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:shield/protectionGroup:ProtectionGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProtectionGroup(String name, Output<String> id, @Nullable ProtectionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/protectionGroup:ProtectionGroup", name, state, makeResourceOptions(options, id));
+    private ProtectionGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ProtectionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:shield/protectionGroup:ProtectionGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProtectionGroupArgs makeArgs(ProtectionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProtectionGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -332,7 +339,7 @@ public class ProtectionGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProtectionGroup get(String name, Output<String> id, @Nullable ProtectionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProtectionGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ProtectionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProtectionGroup(name, id, state, options);
     }
 }

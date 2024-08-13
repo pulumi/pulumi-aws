@@ -148,7 +148,7 @@ import (
 //				clusterName = param
 //			}
 //			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name:            pulumi.String(fmt.Sprintf("/aws/eks/%v/cluster", clusterName)),
+//				Name:            pulumi.Sprintf("/aws/eks/%v/cluster", clusterName),
 //				RetentionInDays: pulumi.Int(7),
 //			})
 //			if err != nil {

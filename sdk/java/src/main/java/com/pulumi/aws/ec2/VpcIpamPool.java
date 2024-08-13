@@ -426,7 +426,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcIpamPool(String name) {
+    public VpcIpamPool(java.lang.String name) {
         this(name, VpcIpamPoolArgs.Empty);
     }
     /**
@@ -434,7 +434,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcIpamPool(String name, VpcIpamPoolArgs args) {
+    public VpcIpamPool(java.lang.String name, VpcIpamPoolArgs args) {
         this(name, args, null);
     }
     /**
@@ -443,15 +443,22 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcIpamPool(String name, VpcIpamPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamPool:VpcIpamPool", name, args == null ? VpcIpamPoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcIpamPool(java.lang.String name, VpcIpamPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamPool:VpcIpamPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcIpamPool(String name, Output<String> id, @Nullable VpcIpamPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamPool:VpcIpamPool", name, state, makeResourceOptions(options, id));
+    private VpcIpamPool(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamPool:VpcIpamPool", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcIpamPoolArgs makeArgs(VpcIpamPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpamPoolArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -467,7 +474,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcIpamPool get(String name, Output<String> id, @Nullable VpcIpamPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcIpamPool get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcIpamPool(name, id, state, options);
     }
 }

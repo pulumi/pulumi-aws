@@ -255,7 +255,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CostCategory(String name) {
+    public CostCategory(java.lang.String name) {
         this(name, CostCategoryArgs.Empty);
     }
     /**
@@ -263,7 +263,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CostCategory(String name, CostCategoryArgs args) {
+    public CostCategory(java.lang.String name, CostCategoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -272,15 +272,22 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CostCategory(String name, CostCategoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:costexplorer/costCategory:CostCategory", name, args == null ? CostCategoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CostCategory(java.lang.String name, CostCategoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:costexplorer/costCategory:CostCategory", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CostCategory(String name, Output<String> id, @Nullable CostCategoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:costexplorer/costCategory:CostCategory", name, state, makeResourceOptions(options, id));
+    private CostCategory(java.lang.String name, Output<java.lang.String> id, @Nullable CostCategoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:costexplorer/costCategory:CostCategory", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CostCategoryArgs makeArgs(CostCategoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CostCategoryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -296,7 +303,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CostCategory get(String name, Output<String> id, @Nullable CostCategoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CostCategory get(java.lang.String name, Output<java.lang.String> id, @Nullable CostCategoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CostCategory(name, id, state, options);
     }
 }

@@ -186,7 +186,7 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketObjectLockConfigurationV2(String name) {
+    public BucketObjectLockConfigurationV2(java.lang.String name) {
         this(name, BucketObjectLockConfigurationV2Args.Empty);
     }
     /**
@@ -194,7 +194,7 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketObjectLockConfigurationV2(String name, BucketObjectLockConfigurationV2Args args) {
+    public BucketObjectLockConfigurationV2(java.lang.String name, BucketObjectLockConfigurationV2Args args) {
         this(name, args, null);
     }
     /**
@@ -203,15 +203,22 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketObjectLockConfigurationV2(String name, BucketObjectLockConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2", name, args == null ? BucketObjectLockConfigurationV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketObjectLockConfigurationV2(java.lang.String name, BucketObjectLockConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketObjectLockConfigurationV2(String name, Output<String> id, @Nullable BucketObjectLockConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2", name, state, makeResourceOptions(options, id));
+    private BucketObjectLockConfigurationV2(java.lang.String name, Output<java.lang.String> id, @Nullable BucketObjectLockConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketObjectLockConfigurationV2Args makeArgs(BucketObjectLockConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketObjectLockConfigurationV2Args.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -230,7 +237,7 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketObjectLockConfigurationV2 get(String name, Output<String> id, @Nullable BucketObjectLockConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketObjectLockConfigurationV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketObjectLockConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketObjectLockConfigurationV2(name, id, state, options);
     }
 }

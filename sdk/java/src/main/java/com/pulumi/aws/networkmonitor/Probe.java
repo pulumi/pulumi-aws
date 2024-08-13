@@ -236,7 +236,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Probe(String name) {
+    public Probe(java.lang.String name) {
         this(name, ProbeArgs.Empty);
     }
     /**
@@ -244,7 +244,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Probe(String name, ProbeArgs args) {
+    public Probe(java.lang.String name, ProbeArgs args) {
         this(name, args, null);
     }
     /**
@@ -253,15 +253,22 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Probe(String name, ProbeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmonitor/probe:Probe", name, args == null ? ProbeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Probe(java.lang.String name, ProbeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmonitor/probe:Probe", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Probe(String name, Output<String> id, @Nullable ProbeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmonitor/probe:Probe", name, state, makeResourceOptions(options, id));
+    private Probe(java.lang.String name, Output<java.lang.String> id, @Nullable ProbeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmonitor/probe:Probe", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProbeArgs makeArgs(ProbeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProbeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -277,7 +284,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Probe get(String name, Output<String> id, @Nullable ProbeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Probe get(java.lang.String name, Output<java.lang.String> id, @Nullable ProbeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Probe(name, id, state, options);
     }
 }

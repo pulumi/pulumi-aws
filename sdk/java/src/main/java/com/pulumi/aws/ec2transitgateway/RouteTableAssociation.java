@@ -140,7 +140,7 @@ public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RouteTableAssociation(String name) {
+    public RouteTableAssociation(java.lang.String name) {
         this(name, RouteTableAssociationArgs.Empty);
     }
     /**
@@ -148,7 +148,7 @@ public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RouteTableAssociation(String name, RouteTableAssociationArgs args) {
+    public RouteTableAssociation(java.lang.String name, RouteTableAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -157,15 +157,22 @@ public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RouteTableAssociation(String name, RouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", name, args == null ? RouteTableAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RouteTableAssociation(java.lang.String name, RouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RouteTableAssociation(String name, Output<String> id, @Nullable RouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", name, state, makeResourceOptions(options, id));
+    private RouteTableAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable RouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RouteTableAssociationArgs makeArgs(RouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RouteTableAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -181,7 +188,7 @@ public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RouteTableAssociation get(String name, Output<String> id, @Nullable RouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RouteTableAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable RouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RouteTableAssociation(name, id, state, options);
     }
 }

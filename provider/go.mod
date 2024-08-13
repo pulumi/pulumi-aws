@@ -15,10 +15,10 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.0.14
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.41.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.88.0
-	github.com/pulumi/pulumi/pkg/v3 v3.126.0
-	github.com/pulumi/pulumi/sdk/v3 v3.126.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.42.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.0
+	github.com/pulumi/pulumi/pkg/v3 v3.128.0
+	github.com/pulumi/pulumi/sdk/v3 v3.128.0
 	github.com/stretchr/testify v1.9.0
 	pgregory.net/rapid v0.6.1
 )
@@ -460,6 +460,7 @@ require (
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
+	github.com/yuin/goldmark v1.7.4 // indirect
 	github.com/zclconf/go-cty v1.14.4 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws v0.52.0 // indirect

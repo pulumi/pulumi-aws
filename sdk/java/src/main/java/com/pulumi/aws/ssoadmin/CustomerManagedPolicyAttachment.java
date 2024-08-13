@@ -145,7 +145,7 @@ public class CustomerManagedPolicyAttachment extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomerManagedPolicyAttachment(String name) {
+    public CustomerManagedPolicyAttachment(java.lang.String name) {
         this(name, CustomerManagedPolicyAttachmentArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class CustomerManagedPolicyAttachment extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomerManagedPolicyAttachment(String name, CustomerManagedPolicyAttachmentArgs args) {
+    public CustomerManagedPolicyAttachment(java.lang.String name, CustomerManagedPolicyAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class CustomerManagedPolicyAttachment extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomerManagedPolicyAttachment(String name, CustomerManagedPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment", name, args == null ? CustomerManagedPolicyAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CustomerManagedPolicyAttachment(java.lang.String name, CustomerManagedPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomerManagedPolicyAttachment(String name, Output<String> id, @Nullable CustomerManagedPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment", name, state, makeResourceOptions(options, id));
+    private CustomerManagedPolicyAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable CustomerManagedPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CustomerManagedPolicyAttachmentArgs makeArgs(CustomerManagedPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomerManagedPolicyAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class CustomerManagedPolicyAttachment extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomerManagedPolicyAttachment get(String name, Output<String> id, @Nullable CustomerManagedPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomerManagedPolicyAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomerManagedPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomerManagedPolicyAttachment(name, id, state, options);
     }
 }

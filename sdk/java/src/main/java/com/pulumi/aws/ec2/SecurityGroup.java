@@ -542,7 +542,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityGroup(String name) {
+    public SecurityGroup(java.lang.String name) {
         this(name, SecurityGroupArgs.Empty);
     }
     /**
@@ -550,7 +550,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityGroup(String name, @Nullable SecurityGroupArgs args) {
+    public SecurityGroup(java.lang.String name, @Nullable SecurityGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -559,15 +559,22 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityGroup(String name, @Nullable SecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/securityGroup:SecurityGroup", name, args == null ? SecurityGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityGroup(java.lang.String name, @Nullable SecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/securityGroup:SecurityGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityGroup(String name, Output<String> id, @Nullable SecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/securityGroup:SecurityGroup", name, state, makeResourceOptions(options, id));
+    private SecurityGroup(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/securityGroup:SecurityGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityGroupArgs makeArgs(@Nullable SecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -583,7 +590,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityGroup get(String name, Output<String> id, @Nullable SecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityGroup(name, id, state, options);
     }
 }

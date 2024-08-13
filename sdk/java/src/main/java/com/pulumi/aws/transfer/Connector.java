@@ -264,7 +264,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Connector(String name) {
+    public Connector(java.lang.String name) {
         this(name, ConnectorArgs.Empty);
     }
     /**
@@ -272,7 +272,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Connector(String name, ConnectorArgs args) {
+    public Connector(java.lang.String name, ConnectorArgs args) {
         this(name, args, null);
     }
     /**
@@ -281,15 +281,22 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Connector(String name, ConnectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:transfer/connector:Connector", name, args == null ? ConnectorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Connector(java.lang.String name, ConnectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:transfer/connector:Connector", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Connector(String name, Output<String> id, @Nullable ConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:transfer/connector:Connector", name, state, makeResourceOptions(options, id));
+    private Connector(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:transfer/connector:Connector", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConnectorArgs makeArgs(ConnectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -305,7 +312,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Connector get(String name, Output<String> id, @Nullable ConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Connector get(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Connector(name, id, state, options);
     }
 }

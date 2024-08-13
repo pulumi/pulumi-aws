@@ -240,7 +240,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationResponse(String name) {
+    public IntegrationResponse(java.lang.String name) {
         this(name, IntegrationResponseArgs.Empty);
     }
     /**
@@ -248,7 +248,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationResponse(String name, IntegrationResponseArgs args) {
+    public IntegrationResponse(java.lang.String name, IntegrationResponseArgs args) {
         this(name, args, null);
     }
     /**
@@ -257,15 +257,22 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationResponse(String name, IntegrationResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/integrationResponse:IntegrationResponse", name, args == null ? IntegrationResponseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IntegrationResponse(java.lang.String name, IntegrationResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/integrationResponse:IntegrationResponse", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationResponse(String name, Output<String> id, @Nullable IntegrationResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/integrationResponse:IntegrationResponse", name, state, makeResourceOptions(options, id));
+    private IntegrationResponse(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/integrationResponse:IntegrationResponse", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IntegrationResponseArgs makeArgs(IntegrationResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationResponseArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -281,7 +288,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationResponse get(String name, Output<String> id, @Nullable IntegrationResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationResponse get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationResponse(name, id, state, options);
     }
 }

@@ -138,7 +138,7 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnvironmentMembership(String name) {
+    public EnvironmentMembership(java.lang.String name) {
         this(name, EnvironmentMembershipArgs.Empty);
     }
     /**
@@ -146,7 +146,7 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnvironmentMembership(String name, EnvironmentMembershipArgs args) {
+    public EnvironmentMembership(java.lang.String name, EnvironmentMembershipArgs args) {
         this(name, args, null);
     }
     /**
@@ -155,15 +155,22 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnvironmentMembership(String name, EnvironmentMembershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloud9/environmentMembership:EnvironmentMembership", name, args == null ? EnvironmentMembershipArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EnvironmentMembership(java.lang.String name, EnvironmentMembershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloud9/environmentMembership:EnvironmentMembership", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnvironmentMembership(String name, Output<String> id, @Nullable EnvironmentMembershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloud9/environmentMembership:EnvironmentMembership", name, state, makeResourceOptions(options, id));
+    private EnvironmentMembership(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentMembershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloud9/environmentMembership:EnvironmentMembership", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EnvironmentMembershipArgs makeArgs(EnvironmentMembershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnvironmentMembershipArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -179,7 +186,7 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnvironmentMembership get(String name, Output<String> id, @Nullable EnvironmentMembershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnvironmentMembership get(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentMembershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnvironmentMembership(name, id, state, options);
     }
 }

@@ -163,7 +163,7 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UsagePlanKey(String name) {
+    public UsagePlanKey(java.lang.String name) {
         this(name, UsagePlanKeyArgs.Empty);
     }
     /**
@@ -171,7 +171,7 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UsagePlanKey(String name, UsagePlanKeyArgs args) {
+    public UsagePlanKey(java.lang.String name, UsagePlanKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -180,15 +180,22 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UsagePlanKey(String name, UsagePlanKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/usagePlanKey:UsagePlanKey", name, args == null ? UsagePlanKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public UsagePlanKey(java.lang.String name, UsagePlanKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/usagePlanKey:UsagePlanKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UsagePlanKey(String name, Output<String> id, @Nullable UsagePlanKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/usagePlanKey:UsagePlanKey", name, state, makeResourceOptions(options, id));
+    private UsagePlanKey(java.lang.String name, Output<java.lang.String> id, @Nullable UsagePlanKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/usagePlanKey:UsagePlanKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static UsagePlanKeyArgs makeArgs(UsagePlanKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UsagePlanKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -204,7 +211,7 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UsagePlanKey get(String name, Output<String> id, @Nullable UsagePlanKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UsagePlanKey get(java.lang.String name, Output<java.lang.String> id, @Nullable UsagePlanKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UsagePlanKey(name, id, state, options);
     }
 }

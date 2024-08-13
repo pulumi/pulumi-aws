@@ -400,7 +400,7 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TopicRule(String name) {
+    public TopicRule(java.lang.String name) {
         this(name, TopicRuleArgs.Empty);
     }
     /**
@@ -408,7 +408,7 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TopicRule(String name, TopicRuleArgs args) {
+    public TopicRule(java.lang.String name, TopicRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -417,15 +417,22 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TopicRule(String name, TopicRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/topicRule:TopicRule", name, args == null ? TopicRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TopicRule(java.lang.String name, TopicRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/topicRule:TopicRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TopicRule(String name, Output<String> id, @Nullable TopicRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/topicRule:TopicRule", name, state, makeResourceOptions(options, id));
+    private TopicRule(java.lang.String name, Output<java.lang.String> id, @Nullable TopicRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/topicRule:TopicRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TopicRuleArgs makeArgs(TopicRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TopicRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -441,7 +448,7 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TopicRule get(String name, Output<String> id, @Nullable TopicRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TopicRule get(java.lang.String name, Output<java.lang.String> id, @Nullable TopicRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TopicRule(name, id, state, options);
     }
 }

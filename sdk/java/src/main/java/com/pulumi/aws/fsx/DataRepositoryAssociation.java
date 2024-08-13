@@ -267,7 +267,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataRepositoryAssociation(String name) {
+    public DataRepositoryAssociation(java.lang.String name) {
         this(name, DataRepositoryAssociationArgs.Empty);
     }
     /**
@@ -275,7 +275,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataRepositoryAssociation(String name, DataRepositoryAssociationArgs args) {
+    public DataRepositoryAssociation(java.lang.String name, DataRepositoryAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -284,15 +284,22 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataRepositoryAssociation(String name, DataRepositoryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, args == null ? DataRepositoryAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataRepositoryAssociation(java.lang.String name, DataRepositoryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataRepositoryAssociation(String name, Output<String> id, @Nullable DataRepositoryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, state, makeResourceOptions(options, id));
+    private DataRepositoryAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable DataRepositoryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataRepositoryAssociationArgs makeArgs(DataRepositoryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataRepositoryAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -308,7 +315,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataRepositoryAssociation get(String name, Output<String> id, @Nullable DataRepositoryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataRepositoryAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable DataRepositoryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataRepositoryAssociation(name, id, state, options);
     }
 }

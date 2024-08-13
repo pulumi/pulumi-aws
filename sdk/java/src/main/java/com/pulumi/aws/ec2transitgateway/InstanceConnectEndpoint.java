@@ -250,7 +250,7 @@ public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InstanceConnectEndpoint(String name) {
+    public InstanceConnectEndpoint(java.lang.String name) {
         this(name, InstanceConnectEndpointArgs.Empty);
     }
     /**
@@ -258,7 +258,7 @@ public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InstanceConnectEndpoint(String name, InstanceConnectEndpointArgs args) {
+    public InstanceConnectEndpoint(java.lang.String name, InstanceConnectEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -267,15 +267,22 @@ public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InstanceConnectEndpoint(String name, InstanceConnectEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint", name, args == null ? InstanceConnectEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InstanceConnectEndpoint(java.lang.String name, InstanceConnectEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InstanceConnectEndpoint(String name, Output<String> id, @Nullable InstanceConnectEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint", name, state, makeResourceOptions(options, id));
+    private InstanceConnectEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceConnectEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InstanceConnectEndpointArgs makeArgs(InstanceConnectEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceConnectEndpointArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -291,7 +298,7 @@ public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InstanceConnectEndpoint get(String name, Output<String> id, @Nullable InstanceConnectEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InstanceConnectEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceConnectEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InstanceConnectEndpoint(name, id, state, options);
     }
 }

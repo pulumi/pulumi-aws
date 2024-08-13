@@ -175,7 +175,7 @@ public class AssessmentDelegation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AssessmentDelegation(String name) {
+    public AssessmentDelegation(java.lang.String name) {
         this(name, AssessmentDelegationArgs.Empty);
     }
     /**
@@ -183,7 +183,7 @@ public class AssessmentDelegation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AssessmentDelegation(String name, AssessmentDelegationArgs args) {
+    public AssessmentDelegation(java.lang.String name, AssessmentDelegationArgs args) {
         this(name, args, null);
     }
     /**
@@ -192,15 +192,22 @@ public class AssessmentDelegation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AssessmentDelegation(String name, AssessmentDelegationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/assessmentDelegation:AssessmentDelegation", name, args == null ? AssessmentDelegationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AssessmentDelegation(java.lang.String name, AssessmentDelegationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:auditmanager/assessmentDelegation:AssessmentDelegation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AssessmentDelegation(String name, Output<String> id, @Nullable AssessmentDelegationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/assessmentDelegation:AssessmentDelegation", name, state, makeResourceOptions(options, id));
+    private AssessmentDelegation(java.lang.String name, Output<java.lang.String> id, @Nullable AssessmentDelegationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:auditmanager/assessmentDelegation:AssessmentDelegation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AssessmentDelegationArgs makeArgs(AssessmentDelegationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssessmentDelegationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -216,7 +223,7 @@ public class AssessmentDelegation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AssessmentDelegation get(String name, Output<String> id, @Nullable AssessmentDelegationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AssessmentDelegation get(java.lang.String name, Output<java.lang.String> id, @Nullable AssessmentDelegationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AssessmentDelegation(name, id, state, options);
     }
 }

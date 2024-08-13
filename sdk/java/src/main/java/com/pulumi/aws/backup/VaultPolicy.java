@@ -138,7 +138,7 @@ public class VaultPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VaultPolicy(String name) {
+    public VaultPolicy(java.lang.String name) {
         this(name, VaultPolicyArgs.Empty);
     }
     /**
@@ -146,7 +146,7 @@ public class VaultPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VaultPolicy(String name, VaultPolicyArgs args) {
+    public VaultPolicy(java.lang.String name, VaultPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -155,15 +155,22 @@ public class VaultPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VaultPolicy(String name, VaultPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/vaultPolicy:VaultPolicy", name, args == null ? VaultPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VaultPolicy(java.lang.String name, VaultPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/vaultPolicy:VaultPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VaultPolicy(String name, Output<String> id, @Nullable VaultPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/vaultPolicy:VaultPolicy", name, state, makeResourceOptions(options, id));
+    private VaultPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable VaultPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/vaultPolicy:VaultPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VaultPolicyArgs makeArgs(VaultPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VaultPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -179,7 +186,7 @@ public class VaultPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VaultPolicy get(String name, Output<String> id, @Nullable VaultPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VaultPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable VaultPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VaultPolicy(name, id, state, options);
     }
 }

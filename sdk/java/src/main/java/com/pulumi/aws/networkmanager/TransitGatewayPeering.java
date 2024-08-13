@@ -228,7 +228,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TransitGatewayPeering(String name) {
+    public TransitGatewayPeering(java.lang.String name) {
         this(name, TransitGatewayPeeringArgs.Empty);
     }
     /**
@@ -236,7 +236,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TransitGatewayPeering(String name, TransitGatewayPeeringArgs args) {
+    public TransitGatewayPeering(java.lang.String name, TransitGatewayPeeringArgs args) {
         this(name, args, null);
     }
     /**
@@ -245,15 +245,22 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TransitGatewayPeering(String name, TransitGatewayPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering", name, args == null ? TransitGatewayPeeringArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TransitGatewayPeering(java.lang.String name, TransitGatewayPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TransitGatewayPeering(String name, Output<String> id, @Nullable TransitGatewayPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering", name, state, makeResourceOptions(options, id));
+    private TransitGatewayPeering(java.lang.String name, Output<java.lang.String> id, @Nullable TransitGatewayPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TransitGatewayPeeringArgs makeArgs(TransitGatewayPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TransitGatewayPeeringArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -269,7 +276,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TransitGatewayPeering get(String name, Output<String> id, @Nullable TransitGatewayPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TransitGatewayPeering get(java.lang.String name, Output<java.lang.String> id, @Nullable TransitGatewayPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TransitGatewayPeering(name, id, state, options);
     }
 }

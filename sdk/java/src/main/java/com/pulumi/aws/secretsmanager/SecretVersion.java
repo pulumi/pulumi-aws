@@ -206,7 +206,7 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecretVersion(String name) {
+    public SecretVersion(java.lang.String name) {
         this(name, SecretVersionArgs.Empty);
     }
     /**
@@ -214,7 +214,7 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecretVersion(String name, SecretVersionArgs args) {
+    public SecretVersion(java.lang.String name, SecretVersionArgs args) {
         this(name, args, null);
     }
     /**
@@ -223,15 +223,22 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecretVersion(String name, SecretVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:secretsmanager/secretVersion:SecretVersion", name, args == null ? SecretVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecretVersion(java.lang.String name, SecretVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:secretsmanager/secretVersion:SecretVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecretVersion(String name, Output<String> id, @Nullable SecretVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:secretsmanager/secretVersion:SecretVersion", name, state, makeResourceOptions(options, id));
+    private SecretVersion(java.lang.String name, Output<java.lang.String> id, @Nullable SecretVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:secretsmanager/secretVersion:SecretVersion", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecretVersionArgs makeArgs(SecretVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecretVersionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -251,7 +258,7 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecretVersion get(String name, Output<String> id, @Nullable SecretVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecretVersion get(java.lang.String name, Output<java.lang.String> id, @Nullable SecretVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecretVersion(name, id, state, options);
     }
 }

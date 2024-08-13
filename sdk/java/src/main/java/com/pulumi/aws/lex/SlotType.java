@@ -231,7 +231,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SlotType(String name) {
+    public SlotType(java.lang.String name) {
         this(name, SlotTypeArgs.Empty);
     }
     /**
@@ -239,7 +239,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SlotType(String name, SlotTypeArgs args) {
+    public SlotType(java.lang.String name, SlotTypeArgs args) {
         this(name, args, null);
     }
     /**
@@ -248,15 +248,22 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SlotType(String name, SlotTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/slotType:SlotType", name, args == null ? SlotTypeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SlotType(java.lang.String name, SlotTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/slotType:SlotType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SlotType(String name, Output<String> id, @Nullable SlotTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/slotType:SlotType", name, state, makeResourceOptions(options, id));
+    private SlotType(java.lang.String name, Output<java.lang.String> id, @Nullable SlotTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/slotType:SlotType", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SlotTypeArgs makeArgs(SlotTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SlotTypeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -272,7 +279,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SlotType get(String name, Output<String> id, @Nullable SlotTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SlotType get(java.lang.String name, Output<java.lang.String> id, @Nullable SlotTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SlotType(name, id, state, options);
     }
 }

@@ -103,7 +103,7 @@ public class MonitoringSubscription extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MonitoringSubscription(String name) {
+    public MonitoringSubscription(java.lang.String name) {
         this(name, MonitoringSubscriptionArgs.Empty);
     }
     /**
@@ -111,7 +111,7 @@ public class MonitoringSubscription extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MonitoringSubscription(String name, MonitoringSubscriptionArgs args) {
+    public MonitoringSubscription(java.lang.String name, MonitoringSubscriptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -120,15 +120,22 @@ public class MonitoringSubscription extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MonitoringSubscription(String name, MonitoringSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/monitoringSubscription:MonitoringSubscription", name, args == null ? MonitoringSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MonitoringSubscription(java.lang.String name, MonitoringSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/monitoringSubscription:MonitoringSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MonitoringSubscription(String name, Output<String> id, @Nullable MonitoringSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/monitoringSubscription:MonitoringSubscription", name, state, makeResourceOptions(options, id));
+    private MonitoringSubscription(java.lang.String name, Output<java.lang.String> id, @Nullable MonitoringSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/monitoringSubscription:MonitoringSubscription", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MonitoringSubscriptionArgs makeArgs(MonitoringSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MonitoringSubscriptionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -144,7 +151,7 @@ public class MonitoringSubscription extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MonitoringSubscription get(String name, Output<String> id, @Nullable MonitoringSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MonitoringSubscription get(java.lang.String name, Output<java.lang.String> id, @Nullable MonitoringSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MonitoringSubscription(name, id, state, options);
     }
 }

@@ -134,7 +134,7 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Ciphertext(String name) {
+    public Ciphertext(java.lang.String name) {
         this(name, CiphertextArgs.Empty);
     }
     /**
@@ -142,7 +142,7 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Ciphertext(String name, CiphertextArgs args) {
+    public Ciphertext(java.lang.String name, CiphertextArgs args) {
         this(name, args, null);
     }
     /**
@@ -151,15 +151,22 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Ciphertext(String name, CiphertextArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kms/ciphertext:Ciphertext", name, args == null ? CiphertextArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Ciphertext(java.lang.String name, CiphertextArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kms/ciphertext:Ciphertext", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Ciphertext(String name, Output<String> id, @Nullable CiphertextState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kms/ciphertext:Ciphertext", name, state, makeResourceOptions(options, id));
+    private Ciphertext(java.lang.String name, Output<java.lang.String> id, @Nullable CiphertextState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kms/ciphertext:Ciphertext", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CiphertextArgs makeArgs(CiphertextArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CiphertextArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -178,7 +185,7 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Ciphertext get(String name, Output<String> id, @Nullable CiphertextState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Ciphertext get(java.lang.String name, Output<java.lang.String> id, @Nullable CiphertextState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Ciphertext(name, id, state, options);
     }
 }

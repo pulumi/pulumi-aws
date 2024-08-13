@@ -112,7 +112,7 @@ public class GroupPolicyAttachment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GroupPolicyAttachment(String name) {
+    public GroupPolicyAttachment(java.lang.String name) {
         this(name, GroupPolicyAttachmentArgs.Empty);
     }
     /**
@@ -120,7 +120,7 @@ public class GroupPolicyAttachment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GroupPolicyAttachment(String name, GroupPolicyAttachmentArgs args) {
+    public GroupPolicyAttachment(java.lang.String name, GroupPolicyAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -129,15 +129,22 @@ public class GroupPolicyAttachment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GroupPolicyAttachment(String name, GroupPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, args == null ? GroupPolicyAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GroupPolicyAttachment(java.lang.String name, GroupPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GroupPolicyAttachment(String name, Output<String> id, @Nullable GroupPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, state, makeResourceOptions(options, id));
+    private GroupPolicyAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable GroupPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GroupPolicyAttachmentArgs makeArgs(GroupPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GroupPolicyAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -153,7 +160,7 @@ public class GroupPolicyAttachment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GroupPolicyAttachment get(String name, Output<String> id, @Nullable GroupPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GroupPolicyAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable GroupPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GroupPolicyAttachment(name, id, state, options);
     }
 }

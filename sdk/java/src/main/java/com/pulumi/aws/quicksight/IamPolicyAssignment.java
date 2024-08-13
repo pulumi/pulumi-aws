@@ -179,7 +179,7 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IamPolicyAssignment(String name) {
+    public IamPolicyAssignment(java.lang.String name) {
         this(name, IamPolicyAssignmentArgs.Empty);
     }
     /**
@@ -187,7 +187,7 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IamPolicyAssignment(String name, IamPolicyAssignmentArgs args) {
+    public IamPolicyAssignment(java.lang.String name, IamPolicyAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -196,15 +196,22 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IamPolicyAssignment(String name, IamPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment", name, args == null ? IamPolicyAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IamPolicyAssignment(java.lang.String name, IamPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IamPolicyAssignment(String name, Output<String> id, @Nullable IamPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment", name, state, makeResourceOptions(options, id));
+    private IamPolicyAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable IamPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IamPolicyAssignmentArgs makeArgs(IamPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IamPolicyAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -220,7 +227,7 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IamPolicyAssignment get(String name, Output<String> id, @Nullable IamPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IamPolicyAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable IamPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IamPolicyAssignment(name, id, state, options);
     }
 }

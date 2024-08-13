@@ -110,7 +110,7 @@ public class ServerlessSecurityConfig extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerlessSecurityConfig(String name) {
+    public ServerlessSecurityConfig(java.lang.String name) {
         this(name, ServerlessSecurityConfigArgs.Empty);
     }
     /**
@@ -118,7 +118,7 @@ public class ServerlessSecurityConfig extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerlessSecurityConfig(String name, ServerlessSecurityConfigArgs args) {
+    public ServerlessSecurityConfig(java.lang.String name, ServerlessSecurityConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -127,15 +127,22 @@ public class ServerlessSecurityConfig extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerlessSecurityConfig(String name, ServerlessSecurityConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig", name, args == null ? ServerlessSecurityConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServerlessSecurityConfig(java.lang.String name, ServerlessSecurityConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerlessSecurityConfig(String name, Output<String> id, @Nullable ServerlessSecurityConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig", name, state, makeResourceOptions(options, id));
+    private ServerlessSecurityConfig(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessSecurityConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServerlessSecurityConfigArgs makeArgs(ServerlessSecurityConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerlessSecurityConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -151,7 +158,7 @@ public class ServerlessSecurityConfig extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerlessSecurityConfig get(String name, Output<String> id, @Nullable ServerlessSecurityConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerlessSecurityConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessSecurityConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerlessSecurityConfig(name, id, state, options);
     }
 }

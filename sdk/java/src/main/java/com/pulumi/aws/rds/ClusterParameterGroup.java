@@ -202,7 +202,7 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ClusterParameterGroup(String name) {
+    public ClusterParameterGroup(java.lang.String name) {
         this(name, ClusterParameterGroupArgs.Empty);
     }
     /**
@@ -210,7 +210,7 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClusterParameterGroup(String name, ClusterParameterGroupArgs args) {
+    public ClusterParameterGroup(java.lang.String name, ClusterParameterGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -219,15 +219,22 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClusterParameterGroup(String name, ClusterParameterGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, args == null ? ClusterParameterGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ClusterParameterGroup(java.lang.String name, ClusterParameterGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ClusterParameterGroup(String name, Output<String> id, @Nullable ClusterParameterGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, state, makeResourceOptions(options, id));
+    private ClusterParameterGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterParameterGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ClusterParameterGroupArgs makeArgs(ClusterParameterGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterParameterGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -243,7 +250,7 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ClusterParameterGroup get(String name, Output<String> id, @Nullable ClusterParameterGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ClusterParameterGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterParameterGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ClusterParameterGroup(name, id, state, options);
     }
 }

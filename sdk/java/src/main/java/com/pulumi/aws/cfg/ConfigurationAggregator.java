@@ -240,7 +240,7 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConfigurationAggregator(String name) {
+    public ConfigurationAggregator(java.lang.String name) {
         this(name, ConfigurationAggregatorArgs.Empty);
     }
     /**
@@ -248,7 +248,7 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConfigurationAggregator(String name, @Nullable ConfigurationAggregatorArgs args) {
+    public ConfigurationAggregator(java.lang.String name, @Nullable ConfigurationAggregatorArgs args) {
         this(name, args, null);
     }
     /**
@@ -257,15 +257,22 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConfigurationAggregator(String name, @Nullable ConfigurationAggregatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/configurationAggregator:ConfigurationAggregator", name, args == null ? ConfigurationAggregatorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConfigurationAggregator(java.lang.String name, @Nullable ConfigurationAggregatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/configurationAggregator:ConfigurationAggregator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConfigurationAggregator(String name, Output<String> id, @Nullable ConfigurationAggregatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/configurationAggregator:ConfigurationAggregator", name, state, makeResourceOptions(options, id));
+    private ConfigurationAggregator(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationAggregatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/configurationAggregator:ConfigurationAggregator", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConfigurationAggregatorArgs makeArgs(@Nullable ConfigurationAggregatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfigurationAggregatorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -281,7 +288,7 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConfigurationAggregator get(String name, Output<String> id, @Nullable ConfigurationAggregatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConfigurationAggregator get(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationAggregatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConfigurationAggregator(name, id, state, options);
     }
 }

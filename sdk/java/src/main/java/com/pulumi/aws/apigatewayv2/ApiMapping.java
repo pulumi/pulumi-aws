@@ -129,7 +129,7 @@ public class ApiMapping extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiMapping(String name) {
+    public ApiMapping(java.lang.String name) {
         this(name, ApiMappingArgs.Empty);
     }
     /**
@@ -137,7 +137,7 @@ public class ApiMapping extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiMapping(String name, ApiMappingArgs args) {
+    public ApiMapping(java.lang.String name, ApiMappingArgs args) {
         this(name, args, null);
     }
     /**
@@ -146,15 +146,22 @@ public class ApiMapping extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiMapping(String name, ApiMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigatewayv2/apiMapping:ApiMapping", name, args == null ? ApiMappingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ApiMapping(java.lang.String name, ApiMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigatewayv2/apiMapping:ApiMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiMapping(String name, Output<String> id, @Nullable ApiMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigatewayv2/apiMapping:ApiMapping", name, state, makeResourceOptions(options, id));
+    private ApiMapping(java.lang.String name, Output<java.lang.String> id, @Nullable ApiMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigatewayv2/apiMapping:ApiMapping", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ApiMappingArgs makeArgs(ApiMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiMappingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -170,7 +177,7 @@ public class ApiMapping extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiMapping get(String name, Output<String> id, @Nullable ApiMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiMapping get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiMapping(name, id, state, options);
     }
 }

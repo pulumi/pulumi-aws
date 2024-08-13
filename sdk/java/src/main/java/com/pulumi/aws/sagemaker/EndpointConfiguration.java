@@ -228,7 +228,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EndpointConfiguration(String name) {
+    public EndpointConfiguration(java.lang.String name) {
         this(name, EndpointConfigurationArgs.Empty);
     }
     /**
@@ -236,7 +236,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EndpointConfiguration(String name, EndpointConfigurationArgs args) {
+    public EndpointConfiguration(java.lang.String name, EndpointConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -245,15 +245,22 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EndpointConfiguration(String name, EndpointConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, args == null ? EndpointConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EndpointConfiguration(java.lang.String name, EndpointConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EndpointConfiguration(String name, Output<String> id, @Nullable EndpointConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, state, makeResourceOptions(options, id));
+    private EndpointConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EndpointConfigurationArgs makeArgs(EndpointConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -269,7 +276,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EndpointConfiguration get(String name, Output<String> id, @Nullable EndpointConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EndpointConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EndpointConfiguration(name, id, state, options);
     }
 }

@@ -96,7 +96,7 @@ public class ContributorInsights extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ContributorInsights(String name) {
+    public ContributorInsights(java.lang.String name) {
         this(name, ContributorInsightsArgs.Empty);
     }
     /**
@@ -104,7 +104,7 @@ public class ContributorInsights extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ContributorInsights(String name, ContributorInsightsArgs args) {
+    public ContributorInsights(java.lang.String name, ContributorInsightsArgs args) {
         this(name, args, null);
     }
     /**
@@ -113,15 +113,22 @@ public class ContributorInsights extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ContributorInsights(String name, ContributorInsightsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dynamodb/contributorInsights:ContributorInsights", name, args == null ? ContributorInsightsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ContributorInsights(java.lang.String name, ContributorInsightsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dynamodb/contributorInsights:ContributorInsights", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ContributorInsights(String name, Output<String> id, @Nullable ContributorInsightsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dynamodb/contributorInsights:ContributorInsights", name, state, makeResourceOptions(options, id));
+    private ContributorInsights(java.lang.String name, Output<java.lang.String> id, @Nullable ContributorInsightsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dynamodb/contributorInsights:ContributorInsights", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ContributorInsightsArgs makeArgs(ContributorInsightsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContributorInsightsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -137,7 +144,7 @@ public class ContributorInsights extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ContributorInsights get(String name, Output<String> id, @Nullable ContributorInsightsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ContributorInsights get(java.lang.String name, Output<java.lang.String> id, @Nullable ContributorInsightsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ContributorInsights(name, id, state, options);
     }
 }

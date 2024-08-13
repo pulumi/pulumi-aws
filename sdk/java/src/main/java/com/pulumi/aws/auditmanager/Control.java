@@ -223,7 +223,7 @@ public class Control extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Control(String name) {
+    public Control(java.lang.String name) {
         this(name, ControlArgs.Empty);
     }
     /**
@@ -231,7 +231,7 @@ public class Control extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Control(String name, @Nullable ControlArgs args) {
+    public Control(java.lang.String name, @Nullable ControlArgs args) {
         this(name, args, null);
     }
     /**
@@ -240,15 +240,22 @@ public class Control extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Control(String name, @Nullable ControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/control:Control", name, args == null ? ControlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Control(java.lang.String name, @Nullable ControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:auditmanager/control:Control", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Control(String name, Output<String> id, @Nullable ControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/control:Control", name, state, makeResourceOptions(options, id));
+    private Control(java.lang.String name, Output<java.lang.String> id, @Nullable ControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:auditmanager/control:Control", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ControlArgs makeArgs(@Nullable ControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ControlArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -264,7 +271,7 @@ public class Control extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Control get(String name, Output<String> id, @Nullable ControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Control get(java.lang.String name, Output<java.lang.String> id, @Nullable ControlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Control(name, id, state, options);
     }
 }

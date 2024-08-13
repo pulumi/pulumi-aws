@@ -81,7 +81,7 @@ public class ImageBlockPublicAccess extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ImageBlockPublicAccess(String name) {
+    public ImageBlockPublicAccess(java.lang.String name) {
         this(name, ImageBlockPublicAccessArgs.Empty);
     }
     /**
@@ -89,7 +89,7 @@ public class ImageBlockPublicAccess extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ImageBlockPublicAccess(String name, ImageBlockPublicAccessArgs args) {
+    public ImageBlockPublicAccess(java.lang.String name, ImageBlockPublicAccessArgs args) {
         this(name, args, null);
     }
     /**
@@ -98,15 +98,22 @@ public class ImageBlockPublicAccess extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ImageBlockPublicAccess(String name, ImageBlockPublicAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess", name, args == null ? ImageBlockPublicAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ImageBlockPublicAccess(java.lang.String name, ImageBlockPublicAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ImageBlockPublicAccess(String name, Output<String> id, @Nullable ImageBlockPublicAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess", name, state, makeResourceOptions(options, id));
+    private ImageBlockPublicAccess(java.lang.String name, Output<java.lang.String> id, @Nullable ImageBlockPublicAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ImageBlockPublicAccessArgs makeArgs(ImageBlockPublicAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ImageBlockPublicAccessArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -122,7 +129,7 @@ public class ImageBlockPublicAccess extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ImageBlockPublicAccess get(String name, Output<String> id, @Nullable ImageBlockPublicAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ImageBlockPublicAccess get(java.lang.String name, Output<java.lang.String> id, @Nullable ImageBlockPublicAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ImageBlockPublicAccess(name, id, state, options);
     }
 }
