@@ -234,7 +234,7 @@ public class VirtualRouter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualRouter(String name) {
+    public VirtualRouter(java.lang.String name) {
         this(name, VirtualRouterArgs.Empty);
     }
     /**
@@ -242,7 +242,7 @@ public class VirtualRouter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualRouter(String name, VirtualRouterArgs args) {
+    public VirtualRouter(java.lang.String name, VirtualRouterArgs args) {
         this(name, args, null);
     }
     /**
@@ -251,15 +251,22 @@ public class VirtualRouter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualRouter(String name, VirtualRouterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appmesh/virtualRouter:VirtualRouter", name, args == null ? VirtualRouterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualRouter(java.lang.String name, VirtualRouterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appmesh/virtualRouter:VirtualRouter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualRouter(String name, Output<String> id, @Nullable VirtualRouterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appmesh/virtualRouter:VirtualRouter", name, state, makeResourceOptions(options, id));
+    private VirtualRouter(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualRouterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appmesh/virtualRouter:VirtualRouter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualRouterArgs makeArgs(VirtualRouterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualRouterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -275,7 +282,7 @@ public class VirtualRouter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualRouter get(String name, Output<String> id, @Nullable VirtualRouterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualRouter get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualRouterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualRouter(name, id, state, options);
     }
 }

@@ -237,7 +237,7 @@ public class V2modelsBot extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public V2modelsBot(String name) {
+    public V2modelsBot(java.lang.String name) {
         this(name, V2modelsBotArgs.Empty);
     }
     /**
@@ -245,7 +245,7 @@ public class V2modelsBot extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public V2modelsBot(String name, V2modelsBotArgs args) {
+    public V2modelsBot(java.lang.String name, V2modelsBotArgs args) {
         this(name, args, null);
     }
     /**
@@ -254,15 +254,22 @@ public class V2modelsBot extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public V2modelsBot(String name, V2modelsBotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/v2modelsBot:V2modelsBot", name, args == null ? V2modelsBotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public V2modelsBot(java.lang.String name, V2modelsBotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/v2modelsBot:V2modelsBot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private V2modelsBot(String name, Output<String> id, @Nullable V2modelsBotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lex/v2modelsBot:V2modelsBot", name, state, makeResourceOptions(options, id));
+    private V2modelsBot(java.lang.String name, Output<java.lang.String> id, @Nullable V2modelsBotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lex/v2modelsBot:V2modelsBot", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static V2modelsBotArgs makeArgs(V2modelsBotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? V2modelsBotArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -278,7 +285,7 @@ public class V2modelsBot extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static V2modelsBot get(String name, Output<String> id, @Nullable V2modelsBotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static V2modelsBot get(java.lang.String name, Output<java.lang.String> id, @Nullable V2modelsBotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new V2modelsBot(name, id, state, options);
     }
 }

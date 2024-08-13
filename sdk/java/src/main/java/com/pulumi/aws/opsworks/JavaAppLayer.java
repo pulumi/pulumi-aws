@@ -443,7 +443,7 @@ public class JavaAppLayer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public JavaAppLayer(String name) {
+    public JavaAppLayer(java.lang.String name) {
         this(name, JavaAppLayerArgs.Empty);
     }
     /**
@@ -451,7 +451,7 @@ public class JavaAppLayer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public JavaAppLayer(String name, JavaAppLayerArgs args) {
+    public JavaAppLayer(java.lang.String name, JavaAppLayerArgs args) {
         this(name, args, null);
     }
     /**
@@ -460,15 +460,22 @@ public class JavaAppLayer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public JavaAppLayer(String name, JavaAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/javaAppLayer:JavaAppLayer", name, args == null ? JavaAppLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public JavaAppLayer(java.lang.String name, JavaAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opsworks/javaAppLayer:JavaAppLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private JavaAppLayer(String name, Output<String> id, @Nullable JavaAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/javaAppLayer:JavaAppLayer", name, state, makeResourceOptions(options, id));
+    private JavaAppLayer(java.lang.String name, Output<java.lang.String> id, @Nullable JavaAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opsworks/javaAppLayer:JavaAppLayer", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static JavaAppLayerArgs makeArgs(JavaAppLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JavaAppLayerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -484,7 +491,7 @@ public class JavaAppLayer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static JavaAppLayer get(String name, Output<String> id, @Nullable JavaAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static JavaAppLayer get(java.lang.String name, Output<java.lang.String> id, @Nullable JavaAppLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new JavaAppLayer(name, id, state, options);
     }
 }

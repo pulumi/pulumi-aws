@@ -472,7 +472,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Document(String name) {
+    public Document(java.lang.String name) {
         this(name, DocumentArgs.Empty);
     }
     /**
@@ -480,7 +480,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Document(String name, DocumentArgs args) {
+    public Document(java.lang.String name, DocumentArgs args) {
         this(name, args, null);
     }
     /**
@@ -489,15 +489,22 @@ public class Document extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Document(String name, DocumentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/document:Document", name, args == null ? DocumentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Document(java.lang.String name, DocumentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/document:Document", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Document(String name, Output<String> id, @Nullable DocumentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/document:Document", name, state, makeResourceOptions(options, id));
+    private Document(java.lang.String name, Output<java.lang.String> id, @Nullable DocumentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/document:Document", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DocumentArgs makeArgs(DocumentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DocumentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -513,7 +520,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Document get(String name, Output<String> id, @Nullable DocumentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Document get(java.lang.String name, Output<java.lang.String> id, @Nullable DocumentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Document(name, id, state, options);
     }
 }

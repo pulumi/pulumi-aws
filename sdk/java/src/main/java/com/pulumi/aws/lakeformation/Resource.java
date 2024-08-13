@@ -156,7 +156,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Resource(String name) {
+    public Resource(java.lang.String name) {
         this(name, ResourceArgs.Empty);
     }
     /**
@@ -164,7 +164,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Resource(String name, ResourceArgs args) {
+    public Resource(java.lang.String name, ResourceArgs args) {
         this(name, args, null);
     }
     /**
@@ -173,15 +173,22 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Resource(String name, ResourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lakeformation/resource:Resource", name, args == null ? ResourceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Resource(java.lang.String name, ResourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lakeformation/resource:Resource", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Resource(String name, Output<String> id, @Nullable ResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lakeformation/resource:Resource", name, state, makeResourceOptions(options, id));
+    private Resource(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lakeformation/resource:Resource", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourceArgs makeArgs(ResourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -197,7 +204,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Resource get(String name, Output<String> id, @Nullable ResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Resource get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Resource(name, id, state, options);
     }
 }

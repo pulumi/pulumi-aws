@@ -45,7 +45,7 @@ import (
 //				DataQualityJobOutputConfig: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs{
 //					MonitoringOutputs: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs{
 //						S3Output: sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs{
-//							S3Uri: pulumi.String(fmt.Sprintf("https://%v/output", myBucket.BucketRegionalDomainName)),
+//							S3Uri: pulumi.Sprintf("https://%v/output", myBucket.BucketRegionalDomainName),
 //						},
 //					},
 //				},

@@ -235,7 +235,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RoutingProfile(String name) {
+    public RoutingProfile(java.lang.String name) {
         this(name, RoutingProfileArgs.Empty);
     }
     /**
@@ -243,7 +243,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RoutingProfile(String name, RoutingProfileArgs args) {
+    public RoutingProfile(java.lang.String name, RoutingProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -252,15 +252,22 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RoutingProfile(String name, RoutingProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/routingProfile:RoutingProfile", name, args == null ? RoutingProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RoutingProfile(java.lang.String name, RoutingProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/routingProfile:RoutingProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RoutingProfile(String name, Output<String> id, @Nullable RoutingProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/routingProfile:RoutingProfile", name, state, makeResourceOptions(options, id));
+    private RoutingProfile(java.lang.String name, Output<java.lang.String> id, @Nullable RoutingProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/routingProfile:RoutingProfile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RoutingProfileArgs makeArgs(RoutingProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoutingProfileArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -276,7 +283,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RoutingProfile get(String name, Output<String> id, @Nullable RoutingProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RoutingProfile get(java.lang.String name, Output<java.lang.String> id, @Nullable RoutingProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RoutingProfile(name, id, state, options);
     }
 }

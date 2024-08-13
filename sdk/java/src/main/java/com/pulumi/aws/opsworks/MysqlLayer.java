@@ -401,7 +401,7 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MysqlLayer(String name) {
+    public MysqlLayer(java.lang.String name) {
         this(name, MysqlLayerArgs.Empty);
     }
     /**
@@ -409,7 +409,7 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MysqlLayer(String name, MysqlLayerArgs args) {
+    public MysqlLayer(java.lang.String name, MysqlLayerArgs args) {
         this(name, args, null);
     }
     /**
@@ -418,15 +418,22 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MysqlLayer(String name, MysqlLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/mysqlLayer:MysqlLayer", name, args == null ? MysqlLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MysqlLayer(java.lang.String name, MysqlLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opsworks/mysqlLayer:MysqlLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MysqlLayer(String name, Output<String> id, @Nullable MysqlLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/mysqlLayer:MysqlLayer", name, state, makeResourceOptions(options, id));
+    private MysqlLayer(java.lang.String name, Output<java.lang.String> id, @Nullable MysqlLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opsworks/mysqlLayer:MysqlLayer", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MysqlLayerArgs makeArgs(MysqlLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MysqlLayerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -442,7 +449,7 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MysqlLayer get(String name, Output<String> id, @Nullable MysqlLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MysqlLayer get(java.lang.String name, Output<java.lang.String> id, @Nullable MysqlLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MysqlLayer(name, id, state, options);
     }
 }

@@ -332,7 +332,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Policy(String name) {
+    public Policy(java.lang.String name) {
         this(name, PolicyArgs.Empty);
     }
     /**
@@ -340,7 +340,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Policy(String name, PolicyArgs args) {
+    public Policy(java.lang.String name, PolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -349,15 +349,22 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Policy(String name, PolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fms/policy:Policy", name, args == null ? PolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Policy(java.lang.String name, PolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fms/policy:Policy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Policy(String name, Output<String> id, @Nullable PolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fms/policy:Policy", name, state, makeResourceOptions(options, id));
+    private Policy(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fms/policy:Policy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PolicyArgs makeArgs(PolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -373,7 +380,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Policy get(String name, Output<String> id, @Nullable PolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Policy get(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Policy(name, id, state, options);
     }
 }

@@ -153,7 +153,7 @@ public class VpcIpamPreviewNextCidr extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcIpamPreviewNextCidr(String name) {
+    public VpcIpamPreviewNextCidr(java.lang.String name) {
         this(name, VpcIpamPreviewNextCidrArgs.Empty);
     }
     /**
@@ -161,7 +161,7 @@ public class VpcIpamPreviewNextCidr extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcIpamPreviewNextCidr(String name, VpcIpamPreviewNextCidrArgs args) {
+    public VpcIpamPreviewNextCidr(java.lang.String name, VpcIpamPreviewNextCidrArgs args) {
         this(name, args, null);
     }
     /**
@@ -170,15 +170,22 @@ public class VpcIpamPreviewNextCidr extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcIpamPreviewNextCidr(String name, VpcIpamPreviewNextCidrArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr", name, args == null ? VpcIpamPreviewNextCidrArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcIpamPreviewNextCidr(java.lang.String name, VpcIpamPreviewNextCidrArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcIpamPreviewNextCidr(String name, Output<String> id, @Nullable VpcIpamPreviewNextCidrState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr", name, state, makeResourceOptions(options, id));
+    private VpcIpamPreviewNextCidr(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamPreviewNextCidrState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcIpamPreviewNextCidrArgs makeArgs(VpcIpamPreviewNextCidrArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcIpamPreviewNextCidrArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -194,7 +201,7 @@ public class VpcIpamPreviewNextCidr extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcIpamPreviewNextCidr get(String name, Output<String> id, @Nullable VpcIpamPreviewNextCidrState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcIpamPreviewNextCidr get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcIpamPreviewNextCidrState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcIpamPreviewNextCidr(name, id, state, options);
     }
 }

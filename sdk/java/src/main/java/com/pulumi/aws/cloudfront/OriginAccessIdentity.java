@@ -277,7 +277,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OriginAccessIdentity(String name) {
+    public OriginAccessIdentity(java.lang.String name) {
         this(name, OriginAccessIdentityArgs.Empty);
     }
     /**
@@ -285,7 +285,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OriginAccessIdentity(String name, @Nullable OriginAccessIdentityArgs args) {
+    public OriginAccessIdentity(java.lang.String name, @Nullable OriginAccessIdentityArgs args) {
         this(name, args, null);
     }
     /**
@@ -294,15 +294,22 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OriginAccessIdentity(String name, @Nullable OriginAccessIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, args == null ? OriginAccessIdentityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OriginAccessIdentity(java.lang.String name, @Nullable OriginAccessIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OriginAccessIdentity(String name, Output<String> id, @Nullable OriginAccessIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, state, makeResourceOptions(options, id));
+    private OriginAccessIdentity(java.lang.String name, Output<java.lang.String> id, @Nullable OriginAccessIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OriginAccessIdentityArgs makeArgs(@Nullable OriginAccessIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OriginAccessIdentityArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -318,7 +325,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OriginAccessIdentity get(String name, Output<String> id, @Nullable OriginAccessIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OriginAccessIdentity get(java.lang.String name, Output<java.lang.String> id, @Nullable OriginAccessIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OriginAccessIdentity(name, id, state, options);
     }
 }

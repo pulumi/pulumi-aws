@@ -117,7 +117,7 @@ public class CertificateValidation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CertificateValidation(String name) {
+    public CertificateValidation(java.lang.String name) {
         this(name, CertificateValidationArgs.Empty);
     }
     /**
@@ -125,7 +125,7 @@ public class CertificateValidation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CertificateValidation(String name, CertificateValidationArgs args) {
+    public CertificateValidation(java.lang.String name, CertificateValidationArgs args) {
         this(name, args, null);
     }
     /**
@@ -134,15 +134,22 @@ public class CertificateValidation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CertificateValidation(String name, CertificateValidationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:acm/certificateValidation:CertificateValidation", name, args == null ? CertificateValidationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CertificateValidation(java.lang.String name, CertificateValidationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:acm/certificateValidation:CertificateValidation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CertificateValidation(String name, Output<String> id, @Nullable CertificateValidationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:acm/certificateValidation:CertificateValidation", name, state, makeResourceOptions(options, id));
+    private CertificateValidation(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateValidationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:acm/certificateValidation:CertificateValidation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CertificateValidationArgs makeArgs(CertificateValidationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CertificateValidationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -158,7 +165,7 @@ public class CertificateValidation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CertificateValidation get(String name, Output<String> id, @Nullable CertificateValidationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CertificateValidation get(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateValidationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CertificateValidation(name, id, state, options);
     }
 }

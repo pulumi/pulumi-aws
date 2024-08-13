@@ -113,7 +113,7 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ClusterIamRoles(String name) {
+    public ClusterIamRoles(java.lang.String name) {
         this(name, ClusterIamRolesArgs.Empty);
     }
     /**
@@ -121,7 +121,7 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClusterIamRoles(String name, ClusterIamRolesArgs args) {
+    public ClusterIamRoles(java.lang.String name, ClusterIamRolesArgs args) {
         this(name, args, null);
     }
     /**
@@ -130,15 +130,22 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClusterIamRoles(String name, ClusterIamRolesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/clusterIamRoles:ClusterIamRoles", name, args == null ? ClusterIamRolesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ClusterIamRoles(java.lang.String name, ClusterIamRolesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/clusterIamRoles:ClusterIamRoles", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ClusterIamRoles(String name, Output<String> id, @Nullable ClusterIamRolesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/clusterIamRoles:ClusterIamRoles", name, state, makeResourceOptions(options, id));
+    private ClusterIamRoles(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterIamRolesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/clusterIamRoles:ClusterIamRoles", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ClusterIamRolesArgs makeArgs(ClusterIamRolesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterIamRolesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -154,7 +161,7 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ClusterIamRoles get(String name, Output<String> id, @Nullable ClusterIamRolesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ClusterIamRoles get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterIamRolesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ClusterIamRoles(name, id, state, options);
     }
 }

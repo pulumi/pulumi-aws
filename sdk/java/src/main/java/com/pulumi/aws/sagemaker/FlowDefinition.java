@@ -347,7 +347,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FlowDefinition(String name) {
+    public FlowDefinition(java.lang.String name) {
         this(name, FlowDefinitionArgs.Empty);
     }
     /**
@@ -355,7 +355,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FlowDefinition(String name, FlowDefinitionArgs args) {
+    public FlowDefinition(java.lang.String name, FlowDefinitionArgs args) {
         this(name, args, null);
     }
     /**
@@ -364,15 +364,22 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FlowDefinition(String name, FlowDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/flowDefinition:FlowDefinition", name, args == null ? FlowDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FlowDefinition(java.lang.String name, FlowDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/flowDefinition:FlowDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FlowDefinition(String name, Output<String> id, @Nullable FlowDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/flowDefinition:FlowDefinition", name, state, makeResourceOptions(options, id));
+    private FlowDefinition(java.lang.String name, Output<java.lang.String> id, @Nullable FlowDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/flowDefinition:FlowDefinition", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FlowDefinitionArgs makeArgs(FlowDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FlowDefinitionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -388,7 +395,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FlowDefinition get(String name, Output<String> id, @Nullable FlowDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FlowDefinition get(java.lang.String name, Output<java.lang.String> id, @Nullable FlowDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FlowDefinition(name, id, state, options);
     }
 }

@@ -131,7 +131,7 @@ public class RegexMatchSet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RegexMatchSet(String name) {
+    public RegexMatchSet(java.lang.String name) {
         this(name, RegexMatchSetArgs.Empty);
     }
     /**
@@ -139,7 +139,7 @@ public class RegexMatchSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RegexMatchSet(String name, @Nullable RegexMatchSetArgs args) {
+    public RegexMatchSet(java.lang.String name, @Nullable RegexMatchSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -148,15 +148,22 @@ public class RegexMatchSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RegexMatchSet(String name, @Nullable RegexMatchSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:waf/regexMatchSet:RegexMatchSet", name, args == null ? RegexMatchSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RegexMatchSet(java.lang.String name, @Nullable RegexMatchSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:waf/regexMatchSet:RegexMatchSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RegexMatchSet(String name, Output<String> id, @Nullable RegexMatchSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:waf/regexMatchSet:RegexMatchSet", name, state, makeResourceOptions(options, id));
+    private RegexMatchSet(java.lang.String name, Output<java.lang.String> id, @Nullable RegexMatchSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:waf/regexMatchSet:RegexMatchSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RegexMatchSetArgs makeArgs(@Nullable RegexMatchSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegexMatchSetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -172,7 +179,7 @@ public class RegexMatchSet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RegexMatchSet get(String name, Output<String> id, @Nullable RegexMatchSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RegexMatchSet get(java.lang.String name, Output<java.lang.String> id, @Nullable RegexMatchSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RegexMatchSet(name, id, state, options);
     }
 }

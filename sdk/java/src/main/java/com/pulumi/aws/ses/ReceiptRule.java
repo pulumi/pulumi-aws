@@ -47,17 +47,17 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Add a header to the email and store it in S3
  *         var store = new ReceiptRule("store", ReceiptRuleArgs.builder()
  *             .name("store")
  *             .ruleSetName("default-rule-set")
- *             .recipients("karen{@literal @}example.com")
+ *             .recipients("karen}{@literal @}{@code example.com")
  *             .enabled(true)
  *             .scanEnabled(true)
  *             .addHeaderActions(ReceiptRuleAddHeaderActionArgs.builder()
@@ -71,8 +71,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -303,7 +303,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReceiptRule(String name) {
+    public ReceiptRule(java.lang.String name) {
         this(name, ReceiptRuleArgs.Empty);
     }
     /**
@@ -311,7 +311,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReceiptRule(String name, ReceiptRuleArgs args) {
+    public ReceiptRule(java.lang.String name, ReceiptRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -320,15 +320,22 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReceiptRule(String name, ReceiptRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/receiptRule:ReceiptRule", name, args == null ? ReceiptRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ReceiptRule(java.lang.String name, ReceiptRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ses/receiptRule:ReceiptRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReceiptRule(String name, Output<String> id, @Nullable ReceiptRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ses/receiptRule:ReceiptRule", name, state, makeResourceOptions(options, id));
+    private ReceiptRule(java.lang.String name, Output<java.lang.String> id, @Nullable ReceiptRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ses/receiptRule:ReceiptRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ReceiptRuleArgs makeArgs(ReceiptRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReceiptRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -344,7 +351,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReceiptRule get(String name, Output<String> id, @Nullable ReceiptRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReceiptRule get(java.lang.String name, Output<java.lang.String> id, @Nullable ReceiptRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReceiptRule(name, id, state, options);
     }
 }

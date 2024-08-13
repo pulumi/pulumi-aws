@@ -165,7 +165,7 @@ public class PlaybackKeyPair extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PlaybackKeyPair(String name) {
+    public PlaybackKeyPair(java.lang.String name) {
         this(name, PlaybackKeyPairArgs.Empty);
     }
     /**
@@ -173,7 +173,7 @@ public class PlaybackKeyPair extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PlaybackKeyPair(String name, PlaybackKeyPairArgs args) {
+    public PlaybackKeyPair(java.lang.String name, PlaybackKeyPairArgs args) {
         this(name, args, null);
     }
     /**
@@ -182,15 +182,22 @@ public class PlaybackKeyPair extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PlaybackKeyPair(String name, PlaybackKeyPairArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ivs/playbackKeyPair:PlaybackKeyPair", name, args == null ? PlaybackKeyPairArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PlaybackKeyPair(java.lang.String name, PlaybackKeyPairArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ivs/playbackKeyPair:PlaybackKeyPair", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PlaybackKeyPair(String name, Output<String> id, @Nullable PlaybackKeyPairState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ivs/playbackKeyPair:PlaybackKeyPair", name, state, makeResourceOptions(options, id));
+    private PlaybackKeyPair(java.lang.String name, Output<java.lang.String> id, @Nullable PlaybackKeyPairState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ivs/playbackKeyPair:PlaybackKeyPair", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PlaybackKeyPairArgs makeArgs(PlaybackKeyPairArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PlaybackKeyPairArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -206,7 +213,7 @@ public class PlaybackKeyPair extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PlaybackKeyPair get(String name, Output<String> id, @Nullable PlaybackKeyPairState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PlaybackKeyPair get(java.lang.String name, Output<java.lang.String> id, @Nullable PlaybackKeyPairState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PlaybackKeyPair(name, id, state, options);
     }
 }

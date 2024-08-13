@@ -200,7 +200,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Framework(String name) {
+    public Framework(java.lang.String name) {
         this(name, FrameworkArgs.Empty);
     }
     /**
@@ -208,7 +208,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Framework(String name, @Nullable FrameworkArgs args) {
+    public Framework(java.lang.String name, @Nullable FrameworkArgs args) {
         this(name, args, null);
     }
     /**
@@ -217,15 +217,22 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Framework(String name, @Nullable FrameworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/framework:Framework", name, args == null ? FrameworkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Framework(java.lang.String name, @Nullable FrameworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:auditmanager/framework:Framework", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Framework(String name, Output<String> id, @Nullable FrameworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:auditmanager/framework:Framework", name, state, makeResourceOptions(options, id));
+    private Framework(java.lang.String name, Output<java.lang.String> id, @Nullable FrameworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:auditmanager/framework:Framework", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FrameworkArgs makeArgs(@Nullable FrameworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrameworkArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -241,7 +248,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Framework get(String name, Output<String> id, @Nullable FrameworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Framework get(java.lang.String name, Output<java.lang.String> id, @Nullable FrameworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Framework(name, id, state, options);
     }
 }

@@ -245,7 +245,7 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DefaultVpc(String name) {
+    public DefaultVpc(java.lang.String name) {
         this(name, DefaultVpcArgs.Empty);
     }
     /**
@@ -253,7 +253,7 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DefaultVpc(String name, @Nullable DefaultVpcArgs args) {
+    public DefaultVpc(java.lang.String name, @Nullable DefaultVpcArgs args) {
         this(name, args, null);
     }
     /**
@@ -262,15 +262,22 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DefaultVpc(String name, @Nullable DefaultVpcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/defaultVpc:DefaultVpc", name, args == null ? DefaultVpcArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DefaultVpc(java.lang.String name, @Nullable DefaultVpcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/defaultVpc:DefaultVpc", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DefaultVpc(String name, Output<String> id, @Nullable DefaultVpcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/defaultVpc:DefaultVpc", name, state, makeResourceOptions(options, id));
+    private DefaultVpc(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultVpcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/defaultVpc:DefaultVpc", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DefaultVpcArgs makeArgs(@Nullable DefaultVpcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DefaultVpcArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -286,7 +293,7 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DefaultVpc get(String name, Output<String> id, @Nullable DefaultVpcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DefaultVpc get(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultVpcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DefaultVpc(name, id, state, options);
     }
 }

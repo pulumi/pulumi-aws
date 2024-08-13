@@ -454,7 +454,7 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DevEndpoint(String name) {
+    public DevEndpoint(java.lang.String name) {
         this(name, DevEndpointArgs.Empty);
     }
     /**
@@ -462,7 +462,7 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DevEndpoint(String name, DevEndpointArgs args) {
+    public DevEndpoint(java.lang.String name, DevEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -471,15 +471,22 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DevEndpoint(String name, DevEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/devEndpoint:DevEndpoint", name, args == null ? DevEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DevEndpoint(java.lang.String name, DevEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/devEndpoint:DevEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DevEndpoint(String name, Output<String> id, @Nullable DevEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/devEndpoint:DevEndpoint", name, state, makeResourceOptions(options, id));
+    private DevEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable DevEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/devEndpoint:DevEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DevEndpointArgs makeArgs(DevEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DevEndpointArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -495,7 +502,7 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DevEndpoint get(String name, Output<String> id, @Nullable DevEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DevEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable DevEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DevEndpoint(name, id, state, options);
     }
 }

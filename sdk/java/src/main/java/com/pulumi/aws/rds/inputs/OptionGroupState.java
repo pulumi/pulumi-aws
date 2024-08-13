@@ -125,9 +125,17 @@ public final class OptionGroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.options);
     }
 
+    /**
+     * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+     * 
+     */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
+    /**
+     * @return Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+     * 
+     */
     public Optional<Output<Boolean>> skipDestroy() {
         return Optional.ofNullable(this.skipDestroy);
     }
@@ -360,11 +368,23 @@ public final class OptionGroupState extends com.pulumi.resources.ResourceArgs {
             return options(List.of(options));
         }
 
+        /**
+         * @param skipDestroy Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
             $.skipDestroy = skipDestroy;
             return this;
         }
 
+        /**
+         * @param skipDestroy Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipDestroy(Boolean skipDestroy) {
             return skipDestroy(Output.of(skipDestroy));
         }

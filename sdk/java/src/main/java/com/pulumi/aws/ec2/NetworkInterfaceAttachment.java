@@ -140,7 +140,7 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkInterfaceAttachment(String name) {
+    public NetworkInterfaceAttachment(java.lang.String name) {
         this(name, NetworkInterfaceAttachmentArgs.Empty);
     }
     /**
@@ -148,7 +148,7 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkInterfaceAttachment(String name, NetworkInterfaceAttachmentArgs args) {
+    public NetworkInterfaceAttachment(java.lang.String name, NetworkInterfaceAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -157,15 +157,22 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkInterfaceAttachment(String name, NetworkInterfaceAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, args == null ? NetworkInterfaceAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkInterfaceAttachment(java.lang.String name, NetworkInterfaceAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkInterfaceAttachment(String name, Output<String> id, @Nullable NetworkInterfaceAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, state, makeResourceOptions(options, id));
+    private NetworkInterfaceAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkInterfaceAttachmentArgs makeArgs(NetworkInterfaceAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInterfaceAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -181,7 +188,7 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkInterfaceAttachment get(String name, Output<String> id, @Nullable NetworkInterfaceAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkInterfaceAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkInterfaceAttachment(name, id, state, options);
     }
 }

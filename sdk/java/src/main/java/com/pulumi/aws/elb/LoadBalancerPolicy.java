@@ -194,7 +194,7 @@ public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LoadBalancerPolicy(String name) {
+    public LoadBalancerPolicy(java.lang.String name) {
         this(name, LoadBalancerPolicyArgs.Empty);
     }
     /**
@@ -202,7 +202,7 @@ public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LoadBalancerPolicy(String name, LoadBalancerPolicyArgs args) {
+    public LoadBalancerPolicy(java.lang.String name, LoadBalancerPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -211,15 +211,22 @@ public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LoadBalancerPolicy(String name, LoadBalancerPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elb/loadBalancerPolicy:LoadBalancerPolicy", name, args == null ? LoadBalancerPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LoadBalancerPolicy(java.lang.String name, LoadBalancerPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elb/loadBalancerPolicy:LoadBalancerPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LoadBalancerPolicy(String name, Output<String> id, @Nullable LoadBalancerPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elb/loadBalancerPolicy:LoadBalancerPolicy", name, state, makeResourceOptions(options, id));
+    private LoadBalancerPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable LoadBalancerPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elb/loadBalancerPolicy:LoadBalancerPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LoadBalancerPolicyArgs makeArgs(LoadBalancerPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LoadBalancerPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -238,7 +245,7 @@ public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LoadBalancerPolicy get(String name, Output<String> id, @Nullable LoadBalancerPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LoadBalancerPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable LoadBalancerPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LoadBalancerPolicy(name, id, state, options);
     }
 }

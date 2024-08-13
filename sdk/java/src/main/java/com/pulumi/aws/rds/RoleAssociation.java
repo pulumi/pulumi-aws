@@ -116,7 +116,7 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RoleAssociation(String name) {
+    public RoleAssociation(java.lang.String name) {
         this(name, RoleAssociationArgs.Empty);
     }
     /**
@@ -124,7 +124,7 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RoleAssociation(String name, RoleAssociationArgs args) {
+    public RoleAssociation(java.lang.String name, RoleAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -133,15 +133,22 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RoleAssociation(String name, RoleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/roleAssociation:RoleAssociation", name, args == null ? RoleAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RoleAssociation(java.lang.String name, RoleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/roleAssociation:RoleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RoleAssociation(String name, Output<String> id, @Nullable RoleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/roleAssociation:RoleAssociation", name, state, makeResourceOptions(options, id));
+    private RoleAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable RoleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/roleAssociation:RoleAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RoleAssociationArgs makeArgs(RoleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoleAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +164,7 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RoleAssociation get(String name, Output<String> id, @Nullable RoleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RoleAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable RoleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RoleAssociation(name, id, state, options);
     }
 }

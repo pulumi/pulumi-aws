@@ -104,7 +104,7 @@ public class ConnectionAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConnectionAssociation(String name) {
+    public ConnectionAssociation(java.lang.String name) {
         this(name, ConnectionAssociationArgs.Empty);
     }
     /**
@@ -112,7 +112,7 @@ public class ConnectionAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConnectionAssociation(String name, ConnectionAssociationArgs args) {
+    public ConnectionAssociation(java.lang.String name, ConnectionAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -121,15 +121,22 @@ public class ConnectionAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConnectionAssociation(String name, ConnectionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/connectionAssociation:ConnectionAssociation", name, args == null ? ConnectionAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConnectionAssociation(java.lang.String name, ConnectionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/connectionAssociation:ConnectionAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConnectionAssociation(String name, Output<String> id, @Nullable ConnectionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/connectionAssociation:ConnectionAssociation", name, state, makeResourceOptions(options, id));
+    private ConnectionAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/connectionAssociation:ConnectionAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConnectionAssociationArgs makeArgs(ConnectionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectionAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -145,7 +152,7 @@ public class ConnectionAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConnectionAssociation get(String name, Output<String> id, @Nullable ConnectionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConnectionAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConnectionAssociation(name, id, state, options);
     }
 }

@@ -262,7 +262,7 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProxyTarget(String name) {
+    public ProxyTarget(java.lang.String name) {
         this(name, ProxyTargetArgs.Empty);
     }
     /**
@@ -270,7 +270,7 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProxyTarget(String name, ProxyTargetArgs args) {
+    public ProxyTarget(java.lang.String name, ProxyTargetArgs args) {
         this(name, args, null);
     }
     /**
@@ -279,15 +279,22 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProxyTarget(String name, ProxyTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/proxyTarget:ProxyTarget", name, args == null ? ProxyTargetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProxyTarget(java.lang.String name, ProxyTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/proxyTarget:ProxyTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProxyTarget(String name, Output<String> id, @Nullable ProxyTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/proxyTarget:ProxyTarget", name, state, makeResourceOptions(options, id));
+    private ProxyTarget(java.lang.String name, Output<java.lang.String> id, @Nullable ProxyTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/proxyTarget:ProxyTarget", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProxyTargetArgs makeArgs(ProxyTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProxyTargetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -303,7 +310,7 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProxyTarget get(String name, Output<String> id, @Nullable ProxyTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProxyTarget get(java.lang.String name, Output<java.lang.String> id, @Nullable ProxyTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProxyTarget(name, id, state, options);
     }
 }

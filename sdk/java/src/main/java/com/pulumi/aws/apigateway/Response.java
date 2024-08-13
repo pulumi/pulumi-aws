@@ -149,7 +149,7 @@ public class Response extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Response(String name) {
+    public Response(java.lang.String name) {
         this(name, ResponseArgs.Empty);
     }
     /**
@@ -157,7 +157,7 @@ public class Response extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Response(String name, ResponseArgs args) {
+    public Response(java.lang.String name, ResponseArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,15 +166,22 @@ public class Response extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Response(String name, ResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/response:Response", name, args == null ? ResponseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Response(java.lang.String name, ResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/response:Response", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Response(String name, Output<String> id, @Nullable ResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/response:Response", name, state, makeResourceOptions(options, id));
+    private Response(java.lang.String name, Output<java.lang.String> id, @Nullable ResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/response:Response", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResponseArgs makeArgs(ResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResponseArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -190,7 +197,7 @@ public class Response extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Response get(String name, Output<String> id, @Nullable ResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Response get(java.lang.String name, Output<java.lang.String> id, @Nullable ResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Response(name, id, state, options);
     }
 }

@@ -90,7 +90,7 @@ public class TemplateAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TemplateAssociation(String name) {
+    public TemplateAssociation(java.lang.String name) {
         this(name, TemplateAssociationArgs.Empty);
     }
     /**
@@ -98,7 +98,7 @@ public class TemplateAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TemplateAssociation(String name, @Nullable TemplateAssociationArgs args) {
+    public TemplateAssociation(java.lang.String name, @Nullable TemplateAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -107,15 +107,22 @@ public class TemplateAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TemplateAssociation(String name, @Nullable TemplateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicequotas/templateAssociation:TemplateAssociation", name, args == null ? TemplateAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TemplateAssociation(java.lang.String name, @Nullable TemplateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicequotas/templateAssociation:TemplateAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TemplateAssociation(String name, Output<String> id, @Nullable TemplateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicequotas/templateAssociation:TemplateAssociation", name, state, makeResourceOptions(options, id));
+    private TemplateAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable TemplateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicequotas/templateAssociation:TemplateAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TemplateAssociationArgs makeArgs(@Nullable TemplateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TemplateAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -131,7 +138,7 @@ public class TemplateAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TemplateAssociation get(String name, Output<String> id, @Nullable TemplateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TemplateAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable TemplateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TemplateAssociation(name, id, state, options);
     }
 }

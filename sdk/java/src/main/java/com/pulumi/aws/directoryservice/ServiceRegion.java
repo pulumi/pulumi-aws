@@ -236,7 +236,7 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceRegion(String name) {
+    public ServiceRegion(java.lang.String name) {
         this(name, ServiceRegionArgs.Empty);
     }
     /**
@@ -244,7 +244,7 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceRegion(String name, ServiceRegionArgs args) {
+    public ServiceRegion(java.lang.String name, ServiceRegionArgs args) {
         this(name, args, null);
     }
     /**
@@ -253,15 +253,22 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceRegion(String name, ServiceRegionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directoryservice/serviceRegion:ServiceRegion", name, args == null ? ServiceRegionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceRegion(java.lang.String name, ServiceRegionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directoryservice/serviceRegion:ServiceRegion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceRegion(String name, Output<String> id, @Nullable ServiceRegionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directoryservice/serviceRegion:ServiceRegion", name, state, makeResourceOptions(options, id));
+    private ServiceRegion(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceRegionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directoryservice/serviceRegion:ServiceRegion", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceRegionArgs makeArgs(ServiceRegionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceRegionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -277,7 +284,7 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceRegion get(String name, Output<String> id, @Nullable ServiceRegionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceRegion get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceRegionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceRegion(name, id, state, options);
     }
 }

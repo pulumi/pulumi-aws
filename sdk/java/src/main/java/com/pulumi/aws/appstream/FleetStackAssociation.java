@@ -114,7 +114,7 @@ public class FleetStackAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FleetStackAssociation(String name) {
+    public FleetStackAssociation(java.lang.String name) {
         this(name, FleetStackAssociationArgs.Empty);
     }
     /**
@@ -122,7 +122,7 @@ public class FleetStackAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FleetStackAssociation(String name, FleetStackAssociationArgs args) {
+    public FleetStackAssociation(java.lang.String name, FleetStackAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -131,15 +131,22 @@ public class FleetStackAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FleetStackAssociation(String name, FleetStackAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appstream/fleetStackAssociation:FleetStackAssociation", name, args == null ? FleetStackAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FleetStackAssociation(java.lang.String name, FleetStackAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appstream/fleetStackAssociation:FleetStackAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FleetStackAssociation(String name, Output<String> id, @Nullable FleetStackAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appstream/fleetStackAssociation:FleetStackAssociation", name, state, makeResourceOptions(options, id));
+    private FleetStackAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable FleetStackAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appstream/fleetStackAssociation:FleetStackAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FleetStackAssociationArgs makeArgs(FleetStackAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FleetStackAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -155,7 +162,7 @@ public class FleetStackAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FleetStackAssociation get(String name, Output<String> id, @Nullable FleetStackAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FleetStackAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable FleetStackAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FleetStackAssociation(name, id, state, options);
     }
 }

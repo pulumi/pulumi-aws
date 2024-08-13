@@ -207,7 +207,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DistributionConfiguration(String name) {
+    public DistributionConfiguration(java.lang.String name) {
         this(name, DistributionConfigurationArgs.Empty);
     }
     /**
@@ -215,7 +215,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DistributionConfiguration(String name, DistributionConfigurationArgs args) {
+    public DistributionConfiguration(java.lang.String name, DistributionConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -224,15 +224,22 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DistributionConfiguration(String name, DistributionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:imagebuilder/distributionConfiguration:DistributionConfiguration", name, args == null ? DistributionConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DistributionConfiguration(java.lang.String name, DistributionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:imagebuilder/distributionConfiguration:DistributionConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DistributionConfiguration(String name, Output<String> id, @Nullable DistributionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:imagebuilder/distributionConfiguration:DistributionConfiguration", name, state, makeResourceOptions(options, id));
+    private DistributionConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable DistributionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:imagebuilder/distributionConfiguration:DistributionConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DistributionConfigurationArgs makeArgs(DistributionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DistributionConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -248,7 +255,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DistributionConfiguration get(String name, Output<String> id, @Nullable DistributionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DistributionConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable DistributionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DistributionConfiguration(name, id, state, options);
     }
 }

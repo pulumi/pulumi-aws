@@ -286,7 +286,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketWebsiteConfigurationV2(String name) {
+    public BucketWebsiteConfigurationV2(java.lang.String name) {
         this(name, BucketWebsiteConfigurationV2Args.Empty);
     }
     /**
@@ -294,7 +294,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketWebsiteConfigurationV2(String name, BucketWebsiteConfigurationV2Args args) {
+    public BucketWebsiteConfigurationV2(java.lang.String name, BucketWebsiteConfigurationV2Args args) {
         this(name, args, null);
     }
     /**
@@ -303,15 +303,22 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketWebsiteConfigurationV2(String name, BucketWebsiteConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2", name, args == null ? BucketWebsiteConfigurationV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketWebsiteConfigurationV2(java.lang.String name, BucketWebsiteConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketWebsiteConfigurationV2(String name, Output<String> id, @Nullable BucketWebsiteConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2", name, state, makeResourceOptions(options, id));
+    private BucketWebsiteConfigurationV2(java.lang.String name, Output<java.lang.String> id, @Nullable BucketWebsiteConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketWebsiteConfigurationV2Args makeArgs(BucketWebsiteConfigurationV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketWebsiteConfigurationV2Args.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -327,7 +334,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketWebsiteConfigurationV2 get(String name, Output<String> id, @Nullable BucketWebsiteConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketWebsiteConfigurationV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketWebsiteConfigurationV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketWebsiteConfigurationV2(name, id, state, options);
     }
 }

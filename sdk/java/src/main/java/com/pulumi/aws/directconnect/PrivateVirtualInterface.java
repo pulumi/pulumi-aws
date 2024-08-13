@@ -325,7 +325,7 @@ public class PrivateVirtualInterface extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PrivateVirtualInterface(String name) {
+    public PrivateVirtualInterface(java.lang.String name) {
         this(name, PrivateVirtualInterfaceArgs.Empty);
     }
     /**
@@ -333,7 +333,7 @@ public class PrivateVirtualInterface extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PrivateVirtualInterface(String name, PrivateVirtualInterfaceArgs args) {
+    public PrivateVirtualInterface(java.lang.String name, PrivateVirtualInterfaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -342,15 +342,22 @@ public class PrivateVirtualInterface extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PrivateVirtualInterface(String name, PrivateVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, args == null ? PrivateVirtualInterfaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PrivateVirtualInterface(java.lang.String name, PrivateVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PrivateVirtualInterface(String name, Output<String> id, @Nullable PrivateVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, state, makeResourceOptions(options, id));
+    private PrivateVirtualInterface(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PrivateVirtualInterfaceArgs makeArgs(PrivateVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrivateVirtualInterfaceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -366,7 +373,7 @@ public class PrivateVirtualInterface extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PrivateVirtualInterface get(String name, Output<String> id, @Nullable PrivateVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PrivateVirtualInterface get(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PrivateVirtualInterface(name, id, state, options);
     }
 }

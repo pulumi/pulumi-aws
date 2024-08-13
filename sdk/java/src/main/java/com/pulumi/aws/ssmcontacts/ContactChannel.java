@@ -39,23 +39,23 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ContactChannel("example", ContactChannelArgs.builder()
  *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
- *                 .simpleAddress("email{@literal @}example.com")
+ *                 .simpleAddress("email}{@literal @}{@code example.com")
  *                 .build())
  *             .name("Example contact channel")
  *             .type("EMAIL")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -82,12 +82,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleContact = new Contact("exampleContact", ContactArgs.builder()
  *             .alias("example_contact")
  *             .type("PERSONAL")
@@ -96,14 +96,14 @@ import javax.annotation.Nullable;
  *         var example = new ContactChannel("example", ContactChannelArgs.builder()
  *             .contactId(exampleContact.arn())
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
- *                 .simpleAddress("email{@literal @}example.com")
+ *                 .simpleAddress("email}{@literal @}{@code example.com")
  *                 .build())
  *             .name("Example contact channel")
  *             .type("EMAIL")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -208,7 +208,7 @@ public class ContactChannel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ContactChannel(String name) {
+    public ContactChannel(java.lang.String name) {
         this(name, ContactChannelArgs.Empty);
     }
     /**
@@ -216,7 +216,7 @@ public class ContactChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ContactChannel(String name, ContactChannelArgs args) {
+    public ContactChannel(java.lang.String name, ContactChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -225,15 +225,22 @@ public class ContactChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ContactChannel(String name, ContactChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssmcontacts/contactChannel:ContactChannel", name, args == null ? ContactChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ContactChannel(java.lang.String name, ContactChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssmcontacts/contactChannel:ContactChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ContactChannel(String name, Output<String> id, @Nullable ContactChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssmcontacts/contactChannel:ContactChannel", name, state, makeResourceOptions(options, id));
+    private ContactChannel(java.lang.String name, Output<java.lang.String> id, @Nullable ContactChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssmcontacts/contactChannel:ContactChannel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ContactChannelArgs makeArgs(ContactChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContactChannelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -249,7 +256,7 @@ public class ContactChannel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ContactChannel get(String name, Output<String> id, @Nullable ContactChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ContactChannel get(java.lang.String name, Output<java.lang.String> id, @Nullable ContactChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ContactChannel(name, id, state, options);
     }
 }

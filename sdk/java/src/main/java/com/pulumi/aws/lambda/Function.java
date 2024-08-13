@@ -932,9 +932,17 @@ public class Function extends com.pulumi.resources.CustomResource {
     public Output<Optional<FunctionSnapStart>> snapStart() {
         return Codegen.optional(this.snapStart);
     }
+    /**
+     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
     private Output<String> sourceCodeHash;
 
+    /**
+     * @return Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     public Output<String> sourceCodeHash() {
         return this.sourceCodeHash;
     }
@@ -1045,7 +1053,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Function(String name) {
+    public Function(java.lang.String name) {
         this(name, FunctionArgs.Empty);
     }
     /**
@@ -1053,7 +1061,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Function(String name, FunctionArgs args) {
+    public Function(java.lang.String name, FunctionArgs args) {
         this(name, args, null);
     }
     /**
@@ -1062,15 +1070,22 @@ public class Function extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Function(String name, FunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/function:Function", name, args == null ? FunctionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Function(java.lang.String name, FunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lambda/function:Function", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Function(String name, Output<String> id, @Nullable FunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/function:Function", name, state, makeResourceOptions(options, id));
+    private Function(java.lang.String name, Output<java.lang.String> id, @Nullable FunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lambda/function:Function", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FunctionArgs makeArgs(FunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -1086,7 +1101,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Function get(String name, Output<String> id, @Nullable FunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Function get(java.lang.String name, Output<java.lang.String> id, @Nullable FunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Function(name, id, state, options);
     }
 }

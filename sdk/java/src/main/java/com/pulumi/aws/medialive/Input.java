@@ -316,7 +316,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Input(String name) {
+    public Input(java.lang.String name) {
         this(name, InputArgs.Empty);
     }
     /**
@@ -324,7 +324,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Input(String name, InputArgs args) {
+    public Input(java.lang.String name, InputArgs args) {
         this(name, args, null);
     }
     /**
@@ -333,15 +333,22 @@ public class Input extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Input(String name, InputArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/input:Input", name, args == null ? InputArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Input(java.lang.String name, InputArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:medialive/input:Input", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Input(String name, Output<String> id, @Nullable InputState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/input:Input", name, state, makeResourceOptions(options, id));
+    private Input(java.lang.String name, Output<java.lang.String> id, @Nullable InputState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:medialive/input:Input", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InputArgs makeArgs(InputArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InputArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -357,7 +364,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Input get(String name, Output<String> id, @Nullable InputState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Input get(java.lang.String name, Output<java.lang.String> id, @Nullable InputState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Input(name, id, state, options);
     }
 }

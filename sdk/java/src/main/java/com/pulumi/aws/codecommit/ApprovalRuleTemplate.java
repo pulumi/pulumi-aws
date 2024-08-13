@@ -192,7 +192,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApprovalRuleTemplate(String name) {
+    public ApprovalRuleTemplate(java.lang.String name) {
         this(name, ApprovalRuleTemplateArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApprovalRuleTemplate(String name, ApprovalRuleTemplateArgs args) {
+    public ApprovalRuleTemplate(java.lang.String name, ApprovalRuleTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,15 +209,22 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApprovalRuleTemplate(String name, ApprovalRuleTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate", name, args == null ? ApprovalRuleTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ApprovalRuleTemplate(java.lang.String name, ApprovalRuleTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApprovalRuleTemplate(String name, Output<String> id, @Nullable ApprovalRuleTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate", name, state, makeResourceOptions(options, id));
+    private ApprovalRuleTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable ApprovalRuleTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ApprovalRuleTemplateArgs makeArgs(ApprovalRuleTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApprovalRuleTemplateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +240,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApprovalRuleTemplate get(String name, Output<String> id, @Nullable ApprovalRuleTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApprovalRuleTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable ApprovalRuleTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApprovalRuleTemplate(name, id, state, options);
     }
 }

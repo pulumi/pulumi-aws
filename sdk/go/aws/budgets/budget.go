@@ -304,7 +304,7 @@ import (
 //					&budgets.BudgetCostFilterArgs{
 //						Name: pulumi.String("TagKeyValue"),
 //						Values: pulumi.StringArray{
-//							pulumi.String(fmt.Sprintf("TagKey%v%v", "$", tagValue)),
+//							pulumi.Sprintf("TagKey%v%v", "$", tagValue),
 //						},
 //					},
 //				},

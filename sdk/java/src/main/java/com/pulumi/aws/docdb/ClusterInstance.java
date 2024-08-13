@@ -520,7 +520,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ClusterInstance(String name) {
+    public ClusterInstance(java.lang.String name) {
         this(name, ClusterInstanceArgs.Empty);
     }
     /**
@@ -528,7 +528,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClusterInstance(String name, ClusterInstanceArgs args) {
+    public ClusterInstance(java.lang.String name, ClusterInstanceArgs args) {
         this(name, args, null);
     }
     /**
@@ -537,15 +537,22 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClusterInstance(String name, ClusterInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:docdb/clusterInstance:ClusterInstance", name, args == null ? ClusterInstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ClusterInstance(java.lang.String name, ClusterInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:docdb/clusterInstance:ClusterInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ClusterInstance(String name, Output<String> id, @Nullable ClusterInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:docdb/clusterInstance:ClusterInstance", name, state, makeResourceOptions(options, id));
+    private ClusterInstance(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:docdb/clusterInstance:ClusterInstance", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ClusterInstanceArgs makeArgs(ClusterInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterInstanceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -561,7 +568,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ClusterInstance get(String name, Output<String> id, @Nullable ClusterInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ClusterInstance get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ClusterInstance(name, id, state, options);
     }
 }

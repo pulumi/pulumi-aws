@@ -313,9 +313,17 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }
+    /**
+     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
     private Output<String> sourceCodeHash;
 
+    /**
+     * @return Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     public Output<String> sourceCodeHash() {
         return this.sourceCodeHash;
     }
@@ -352,7 +360,7 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LayerVersion(String name) {
+    public LayerVersion(java.lang.String name) {
         this(name, LayerVersionArgs.Empty);
     }
     /**
@@ -360,7 +368,7 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LayerVersion(String name, LayerVersionArgs args) {
+    public LayerVersion(java.lang.String name, LayerVersionArgs args) {
         this(name, args, null);
     }
     /**
@@ -369,15 +377,22 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LayerVersion(String name, LayerVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/layerVersion:LayerVersion", name, args == null ? LayerVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LayerVersion(java.lang.String name, LayerVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lambda/layerVersion:LayerVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LayerVersion(String name, Output<String> id, @Nullable LayerVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lambda/layerVersion:LayerVersion", name, state, makeResourceOptions(options, id));
+    private LayerVersion(java.lang.String name, Output<java.lang.String> id, @Nullable LayerVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lambda/layerVersion:LayerVersion", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LayerVersionArgs makeArgs(LayerVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LayerVersionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -393,7 +408,7 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LayerVersion get(String name, Output<String> id, @Nullable LayerVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LayerVersion get(java.lang.String name, Output<java.lang.String> id, @Nullable LayerVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LayerVersion(name, id, state, options);
     }
 }

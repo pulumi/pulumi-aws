@@ -193,7 +193,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcConnector(String name) {
+    public VpcConnector(java.lang.String name) {
         this(name, VpcConnectorArgs.Empty);
     }
     /**
@@ -201,7 +201,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcConnector(String name, VpcConnectorArgs args) {
+    public VpcConnector(java.lang.String name, VpcConnectorArgs args) {
         this(name, args, null);
     }
     /**
@@ -210,15 +210,22 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcConnector(String name, VpcConnectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/vpcConnector:VpcConnector", name, args == null ? VpcConnectorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcConnector(java.lang.String name, VpcConnectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apprunner/vpcConnector:VpcConnector", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcConnector(String name, Output<String> id, @Nullable VpcConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apprunner/vpcConnector:VpcConnector", name, state, makeResourceOptions(options, id));
+    private VpcConnector(java.lang.String name, Output<java.lang.String> id, @Nullable VpcConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apprunner/vpcConnector:VpcConnector", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcConnectorArgs makeArgs(VpcConnectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcConnectorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -234,7 +241,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcConnector get(String name, Output<String> id, @Nullable VpcConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcConnector get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcConnector(name, id, state, options);
     }
 }

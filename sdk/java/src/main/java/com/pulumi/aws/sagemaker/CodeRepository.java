@@ -211,7 +211,7 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CodeRepository(String name) {
+    public CodeRepository(java.lang.String name) {
         this(name, CodeRepositoryArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CodeRepository(String name, CodeRepositoryArgs args) {
+    public CodeRepository(java.lang.String name, CodeRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,15 +228,22 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CodeRepository(String name, CodeRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/codeRepository:CodeRepository", name, args == null ? CodeRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CodeRepository(java.lang.String name, CodeRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/codeRepository:CodeRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CodeRepository(String name, Output<String> id, @Nullable CodeRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/codeRepository:CodeRepository", name, state, makeResourceOptions(options, id));
+    private CodeRepository(java.lang.String name, Output<java.lang.String> id, @Nullable CodeRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/codeRepository:CodeRepository", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CodeRepositoryArgs makeArgs(CodeRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CodeRepositoryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +259,7 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CodeRepository get(String name, Output<String> id, @Nullable CodeRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CodeRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable CodeRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CodeRepository(name, id, state, options);
     }
 }

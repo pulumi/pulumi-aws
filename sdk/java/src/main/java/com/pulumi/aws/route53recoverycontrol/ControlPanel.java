@@ -154,7 +154,7 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ControlPanel(String name) {
+    public ControlPanel(java.lang.String name) {
         this(name, ControlPanelArgs.Empty);
     }
     /**
@@ -162,7 +162,7 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ControlPanel(String name, ControlPanelArgs args) {
+    public ControlPanel(java.lang.String name, ControlPanelArgs args) {
         this(name, args, null);
     }
     /**
@@ -171,15 +171,22 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ControlPanel(String name, ControlPanelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53recoverycontrol/controlPanel:ControlPanel", name, args == null ? ControlPanelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ControlPanel(java.lang.String name, ControlPanelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53recoverycontrol/controlPanel:ControlPanel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ControlPanel(String name, Output<String> id, @Nullable ControlPanelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53recoverycontrol/controlPanel:ControlPanel", name, state, makeResourceOptions(options, id));
+    private ControlPanel(java.lang.String name, Output<java.lang.String> id, @Nullable ControlPanelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53recoverycontrol/controlPanel:ControlPanel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ControlPanelArgs makeArgs(ControlPanelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ControlPanelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -195,7 +202,7 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ControlPanel get(String name, Output<String> id, @Nullable ControlPanelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ControlPanel get(java.lang.String name, Output<java.lang.String> id, @Nullable ControlPanelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ControlPanel(name, id, state, options);
     }
 }

@@ -40,21 +40,21 @@ public final class EmrFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application("spark{@literal @}2.1.0")
+     *                 .application("spark}{@literal @}{@code 2.1.0")
      *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -86,21 +86,21 @@ public final class EmrFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application("spark{@literal @}2.1.0")
+     *                 .application("spark}{@literal @}{@code 2.1.0")
      *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -132,21 +132,21 @@ public final class EmrFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application("spark{@literal @}2.1.0")
+     *                 .application("spark}{@literal @}{@code 2.1.0")
      *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -178,21 +178,21 @@ public final class EmrFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application("spark{@literal @}2.1.0")
+     *                 .application("spark}{@literal @}{@code 2.1.0")
      *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -224,21 +224,21 @@ public final class EmrFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application("spark{@literal @}2.1.0")
+     *                 .application("spark}{@literal @}{@code 2.1.0")
      *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -270,21 +270,21 @@ public final class EmrFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application("spark{@literal @}2.1.0")
+     *                 .application("spark}{@literal @}{@code 2.1.0")
      *                 .prefix("emr-5")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;

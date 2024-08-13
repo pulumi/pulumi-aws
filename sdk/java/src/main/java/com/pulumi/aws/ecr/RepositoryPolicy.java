@@ -146,7 +146,7 @@ public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryPolicy(String name) {
+    public RepositoryPolicy(java.lang.String name) {
         this(name, RepositoryPolicyArgs.Empty);
     }
     /**
@@ -154,7 +154,7 @@ public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryPolicy(String name, RepositoryPolicyArgs args) {
+    public RepositoryPolicy(java.lang.String name, RepositoryPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -163,15 +163,22 @@ public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryPolicy(String name, RepositoryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecr/repositoryPolicy:RepositoryPolicy", name, args == null ? RepositoryPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryPolicy(java.lang.String name, RepositoryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecr/repositoryPolicy:RepositoryPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryPolicy(String name, Output<String> id, @Nullable RepositoryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecr/repositoryPolicy:RepositoryPolicy", name, state, makeResourceOptions(options, id));
+    private RepositoryPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecr/repositoryPolicy:RepositoryPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryPolicyArgs makeArgs(RepositoryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -187,7 +194,7 @@ public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryPolicy get(String name, Output<String> id, @Nullable RepositoryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryPolicy(name, id, state, options);
     }
 }

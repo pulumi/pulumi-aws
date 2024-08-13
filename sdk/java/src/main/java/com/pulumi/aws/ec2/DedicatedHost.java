@@ -232,7 +232,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DedicatedHost(String name) {
+    public DedicatedHost(java.lang.String name) {
         this(name, DedicatedHostArgs.Empty);
     }
     /**
@@ -240,7 +240,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DedicatedHost(String name, DedicatedHostArgs args) {
+    public DedicatedHost(java.lang.String name, DedicatedHostArgs args) {
         this(name, args, null);
     }
     /**
@@ -249,15 +249,22 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DedicatedHost(String name, DedicatedHostArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/dedicatedHost:DedicatedHost", name, args == null ? DedicatedHostArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DedicatedHost(java.lang.String name, DedicatedHostArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/dedicatedHost:DedicatedHost", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DedicatedHost(String name, Output<String> id, @Nullable DedicatedHostState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/dedicatedHost:DedicatedHost", name, state, makeResourceOptions(options, id));
+    private DedicatedHost(java.lang.String name, Output<java.lang.String> id, @Nullable DedicatedHostState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/dedicatedHost:DedicatedHost", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DedicatedHostArgs makeArgs(DedicatedHostArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DedicatedHostArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -273,7 +280,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DedicatedHost get(String name, Output<String> id, @Nullable DedicatedHostState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DedicatedHost get(java.lang.String name, Output<java.lang.String> id, @Nullable DedicatedHostState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DedicatedHost(name, id, state, options);
     }
 }

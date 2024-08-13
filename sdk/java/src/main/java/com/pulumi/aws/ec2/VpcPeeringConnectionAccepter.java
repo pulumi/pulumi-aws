@@ -271,7 +271,7 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcPeeringConnectionAccepter(String name) {
+    public VpcPeeringConnectionAccepter(java.lang.String name) {
         this(name, VpcPeeringConnectionAccepterArgs.Empty);
     }
     /**
@@ -279,7 +279,7 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcPeeringConnectionAccepter(String name, VpcPeeringConnectionAccepterArgs args) {
+    public VpcPeeringConnectionAccepter(java.lang.String name, VpcPeeringConnectionAccepterArgs args) {
         this(name, args, null);
     }
     /**
@@ -288,15 +288,22 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcPeeringConnectionAccepter(String name, VpcPeeringConnectionAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, args == null ? VpcPeeringConnectionAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcPeeringConnectionAccepter(java.lang.String name, VpcPeeringConnectionAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcPeeringConnectionAccepter(String name, Output<String> id, @Nullable VpcPeeringConnectionAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, state, makeResourceOptions(options, id));
+    private VpcPeeringConnectionAccepter(java.lang.String name, Output<java.lang.String> id, @Nullable VpcPeeringConnectionAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcPeeringConnectionAccepterArgs makeArgs(VpcPeeringConnectionAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcPeeringConnectionAccepterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -312,7 +319,7 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcPeeringConnectionAccepter get(String name, Output<String> id, @Nullable VpcPeeringConnectionAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcPeeringConnectionAccepter get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcPeeringConnectionAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcPeeringConnectionAccepter(name, id, state, options);
     }
 }

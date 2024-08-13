@@ -187,7 +187,7 @@ public class Logging extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Logging(String name) {
+    public Logging(java.lang.String name) {
         this(name, LoggingArgs.Empty);
     }
     /**
@@ -195,7 +195,7 @@ public class Logging extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Logging(String name, LoggingArgs args) {
+    public Logging(java.lang.String name, LoggingArgs args) {
         this(name, args, null);
     }
     /**
@@ -204,15 +204,22 @@ public class Logging extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Logging(String name, LoggingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/logging:Logging", name, args == null ? LoggingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Logging(java.lang.String name, LoggingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/logging:Logging", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Logging(String name, Output<String> id, @Nullable LoggingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/logging:Logging", name, state, makeResourceOptions(options, id));
+    private Logging(java.lang.String name, Output<java.lang.String> id, @Nullable LoggingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/logging:Logging", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LoggingArgs makeArgs(LoggingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LoggingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -228,7 +235,7 @@ public class Logging extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Logging get(String name, Output<String> id, @Nullable LoggingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Logging get(java.lang.String name, Output<java.lang.String> id, @Nullable LoggingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Logging(name, id, state, options);
     }
 }

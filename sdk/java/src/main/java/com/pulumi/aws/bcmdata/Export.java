@@ -138,7 +138,7 @@ public class Export extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Export(String name) {
+    public Export(java.lang.String name) {
         this(name, ExportArgs.Empty);
     }
     /**
@@ -146,7 +146,7 @@ public class Export extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Export(String name, @Nullable ExportArgs args) {
+    public Export(java.lang.String name, @Nullable ExportArgs args) {
         this(name, args, null);
     }
     /**
@@ -155,15 +155,22 @@ public class Export extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Export(String name, @Nullable ExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bcmdata/export:Export", name, args == null ? ExportArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Export(java.lang.String name, @Nullable ExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bcmdata/export:Export", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Export(String name, Output<String> id, @Nullable ExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bcmdata/export:Export", name, state, makeResourceOptions(options, id));
+    private Export(java.lang.String name, Output<java.lang.String> id, @Nullable ExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bcmdata/export:Export", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ExportArgs makeArgs(@Nullable ExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExportArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -179,7 +186,7 @@ public class Export extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Export get(String name, Output<String> id, @Nullable ExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Export get(java.lang.String name, Output<java.lang.String> id, @Nullable ExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Export(name, id, state, options);
     }
 }

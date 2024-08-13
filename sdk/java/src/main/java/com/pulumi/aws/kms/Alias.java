@@ -145,7 +145,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Alias(String name) {
+    public Alias(java.lang.String name) {
         this(name, AliasArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Alias(String name, AliasArgs args) {
+    public Alias(java.lang.String name, AliasArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Alias(String name, AliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kms/alias:Alias", name, args == null ? AliasArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Alias(java.lang.String name, AliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kms/alias:Alias", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Alias(String name, Output<String> id, @Nullable AliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kms/alias:Alias", name, state, makeResourceOptions(options, id));
+    private Alias(java.lang.String name, Output<java.lang.String> id, @Nullable AliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kms/alias:Alias", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AliasArgs makeArgs(AliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AliasArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Alias get(String name, Output<String> id, @Nullable AliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Alias get(java.lang.String name, Output<java.lang.String> id, @Nullable AliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Alias(name, id, state, options);
     }
 }

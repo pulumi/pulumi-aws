@@ -82,7 +82,7 @@ public class GlobalSettings extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GlobalSettings(String name) {
+    public GlobalSettings(java.lang.String name) {
         this(name, GlobalSettingsArgs.Empty);
     }
     /**
@@ -90,7 +90,7 @@ public class GlobalSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GlobalSettings(String name, GlobalSettingsArgs args) {
+    public GlobalSettings(java.lang.String name, GlobalSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -99,15 +99,22 @@ public class GlobalSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GlobalSettings(String name, GlobalSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/globalSettings:GlobalSettings", name, args == null ? GlobalSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GlobalSettings(java.lang.String name, GlobalSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/globalSettings:GlobalSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GlobalSettings(String name, Output<String> id, @Nullable GlobalSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:backup/globalSettings:GlobalSettings", name, state, makeResourceOptions(options, id));
+    private GlobalSettings(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:backup/globalSettings:GlobalSettings", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GlobalSettingsArgs makeArgs(GlobalSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GlobalSettingsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -123,7 +130,7 @@ public class GlobalSettings extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GlobalSettings get(String name, Output<String> id, @Nullable GlobalSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GlobalSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GlobalSettings(name, id, state, options);
     }
 }

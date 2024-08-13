@@ -126,7 +126,7 @@ public class EgressOnlyInternetGateway extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EgressOnlyInternetGateway(String name) {
+    public EgressOnlyInternetGateway(java.lang.String name) {
         this(name, EgressOnlyInternetGatewayArgs.Empty);
     }
     /**
@@ -134,7 +134,7 @@ public class EgressOnlyInternetGateway extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EgressOnlyInternetGateway(String name, EgressOnlyInternetGatewayArgs args) {
+    public EgressOnlyInternetGateway(java.lang.String name, EgressOnlyInternetGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -143,15 +143,22 @@ public class EgressOnlyInternetGateway extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EgressOnlyInternetGateway(String name, EgressOnlyInternetGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, args == null ? EgressOnlyInternetGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EgressOnlyInternetGateway(java.lang.String name, EgressOnlyInternetGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EgressOnlyInternetGateway(String name, Output<String> id, @Nullable EgressOnlyInternetGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, state, makeResourceOptions(options, id));
+    private EgressOnlyInternetGateway(java.lang.String name, Output<java.lang.String> id, @Nullable EgressOnlyInternetGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EgressOnlyInternetGatewayArgs makeArgs(EgressOnlyInternetGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EgressOnlyInternetGatewayArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -167,7 +174,7 @@ public class EgressOnlyInternetGateway extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EgressOnlyInternetGateway get(String name, Output<String> id, @Nullable EgressOnlyInternetGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EgressOnlyInternetGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable EgressOnlyInternetGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EgressOnlyInternetGateway(name, id, state, options);
     }
 }

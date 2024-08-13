@@ -144,7 +144,7 @@ public class ResolverFirewallDomainList extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResolverFirewallDomainList(String name) {
+    public ResolverFirewallDomainList(java.lang.String name) {
         this(name, ResolverFirewallDomainListArgs.Empty);
     }
     /**
@@ -152,7 +152,7 @@ public class ResolverFirewallDomainList extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResolverFirewallDomainList(String name, @Nullable ResolverFirewallDomainListArgs args) {
+    public ResolverFirewallDomainList(java.lang.String name, @Nullable ResolverFirewallDomainListArgs args) {
         this(name, args, null);
     }
     /**
@@ -161,15 +161,22 @@ public class ResolverFirewallDomainList extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResolverFirewallDomainList(String name, @Nullable ResolverFirewallDomainListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList", name, args == null ? ResolverFirewallDomainListArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResolverFirewallDomainList(java.lang.String name, @Nullable ResolverFirewallDomainListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResolverFirewallDomainList(String name, Output<String> id, @Nullable ResolverFirewallDomainListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList", name, state, makeResourceOptions(options, id));
+    private ResolverFirewallDomainList(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverFirewallDomainListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResolverFirewallDomainListArgs makeArgs(@Nullable ResolverFirewallDomainListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverFirewallDomainListArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -185,7 +192,7 @@ public class ResolverFirewallDomainList extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResolverFirewallDomainList get(String name, Output<String> id, @Nullable ResolverFirewallDomainListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResolverFirewallDomainList get(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverFirewallDomainListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResolverFirewallDomainList(name, id, state, options);
     }
 }

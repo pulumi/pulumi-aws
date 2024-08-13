@@ -158,7 +158,7 @@ public class DirectoryBucket extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DirectoryBucket(String name) {
+    public DirectoryBucket(java.lang.String name) {
         this(name, DirectoryBucketArgs.Empty);
     }
     /**
@@ -166,7 +166,7 @@ public class DirectoryBucket extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DirectoryBucket(String name, DirectoryBucketArgs args) {
+    public DirectoryBucket(java.lang.String name, DirectoryBucketArgs args) {
         this(name, args, null);
     }
     /**
@@ -175,15 +175,22 @@ public class DirectoryBucket extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DirectoryBucket(String name, DirectoryBucketArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/directoryBucket:DirectoryBucket", name, args == null ? DirectoryBucketArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DirectoryBucket(java.lang.String name, DirectoryBucketArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/directoryBucket:DirectoryBucket", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DirectoryBucket(String name, Output<String> id, @Nullable DirectoryBucketState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/directoryBucket:DirectoryBucket", name, state, makeResourceOptions(options, id));
+    private DirectoryBucket(java.lang.String name, Output<java.lang.String> id, @Nullable DirectoryBucketState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/directoryBucket:DirectoryBucket", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DirectoryBucketArgs makeArgs(DirectoryBucketArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DirectoryBucketArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -199,7 +206,7 @@ public class DirectoryBucket extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DirectoryBucket get(String name, Output<String> id, @Nullable DirectoryBucketState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DirectoryBucket get(java.lang.String name, Output<java.lang.String> id, @Nullable DirectoryBucketState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DirectoryBucket(name, id, state, options);
     }
 }

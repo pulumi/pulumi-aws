@@ -245,7 +245,7 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReplicationSubnetGroup(String name) {
+    public ReplicationSubnetGroup(java.lang.String name) {
         this(name, ReplicationSubnetGroupArgs.Empty);
     }
     /**
@@ -253,7 +253,7 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReplicationSubnetGroup(String name, ReplicationSubnetGroupArgs args) {
+    public ReplicationSubnetGroup(java.lang.String name, ReplicationSubnetGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -262,15 +262,22 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReplicationSubnetGroup(String name, ReplicationSubnetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, args == null ? ReplicationSubnetGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ReplicationSubnetGroup(java.lang.String name, ReplicationSubnetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReplicationSubnetGroup(String name, Output<String> id, @Nullable ReplicationSubnetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, state, makeResourceOptions(options, id));
+    private ReplicationSubnetGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationSubnetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ReplicationSubnetGroupArgs makeArgs(ReplicationSubnetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationSubnetGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -286,7 +293,7 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReplicationSubnetGroup get(String name, Output<String> id, @Nullable ReplicationSubnetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReplicationSubnetGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationSubnetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReplicationSubnetGroup(name, id, state, options);
     }
 }

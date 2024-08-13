@@ -35,7 +35,7 @@ import (
 //			_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
 //				Name:     pulumi.String("example"),
 //				Platform: pulumi.String("Linux"),
-//				Uri:      pulumi.String(fmt.Sprintf("s3://%v/%v", exampleAwsS3Object.Bucket, exampleAwsS3Object.Key)),
+//				Uri:      pulumi.Sprintf("s3://%v/%v", exampleAwsS3Object.Bucket, exampleAwsS3Object.Key),
 //				Version:  pulumi.String("1.0.0"),
 //			})
 //			if err != nil {

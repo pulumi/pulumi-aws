@@ -236,7 +236,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LicenseConfiguration(String name) {
+    public LicenseConfiguration(java.lang.String name) {
         this(name, LicenseConfigurationArgs.Empty);
     }
     /**
@@ -244,7 +244,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LicenseConfiguration(String name, LicenseConfigurationArgs args) {
+    public LicenseConfiguration(java.lang.String name, LicenseConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -253,15 +253,22 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LicenseConfiguration(String name, LicenseConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, args == null ? LicenseConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LicenseConfiguration(java.lang.String name, LicenseConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LicenseConfiguration(String name, Output<String> id, @Nullable LicenseConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, state, makeResourceOptions(options, id));
+    private LicenseConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable LicenseConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LicenseConfigurationArgs makeArgs(LicenseConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LicenseConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -277,7 +284,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LicenseConfiguration get(String name, Output<String> id, @Nullable LicenseConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LicenseConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable LicenseConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LicenseConfiguration(name, id, state, options);
     }
 }

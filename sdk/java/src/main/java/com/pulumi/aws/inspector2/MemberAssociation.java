@@ -125,7 +125,7 @@ public class MemberAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MemberAssociation(String name) {
+    public MemberAssociation(java.lang.String name) {
         this(name, MemberAssociationArgs.Empty);
     }
     /**
@@ -133,7 +133,7 @@ public class MemberAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MemberAssociation(String name, MemberAssociationArgs args) {
+    public MemberAssociation(java.lang.String name, MemberAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -142,15 +142,22 @@ public class MemberAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MemberAssociation(String name, MemberAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector2/memberAssociation:MemberAssociation", name, args == null ? MemberAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MemberAssociation(java.lang.String name, MemberAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:inspector2/memberAssociation:MemberAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MemberAssociation(String name, Output<String> id, @Nullable MemberAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector2/memberAssociation:MemberAssociation", name, state, makeResourceOptions(options, id));
+    private MemberAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable MemberAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:inspector2/memberAssociation:MemberAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MemberAssociationArgs makeArgs(MemberAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MemberAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -166,7 +173,7 @@ public class MemberAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MemberAssociation get(String name, Output<String> id, @Nullable MemberAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MemberAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable MemberAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MemberAssociation(name, id, state, options);
     }
 }

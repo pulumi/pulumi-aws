@@ -382,7 +382,7 @@ public class EcsClusterLayer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EcsClusterLayer(String name) {
+    public EcsClusterLayer(java.lang.String name) {
         this(name, EcsClusterLayerArgs.Empty);
     }
     /**
@@ -390,7 +390,7 @@ public class EcsClusterLayer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EcsClusterLayer(String name, EcsClusterLayerArgs args) {
+    public EcsClusterLayer(java.lang.String name, EcsClusterLayerArgs args) {
         this(name, args, null);
     }
     /**
@@ -399,15 +399,22 @@ public class EcsClusterLayer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EcsClusterLayer(String name, EcsClusterLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, args == null ? EcsClusterLayerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EcsClusterLayer(java.lang.String name, EcsClusterLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EcsClusterLayer(String name, Output<String> id, @Nullable EcsClusterLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, state, makeResourceOptions(options, id));
+    private EcsClusterLayer(java.lang.String name, Output<java.lang.String> id, @Nullable EcsClusterLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EcsClusterLayerArgs makeArgs(EcsClusterLayerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EcsClusterLayerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -423,7 +430,7 @@ public class EcsClusterLayer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EcsClusterLayer get(String name, Output<String> id, @Nullable EcsClusterLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EcsClusterLayer get(java.lang.String name, Output<java.lang.String> id, @Nullable EcsClusterLayerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EcsClusterLayer(name, id, state, options);
     }
 }

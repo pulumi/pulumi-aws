@@ -223,7 +223,7 @@ public class InstanceProfile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InstanceProfile(String name) {
+    public InstanceProfile(java.lang.String name) {
         this(name, InstanceProfileArgs.Empty);
     }
     /**
@@ -231,7 +231,7 @@ public class InstanceProfile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InstanceProfile(String name, @Nullable InstanceProfileArgs args) {
+    public InstanceProfile(java.lang.String name, @Nullable InstanceProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -240,15 +240,22 @@ public class InstanceProfile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InstanceProfile(String name, @Nullable InstanceProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/instanceProfile:InstanceProfile", name, args == null ? InstanceProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InstanceProfile(java.lang.String name, @Nullable InstanceProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/instanceProfile:InstanceProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InstanceProfile(String name, Output<String> id, @Nullable InstanceProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/instanceProfile:InstanceProfile", name, state, makeResourceOptions(options, id));
+    private InstanceProfile(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/instanceProfile:InstanceProfile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InstanceProfileArgs makeArgs(@Nullable InstanceProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceProfileArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -264,7 +271,7 @@ public class InstanceProfile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InstanceProfile get(String name, Output<String> id, @Nullable InstanceProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InstanceProfile get(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InstanceProfile(name, id, state, options);
     }
 }

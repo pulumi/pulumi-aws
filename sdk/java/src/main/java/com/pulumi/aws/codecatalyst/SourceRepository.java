@@ -132,7 +132,7 @@ public class SourceRepository extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SourceRepository(String name) {
+    public SourceRepository(java.lang.String name) {
         this(name, SourceRepositoryArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class SourceRepository extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SourceRepository(String name, SourceRepositoryArgs args) {
+    public SourceRepository(java.lang.String name, SourceRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,15 +149,22 @@ public class SourceRepository extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SourceRepository(String name, SourceRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecatalyst/sourceRepository:SourceRepository", name, args == null ? SourceRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SourceRepository(java.lang.String name, SourceRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codecatalyst/sourceRepository:SourceRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SourceRepository(String name, Output<String> id, @Nullable SourceRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codecatalyst/sourceRepository:SourceRepository", name, state, makeResourceOptions(options, id));
+    private SourceRepository(java.lang.String name, Output<java.lang.String> id, @Nullable SourceRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codecatalyst/sourceRepository:SourceRepository", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SourceRepositoryArgs makeArgs(SourceRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SourceRepositoryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -173,7 +180,7 @@ public class SourceRepository extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SourceRepository get(String name, Output<String> id, @Nullable SourceRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SourceRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable SourceRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SourceRepository(name, id, state, options);
     }
 }

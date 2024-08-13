@@ -549,7 +549,7 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TlsInspectionConfiguration(String name) {
+    public TlsInspectionConfiguration(java.lang.String name) {
         this(name, TlsInspectionConfigurationArgs.Empty);
     }
     /**
@@ -557,7 +557,7 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TlsInspectionConfiguration(String name, @Nullable TlsInspectionConfigurationArgs args) {
+    public TlsInspectionConfiguration(java.lang.String name, @Nullable TlsInspectionConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -566,15 +566,22 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TlsInspectionConfiguration(String name, @Nullable TlsInspectionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration", name, args == null ? TlsInspectionConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TlsInspectionConfiguration(java.lang.String name, @Nullable TlsInspectionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TlsInspectionConfiguration(String name, Output<String> id, @Nullable TlsInspectionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration", name, state, makeResourceOptions(options, id));
+    private TlsInspectionConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable TlsInspectionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TlsInspectionConfigurationArgs makeArgs(@Nullable TlsInspectionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TlsInspectionConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -590,7 +597,7 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TlsInspectionConfiguration get(String name, Output<String> id, @Nullable TlsInspectionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TlsInspectionConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable TlsInspectionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TlsInspectionConfiguration(name, id, state, options);
     }
 }

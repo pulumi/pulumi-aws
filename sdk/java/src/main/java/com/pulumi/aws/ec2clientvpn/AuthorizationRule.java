@@ -151,7 +151,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AuthorizationRule(String name) {
+    public AuthorizationRule(java.lang.String name) {
         this(name, AuthorizationRuleArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AuthorizationRule(String name, AuthorizationRuleArgs args) {
+    public AuthorizationRule(java.lang.String name, AuthorizationRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,15 +168,22 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AuthorizationRule(String name, AuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2clientvpn/authorizationRule:AuthorizationRule", name, args == null ? AuthorizationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AuthorizationRule(java.lang.String name, AuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2clientvpn/authorizationRule:AuthorizationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AuthorizationRule(String name, Output<String> id, @Nullable AuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2clientvpn/authorizationRule:AuthorizationRule", name, state, makeResourceOptions(options, id));
+    private AuthorizationRule(java.lang.String name, Output<java.lang.String> id, @Nullable AuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2clientvpn/authorizationRule:AuthorizationRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AuthorizationRuleArgs makeArgs(AuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AuthorizationRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -192,7 +199,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AuthorizationRule get(String name, Output<String> id, @Nullable AuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AuthorizationRule get(java.lang.String name, Output<java.lang.String> id, @Nullable AuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AuthorizationRule(name, id, state, options);
     }
 }

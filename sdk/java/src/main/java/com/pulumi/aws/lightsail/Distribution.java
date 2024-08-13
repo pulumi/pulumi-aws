@@ -572,7 +572,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Distribution(String name) {
+    public Distribution(java.lang.String name) {
         this(name, DistributionArgs.Empty);
     }
     /**
@@ -580,7 +580,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Distribution(String name, DistributionArgs args) {
+    public Distribution(java.lang.String name, DistributionArgs args) {
         this(name, args, null);
     }
     /**
@@ -589,15 +589,22 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Distribution(String name, DistributionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/distribution:Distribution", name, args == null ? DistributionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Distribution(java.lang.String name, DistributionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/distribution:Distribution", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Distribution(String name, Output<String> id, @Nullable DistributionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/distribution:Distribution", name, state, makeResourceOptions(options, id));
+    private Distribution(java.lang.String name, Output<java.lang.String> id, @Nullable DistributionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/distribution:Distribution", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DistributionArgs makeArgs(DistributionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DistributionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -613,7 +620,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Distribution get(String name, Output<String> id, @Nullable DistributionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Distribution get(java.lang.String name, Output<java.lang.String> id, @Nullable DistributionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Distribution(name, id, state, options);
     }
 }

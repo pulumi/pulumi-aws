@@ -360,7 +360,7 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomModel(String name) {
+    public CustomModel(java.lang.String name) {
         this(name, CustomModelArgs.Empty);
     }
     /**
@@ -368,7 +368,7 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomModel(String name, CustomModelArgs args) {
+    public CustomModel(java.lang.String name, CustomModelArgs args) {
         this(name, args, null);
     }
     /**
@@ -377,15 +377,22 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomModel(String name, CustomModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/customModel:CustomModel", name, args == null ? CustomModelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CustomModel(java.lang.String name, CustomModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/customModel:CustomModel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomModel(String name, Output<String> id, @Nullable CustomModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/customModel:CustomModel", name, state, makeResourceOptions(options, id));
+    private CustomModel(java.lang.String name, Output<java.lang.String> id, @Nullable CustomModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/customModel:CustomModel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CustomModelArgs makeArgs(CustomModelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomModelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -401,7 +408,7 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomModel get(String name, Output<String> id, @Nullable CustomModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomModel get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomModelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomModel(name, id, state, options);
     }
 }

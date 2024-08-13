@@ -160,7 +160,7 @@ public class ServiceSpecificCredential extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceSpecificCredential(String name) {
+    public ServiceSpecificCredential(java.lang.String name) {
         this(name, ServiceSpecificCredentialArgs.Empty);
     }
     /**
@@ -168,7 +168,7 @@ public class ServiceSpecificCredential extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceSpecificCredential(String name, ServiceSpecificCredentialArgs args) {
+    public ServiceSpecificCredential(java.lang.String name, ServiceSpecificCredentialArgs args) {
         this(name, args, null);
     }
     /**
@@ -177,15 +177,22 @@ public class ServiceSpecificCredential extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceSpecificCredential(String name, ServiceSpecificCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", name, args == null ? ServiceSpecificCredentialArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceSpecificCredential(java.lang.String name, ServiceSpecificCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceSpecificCredential(String name, Output<String> id, @Nullable ServiceSpecificCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", name, state, makeResourceOptions(options, id));
+    private ServiceSpecificCredential(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceSpecificCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceSpecificCredentialArgs makeArgs(ServiceSpecificCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceSpecificCredentialArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -204,7 +211,7 @@ public class ServiceSpecificCredential extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceSpecificCredential get(String name, Output<String> id, @Nullable ServiceSpecificCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceSpecificCredential get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceSpecificCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceSpecificCredential(name, id, state, options);
     }
 }

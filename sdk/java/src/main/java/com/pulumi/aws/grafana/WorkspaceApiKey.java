@@ -136,7 +136,7 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WorkspaceApiKey(String name) {
+    public WorkspaceApiKey(java.lang.String name) {
         this(name, WorkspaceApiKeyArgs.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WorkspaceApiKey(String name, WorkspaceApiKeyArgs args) {
+    public WorkspaceApiKey(java.lang.String name, WorkspaceApiKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -153,15 +153,22 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WorkspaceApiKey(String name, WorkspaceApiKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/workspaceApiKey:WorkspaceApiKey", name, args == null ? WorkspaceApiKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public WorkspaceApiKey(java.lang.String name, WorkspaceApiKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:grafana/workspaceApiKey:WorkspaceApiKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WorkspaceApiKey(String name, Output<String> id, @Nullable WorkspaceApiKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/workspaceApiKey:WorkspaceApiKey", name, state, makeResourceOptions(options, id));
+    private WorkspaceApiKey(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceApiKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:grafana/workspaceApiKey:WorkspaceApiKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkspaceApiKeyArgs makeArgs(WorkspaceApiKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceApiKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -180,7 +187,7 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WorkspaceApiKey get(String name, Output<String> id, @Nullable WorkspaceApiKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WorkspaceApiKey get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceApiKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WorkspaceApiKey(name, id, state, options);
     }
 }

@@ -196,7 +196,7 @@ public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RealtimeLogConfig(String name) {
+    public RealtimeLogConfig(java.lang.String name) {
         this(name, RealtimeLogConfigArgs.Empty);
     }
     /**
@@ -204,7 +204,7 @@ public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RealtimeLogConfig(String name, RealtimeLogConfigArgs args) {
+    public RealtimeLogConfig(java.lang.String name, RealtimeLogConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -213,15 +213,22 @@ public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RealtimeLogConfig(String name, RealtimeLogConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig", name, args == null ? RealtimeLogConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RealtimeLogConfig(java.lang.String name, RealtimeLogConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RealtimeLogConfig(String name, Output<String> id, @Nullable RealtimeLogConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig", name, state, makeResourceOptions(options, id));
+    private RealtimeLogConfig(java.lang.String name, Output<java.lang.String> id, @Nullable RealtimeLogConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RealtimeLogConfigArgs makeArgs(RealtimeLogConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RealtimeLogConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -237,7 +244,7 @@ public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RealtimeLogConfig get(String name, Output<String> id, @Nullable RealtimeLogConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RealtimeLogConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable RealtimeLogConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RealtimeLogConfig(name, id, state, options);
     }
 }

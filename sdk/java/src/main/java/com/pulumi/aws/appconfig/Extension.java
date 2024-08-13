@@ -219,7 +219,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Extension(String name) {
+    public Extension(java.lang.String name) {
         this(name, ExtensionArgs.Empty);
     }
     /**
@@ -227,7 +227,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Extension(String name, ExtensionArgs args) {
+    public Extension(java.lang.String name, ExtensionArgs args) {
         this(name, args, null);
     }
     /**
@@ -236,15 +236,22 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Extension(String name, ExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/extension:Extension", name, args == null ? ExtensionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Extension(java.lang.String name, ExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appconfig/extension:Extension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Extension(String name, Output<String> id, @Nullable ExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appconfig/extension:Extension", name, state, makeResourceOptions(options, id));
+    private Extension(java.lang.String name, Output<java.lang.String> id, @Nullable ExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appconfig/extension:Extension", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ExtensionArgs makeArgs(ExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExtensionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -260,7 +267,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Extension get(String name, Output<String> id, @Nullable ExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Extension get(java.lang.String name, Output<java.lang.String> id, @Nullable ExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Extension(name, id, state, options);
     }
 }

@@ -97,7 +97,7 @@ public class RetentionConfiguration extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RetentionConfiguration(String name) {
+    public RetentionConfiguration(java.lang.String name) {
         this(name, RetentionConfigurationArgs.Empty);
     }
     /**
@@ -105,7 +105,7 @@ public class RetentionConfiguration extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RetentionConfiguration(String name, RetentionConfigurationArgs args) {
+    public RetentionConfiguration(java.lang.String name, RetentionConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -114,15 +114,22 @@ public class RetentionConfiguration extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RetentionConfiguration(String name, RetentionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/retentionConfiguration:RetentionConfiguration", name, args == null ? RetentionConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RetentionConfiguration(java.lang.String name, RetentionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/retentionConfiguration:RetentionConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RetentionConfiguration(String name, Output<String> id, @Nullable RetentionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/retentionConfiguration:RetentionConfiguration", name, state, makeResourceOptions(options, id));
+    private RetentionConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable RetentionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/retentionConfiguration:RetentionConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RetentionConfigurationArgs makeArgs(RetentionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RetentionConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -138,7 +145,7 @@ public class RetentionConfiguration extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RetentionConfiguration get(String name, Output<String> id, @Nullable RetentionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RetentionConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable RetentionConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RetentionConfiguration(name, id, state, options);
     }
 }

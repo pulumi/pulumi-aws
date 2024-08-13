@@ -323,7 +323,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MulticastDomain(String name) {
+    public MulticastDomain(java.lang.String name) {
         this(name, MulticastDomainArgs.Empty);
     }
     /**
@@ -331,7 +331,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MulticastDomain(String name, MulticastDomainArgs args) {
+    public MulticastDomain(java.lang.String name, MulticastDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -340,15 +340,22 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MulticastDomain(String name, MulticastDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/multicastDomain:MulticastDomain", name, args == null ? MulticastDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MulticastDomain(java.lang.String name, MulticastDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/multicastDomain:MulticastDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MulticastDomain(String name, Output<String> id, @Nullable MulticastDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/multicastDomain:MulticastDomain", name, state, makeResourceOptions(options, id));
+    private MulticastDomain(java.lang.String name, Output<java.lang.String> id, @Nullable MulticastDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/multicastDomain:MulticastDomain", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MulticastDomainArgs makeArgs(MulticastDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MulticastDomainArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -364,7 +371,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MulticastDomain get(String name, Output<String> id, @Nullable MulticastDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MulticastDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable MulticastDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MulticastDomain(name, id, state, options);
     }
 }

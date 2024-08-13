@@ -192,7 +192,7 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ThingGroup(String name) {
+    public ThingGroup(java.lang.String name) {
         this(name, ThingGroupArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ThingGroup(String name, @Nullable ThingGroupArgs args) {
+    public ThingGroup(java.lang.String name, @Nullable ThingGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,15 +209,22 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ThingGroup(String name, @Nullable ThingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/thingGroup:ThingGroup", name, args == null ? ThingGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ThingGroup(java.lang.String name, @Nullable ThingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/thingGroup:ThingGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ThingGroup(String name, Output<String> id, @Nullable ThingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/thingGroup:ThingGroup", name, state, makeResourceOptions(options, id));
+    private ThingGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ThingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/thingGroup:ThingGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ThingGroupArgs makeArgs(@Nullable ThingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ThingGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +240,7 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ThingGroup get(String name, Output<String> id, @Nullable ThingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ThingGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ThingGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ThingGroup(name, id, state, options);
     }
 }

@@ -176,7 +176,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LbCertificate(String name) {
+    public LbCertificate(java.lang.String name) {
         this(name, LbCertificateArgs.Empty);
     }
     /**
@@ -184,7 +184,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LbCertificate(String name, LbCertificateArgs args) {
+    public LbCertificate(java.lang.String name, LbCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -193,15 +193,22 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LbCertificate(String name, LbCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/lbCertificate:LbCertificate", name, args == null ? LbCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LbCertificate(java.lang.String name, LbCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/lbCertificate:LbCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LbCertificate(String name, Output<String> id, @Nullable LbCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/lbCertificate:LbCertificate", name, state, makeResourceOptions(options, id));
+    private LbCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable LbCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/lbCertificate:LbCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LbCertificateArgs makeArgs(LbCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LbCertificateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -217,7 +224,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LbCertificate get(String name, Output<String> id, @Nullable LbCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LbCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable LbCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LbCertificate(name, id, state, options);
     }
 }

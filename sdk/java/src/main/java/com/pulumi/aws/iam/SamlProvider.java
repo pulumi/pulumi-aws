@@ -160,7 +160,7 @@ public class SamlProvider extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SamlProvider(String name) {
+    public SamlProvider(java.lang.String name) {
         this(name, SamlProviderArgs.Empty);
     }
     /**
@@ -168,7 +168,7 @@ public class SamlProvider extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SamlProvider(String name, SamlProviderArgs args) {
+    public SamlProvider(java.lang.String name, SamlProviderArgs args) {
         this(name, args, null);
     }
     /**
@@ -177,15 +177,22 @@ public class SamlProvider extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SamlProvider(String name, SamlProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/samlProvider:SamlProvider", name, args == null ? SamlProviderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SamlProvider(java.lang.String name, SamlProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/samlProvider:SamlProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SamlProvider(String name, Output<String> id, @Nullable SamlProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/samlProvider:SamlProvider", name, state, makeResourceOptions(options, id));
+    private SamlProvider(java.lang.String name, Output<java.lang.String> id, @Nullable SamlProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/samlProvider:SamlProvider", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SamlProviderArgs makeArgs(SamlProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SamlProviderArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -201,7 +208,7 @@ public class SamlProvider extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SamlProvider get(String name, Output<String> id, @Nullable SamlProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SamlProvider get(java.lang.String name, Output<java.lang.String> id, @Nullable SamlProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SamlProvider(name, id, state, options);
     }
 }

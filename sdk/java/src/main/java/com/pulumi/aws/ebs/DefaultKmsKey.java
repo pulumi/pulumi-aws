@@ -88,7 +88,7 @@ public class DefaultKmsKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DefaultKmsKey(String name) {
+    public DefaultKmsKey(java.lang.String name) {
         this(name, DefaultKmsKeyArgs.Empty);
     }
     /**
@@ -96,7 +96,7 @@ public class DefaultKmsKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DefaultKmsKey(String name, DefaultKmsKeyArgs args) {
+    public DefaultKmsKey(java.lang.String name, DefaultKmsKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -105,15 +105,22 @@ public class DefaultKmsKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DefaultKmsKey(String name, DefaultKmsKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ebs/defaultKmsKey:DefaultKmsKey", name, args == null ? DefaultKmsKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DefaultKmsKey(java.lang.String name, DefaultKmsKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ebs/defaultKmsKey:DefaultKmsKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DefaultKmsKey(String name, Output<String> id, @Nullable DefaultKmsKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ebs/defaultKmsKey:DefaultKmsKey", name, state, makeResourceOptions(options, id));
+    private DefaultKmsKey(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultKmsKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ebs/defaultKmsKey:DefaultKmsKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DefaultKmsKeyArgs makeArgs(DefaultKmsKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DefaultKmsKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -129,7 +136,7 @@ public class DefaultKmsKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DefaultKmsKey get(String name, Output<String> id, @Nullable DefaultKmsKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DefaultKmsKey get(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultKmsKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DefaultKmsKey(name, id, state, options);
     }
 }

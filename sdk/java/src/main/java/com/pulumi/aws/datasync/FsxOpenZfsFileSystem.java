@@ -212,7 +212,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FsxOpenZfsFileSystem(String name) {
+    public FsxOpenZfsFileSystem(java.lang.String name) {
         this(name, FsxOpenZfsFileSystemArgs.Empty);
     }
     /**
@@ -220,7 +220,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FsxOpenZfsFileSystem(String name, FsxOpenZfsFileSystemArgs args) {
+    public FsxOpenZfsFileSystem(java.lang.String name, FsxOpenZfsFileSystemArgs args) {
         this(name, args, null);
     }
     /**
@@ -229,15 +229,22 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FsxOpenZfsFileSystem(String name, FsxOpenZfsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", name, args == null ? FsxOpenZfsFileSystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FsxOpenZfsFileSystem(java.lang.String name, FsxOpenZfsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FsxOpenZfsFileSystem(String name, Output<String> id, @Nullable FsxOpenZfsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", name, state, makeResourceOptions(options, id));
+    private FsxOpenZfsFileSystem(java.lang.String name, Output<java.lang.String> id, @Nullable FsxOpenZfsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FsxOpenZfsFileSystemArgs makeArgs(FsxOpenZfsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FsxOpenZfsFileSystemArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -253,7 +260,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FsxOpenZfsFileSystem get(String name, Output<String> id, @Nullable FsxOpenZfsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FsxOpenZfsFileSystem get(java.lang.String name, Output<java.lang.String> id, @Nullable FsxOpenZfsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FsxOpenZfsFileSystem(name, id, state, options);
     }
 }

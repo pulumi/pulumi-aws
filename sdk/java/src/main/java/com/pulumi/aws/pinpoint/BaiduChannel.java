@@ -132,7 +132,7 @@ public class BaiduChannel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BaiduChannel(String name) {
+    public BaiduChannel(java.lang.String name) {
         this(name, BaiduChannelArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class BaiduChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BaiduChannel(String name, BaiduChannelArgs args) {
+    public BaiduChannel(java.lang.String name, BaiduChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,15 +149,22 @@ public class BaiduChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BaiduChannel(String name, BaiduChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/baiduChannel:BaiduChannel", name, args == null ? BaiduChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BaiduChannel(java.lang.String name, BaiduChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:pinpoint/baiduChannel:BaiduChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BaiduChannel(String name, Output<String> id, @Nullable BaiduChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/baiduChannel:BaiduChannel", name, state, makeResourceOptions(options, id));
+    private BaiduChannel(java.lang.String name, Output<java.lang.String> id, @Nullable BaiduChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:pinpoint/baiduChannel:BaiduChannel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BaiduChannelArgs makeArgs(BaiduChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BaiduChannelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -177,7 +184,7 @@ public class BaiduChannel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BaiduChannel get(String name, Output<String> id, @Nullable BaiduChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BaiduChannel get(java.lang.String name, Output<java.lang.String> id, @Nullable BaiduChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BaiduChannel(name, id, state, options);
     }
 }

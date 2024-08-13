@@ -337,7 +337,7 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KxEnvironment(String name) {
+    public KxEnvironment(java.lang.String name) {
         this(name, KxEnvironmentArgs.Empty);
     }
     /**
@@ -345,7 +345,7 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KxEnvironment(String name, KxEnvironmentArgs args) {
+    public KxEnvironment(java.lang.String name, KxEnvironmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -354,15 +354,22 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KxEnvironment(String name, KxEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxEnvironment:KxEnvironment", name, args == null ? KxEnvironmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public KxEnvironment(java.lang.String name, KxEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxEnvironment:KxEnvironment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KxEnvironment(String name, Output<String> id, @Nullable KxEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:finspace/kxEnvironment:KxEnvironment", name, state, makeResourceOptions(options, id));
+    private KxEnvironment(java.lang.String name, Output<java.lang.String> id, @Nullable KxEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:finspace/kxEnvironment:KxEnvironment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KxEnvironmentArgs makeArgs(KxEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KxEnvironmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -378,7 +385,7 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KxEnvironment get(String name, Output<String> id, @Nullable KxEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KxEnvironment get(java.lang.String name, Output<java.lang.String> id, @Nullable KxEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KxEnvironment(name, id, state, options);
     }
 }

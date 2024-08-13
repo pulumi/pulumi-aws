@@ -211,7 +211,7 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventArchive(String name) {
+    public EventArchive(java.lang.String name) {
         this(name, EventArchiveArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventArchive(String name, EventArchiveArgs args) {
+    public EventArchive(java.lang.String name, EventArchiveArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,15 +228,22 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventArchive(String name, EventArchiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventArchive:EventArchive", name, args == null ? EventArchiveArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventArchive(java.lang.String name, EventArchiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventArchive:EventArchive", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventArchive(String name, Output<String> id, @Nullable EventArchiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/eventArchive:EventArchive", name, state, makeResourceOptions(options, id));
+    private EventArchive(java.lang.String name, Output<java.lang.String> id, @Nullable EventArchiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/eventArchive:EventArchive", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventArchiveArgs makeArgs(EventArchiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventArchiveArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +259,7 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventArchive get(String name, Output<String> id, @Nullable EventArchiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventArchive get(java.lang.String name, Output<java.lang.String> id, @Nullable EventArchiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventArchive(name, id, state, options);
     }
 }

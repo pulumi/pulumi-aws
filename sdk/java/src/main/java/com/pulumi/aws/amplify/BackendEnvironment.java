@@ -146,7 +146,7 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BackendEnvironment(String name) {
+    public BackendEnvironment(java.lang.String name) {
         this(name, BackendEnvironmentArgs.Empty);
     }
     /**
@@ -154,7 +154,7 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BackendEnvironment(String name, BackendEnvironmentArgs args) {
+    public BackendEnvironment(java.lang.String name, BackendEnvironmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -163,15 +163,22 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BackendEnvironment(String name, BackendEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amplify/backendEnvironment:BackendEnvironment", name, args == null ? BackendEnvironmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BackendEnvironment(java.lang.String name, BackendEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amplify/backendEnvironment:BackendEnvironment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BackendEnvironment(String name, Output<String> id, @Nullable BackendEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amplify/backendEnvironment:BackendEnvironment", name, state, makeResourceOptions(options, id));
+    private BackendEnvironment(java.lang.String name, Output<java.lang.String> id, @Nullable BackendEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amplify/backendEnvironment:BackendEnvironment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BackendEnvironmentArgs makeArgs(BackendEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackendEnvironmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -187,7 +194,7 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BackendEnvironment get(String name, Output<String> id, @Nullable BackendEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BackendEnvironment get(java.lang.String name, Output<java.lang.String> id, @Nullable BackendEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BackendEnvironment(name, id, state, options);
     }
 }

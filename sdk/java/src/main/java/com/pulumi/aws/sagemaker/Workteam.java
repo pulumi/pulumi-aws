@@ -274,7 +274,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Workteam(String name) {
+    public Workteam(java.lang.String name) {
         this(name, WorkteamArgs.Empty);
     }
     /**
@@ -282,7 +282,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Workteam(String name, WorkteamArgs args) {
+    public Workteam(java.lang.String name, WorkteamArgs args) {
         this(name, args, null);
     }
     /**
@@ -291,15 +291,22 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Workteam(String name, WorkteamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/workteam:Workteam", name, args == null ? WorkteamArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Workteam(java.lang.String name, WorkteamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/workteam:Workteam", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Workteam(String name, Output<String> id, @Nullable WorkteamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/workteam:Workteam", name, state, makeResourceOptions(options, id));
+    private Workteam(java.lang.String name, Output<java.lang.String> id, @Nullable WorkteamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/workteam:Workteam", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkteamArgs makeArgs(WorkteamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkteamArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -315,7 +322,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Workteam get(String name, Output<String> id, @Nullable WorkteamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Workteam get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkteamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Workteam(name, id, state, options);
     }
 }

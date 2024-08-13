@@ -100,7 +100,7 @@ public class BudgetResourceAssociation extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BudgetResourceAssociation(String name) {
+    public BudgetResourceAssociation(java.lang.String name) {
         this(name, BudgetResourceAssociationArgs.Empty);
     }
     /**
@@ -108,7 +108,7 @@ public class BudgetResourceAssociation extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BudgetResourceAssociation(String name, BudgetResourceAssociationArgs args) {
+    public BudgetResourceAssociation(java.lang.String name, BudgetResourceAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -117,15 +117,22 @@ public class BudgetResourceAssociation extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BudgetResourceAssociation(String name, BudgetResourceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation", name, args == null ? BudgetResourceAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BudgetResourceAssociation(java.lang.String name, BudgetResourceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BudgetResourceAssociation(String name, Output<String> id, @Nullable BudgetResourceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation", name, state, makeResourceOptions(options, id));
+    private BudgetResourceAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable BudgetResourceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BudgetResourceAssociationArgs makeArgs(BudgetResourceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BudgetResourceAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -141,7 +148,7 @@ public class BudgetResourceAssociation extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BudgetResourceAssociation get(String name, Output<String> id, @Nullable BudgetResourceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BudgetResourceAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable BudgetResourceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BudgetResourceAssociation(name, id, state, options);
     }
 }

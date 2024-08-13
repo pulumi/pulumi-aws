@@ -62,7 +62,7 @@ public class ApplicationLayerAutomaticResponse extends com.pulumi.resources.Cust
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApplicationLayerAutomaticResponse(String name) {
+    public ApplicationLayerAutomaticResponse(java.lang.String name) {
         this(name, ApplicationLayerAutomaticResponseArgs.Empty);
     }
     /**
@@ -70,7 +70,7 @@ public class ApplicationLayerAutomaticResponse extends com.pulumi.resources.Cust
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApplicationLayerAutomaticResponse(String name, ApplicationLayerAutomaticResponseArgs args) {
+    public ApplicationLayerAutomaticResponse(java.lang.String name, ApplicationLayerAutomaticResponseArgs args) {
         this(name, args, null);
     }
     /**
@@ -79,15 +79,22 @@ public class ApplicationLayerAutomaticResponse extends com.pulumi.resources.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApplicationLayerAutomaticResponse(String name, ApplicationLayerAutomaticResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse", name, args == null ? ApplicationLayerAutomaticResponseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ApplicationLayerAutomaticResponse(java.lang.String name, ApplicationLayerAutomaticResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApplicationLayerAutomaticResponse(String name, Output<String> id, @Nullable ApplicationLayerAutomaticResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse", name, state, makeResourceOptions(options, id));
+    private ApplicationLayerAutomaticResponse(java.lang.String name, Output<java.lang.String> id, @Nullable ApplicationLayerAutomaticResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ApplicationLayerAutomaticResponseArgs makeArgs(ApplicationLayerAutomaticResponseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApplicationLayerAutomaticResponseArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -103,7 +110,7 @@ public class ApplicationLayerAutomaticResponse extends com.pulumi.resources.Cust
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApplicationLayerAutomaticResponse get(String name, Output<String> id, @Nullable ApplicationLayerAutomaticResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApplicationLayerAutomaticResponse get(java.lang.String name, Output<java.lang.String> id, @Nullable ApplicationLayerAutomaticResponseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApplicationLayerAutomaticResponse(name, id, state, options);
     }
 }

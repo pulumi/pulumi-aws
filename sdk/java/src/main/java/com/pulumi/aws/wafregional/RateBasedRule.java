@@ -211,7 +211,7 @@ public class RateBasedRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RateBasedRule(String name) {
+    public RateBasedRule(java.lang.String name) {
         this(name, RateBasedRuleArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class RateBasedRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RateBasedRule(String name, RateBasedRuleArgs args) {
+    public RateBasedRule(java.lang.String name, RateBasedRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,15 +228,22 @@ public class RateBasedRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RateBasedRule(String name, RateBasedRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafregional/rateBasedRule:RateBasedRule", name, args == null ? RateBasedRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RateBasedRule(java.lang.String name, RateBasedRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:wafregional/rateBasedRule:RateBasedRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RateBasedRule(String name, Output<String> id, @Nullable RateBasedRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafregional/rateBasedRule:RateBasedRule", name, state, makeResourceOptions(options, id));
+    private RateBasedRule(java.lang.String name, Output<java.lang.String> id, @Nullable RateBasedRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:wafregional/rateBasedRule:RateBasedRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RateBasedRuleArgs makeArgs(RateBasedRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RateBasedRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +259,7 @@ public class RateBasedRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RateBasedRule get(String name, Output<String> id, @Nullable RateBasedRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RateBasedRule get(java.lang.String name, Output<java.lang.String> id, @Nullable RateBasedRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RateBasedRule(name, id, state, options);
     }
 }

@@ -128,7 +128,7 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PolicyStore(String name) {
+    public PolicyStore(java.lang.String name) {
         this(name, PolicyStoreArgs.Empty);
     }
     /**
@@ -136,7 +136,7 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PolicyStore(String name, @Nullable PolicyStoreArgs args) {
+    public PolicyStore(java.lang.String name, @Nullable PolicyStoreArgs args) {
         this(name, args, null);
     }
     /**
@@ -145,15 +145,22 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PolicyStore(String name, @Nullable PolicyStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedpermissions/policyStore:PolicyStore", name, args == null ? PolicyStoreArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PolicyStore(java.lang.String name, @Nullable PolicyStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:verifiedpermissions/policyStore:PolicyStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PolicyStore(String name, Output<String> id, @Nullable PolicyStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedpermissions/policyStore:PolicyStore", name, state, makeResourceOptions(options, id));
+    private PolicyStore(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:verifiedpermissions/policyStore:PolicyStore", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PolicyStoreArgs makeArgs(@Nullable PolicyStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicyStoreArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -169,7 +176,7 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PolicyStore get(String name, Output<String> id, @Nullable PolicyStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PolicyStore get(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PolicyStore(name, id, state, options);
     }
 }

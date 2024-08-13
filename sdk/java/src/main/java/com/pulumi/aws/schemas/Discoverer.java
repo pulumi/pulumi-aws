@@ -152,7 +152,7 @@ public class Discoverer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Discoverer(String name) {
+    public Discoverer(java.lang.String name) {
         this(name, DiscovererArgs.Empty);
     }
     /**
@@ -160,7 +160,7 @@ public class Discoverer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Discoverer(String name, DiscovererArgs args) {
+    public Discoverer(java.lang.String name, DiscovererArgs args) {
         this(name, args, null);
     }
     /**
@@ -169,15 +169,22 @@ public class Discoverer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Discoverer(String name, DiscovererArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:schemas/discoverer:Discoverer", name, args == null ? DiscovererArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Discoverer(java.lang.String name, DiscovererArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:schemas/discoverer:Discoverer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Discoverer(String name, Output<String> id, @Nullable DiscovererState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:schemas/discoverer:Discoverer", name, state, makeResourceOptions(options, id));
+    private Discoverer(java.lang.String name, Output<java.lang.String> id, @Nullable DiscovererState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:schemas/discoverer:Discoverer", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DiscovererArgs makeArgs(DiscovererArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DiscovererArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -193,7 +200,7 @@ public class Discoverer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Discoverer get(String name, Output<String> id, @Nullable DiscovererState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Discoverer get(java.lang.String name, Output<java.lang.String> id, @Nullable DiscovererState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Discoverer(name, id, state, options);
     }
 }

@@ -222,7 +222,7 @@ public class VideoStream extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VideoStream(String name) {
+    public VideoStream(java.lang.String name) {
         this(name, VideoStreamArgs.Empty);
     }
     /**
@@ -230,7 +230,7 @@ public class VideoStream extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VideoStream(String name, @Nullable VideoStreamArgs args) {
+    public VideoStream(java.lang.String name, @Nullable VideoStreamArgs args) {
         this(name, args, null);
     }
     /**
@@ -239,15 +239,22 @@ public class VideoStream extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VideoStream(String name, @Nullable VideoStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kinesis/videoStream:VideoStream", name, args == null ? VideoStreamArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VideoStream(java.lang.String name, @Nullable VideoStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kinesis/videoStream:VideoStream", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VideoStream(String name, Output<String> id, @Nullable VideoStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:kinesis/videoStream:VideoStream", name, state, makeResourceOptions(options, id));
+    private VideoStream(java.lang.String name, Output<java.lang.String> id, @Nullable VideoStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:kinesis/videoStream:VideoStream", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VideoStreamArgs makeArgs(@Nullable VideoStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VideoStreamArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -263,7 +270,7 @@ public class VideoStream extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VideoStream get(String name, Output<String> id, @Nullable VideoStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VideoStream get(java.lang.String name, Output<java.lang.String> id, @Nullable VideoStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VideoStream(name, id, state, options);
     }
 }

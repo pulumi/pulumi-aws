@@ -165,7 +165,7 @@ public class GatewayAssociationProposal extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GatewayAssociationProposal(String name) {
+    public GatewayAssociationProposal(java.lang.String name) {
         this(name, GatewayAssociationProposalArgs.Empty);
     }
     /**
@@ -173,7 +173,7 @@ public class GatewayAssociationProposal extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GatewayAssociationProposal(String name, GatewayAssociationProposalArgs args) {
+    public GatewayAssociationProposal(java.lang.String name, GatewayAssociationProposalArgs args) {
         this(name, args, null);
     }
     /**
@@ -182,15 +182,22 @@ public class GatewayAssociationProposal extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GatewayAssociationProposal(String name, GatewayAssociationProposalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, args == null ? GatewayAssociationProposalArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GatewayAssociationProposal(java.lang.String name, GatewayAssociationProposalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GatewayAssociationProposal(String name, Output<String> id, @Nullable GatewayAssociationProposalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, state, makeResourceOptions(options, id));
+    private GatewayAssociationProposal(java.lang.String name, Output<java.lang.String> id, @Nullable GatewayAssociationProposalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GatewayAssociationProposalArgs makeArgs(GatewayAssociationProposalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GatewayAssociationProposalArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -206,7 +213,7 @@ public class GatewayAssociationProposal extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GatewayAssociationProposal get(String name, Output<String> id, @Nullable GatewayAssociationProposalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GatewayAssociationProposal get(java.lang.String name, Output<java.lang.String> id, @Nullable GatewayAssociationProposalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GatewayAssociationProposal(name, id, state, options);
     }
 }

@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var app = new App("app");
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var email = new EmailChannel("email", EmailChannelArgs.builder()
  *             .applicationId(app.applicationId())
- *             .fromAddress("user{@literal @}example.com")
+ *             .fromAddress("user}{@literal @}{@code example.com")
  *             .roleArn(role.arn())
  *             .build());
  * 
@@ -96,8 +96,8 @@ import javax.annotation.Nullable;
  *             .policy(rolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -216,7 +216,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EmailChannel(String name) {
+    public EmailChannel(java.lang.String name) {
         this(name, EmailChannelArgs.Empty);
     }
     /**
@@ -224,7 +224,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EmailChannel(String name, EmailChannelArgs args) {
+    public EmailChannel(java.lang.String name, EmailChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -233,15 +233,22 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EmailChannel(String name, EmailChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/emailChannel:EmailChannel", name, args == null ? EmailChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EmailChannel(java.lang.String name, EmailChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:pinpoint/emailChannel:EmailChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EmailChannel(String name, Output<String> id, @Nullable EmailChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:pinpoint/emailChannel:EmailChannel", name, state, makeResourceOptions(options, id));
+    private EmailChannel(java.lang.String name, Output<java.lang.String> id, @Nullable EmailChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:pinpoint/emailChannel:EmailChannel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EmailChannelArgs makeArgs(EmailChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmailChannelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -257,7 +264,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EmailChannel get(String name, Output<String> id, @Nullable EmailChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EmailChannel get(java.lang.String name, Output<java.lang.String> id, @Nullable EmailChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EmailChannel(name, id, state, options);
     }
 }
