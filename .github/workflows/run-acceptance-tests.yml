@@ -120,12 +120,6 @@ jobs:
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
-    - name: Checkout p/examples
-      if: matrix.testTarget == 'pulumiExamples'
-      uses: actions/checkout@v4
-      with:
-        repository: pulumi/examples
-        path: p-examples
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
@@ -134,9 +128,10 @@ jobs:
       uses: ./.github/actions/download-bin
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
-      uses: ./.github/actions/download-sdk
+      uses: actions/download-artifact@v4
       with:
-        language: ${{ matrix.language }}
+        name: sdk.tar.gz
+        path: ${{ github.workspace}}
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
@@ -144,7 +139,7 @@ jobs:
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
     - name: Install dependencies
-      run: make install_${{ matrix.language}}_sdk
+      run: make install_sdks
     - name: Install gotestfmt
       uses: GoTestTools/gotestfmt-action@v2
       with:
@@ -161,23 +156,16 @@ jobs:
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Make upstream
       run: make upstream
+    - name: Shard tests
+      working-directory: examples
+      run: go run github.com/blampe/shard --total ${{ strategy.job-total }} --index ${{ strategy.job-index }} > tests
     - name: Run tests
-      if: matrix.testTarget == 'local'
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - name: Run pulumi/examples tests
-      if: matrix.testTarget == 'pulumiExamples'
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
-        matrix.language }} -run TestPulumiExamples -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      working-directory: examples
+      run: xargs go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 {} < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
     strategy:
       fail-fast: false
       matrix:
-        language:
-        - nodejs
-        - python
-        - dotnet
-        - go
-        - java
-        testTarget: [local]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   license_check:
     name: License Check
     uses: ./.github/workflows/license.yml

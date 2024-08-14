@@ -33,15 +33,6 @@ jobs:
   build_sdk:
     name: build_sdk
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        language:
-        - nodejs
-        - python
-        - dotnet
-        - go
-        - java
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -63,8 +54,8 @@ jobs:
         run: make install_plugins
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-      - name: Build SDK
-        run: make build_${{ matrix.language }}
+      - name: Build SDKs
+        run: make -j4 build_sdks
       - name: Check worktree clean
         uses: pulumi/git-status-check-action@v1
         with:
@@ -74,7 +65,11 @@ jobs:
             sdk/go/**/pulumiUtilities.go
             sdk/nodejs/package.json
             sdk/python/pyproject.toml
+      - name: Tar SDK folder
+        run: tar -zcf sdk.tar.gz -C sdk .
       - name: Upload SDK
-        uses: ./.github/actions/upload-sdk
+        uses: actions/upload-artifact@v4
         with:
-          language: ${{ matrix.language }}
+          name: sdk.tar.gz
+          path: ${{ github.workspace}}/sdk.tar.gz
+          retention-days: 30
