@@ -127,11 +127,26 @@ jobs:
     - name: Download bin
       uses: ./.github/actions/download-bin
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
-    - name: Download SDK
-      uses: actions/download-artifact@v4
+    - name: Download dotnet SDK
+      uses: ./.github/actions/download-sdk
       with:
-        name: sdk.tar.gz
-        path: ${{ github.workspace}}
+        language: dotnet
+    - name: Download go SDK
+      uses: ./.github/actions/download-sdk
+      with:
+        language: go
+    - name: Download java SDK
+      uses: ./.github/actions/download-sdk
+      with:
+        language: java
+    - name: Download nodejs SDK
+      uses: ./.github/actions/download-sdk
+      with:
+        language: nodejs
+    - name: Download python SDK
+      uses: ./.github/actions/download-sdk
+      with:
+        language: python
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
