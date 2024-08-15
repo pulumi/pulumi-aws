@@ -176,7 +176,7 @@ jobs:
       run: go run github.com/blampe/shard@latest --total ${{ strategy.job-total }} --index ${{ strategy.job-index }} > tests
     - name: Run tests
       working-directory: examples
-      run: xargs go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 {} < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: xargs -I{} go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 {} < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
     strategy:
       fail-fast: false
       matrix:
@@ -298,7 +298,7 @@ jobs:
             run: go run github.com/blampe/shard@latest --total ${{ strategy.job-total }} --index ${{ strategy.job-index }} > tests
           - name: Run provider tests
             working-directory: provider
-            run: xargs go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 {} < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
+            run: xargs -I{} go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 {} < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
           - if: failure() && github.event_name == 'push'
             name: Notify Slack
             uses: 8398a7/action-slack@v3
