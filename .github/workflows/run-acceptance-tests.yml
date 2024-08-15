@@ -109,12 +109,6 @@ jobs:
     env:
       PROVIDER_VERSION: ${{ needs.prerequisites.outputs.version }}
     steps:
-    # Run as first step so we don't delete things that have just been installed
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
-      with:
-        tool-cache: false
-        swap-storage: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -176,7 +170,7 @@ jobs:
       run: go run github.com/blampe/shard@latest --total ${{ strategy.job-total }} --index ${{ strategy.job-index }} > tests
     - name: Run tests
       working-directory: examples
-      run: xargs -I{} go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 {} < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 $(cat tests) 2>&1 | tee /tmp/gotest.log | gotestfmt
     strategy:
       fail-fast: false
       matrix:
@@ -222,11 +216,6 @@ jobs:
           id-token: write
       runs-on: ubuntu-latest
       steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              swap-storage: false
-              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
@@ -298,7 +287,7 @@ jobs:
             run: go run github.com/blampe/shard@latest --total ${{ strategy.job-total }} --index ${{ strategy.job-index }} > tests
           - name: Run provider tests
             working-directory: provider
-            run: xargs -I{} go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 {} < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
+            run: go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 $(cat tests) < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
           - if: failure() && github.event_name == 'push'
             name: Notify Slack
             uses: 8398a7/action-slack@v3
@@ -318,12 +307,6 @@ jobs:
           id-token: write
       runs-on: ubuntu-latest
       steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              dotnet: ${{ matrix.language != 'dotnet' }}
-              swap-storage: false
-              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
@@ -391,11 +374,6 @@ jobs:
       name: Run upstream provider-lint
       runs-on: ubuntu-latest
       steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              swap-storage: false
-              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
