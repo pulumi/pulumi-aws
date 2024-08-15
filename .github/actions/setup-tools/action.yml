@@ -23,10 +23,26 @@ runs:
       uses: actions/setup-go@v5
       with:
         go-version: "1.21.x"
-        cache-dependency-path: |
-          provider/*.sum
-          upstream/*.sum
-          sdk/*.sum
+        cache: false
+
+    - name: Go cache paths
+      id: go-cache-paths
+      shell: sh
+      run: |
+        echo "go-build=$(go env GOCACHE)" >> $GITHUB_OUTPUT
+        echo "go-mod=$(go env GOMODCACHE)" >> $GITHUB_OUTPUT
+
+    - name: Go build cache
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.go-cache-paths.outputs.go-build }}
+        key: ${{ runner.os }}-go-build-${{ hashFiles('**/go.sum') }}
+
+    - name: Go mod cache
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.go-cache-paths.outputs.go-mod }}
+        key: ${{ runner.os }}-go-mod-${{ hashFiles('**/go.sum') }}
 
     - name: Install pulumictl
       if: inputs.tools == 'all' || contains(inputs.tools, 'pulumictl')
