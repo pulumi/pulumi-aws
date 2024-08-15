@@ -154,7 +154,7 @@ jobs:
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
     - name: Install dependencies
-      run: make install_sdks
+      run: make -j4 install_sdks
     - name: Install gotestfmt
       uses: GoTestTools/gotestfmt-action@v2
       with:
@@ -173,7 +173,7 @@ jobs:
       run: make upstream
     - name: Shard tests
       working-directory: examples
-      run: go run github.com/blampe/shard --total ${{ strategy.job-total }} --index ${{ strategy.job-index }} > tests
+      run: go run github.com/blampe/shard@latest --total ${{ strategy.job-total }} --index ${{ strategy.job-index }} > tests
     - name: Run tests
       working-directory: examples
       run: xargs go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 {} < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
@@ -251,13 +251,26 @@ jobs:
               tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
               find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
           - run: dotnet nuget add source ${{ github.workspace }}/nuget
-          - name: Download SDK
-            uses: actions/download-artifact@v4
+          - name: Download dotnet SDK
+            uses: ./.github/actions/download-sdk
             with:
-              name: ${{ matrix.language }}-sdk.tar.gz
-              path: ${{ github.workspace}}/sdk/
-          - name: Uncompress SDK folder
-            run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{ github.workspace }}/sdk/${{ matrix.language }}
+              language: dotnet
+          - name: Download go SDK
+            uses: ./.github/actions/download-sdk
+            with:
+              language: go
+          - name: Download java SDK
+            uses: ./.github/actions/download-sdk
+            with:
+              language: java
+          - name: Download nodejs SDK
+            uses: ./.github/actions/download-sdk
+            with:
+              language: nodejs
+          - name: Download python SDK
+            uses: ./.github/actions/download-sdk
+            with:
+              language: python
           - name: Update path
             run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
           - name: Install Python deps
@@ -265,7 +278,7 @@ jobs:
               pip3 install virtualenv==20.0.23
               pip3 install pipenv
           - name: Install dependencies
-            run: make install_${{ matrix.language}}_sdk
+            run: make -j4 install_sdks
           - name: Install gotestfmt
             uses: GoTestTools/gotestfmt-action@v2
             with:
@@ -280,25 +293,23 @@ jobs:
               role-duration-seconds: 3600
               role-session-name: aws@githubActions
               role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+          - name: Shard provider tests
+            working-directory: provider
+            run: go run github.com/blampe/shard@latest --total ${{ strategy.job-total }} --index ${{ strategy.job-index }} > tests
           - name: Run provider tests
-            run: |
-              cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+            working-directory: provider
+            run: xargs go test -v -json -count=1 -cover -timeout 2h -tags=all -parallel 4 {} < tests 2>&1 | tee /tmp/gotest.log | gotestfmt
           - if: failure() && github.event_name == 'push'
             name: Notify Slack
             uses: 8398a7/action-slack@v3
             with:
-              author_name: Failure in running ${{ matrix.language }} provider tests
+              author_name: Failure in running provider tests
               fields: repo,commit,author,action
               status: ${{ job.status }}
       strategy:
-          fail-fast: false
-          matrix:
-              language:
-                  - nodejs
-                  - python
-                  - dotnet
-                  - go
-                  - java
+        fail-fast: false
+        matrix:
+          shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   test_oidc:
       name: test_oidc
       needs: build_sdk
