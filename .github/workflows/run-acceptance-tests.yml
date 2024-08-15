@@ -109,6 +109,12 @@ jobs:
     env:
       PROVIDER_VERSION: ${{ needs.prerequisites.outputs.version }}
     steps:
+    # Run as first step so we don't delete things that have just been installed
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+      with:
+        tool-cache: false
+        swap-storage: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -216,6 +222,11 @@ jobs:
           id-token: write
       runs-on: ubuntu-latest
       steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              swap-storage: false
+              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
@@ -307,6 +318,12 @@ jobs:
           id-token: write
       runs-on: ubuntu-latest
       steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              dotnet: true
+              swap-storage: false
+              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
@@ -374,6 +391,11 @@ jobs:
       name: Run upstream provider-lint
       runs-on: ubuntu-latest
       steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              swap-storage: false
+              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
