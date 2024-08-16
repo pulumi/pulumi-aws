@@ -162,7 +162,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                         "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
                     },
                     "log_destination_type": "KinesisDataFirehose",
-                    "log_type": "ALERT",
+                    "log_type": "TLS",
                 }],
             })
         ```
@@ -244,7 +244,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                         "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
                     },
                     "log_destination_type": "KinesisDataFirehose",
-                    "log_type": "ALERT",
+                    "log_type": "TLS",
                 }],
             })
         ```

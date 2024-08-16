@@ -314,6 +314,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
  * import com.pulumi.aws.pipes.inputs.PipeSourceParametersSqsQueueParametersArgs;
  * import com.pulumi.aws.pipes.inputs.PipeTargetParametersArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeTargetParametersSqsQueueParametersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -339,7 +340,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .targetParameters(PipeTargetParametersArgs.builder()
- *                 .sqsQueue(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                 .sqsQueueParameters(PipeTargetParametersSqsQueueParametersArgs.builder()
+ *                     .messageDeduplicationId("example-dedupe")
+ *                     .messageGroupId("example-group")
+ *                     .build())
  *                 .build())
  *             .build());
  * 

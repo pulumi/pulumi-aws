@@ -16,7 +16,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         private InputList<Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs>? _logDestinationConfigs;
 
         /// <summary>
-        /// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+        /// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
         /// </summary>
         public InputList<Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs> LogDestinationConfigs
         {

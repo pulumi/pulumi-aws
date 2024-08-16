@@ -15,6 +15,16 @@ export type EnvironmentBlueprintConfiguration = import("./environmentBlueprintCo
 export const EnvironmentBlueprintConfiguration: typeof import("./environmentBlueprintConfiguration").EnvironmentBlueprintConfiguration = null as any;
 utilities.lazyLoad(exports, ["EnvironmentBlueprintConfiguration"], () => require("./environmentBlueprintConfiguration"));
 
+export { EnvironmentProfileArgs, EnvironmentProfileState } from "./environmentProfile";
+export type EnvironmentProfile = import("./environmentProfile").EnvironmentProfile;
+export const EnvironmentProfile: typeof import("./environmentProfile").EnvironmentProfile = null as any;
+utilities.lazyLoad(exports, ["EnvironmentProfile"], () => require("./environmentProfile"));
+
+export { FormTypeArgs, FormTypeState } from "./formType";
+export type FormType = import("./formType").FormType;
+export const FormType: typeof import("./formType").FormType = null as any;
+utilities.lazyLoad(exports, ["FormType"], () => require("./formType"));
+
 export { GetEnvironmentBlueprintArgs, GetEnvironmentBlueprintResult, GetEnvironmentBlueprintOutputArgs } from "./getEnvironmentBlueprint";
 export const getEnvironmentBlueprint: typeof import("./getEnvironmentBlueprint").getEnvironmentBlueprint = null as any;
 export const getEnvironmentBlueprintOutput: typeof import("./getEnvironmentBlueprint").getEnvironmentBlueprintOutput = null as any;
@@ -24,6 +34,11 @@ export { GlossaryArgs, GlossaryState } from "./glossary";
 export type Glossary = import("./glossary").Glossary;
 export const Glossary: typeof import("./glossary").Glossary = null as any;
 utilities.lazyLoad(exports, ["Glossary"], () => require("./glossary"));
+
+export { GlossaryTermArgs, GlossaryTermState } from "./glossaryTerm";
+export type GlossaryTerm = import("./glossaryTerm").GlossaryTerm;
+export const GlossaryTerm: typeof import("./glossaryTerm").GlossaryTerm = null as any;
+utilities.lazyLoad(exports, ["GlossaryTerm"], () => require("./glossaryTerm"));
 
 export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
@@ -39,8 +54,14 @@ const _module = {
                 return new Domain(name, <any>undefined, { urn })
             case "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration":
                 return new EnvironmentBlueprintConfiguration(name, <any>undefined, { urn })
+            case "aws:datazone/environmentProfile:EnvironmentProfile":
+                return new EnvironmentProfile(name, <any>undefined, { urn })
+            case "aws:datazone/formType:FormType":
+                return new FormType(name, <any>undefined, { urn })
             case "aws:datazone/glossary:Glossary":
                 return new Glossary(name, <any>undefined, { urn })
+            case "aws:datazone/glossaryTerm:GlossaryTerm":
+                return new GlossaryTerm(name, <any>undefined, { urn })
             case "aws:datazone/project:Project":
                 return new Project(name, <any>undefined, { urn })
             default:
@@ -50,5 +71,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "datazone/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/environmentBlueprintConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "datazone/environmentProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "datazone/formType", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/glossary", _module)
+pulumi.runtime.registerResourceModule("aws", "datazone/glossaryTerm", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/project", _module)

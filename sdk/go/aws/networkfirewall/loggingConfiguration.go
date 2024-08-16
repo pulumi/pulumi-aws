@@ -114,7 +114,7 @@ import (
 //								"deliveryStream": pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Name),
 //							},
 //							LogDestinationType: pulumi.String("KinesisDataFirehose"),
-//							LogType:            pulumi.String("ALERT"),
+//							LogType:            pulumi.String("TLS"),
 //						},
 //					},
 //				},

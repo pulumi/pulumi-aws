@@ -40,6 +40,11 @@ export type CustomModel = import("./customModel").CustomModel;
 export const CustomModel: typeof import("./customModel").CustomModel = null as any;
 utilities.lazyLoad(exports, ["CustomModel"], () => require("./customModel"));
 
+export { GetAgentAgentVersionsArgs, GetAgentAgentVersionsResult, GetAgentAgentVersionsOutputArgs } from "./getAgentAgentVersions";
+export const getAgentAgentVersions: typeof import("./getAgentAgentVersions").getAgentAgentVersions = null as any;
+export const getAgentAgentVersionsOutput: typeof import("./getAgentAgentVersions").getAgentAgentVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentAgentVersions","getAgentAgentVersionsOutput"], () => require("./getAgentAgentVersions"));
+
 export { GetCustomModelArgs, GetCustomModelResult, GetCustomModelOutputArgs } from "./getCustomModel";
 export const getCustomModel: typeof import("./getCustomModel").getCustomModel = null as any;
 export const getCustomModelOutput: typeof import("./getCustomModel").getCustomModelOutput = null as any;
@@ -49,6 +54,11 @@ export { GetCustomModelsResult } from "./getCustomModels";
 export const getCustomModels: typeof import("./getCustomModels").getCustomModels = null as any;
 export const getCustomModelsOutput: typeof import("./getCustomModels").getCustomModelsOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomModels","getCustomModelsOutput"], () => require("./getCustomModels"));
+
+export { GuardrailArgs, GuardrailState } from "./guardrail";
+export type Guardrail = import("./guardrail").Guardrail;
+export const Guardrail: typeof import("./guardrail").Guardrail = null as any;
+utilities.lazyLoad(exports, ["Guardrail"], () => require("./guardrail"));
 
 export { ProvisionedModelThroughputArgs, ProvisionedModelThroughputState } from "./provisionedModelThroughput";
 export type ProvisionedModelThroughput = import("./provisionedModelThroughput").ProvisionedModelThroughput;
@@ -74,6 +84,8 @@ const _module = {
                 return new AgentKnowledgeBase(name, <any>undefined, { urn })
             case "aws:bedrock/customModel:CustomModel":
                 return new CustomModel(name, <any>undefined, { urn })
+            case "aws:bedrock/guardrail:Guardrail":
+                return new Guardrail(name, <any>undefined, { urn })
             case "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput":
                 return new ProvisionedModelThroughput(name, <any>undefined, { urn })
             default:
@@ -88,4 +100,5 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgentKnowledgeBaseAss
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentDataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentKnowledgeBase", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/guardrail", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/provisionedModelThroughput", _module)

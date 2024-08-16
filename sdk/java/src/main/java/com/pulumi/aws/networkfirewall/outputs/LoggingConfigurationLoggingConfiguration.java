@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class LoggingConfigurationLoggingConfiguration {
     /**
-     * @return Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+     * @return Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
      * 
      */
     private List<LoggingConfigurationLoggingConfigurationLogDestinationConfig> logDestinationConfigs;
 
     private LoggingConfigurationLoggingConfiguration() {}
     /**
-     * @return Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+     * @return Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
      * 
      */
     public List<LoggingConfigurationLoggingConfigurationLogDestinationConfig> logDestinationConfigs() {

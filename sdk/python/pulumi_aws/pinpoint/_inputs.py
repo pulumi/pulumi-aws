@@ -21,6 +21,10 @@ __all__ = [
     'AppLimitsArgsDict',
     'AppQuietTimeArgs',
     'AppQuietTimeArgsDict',
+    'EmailTemplateEmailTemplateArgs',
+    'EmailTemplateEmailTemplateArgsDict',
+    'EmailTemplateEmailTemplateHeaderArgs',
+    'EmailTemplateEmailTemplateHeaderArgsDict',
 ]
 
 MYPY = False
@@ -239,5 +243,195 @@ class AppQuietTimeArgs:
     @start.setter
     def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
+
+
+if not MYPY:
+    class EmailTemplateEmailTemplateArgsDict(TypedDict):
+        default_substitutions: NotRequired[pulumi.Input[str]]
+        """
+        JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgsDict']]]]
+        html_part: NotRequired[pulumi.Input[str]]
+        """
+        The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        """
+        recommender_id: NotRequired[pulumi.Input[str]]
+        """
+        The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+        """
+        subject: NotRequired[pulumi.Input[str]]
+        """
+        Subject line, or title, to use in email messages that are based on the message template.
+        """
+        text_part: NotRequired[pulumi.Input[str]]
+        """
+        Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+        """
+elif False:
+    EmailTemplateEmailTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EmailTemplateEmailTemplateArgs:
+    def __init__(__self__, *,
+                 default_substitutions: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]] = None,
+                 html_part: Optional[pulumi.Input[str]] = None,
+                 recommender_id: Optional[pulumi.Input[str]] = None,
+                 subject: Optional[pulumi.Input[str]] = None,
+                 text_part: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] default_substitutions: JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+        :param pulumi.Input[str] html_part: The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        :param pulumi.Input[str] recommender_id: The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+        :param pulumi.Input[str] subject: Subject line, or title, to use in email messages that are based on the message template.
+        :param pulumi.Input[str] text_part: Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+        """
+        if default_substitutions is not None:
+            pulumi.set(__self__, "default_substitutions", default_substitutions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if html_part is not None:
+            pulumi.set(__self__, "html_part", html_part)
+        if recommender_id is not None:
+            pulumi.set(__self__, "recommender_id", recommender_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if text_part is not None:
+            pulumi.set(__self__, "text_part", text_part)
+
+    @property
+    @pulumi.getter(name="defaultSubstitutions")
+    def default_substitutions(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+        """
+        return pulumi.get(self, "default_substitutions")
+
+    @default_substitutions.setter
+    def default_substitutions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_substitutions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="htmlPart")
+    def html_part(self) -> Optional[pulumi.Input[str]]:
+        """
+        The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        """
+        return pulumi.get(self, "html_part")
+
+    @html_part.setter
+    def html_part(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "html_part", value)
+
+    @property
+    @pulumi.getter(name="recommenderId")
+    def recommender_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+        """
+        return pulumi.get(self, "recommender_id")
+
+    @recommender_id.setter
+    def recommender_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recommender_id", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subject line, or title, to use in email messages that are based on the message template.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subject", value)
+
+    @property
+    @pulumi.getter(name="textPart")
+    def text_part(self) -> Optional[pulumi.Input[str]]:
+        """
+        Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+        """
+        return pulumi.get(self, "text_part")
+
+    @text_part.setter
+    def text_part(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text_part", value)
+
+
+if not MYPY:
+    class EmailTemplateEmailTemplateHeaderArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the message header. The header name can contain up to 126 characters.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
+        """
+elif False:
+    EmailTemplateEmailTemplateHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EmailTemplateEmailTemplateHeaderArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the message header. The header name can contain up to 126 characters.
+        :param pulumi.Input[str] value: Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the message header. The header name can contain up to 126 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 

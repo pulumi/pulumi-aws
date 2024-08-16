@@ -2075,8 +2075,8 @@ __all__ = [
     'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgsDict',
     'V2modelsSlotTypeSlotTypeValuesArgs',
     'V2modelsSlotTypeSlotTypeValuesArgsDict',
-    'V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs',
-    'V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgsDict',
+    'V2modelsSlotTypeSlotTypeValuesSampleValueArgs',
+    'V2modelsSlotTypeSlotTypeValuesSampleValueArgsDict',
     'V2modelsSlotTypeSlotTypeValuesSynonymArgs',
     'V2modelsSlotTypeSlotTypeValuesSynonymArgsDict',
     'V2modelsSlotTypeTimeoutsArgs',
@@ -59529,9 +59529,9 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs:
 
 if not MYPY:
     class V2modelsSlotTypeSlotTypeValuesArgsDict(TypedDict):
-        slot_type_values: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgsDict']]]
+        sample_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgsDict']]]]
         """
-        List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        Value of the slot type entry.  See `sample_value` argument reference below.
         """
         synonyms: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgsDict']]]]
         """
@@ -59543,27 +59543,28 @@ elif False:
 @pulumi.input_type
 class V2modelsSlotTypeSlotTypeValuesArgs:
     def __init__(__self__, *,
-                 slot_type_values: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs']]],
+                 sample_values: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgs']]]] = None,
                  synonyms: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs']]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgs']]] sample_values: Value of the slot type entry.  See `sample_value` argument reference below.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgs']]] synonyms: Additional values related to the slot type entry. See `sample_value` argument reference below.
         """
-        pulumi.set(__self__, "slot_type_values", slot_type_values)
+        if sample_values is not None:
+            pulumi.set(__self__, "sample_values", sample_values)
         if synonyms is not None:
             pulumi.set(__self__, "synonyms", synonyms)
 
     @property
-    @pulumi.getter(name="slotTypeValues")
-    def slot_type_values(self) -> pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs']]]:
+    @pulumi.getter(name="sampleValues")
+    def sample_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgs']]]]:
         """
-        List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        Value of the slot type entry.  See `sample_value` argument reference below.
         """
-        return pulumi.get(self, "slot_type_values")
+        return pulumi.get(self, "sample_values")
 
-    @slot_type_values.setter
-    def slot_type_values(self, value: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs']]]):
-        pulumi.set(self, "slot_type_values", value)
+    @sample_values.setter
+    def sample_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgs']]]]):
+        pulumi.set(self, "sample_values", value)
 
     @property
     @pulumi.getter
@@ -59579,16 +59580,16 @@ class V2modelsSlotTypeSlotTypeValuesArgs:
 
 
 if not MYPY:
-    class V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgsDict(TypedDict):
+    class V2modelsSlotTypeSlotTypeValuesSampleValueArgsDict(TypedDict):
         value: pulumi.Input[str]
         """
         Value that can be used for a slot type.
         """
 elif False:
-    V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgsDict: TypeAlias = Mapping[str, Any]
+    V2modelsSlotTypeSlotTypeValuesSampleValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs:
+class V2modelsSlotTypeSlotTypeValuesSampleValueArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
         """

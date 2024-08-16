@@ -15,6 +15,11 @@ export const getServiceAccount: typeof import("./getServiceAccount").getServiceA
 export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
 
+export { OrganizationDelegatedAdminAccountArgs, OrganizationDelegatedAdminAccountState } from "./organizationDelegatedAdminAccount";
+export type OrganizationDelegatedAdminAccount = import("./organizationDelegatedAdminAccount").OrganizationDelegatedAdminAccount;
+export const OrganizationDelegatedAdminAccount: typeof import("./organizationDelegatedAdminAccount").OrganizationDelegatedAdminAccount = null as any;
+utilities.lazyLoad(exports, ["OrganizationDelegatedAdminAccount"], () => require("./organizationDelegatedAdminAccount"));
+
 export { TrailArgs, TrailState } from "./trail";
 export type Trail = import("./trail").Trail;
 export const Trail: typeof import("./trail").Trail = null as any;
@@ -27,6 +32,8 @@ const _module = {
         switch (type) {
             case "aws:cloudtrail/eventDataStore:EventDataStore":
                 return new EventDataStore(name, <any>undefined, { urn })
+            case "aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount":
+                return new OrganizationDelegatedAdminAccount(name, <any>undefined, { urn })
             case "aws:cloudtrail/trail:Trail":
                 return new Trail(name, <any>undefined, { urn })
             default:
@@ -35,4 +42,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "cloudtrail/eventDataStore", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudtrail/organizationDelegatedAdminAccount", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudtrail/trail", _module)

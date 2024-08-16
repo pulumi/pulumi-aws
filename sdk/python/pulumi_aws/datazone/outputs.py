@@ -17,6 +17,12 @@ from .. import _utilities
 __all__ = [
     'DomainSingleSignOn',
     'DomainTimeouts',
+    'EnvironmentProfileUserParameter',
+    'FormTypeImport',
+    'FormTypeModel',
+    'FormTypeTimeouts',
+    'GlossaryTermTermRelations',
+    'GlossaryTermTimeouts',
     'ProjectFailureReason',
     'ProjectTimeouts',
 ]
@@ -88,6 +94,170 @@ class DomainTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class EnvironmentProfileUserParameter(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: Name of the environment profile parameter.
+        :param str value: Value of the environment profile parameter.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the environment profile parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of the environment profile parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FormTypeImport(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 revision: str):
+        """
+        :param str name: Name of the form type. Must be the name of the structure in smithy document.
+        :param str revision: Revision of the Form Type.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "revision", revision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the form type. Must be the name of the structure in smithy document.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> str:
+        """
+        Revision of the Form Type.
+        """
+        return pulumi.get(self, "revision")
+
+
+@pulumi.output_type
+class FormTypeModel(dict):
+    def __init__(__self__, *,
+                 smithy: str):
+        """
+        :param str smithy: Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "smithy", smithy)
+
+    @property
+    @pulumi.getter
+    def smithy(self) -> str:
+        """
+        Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "smithy")
+
+
+@pulumi.output_type
+class FormTypeTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+
+@pulumi.output_type
+class GlossaryTermTermRelations(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isAs":
+            suggest = "is_as"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlossaryTermTermRelations. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlossaryTermTermRelations.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlossaryTermTermRelations.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classifies: Optional[Sequence[str]] = None,
+                 is_as: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] classifies: String array that calssifies the term relations.
+        """
+        if classifies is not None:
+            pulumi.set(__self__, "classifies", classifies)
+        if is_as is not None:
+            pulumi.set(__self__, "is_as", is_as)
+
+    @property
+    @pulumi.getter
+    def classifies(self) -> Optional[Sequence[str]]:
+        """
+        String array that calssifies the term relations.
+        """
+        return pulumi.get(self, "classifies")
+
+    @property
+    @pulumi.getter(name="isAs")
+    def is_as(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "is_as")
+
+
+@pulumi.output_type
+class GlossaryTermTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
 
 
 @pulumi.output_type

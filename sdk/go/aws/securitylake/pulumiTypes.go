@@ -19,7 +19,7 @@ type AwsLogSourceSource struct {
 	Accounts []string `pulumi:"accounts"`
 	// Specify the Regions where you want to enable Security Lake.
 	Regions []string `pulumi:"regions"`
-	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
 	SourceName string `pulumi:"sourceName"`
 	// The version for a AWS source.
 	// If not specified, the version will be the default.
@@ -44,7 +44,7 @@ type AwsLogSourceSourceArgs struct {
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
 	// Specify the Regions where you want to enable Security Lake.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
-	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
 	SourceName pulumi.StringInput `pulumi:"sourceName"`
 	// The version for a AWS source.
 	// If not specified, the version will be the default.
@@ -140,7 +140,7 @@ func (o AwsLogSourceSourceOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsLogSourceSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
-// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
 func (o AwsLogSourceSourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsLogSourceSource) string { return v.SourceName }).(pulumi.StringOutput)
 }
@@ -197,7 +197,7 @@ func (o AwsLogSourceSourcePtrOutput) Regions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
 func (o AwsLogSourceSourcePtrOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsLogSourceSource) *string {
 		if v == nil {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs : global::Pulumi.ResourceArgs
+    public sealed class V2modelsSlotTypeSlotTypeValuesSampleValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value that can be used for a slot type.
@@ -18,9 +18,9 @@ namespace Pulumi.Aws.Lex.Inputs
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
-        public V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs()
+        public V2modelsSlotTypeSlotTypeValuesSampleValueArgs()
         {
         }
-        public static new V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs Empty => new V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs();
+        public static new V2modelsSlotTypeSlotTypeValuesSampleValueArgs Empty => new V2modelsSlotTypeSlotTypeValuesSampleValueArgs();
     }
 }

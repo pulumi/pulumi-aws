@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> AppName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         /// </summary>
         [Output("appType")]
         public Output<string> AppType { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> AppName { get; set; } = null!;
 
         /// <summary>
-        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         /// </summary>
         [Input("appType", required: true)]
         public Input<string> AppType { get; set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppName { get; set; }
 
         /// <summary>
-        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         /// </summary>
         [Input("appType")]
         public Input<string>? AppType { get; set; }

@@ -10,9 +10,9 @@ import java.lang.String;
 import java.util.Objects;
 
 
-public final class V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs extends com.pulumi.resources.ResourceArgs {
+public final class V2modelsSlotTypeSlotTypeValuesSampleValueArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs Empty = new V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs();
+    public static final V2modelsSlotTypeSlotTypeValuesSampleValueArgs Empty = new V2modelsSlotTypeSlotTypeValuesSampleValueArgs();
 
     /**
      * Value that can be used for a slot type.
@@ -29,28 +29,28 @@ public final class V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs extends com.p
         return this.value;
     }
 
-    private V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs() {}
+    private V2modelsSlotTypeSlotTypeValuesSampleValueArgs() {}
 
-    private V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs(V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs $) {
+    private V2modelsSlotTypeSlotTypeValuesSampleValueArgs(V2modelsSlotTypeSlotTypeValuesSampleValueArgs $) {
         this.value = $.value;
     }
 
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs defaults) {
+    public static Builder builder(V2modelsSlotTypeSlotTypeValuesSampleValueArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs $;
+        private V2modelsSlotTypeSlotTypeValuesSampleValueArgs $;
 
         public Builder() {
-            $ = new V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs();
+            $ = new V2modelsSlotTypeSlotTypeValuesSampleValueArgs();
         }
 
-        public Builder(V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs defaults) {
-            $ = new V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs(Objects.requireNonNull(defaults));
+        public Builder(V2modelsSlotTypeSlotTypeValuesSampleValueArgs defaults) {
+            $ = new V2modelsSlotTypeSlotTypeValuesSampleValueArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -74,9 +74,9 @@ public final class V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs extends com.p
             return value(Output.of(value));
         }
 
-        public V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs build() {
+        public V2modelsSlotTypeSlotTypeValuesSampleValueArgs build() {
             if ($.value == null) {
-                throw new MissingRequiredPropertyException("V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs", "value");
+                throw new MissingRequiredPropertyException("V2modelsSlotTypeSlotTypeValuesSampleValueArgs", "value");
             }
             return $;
         }

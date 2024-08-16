@@ -6,11 +6,13 @@ package com.pulumi.aws.bedrock;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentAgentKnowledgeBaseAssociationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentKnowledgeBaseAssociationState;
+import com.pulumi.aws.bedrock.outputs.AgentAgentKnowledgeBaseAssociationTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -140,6 +142,12 @@ public class AgentAgentKnowledgeBaseAssociation extends com.pulumi.resources.Cus
      */
     public Output<String> knowledgeBaseState() {
         return this.knowledgeBaseState;
+    }
+    @Export(name="timeouts", refs={AgentAgentKnowledgeBaseAssociationTimeouts.class}, tree="[0]")
+    private Output</* @Nullable */ AgentAgentKnowledgeBaseAssociationTimeouts> timeouts;
+
+    public Output<Optional<AgentAgentKnowledgeBaseAssociationTimeouts>> timeouts() {
+        return Codegen.optional(this.timeouts);
     }
 
     /**

@@ -67,7 +67,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly appName!: pulumi.Output<string>;
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      */
     public readonly appType!: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export interface AppState {
      */
     appName?: pulumi.Input<string>;
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      */
     appType?: pulumi.Input<string>;
     /**
@@ -202,7 +202,7 @@ export interface AppArgs {
      */
     appName: pulumi.Input<string>;
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      */
     appType: pulumi.Input<string>;
     /**

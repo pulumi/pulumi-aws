@@ -11242,6 +11242,17 @@ export namespace bedrock {
         update?: string;
     }
 
+    export interface AgentAgentKnowledgeBaseAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
     export interface AgentAgentPromptOverrideConfiguration {
         /**
          * ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
@@ -11647,6 +11658,46 @@ export namespace bedrock {
         subnetIds: string[];
     }
 
+    export interface GetAgentAgentVersionsAgentVersionSummary {
+        /**
+         * Name of agent to which the version belongs.
+         */
+        agentName: string;
+        /**
+         * Status of the agent to which the version belongs.
+         */
+        agentStatus: string;
+        /**
+         * Version of the agent.
+         */
+        agentVersion: string;
+        /**
+         * Time at which the version was created.
+         */
+        createdAt: string;
+        /**
+         * Description of the version of the agent.
+         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
+         */
+        description: string;
+        guardrailConfigurations?: outputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration[];
+        /**
+         * Time at which the version was last updated.
+         */
+        updatedAt: string;
+    }
+
+    export interface GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration {
+        /**
+         * Unique identifier of the guardrail.
+         */
+        guardrailIdentifier: string;
+        /**
+         * Version of the guardrail.
+         */
+        guardrailVersion: string;
+    }
+
     export interface GetCustomModelOutputDataConfig {
         /**
          * The S3 URI where the validation data is stored..
@@ -11702,6 +11753,153 @@ export namespace bedrock {
          * The name of the custom model.
          */
         modelName: string;
+    }
+
+    export interface GuardrailContentPolicyConfig {
+        /**
+         * List of content filter configs in content policy. See Filters Config for more information.
+         */
+        filtersConfigs?: outputs.bedrock.GuardrailContentPolicyConfigFiltersConfig[];
+    }
+
+    export interface GuardrailContentPolicyConfigFiltersConfig {
+        /**
+         * Strength for filters.
+         */
+        inputStrength: string;
+        /**
+         * Strength for filters.
+         */
+        outputStrength: string;
+        /**
+         * Type of contextual grounding filter.
+         */
+        type: string;
+    }
+
+    export interface GuardrailContextualGroundingPolicyConfig {
+        /**
+         * List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+         */
+        filtersConfigs?: outputs.bedrock.GuardrailContextualGroundingPolicyConfigFiltersConfig[];
+    }
+
+    export interface GuardrailContextualGroundingPolicyConfigFiltersConfig {
+        /**
+         * The threshold for this filter.
+         */
+        threshold: number;
+        /**
+         * Type of contextual grounding filter.
+         */
+        type: string;
+    }
+
+    export interface GuardrailSensitiveInformationPolicyConfig {
+        /**
+         * List of entities. See PII Entities Config for more information.
+         */
+        piiEntitiesConfigs?: outputs.bedrock.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig[];
+        /**
+         * List of regex. See Regexes Config for more information.
+         */
+        regexesConfigs?: outputs.bedrock.GuardrailSensitiveInformationPolicyConfigRegexesConfig[];
+    }
+
+    export interface GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
+        /**
+         * Options for sensitive information action.
+         */
+        action: string;
+        /**
+         * The currently supported PII entities.
+         */
+        type: string;
+    }
+
+    export interface GuardrailSensitiveInformationPolicyConfigRegexesConfig {
+        /**
+         * Options for sensitive information action.
+         */
+        action: string;
+        /**
+         * The regex description.
+         */
+        description: string;
+        /**
+         * The regex name.
+         */
+        name: string;
+        /**
+         * The regex pattern.
+         */
+        pattern: string;
+    }
+
+    export interface GuardrailTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface GuardrailTopicPolicyConfig {
+        /**
+         * List of topic configs in topic policy. See Topics Config for more information.
+         */
+        topicsConfigs?: outputs.bedrock.GuardrailTopicPolicyConfigTopicsConfig[];
+    }
+
+    export interface GuardrailTopicPolicyConfigTopicsConfig {
+        /**
+         * Definition of topic in topic policy.
+         */
+        definition: string;
+        /**
+         * List of text examples.
+         */
+        examples: string[];
+        /**
+         * Name of topic in topic policy.
+         */
+        name: string;
+        /**
+         * Type of topic in a policy.
+         */
+        type: string;
+    }
+
+    export interface GuardrailWordPolicyConfig {
+        /**
+         * A config for the list of managed words. See Managed Word Lists Config for more information.
+         */
+        managedWordListsConfigs?: outputs.bedrock.GuardrailWordPolicyConfigManagedWordListsConfig[];
+        /**
+         * List of custom word configs. See Words Config for more information.
+         */
+        wordsConfigs?: outputs.bedrock.GuardrailWordPolicyConfigWordsConfig[];
+    }
+
+    export interface GuardrailWordPolicyConfigManagedWordListsConfig {
+        /**
+         * Options for managed words.
+         */
+        type: string;
+    }
+
+    export interface GuardrailWordPolicyConfigWordsConfig {
+        /**
+         * The custom word text.
+         */
+        text: string;
     }
 
     export interface ProvisionedModelThroughputTimeouts {
@@ -16356,7 +16554,7 @@ export namespace codepipeline {
          */
         category: string;
         /**
-         * A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
+         * A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
          */
         configuration?: {[key: string]: string};
         /**
@@ -22906,6 +23104,59 @@ export namespace datazone {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: string;
+    }
+
+    export interface EnvironmentProfileUserParameter {
+        /**
+         * Name of the environment profile parameter.
+         */
+        name?: string;
+        /**
+         * Value of the environment profile parameter.
+         */
+        value?: string;
+    }
+
+    export interface FormTypeImport {
+        /**
+         * Name of the form type. Must be the name of the structure in smithy document.
+         */
+        name: string;
+        /**
+         * Revision of the Form Type.
+         */
+        revision: string;
+    }
+
+    export interface FormTypeModel {
+        /**
+         * Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+         *
+         * The following arguments are optional:
+         */
+        smithy: string;
+    }
+
+    export interface FormTypeTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
+    export interface GlossaryTermTermRelations {
+        /**
+         * String array that calssifies the term relations.
+         */
+        classifies?: string[];
+        isAs?: string[];
+    }
+
+    export interface GlossaryTermTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
     }
 
     export interface ProjectFailureReason {
@@ -58355,16 +58606,16 @@ export namespace lex {
 
     export interface V2modelsSlotTypeSlotTypeValues {
         /**
-         * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
+         * Value of the slot type entry.  See `sampleValue` argument reference below.
          */
-        slotTypeValues: outputs.lex.V2modelsSlotTypeSlotTypeValuesSlotTypeValue[];
+        sampleValues?: outputs.lex.V2modelsSlotTypeSlotTypeValuesSampleValue[];
         /**
          * Additional values related to the slot type entry. See `sampleValue` argument reference below.
          */
         synonyms?: outputs.lex.V2modelsSlotTypeSlotTypeValuesSynonym[];
     }
 
-    export interface V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
+    export interface V2modelsSlotTypeSlotTypeValuesSampleValue {
         /**
          * Value that can be used for a slot type.
          */
@@ -63973,7 +64224,7 @@ export namespace networkfirewall {
 
     export interface LoggingConfigurationLoggingConfiguration {
         /**
-         * Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+         * Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
          */
         logDestinationConfigs: outputs.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfig[];
     }
@@ -63991,7 +64242,7 @@ export namespace networkfirewall {
          */
         logDestinationType: string;
         /**
-         * The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+         * The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
          */
         logType: string;
     }
@@ -67151,6 +67402,42 @@ export namespace pinpoint {
          * The default start time for quiet time in ISO 8601 format. Required if `end` is set
          */
         start?: string;
+    }
+
+    export interface EmailTemplateEmailTemplate {
+        /**
+         * JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+         */
+        defaultSubstitutions?: string;
+        description?: string;
+        headers?: outputs.pinpoint.EmailTemplateEmailTemplateHeader[];
+        /**
+         * The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+         */
+        htmlPart?: string;
+        /**
+         * The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+         */
+        recommenderId?: string;
+        /**
+         * Subject line, or title, to use in email messages that are based on the message template.
+         */
+        subject?: string;
+        /**
+         * Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+         */
+        textPart?: string;
+    }
+
+    export interface EmailTemplateEmailTemplateHeader {
+        /**
+         * Name of the message header. The header name can contain up to 126 characters.
+         */
+        name?: string;
+        /**
+         * Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
+         */
+        value?: string;
     }
 
 }
@@ -79144,7 +79431,7 @@ export namespace securitylake {
          */
         regions: string[];
         /**
-         * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+         * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
          */
         sourceName: string;
         /**

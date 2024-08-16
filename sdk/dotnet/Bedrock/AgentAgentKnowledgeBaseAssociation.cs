@@ -78,6 +78,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("knowledgeBaseState")]
         public Output<string> KnowledgeBaseState { get; private set; } = null!;
 
+        [Output("timeouts")]
+        public Output<Outputs.AgentAgentKnowledgeBaseAssociationTimeouts?> Timeouts { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AgentAgentKnowledgeBaseAssociation resource with the given unique name, arguments, and options.
@@ -156,6 +159,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("knowledgeBaseState", required: true)]
         public Input<string> KnowledgeBaseState { get; set; } = null!;
 
+        [Input("timeouts")]
+        public Input<Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs>? Timeouts { get; set; }
+
         public AgentAgentKnowledgeBaseAssociationArgs()
         {
         }
@@ -195,6 +201,9 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("knowledgeBaseState")]
         public Input<string>? KnowledgeBaseState { get; set; }
+
+        [Input("timeouts")]
+        public Input<Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsGetArgs>? Timeouts { get; set; }
 
         public AgentAgentKnowledgeBaseAssociationState()
         {

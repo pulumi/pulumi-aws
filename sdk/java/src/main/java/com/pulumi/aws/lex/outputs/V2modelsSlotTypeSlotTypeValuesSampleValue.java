@@ -9,14 +9,14 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
+public final class V2modelsSlotTypeSlotTypeValuesSampleValue {
     /**
      * @return Value that can be used for a slot type.
      * 
      */
     private String value;
 
-    private V2modelsSlotTypeSlotTypeValuesSlotTypeValue() {}
+    private V2modelsSlotTypeSlotTypeValuesSampleValue() {}
     /**
      * @return Value that can be used for a slot type.
      * 
@@ -29,14 +29,14 @@ public final class V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
         return new Builder();
     }
 
-    public static Builder builder(V2modelsSlotTypeSlotTypeValuesSlotTypeValue defaults) {
+    public static Builder builder(V2modelsSlotTypeSlotTypeValuesSampleValue defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
         private String value;
         public Builder() {}
-        public Builder(V2modelsSlotTypeSlotTypeValuesSlotTypeValue defaults) {
+        public Builder(V2modelsSlotTypeSlotTypeValuesSampleValue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
         }
@@ -44,13 +44,13 @@ public final class V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
         @CustomType.Setter
         public Builder value(String value) {
             if (value == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotTypeSlotTypeValuesSlotTypeValue", "value");
+              throw new MissingRequiredPropertyException("V2modelsSlotTypeSlotTypeValuesSampleValue", "value");
             }
             this.value = value;
             return this;
         }
-        public V2modelsSlotTypeSlotTypeValuesSlotTypeValue build() {
-            final var _resultValue = new V2modelsSlotTypeSlotTypeValuesSlotTypeValue();
+        public V2modelsSlotTypeSlotTypeValuesSampleValue build() {
+            final var _resultValue = new V2modelsSlotTypeSlotTypeValuesSampleValue();
             _resultValue.value = value;
             return _resultValue;
         }

@@ -69,7 +69,7 @@ class AwsLogSourceSource(dict):
                  source_version: Optional[str] = None):
         """
         :param Sequence[str] regions: Specify the Regions where you want to enable Security Lake.
-        :param str source_name: The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+        :param str source_name: The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
         :param Sequence[str] accounts: Specify the AWS account information where you want to enable Security Lake.
                If not specified, uses all accounts included in the Security Lake.
         :param str source_version: The version for a AWS source.
@@ -95,7 +95,7 @@ class AwsLogSourceSource(dict):
     @pulumi.getter(name="sourceName")
     def source_name(self) -> str:
         """
-        The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+        The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
         """
         return pulumi.get(self, "source_name")
 

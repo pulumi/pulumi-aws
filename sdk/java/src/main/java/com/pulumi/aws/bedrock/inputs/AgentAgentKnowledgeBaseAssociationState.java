@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -94,6 +95,13 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         return Optional.ofNullable(this.knowledgeBaseState);
     }
 
+    @Import(name="timeouts")
+    private @Nullable Output<AgentAgentKnowledgeBaseAssociationTimeoutsArgs> timeouts;
+
+    public Optional<Output<AgentAgentKnowledgeBaseAssociationTimeoutsArgs>> timeouts() {
+        return Optional.ofNullable(this.timeouts);
+    }
+
     private AgentAgentKnowledgeBaseAssociationState() {}
 
     private AgentAgentKnowledgeBaseAssociationState(AgentAgentKnowledgeBaseAssociationState $) {
@@ -102,6 +110,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         this.description = $.description;
         this.knowledgeBaseId = $.knowledgeBaseId;
         this.knowledgeBaseState = $.knowledgeBaseState;
+        this.timeouts = $.timeouts;
     }
 
     public static Builder builder() {
@@ -229,6 +238,15 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
          */
         public Builder knowledgeBaseState(String knowledgeBaseState) {
             return knowledgeBaseState(Output.of(knowledgeBaseState));
+        }
+
+        public Builder timeouts(@Nullable Output<AgentAgentKnowledgeBaseAssociationTimeoutsArgs> timeouts) {
+            $.timeouts = timeouts;
+            return this;
+        }
+
+        public Builder timeouts(AgentAgentKnowledgeBaseAssociationTimeoutsArgs timeouts) {
+            return timeouts(Output.of(timeouts));
         }
 
         public AgentAgentKnowledgeBaseAssociationState build() {

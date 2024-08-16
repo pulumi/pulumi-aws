@@ -12,8 +12,10 @@ from .agent_agent_knowledge_base_association import *
 from .agent_data_source import *
 from .agent_knowledge_base import *
 from .custom_model import *
+from .get_agent_agent_versions import *
 from .get_custom_model import *
 from .get_custom_models import *
+from .guardrail import *
 from .provisioned_model_throughput import *
 from ._inputs import *
 from . import outputs

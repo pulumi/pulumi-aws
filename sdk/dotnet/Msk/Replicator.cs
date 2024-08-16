@@ -75,6 +75,10 @@ namespace Pulumi.Aws.Msk
     ///                     {
     ///                         ".*",
     ///                     },
+    ///                     StartingPosition = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs
+    ///                     {
+    ///                         Type = "LATEST",
+    ///                     },
     ///                 },
     ///             },
     ///             ConsumerGroupReplications = new[]

@@ -65,6 +65,7 @@ namespace Pulumi.Aws.Alb
     ///         LoadBalancerArn = frontEndAwsLb.Arn,
     ///         Port = 443,
     ///         Protocol = "TLS",
+    ///         SslPolicy = "ELBSecurityPolicy-2016-08",
     ///         CertificateArn = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
     ///         AlpnPolicy = "HTTP2Preferred",
     ///         DefaultActions = new[]
@@ -395,7 +396,7 @@ namespace Pulumi.Aws.Alb
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         /// </summary>
         [Output("sslPolicy")]
         public Output<string> SslPolicy { get; private set; } = null!;
@@ -515,7 +516,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }
@@ -599,7 +600,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }

@@ -7,20 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Lex.Inputs
+namespace Pulumi.Aws.Lex.Outputs
 {
 
-    public sealed class V2modelsSlotTypeSlotTypeValuesSlotTypeValueGetArgs : global::Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class V2modelsSlotTypeSlotTypeValuesSampleValue
     {
         /// <summary>
         /// Value that can be used for a slot type.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        public readonly string Value;
 
-        public V2modelsSlotTypeSlotTypeValuesSlotTypeValueGetArgs()
+        [OutputConstructor]
+        private V2modelsSlotTypeSlotTypeValuesSampleValue(string value)
         {
+            Value = value;
         }
-        public static new V2modelsSlotTypeSlotTypeValuesSlotTypeValueGetArgs Empty => new V2modelsSlotTypeSlotTypeValuesSlotTypeValueGetArgs();
     }
 }

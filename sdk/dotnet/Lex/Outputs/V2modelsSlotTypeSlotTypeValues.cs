@@ -14,9 +14,9 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsSlotTypeSlotTypeValues
     {
         /// <summary>
-        /// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        /// Value of the slot type entry.  See `sample_value` argument reference below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValue> SlotTypeValues;
+        public readonly ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValuesSampleValue> SampleValues;
         /// <summary>
         /// Additional values related to the slot type entry. See `sample_value` argument reference below.
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.Aws.Lex.Outputs
 
         [OutputConstructor]
         private V2modelsSlotTypeSlotTypeValues(
-            ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValue> slotTypeValues,
+            ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValuesSampleValue> sampleValues,
 
             ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValuesSynonym> synonyms)
         {
-            SlotTypeValues = slotTypeValues;
+            SampleValues = sampleValues;
             Synonyms = synonyms;
         }
     }

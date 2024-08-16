@@ -19,6 +19,18 @@ __all__ = [
     'DomainSingleSignOnArgsDict',
     'DomainTimeoutsArgs',
     'DomainTimeoutsArgsDict',
+    'EnvironmentProfileUserParameterArgs',
+    'EnvironmentProfileUserParameterArgsDict',
+    'FormTypeImportArgs',
+    'FormTypeImportArgsDict',
+    'FormTypeModelArgs',
+    'FormTypeModelArgsDict',
+    'FormTypeTimeoutsArgs',
+    'FormTypeTimeoutsArgsDict',
+    'GlossaryTermTermRelationsArgs',
+    'GlossaryTermTermRelationsArgsDict',
+    'GlossaryTermTimeoutsArgs',
+    'GlossaryTermTimeoutsArgsDict',
     'ProjectFailureReasonArgs',
     'ProjectFailureReasonArgsDict',
     'ProjectTimeoutsArgs',
@@ -113,6 +125,254 @@ class DomainTimeoutsArgs:
     @delete.setter
     def delete(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delete", value)
+
+
+if not MYPY:
+    class EnvironmentProfileUserParameterArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the environment profile parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the environment profile parameter.
+        """
+elif False:
+    EnvironmentProfileUserParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentProfileUserParameterArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the environment profile parameter.
+        :param pulumi.Input[str] value: Value of the environment profile parameter.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the environment profile parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the environment profile parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class FormTypeImportArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the form type. Must be the name of the structure in smithy document.
+        """
+        revision: pulumi.Input[str]
+        """
+        Revision of the Form Type.
+        """
+elif False:
+    FormTypeImportArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FormTypeImportArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 revision: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of the form type. Must be the name of the structure in smithy document.
+        :param pulumi.Input[str] revision: Revision of the Form Type.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "revision", revision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the form type. Must be the name of the structure in smithy document.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def revision(self) -> pulumi.Input[str]:
+        """
+        Revision of the Form Type.
+        """
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: pulumi.Input[str]):
+        pulumi.set(self, "revision", value)
+
+
+if not MYPY:
+    class FormTypeModelArgsDict(TypedDict):
+        smithy: pulumi.Input[str]
+        """
+        Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+
+        The following arguments are optional:
+        """
+elif False:
+    FormTypeModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FormTypeModelArgs:
+    def __init__(__self__, *,
+                 smithy: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] smithy: Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "smithy", smithy)
+
+    @property
+    @pulumi.getter
+    def smithy(self) -> pulumi.Input[str]:
+        """
+        Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "smithy")
+
+    @smithy.setter
+    def smithy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "smithy", value)
+
+
+if not MYPY:
+    class FormTypeTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    FormTypeTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FormTypeTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+
+if not MYPY:
+    class GlossaryTermTermRelationsArgsDict(TypedDict):
+        classifies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        String array that calssifies the term relations.
+        """
+        is_as: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    GlossaryTermTermRelationsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlossaryTermTermRelationsArgs:
+    def __init__(__self__, *,
+                 classifies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_as: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifies: String array that calssifies the term relations.
+        """
+        if classifies is not None:
+            pulumi.set(__self__, "classifies", classifies)
+        if is_as is not None:
+            pulumi.set(__self__, "is_as", is_as)
+
+    @property
+    @pulumi.getter
+    def classifies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        String array that calssifies the term relations.
+        """
+        return pulumi.get(self, "classifies")
+
+    @classifies.setter
+    def classifies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "classifies", value)
+
+    @property
+    @pulumi.getter(name="isAs")
+    def is_as(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "is_as")
+
+    @is_as.setter
+    def is_as(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "is_as", value)
+
+
+if not MYPY:
+    class GlossaryTermTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    GlossaryTermTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlossaryTermTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
 
 
 if not MYPY:

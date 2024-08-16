@@ -1947,6 +1947,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/guardrail",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/guardrail:Guardrail": "Guardrail"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/provisionedModelThroughput",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -2431,6 +2439,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudtrail",
   "classes": {
    "aws:cloudtrail/eventDataStore:EventDataStore": "EventDataStore"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudtrail/organizationDelegatedAdminAccount",
+  "fqn": "pulumi_aws.cloudtrail",
+  "classes": {
+   "aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount": "OrganizationDelegatedAdminAccount"
   }
  },
  {
@@ -3331,10 +3347,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datazone/environmentProfile",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/environmentProfile:EnvironmentProfile": "EnvironmentProfile"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/formType",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/formType:FormType": "FormType"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "datazone/glossary",
   "fqn": "pulumi_aws.datazone",
   "classes": {
    "aws:datazone/glossary:Glossary": "Glossary"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/glossaryTerm",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/glossaryTerm:GlossaryTerm": "GlossaryTerm"
   }
  },
  {
@@ -8471,6 +8511,14 @@ _utilities.register(
   "fqn": "pulumi_aws.pinpoint",
   "classes": {
    "aws:pinpoint/emailChannel:EmailChannel": "EmailChannel"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "pinpoint/emailTemplate",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/emailTemplate:EmailTemplate": "EmailTemplate"
   }
  },
  {

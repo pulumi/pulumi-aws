@@ -1046,7 +1046,7 @@ __all__ = [
     'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting',
     'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource',
     'V2modelsSlotTypeSlotTypeValues',
-    'V2modelsSlotTypeSlotTypeValuesSlotTypeValue',
+    'V2modelsSlotTypeSlotTypeValuesSampleValue',
     'V2modelsSlotTypeSlotTypeValuesSynonym',
     'V2modelsSlotTypeTimeouts',
     'V2modelsSlotTypeValueSelectionSetting',
@@ -45121,8 +45121,8 @@ class V2modelsSlotTypeSlotTypeValues(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "slotTypeValues":
-            suggest = "slot_type_values"
+        if key == "sampleValues":
+            suggest = "sample_values"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeSlotTypeValues. Access the value via the '{suggest}' property getter instead.")
@@ -45136,23 +45136,24 @@ class V2modelsSlotTypeSlotTypeValues(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 slot_type_values: Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValue'],
+                 sample_values: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSampleValue']] = None,
                  synonyms: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSynonym']] = None):
         """
-        :param Sequence['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs'] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        :param Sequence['V2modelsSlotTypeSlotTypeValuesSampleValueArgs'] sample_values: Value of the slot type entry.  See `sample_value` argument reference below.
         :param Sequence['V2modelsSlotTypeSlotTypeValuesSynonymArgs'] synonyms: Additional values related to the slot type entry. See `sample_value` argument reference below.
         """
-        pulumi.set(__self__, "slot_type_values", slot_type_values)
+        if sample_values is not None:
+            pulumi.set(__self__, "sample_values", sample_values)
         if synonyms is not None:
             pulumi.set(__self__, "synonyms", synonyms)
 
     @property
-    @pulumi.getter(name="slotTypeValues")
-    def slot_type_values(self) -> Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValue']:
+    @pulumi.getter(name="sampleValues")
+    def sample_values(self) -> Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSampleValue']]:
         """
-        List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        Value of the slot type entry.  See `sample_value` argument reference below.
         """
-        return pulumi.get(self, "slot_type_values")
+        return pulumi.get(self, "sample_values")
 
     @property
     @pulumi.getter
@@ -45164,7 +45165,7 @@ class V2modelsSlotTypeSlotTypeValues(dict):
 
 
 @pulumi.output_type
-class V2modelsSlotTypeSlotTypeValuesSlotTypeValue(dict):
+class V2modelsSlotTypeSlotTypeValuesSampleValue(dict):
     def __init__(__self__, *,
                  value: str):
         """

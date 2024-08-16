@@ -45,6 +45,7 @@ import * as utilities from "../utilities";
  *     loadBalancerArn: frontEndAwsLb.arn,
  *     port: 443,
  *     protocol: "TLS",
+ *     sslPolicy: "ELBSecurityPolicy-2016-08",
  *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
  *     alpnPolicy: "HTTP2Preferred",
  *     defaultActions: [{
@@ -286,7 +287,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      */
     public readonly sslPolicy!: pulumi.Output<string>;
     /**
@@ -392,7 +393,7 @@ export interface ListenerState {
      */
     protocol?: pulumi.Input<string>;
     /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      */
     sslPolicy?: pulumi.Input<string>;
     /**
@@ -444,7 +445,7 @@ export interface ListenerArgs {
      */
     protocol?: pulumi.Input<string>;
     /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      */
     sslPolicy?: pulumi.Input<string>;
     /**

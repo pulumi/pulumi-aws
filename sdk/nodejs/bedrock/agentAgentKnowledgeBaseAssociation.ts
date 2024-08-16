@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -81,6 +84,7 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly knowledgeBaseState!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts | undefined>;
 
     /**
      * Create a AgentAgentKnowledgeBaseAssociation resource with the given unique name, arguments, and options.
@@ -100,6 +104,7 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["knowledgeBaseId"] = state ? state.knowledgeBaseId : undefined;
             resourceInputs["knowledgeBaseState"] = state ? state.knowledgeBaseState : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as AgentAgentKnowledgeBaseAssociationArgs | undefined;
             if ((!args || args.agentId === undefined) && !opts.urn) {
@@ -119,6 +124,7 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["knowledgeBaseId"] = args ? args.knowledgeBaseId : undefined;
             resourceInputs["knowledgeBaseState"] = args ? args.knowledgeBaseState : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AgentAgentKnowledgeBaseAssociation.__pulumiType, name, resourceInputs, opts);
@@ -151,6 +157,7 @@ export interface AgentAgentKnowledgeBaseAssociationState {
      * The following arguments are optional:
      */
     knowledgeBaseState?: pulumi.Input<string>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts>;
 }
 
 /**
@@ -179,4 +186,5 @@ export interface AgentAgentKnowledgeBaseAssociationArgs {
      * The following arguments are optional:
      */
     knowledgeBaseState: pulumi.Input<string>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts>;
 }

@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *                 deliveryStream: exampleAwsKinesisFirehoseDeliveryStream.name,
  *             },
  *             logDestinationType: "KinesisDataFirehose",
- *             logType: "ALERT",
+ *             logType: "TLS",
  *         }],
  *     },
  * });

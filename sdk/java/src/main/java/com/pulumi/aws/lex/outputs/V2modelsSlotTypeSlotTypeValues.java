@@ -3,10 +3,9 @@
 
 package com.pulumi.aws.lex.outputs;
 
-import com.pulumi.aws.lex.outputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValue;
+import com.pulumi.aws.lex.outputs.V2modelsSlotTypeSlotTypeValuesSampleValue;
 import com.pulumi.aws.lex.outputs.V2modelsSlotTypeSlotTypeValuesSynonym;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -14,10 +13,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsSlotTypeSlotTypeValues {
     /**
-     * @return List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+     * @return Value of the slot type entry.  See `sample_value` argument reference below.
      * 
      */
-    private List<V2modelsSlotTypeSlotTypeValuesSlotTypeValue> slotTypeValues;
+    private @Nullable List<V2modelsSlotTypeSlotTypeValuesSampleValue> sampleValues;
     /**
      * @return Additional values related to the slot type entry. See `sample_value` argument reference below.
      * 
@@ -26,11 +25,11 @@ public final class V2modelsSlotTypeSlotTypeValues {
 
     private V2modelsSlotTypeSlotTypeValues() {}
     /**
-     * @return List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+     * @return Value of the slot type entry.  See `sample_value` argument reference below.
      * 
      */
-    public List<V2modelsSlotTypeSlotTypeValuesSlotTypeValue> slotTypeValues() {
-        return this.slotTypeValues;
+    public List<V2modelsSlotTypeSlotTypeValuesSampleValue> sampleValues() {
+        return this.sampleValues == null ? List.of() : this.sampleValues;
     }
     /**
      * @return Additional values related to the slot type entry. See `sample_value` argument reference below.
@@ -49,25 +48,23 @@ public final class V2modelsSlotTypeSlotTypeValues {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<V2modelsSlotTypeSlotTypeValuesSlotTypeValue> slotTypeValues;
+        private @Nullable List<V2modelsSlotTypeSlotTypeValuesSampleValue> sampleValues;
         private @Nullable List<V2modelsSlotTypeSlotTypeValuesSynonym> synonyms;
         public Builder() {}
         public Builder(V2modelsSlotTypeSlotTypeValues defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.slotTypeValues = defaults.slotTypeValues;
+    	      this.sampleValues = defaults.sampleValues;
     	      this.synonyms = defaults.synonyms;
         }
 
         @CustomType.Setter
-        public Builder slotTypeValues(List<V2modelsSlotTypeSlotTypeValuesSlotTypeValue> slotTypeValues) {
-            if (slotTypeValues == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotTypeSlotTypeValues", "slotTypeValues");
-            }
-            this.slotTypeValues = slotTypeValues;
+        public Builder sampleValues(@Nullable List<V2modelsSlotTypeSlotTypeValuesSampleValue> sampleValues) {
+
+            this.sampleValues = sampleValues;
             return this;
         }
-        public Builder slotTypeValues(V2modelsSlotTypeSlotTypeValuesSlotTypeValue... slotTypeValues) {
-            return slotTypeValues(List.of(slotTypeValues));
+        public Builder sampleValues(V2modelsSlotTypeSlotTypeValuesSampleValue... sampleValues) {
+            return sampleValues(List.of(sampleValues));
         }
         @CustomType.Setter
         public Builder synonyms(@Nullable List<V2modelsSlotTypeSlotTypeValuesSynonym> synonyms) {
@@ -80,7 +77,7 @@ public final class V2modelsSlotTypeSlotTypeValues {
         }
         public V2modelsSlotTypeSlotTypeValues build() {
             final var _resultValue = new V2modelsSlotTypeSlotTypeValues();
-            _resultValue.slotTypeValues = slotTypeValues;
+            _resultValue.sampleValues = sampleValues;
             _resultValue.synonyms = synonyms;
             return _resultValue;
         }

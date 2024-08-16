@@ -13,6 +13,7 @@ from .apns_voip_sandbox_channel import *
 from .app import *
 from .baidu_channel import *
 from .email_channel import *
+from .email_template import *
 from .event_stream import *
 from .gcm_channel import *
 from .sms_channel import *

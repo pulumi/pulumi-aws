@@ -3874,8 +3874,8 @@ func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourcePtrOutp
 }
 
 type V2modelsSlotTypeSlotTypeValues struct {
-	// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
-	SlotTypeValues []V2modelsSlotTypeSlotTypeValuesSlotTypeValue `pulumi:"slotTypeValues"`
+	// Value of the slot type entry.  See `sampleValue` argument reference below.
+	SampleValues []V2modelsSlotTypeSlotTypeValuesSampleValue `pulumi:"sampleValues"`
 	// Additional values related to the slot type entry. See `sampleValue` argument reference below.
 	Synonyms []V2modelsSlotTypeSlotTypeValuesSynonym `pulumi:"synonyms"`
 }
@@ -3892,8 +3892,8 @@ type V2modelsSlotTypeSlotTypeValuesInput interface {
 }
 
 type V2modelsSlotTypeSlotTypeValuesArgs struct {
-	// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
-	SlotTypeValues V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayInput `pulumi:"slotTypeValues"`
+	// Value of the slot type entry.  See `sampleValue` argument reference below.
+	SampleValues V2modelsSlotTypeSlotTypeValuesSampleValueArrayInput `pulumi:"sampleValues"`
 	// Additional values related to the slot type entry. See `sampleValue` argument reference below.
 	Synonyms V2modelsSlotTypeSlotTypeValuesSynonymArrayInput `pulumi:"synonyms"`
 }
@@ -3975,11 +3975,11 @@ func (o V2modelsSlotTypeSlotTypeValuesOutput) ToV2modelsSlotTypeSlotTypeValuesPt
 	}).(V2modelsSlotTypeSlotTypeValuesPtrOutput)
 }
 
-// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
-func (o V2modelsSlotTypeSlotTypeValuesOutput) SlotTypeValues() V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput {
-	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValues) []V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
-		return v.SlotTypeValues
-	}).(V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput)
+// Value of the slot type entry.  See `sampleValue` argument reference below.
+func (o V2modelsSlotTypeSlotTypeValuesOutput) SampleValues() V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput {
+	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValues) []V2modelsSlotTypeSlotTypeValuesSampleValue {
+		return v.SampleValues
+	}).(V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput)
 }
 
 // Additional values related to the slot type entry. See `sampleValue` argument reference below.
@@ -4011,14 +4011,14 @@ func (o V2modelsSlotTypeSlotTypeValuesPtrOutput) Elem() V2modelsSlotTypeSlotType
 	}).(V2modelsSlotTypeSlotTypeValuesOutput)
 }
 
-// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
-func (o V2modelsSlotTypeSlotTypeValuesPtrOutput) SlotTypeValues() V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput {
-	return o.ApplyT(func(v *V2modelsSlotTypeSlotTypeValues) []V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
+// Value of the slot type entry.  See `sampleValue` argument reference below.
+func (o V2modelsSlotTypeSlotTypeValuesPtrOutput) SampleValues() V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput {
+	return o.ApplyT(func(v *V2modelsSlotTypeSlotTypeValues) []V2modelsSlotTypeSlotTypeValuesSampleValue {
 		if v == nil {
 			return nil
 		}
-		return v.SlotTypeValues
-	}).(V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput)
+		return v.SampleValues
+	}).(V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput)
 }
 
 // Additional values related to the slot type entry. See `sampleValue` argument reference below.
@@ -4031,101 +4031,101 @@ func (o V2modelsSlotTypeSlotTypeValuesPtrOutput) Synonyms() V2modelsSlotTypeSlot
 	}).(V2modelsSlotTypeSlotTypeValuesSynonymArrayOutput)
 }
 
-type V2modelsSlotTypeSlotTypeValuesSlotTypeValue struct {
+type V2modelsSlotTypeSlotTypeValuesSampleValue struct {
 	// Value that can be used for a slot type.
 	Value string `pulumi:"value"`
 }
 
-// V2modelsSlotTypeSlotTypeValuesSlotTypeValueInput is an input type that accepts V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs and V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput values.
-// You can construct a concrete instance of `V2modelsSlotTypeSlotTypeValuesSlotTypeValueInput` via:
+// V2modelsSlotTypeSlotTypeValuesSampleValueInput is an input type that accepts V2modelsSlotTypeSlotTypeValuesSampleValueArgs and V2modelsSlotTypeSlotTypeValuesSampleValueOutput values.
+// You can construct a concrete instance of `V2modelsSlotTypeSlotTypeValuesSampleValueInput` via:
 //
-//	V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs{...}
-type V2modelsSlotTypeSlotTypeValuesSlotTypeValueInput interface {
+//	V2modelsSlotTypeSlotTypeValuesSampleValueArgs{...}
+type V2modelsSlotTypeSlotTypeValuesSampleValueInput interface {
 	pulumi.Input
 
-	ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput() V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput
-	ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueOutputWithContext(context.Context) V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput
+	ToV2modelsSlotTypeSlotTypeValuesSampleValueOutput() V2modelsSlotTypeSlotTypeValuesSampleValueOutput
+	ToV2modelsSlotTypeSlotTypeValuesSampleValueOutputWithContext(context.Context) V2modelsSlotTypeSlotTypeValuesSampleValueOutput
 }
 
-type V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs struct {
+type V2modelsSlotTypeSlotTypeValuesSampleValueArgs struct {
 	// Value that can be used for a slot type.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSlotTypeValue)(nil)).Elem()
+func (V2modelsSlotTypeSlotTypeValuesSampleValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSampleValue)(nil)).Elem()
 }
 
-func (i V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs) ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput() V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput {
-	return i.ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueOutputWithContext(context.Background())
+func (i V2modelsSlotTypeSlotTypeValuesSampleValueArgs) ToV2modelsSlotTypeSlotTypeValuesSampleValueOutput() V2modelsSlotTypeSlotTypeValuesSampleValueOutput {
+	return i.ToV2modelsSlotTypeSlotTypeValuesSampleValueOutputWithContext(context.Background())
 }
 
-func (i V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs) ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueOutputWithContext(ctx context.Context) V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput)
+func (i V2modelsSlotTypeSlotTypeValuesSampleValueArgs) ToV2modelsSlotTypeSlotTypeValuesSampleValueOutputWithContext(ctx context.Context) V2modelsSlotTypeSlotTypeValuesSampleValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotTypeSlotTypeValuesSampleValueOutput)
 }
 
-// V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayInput is an input type that accepts V2modelsSlotTypeSlotTypeValuesSlotTypeValueArray and V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput values.
-// You can construct a concrete instance of `V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayInput` via:
+// V2modelsSlotTypeSlotTypeValuesSampleValueArrayInput is an input type that accepts V2modelsSlotTypeSlotTypeValuesSampleValueArray and V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput values.
+// You can construct a concrete instance of `V2modelsSlotTypeSlotTypeValuesSampleValueArrayInput` via:
 //
-//	V2modelsSlotTypeSlotTypeValuesSlotTypeValueArray{ V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs{...} }
-type V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayInput interface {
+//	V2modelsSlotTypeSlotTypeValuesSampleValueArray{ V2modelsSlotTypeSlotTypeValuesSampleValueArgs{...} }
+type V2modelsSlotTypeSlotTypeValuesSampleValueArrayInput interface {
 	pulumi.Input
 
-	ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput() V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput
-	ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutputWithContext(context.Context) V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput
+	ToV2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput() V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput
+	ToV2modelsSlotTypeSlotTypeValuesSampleValueArrayOutputWithContext(context.Context) V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput
 }
 
-type V2modelsSlotTypeSlotTypeValuesSlotTypeValueArray []V2modelsSlotTypeSlotTypeValuesSlotTypeValueInput
+type V2modelsSlotTypeSlotTypeValuesSampleValueArray []V2modelsSlotTypeSlotTypeValuesSampleValueInput
 
-func (V2modelsSlotTypeSlotTypeValuesSlotTypeValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]V2modelsSlotTypeSlotTypeValuesSlotTypeValue)(nil)).Elem()
+func (V2modelsSlotTypeSlotTypeValuesSampleValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2modelsSlotTypeSlotTypeValuesSampleValue)(nil)).Elem()
 }
 
-func (i V2modelsSlotTypeSlotTypeValuesSlotTypeValueArray) ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput() V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput {
-	return i.ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutputWithContext(context.Background())
+func (i V2modelsSlotTypeSlotTypeValuesSampleValueArray) ToV2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput() V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput {
+	return i.ToV2modelsSlotTypeSlotTypeValuesSampleValueArrayOutputWithContext(context.Background())
 }
 
-func (i V2modelsSlotTypeSlotTypeValuesSlotTypeValueArray) ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutputWithContext(ctx context.Context) V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput)
+func (i V2modelsSlotTypeSlotTypeValuesSampleValueArray) ToV2modelsSlotTypeSlotTypeValuesSampleValueArrayOutputWithContext(ctx context.Context) V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput)
 }
 
-type V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput struct{ *pulumi.OutputState }
+type V2modelsSlotTypeSlotTypeValuesSampleValueOutput struct{ *pulumi.OutputState }
 
-func (V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSlotTypeValue)(nil)).Elem()
+func (V2modelsSlotTypeSlotTypeValuesSampleValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSampleValue)(nil)).Elem()
 }
 
-func (o V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput) ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput() V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput {
+func (o V2modelsSlotTypeSlotTypeValuesSampleValueOutput) ToV2modelsSlotTypeSlotTypeValuesSampleValueOutput() V2modelsSlotTypeSlotTypeValuesSampleValueOutput {
 	return o
 }
 
-func (o V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput) ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueOutputWithContext(ctx context.Context) V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput {
+func (o V2modelsSlotTypeSlotTypeValuesSampleValueOutput) ToV2modelsSlotTypeSlotTypeValuesSampleValueOutputWithContext(ctx context.Context) V2modelsSlotTypeSlotTypeValuesSampleValueOutput {
 	return o
 }
 
 // Value that can be used for a slot type.
-func (o V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValuesSlotTypeValue) string { return v.Value }).(pulumi.StringOutput)
+func (o V2modelsSlotTypeSlotTypeValuesSampleValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValuesSampleValue) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput struct{ *pulumi.OutputState }
+type V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput struct{ *pulumi.OutputState }
 
-func (V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]V2modelsSlotTypeSlotTypeValuesSlotTypeValue)(nil)).Elem()
+func (V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2modelsSlotTypeSlotTypeValuesSampleValue)(nil)).Elem()
 }
 
-func (o V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput) ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput() V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput {
+func (o V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput) ToV2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput() V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput {
 	return o
 }
 
-func (o V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput) ToV2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutputWithContext(ctx context.Context) V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput {
+func (o V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput) ToV2modelsSlotTypeSlotTypeValuesSampleValueArrayOutputWithContext(ctx context.Context) V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput {
 	return o
 }
 
-func (o V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput) Index(i pulumi.IntInput) V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
-		return vs[0].([]V2modelsSlotTypeSlotTypeValuesSlotTypeValue)[vs[1].(int)]
-	}).(V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput)
+func (o V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput) Index(i pulumi.IntInput) V2modelsSlotTypeSlotTypeValuesSampleValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) V2modelsSlotTypeSlotTypeValuesSampleValue {
+		return vs[0].([]V2modelsSlotTypeSlotTypeValuesSampleValue)[vs[1].(int)]
+	}).(V2modelsSlotTypeSlotTypeValuesSampleValueOutput)
 }
 
 type V2modelsSlotTypeSlotTypeValuesSynonym struct {
@@ -13453,8 +13453,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourcePtrInput)(nil)).Elem(), V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesInput)(nil)).Elem(), V2modelsSlotTypeSlotTypeValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesPtrInput)(nil)).Elem(), V2modelsSlotTypeSlotTypeValuesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSlotTypeValueInput)(nil)).Elem(), V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayInput)(nil)).Elem(), V2modelsSlotTypeSlotTypeValuesSlotTypeValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSampleValueInput)(nil)).Elem(), V2modelsSlotTypeSlotTypeValuesSampleValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSampleValueArrayInput)(nil)).Elem(), V2modelsSlotTypeSlotTypeValuesSampleValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSynonymInput)(nil)).Elem(), V2modelsSlotTypeSlotTypeValuesSynonymArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeSlotTypeValuesSynonymArrayInput)(nil)).Elem(), V2modelsSlotTypeSlotTypeValuesSynonymArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsSlotTypeTimeoutsInput)(nil)).Elem(), V2modelsSlotTypeTimeoutsArgs{})
@@ -13657,8 +13657,8 @@ func init() {
 	pulumi.RegisterOutputType(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourcePtrOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotTypeSlotTypeValuesOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotTypeSlotTypeValuesPtrOutput{})
-	pulumi.RegisterOutputType(V2modelsSlotTypeSlotTypeValuesSlotTypeValueOutput{})
-	pulumi.RegisterOutputType(V2modelsSlotTypeSlotTypeValuesSlotTypeValueArrayOutput{})
+	pulumi.RegisterOutputType(V2modelsSlotTypeSlotTypeValuesSampleValueOutput{})
+	pulumi.RegisterOutputType(V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotTypeSlotTypeValuesSynonymOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotTypeSlotTypeValuesSynonymArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsSlotTypeTimeoutsOutput{})

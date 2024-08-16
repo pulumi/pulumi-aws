@@ -16,14 +16,14 @@ public final class LoggingConfigurationLoggingConfigurationArgs extends com.pulu
     public static final LoggingConfigurationLoggingConfigurationArgs Empty = new LoggingConfigurationLoggingConfigurationArgs();
 
     /**
-     * Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+     * Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
      * 
      */
     @Import(name="logDestinationConfigs", required=true)
     private Output<List<LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs>> logDestinationConfigs;
 
     /**
-     * @return Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+     * @return Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
      * 
      */
     public Output<List<LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs>> logDestinationConfigs() {
@@ -55,7 +55,7 @@ public final class LoggingConfigurationLoggingConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param logDestinationConfigs Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+         * @param logDestinationConfigs Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class LoggingConfigurationLoggingConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param logDestinationConfigs Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+         * @param logDestinationConfigs Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class LoggingConfigurationLoggingConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param logDestinationConfigs Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+         * @param logDestinationConfigs Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
          * 
          * @return builder
          * 

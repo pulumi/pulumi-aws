@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Lex.Outputs
+namespace Pulumi.Aws.Bedrock.Outputs
 {
 
     [OutputType]
-    public sealed class V2modelsSlotTypeSlotTypeValuesSlotTypeValue
+    public sealed class GuardrailWordPolicyConfigManagedWordListsConfig
     {
         /// <summary>
-        /// Value that can be used for a slot type.
+        /// Options for managed words.
         /// </summary>
-        public readonly string Value;
+        public readonly string Type;
 
         [OutputConstructor]
-        private V2modelsSlotTypeSlotTypeValuesSlotTypeValue(string value)
+        private GuardrailWordPolicyConfigManagedWordListsConfig(string type)
         {
-            Value = value;
+            Type = type;
         }
     }
 }

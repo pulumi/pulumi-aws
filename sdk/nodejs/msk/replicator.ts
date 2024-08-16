@@ -48,6 +48,9 @@ import * as utilities from "../utilities";
  *         targetCompressionType: "NONE",
  *         topicReplications: [{
  *             topicsToReplicates: [".*"],
+ *             startingPosition: {
+ *                 type: "LATEST",
+ *             },
  *         }],
  *         consumerGroupReplications: [{
  *             consumerGroupsToReplicates: [".*"],

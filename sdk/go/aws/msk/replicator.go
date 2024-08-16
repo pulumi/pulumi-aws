@@ -66,6 +66,9 @@ import (
 // TopicsToReplicates: pulumi.StringArray{
 // pulumi.String(".*"),
 // },
+// StartingPosition: &msk.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs{
+// Type: pulumi.String("LATEST"),
+// },
 // },
 // },
 // ConsumerGroupReplications: msk.ReplicatorReplicationInfoListConsumerGroupReplicationArray{
