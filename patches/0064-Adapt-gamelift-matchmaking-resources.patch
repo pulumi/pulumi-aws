@@ -1,0 +1,144 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Fri, 16 Aug 2024 09:46:57 -0400
+Subject: [PATCH] Adapt gamelift matchmaking* resources
+
+Upstream continues to move away from Go SDKv2, but the matchmaking resources are maintained through patches in Pulumi
+are written against Go SDK v1. This patch is needed to preserve these resources vis upstream changes.
+
+diff --git a/internal/conns/awsclient_extra.go b/internal/conns/awsclient_extra.go
+new file mode 100644
+index 0000000000..b81d6239a7
+--- /dev/null
++++ b/internal/conns/awsclient_extra.go
+@@ -0,0 +1,14 @@
++// Code was removed upstream but is retained for backwards-compat in the pulumi-aws provider.
++package conns
++
++import (
++	"context"
++
++	gamelift_sdkv1 "github.com/aws/aws-sdk-go/service/gamelift"
++	"github.com/hashicorp/terraform-provider-aws/internal/errs"
++	"github.com/hashicorp/terraform-provider-aws/names"
++)
++
++func (c *AWSClient) GameLiftConn(ctx context.Context) *gamelift_sdkv1.GameLift {
++	return errs.Must(conn[*gamelift_sdkv1.GameLift](ctx, c, names.GameLift, make(map[string]any)))
++}
+diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
+index 89ecad9db0..9138a2d741 100644
+--- a/internal/service/gamelift/matchmaking_configuration.go
++++ b/internal/service/gamelift/matchmaking_configuration.go
+@@ -5,8 +5,10 @@ import (
+ 	"log"
+ 	"regexp"
+ 
++	types2 "github.com/aws/aws-sdk-go-v2/service/gamelift/types"
+ 	"github.com/aws/aws-sdk-go/aws"
+ 	"github.com/aws/aws-sdk-go/service/gamelift"
++	types1 "github.com/aws/aws-sdk-go/service/gamelift"
+ 	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+@@ -155,7 +157,7 @@ func resourceMatchmakingConfigurationCreate(ctx context.Context, d *schema.Resou
+ 		Name:                  aws.String(d.Get("name").(string)),
+ 		RequestTimeoutSeconds: aws.Int64(int64(d.Get("request_timeout_seconds").(int))),
+ 		RuleSetName:           aws.String(d.Get("rule_set_name").(string)),
+-		Tags:                  Tags(tags.IgnoreAWS()),
++		Tags:                  downgradeTagsToSDKv1(Tags(tags.IgnoreAWS())),
+ 	}
+ 
+ 	if v, ok := d.GetOk("acceptance_timeout_seconds"); ok {
+@@ -202,6 +204,7 @@ func resourceMatchmakingConfigurationCreate(ctx context.Context, d *schema.Resou
+ 
+ func resourceMatchmakingConfigurationRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
++	conn2 := meta.(*conns.AWSClient).GameLiftClient(ctx)
+ 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+ 	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
+ 
+@@ -249,7 +252,7 @@ func resourceMatchmakingConfigurationRead(ctx context.Context, d *schema.Resourc
+ 	d.Set("rule_set_arn", configuration.RuleSetArn)
+ 	d.Set("rule_set_name", configuration.RuleSetName)
+ 
+-	tags, err := listTags(ctx, conn, arn)
++	tags, err := listTags(ctx, conn2, arn)
+ 
+ 	if err != nil {
+ 		return diag.Errorf("error listing tags for GameLift Matchmaking Configuration (%s): %s", arn, err)
+@@ -271,6 +274,7 @@ func resourceMatchmakingConfigurationRead(ctx context.Context, d *schema.Resourc
+ 
+ func resourceMatchmakingConfigurationUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
++	conn2 := meta.(*conns.AWSClient).GameLiftClient(ctx)
+ 
+ 	log.Printf("[INFO] Updating GameLift Matchmaking Configuration: %s", d.Id())
+ 
+@@ -325,7 +329,7 @@ func resourceMatchmakingConfigurationUpdate(ctx context.Context, d *schema.Resou
+ 	if d.HasChange("tags_all") {
+ 		o, n := d.GetChange("tags_all")
+ 
+-		if err := updateTags(ctx, conn, arn, o, n); err != nil {
++		if err := updateTags(ctx, conn2, arn, o, n); err != nil {
+ 			return diag.Errorf("error updating GameLift Matchmaking Configuration (%s) tags: %s", arn, err)
+ 		}
+ 	}
+@@ -384,3 +388,18 @@ func expandStringList(tfList []interface{}) []*string {
+ 
+ 	return result
+ }
++
++func downgradeTagsToSDKv1(tags []types2.Tag) []*types1.Tag {
++	res := []*types1.Tag{}
++	for _, t := range tags {
++		res = append(res, downgradeTagToSDKv1(t))
++	}
++	return res
++}
++
++func downgradeTagToSDKv1(tag types2.Tag) *types1.Tag {
++	return &types1.Tag{
++		Key:   tag.Key,
++		Value: tag.Value,
++	}
++}
+diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
+index d9f2424b7a..3e2b08ed08 100644
+--- a/internal/service/gamelift/matchmaking_rule_set.go
++++ b/internal/service/gamelift/matchmaking_rule_set.go
+@@ -65,7 +65,7 @@ func resourceMatchmakingRuleSetCreate(ctx context.Context, d *schema.ResourceDat
+ 	input := gamelift.CreateMatchmakingRuleSetInput{
+ 		Name:        aws.String(d.Get("name").(string)),
+ 		RuleSetBody: aws.String(d.Get("rule_set_body").(string)),
+-		Tags:        Tags(tags.IgnoreAWS()),
++		Tags:        downgradeTagsToSDKv1(Tags(tags.IgnoreAWS())),
+ 	}
+ 	log.Printf("[INFO] Creating GameLift Matchmaking Rule Set: %s", input)
+ 	out, err := conn.CreateMatchmakingRuleSet(&input)
+@@ -80,6 +80,7 @@ func resourceMatchmakingRuleSetCreate(ctx context.Context, d *schema.ResourceDat
+ 
+ func resourceMatchmakingRuleSetRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
++	conn2 := meta.(*conns.AWSClient).GameLiftClient(ctx)
+ 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+ 
+ 	log.Printf("[INFO] Describing GameLift Matchmaking Rule Set: %s", d.Id())
+@@ -112,7 +113,7 @@ func resourceMatchmakingRuleSetRead(ctx context.Context, d *schema.ResourceData,
+ 	d.Set("name", ruleSet.RuleSetName)
+ 	d.Set("rule_set_body", ruleSet.RuleSetBody)
+ 
+-	tags, err := listTags(ctx, conn, arn)
++	tags, err := listTags(ctx, conn2, arn)
+ 
+ 	if err != nil {
+ 		return diag.Errorf("error listing tags for GameLift Matchmaking Rule Set (%s): %s", arn, err)
+@@ -130,7 +131,7 @@ func resourceMatchmakingRuleSetRead(ctx context.Context, d *schema.ResourceData,
+ }
+ 
+ func resourceMatchmakingRuleSetUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+-	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
++	conn := meta.(*conns.AWSClient).GameLiftClient(ctx)
+ 
+ 	log.Printf("[INFO] Updating GameLift Matchmaking Rule Set: %s", d.Id())
+ 
