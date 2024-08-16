@@ -293,7 +293,11 @@ class ThreatIntelSet(pulumi.CustomResource):
             activate=True,
             detector_id=primary.id,
             format="TXT",
-            location=pulumi.Output.all(my_threat_intel_set.bucket, my_threat_intel_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
+            location=pulumi.Output.all(
+                bucket=my_threat_intel_set.bucket,
+                key=my_threat_intel_set.key
+        ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
+        ,
             name="MyThreatIntelSet")
         ```
 
@@ -345,7 +349,11 @@ class ThreatIntelSet(pulumi.CustomResource):
             activate=True,
             detector_id=primary.id,
             format="TXT",
-            location=pulumi.Output.all(my_threat_intel_set.bucket, my_threat_intel_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
+            location=pulumi.Output.all(
+                bucket=my_threat_intel_set.bucket,
+                key=my_threat_intel_set.key
+        ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
+        ,
             name="MyThreatIntelSet")
         ```
 

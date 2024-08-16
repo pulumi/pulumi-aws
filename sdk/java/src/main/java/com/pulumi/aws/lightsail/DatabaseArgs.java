@@ -124,14 +124,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}".
+     * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
     @Import(name="masterPassword", required=true)
     private Output<String> masterPassword;
 
     /**
-     * @return The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}".
+     * @return The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
     public Output<String> masterPassword() {
@@ -429,7 +429,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}".
+         * @param masterPassword The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}".
+         * @param masterPassword The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
          * 
          * @return builder
          * 
