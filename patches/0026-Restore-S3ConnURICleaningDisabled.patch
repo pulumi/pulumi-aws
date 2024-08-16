@@ -5,18 +5,18 @@ Subject: [PATCH] Restore S3ConnURICleaningDisabled
 
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index 976b936ef7..f39e2c713c 100644
+index f2a8e40182..f4d8ef520e 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
-@@ -20,6 +20,7 @@ import (
+@@ -19,6 +19,7 @@ import (
+ 	aws_sdkv1 "github.com/aws/aws-sdk-go/aws"
  	session_sdkv1 "github.com/aws/aws-sdk-go/aws/session"
  	opsworks_sdkv1 "github.com/aws/aws-sdk-go/service/opsworks"
- 	rds_sdkv1 "github.com/aws/aws-sdk-go/service/rds"
 +	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
  	baselogging "github.com/hashicorp/aws-sdk-go-base/v2/logging"
  	"github.com/hashicorp/terraform-plugin-log/tflog"
  	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-@@ -123,6 +124,13 @@ func (c *AWSClient) S3UsePathStyle(context.Context) bool {
+@@ -112,6 +113,13 @@ func (c *AWSClient) S3UsePathStyle(context.Context) bool {
  	return c.s3UsePathStyle
  }
  
@@ -30,7 +30,7 @@ index 976b936ef7..f39e2c713c 100644
  // SetHTTPClient sets the http.Client used for AWS API calls.
  // To have effect it must be called before the AWS SDK v1 Session is created.
  func (c *AWSClient) SetHTTPClient(_ context.Context, httpClient *http.Client) {
-@@ -188,7 +196,7 @@ func (c *AWSClient) DefaultKMSKeyPolicy(context.Context) string {
+@@ -177,7 +185,7 @@ func (c *AWSClient) DefaultKMSKeyPolicy(context.Context) string {
  			"Resource": "*"
  		}
  	]

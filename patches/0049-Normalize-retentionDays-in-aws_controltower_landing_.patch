@@ -14,7 +14,7 @@ According to https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-la
 preferred one.
 
 diff --git a/internal/service/controltower/landing_zone.go b/internal/service/controltower/landing_zone.go
-index c2f2830b9c..299e7653c1 100644
+index de5706bba9..c213c677f8 100644
 --- a/internal/service/controltower/landing_zone.go
 +++ b/internal/service/controltower/landing_zone.go
 @@ -5,8 +5,10 @@ package controltower

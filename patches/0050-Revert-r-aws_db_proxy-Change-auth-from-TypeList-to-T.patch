@@ -7,7 +7,7 @@ Subject: [PATCH] Revert "r/aws_db_proxy: Change `auth` from `TypeList` to
 This reverts commit 2db643f461c058fb7a9e9940afef240016412050.
 
 diff --git a/internal/service/rds/proxy.go b/internal/service/rds/proxy.go
-index 93b0f2a4d6..8ba13b8354 100644
+index 008ebc180f..c326774548 100644
 --- a/internal/service/rds/proxy.go
 +++ b/internal/service/rds/proxy.go
 @@ -19,7 +19,6 @@ import (
