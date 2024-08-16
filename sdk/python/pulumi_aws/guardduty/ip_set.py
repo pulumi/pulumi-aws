@@ -289,7 +289,11 @@ class IPSet(pulumi.CustomResource):
             activate=True,
             detector_id=primary.id,
             format="TXT",
-            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
+            location=pulumi.Output.all(
+                bucket=my_ip_set.bucket,
+                key=my_ip_set.key
+        ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
+        ,
             name="MyIPSet")
         bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
@@ -340,7 +344,11 @@ class IPSet(pulumi.CustomResource):
             activate=True,
             detector_id=primary.id,
             format="TXT",
-            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
+            location=pulumi.Output.all(
+                bucket=my_ip_set.bucket,
+                key=my_ip_set.key
+        ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
+        ,
             name="MyIPSet")
         bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
