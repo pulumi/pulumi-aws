@@ -310,7 +310,11 @@ class ConnectorProfile(pulumi.CustomResource):
                 "connector_profile_properties": {
                     "redshift": {
                         "bucket_name": example_bucket_v2.name,
-                        "database_url": pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                        "database_url": pulumi.Output.all(
+                            endpoint=example_cluster.endpoint,
+                            database_name=example_cluster.database_name
+        ).apply(lambda resolved_outputs: f"jdbc:redshift://{resolved_outputs['endpoint']}/{resolved_outputs['database_name']}")
+        ,
                         "role_arn": example_role.arn,
                     },
                 },
@@ -390,7 +394,11 @@ class ConnectorProfile(pulumi.CustomResource):
                 "connector_profile_properties": {
                     "redshift": {
                         "bucket_name": example_bucket_v2.name,
-                        "database_url": pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                        "database_url": pulumi.Output.all(
+                            endpoint=example_cluster.endpoint,
+                            database_name=example_cluster.database_name
+        ).apply(lambda resolved_outputs: f"jdbc:redshift://{resolved_outputs['endpoint']}/{resolved_outputs['database_name']}")
+        ,
                         "role_arn": example_role.arn,
                     },
                 },

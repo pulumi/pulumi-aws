@@ -895,7 +895,10 @@ class Project(pulumi.CustomResource):
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role.json)
-        example = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
+        example = pulumi.Output.all(
+            exampleBucketV2Arn=example_bucket_v2.arn,
+            exampleBucketV2Arn1=example_bucket_v2.arn
+        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
                 "actions": [
@@ -942,11 +945,12 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    example_bucket_v2_arn,
-                    f"{example_bucket_v2_arn1}/*",
+                    resolved_outputs['exampleBucketV2Arn'],
+                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
                 ],
             },
         ]))
+
         example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
             policy=example.json)
@@ -1114,7 +1118,10 @@ class Project(pulumi.CustomResource):
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role.json)
-        example = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
+        example = pulumi.Output.all(
+            exampleBucketV2Arn=example_bucket_v2.arn,
+            exampleBucketV2Arn1=example_bucket_v2.arn
+        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
                 "actions": [
@@ -1161,11 +1168,12 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    example_bucket_v2_arn,
-                    f"{example_bucket_v2_arn1}/*",
+                    resolved_outputs['exampleBucketV2Arn'],
+                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
                 ],
             },
         ]))
+
         example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
             policy=example.json)

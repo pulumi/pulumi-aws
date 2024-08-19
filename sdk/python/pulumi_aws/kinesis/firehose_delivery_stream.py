@@ -784,7 +784,11 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             destination="redshift",
             redshift_configuration={
                 "role_arn": firehose_role["arn"],
-                "cluster_jdbcurl": pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                "cluster_jdbcurl": pulumi.Output.all(
+                    endpoint=test_cluster.endpoint,
+                    database_name=test_cluster.database_name
+        ).apply(lambda resolved_outputs: f"jdbc:redshift://{resolved_outputs['endpoint']}/{resolved_outputs['database_name']}")
+        ,
                 "username": "testuser",
                 "password": "T3stPass",
                 "data_table_name": "test-table",
@@ -980,7 +984,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
             name="opensearch",
             role=firehose["id"],
-            policy=pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: f\"\"\"{{
+            policy=pulumi.Output.all(
+                testClusterArn=test_cluster.arn,
+                testClusterArn1=test_cluster.arn
+        ).apply(lambda resolved_outputs: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -989,8 +996,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 "es:*"
               ],
               "Resource": [
-                "{test_cluster_arn}",
-                "{test_cluster_arn1}/*"
+                "{resolved_outputs['testClusterArn']}",
+                "{resolved_outputs['testClusterArn1']}/*"
               ]
                 }},
                 {{
@@ -1011,7 +1018,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 }}
           ]
         }}
-        \"\"\"))
+        \"\"\")
+        )
         test = aws.kinesis.FirehoseDeliveryStream("test",
             name="pulumi-kinesis-firehose-os",
             destination="opensearch",
@@ -1368,7 +1376,11 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             destination="redshift",
             redshift_configuration={
                 "role_arn": firehose_role["arn"],
-                "cluster_jdbcurl": pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                "cluster_jdbcurl": pulumi.Output.all(
+                    endpoint=test_cluster.endpoint,
+                    database_name=test_cluster.database_name
+        ).apply(lambda resolved_outputs: f"jdbc:redshift://{resolved_outputs['endpoint']}/{resolved_outputs['database_name']}")
+        ,
                 "username": "testuser",
                 "password": "T3stPass",
                 "data_table_name": "test-table",
@@ -1564,7 +1576,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
             name="opensearch",
             role=firehose["id"],
-            policy=pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: f\"\"\"{{
+            policy=pulumi.Output.all(
+                testClusterArn=test_cluster.arn,
+                testClusterArn1=test_cluster.arn
+        ).apply(lambda resolved_outputs: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -1573,8 +1588,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 "es:*"
               ],
               "Resource": [
-                "{test_cluster_arn}",
-                "{test_cluster_arn1}/*"
+                "{resolved_outputs['testClusterArn']}",
+                "{resolved_outputs['testClusterArn1']}/*"
               ]
                 }},
                 {{
@@ -1595,7 +1610,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 }}
           ]
         }}
-        \"\"\"))
+        \"\"\")
+        )
         test = aws.kinesis.FirehoseDeliveryStream("test",
             name="pulumi-kinesis-firehose-os",
             destination="opensearch",

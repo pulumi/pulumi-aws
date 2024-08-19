@@ -528,14 +528,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.masterEndpointPort;
     }
     /**
-     * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}".
+     * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
     private Output<String> masterPassword;
 
     /**
-     * @return The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}".
+     * @return The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
     public Output<String> masterPassword() {

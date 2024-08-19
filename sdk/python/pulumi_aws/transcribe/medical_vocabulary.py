@@ -244,7 +244,11 @@ class MedicalVocabulary(pulumi.CustomResource):
         example_medical_vocabulary = aws.transcribe.MedicalVocabulary("example",
             vocabulary_name="example",
             language_code="en-US",
-            vocabulary_file_uri=pulumi.Output.all(example.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
+            vocabulary_file_uri=pulumi.Output.all(
+                id=example.id,
+                key=object.key
+        ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['id']}/{resolved_outputs['key']}")
+        ,
             tags={
                 "tag1": "value1",
                 "tag2": "value3",
@@ -296,7 +300,11 @@ class MedicalVocabulary(pulumi.CustomResource):
         example_medical_vocabulary = aws.transcribe.MedicalVocabulary("example",
             vocabulary_name="example",
             language_code="en-US",
-            vocabulary_file_uri=pulumi.Output.all(example.id, object.key).apply(lambda id, key: f"s3://{id}/{key}"),
+            vocabulary_file_uri=pulumi.Output.all(
+                id=example.id,
+                key=object.key
+        ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['id']}/{resolved_outputs['key']}")
+        ,
             tags={
                 "tag1": "value1",
                 "tag2": "value3",

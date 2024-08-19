@@ -722,7 +722,12 @@ class Integration(pulumi.CustomResource):
             action="lambda:InvokeFunction",
             function=lambda_.name,
             principal="apigateway.amazonaws.com",
-            source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
+            source_arn=pulumi.Output.all(
+                id=api.id,
+                http_method=method.http_method,
+                path=resource.path
+        ).apply(lambda resolved_outputs: f"arn:aws:execute-api:{myregion}:{account_id}:{resolved_outputs['id']}/*/{resolved_outputs['http_method']}{resolved_outputs['path']}")
+        )
         ```
 
         ## VPC Link
@@ -912,7 +917,12 @@ class Integration(pulumi.CustomResource):
             action="lambda:InvokeFunction",
             function=lambda_.name,
             principal="apigateway.amazonaws.com",
-            source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
+            source_arn=pulumi.Output.all(
+                id=api.id,
+                http_method=method.http_method,
+                path=resource.path
+        ).apply(lambda resolved_outputs: f"arn:aws:execute-api:{myregion}:{account_id}:{resolved_outputs['id']}/*/{resolved_outputs['http_method']}{resolved_outputs['path']}")
+        )
         ```
 
         ## VPC Link
