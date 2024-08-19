@@ -12,6 +12,7 @@ env:
 makeTemplate: bridged
 checkoutSubmodules: true
 freeDiskSpaceBeforeBuild: true
+freeDiskSpaceBeforeSdkBuild: true
 freeDiskSpaceBeforeTest: true
 # TODO: remove XrunUpstreamTools flag after work to add docs replacement strategies to resources.go is completed
 # Tracked in in https://github.com/pulumi/pulumi-aws/issues/2757
