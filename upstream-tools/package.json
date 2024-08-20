@@ -8,7 +8,7 @@
     "strip-links": "tf-patch strip-links --cwd ../upstream",
     "global-replace": "tf-patch global-replace --cwd ../upstream",
     "replace": "tf-patch replace --cwd ../upstream",
-    "apply": "yarn pre-replace && yarn strip-links && yarn global-replace"
+    "apply": "yarn pre-replace && yarn strip-links && yarn global-replace && (cd ../upstream && make fmt)"
   },
   "dependencies": {
     "tf-patch": "https://github.com/pulumi/aws-tf-fork-patch"
